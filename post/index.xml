@@ -21,7 +21,7 @@
       <description>&lt;p&gt;Time for revamping a bit this blog.&lt;br /&gt;
 From a technical point of view, I struggled with octopress v2.x to keep this blog aligned across the multiple machine I use in my work/life. Octopress v3 is supposed to solve most of the issue that plagued me over these years but, I wanted to test something a bit different.&lt;/p&gt;
 
-&lt;p&gt;New year new static blog generator. Given that I want to spend some time evaluating &lt;a href=&#34;http://golang.org&#34;&gt;Go&lt;/a&gt; I decided to give &lt;a href=&#34;http://gohugo.org&#34;&gt;Hugo&lt;/a&gt; a try.&lt;/p&gt;
+&lt;p&gt;New year new static blog generator. Given that I want to spend some time evaluating &lt;a href=&#34;http://golang.org&#34;&gt;Go&lt;/a&gt; I decided to give &lt;a href=&#34;http://gohugo.io&#34;&gt;Hugo&lt;/a&gt; a try.&lt;/p&gt;
 
 &lt;p&gt;As always, I don&amp;rsquo;t want to spend much time on the layout and the style of this site. My main concern is to be able to post content regularly, something that is not so easy, given the rate I had releasing new content.&lt;/p&gt;
 
@@ -116,14 +116,14 @@ I&amp;rsquo;ll will probably spend some time in the future to refine the layout,
       <guid>http://pietromaggi.com/2015/09/25/android-back-button-and-enterprise-browser/</guid>
       <description>
 
-&lt;h2 id=&#34;enterprise-browser&#34;&gt;Enterprise Browser&lt;/h2&gt;
+&lt;h2 id=&#34;enterprise-browser:844fa649910ec6745220f6ecf2ed4454&#34;&gt;Enterprise Browser&lt;/h2&gt;
 
 &lt;p&gt;Enterprise Browser is Zebra Technologies&amp;rsquo; Industrial Browser built for our Rugged Devices, we support most of our Windows Mobile/Windows CE devices and Android devices.&lt;/p&gt;
 
 &lt;p&gt;This product is usually used with existing web application that cannot be updated/modified moving from one device to another.
 This help us winning some opportunities but sometimes present some unique challenges like, as an example, disabling the Android back button default behaviour.&lt;/p&gt;
 
-&lt;h2 id=&#34;back-button-on-android&#34;&gt;Back Button on Android?&lt;/h2&gt;
+&lt;h2 id=&#34;back-button-on-android:844fa649910ec6745220f6ecf2ed4454&#34;&gt;Back Button on Android?&lt;/h2&gt;
 
 &lt;p&gt;Given that this is a crossplatform product (built on top of our RhoMobile Suite) we don&amp;rsquo;t have a custom settings to disable the back button in the Config.xml configuration file, however it is still possible to add a default Metatags in the configuration so that no changes in the existing pages are needed.&lt;/p&gt;
 
@@ -155,7 +155,7 @@ This help us winning some opportunities but sometimes present some unique challe
 
 &lt;p&gt;We&amp;rsquo;ve a solution for this issue: having a &lt;code&gt;DefaultMetaTags&lt;/code&gt; in Enterprise Browser&amp;rsquo;s configuration.&lt;/p&gt;
 
-&lt;h2 id=&#34;what-s-a-defaultmetatags&#34;&gt;What&amp;rsquo;s a DefaultMetaTags&lt;/h2&gt;
+&lt;h2 id=&#34;what-s-a-defaultmetatags:844fa649910ec6745220f6ecf2ed4454&#34;&gt;What&amp;rsquo;s a DefaultMetaTags&lt;/h2&gt;
 
 &lt;p&gt;We can start from the &lt;a href=&#34;https://developer.motorolasolutions.com/docs/DOC-2571#defaultmetatags&#34;&gt;documentation&lt;/a&gt;, what does it means?&lt;/p&gt;
 
@@ -170,7 +170,7 @@ This help us winning some opportunities but sometimes present some unique challe
 
 &lt;p&gt;BTW: &lt;code&gt;0xA6&lt;/code&gt; is the correct value for the Back Button on a TC55 running Android v4.4 KitKat.&lt;/p&gt;
 
-&lt;h2 id=&#34;closing-comments&#34;&gt;Closing comments&lt;/h2&gt;
+&lt;h2 id=&#34;closing-comments:844fa649910ec6745220f6ecf2ed4454&#34;&gt;Closing comments&lt;/h2&gt;
 
 &lt;p&gt;Enterprise Browser&amp;rsquo;s &lt;code&gt;DefaultMetaTags&lt;/code&gt; is a very flexible way to &amp;laquo;patch&amp;raquo; an existing Web application without touching its source code.&lt;/p&gt;
 
@@ -914,7 +914,7 @@ Once the .iso file has been created, drag this to Disk Utility and hit the Burn 
       <guid>http://pietromaggi.com/2014/01/02/diving-into-android-source-code/</guid>
       <description>
 
-&lt;h2 id=&#34;why-dive-into-android-code:9a93e7fc547c4af2456a831b7436daed&#34;&gt;Why dive into Android code?&lt;/h2&gt;
+&lt;h2 id=&#34;why-dive-into-android-code&#34;&gt;Why dive into Android code?&lt;/h2&gt;
 
 &lt;p&gt;When you&amp;rsquo;ve to write applications for Android, you&amp;rsquo;re targeting a giant moving API surface, sometimes you can be surprised of some different behavior in different Android versions or with an API call that is not well documented, so having the option to delve into Android Source Code is a great opportunity.&lt;/p&gt;
 
@@ -922,7 +922,7 @@ Once the .iso file has been created, drag this to Disk Utility and hit the Burn 
 
 &lt;p&gt;So, take your time to setup your own copy of the Android source code and, next time you&amp;rsquo;re asking yourself &amp;laquo;What&amp;rsquo;s going on when you call an API, you can check the source code!&amp;raquo;&lt;/p&gt;
 
-&lt;h2 id=&#34;on-a-similar-topic-dalvik-vm:9a93e7fc547c4af2456a831b7436daed&#34;&gt;On a similar topic: Dalvik VM&lt;/h2&gt;
+&lt;h2 id=&#34;on-a-similar-topic-dalvik-vm&#34;&gt;On a similar topic: Dalvik VM&lt;/h2&gt;
 
 &lt;p&gt;Dan Bernstein has presented at Google I/O 2008 a &lt;a href=&#34;https://www.youtube.com/watch?v=ptjedOZEXPM&#34;&gt;talk about the internals of Dalvik VM&lt;/a&gt;. If you&amp;rsquo;re interested in this piece of the Android Source Code, this is a good starting point, even if nowadays ART has taken the place of Dalvik. The basic concept are still the same!&lt;/p&gt;
 </description>
@@ -1062,7 +1062,7 @@ The actual implementation is &lt;a href=&#34;https://github.com/rhomobile/rhodes
       <guid>http://pietromaggi.com/2013/12/29/ruby-version-manager-aka-rvm-the-swiss-army-knife-of-ruby-versions/</guid>
       <description>
 
-&lt;h2 id=&#34;how-many-versions-of-ruby-do-you-need-on-your-machine:e78aed8983ecfa503d1ec50b9119f2da&#34;&gt;How many versions of Ruby do you need on your machine?&lt;/h2&gt;
+&lt;h2 id=&#34;how-many-versions-of-ruby-do-you-need-on-your-machine&#34;&gt;How many versions of Ruby do you need on your machine?&lt;/h2&gt;
 
 &lt;p&gt;Even if OS X 10.9 &lt;em&gt;Mavericks&lt;/em&gt; came with Ruby v2.0.0-p195, the previous OS X versions where released with Ruby v1.8.7.
 On top of this, most of the work I do with &lt;a href=&#34;http://github.com/rhomobile/rhodes&#34;&gt;Rhodes&lt;/a&gt; is still based on Ruby v1.9.3.
@@ -1070,7 +1070,7 @@ On top of this, most of the work I do with &lt;a href=&#34;http://github.com/rho
 
 &lt;p&gt;So, &lt;strong&gt;you&amp;rsquo;ve to install on your machine more than one Ruby environment!&lt;/strong&gt;, that means installing a Ruby Version Manager and then installing the different Ruby engine you want to test/use.&lt;/p&gt;
 
-&lt;h2 id=&#34;choosing-a-ruby-version-manager:e78aed8983ecfa503d1ec50b9119f2da&#34;&gt;Choosing a Ruby Version Manager&lt;/h2&gt;
+&lt;h2 id=&#34;choosing-a-ruby-version-manager&#34;&gt;Choosing a Ruby Version Manager&lt;/h2&gt;
 
 &lt;p&gt;&lt;em&gt;&amp;laquo;Hey, what do you mean sir, there&amp;rsquo;s more than one?&amp;raquo;&lt;/em&gt;&lt;br /&gt;
 &lt;em&gt;&amp;laquo;Yes, of course!&amp;raquo;&lt;/em&gt;&lt;/p&gt;
@@ -1078,12 +1078,12 @@ On top of this, most of the work I do with &lt;a href=&#34;http://github.com/rho
 &lt;p&gt;most common ruby version managers: &lt;a href=&#34;https://github.com/sstephenson/rbenv&#34;&gt;Rbenv&lt;/a&gt;, &lt;a href=&#34;http://rvm.io&#34;&gt;RVM&lt;/a&gt; and &lt;a href=&#34;https://github.com/postmodern/chruby&#34;&gt;ChRuby&lt;/a&gt;. RVM is the oldest solution and the easiest to have an environment up and running on a single machine to make some tests.
 If I&amp;rsquo;ve to work on a project with other developers having different environment (dev, test and deployment) I&amp;rsquo;ll probably give a good look to rbenv that integrates with bundler avoiding the RVM gemsets concept and having the gem necessary to a project in the project folder.&lt;/p&gt;
 
-&lt;h2 id=&#34;go-with-rvm:e78aed8983ecfa503d1ec50b9119f2da&#34;&gt;Go with RVM&lt;/h2&gt;
+&lt;h2 id=&#34;go-with-rvm&#34;&gt;Go with RVM&lt;/h2&gt;
 
 &lt;p&gt;Even if I like testing new things, when I need to get things done, I prefer the old trusty road then the new flashy one. In this case I&amp;rsquo;m going to use &lt;a href=&#34;http://rvm.io&#34;&gt;&lt;strong&gt;RVM&lt;/strong&gt;&lt;/a&gt;.
 So, first step is to install RVM on OS X and this requires a package manager to work more easily, this means &lt;a href=&#34;http://brew.sh/&#34;&gt;&lt;strong&gt;HomeBrew&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h3 id=&#34;first-step-install-homebrew:e78aed8983ecfa503d1ec50b9119f2da&#34;&gt;First Step: Install HomeBrew&lt;/h3&gt;
+&lt;h3 id=&#34;first-step-install-homebrew&#34;&gt;First Step: Install HomeBrew&lt;/h3&gt;
 
 &lt;p&gt;Installing HomeBrew is very easy:&lt;/p&gt;
 
@@ -1092,7 +1092,7 @@ So, first step is to install RVM on OS X and this requires a package manager to 
 
 &lt;p&gt;You need to have XCode installed and the command line tools, &lt;a href=&#34;https://github.com/Homebrew/homebrew/wiki/Installation&#34;&gt;HomeBrew website makes a good description of these steps&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h3 id=&#34;second-step-install-rvm:e78aed8983ecfa503d1ec50b9119f2da&#34;&gt;Second Step: Install RVM&lt;/h3&gt;
+&lt;h3 id=&#34;second-step-install-rvm&#34;&gt;Second Step: Install RVM&lt;/h3&gt;
 
 &lt;p&gt;We need to install some prerequisite using HomeBrew:&lt;/p&gt;
 
@@ -1116,7 +1116,7 @@ brew install gcc46
 rvm list known
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;upgrade-a-ruby-to-the-latest-patch-available:e78aed8983ecfa503d1ec50b9119f2da&#34;&gt;Upgrade a ruby to the latest patch available&lt;/h2&gt;
+&lt;h2 id=&#34;upgrade-a-ruby-to-the-latest-patch-available&#34;&gt;Upgrade a ruby to the latest patch available&lt;/h2&gt;
 
 &lt;p&gt;Nowadays ruby 1.9.3-patch484 seems pretty solid, but a lot of activities is on ruby 2.0.
 If you want keep your ruby up-to-date, RVM can help you keeping it aligned to the latest available patch with the command:&lt;/p&gt;
@@ -1179,7 +1179,7 @@ Successfully migrated ruby-2.0.0-p247 to ruby-2.0.0-p353
 Upgrade complete!
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;what-you-can-do-to-restart-an-rvm-setup-from-scratch:e78aed8983ecfa503d1ec50b9119f2da&#34;&gt;What you can do to restart an RVM setup from scratch&lt;/h2&gt;
+&lt;h2 id=&#34;what-you-can-do-to-restart-an-rvm-setup-from-scratch&#34;&gt;What you can do to restart an RVM setup from scratch&lt;/h2&gt;
 
 &lt;p&gt;Having an RVM environment growing over time can bring a bit of cruft into the system. If you&amp;rsquo;re starting to encounter more and more errors working on the setup, you can think to cleanup your setup and restart from scratch:&lt;/p&gt;
 
@@ -1187,12 +1187,12 @@ Upgrade complete!
 $ rvm cleanup
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;usage:e78aed8983ecfa503d1ec50b9119f2da&#34;&gt;Usage:&lt;/h3&gt;
+&lt;h3 id=&#34;usage&#34;&gt;Usage:&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;    rvm cleanup {all,archives,repos,sources,logs,gemsets,links}
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;description:e78aed8983ecfa503d1ec50b9119f2da&#34;&gt;Description:&lt;/h3&gt;
+&lt;h3 id=&#34;description&#34;&gt;Description:&lt;/h3&gt;
 
 &lt;p&gt;Cleans up the directory tree for the specified item.
 For gemsets removes remove only those without matching ruby.&lt;/p&gt;

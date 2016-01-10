@@ -101,7 +101,7 @@ My name is Pietro F. Maggi, I&amp;rsquo;m a Father an Husband and occasionally I
       <description>&lt;p&gt;Time for revamping a bit this blog.&lt;br /&gt;
 From a technical point of view, I struggled with octopress v2.x to keep this blog aligned across the multiple machine I use in my work/life. Octopress v3 is supposed to solve most of the issue that plagued me over these years but, I wanted to test something a bit different.&lt;/p&gt;
 
-&lt;p&gt;New year new static blog generator. Given that I want to spend some time evaluating &lt;a href=&#34;http://golang.org&#34;&gt;Go&lt;/a&gt; I decided to give &lt;a href=&#34;http://gohugo.org&#34;&gt;Hugo&lt;/a&gt; a try.&lt;/p&gt;
+&lt;p&gt;New year new static blog generator. Given that I want to spend some time evaluating &lt;a href=&#34;http://golang.org&#34;&gt;Go&lt;/a&gt; I decided to give &lt;a href=&#34;http://gohugo.io&#34;&gt;Hugo&lt;/a&gt; a try.&lt;/p&gt;
 
 &lt;p&gt;As always, I don&amp;rsquo;t want to spend much time on the layout and the style of this site. My main concern is to be able to post content regularly, something that is not so easy, given the rate I had releasing new content.&lt;/p&gt;
 
@@ -214,14 +214,14 @@ I&amp;rsquo;ll will probably spend some time in the future to refine the layout,
       <guid>http://pietromaggi.com/2015/09/25/android-back-button-and-enterprise-browser/</guid>
       <description>
 
-&lt;h2 id=&#34;enterprise-browser&#34;&gt;Enterprise Browser&lt;/h2&gt;
+&lt;h2 id=&#34;enterprise-browser:844fa649910ec6745220f6ecf2ed4454&#34;&gt;Enterprise Browser&lt;/h2&gt;
 
 &lt;p&gt;Enterprise Browser is Zebra Technologies&amp;rsquo; Industrial Browser built for our Rugged Devices, we support most of our Windows Mobile/Windows CE devices and Android devices.&lt;/p&gt;
 
 &lt;p&gt;This product is usually used with existing web application that cannot be updated/modified moving from one device to another.
 This help us winning some opportunities but sometimes present some unique challenges like, as an example, disabling the Android back button default behaviour.&lt;/p&gt;
 
-&lt;h2 id=&#34;back-button-on-android&#34;&gt;Back Button on Android?&lt;/h2&gt;
+&lt;h2 id=&#34;back-button-on-android:844fa649910ec6745220f6ecf2ed4454&#34;&gt;Back Button on Android?&lt;/h2&gt;
 
 &lt;p&gt;Given that this is a crossplatform product (built on top of our RhoMobile Suite) we don&amp;rsquo;t have a custom settings to disable the back button in the Config.xml configuration file, however it is still possible to add a default Metatags in the configuration so that no changes in the existing pages are needed.&lt;/p&gt;
 
@@ -253,7 +253,7 @@ This help us winning some opportunities but sometimes present some unique challe
 
 &lt;p&gt;We&amp;rsquo;ve a solution for this issue: having a &lt;code&gt;DefaultMetaTags&lt;/code&gt; in Enterprise Browser&amp;rsquo;s configuration.&lt;/p&gt;
 
-&lt;h2 id=&#34;what-s-a-defaultmetatags&#34;&gt;What&amp;rsquo;s a DefaultMetaTags&lt;/h2&gt;
+&lt;h2 id=&#34;what-s-a-defaultmetatags:844fa649910ec6745220f6ecf2ed4454&#34;&gt;What&amp;rsquo;s a DefaultMetaTags&lt;/h2&gt;
 
 &lt;p&gt;We can start from the &lt;a href=&#34;https://developer.motorolasolutions.com/docs/DOC-2571#defaultmetatags&#34;&gt;documentation&lt;/a&gt;, what does it means?&lt;/p&gt;
 
@@ -268,7 +268,7 @@ This help us winning some opportunities but sometimes present some unique challe
 
 &lt;p&gt;BTW: &lt;code&gt;0xA6&lt;/code&gt; is the correct value for the Back Button on a TC55 running Android v4.4 KitKat.&lt;/p&gt;
 
-&lt;h2 id=&#34;closing-comments&#34;&gt;Closing comments&lt;/h2&gt;
+&lt;h2 id=&#34;closing-comments:844fa649910ec6745220f6ecf2ed4454&#34;&gt;Closing comments&lt;/h2&gt;
 
 &lt;p&gt;Enterprise Browser&amp;rsquo;s &lt;code&gt;DefaultMetaTags&lt;/code&gt; is a very flexible way to &amp;laquo;patch&amp;raquo; an existing Web application without touching its source code.&lt;/p&gt;
 
@@ -1012,7 +1012,7 @@ Once the .iso file has been created, drag this to Disk Utility and hit the Burn 
       <guid>http://pietromaggi.com/2014/01/02/diving-into-android-source-code/</guid>
       <description>
 
-&lt;h2 id=&#34;why-dive-into-android-code:9a93e7fc547c4af2456a831b7436daed&#34;&gt;Why dive into Android code?&lt;/h2&gt;
+&lt;h2 id=&#34;why-dive-into-android-code&#34;&gt;Why dive into Android code?&lt;/h2&gt;
 
 &lt;p&gt;When you&amp;rsquo;ve to write applications for Android, you&amp;rsquo;re targeting a giant moving API surface, sometimes you can be surprised of some different behavior in different Android versions or with an API call that is not well documented, so having the option to delve into Android Source Code is a great opportunity.&lt;/p&gt;
 
@@ -1020,7 +1020,7 @@ Once the .iso file has been created, drag this to Disk Utility and hit the Burn 
 
 &lt;p&gt;So, take your time to setup your own copy of the Android source code and, next time you&amp;rsquo;re asking yourself &amp;laquo;What&amp;rsquo;s going on when you call an API, you can check the source code!&amp;raquo;&lt;/p&gt;
 
-&lt;h2 id=&#34;on-a-similar-topic-dalvik-vm:9a93e7fc547c4af2456a831b7436daed&#34;&gt;On a similar topic: Dalvik VM&lt;/h2&gt;
+&lt;h2 id=&#34;on-a-similar-topic-dalvik-vm&#34;&gt;On a similar topic: Dalvik VM&lt;/h2&gt;
 
 &lt;p&gt;Dan Bernstein has presented at Google I/O 2008 a &lt;a href=&#34;https://www.youtube.com/watch?v=ptjedOZEXPM&#34;&gt;talk about the internals of Dalvik VM&lt;/a&gt;. If you&amp;rsquo;re interested in this piece of the Android Source Code, this is a good starting point, even if nowadays ART has taken the place of Dalvik. The basic concept are still the same!&lt;/p&gt;
 </description>

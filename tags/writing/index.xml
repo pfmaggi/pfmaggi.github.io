@@ -21,7 +21,7 @@
       <description>&lt;p&gt;Time for revamping a bit this blog.&lt;br /&gt;
 From a technical point of view, I struggled with octopress v2.x to keep this blog aligned across the multiple machine I use in my work/life. Octopress v3 is supposed to solve most of the issue that plagued me over these years but, I wanted to test something a bit different.&lt;/p&gt;
 
-&lt;p&gt;New year new static blog generator. Given that I want to spend some time evaluating &lt;a href=&#34;http://golang.org&#34;&gt;Go&lt;/a&gt; I decided to give &lt;a href=&#34;http://gohugo.org&#34;&gt;Hugo&lt;/a&gt; a try.&lt;/p&gt;
+&lt;p&gt;New year new static blog generator. Given that I want to spend some time evaluating &lt;a href=&#34;http://golang.org&#34;&gt;Go&lt;/a&gt; I decided to give &lt;a href=&#34;http://gohugo.io&#34;&gt;Hugo&lt;/a&gt; a try.&lt;/p&gt;
 
 &lt;p&gt;As always, I don&amp;rsquo;t want to spend much time on the layout and the style of this site. My main concern is to be able to post content regularly, something that is not so easy, given the rate I had releasing new content.&lt;/p&gt;
 
