@@ -914,7 +914,7 @@ Once the .iso file has been created, drag this to Disk Utility and hit the Burn 
       <guid>http://pietromaggi.com/2014/01/02/diving-into-android-source-code/</guid>
       <description>
 
-&lt;h2 id=&#34;why-dive-into-android-code&#34;&gt;Why dive into Android code?&lt;/h2&gt;
+&lt;h2 id=&#34;why-dive-into-android-code:9a93e7fc547c4af2456a831b7436daed&#34;&gt;Why dive into Android code?&lt;/h2&gt;
 
 &lt;p&gt;When you&amp;rsquo;ve to write applications for Android, you&amp;rsquo;re targeting a giant moving API surface, sometimes you can be surprised of some different behavior in different Android versions or with an API call that is not well documented, so having the option to delve into Android Source Code is a great opportunity.&lt;/p&gt;
 
@@ -922,7 +922,7 @@ Once the .iso file has been created, drag this to Disk Utility and hit the Burn 
 
 &lt;p&gt;So, take your time to setup your own copy of the Android source code and, next time you&amp;rsquo;re asking yourself &amp;laquo;What&amp;rsquo;s going on when you call an API, you can check the source code!&amp;raquo;&lt;/p&gt;
 
-&lt;h2 id=&#34;on-a-similar-topic-dalvik-vm&#34;&gt;On a similar topic: Dalvik VM&lt;/h2&gt;
+&lt;h2 id=&#34;on-a-similar-topic-dalvik-vm:9a93e7fc547c4af2456a831b7436daed&#34;&gt;On a similar topic: Dalvik VM&lt;/h2&gt;
 
 &lt;p&gt;Dan Bernstein has presented at Google I/O 2008 a &lt;a href=&#34;https://www.youtube.com/watch?v=ptjedOZEXPM&#34;&gt;talk about the internals of Dalvik VM&lt;/a&gt;. If you&amp;rsquo;re interested in this piece of the Android Source Code, this is a good starting point, even if nowadays ART has taken the place of Dalvik. The basic concept are still the same!&lt;/p&gt;
 </description>
@@ -936,34 +936,34 @@ Once the .iso file has been created, drag this to Disk Utility and hit the Burn 
       <guid>http://pietromaggi.com/2014/01/01/2014-new-year-resolutions/</guid>
       <description>
 
-&lt;h2 id=&#34;blog-a-bit-more&#34;&gt;Blog a bit more&lt;/h2&gt;
+&lt;h2 id=&#34;blog-a-bit-more:44187411d1e5c3280ee2ede06c21da06&#34;&gt;Blog a bit more&lt;/h2&gt;
 
 &lt;p&gt;That&amp;rsquo;s been one of my goal for a long time, and something that I always suggest to people to increase their &lt;em&gt;&lt;a href=&#34;http://www.codusoperandi.com/posts/increasing-your-luck-surface-area&#34;&gt;&amp;laquo;Luck Surface Area&amp;raquo;&lt;/a&gt;&lt;/em&gt;.&lt;/p&gt;
 
 &lt;p&gt;In my case I can add an additional goal: keep track of what I do, tricks that I find and document procedure, fixes and workarounds.
 That&amp;rsquo;s always a bit of a pain point for me: I manage to do something and then in six months (or six hours) I forgot how I&amp;rsquo;ve done it and I need to start from scratch&amp;hellip; &lt;strong&gt;Never More&lt;/strong&gt;&lt;/p&gt;
 
-&lt;h3 id=&#34;content-in-markdown&#34;&gt;Content in Markdown&lt;/h3&gt;
+&lt;h3 id=&#34;content-in-markdown:44187411d1e5c3280ee2ede06c21da06&#34;&gt;Content in Markdown&lt;/h3&gt;
 
 &lt;p&gt;That&amp;rsquo;s one of the key technical decisions that I already have clear in mind, the content I&amp;rsquo;m going to produce will be in pure text, using &lt;a href=&#34;http://daringfireball.net/projects/markdown/&#34;&gt;Markdown&lt;/a&gt; formatting.&lt;/p&gt;
 
-&lt;h3 id=&#34;choosing-a-blog-engine-and-an-hosting-platform&#34;&gt;Choosing a blog engine and an hosting platform&lt;/h3&gt;
+&lt;h3 id=&#34;choosing-a-blog-engine-and-an-hosting-platform:44187411d1e5c3280ee2ede06c21da06&#34;&gt;Choosing a blog engine and an hosting platform&lt;/h3&gt;
 
 &lt;p&gt;I don&amp;rsquo;t want to spend a lot of time setting up a system at this moment, I prefer to use my time for other things!
 Github offer a nice way to have a &lt;a href=&#34;https://pages.github.com/&#34;&gt;git repository used as a blog source&lt;/a&gt;. It&amp;rsquo;s a no-brainer for me!&lt;/p&gt;
 
 &lt;p&gt;Static site generators like &lt;a href=&#34;http://jekyllrb.com/&#34;&gt;Jekill&lt;/a&gt; are another &lt;em&gt;no brainer&lt;/em&gt;. In my case I prefer to have some helps so I&amp;rsquo;m going to use &lt;a href=&#34;http://octopress.org/&#34;&gt;octopress&lt;/a&gt; starting with the &lt;a href=&#34;https://github.com/TheChymera/Koenigspress&#34;&gt;KoenigsPress&lt;/a&gt; theme.&lt;/p&gt;
 
-&lt;h3 id=&#34;hosting-solutions&#34;&gt;Hosting solutions&lt;/h3&gt;
+&lt;h3 id=&#34;hosting-solutions:44187411d1e5c3280ee2ede06c21da06&#34;&gt;Hosting solutions&lt;/h3&gt;
 
 &lt;p&gt;Github pages&lt;/p&gt;
 
-&lt;h3 id=&#34;setting-up-my-custom-domain&#34;&gt;Setting up my custom domain&lt;/h3&gt;
+&lt;h3 id=&#34;setting-up-my-custom-domain:44187411d1e5c3280ee2ede06c21da06&#34;&gt;Setting up my custom domain&lt;/h3&gt;
 
 &lt;p&gt;At the end I used godaddy.com to buy the domain pietromaggi.com for the next 10 years, I&amp;rsquo;ve managed to find a nice coupon and after few minutes I was able to have everything setup correctly.
 Some additional information are available on stackoverflow and this &lt;a href=&#34;http://learnaholic.me/2012/10/10/deploying-octopress-to-github-pages-and-setting-custom-subdomain-cname/&#34;&gt;blog&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h3 id=&#34;documenting-my-writing-process&#34;&gt;Documenting my writing process&lt;/h3&gt;
+&lt;h3 id=&#34;documenting-my-writing-process:44187411d1e5c3280ee2ede06c21da06&#34;&gt;Documenting my writing process&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;rake new_post[&amp;quot;my new great post&amp;quot;]
 rake preview
@@ -1010,7 +1010,7 @@ Has been a blast, physically and emotionally! and I really enjoyed it.&lt;/p&gt;
       <guid>http://pietromaggi.com/2013/12/30/rhodes-tips--tricks/</guid>
       <description>
 
-&lt;h2 id=&#34;how-to-rebuild-the-rhodes-gem:95be1d07f91809f8d47f64cb7b4cd9c7&#34;&gt;How to rebuild the rhodes gem&lt;/h2&gt;
+&lt;h2 id=&#34;how-to-rebuild-the-rhodes-gem&#34;&gt;How to rebuild the rhodes gem&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;git clone https://github.com/rhomobile/rhodes.git
 cd rhodes
@@ -1032,7 +1032,7 @@ git pull
 &lt;p&gt;Copy files where you need it (on a different machine)
 gem install -l rhodes-3.5.1.13.2 (version given as an example)&lt;/p&gt;
 
-&lt;h2 id=&#34;rhodes-database-encryption:95be1d07f91809f8d47f64cb7b4cd9c7&#34;&gt;Rhodes Database encryption&lt;/h2&gt;
+&lt;h2 id=&#34;rhodes-database-encryption&#34;&gt;Rhodes Database encryption&lt;/h2&gt;
 
 &lt;p&gt;Rhodes uses SQLite as database engine on all the supported platforms and, to provide encryption support we use different solutions depending by the target platform.&lt;/p&gt;
 
@@ -1043,7 +1043,7 @@ The actual implementation is &lt;a href=&#34;https://github.com/rhomobile/rhodes
 
 &lt;p&gt;For other operative systems we use the &lt;a href=&#34;http://sqlcipher.net/&#34;&gt;SQLCipher plugin&lt;/a&gt;. A look at the &lt;a href=&#34;https://github.com/rhomobile/rhodes/blob/master/platform/shared/sqlite/crypto.c&#34;&gt;crypto.c source file included in the SQLite folder can give more info&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h2 id=&#34;making-a-pull-request-to-rhodes:95be1d07f91809f8d47f64cb7b4cd9c7&#34;&gt;Making a pull request to rhodes&amp;hellip;&lt;/h2&gt;
+&lt;h2 id=&#34;making-a-pull-request-to-rhodes&#34;&gt;Making a pull request to rhodes&amp;hellip;&lt;/h2&gt;
 
 &lt;p&gt;First of all you need to fork rhodes:&lt;/p&gt;
 
@@ -1062,7 +1062,7 @@ The actual implementation is &lt;a href=&#34;https://github.com/rhomobile/rhodes
       <guid>http://pietromaggi.com/2013/12/29/ruby-version-manager-aka-rvm-the-swiss-army-knife-of-ruby-versions/</guid>
       <description>
 
-&lt;h2 id=&#34;how-many-versions-of-ruby-do-you-need-on-your-machine&#34;&gt;How many versions of Ruby do you need on your machine?&lt;/h2&gt;
+&lt;h2 id=&#34;how-many-versions-of-ruby-do-you-need-on-your-machine:e78aed8983ecfa503d1ec50b9119f2da&#34;&gt;How many versions of Ruby do you need on your machine?&lt;/h2&gt;
 
 &lt;p&gt;Even if OS X 10.9 &lt;em&gt;Mavericks&lt;/em&gt; came with Ruby v2.0.0-p195, the previous OS X versions where released with Ruby v1.8.7.
 On top of this, most of the work I do with &lt;a href=&#34;http://github.com/rhomobile/rhodes&#34;&gt;Rhodes&lt;/a&gt; is still based on Ruby v1.9.3.
@@ -1070,7 +1070,7 @@ On top of this, most of the work I do with &lt;a href=&#34;http://github.com/rho
 
 &lt;p&gt;So, &lt;strong&gt;you&amp;rsquo;ve to install on your machine more than one Ruby environment!&lt;/strong&gt;, that means installing a Ruby Version Manager and then installing the different Ruby engine you want to test/use.&lt;/p&gt;
 
-&lt;h2 id=&#34;choosing-a-ruby-version-manager&#34;&gt;Choosing a Ruby Version Manager&lt;/h2&gt;
+&lt;h2 id=&#34;choosing-a-ruby-version-manager:e78aed8983ecfa503d1ec50b9119f2da&#34;&gt;Choosing a Ruby Version Manager&lt;/h2&gt;
 
 &lt;p&gt;&lt;em&gt;&amp;laquo;Hey, what do you mean sir, there&amp;rsquo;s more than one?&amp;raquo;&lt;/em&gt;&lt;br /&gt;
 &lt;em&gt;&amp;laquo;Yes, of course!&amp;raquo;&lt;/em&gt;&lt;/p&gt;
@@ -1078,12 +1078,12 @@ On top of this, most of the work I do with &lt;a href=&#34;http://github.com/rho
 &lt;p&gt;most common ruby version managers: &lt;a href=&#34;https://github.com/sstephenson/rbenv&#34;&gt;Rbenv&lt;/a&gt;, &lt;a href=&#34;http://rvm.io&#34;&gt;RVM&lt;/a&gt; and &lt;a href=&#34;https://github.com/postmodern/chruby&#34;&gt;ChRuby&lt;/a&gt;. RVM is the oldest solution and the easiest to have an environment up and running on a single machine to make some tests.
 If I&amp;rsquo;ve to work on a project with other developers having different environment (dev, test and deployment) I&amp;rsquo;ll probably give a good look to rbenv that integrates with bundler avoiding the RVM gemsets concept and having the gem necessary to a project in the project folder.&lt;/p&gt;
 
-&lt;h2 id=&#34;go-with-rvm&#34;&gt;Go with RVM&lt;/h2&gt;
+&lt;h2 id=&#34;go-with-rvm:e78aed8983ecfa503d1ec50b9119f2da&#34;&gt;Go with RVM&lt;/h2&gt;
 
 &lt;p&gt;Even if I like testing new things, when I need to get things done, I prefer the old trusty road then the new flashy one. In this case I&amp;rsquo;m going to use &lt;a href=&#34;http://rvm.io&#34;&gt;&lt;strong&gt;RVM&lt;/strong&gt;&lt;/a&gt;.
 So, first step is to install RVM on OS X and this requires a package manager to work more easily, this means &lt;a href=&#34;http://brew.sh/&#34;&gt;&lt;strong&gt;HomeBrew&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h3 id=&#34;first-step-install-homebrew&#34;&gt;First Step: Install HomeBrew&lt;/h3&gt;
+&lt;h3 id=&#34;first-step-install-homebrew:e78aed8983ecfa503d1ec50b9119f2da&#34;&gt;First Step: Install HomeBrew&lt;/h3&gt;
 
 &lt;p&gt;Installing HomeBrew is very easy:&lt;/p&gt;
 
@@ -1092,7 +1092,7 @@ So, first step is to install RVM on OS X and this requires a package manager to 
 
 &lt;p&gt;You need to have XCode installed and the command line tools, &lt;a href=&#34;https://github.com/Homebrew/homebrew/wiki/Installation&#34;&gt;HomeBrew website makes a good description of these steps&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h3 id=&#34;second-step-install-rvm&#34;&gt;Second Step: Install RVM&lt;/h3&gt;
+&lt;h3 id=&#34;second-step-install-rvm:e78aed8983ecfa503d1ec50b9119f2da&#34;&gt;Second Step: Install RVM&lt;/h3&gt;
 
 &lt;p&gt;We need to install some prerequisite using HomeBrew:&lt;/p&gt;
 
@@ -1116,7 +1116,7 @@ brew install gcc46
 rvm list known
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;upgrade-a-ruby-to-the-latest-patch-available&#34;&gt;Upgrade a ruby to the latest patch available&lt;/h2&gt;
+&lt;h2 id=&#34;upgrade-a-ruby-to-the-latest-patch-available:e78aed8983ecfa503d1ec50b9119f2da&#34;&gt;Upgrade a ruby to the latest patch available&lt;/h2&gt;
 
 &lt;p&gt;Nowadays ruby 1.9.3-patch484 seems pretty solid, but a lot of activities is on ruby 2.0.
 If you want keep your ruby up-to-date, RVM can help you keeping it aligned to the latest available patch with the command:&lt;/p&gt;
@@ -1179,7 +1179,7 @@ Successfully migrated ruby-2.0.0-p247 to ruby-2.0.0-p353
 Upgrade complete!
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;what-you-can-do-to-restart-an-rvm-setup-from-scratch&#34;&gt;What you can do to restart an RVM setup from scratch&lt;/h2&gt;
+&lt;h2 id=&#34;what-you-can-do-to-restart-an-rvm-setup-from-scratch:e78aed8983ecfa503d1ec50b9119f2da&#34;&gt;What you can do to restart an RVM setup from scratch&lt;/h2&gt;
 
 &lt;p&gt;Having an RVM environment growing over time can bring a bit of cruft into the system. If you&amp;rsquo;re starting to encounter more and more errors working on the setup, you can think to cleanup your setup and restart from scratch:&lt;/p&gt;
 
@@ -1187,12 +1187,12 @@ Upgrade complete!
 $ rvm cleanup
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;usage&#34;&gt;Usage:&lt;/h3&gt;
+&lt;h3 id=&#34;usage:e78aed8983ecfa503d1ec50b9119f2da&#34;&gt;Usage:&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;    rvm cleanup {all,archives,repos,sources,logs,gemsets,links}
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;description&#34;&gt;Description:&lt;/h3&gt;
+&lt;h3 id=&#34;description:e78aed8983ecfa503d1ec50b9119f2da&#34;&gt;Description:&lt;/h3&gt;
 
 &lt;p&gt;Cleans up the directory tree for the specified item.
 For gemsets removes remove only those without matching ruby.&lt;/p&gt;
