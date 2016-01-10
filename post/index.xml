@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Pietro F. Maggi</title>
+    <link>http://pietromaggi.com/post/</link>
+    <description>Recent content in Posts on Pietro F. Maggi</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-EN</language>
+    <managingEditor>pfm@pietromaggi.com (Pietro F. Maggi)</managingEditor>
+    <webMaster>pfm@pietromaggi.com (Pietro F. Maggi)</webMaster>
+    <copyright>(c) 2015 Pietro F. Maggi.</copyright>
+    <lastBuildDate>Sat, 09 Jan 2016 20:50:14 +0100</lastBuildDate>
+    <atom:link href="http://pietromaggi.com/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Welcome</title>
+      <link>http://pietromaggi.com/2016/01/09/welcome/</link>
+      <pubDate>Sat, 09 Jan 2016 20:50:14 +0100</pubDate>
+      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <guid>http://pietromaggi.com/2016/01/09/welcome/</guid>
+      <description>&lt;p&gt;Time for revamping a bit this blog.&lt;br /&gt;
+From a technical point of view, I struggled with octopress v2.x to keep this blog aligned across the multiple machine I use in my work/life. Octopress v3 is supposed to solve most of the issue that plagued me over these years but, I wanted to test something a bit different.&lt;/p&gt;
+
+&lt;p&gt;New year new static blog generator. Given that I want to spend some time evaluating &lt;a href=&#34;http://golang.org&#34;&gt;Go&lt;/a&gt; I decided to give &lt;a href=&#34;http://gohugo.org&#34;&gt;Hugo&lt;/a&gt; a try.&lt;/p&gt;
+
+&lt;p&gt;As always, I don&amp;rsquo;t want to spend much time on the layout and the style of this site. My main concern is to be able to post content regularly, something that is not so easy, given the rate I had releasing new content.&lt;/p&gt;
+
+&lt;p&gt;So, back on track for 2016, I want to release new content on this site, and I hope that this new platform will support me well.
+At this moment I&amp;rsquo;ve moved all the previous content, correcting few typos in the process, using one of the vanilla themes available.
+I&amp;rsquo;ll will probably spend some time in the future to refine the layout, but this is more or less it.&lt;/p&gt;
+
+&lt;p&gt;Another change is the comment section, that will go life with one of the free discussion platform available, still have to decide which one.&lt;/p&gt;
+
+&lt;p&gt;Let me know if you enjoy the change and, more important, which topics you&amp;rsquo;ll like that I cover here.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Building Zebra&#39;s EMDK project using SDK Platform 23</title>
+      <link>http://pietromaggi.com/2015/11/25/building-zebras-emdk-project-using-sdk-platform-23/</link>
+      <pubDate>Wed, 25 Nov 2015 09:54:55 +0100</pubDate>
+      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <guid>http://pietromaggi.com/2015/11/25/building-zebras-emdk-project-using-sdk-platform-23/</guid>
+      <description>
+
+&lt;p&gt;There&amp;rsquo;s a recurring question coming to me and to Launchpad&amp;rsquo;s forums lately:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://developer.motorolasolutions.com/message/86287#86287&#34;&gt;&lt;em&gt;How can I compile my Android app, using Zebra&amp;rsquo;s EMDK, if I need the latest support library?&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;some-background&#34;&gt;Some background&lt;/h1&gt;
+
+&lt;p&gt;With the Android tools moving super-fast (Android studio v1.0 launched at the beginning of 2015, the latest stable release is v1.4.1, we already have v1.5RC and v2.0 has been announced&amp;hellip;) keeping up to this pace is not easy for our EMDK team!&lt;/p&gt;
+
+&lt;p&gt;We discovered some integration issues when Android Studio v1.3 was released and &lt;a href=&#34;https://developer.motorolasolutions.com/community/android/android-forums/android-blogs/blog/2015/08/21/announcement-emdk-issue-with-android-studio-13-new-project-wizard&#34;&gt;we presented a workaround&lt;/a&gt; to use the EMDK as the building SDK. Limiting the project to API level 16 or 19. This should be good, right?&lt;/p&gt;
+
+&lt;p&gt;A downside of this approach surfaced when Google updated the templates for new projects, now based on the Android Support Library. I really like the approach to base new projects on the support library; the problem is that it does require to build the project with API level 21+.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Here we can have a problem&lt;/em&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;using-zebra-s-emdk&#34;&gt;Using Zebra&amp;rsquo;s EMDK&lt;/h1&gt;
+
+&lt;p&gt;So, talking just about Android Studio, that is the current up-to-date Android IDE, we currently document two ways to use the EMDK:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://developer.motorolasolutions.com/docs/DOC-2983&#34;&gt;The official one&lt;/a&gt;, selecting the EMDK in the &amp;laquo;Compile SDK&amp;raquo; drop-down when creating the project&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://developer.motorolasolutions.com/community/android/android-forums/android-blogs/blog/2015/08/21/announcement-emdk-issue-with-android-studio-13-new-project-wizard&#34;&gt;The Android Studio v1.3+ workaround way&lt;/a&gt; that suggest to manually set the EMDK as the &amp;laquo;Compile SDK&amp;raquo;.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Both methods fails to compile a project using the latest Android Support Library.&lt;/p&gt;
+
+&lt;h1 id=&#34;a-little-gradle-magic&#34;&gt;A little gradle magic&lt;/h1&gt;
+
+&lt;p&gt;Here&amp;rsquo;s a third, &lt;strong&gt;UNOFFICIAL&lt;/strong&gt;, way to include the EMDK in an Android project and use the latest available SDK to build the project.&lt;/p&gt;
+
+&lt;h2 id=&#34;copy-the-lib-file-in-your-project&#34;&gt;Copy the lib file in your project&lt;/h2&gt;
+
+&lt;p&gt;First of all, create in your Android project a lib folder and copy into it the com.symbol.emdk.jar library that you got installing the EMDK on your PC/Mac:&lt;/p&gt;
+
+&lt;p&gt;This is probably easier to say than to do, because the default Android Studio project view doesn&amp;rsquo;t show these files.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/EMDK_gradle/Android_Project1.jpg&#34; alt=&#34;Default Android Project Panel&#34; title=&#34;Default Android Project Panel&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The easiest way, at least for me, is to copy the file from the setup position to a newly created &lt;code&gt;libs&lt;/code&gt; folder in my project from Windows&amp;rsquo; File Explorer or OSX&amp;rsquo;s Finder and then check that everything is OK switching the Android Studio project view from &amp;laquo;Android&amp;raquo; to &amp;laquo;Project Files&amp;raquo;:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/EMDK_gradle/Android_Project2.jpg&#34; alt=&#34;Project Files Panel View&#34; title=&#34;Project Files Panel View&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;modify-the-build-gradle-file&#34;&gt;Modify the build.gradle file&lt;/h2&gt;
+
+&lt;p&gt;OK, once the file is included in our project (and this means that you can checkin this file in your SCM and checkout on a new PC and rebuilt it without the need to Zebra EMDK installed) we can explain to Android Studio how to use it. To do this we need to modify the &lt;code&gt;build.gradle&lt;/code&gt; file included in the app folder. If you&amp;rsquo;ve switched back to the &amp;laquo;Android Project view&amp;raquo;, this is the Module: App, gradle file. As shown below:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/EMDK_gradle/gradle_file.jpg&#34; alt=&#34;Gradle file to Edit&#34; title=&#34;Gradle file to Edit&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;In this file you need to setup the dependencies so that the build process uses this lib as a reference without including it into the final APK (otherwise the application will exit with and exception when launched).&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;   dependencies {
+       compile fileTree(dir: &#39;libs&#39;, include: [&#39;*.jar&#39;], exclude: [&#39;com.symbol.emdk.jar&#39;])
+       compile &#39;com.android.support:appcompat-v7:23.0.1&#39;
+       provided fileTree(dir: &#39;libs&#39;, include: [&#39;com.symbol.emdk.jar&#39;])
+   }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;With this changes you can build your project using the latest available SDK, just remember that you&amp;rsquo;re targeting Zebra devices with API level 16 or 19, so, setup your minimum SDK accordingly.&lt;/p&gt;
+
+&lt;p&gt;You can find a demo app built with this technique &lt;a href=&#34;https://github.com/pfmaggi/GetDeviceInfo_EMDK&#34;&gt;on my github account&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Happy coding&lt;br /&gt;
+~Pietro&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Android Back Button and Enterprise Browser</title>
+      <link>http://pietromaggi.com/2015/09/25/android-back-button-and-enterprise-browser/</link>
+      <pubDate>Fri, 25 Sep 2015 11:33:11 +0200</pubDate>
+      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <guid>http://pietromaggi.com/2015/09/25/android-back-button-and-enterprise-browser/</guid>
+      <description>
+
+&lt;h2 id=&#34;enterprise-browser&#34;&gt;Enterprise Browser&lt;/h2&gt;
+
+&lt;p&gt;Enterprise Browser is Zebra Technologies&amp;rsquo; Industrial Browser built for our Rugged Devices, we support most of our Windows Mobile/Windows CE devices and Android devices.&lt;/p&gt;
+
+&lt;p&gt;This product is usually used with existing web application that cannot be updated/modified moving from one device to another.
+This help us winning some opportunities but sometimes present some unique challenges like, as an example, disabling the Android back button default behaviour.&lt;/p&gt;
+
+&lt;h2 id=&#34;back-button-on-android&#34;&gt;Back Button on Android?&lt;/h2&gt;
+
+&lt;p&gt;Given that this is a crossplatform product (built on top of our RhoMobile Suite) we don&amp;rsquo;t have a custom settings to disable the back button in the Config.xml configuration file, however it is still possible to add a default Metatags in the configuration so that no changes in the existing pages are needed.&lt;/p&gt;
+
+&lt;p&gt;So, do we&amp;rsquo;ve an API to intercept the Back Button?&lt;/p&gt;
+
+&lt;p&gt;Of course! the &lt;a href=&#34;https://developer.motorolasolutions.com/docs/DOC-2520&#34;&gt;KeyCapture API&lt;/a&gt; can be used to intercept and disable it.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;EB.KeyCapture.captureKey(BOOLEAN dispatch, STRING keyValue)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Setting the &lt;code&gt;dispatch&lt;/code&gt; value to &lt;code&gt;false&lt;/code&gt;,  We just need to get the correct KeyCode.&lt;/p&gt;
+
+&lt;p&gt;This can a bit tricky and can be different from device to device, the best solution I&amp;rsquo;ve is to ask directly to the device with a simple HTML page that display the keycode off all the keys that are pressed:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt;
+&amp;lt;META HTTP-Equiv=&amp;quot;KeyCapture&amp;quot; Content=&amp;quot;KeyValue:All; Dispatch:False; KeyEvent:url(&#39;JavaScript:alert(&#39;Key Pressed: %s&#39;);&#39;)&amp;quot;&amp;gt;
+  &amp;lt;head&amp;gt;
+    &amp;lt;meta charset=&amp;quot;utf-8&amp;quot;&amp;gt;
+	&amp;lt;title&amp;gt;Display KeyCode&amp;lt;/title&amp;gt;
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;H1&amp;gt;Press a key to see it&#39;s KeyCode&amp;lt;/H1&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Once we&amp;rsquo;ve the correct KeyCode, we just need to call this API in every page that is loaded in the browser&amp;hellip; Sometimes that is not easy to do sometimes, especially when the application cannot be modified.&lt;/p&gt;
+
+&lt;p&gt;We&amp;rsquo;ve a solution for this issue: having a &lt;code&gt;DefaultMetaTags&lt;/code&gt; in Enterprise Browser&amp;rsquo;s configuration.&lt;/p&gt;
+
+&lt;h2 id=&#34;what-s-a-defaultmetatags&#34;&gt;What&amp;rsquo;s a DefaultMetaTags&lt;/h2&gt;
+
+&lt;p&gt;We can start from the &lt;a href=&#34;https://developer.motorolasolutions.com/docs/DOC-2571#defaultmetatags&#34;&gt;documentation&lt;/a&gt;, what does it means?&lt;/p&gt;
+
+&lt;p&gt;A &lt;code&gt;DefaultMetaTags&lt;/code&gt; is a way to call an Enterprise Browser API on top of every HTML page that is loaded in the browser. This can be used, as an example to enable on screen UI elements like the battery or WiFi icon.&lt;/p&gt;
+
+&lt;p&gt;So, putting the different things together, we can put this in the &amp;ldquo;Config.xml&amp;rsquo;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;DefaultMetaTags&amp;gt;
+    &amp;lt;MetaTag value=&amp;quot;KeyCapture~KeyValue:0xA6;Dispatch:False”/&amp;gt;
+ &amp;lt;/DefaultMetaTags&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;BTW: &lt;code&gt;0xA6&lt;/code&gt; is the correct value for the Back Button on a TC55 running Android v4.4 KitKat.&lt;/p&gt;
+
+&lt;h2 id=&#34;closing-comments&#34;&gt;Closing comments&lt;/h2&gt;
+
+&lt;p&gt;Enterprise Browser&amp;rsquo;s &lt;code&gt;DefaultMetaTags&lt;/code&gt; is a very flexible way to &amp;laquo;patch&amp;raquo; an existing Web application without touching its source code.&lt;/p&gt;
+
+&lt;p&gt;As a closing comment here&amp;rsquo;s a sample configuration that zoom the current webpage pressing a button:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;MetaTag VALUE=&amp;quot;KeyCapture~KeyValue:0x79;Dispatch:False;KeyEvent:url(&#39;JavaScript:eval(&#39;zoom.page=\&#39;1.3\&#39;;&#39;);&#39;)&amp;quot;/&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;em&gt;If you&amp;rsquo;re interested in Enterprise Browser, you can visit us at &lt;a href=&#34;http://bit.ly/EMEAAppForum2015&#34;&gt;EMEA AppForum in London, Oct. 12th-14th&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

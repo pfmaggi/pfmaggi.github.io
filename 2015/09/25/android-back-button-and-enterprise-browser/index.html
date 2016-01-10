@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>Android Back Button and Enterprise Browser  &middot; Pietro F. Maggi</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<meta name="description" content="How to intercept the Back Button when using Zebra&#39;s Enterprise Browser on Android devices" />
+
+<meta name="keywords" content="Android, Enterprise Browser, Tricks, Zebra Technologies, ">
+
+
+<meta property="og:title" content="Android Back Button and Enterprise Browser  &middot; Pietro F. Maggi ">
+<meta property="og:site_name" content="Pietro F. Maggi"/>
+<meta property="og:url" content="http://pietromaggi.com/2015/09/25/android-back-button-and-enterprise-browser/" />
+<meta property="og:locale" content="en-EN">
+
+
+<meta property="og:type" content="article" />
+<meta property="og:description" content="How to intercept the Back Button when using Zebra&#39;s Enterprise Browser on Android devices"/>
+<meta property="og:article:published_time" content="2015-09-25T11:33:11&#43;02:00" />
+<meta property="og:article:modified_time" content="2015-09-25T11:33:11&#43;02:00" />
+
+  
+    
+<meta property="og:article:tag" content="Android">
+    
+<meta property="og:article:tag" content="Enterprise Browser">
+    
+<meta property="og:article:tag" content="Tricks">
+    
+<meta property="og:article:tag" content="Zebra Technologies">
+    
+  
+
+  
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@pfmaggi" />
+<meta name="twitter:creator" content="@pfmaggi" />
+<meta name="twitter:title" content="Android Back Button and Enterprise Browser" />
+<meta name="twitter:description" content="How to intercept the Back Button when using Zebra&#39;s Enterprise Browser on Android devices" />
+<meta name="twitter:url" content="http://pietromaggi.com/2015/09/25/android-back-button-and-enterprise-browser/" />
+<meta name="twitter:domain" content="http://pietromaggi.com">
+  
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "headline": "Android Back Button and Enterprise Browser",
+    "author": {
+      "@type": "Person",
+      "name": "http://profiles.google.com/+?rel=author"
+    },
+    "datePublished": "2015-09-25",
+    "description": "How to intercept the Back Button when using Zebra\x27s Enterprise Browser on Android devices",
+    "wordCount":  427 
+  }
+</script>
+
+
+
+<link rel="canonical" href="http://pietromaggi.com/2015/09/25/android-back-button-and-enterprise-browser/" />
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://pietromaggi.com/touch-icon-144-precomposed.png">
+<link href="http://pietromaggi.com/favicon.png" rel="icon">
+
+<meta name="generator" content="Hugo 0.15" />
+
+  <!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link href='https://fonts.googleapis.com/css?family=Merriweather:300%7CRaleway%7COpen+Sans' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="http://pietromaggi.com/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://pietromaggi.com/css/style.css">
+<link rel="stylesheet" href="http://pietromaggi.com/css/highlight/default.css">
+
+  
+</head>
+<body>
+  <main id="main-wrapper" class="container main_wrapper has-sidebar right">
+    <header id="main-header" class="container main_header">
+  <div class="container brand">
+  <div class="container title h1-like">
+  <a class="baselink" href="http://pietromaggi.com">
+  Garbage Collector
+
+</a>
+
+</div>
+
+  
+<div class="container topline">
+  
+  Tales from an old nibble
+
+
+</div>
+
+
+</div>
+
+  <nav class="container nav primary no-print">
+  
+
+<a class="homelink" href="http://pietromaggi.com">Home</a>
+
+
+  
+<a href="http://pietromaggi.com/about">About</a>
+
+<a href="http://pietromaggi.com/post" title="Show list of posts">Posts</a>
+
+<a href="http://pietromaggi.com/speaking">Speaking Appointments</a>
+
+<a href="http://pietromaggi.com/decks">Slide Decks</a>
+
+<a href="http://pietromaggi.com/tags" title="Show list of tags">Tags</a>
+
+
+</nav>
+
+<div class="container nav secondary no-print">
+  
+<a id="contact-link-email" class="contact_link" href="mailto:pfm@pietromaggi.com">
+  <span class="fa fa-envelope-square"></span><span>email</span></a>
+
+
+
+<a id="contact-link-github" class="contact_link" href="https://github.com/pfmaggi">
+  <span class="fa fa-github-square"></span><span>github</span></a>
+
+
+
+<a id="contact-link-bitbucket" class="contact_link" href="https://bitbucket.org/pfmaggi">
+  <span class="fa fa-bitbucket-square"></span><span>bitbucket</span></a>
+
+
+
+<a id="contact-link-linkedin" class="contact_link" href="https://www.linkedin.com/in/pietromaggi">
+  <span class="fa fa-linkedin-square"></span><span>linkedin</span></a>
+
+
+
+
+
+
+
+<a id="contact-link-twitter" class="contact_link" href="https://twitter.com/pfmaggi">
+  <span class="fa fa-twitter-square"></span><span>twitter</span></a>
+
+
+
+
+
+
+
+</div>
+
+
+  
+
+</header>
+
+
+<article id="main-content" class="container main_content single">
+  <header class="container hat">
+  <h1>Android Back Button and Enterprise Browser
+</h1>
+
+  <div class="metas">
+<time datetime="2015-09-25">25 Sep, 2015</time>
+
+
+  
+    &middot; by Pietro F. Maggi
+  
+  &middot; Read in about 3 min
+  &middot; (427 Words)
+  <br>
+  
+<a class="label" href="http://pietromaggi.com/tags/android">Android</a>
+
+<a class="label" href="http://pietromaggi.com/tags/enterprise-browser">Enterprise Browser</a>
+
+<a class="label" href="http://pietromaggi.com/tags/tricks">Tricks</a>
+
+<a class="label" href="http://pietromaggi.com/tags/zebra-technologies">Zebra Technologies</a>
+
+
+
+</div>
+
+</header>
+
+  <div class="container content">
+  
+
+<h2 id="enterprise-browser">Enterprise Browser</h2>
+
+<p>Enterprise Browser is Zebra Technologies&rsquo; Industrial Browser built for our Rugged Devices, we support most of our Windows Mobile/Windows CE devices and Android devices.</p>
+
+<p>This product is usually used with existing web application that cannot be updated/modified moving from one device to another.
+This help us winning some opportunities but sometimes present some unique challenges like, as an example, disabling the Android back button default behaviour.</p>
+
+<h2 id="back-button-on-android">Back Button on Android?</h2>
+
+<p>Given that this is a crossplatform product (built on top of our RhoMobile Suite) we don&rsquo;t have a custom settings to disable the back button in the Config.xml configuration file, however it is still possible to add a default Metatags in the configuration so that no changes in the existing pages are needed.</p>
+
+<p>So, do we&rsquo;ve an API to intercept the Back Button?</p>
+
+<p>Of course! the <a href="https://developer.motorolasolutions.com/docs/DOC-2520">KeyCapture API</a> can be used to intercept and disable it.</p>
+
+<pre><code>EB.KeyCapture.captureKey(BOOLEAN dispatch, STRING keyValue)
+</code></pre>
+
+<p>Setting the <code>dispatch</code> value to <code>false</code>,  We just need to get the correct KeyCode.</p>
+
+<p>This can a bit tricky and can be different from device to device, the best solution I&rsquo;ve is to ask directly to the device with a simple HTML page that display the keycode off all the keys that are pressed:</p>
+
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;META HTTP-Equiv=&quot;KeyCapture&quot; Content=&quot;KeyValue:All; Dispatch:False; KeyEvent:url('JavaScript:alert('Key Pressed: %s');')&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+	&lt;title&gt;Display KeyCode&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;H1&gt;Press a key to see it's KeyCode&lt;/H1&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>Once we&rsquo;ve the correct KeyCode, we just need to call this API in every page that is loaded in the browser&hellip; Sometimes that is not easy to do sometimes, especially when the application cannot be modified.</p>
+
+<p>We&rsquo;ve a solution for this issue: having a <code>DefaultMetaTags</code> in Enterprise Browser&rsquo;s configuration.</p>
+
+<h2 id="what-s-a-defaultmetatags">What&rsquo;s a DefaultMetaTags</h2>
+
+<p>We can start from the <a href="https://developer.motorolasolutions.com/docs/DOC-2571#defaultmetatags">documentation</a>, what does it means?</p>
+
+<p>A <code>DefaultMetaTags</code> is a way to call an Enterprise Browser API on top of every HTML page that is loaded in the browser. This can be used, as an example to enable on screen UI elements like the battery or WiFi icon.</p>
+
+<p>So, putting the different things together, we can put this in the &ldquo;Config.xml&rsquo;:</p>
+
+<pre><code>&lt;DefaultMetaTags&gt;
+    &lt;MetaTag value=&quot;KeyCapture~KeyValue:0xA6;Dispatch:False”/&gt;
+ &lt;/DefaultMetaTags&gt;
+</code></pre>
+
+<p>BTW: <code>0xA6</code> is the correct value for the Back Button on a TC55 running Android v4.4 KitKat.</p>
+
+<h2 id="closing-comments">Closing comments</h2>
+
+<p>Enterprise Browser&rsquo;s <code>DefaultMetaTags</code> is a very flexible way to &laquo;patch&raquo; an existing Web application without touching its source code.</p>
+
+<p>As a closing comment here&rsquo;s a sample configuration that zoom the current webpage pressing a button:</p>
+
+<pre><code>&lt;MetaTag VALUE=&quot;KeyCapture~KeyValue:0x79;Dispatch:False;KeyEvent:url('JavaScript:eval('zoom.page=\'1.3\';');')&quot;/&gt;
+</code></pre>
+
+<p><em>If you&rsquo;re interested in Enterprise Browser, you can visit us at <a href="http://bit.ly/EMEAAppForum2015">EMEA AppForum in London, Oct. 12th-14th</a>.</em></p>
+
+</div>
+
+
+  <footer class="container">
+  <div class="container navigation no-print">
+  <h2>Navigation</h2>
+  
+  
+
+    
+
+    
+    <a class="next" href="http://pietromaggi.com/2015/11/25/building-zebras-emdk-project-using-sdk-platform-23/" title="Building Zebra&#39;s EMDK project using SDK Platform 23">
+      Next
+    </a>
+    
+
+  
+
+
+</div>
+
+  <div class="container comments">
+  <h2>Comments</h2>
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  (function() {
+    
+    
+    if (window.location.hostname == "localhost")
+      return;
+
+    var dsq = document.createElement('script'); dsq.async = true; dsq.type = 'text/javascript';
+    dsq.src = '//pietrofmaggi.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+</div>
+
+</footer>
+
+</article>
+      <footer id="main-footer" class="container main_footer">
+  
+
+  <div class="container nav foot no-print">
+  
+<a href="http://pietromaggi.com/license">license</a>
+
+
+  <a class="toplink" href="#">back to top</a>
+
+</div>
+
+  <div class="container credits">
+  
+<div class="container footline">
+  
+  code with <i class='fa fa-heart'></i>
+
+
+</div>
+
+
+  
+<div class="container copyright">
+  
+  &copy; 2015 Pietro F. Maggi.
+
+
+</div>
+
+
+</div>
+
+</footer>
+
+    </main>
+    
+<script type="text/javascript">
+  (function() {
+    
+    
+    if (window.location.hostname == "localhost")
+      return;
+
+    var dsq = document.createElement('script'); dsq.async = true; dsq.type = 'text/javascript';
+    dsq.src = '//pietrofmaggi.disqus.com/count.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+
+<script src="http://pietromaggi.com/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'Your Google Analytics tracking code', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+    
+  </body>
+</html>
+

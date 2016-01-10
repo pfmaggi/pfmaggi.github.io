@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Status of Mobile Barcode Scanning API</title>
+
+		<meta name="description" content="An analysis of the available barcode scanning API on Mobile devices">
+		<meta name="author" content="Pietro F. Maggi">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/league.css " id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<div class="slides">
+				<section>
+					<h3><em>status of</em></h3>
+					<h1>Mobile Barcode Scanning API</h1>
+					<p>
+						<small>by <a href="http://pietromaggi.com">Pietro F. Maggi</a> / <a href="http://twitter.com/pfmaggi">@pfmaggi</a></small>
+					</p>
+				</section>
+
+				<section>
+					<h2>What's up with Barcode API?</h2>
+          <p>Google released a Barcode API in GMS v7.8 this summer.</p>
+          <p>Joining Apple that intruduced a similar support in iOS 7.</p>
+          <p>...we've now an official API for the two major mobile OS.</p>
+          <p>
+            <img width="320" height="200" src="./images/Google.png" alt="Google MobileVision">
+          </p>
+				</section>
+
+				<section>
+					<h2>How we arrived here?</h2>
+					<p>From Custom OS on custom HW with Custom APIs.</p>
+          <img width="260" height="260" src="./images/pdt3100.jpg" alt="Symbol PDT3100">
+					<br>
+					<a href="#" class="navigate-down"></a>
+				</section>
+
+        <section>
+					<h2>How we arrived here?</h2>
+          <p>To Enterprise OS with Custom API to control custom capabilities</p>
+          <img width="344" height="260" src="./images/mc3100.jpg" alt="Motorola MC3100">
+				</section>
+
+        <section>
+					<h2>How we arrived here?</h2>
+          <p>Reaching today Consumer OS with, again, Custom API for the custom accessories</p>
+          <img width="260" height="260"src="./images/mc3200.jpg" alt="Zebra MC3200">
+					<br>
+				</section>
+
+        <section>
+					<h2>...Not a lot changed for mobile Enterprise developers over the last 30 years!</h2>
+					<br>
+				</section>
+
+				<section>
+          <h2>How did we used these APIs?</h2>
+					<p class="fragment">Most of these APIs started with a synchronous design.</p>
+          <p class="fragment">Switching lately to a more asynchronous friendly design.</p>
+					<p class="fragment">Adding sometimes "Document Capture" capabilities.</p>
+
+					<aside class="notes">
+						This slide has fragments which are also stepped through in the notes window.
+					</aside>
+				</section>
+
+				<section>
+          <h2>What's available today in a mobile OS?</h2>
+          <p>iOS and Android include API built around a Media Pipeline</p>
+				</section>
+
+        <section>          
+          <h2>What's available today in a mobile OS?</h2>
+					<p>
+            Android (GMS) Mobile Vision API<br>
+            <code>BarcodeTracker</code> &amp; <code>BarcodeDetector</code>
+          </p>
+          <img width="816" height="440" src="./images/barcode-multiprocessor.png" alt="Google Mobile Vision Barcode API">
+        </section>
+
+        <section>            
+          <h2>What's available today in a mobile OS?</h2>
+					<p>iOS AV Foundation API<br>
+            <code>AVCaptureMetadataOutput</code>
+          </p>
+          <img width="375" height="429" src="./images/AVFoundation.png" alt="Apple AV Foundation API">
+        </section>
+
+        <section>
+          <h2>A complete new way!</h2>
+          <p>Bringing a video stream in the solution open a complete new set of possibilities</p>
+        </section>
+
+        <section>
+          <h2>One single API to rule them all?</h2>
+          <blockquote cite="http://pietromaggi.com/citations">
+            &ldquo;The power to question is the basis of all human progress.&rdquo;
+          </blockquote>
+          <cite><small>Indira Gandhi</small></cite>
+        </section>
+
+        <section>
+          <h1>Not Really!</h2>
+        </section>
+
+        <section>
+          <h2>1.Simple Scan-a-barcode API</h2>
+          <p>...still missing an official Android API.<br>Closest thing is ZXing Intent:</p>
+					<small><pre><code data-trim contenteditable>
+
+public Button.OnClickListener mScan = new Button.OnClickListener() {
+    public void onClick(View v) {
+         <section>
+          <h2></h2>
+          <p>...still missing an official Android API.<br>Closest thing is ZXing Intent:</p>
+
+        </section>
+
+       Intent intent = new Intent("com.google.zxing.client.android.SCAN");
+        intent.putExtra("SCAN_MODE", "QR_CODE_MODE");
+        startActivityForResult(intent, 0);
+    }
+};
+
+public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+    if (requestCode == 0) {
+        if (resultCode == RESULT_OK) {
+            String contents = intent.getStringExtra("SCAN_RESULT");
+            String format = intent.getStringExtra("SCAN_RESULT_FORMAT");
+            // Handle successful scan
+        } else if (resultCode == RESULT_CANCELED) {
+            // Handle cancel
+        }
+    }
+}
+					</code></pre></small>
+        </section>
+
+        <section>
+          <h2>2.High-Volumes barcode API</h2>
+          <p>A lot of third party options.<p>
+          <p style="text-align: left;">Mostly linked to custom HW:<br>
+            [Zebra|Intermec|Honeywell|BlueBird|...] Android SDK</p>
+          <p style="text-align: left;">Some linked to consumer devices and camera:<br>
+            [Scandit|RedLaser] crossplatform SDK</p>
+        </section>
+
+        <section>
+          <h2>3.Media Pipeline API</h2>
+          <p>Enablers for new kind of applications</p>
+          <ul>
+            <li>Augmented reality</li>
+            <li>Reading multiple barcodes</li>
+            <li>Document Capture APIs (barcode plus something)</li>
+            <li>Indentify phisical objects</li>
+            <li>...</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>So...</h2>
+          <p>
+            Reading barcodes is only one of the possible and interesting scenario supported by these new generation of API.
+          </p>
+          <p class="fragment">
+            Opening interesting use cases even for old timers in the industry.
+          </p>
+          <p class="fragment">
+            But they're not a silver bullet for all the use cases.
+          </p>
+        </section>
+
+        <section>
+          <h1>Questions?</h1>
+          <p>
+            <img src="./images/questions.jpg" alt="Questions?">
+          </p>
+        </section>
+
+        <section>
+          <h1>Thank you</h1>
+        </section>
+
+        <section style="text-align: left;">
+          <h4>Images from:</h4>
+          <h5>
+            <ul>
+              <li><a href="https://developers.google.com/vision/multi-tracker-tutorial">Google's Mobile Vision docs</a></li>
+              <li><a href="https://www.manning.com/books/barcodes-with-ios">Manning's Barcode with iOS</a></li>
+              <li><a href="https://www.flickr.com/photos/garlandcannon/3295208417/sizes/m/in/photolist-62bNEe-DRwwL-3idLGi-6KDtm-aRZoFT-Ecgfs-7vB7fR-4xzE56-8CkodQ-9ksxQa-b769vZ-HMUG1-7x9bYE-8k8pgk-58vQCQ-cBFFBS-6mLhjb-brwRtR-2FNUzm-8ChFDT-nh56ww-4mzmoq-qJ8iU-dYwzsm-gh9ghW-dHUxPF-5GLFEo-5Y5kW-pzZZC-9ESmzs-93aPCq-wTgzo-7mp3wi-9PCX82-fGyo6Q-f1ptJi-2eVMS6-bAd4AH-26nEG-hoMcw-bpxrqs-4ms8ZA-5DeuzB-7xN3UW-4cqfT-tS1tw-8kXESm-5uf2Ue-aKPyWK-mtSxtz/">Flicker user's Jan</a></li>
+            </ul>
+          </h5>
+          <h4>Deck built with <a href="https://github.com/hakimel/reveal.js">Reveal.js</a></h4>
+        </section>
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

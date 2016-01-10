@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>Building Zebra&#39;s EMDK project using SDK Platform 23  &middot; Pietro F. Maggi</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<meta name="description" content="" />
+
+<meta name="keywords" content="Android, EMDK, Sample, Zebra Technologies, ">
+
+
+<meta property="og:title" content="Building Zebra&#39;s EMDK project using SDK Platform 23  &middot; Pietro F. Maggi ">
+<meta property="og:site_name" content="Pietro F. Maggi"/>
+<meta property="og:url" content="http://pietromaggi.com/2015/11/25/building-zebras-emdk-project-using-sdk-platform-23/" />
+<meta property="og:locale" content="en-EN">
+
+
+<meta property="og:type" content="article" />
+<meta property="og:description" content=""/>
+<meta property="og:article:published_time" content="2015-11-25T09:54:55&#43;01:00" />
+<meta property="og:article:modified_time" content="2015-11-25T09:54:55&#43;01:00" />
+
+  
+    
+<meta property="og:article:tag" content="Android">
+    
+<meta property="og:article:tag" content="EMDK">
+    
+<meta property="og:article:tag" content="Sample">
+    
+<meta property="og:article:tag" content="Zebra Technologies">
+    
+  
+
+  
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@pfmaggi" />
+<meta name="twitter:creator" content="@pfmaggi" />
+<meta name="twitter:title" content="Building Zebra&#39;s EMDK project using SDK Platform 23" />
+<meta name="twitter:description" content="" />
+<meta name="twitter:url" content="http://pietromaggi.com/2015/11/25/building-zebras-emdk-project-using-sdk-platform-23/" />
+<meta name="twitter:domain" content="http://pietromaggi.com">
+  
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "headline": "Building Zebra\x27s EMDK project using SDK Platform 23",
+    "author": {
+      "@type": "Person",
+      "name": "http://profiles.google.com/+?rel=author"
+    },
+    "datePublished": "2015-11-25",
+    "description": "",
+    "wordCount":  555 
+  }
+</script>
+
+
+
+<link rel="canonical" href="http://pietromaggi.com/2015/11/25/building-zebras-emdk-project-using-sdk-platform-23/" />
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://pietromaggi.com/touch-icon-144-precomposed.png">
+<link href="http://pietromaggi.com/favicon.png" rel="icon">
+
+<meta name="generator" content="Hugo 0.15" />
+
+  <!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link href='https://fonts.googleapis.com/css?family=Merriweather:300%7CRaleway%7COpen+Sans' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="http://pietromaggi.com/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://pietromaggi.com/css/style.css">
+<link rel="stylesheet" href="http://pietromaggi.com/css/highlight/default.css">
+
+  
+</head>
+<body>
+  <main id="main-wrapper" class="container main_wrapper has-sidebar right">
+    <header id="main-header" class="container main_header">
+  <div class="container brand">
+  <div class="container title h1-like">
+  <a class="baselink" href="http://pietromaggi.com">
+  Garbage Collector
+
+</a>
+
+</div>
+
+  
+<div class="container topline">
+  
+  Tales from an old nibble
+
+
+</div>
+
+
+</div>
+
+  <nav class="container nav primary no-print">
+  
+
+<a class="homelink" href="http://pietromaggi.com">Home</a>
+
+
+  
+<a href="http://pietromaggi.com/about">About</a>
+
+<a href="http://pietromaggi.com/post" title="Show list of posts">Posts</a>
+
+<a href="http://pietromaggi.com/speaking">Speaking Appointments</a>
+
+<a href="http://pietromaggi.com/decks">Slide Decks</a>
+
+<a href="http://pietromaggi.com/tags" title="Show list of tags">Tags</a>
+
+
+</nav>
+
+<div class="container nav secondary no-print">
+  
+<a id="contact-link-email" class="contact_link" href="mailto:pfm@pietromaggi.com">
+  <span class="fa fa-envelope-square"></span><span>email</span></a>
+
+
+
+<a id="contact-link-github" class="contact_link" href="https://github.com/pfmaggi">
+  <span class="fa fa-github-square"></span><span>github</span></a>
+
+
+
+<a id="contact-link-bitbucket" class="contact_link" href="https://bitbucket.org/pfmaggi">
+  <span class="fa fa-bitbucket-square"></span><span>bitbucket</span></a>
+
+
+
+<a id="contact-link-linkedin" class="contact_link" href="https://www.linkedin.com/in/pietromaggi">
+  <span class="fa fa-linkedin-square"></span><span>linkedin</span></a>
+
+
+
+
+
+
+
+<a id="contact-link-twitter" class="contact_link" href="https://twitter.com/pfmaggi">
+  <span class="fa fa-twitter-square"></span><span>twitter</span></a>
+
+
+
+
+
+
+
+</div>
+
+
+  
+
+</header>
+
+
+<article id="main-content" class="container main_content single">
+  <header class="container hat">
+  <h1>Building Zebra&#39;s EMDK project using SDK Platform 23
+</h1>
+
+  <div class="metas">
+<time datetime="2015-11-25">25 Nov, 2015</time>
+
+
+  
+    &middot; by Pietro F. Maggi
+  
+  &middot; Read in about 3 min
+  &middot; (555 Words)
+  <br>
+  
+<a class="label" href="http://pietromaggi.com/tags/android">Android</a>
+
+<a class="label" href="http://pietromaggi.com/tags/emdk">EMDK</a>
+
+<a class="label" href="http://pietromaggi.com/tags/sample">Sample</a>
+
+<a class="label" href="http://pietromaggi.com/tags/zebra-technologies">Zebra Technologies</a>
+
+
+
+</div>
+
+</header>
+
+  <div class="container content">
+  
+
+<p>There&rsquo;s a recurring question coming to me and to Launchpad&rsquo;s forums lately:</p>
+
+<p><a href="https://developer.motorolasolutions.com/message/86287#86287"><em>How can I compile my Android app, using Zebra&rsquo;s EMDK, if I need the latest support library?</em></a></p>
+
+<h1 id="some-background">Some background</h1>
+
+<p>With the Android tools moving super-fast (Android studio v1.0 launched at the beginning of 2015, the latest stable release is v1.4.1, we already have v1.5RC and v2.0 has been announced&hellip;) keeping up to this pace is not easy for our EMDK team!</p>
+
+<p>We discovered some integration issues when Android Studio v1.3 was released and <a href="https://developer.motorolasolutions.com/community/android/android-forums/android-blogs/blog/2015/08/21/announcement-emdk-issue-with-android-studio-13-new-project-wizard">we presented a workaround</a> to use the EMDK as the building SDK. Limiting the project to API level 16 or 19. This should be good, right?</p>
+
+<p>A downside of this approach surfaced when Google updated the templates for new projects, now based on the Android Support Library. I really like the approach to base new projects on the support library; the problem is that it does require to build the project with API level 21+.</p>
+
+<p><em>Here we can have a problem</em></p>
+
+<h1 id="using-zebra-s-emdk">Using Zebra&rsquo;s EMDK</h1>
+
+<p>So, talking just about Android Studio, that is the current up-to-date Android IDE, we currently document two ways to use the EMDK:</p>
+
+<ol>
+<li><a href="https://developer.motorolasolutions.com/docs/DOC-2983">The official one</a>, selecting the EMDK in the &laquo;Compile SDK&raquo; drop-down when creating the project</li>
+<li><a href="https://developer.motorolasolutions.com/community/android/android-forums/android-blogs/blog/2015/08/21/announcement-emdk-issue-with-android-studio-13-new-project-wizard">The Android Studio v1.3+ workaround way</a> that suggest to manually set the EMDK as the &laquo;Compile SDK&raquo;.</li>
+</ol>
+
+<p>Both methods fails to compile a project using the latest Android Support Library.</p>
+
+<h1 id="a-little-gradle-magic">A little gradle magic</h1>
+
+<p>Here&rsquo;s a third, <strong>UNOFFICIAL</strong>, way to include the EMDK in an Android project and use the latest available SDK to build the project.</p>
+
+<h2 id="copy-the-lib-file-in-your-project">Copy the lib file in your project</h2>
+
+<p>First of all, create in your Android project a lib folder and copy into it the com.symbol.emdk.jar library that you got installing the EMDK on your PC/Mac:</p>
+
+<p>This is probably easier to say than to do, because the default Android Studio project view doesn&rsquo;t show these files.</p>
+
+<p><img src="/images/EMDK_gradle/Android_Project1.jpg" alt="Default Android Project Panel" title="Default Android Project Panel" /></p>
+
+<p>The easiest way, at least for me, is to copy the file from the setup position to a newly created <code>libs</code> folder in my project from Windows&rsquo; File Explorer or OSX&rsquo;s Finder and then check that everything is OK switching the Android Studio project view from &laquo;Android&raquo; to &laquo;Project Files&raquo;:</p>
+
+<p><img src="/images/EMDK_gradle/Android_Project2.jpg" alt="Project Files Panel View" title="Project Files Panel View" /></p>
+
+<h2 id="modify-the-build-gradle-file">Modify the build.gradle file</h2>
+
+<p>OK, once the file is included in our project (and this means that you can checkin this file in your SCM and checkout on a new PC and rebuilt it without the need to Zebra EMDK installed) we can explain to Android Studio how to use it. To do this we need to modify the <code>build.gradle</code> file included in the app folder. If you&rsquo;ve switched back to the &laquo;Android Project view&raquo;, this is the Module: App, gradle file. As shown below:</p>
+
+<p><img src="/images/EMDK_gradle/gradle_file.jpg" alt="Gradle file to Edit" title="Gradle file to Edit" /></p>
+
+<p>In this file you need to setup the dependencies so that the build process uses this lib as a reference without including it into the final APK (otherwise the application will exit with and exception when launched).</p>
+
+<pre><code>   dependencies {
+       compile fileTree(dir: 'libs', include: ['*.jar'], exclude: ['com.symbol.emdk.jar'])
+       compile 'com.android.support:appcompat-v7:23.0.1'
+       provided fileTree(dir: 'libs', include: ['com.symbol.emdk.jar'])
+   }
+</code></pre>
+
+<p>With this changes you can build your project using the latest available SDK, just remember that you&rsquo;re targeting Zebra devices with API level 16 or 19, so, setup your minimum SDK accordingly.</p>
+
+<p>You can find a demo app built with this technique <a href="https://github.com/pfmaggi/GetDeviceInfo_EMDK">on my github account</a>.</p>
+
+<p>Happy coding<br />
+~Pietro</p>
+
+</div>
+
+
+  <footer class="container">
+  <div class="container navigation no-print">
+  <h2>Navigation</h2>
+  
+  
+
+    
+    <a class="prev" href="http://pietromaggi.com/2015/09/25/android-back-button-and-enterprise-browser/" title="Android Back Button and Enterprise Browser">
+      Previous
+    </a>
+    
+
+    
+    <a class="next" href="http://pietromaggi.com/2016/01/09/welcome/" title="Welcome">
+      Next
+    </a>
+    
+
+  
+
+
+</div>
+
+  <div class="container comments">
+  <h2>Comments</h2>
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  (function() {
+    
+    
+    if (window.location.hostname == "localhost")
+      return;
+
+    var dsq = document.createElement('script'); dsq.async = true; dsq.type = 'text/javascript';
+    dsq.src = '//pietrofmaggi.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+</div>
+
+</footer>
+
+</article>
+      <footer id="main-footer" class="container main_footer">
+  
+
+  <div class="container nav foot no-print">
+  
+<a href="http://pietromaggi.com/license">license</a>
+
+
+  <a class="toplink" href="#">back to top</a>
+
+</div>
+
+  <div class="container credits">
+  
+<div class="container footline">
+  
+  code with <i class='fa fa-heart'></i>
+
+
+</div>
+
+
+  
+<div class="container copyright">
+  
+  &copy; 2015 Pietro F. Maggi.
+
+
+</div>
+
+
+</div>
+
+</footer>
+
+    </main>
+    
+<script type="text/javascript">
+  (function() {
+    
+    
+    if (window.location.hostname == "localhost")
+      return;
+
+    var dsq = document.createElement('script'); dsq.async = true; dsq.type = 'text/javascript';
+    dsq.src = '//pietrofmaggi.disqus.com/count.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+
+<script src="http://pietromaggi.com/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'Your Google Analytics tracking code', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+    
+  </body>
+</html>
+

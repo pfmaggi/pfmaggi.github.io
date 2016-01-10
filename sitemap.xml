@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>http://pietromaggi.com/</loc>
+    <lastmod>2016-01-09T21:53:35+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://pietromaggi.com/speaking/</loc>
+    <lastmod>2016-01-09T21:53:35+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pietromaggi.com/about/</loc>
+    <lastmod>2016-01-09T20:50:38+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pietromaggi.com/2016/01/09/welcome/</loc>
+    <lastmod>2016-01-09T20:50:14+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pietromaggi.com/2015/11/25/building-zebras-emdk-project-using-sdk-platform-23/</loc>
+    <lastmod>2015-11-25T09:54:55+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pietromaggi.com/decks/</loc>
+    <lastmod>2015-10-25T19:31:46+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pietromaggi.com/2015/09/25/android-back-button-and-enterprise-browser/</loc>
+    <lastmod>2015-09-25T11:33:11+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://pietromaggi.com/license/</loc>
+  </url>
+  
+</urlset>
