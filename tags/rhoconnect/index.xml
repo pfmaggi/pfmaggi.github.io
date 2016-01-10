@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rhoconnect on Pietro F. Maggi</title>
+    <link>http://pietromaggi.com/tags/rhoconnect/</link>
+    <description>Recent content in Rhoconnect on Pietro F. Maggi</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-EN</language>
+    <managingEditor>pfm@pietromaggi.com (Pietro F. Maggi)</managingEditor>
+    <webMaster>pfm@pietromaggi.com (Pietro F. Maggi)</webMaster>
+    <copyright>(c) 2015 Pietro F. Maggi.</copyright>
+    <lastBuildDate>Mon, 30 Dec 2013 13:56:04 +0100</lastBuildDate>
+    <atom:link href="http://pietromaggi.com/tags/rhoconnect/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Rhodes tips &amp; tricks</title>
+      <link>http://pietromaggi.com/2013/12/30/rhodes-tips--tricks/</link>
+      <pubDate>Mon, 30 Dec 2013 13:56:04 +0100</pubDate>
+      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <guid>http://pietromaggi.com/2013/12/30/rhodes-tips--tricks/</guid>
+      <description>
+
+&lt;h2 id=&#34;how-to-rebuild-the-rhodes-gem:95be1d07f91809f8d47f64cb7b4cd9c7&#34;&gt;How to rebuild the rhodes gem&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;git clone https://github.com/rhomobile/rhodes.git
+cd rhodes
+git checkout 3-5-stable
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;make and commit changes if needed, then:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;rm -rf *
+git reset --hard
+git pull
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Otherwise directly&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;rake gem
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Copy files where you need it (on a different machine)
+gem install -l rhodes-3.5.1.13.2 (version given as an example)&lt;/p&gt;
+
+&lt;h2 id=&#34;rhodes-database-encryption:95be1d07f91809f8d47f64cb7b4cd9c7&#34;&gt;Rhodes Database encryption&lt;/h2&gt;
+
+&lt;p&gt;Rhodes uses SQLite as database engine on all the supported platforms and, to provide encryption support we use different solutions depending by the target platform.&lt;/p&gt;
+
+&lt;p&gt;For Windows Mobile we use the [WinCrypt Library]()
+The actual implementation is &lt;a href=&#34;https://github.com/rhomobile/rhodes/blob/master/platform/wm/rhodes/rho/common/RhoCryptImpl.cpp&#34;&gt;under platform folder on github&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://msdn.microsoft.com/en-us/library/aa923618.aspx&#34;&gt;Microsoft WinCrypt library support multiple algorithms&lt;/a&gt; and we use RC4 in Windows Mobile.&lt;/p&gt;
+
+&lt;p&gt;For other operative systems we use the &lt;a href=&#34;http://sqlcipher.net/&#34;&gt;SQLCipher plugin&lt;/a&gt;. A look at the &lt;a href=&#34;https://github.com/rhomobile/rhodes/blob/master/platform/shared/sqlite/crypto.c&#34;&gt;crypto.c source file included in the SQLite folder can give more info&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;making-a-pull-request-to-rhodes:95be1d07f91809f8d47f64cb7b4cd9c7&#34;&gt;Making a pull request to rhodes&amp;hellip;&lt;/h2&gt;
+
+&lt;p&gt;First of all you need to fork rhodes:&lt;/p&gt;
+
+&lt;p&gt;Then you need to be sure that your fork is synced with upstream (this needs to be done before starting making changes):
+&lt;a href=&#34;https://help.github.com/articles/syncing-a-fork&#34;&gt;https://help.github.com/articles/syncing-a-fork&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://help.github.com/articles/using-pull-requests&#34;&gt;https://help.github.com/articles/using-pull-requests&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -116,14 +116,14 @@ I&amp;rsquo;ll will probably spend some time in the future to refine the layout,
       <guid>http://pietromaggi.com/2015/09/25/android-back-button-and-enterprise-browser/</guid>
       <description>
 
-&lt;h2 id=&#34;enterprise-browser:844fa649910ec6745220f6ecf2ed4454&#34;&gt;Enterprise Browser&lt;/h2&gt;
+&lt;h2 id=&#34;enterprise-browser&#34;&gt;Enterprise Browser&lt;/h2&gt;
 
 &lt;p&gt;Enterprise Browser is Zebra Technologies&amp;rsquo; Industrial Browser built for our Rugged Devices, we support most of our Windows Mobile/Windows CE devices and Android devices.&lt;/p&gt;
 
 &lt;p&gt;This product is usually used with existing web application that cannot be updated/modified moving from one device to another.
 This help us winning some opportunities but sometimes present some unique challenges like, as an example, disabling the Android back button default behaviour.&lt;/p&gt;
 
-&lt;h2 id=&#34;back-button-on-android:844fa649910ec6745220f6ecf2ed4454&#34;&gt;Back Button on Android?&lt;/h2&gt;
+&lt;h2 id=&#34;back-button-on-android&#34;&gt;Back Button on Android?&lt;/h2&gt;
 
 &lt;p&gt;Given that this is a crossplatform product (built on top of our RhoMobile Suite) we don&amp;rsquo;t have a custom settings to disable the back button in the Config.xml configuration file, however it is still possible to add a default Metatags in the configuration so that no changes in the existing pages are needed.&lt;/p&gt;
 
@@ -155,7 +155,7 @@ This help us winning some opportunities but sometimes present some unique challe
 
 &lt;p&gt;We&amp;rsquo;ve a solution for this issue: having a &lt;code&gt;DefaultMetaTags&lt;/code&gt; in Enterprise Browser&amp;rsquo;s configuration.&lt;/p&gt;
 
-&lt;h2 id=&#34;what-s-a-defaultmetatags:844fa649910ec6745220f6ecf2ed4454&#34;&gt;What&amp;rsquo;s a DefaultMetaTags&lt;/h2&gt;
+&lt;h2 id=&#34;what-s-a-defaultmetatags&#34;&gt;What&amp;rsquo;s a DefaultMetaTags&lt;/h2&gt;
 
 &lt;p&gt;We can start from the &lt;a href=&#34;https://developer.motorolasolutions.com/docs/DOC-2571#defaultmetatags&#34;&gt;documentation&lt;/a&gt;, what does it means?&lt;/p&gt;
 
@@ -170,7 +170,7 @@ This help us winning some opportunities but sometimes present some unique challe
 
 &lt;p&gt;BTW: &lt;code&gt;0xA6&lt;/code&gt; is the correct value for the Back Button on a TC55 running Android v4.4 KitKat.&lt;/p&gt;
 
-&lt;h2 id=&#34;closing-comments:844fa649910ec6745220f6ecf2ed4454&#34;&gt;Closing comments&lt;/h2&gt;
+&lt;h2 id=&#34;closing-comments&#34;&gt;Closing comments&lt;/h2&gt;
 
 &lt;p&gt;Enterprise Browser&amp;rsquo;s &lt;code&gt;DefaultMetaTags&lt;/code&gt; is a very flexible way to &amp;laquo;patch&amp;raquo; an existing Web application without touching its source code.&lt;/p&gt;
 
@@ -180,6 +180,1090 @@ This help us winning some opportunities but sometimes present some unique challe
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;&lt;em&gt;If you&amp;rsquo;re interested in Enterprise Browser, you can visit us at &lt;a href=&#34;http://bit.ly/EMEAAppForum2015&#34;&gt;EMEA AppForum in London, Oct. 12th-14th&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Finding the SDCard Path on Android devices</title>
+      <link>http://pietromaggi.com/2014/10/19/finding-the-sdcard-path-on-android-devices/</link>
+      <pubDate>Sun, 19 Oct 2014 20:55:18 +0200</pubDate>
+      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <guid>http://pietromaggi.com/2014/10/19/finding-the-sdcard-path-on-android-devices/</guid>
+      <description>
+
+&lt;p&gt;With Motorola Solutions we&amp;rsquo;re busy finishing the first round of Android Developer&amp;rsquo;s Kitchens around Europe. Just in time to prepare for the &lt;a href=&#34;http://www.motorolasolutionsevents.com/enterprise_appforum_2014/&#34;&gt;Enterprise App Forum in Brussels!&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The nice things of these events is the interaction with our partners and theirs real live problem!&lt;/p&gt;
+
+&lt;p&gt;Last week I got an interesting question regarding our TC55:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;How can I programmatically get the path for the SDCard on the TC55?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;That&amp;rsquo;s a good question; usually you don&amp;rsquo;t want to insert in your code the dependency to an hardcoded path!
+The usual answer is based around the function &lt;code&gt;Environment.getExternalStorageDirectory();&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;The problem is that this function report a different folder if the SDCard is inserted in the device or not.
+This is not a problem unique to the TC55, it&amp;rsquo;s a common problem on Android and there are different ways to handle it:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://futurewithdreams.blogspot.it/2014/01/get-external-sdcard-location-in-android.html&#34;&gt;Reading the partition table from &lt;code&gt;/proc/mounts&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://stackoverflow.com/a/23949650/118862&#34;&gt;Use some environment variables&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://stackoverflow.com/questions/22219312/android-open-external-storage-directorysdcard-for-storing-file&#34;&gt;Still use the getExternalStorageDirectory() function, together with the isExternalStorageRemovable() and getExternalStorageState() functions&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Given that we&amp;rsquo;ve the luxury to target just a few devices, the Motorola Solutions one :-), the best option is to use the environment variables.&lt;/p&gt;
+
+&lt;h3 id=&#34;let-s-see-what-happens-on-the-tc55:94b5531d6fd1044b8626da491a50030b&#34;&gt;Let&amp;rsquo;s see what happens on the TC55&lt;/h3&gt;
+
+&lt;p&gt;On this device, using &lt;code&gt;Environment.getExternalStorageDirectory();&lt;/code&gt; returns different results depending if you&amp;rsquo;ve installed or not an SDCard:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Without SDCard —&amp;gt; /&lt;code&gt;STORAGE/SDCARD1&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;With SDCard —&amp;gt; &lt;code&gt;/STORAGE/SDCARD0&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Let&amp;rsquo;s see what we can achieve with the environment variables!&lt;/p&gt;
+
+&lt;p&gt;We can log into a TC55 and use the &lt;code&gt;printenv&lt;/code&gt; command:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;adb shell
+printenv
+
+_=/system/bin/printenv
+LD_LIBRARY_PATH=/vendor/lib:/system/lib
+HOSTNAME=android
+BOOTCLASSPATH=/system/framework/core.jar:/system/framework/core-junit.jar:/system/framework/bouncycastle.jar:/system/framework/ext.jar:/system/framework/framework.jar:/system/framework/framework_ext.jar:/system/framework/android.policy.jar:/system/framework/services.jar:/system/framework/apache-xml.jar
+PATH=/sbin:/vendor/bin:/system/sbin:/system/bin:/system/xbin
+LOOP_MOUNTPOINT=/mnt/obb
+ANDROID_DATA=/data
+ANDROID_ROOT=/system
+SHELL=/system/bin/sh
+MKSH=/system/bin/sh
+USER=shell
+EXTERNAL_SDCARD_STORAGE=/storage/sdcard0
+ANDROID_PROPERTY_WORKSPACE=8,49152
+EXTERNAL_STORAGE=/storage/sdcard1
+ANDROID_ASSETS=/system/app
+TERM=vt100
+RANDOM=16913
+ASEC_MOUNTPOINT=/mnt/asec
+SECURE_STORAGE_SDCARD=/storage/sdcard0
+HOME=/data
+ANDROID_BOOTLOGO=1
+MASS_STORAGE=/mnt/udisk
+PS1=$(precmd)$USER@$HOSTNAME:${PWD:-?} $
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;From this is easy to see that the way to get the SDCard path is to use a couple of environment variables:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;System.getenv(&amp;laquo;EXTERNAL_STORAGE&amp;raquo;)&lt;/code&gt; —&amp;gt; Internal SDCard &lt;code&gt;/STORAGE/SDCARD1&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;System.getenv(&amp;laquo;EXTERNAL_SDCARD_STORAGE&amp;raquo;)&lt;/code&gt; —&amp;gt; True SDCard &lt;code&gt;/STORAGE/SDCARD0&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This solutions is still depending on two specific environment variables, is much better than hardcoding the path strings in the application but is probably only acceptable if you&amp;rsquo;re targeting just few devices.
+Another point is that, on other devices, you get the true SDCard path linked to the &lt;code&gt;SECONDARY_STORAGE&lt;/code&gt; environment variable. So a better solution could be to check for both variables with something like:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;String strSDCardPath = System.getenv(&amp;quot;SECONDARY_STORAGE&amp;quot;);
+if ((null == strSDCardPath) || (strSDCardPath.length() == 0)) {
+    strSDCardPath = System.getenv(&amp;quot;EXTERNAL_SDCARD_STORAGE&amp;quot;);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;When we will start to release KitKat based devices it will be even more important taking a look at the right path for these volumes :-)&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;EDIT:&lt;/em&gt; I&amp;rsquo;ve a new &lt;a href=&#34;../secondary-external-storage-in-android-kitkat&#34;&gt;blog post&lt;/a&gt; with additional information for Zebra Technologies KitKat devices.&lt;/p&gt;
+
+&lt;p&gt;You can find in my github account a &lt;a href=&#34;https://github.com/pfmaggi/GetDeviceInfo&#34;&gt;sample application&lt;/a&gt; that retrieves these data.&lt;/p&gt;
+
+&lt;p&gt;Let me know if you find this information useful via &lt;a href=&#34;http://twitter.com/pfmaggi&#34;&gt;twitter @pfmaggi&lt;/a&gt; or &lt;a href=&#34;mailto:pfm@pietromaggi.com&#34;&gt;email&lt;/a&gt; or &lt;a href=&#34;http://www.motorolasolutionsevents.com/enterprise_appforum_2014/&#34;&gt;joining me and the EMEA Software Enablement Team in Brussels for the Enterprise AppForum, our annual developer events&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Getting device info from MSI Android devices</title>
+      <link>http://pietromaggi.com/2014/09/02/getting-device-info-from-msi-android-devices/</link>
+      <pubDate>Tue, 02 Sep 2014 11:56:38 +0200</pubDate>
+      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <guid>http://pietromaggi.com/2014/09/02/getting-device-info-from-msi-android-devices/</guid>
+      <description>
+
+&lt;h1 id=&#34;the-good-old-ways:6ff729e61e92f40fe38fa28f7813d3d2&#34;&gt;The good old ways!&lt;/h1&gt;
+
+&lt;p&gt;On Symbol/MSI Windows Mobile devices, we where providing some APIs in the EMDK to get additional information.
+Looking into the Resource Coordinator is possible to find APIs like:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;RCM_GetESN() - retrieves the device electronic serial number&lt;/li&gt;
+&lt;li&gt;RCM_GetUniqueUnitId() - retrieves the unique unit identification number&lt;/li&gt;
+&lt;li&gt;RCM_GetVersion() - retrieves version information&lt;/li&gt;
+&lt;li&gt;etc&amp;hellip;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&amp;hellip;and we don&amp;rsquo;t have anything like this in the Android EMDK. WHY?&lt;/p&gt;
+
+&lt;p&gt;Simply because the functionality is already included in the standard Android SDK.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s see how to get this is data on an MSI device with the Android OS.&lt;/p&gt;
+
+&lt;h1 id=&#34;the-fabulous-new-way:6ff729e61e92f40fe38fa28f7813d3d2&#34;&gt;The fabulous new way!&lt;/h1&gt;
+
+&lt;p&gt;You can find the completed project in &lt;a href=&#34;https://github.com/pfmaggi/GetDeviceInfo&#34;&gt;this repository&lt;/a&gt; on my github account, I&amp;rsquo;m using Windows 7 and Eclipse+ADT, but you can follow these steps with Android Studio quite nicely.&lt;/p&gt;
+
+&lt;h1 id=&#34;create-a-new-project:6ff729e61e92f40fe38fa28f7813d3d2&#34;&gt;Create a new Project&lt;/h1&gt;
+
+&lt;p&gt;Create a new Android project, nothing fancy here, it&amp;rsquo;s just a standard app with a single Blank Activity.
+You can follow these images as a guideline. Your interface may vary as Google updates the Android wizard quite often.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/samples/device-info/create_project_01.jpg&#34; alt=&#34;Create Project - step 1&#34; title=&#34;Android New Project Wizard - page 1&#34; /&gt;
+ &lt;img src=&#34;http://pietromaggi.com/images/samples/device-info/create_project_02.jpg&#34; alt=&#34;Create Project - step 2&#34; title=&#34;Android New Project Wizard - page 2&#34; /&gt;
+ &lt;img src=&#34;http://pietromaggi.com/images/samples/device-info/create_project_03.jpg&#34; alt=&#34;Create Project - step 3&#34; title=&#34;Android New Project Wizard - page 3&#34; /&gt;
+ &lt;img src=&#34;http://pietromaggi.com/images/samples/device-info/create_project_04.jpg&#34; alt=&#34;Create Project - step 4&#34; title=&#34;Android New Project Wizard - page 4&#34; /&gt;
+ &lt;img src=&#34;http://pietromaggi.com/images/samples/device-info/create_project_05.jpg&#34; alt=&#34;Create Project - step 5&#34; title=&#34;Android New Project Wizard - page 5&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Then we can do some housekeeping deleting the unnecessary main.xml menu resource:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/samples/device-info/delete_menu.jpg&#34; alt=&#34;Delete Menu resource&#34; title=&#34;Delete unnecessary menu resource&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We can then start the two main changes:
+  - Setting up the Activity Layout
+  - Updating the Activity onCreate method to retrieve the device data&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/samples/device-info/activity_layout.jpg&#34; alt=&#34;Main Activity Layout&#34; title=&#34;Main Activity Layout&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s the code:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
+
+&amp;lt;LinearLayout xmlns:android=&amp;quot;http://schemas.android.com/apk/res/android&amp;quot;
+              android:layout_width=&amp;quot;match_parent&amp;quot;
+              android:layout_height=&amp;quot;match_parent&amp;quot;
+              android:orientation=&amp;quot;vertical&amp;quot;
+    &amp;gt;
+    &amp;lt;TextView
+        android:layout_width=&amp;quot;match_parent&amp;quot;
+        android:layout_height=&amp;quot;wrap_content&amp;quot;
+        android:text=&amp;quot;@string/device_name&amp;quot;
+        /&amp;gt;
+    &amp;lt;TextView
+        android:id=&amp;quot;@+id/device_type&amp;quot;
+        android:layout_width=&amp;quot;match_parent&amp;quot;
+        android:layout_height=&amp;quot;wrap_content&amp;quot;
+        android:layout_marginLeft=&amp;quot;16dp&amp;quot;
+        android:layout_marginRight=&amp;quot;16dp&amp;quot;
+        android:textSize=&amp;quot;18sp&amp;quot;
+        style=&amp;quot;?android:listSeparatorTextViewStyle&amp;quot;
+        /&amp;gt;
+    &amp;lt;TextView
+        android:layout_width=&amp;quot;match_parent&amp;quot;
+        android:layout_height=&amp;quot;wrap_content&amp;quot;
+        android:text=&amp;quot;@string/electronic_serial_number&amp;quot;
+        /&amp;gt;
+    &amp;lt;TextView
+        android:id=&amp;quot;@+id/device_esn&amp;quot;
+        android:layout_width=&amp;quot;match_parent&amp;quot;
+        android:layout_height=&amp;quot;wrap_content&amp;quot;
+        android:layout_marginLeft=&amp;quot;16dp&amp;quot;
+        android:layout_marginRight=&amp;quot;16dp&amp;quot;
+        android:textSize=&amp;quot;18sp&amp;quot;
+        style=&amp;quot;?android:listSeparatorTextViewStyle&amp;quot;
+        /&amp;gt;
+    &amp;lt;TextView
+        android:layout_width=&amp;quot;match_parent&amp;quot;
+        android:layout_height=&amp;quot;wrap_content&amp;quot;
+        android:text=&amp;quot;@string/build_number&amp;quot;
+        /&amp;gt;
+    &amp;lt;TextView
+        android:id=&amp;quot;@+id/build_number&amp;quot;
+        android:layout_width=&amp;quot;match_parent&amp;quot;
+        android:layout_height=&amp;quot;wrap_content&amp;quot;
+        android:layout_marginLeft=&amp;quot;16dp&amp;quot;
+        android:layout_marginRight=&amp;quot;16dp&amp;quot;
+        android:textSize=&amp;quot;18sp&amp;quot;
+        style=&amp;quot;?android:listSeparatorTextViewStyle&amp;quot;
+        /&amp;gt;
+&amp;lt;/LinearLayout&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This together with the string.xml containing the referenced string:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
+&amp;lt;resources&amp;gt;
+
+    &amp;lt;string name=&amp;quot;app_name&amp;quot;&amp;gt;Get Device Info&amp;lt;/string&amp;gt;
+    &amp;lt;string name=&amp;quot;electronic_serial_number&amp;quot;&amp;gt;Device ESN:&amp;lt;/string&amp;gt;
+    &amp;lt;string name=&amp;quot;build_number&amp;quot;&amp;gt;Build Number:&amp;lt;/string&amp;gt;
+    &amp;lt;string name=&amp;quot;device_name&amp;quot;&amp;gt;Device:&amp;lt;/string&amp;gt;
+
+&amp;lt;/resources&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then the simple Activity java code to collect the information is:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;package com.pietromaggi.sample.getdeviceinfo;
+
+import android.os.Build;
+import android.support.v7.app.ActionBarActivity;
+import android.os.Bundle;
+import android.widget.TextView;
+
+
+public class MainActivity extends ActionBarActivity {
+    TextView DeviceNameTextView;
+    TextView ESNTextView;
+    TextView BuildNumberTextView;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        DeviceNameTextView = (TextView)findViewById(R.id.device_type);
+        DeviceNameTextView.setText(Build.DEVICE);
+
+        ESNTextView = (TextView)findViewById(R.id.device_esn);
+        ESNTextView.setText(Build.SERIAL);
+
+        BuildNumberTextView = (TextView)findViewById(R.id.build_number);
+        BuildNumberTextView.setText(Build.ID);
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;where-s-the-tricks:6ff729e61e92f40fe38fa28f7813d3d2&#34;&gt;Where&amp;rsquo;s the tricks?&lt;/h1&gt;
+
+&lt;p&gt;There&amp;rsquo;s really no trick, Android SDK provide this information, and more using these constants:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://developer.android.com/reference/android/os/Build.html#DEVICE&#34;&gt;Build.DEVICE = The name of the industrial design&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://developer.android.com/reference/android/os/Build.html#SERIAL&#34;&gt;Build.SERIAL = A hardware serial number, if available&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://developer.android.com/reference/android/os/Build.html#ID&#34;&gt;Build.ID = changelist number&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Obviously, it&amp;rsquo;s the OEM building the device that put together the plumbing to link the correct information. Your mileage may vary on different devices.&lt;/p&gt;
+
+&lt;p&gt;Running this application on an ET1 with Jelly Bean you get:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/samples/device-info/screen_ET1.png&#34; alt=&#34;ET1 Screenshot&#34; title=&#34;ET1 Screenshot&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Running this application on an MC40 with Jelly Bean you get:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/samples/device-info/screen_MC40.png&#34; alt=&#34;MC40 Screenshot&#34; title=&#34;MC40 Screenshot&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;While the TC55 is always a bit different :-)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/samples/device-info/screen_TC55JB.png&#34; alt=&#34;TC55 Screenshot&#34; title=&#34;TC55 Screenshot&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Hope you may find this useful. Send me an email if you&amp;rsquo;d like to see any particular topic on this blog.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Rhodes 5.0.2 and Visual Studio 2008 Localized edition</title>
+      <link>http://pietromaggi.com/2014/08/22/rhodes-5.0.2-and-visual-studio-2008-localized-edition/</link>
+      <pubDate>Fri, 22 Aug 2014 13:01:48 +0200</pubDate>
+      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <guid>http://pietromaggi.com/2014/08/22/rhodes-5.0.2-and-visual-studio-2008-localized-edition/</guid>
+      <description>&lt;p&gt;Oh the joy of a new RhoMobile version!&lt;/p&gt;
+
+&lt;p&gt;Creating new virtual machines and finally deciding that is time to leave the old trusty Windows XP and jump on the new Windows 7 with 63+1 bits. Oh man! what a pleasant use of time :-)&lt;/p&gt;
+
+&lt;p&gt;On top of this I wanted to spin the setup a bit and decided to use a localized version of Visual Studio 2008&amp;hellip; what can go wrong with it?&lt;/p&gt;
+
+&lt;p&gt;Well&amp;hellip; you may encounter a fancy Microsoft &amp;laquo;feature&amp;raquo; with a message that more or less reads:
+&lt;a href=&#34;http://social.msdn.microsoft.com/Forums/vstudio/en-US/14dc118f-5adc-4a90-9c07-fde701f6b36c/vcbld0001-vcprojectenginedll-could-not-be-loaded?forum=vcgeneral&#34;&gt;&amp;laquo;VCProjectEngine.dll&amp;raquo; Could not be loaded&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;This obviously, in your language of choice.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;The Solution?&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;From the same thread, copy the content of the localized package for vcbuild in the main folder; in my case:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;From: C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\vcpackages\1040&lt;/li&gt;
+&lt;li&gt;To: C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\vcpackages&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I just made a copy of the original content before moving the files (you never know).&lt;/p&gt;
+
+&lt;p&gt;Enjoy your localized Visual Studio!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Configuring RhoMobile Suite v5.0 on a clean OS X Mavericks machine</title>
+      <link>http://pietromaggi.com/2014/08/11/configuring-rhomobile-suite-v5.0-on-a-clean-os-x-mavericks-machine/</link>
+      <pubDate>Mon, 11 Aug 2014 09:57:10 +0200</pubDate>
+      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <guid>http://pietromaggi.com/2014/08/11/configuring-rhomobile-suite-v5.0-on-a-clean-os-x-mavericks-machine/</guid>
+      <description>
+
+&lt;h1 id=&#34;rhomobile-suite-v5-0&#34;&gt;RhoMobile Suite v5.0&lt;/h1&gt;
+
+&lt;p&gt;The new main release of Rhodes, RhoElements and RhoConnect had just been released a couple of weeks ago &lt;a href=&#34;http://newsroom.motorolasolutions.com/Feature/See-RhoMobile-in-Action-at-OSCON-2014-4a61.aspx&#34;&gt;during OSCON&lt;/a&gt;. It&amp;rsquo;s now time to install it and start building some mobile apps!&lt;/p&gt;
+
+&lt;p&gt;In this post I&amp;rsquo;d like to help you installing RMSv5.0 on a new OS X Mavericks machine and install everything that is needed to build iOS and Android applications, the only pre-requisite is to have a valid OS X Mavericks license installed on a Mac or inside a virtual machine&amp;hellip; on a Mac :-).&lt;/p&gt;
+
+&lt;p&gt;These are the steps we will follow:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#OSX_Update&#34;&gt;Update OS X to the latest version&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#XCode&#34;&gt;Install XCode&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#Terminal&#34;&gt;Familiarize with the Terminal&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#JDK7&#34;&gt;Install Java JDK 7&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#HomeBrew&#34;&gt;Install HomeBrew&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#RVM&#34;&gt;Install RVM and Ruby 1.9.3&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#utilities&#34;&gt;Install git, node and other little utilities&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#Android&#34;&gt;Install Android SDK and NDK&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#RMS5&#34;&gt;Install RMS v5.0&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#Account&#34;&gt;Create a RhoMobile.com account&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#Launching&#34;&gt;Launching RhoStudio&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#Setup&#34;&gt;Configure RhoStudio&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#Build&#34;&gt;Build a sample app&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;a-name-osx-update-a-update-os-x-to-the-latest-version&#34;&gt;&lt;a name=&#34;OSX_Update&#34;&gt;&lt;/a&gt;Update OS X to the latest version&lt;/h3&gt;
+
+&lt;p&gt;The first step is to check that the version of OS X on your machine is up-to-date, a quick stop in the Mac AppStore &lt;em&gt;Updates&lt;/em&gt; tab can give you an idea of what is available.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/OSX_RMS5/updates.png&#34; alt=&#34;One Update waiting to be installed&#34; title=&#34;One Update Waiting to be installed&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;a-name-xcode-a-install-xcode&#34;&gt;&lt;a name=&#34;XCode&#34;&gt;&lt;/a&gt;Install XCode&lt;/h3&gt;
+
+&lt;p&gt;The next step is to install the latest XCode on you OS. In this guide I&amp;rsquo;m using XCode 5 as version 6 is still in beta, and we like stable releases!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/OSX_RMS5/XCode5.png&#34; alt=&#34;XCode 5 available in the Mac AppStore&#34; title=&#34;XCode 5 available in the Mac AppStore&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Once you&amp;rsquo;ve installed XCode, you need to launch it to accept Apple EULA.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/OSX_RMS5/XCode5_EULA.png&#34; alt=&#34;XCode 5 EULA&#34; title=&#34;XCode 5 EULA&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;a-name-terminal-a-familiarize-with-the-terminal&#34;&gt;&lt;a name=&#34;Terminal&#34;&gt;&lt;/a&gt;Familiarize with the terminal&lt;/h3&gt;
+
+&lt;p&gt;During the initial RMS setup some of the steps require that you use the Terminal, also known as &lt;a href=&#34;http://en.wikipedia.org/wiki/Command-line_interface&#34;&gt;command prompt or console&lt;/a&gt;.
+The Terminal is already available on OS X, and you can find it inside the Utility folder in your Applications.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/OSX_RMS5/LaunchTerminal.png&#34; alt=&#34;Launching Terminal&#34; title=&#34;Launching Terminal&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Once you&amp;rsquo;ve launched the Terminal could be &lt;strong&gt;very&lt;/strong&gt; useful to keep it into the dock, as we will need it for some of the steps to complete RMS setup.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/OSX_RMS5/KeepInDock.png&#34; alt=&#34;Keep Terminal in the dock&#34; title=&#34;Keep Terminal in the dock&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;a-name-jdk7-a-install-java-jdk7&#34;&gt;&lt;a name=&#34;JDK7&#34;&gt;&lt;/a&gt;Install Java JDK7&lt;/h3&gt;
+
+&lt;p&gt;OS X Mavericks comes without any Java environment installed, &amp;laquo;the easiest way&amp;raquo; to install it, is to open the terminal and type:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;java -version
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This will pop up a windows asking if you want to install Java, the answer is a resounding YES!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/OSX_RMS5/NoJava.png&#34; alt=&#34;No Java environment&#34; title=&#34;No Java Environment&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Selecting &lt;strong&gt;More Info&amp;hellip;&lt;/strong&gt; will open the Safari browser on the Oracle website, you can select the most up-to-date JDK v7 for OS X to download&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/OSX_RMS5/JavaDownload.png&#34; alt=&#34;Download Java&#34; title=&#34;Download Java&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;and Install&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/OSX_RMS5/JavaInstall.png&#34; alt=&#34;Install Java&#34; title=&#34;Install Java&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;When the install is complete you can test that the java environment is now available:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/OSX_RMS5/JavaIsInstalled.png&#34; alt=&#34;Java is installed&#34; title=&#34;Java is installed&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;a-name-homebrew-a-install-homebrew&#34;&gt;&lt;a name=&#34;HomeBrew&#34;&gt;&lt;/a&gt;Install HomeBrew&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://brew.sh/&#34;&gt;HomeBrew&lt;/a&gt; is an open source package manager, working from the command line, that help setting up open source application on OS X.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;ruby -e &amp;quot;$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Paste that at the terminal prompt, execute it and follow the on-screen instruction accepting all the defaults.
+Next step is to check that HomeBrew is setup correctly:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;brew doctor
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If everything is setup correctly you get the message: &lt;em&gt;Your system is ready to brew&lt;/em&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/OSX_RMS5/ReadyToBrew.png&#34; alt=&#34;Your System is ready to Brew&#34; title=&#34;Your System is ready to Brew&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;If you get a different message with some missing or misconfigured software you can follow the on-screen-instruction or you can find further information on the &lt;a href=&#34;https://github.com/Homebrew/homebrew/wiki&#34;&gt;HomeBrew Wiki&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;a-name-rvm-a-install-rvm-and-ruby-1-9-3&#34;&gt;&lt;a name=&#34;RVM&#34;&gt;&lt;/a&gt;Install RVM and Ruby 1.9.3&lt;/h3&gt;
+
+&lt;p&gt;OS X Mavericks comes with Ruby v2.0 installed by default, however RMSv5 requires Ruby v1.9.3. Overall working with Ruby can require to switch ruby environment often and to release this pain &lt;a href=&#34;http://pietromaggi.com/blog/ruby-version-manager-aka-rvm-the-swiss-army-knife-of-ruby-versions/&#34;&gt;some utilities has been created&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;In this case we&amp;rsquo;re going to install RVM and use it to install Ruby v1.9.3.
+First we need to install some prerequisite using HomeBrew:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;brew tap homebrew/versions
+brew install gcc46
+brew cleanup
+brew doctor
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;then install RVM itself together with ruby 1.9.3:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;\curl -sSL https://get.rvm.io | bash -s stable --ruby=1.9.3
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then you need to close the terminal and relaunch it to ave the &lt;strong&gt;RVM&lt;/strong&gt; environment available in the command line.&lt;/p&gt;
+
+&lt;p&gt;To check that everything is setup correctly you can do:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;rvm list
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;and you should get the reply:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;rhomobile$ rvm list
+
+rvm rubies
+
+=* ruby-1.9.3-p547 [ x86_64 ]
+
+# =&amp;gt; - current
+# =* - current &amp;amp;&amp;amp; default
+#  * - default
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In this case Ruby v1.9.3 is the current and default ruby environment. If this is not the case, you can set it up as the default ruby using the command:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;rvm alias create default 1.9.3
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To get more information on RVM you can check the documentation available on &lt;a href=&#34;https://rvm.io/&#34;&gt;its website&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;a-name-utilities-a-install-git-node-and-other-little-utilities&#34;&gt;&lt;a name=&#34;utilities&#34;&gt;&lt;/a&gt;Install git, node and other little utilities&lt;/h3&gt;
+
+&lt;p&gt;RMS uses git &lt;em&gt;a lot&lt;/em&gt;, to sync projects with RhoHub, and is overall a nice tool. It&amp;rsquo;s already installed on Mavericks, but is version 1.8.5.2, better to keep an up-to-date version using HomeBrew:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;brew install git
+git --version
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This will install git v2.0.4 (at the moment of writing this).&lt;/p&gt;
+
+&lt;p&gt;If asking to the system for the installed git version still report 1.8.5.2:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;git --version
+git version 1.8.5.2 (Apple Git-48)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then you need to modify the PATH environment as suggested using the command:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;rhomobile$ brew doctor
+Please note that these warnings are just used to help the Homebrew maintainers
+with debugging if you file an issue. If everything you use Homebrew for is
+working fine: please don&#39;t worry and just ignore them. Thanks!
+
+Warning: /usr/bin occurs before /usr/local/bin
+This means that system-provided programs will be used instead of those
+provided by Homebrew. The following tools exist at both paths:
+
+    git
+    git-cvsserver
+    git-receive-pack
+    git-shell
+    git-upload-archive
+    git-upload-pack
+
+Consider setting your PATH so that /usr/local/bin
+occurs before /usr/bin. Here is a one-liner:
+    echo export PATH=&#39;/usr/local/bin:$PATH&#39; &amp;gt;&amp;gt; ~/.bash_profile
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;So, using the command:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;echo export PATH=&#39;/usr/local/bin:$PATH&#39; &amp;gt;&amp;gt; ~/.bash_profile
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Solve the issue (after closing and restarting the &lt;strong&gt;Terminal&lt;/strong&gt;).&lt;/p&gt;
+
+&lt;p&gt;The second application that we need to install is NodeJS, this is needed by RhoConnect Push and to support RhoConnect Source Adapters in JavaScript. Again, we use HomeBrew for this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;brew install node
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The Latest application we need to support RhoConnect is &lt;a href=&#34;http://redis.io&#34;&gt;Redis&lt;/a&gt;, again we can use HomeBrew to install it:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;brew install redis
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then we can install at least one command line utility that can be very handy looking for &amp;laquo;stuffs&amp;raquo; inside source codes: &lt;em&gt;The Silver Searcher&lt;/em&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;brew install the_silver_searcher
+man ag
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;As always, using &lt;strong&gt;man&lt;/strong&gt; in the command line will open the documentation for the command, in the case of the silver searcher, the command is &lt;strong&gt;ag&lt;/strong&gt; (like the Silver symbol).&lt;/p&gt;
+
+&lt;h3 id=&#34;a-name-android-a-install-android-sdk-and-ndk&#34;&gt;&lt;a name=&#34;Android&#34;&gt;&lt;/a&gt;Install Android SDK and NDK&lt;/h3&gt;
+
+&lt;p&gt;Next step is to install what is needed to build RhoMobile Android Applications. You need to remember that to compile RhoMobile native applications you need to have the target OS tool chain. For Android this means the SDK and the NDK.&lt;/p&gt;
+
+&lt;p&gt;Navigate to the &lt;a href=&#34;http://developer.android.com/sdk/index.html&#34;&gt;Android developer tools page&lt;/a&gt; and download the stand-alone Android SDK tools for Mac:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/OSX_RMS5/AndroidSDK.png&#34; alt=&#34;Android SDK Tools for Mac&#34; title=&#34;Android SDK Tools for Mac&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;When the download is complete you can install the SDK in the &lt;strong&gt;Development&lt;/strong&gt; folder, again from the command line:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;cd ~/Downloads/
+mkdir ~/Development
+unzip android-sdk_r23.0.2-macosx.zip -d ~/Development/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This will create &lt;strong&gt;android-sdk-macosx&lt;/strong&gt; under your home folder. To add the sdk to your PATH, use the command:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;echo export PATH=&#39;$PATH:~/Development/android-sdk-macosx/tools&#39; &amp;gt;&amp;gt; ~/.bash_profile
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;closing and relaunching the Terminal will make this new PATH available. You can now launch the Android SDK manager using the command:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;android
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And install the latest platform tools and the Platform SDK (not shown in the image is the Android Support Library that is always nice to have installed):&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/OSX_RMS5/UpdateAndroidSDK.png&#34; alt=&#34;Update Android SDK&#34; title=&#34;Update Android SDK&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Once you&amp;rsquo;ve installed these packages, you can close the Android SDK Manager and add the now available platform tools folder to your PATH:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;echo export PATH=&#39;$PATH:~/Development/android-sdk-macosx/platform-tools&#39; &amp;gt;&amp;gt; ~/.bash_profile
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;closing and relaunching the Terminal will make this new PATH available. You can now launch the Android Debug Bridge using the command:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;adb devices
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If you plan to develop using Motorola Solutions (or Symbol) Android devices, you need to modify an Android configuration file:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;rhomobile$ android update adb
+adb has been updated. You must restart adb with the following commands
+	adb kill-server
+	adb start-server
+echo -e &amp;quot;0x05e0\n0x0414&amp;quot; &amp;gt;&amp;gt; ~/.android/adb_usb.ini
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now attaching your device you can see it with:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;adb kill-server
+adb devices
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Next step is to install the Android NDK, containing the C/C++ compiler for Android, &lt;a href=&#34;http://developer.android.com/tools/sdk/ndk/index.html&#34;&gt;download and install the Mac OS 64-bit release&lt;/a&gt;, following Google &lt;a href=&#34;http://developer.android.com/tools/sdk/ndk/index.html#Installing&#34;&gt;instructions&lt;/a&gt;. Again, from the command line:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;cd ~/Development/
+tar xzvf ~/Downloads/android-ndk32-r10-darwin-x86_64.tar.bz2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;a-name-rms5-a-install-rms-v5-0&#34;&gt;&lt;a name=&#34;RMS5&#34;&gt;&lt;/a&gt;Install RMS v5.0&lt;/h3&gt;
+
+&lt;p&gt;For this step we can take the info from the &lt;a href=&#34;http://docs.rhomobile.com/en/5.0.0/guide/rhomobile-install#mac-os&#34;&gt;RhoMobile official documentation&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;first of all we need to download the RMS5 image file from [RhoMobile website](). Opening the image will show it&amp;rsquo;s content, first step is to copy the &lt;strong&gt;Motorola RhoStudio&lt;/strong&gt; in the application folder:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/OSX_RMS5/RMS5_Package.png&#34; alt=&#34;RMS5 image file content&#34; title=&#34;RMS5 Image file content&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Then we&amp;rsquo;ve some additional steps to do from the Terminal&amp;hellip; yes, again from the command line :-)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;NOTE&lt;/strong&gt; I previously used &lt;strong&gt;sudo&lt;/strong&gt; at this step and this produce a series of side effects. Just be sure to run the &amp;laquo;Install gems&amp;raquo; script with your user!&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;cd /Volumes/Motorola\ RhoMobile\ Suite\ Installer/
+./Install\ gems 
+
+Select Ruby version to install gems:
+1) ruby-1.9.3-p547
+2) ruby-1.9.3-p547@global
+#? 2
+
+Using /Users/rhomobile/.rvm/gems/ruby-1.9.3-p547 with gemset global
+ruby 1.9.3p547 (2014-05-14 revision 45962) [x86_64-darwin13.3.0]
+
+Do you want to install gems with &#39;sudo&#39; command prefix? [yN]  N
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;When the gems setup is complete, you can install the support for RhoConnect Push server:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;cd /Volumes/Motorola\ RhoMobile\ Suite\ Installer/
+sudo ./Install\ rhoconnect-push
+Password:
+
+Do you want to install rhoconnect-push with &#39;sudo&#39; command prefix? [Yn]  Y
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;a-name-account-a-create-a-rhomobile-com-account&#34;&gt;&lt;a name=&#34;Account&#34;&gt;&lt;/a&gt;Create a RhoMobile.com account&lt;/h3&gt;
+
+&lt;p&gt;Version 5 of the RhoMobile Suite has a &lt;a href=&#34;http://rhomobile.com/rhopricing.html&#34;&gt;new licensing&lt;/a&gt;, that is a yearly subscription available in different levels, starting from a free one, up to an Enterprise grade.&lt;/p&gt;
+
+&lt;p&gt;Whatever the level you choose, you need to create an account on the RhoMobile.com website to use the Suite, both from RhoStudio and from the command line tools.&lt;/p&gt;
+
+&lt;h3 id=&#34;a-name-launching-a-launching-rhostudio&#34;&gt;&lt;a name=&#34;Launching&#34;&gt;&lt;/a&gt;Launching RhoStudio&lt;/h3&gt;
+
+&lt;p&gt;RhoStudio and the whole RhoMobile Suite is now installed on your Mac, but you still need some steps to finish the configuration and start doing some coding. First of all launch RhoStudio from the Application folder (launch the 64-bit version) and select the second ruby environment for it.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/OSX_RMS5/LaunchRhoStudio.png&#34; alt=&#34;Launch RhoStudio&#34; title=&#34;Launch RhoStudio&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/OSX_RMS5/SelectRuby.png&#34; alt=&#34;Select Ruby Environment&#34; title=&#34;Select Ruby Environment&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;At this moment you will get a request to install a J6SE environment, go ahead and install it (the JDK we installed is for the Android SDK, this is used to run Eclipse)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/OSX_RMS5/Java6SE.png&#34; alt=&#34;Java 6 Runtime&#34; title=&#34;Java 6 Runtime&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Finally we&amp;rsquo;ve RhoStudio running, we need to configure it!&lt;/p&gt;
+
+&lt;p&gt;BTW: if the first launch ends with and error in RhoStudio console, simply close it and relaunch RhoStudio again, you end up with a login request, simply use the RhoMobile account you created at the previous step.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/OSX_RMS5/FirstRhoStudio.png&#34; alt=&#34;RhoStudio first launch&#34; title=&#34;First RhoStudio Launch&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;a-name-setup-a-rhostudio-setup&#34;&gt;&lt;a name=&#34;Setup&#34;&gt;&lt;/a&gt;RhoStudio Setup&lt;/h3&gt;
+
+&lt;p&gt;There are some parameters to setup in RhoStudio before being able to build any project. Opening the settings windows using &lt;strong&gt;Command-,&lt;/strong&gt; you can setup:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;JDK Path = /Library/Java/JavaVirtualMachines/jdk1.7.0_67.jdk&lt;/li&gt;
+&lt;li&gt;Android SDK Path = &lt;your user folder&gt;/Development/android-sdk-macosx&lt;/li&gt;
+&lt;li&gt;Android NDK Path = &lt;your user folder&gt;/Development/android-ndk-r10&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;as shown in these images:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/OSX_RMS5/RhoStudioParam_1.png&#34; alt=&#34;JDK Path&#34; title=&#34;JDK Path&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/OSX_RMS5/RhoStudioParam_2.png&#34; alt=&#34;Android SDK and NDK path&#34; title=&#34;Android SDK and NDK path&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Another (easier?) way to configure Rhodes is doing it from the command line:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;rhodes-setup
+We will ask you a few questions below about your dev environment.
+
+JDK path (required) (/Library/Java/Home):
+Android SDK path (blank to skip) (): /Users/rhomobile/Development/android-sdk-macosx/
+Android NDK path (blank to skip) (/Users/rhomobile/Development/android-ndk-r10):
+Windows Mobile 6 SDK CabWiz (blank to skip) ():
+BlackBerry JDE 4.6 (blank to skip) ():
+BlackBerry JDE 4.6 MDS (blank to skip) ():
+BlackBerry JDE 4.2 (blank to skip) ():
+BlackBerry JDE 4.2 MDS (blank to skip) ():
+
+If you want to build with other BlackBerry SDK versions edit: /Users/rhomobile/.rvm/gems/ruby-1.9.3-p547@global/gems/rhodes-5.0.2/rhobuild.yml
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;a-name-build-a-build-your-first-rhomobile-application&#34;&gt;&lt;a name=&#34;Build&#34;&gt;&lt;/a&gt;Build your first RhoMobile application&lt;/h3&gt;
+
+&lt;p&gt;I&amp;rsquo;ll cut this short at this moment, you should have everything setup at this moment and you should be able to follow the instructions on &lt;a href=&#34;http://docs.rhomobile.com/en/5.0.0/guide/creating_a_project&#34;&gt;RhoMobile website&lt;/a&gt;. You can reach out to me if you&amp;rsquo;ve any question and I plan to add another post with some &amp;laquo;post-setup&amp;raquo; optimization in the near future.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Little command line tricks</title>
+      <link>http://pietromaggi.com/2014/01/10/little-command-line-tricks/</link>
+      <pubDate>Fri, 10 Jan 2014 19:37:45 +0100</pubDate>
+      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <guid>http://pietromaggi.com/2014/01/10/little-command-line-tricks/</guid>
+      <description>
+
+&lt;p&gt;This is a different blog, more a remainder for me than anything else. Hope that someone else can find these useful&amp;hellip; they&amp;rsquo;re for me!&lt;/p&gt;
+
+&lt;h3 id=&#34;recover-a-failed-download-with-curl:6a6689e238fd9f5933243058cb353f4c&#34;&gt;Recover a failed download with curl:&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;curl -C - -o partially_downloaded_file &#39;www.example.com/path/to/the/file&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;burn-a-playable-dvd-from-a-video-ts-folder-http-hints-macworld-com-article-php-story-20070612161317338:6a6689e238fd9f5933243058cb353f4c&#34;&gt;&lt;a href=&#34;http://hints.macworld.com/article.php?story=20070612161317338&#34;&gt;Burn a playable DVD from a VIDEO_TS folder&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;After searching the forums and trying various things, I still couldn&amp;rsquo;t find a quick, reliable, free method of burning a VIDEO_TS folder to a pure UDF DVD,
+so that it would play in regular DVD players, as well trigger DVD Player to start up automatically. Anyway, as often is the case, Terminal had the answers.
+Just type in this command and change the paths to suit:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;hdiutil makehybrid -udf -udf-volume-name DVD_NAME -o MY_DVD.iso /path/to/VIDEO_TS/parent/folder
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Make sure that /path/to/VIDEO_TS/parent/folder is the path to the folder containing the VIDEO_TS folder, not the VIDEO_TS folder itself.
+Once the .iso file has been created, drag this to Disk Utility and hit the Burn button.&lt;/p&gt;
+
+&lt;h3 id=&#34;generate-a-pdf-from-a-markdown-file:6a6689e238fd9f5933243058cb353f4c&#34;&gt;Generate a pdf from a markdown file&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;markdown &amp;lt;File.md&amp;gt; | htmldoc --cont --headfootsize 8.0 --linkcolor blue --linkstyle plain --format pdf14 - &amp;gt; FileFormat.pdf
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;android-related-commands:6a6689e238fd9f5933243058cb353f4c&#34;&gt;Android related Commands&lt;/h1&gt;
+
+&lt;h3 id=&#34;taking-screenshot-of-an-android-device:6a6689e238fd9f5933243058cb353f4c&#34;&gt;Taking screenshot of an Android device&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;adb shell screencap -p | perl -pe &#39;s/\x0D\x0A/\x0A/g&#39; &amp;gt; screen.png
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;launch-browser-and-navigate-to-url-on-android-devices:6a6689e238fd9f5933243058cb353f4c&#34;&gt;Launch browser and navigate to URL on android devices&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;adb shell am start -a android.intent.action.VIEW -d URL
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Diving into Android source code</title>
+      <link>http://pietromaggi.com/2014/01/02/diving-into-android-source-code/</link>
+      <pubDate>Thu, 02 Jan 2014 14:34:27 +0100</pubDate>
+      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <guid>http://pietromaggi.com/2014/01/02/diving-into-android-source-code/</guid>
+      <description>
+
+&lt;h2 id=&#34;why-dive-into-android-code&#34;&gt;Why dive into Android code?&lt;/h2&gt;
+
+&lt;p&gt;When you&amp;rsquo;ve to write applications for Android, you&amp;rsquo;re targeting a giant moving API surface, sometimes you can be surprised of some different behavior in different Android versions or with an API call that is not well documented, so having the option to delve into Android Source Code is a great opportunity.&lt;/p&gt;
+
+&lt;p&gt;A lot of things can be written on how to do this, there&amp;rsquo;s some documentation available on &lt;a href=&#34;http://source.android.com/source/index.html&#34;&gt;AOSP website&lt;/a&gt;, however I think that the best starting point is a video tutorial by NewCircle&amp;rsquo;s Instructor Dave Smith on this very topic: &lt;a href=&#34;https://www.youtube.com/watch?v=NsqFOSzoYE8&#34;&gt;Dive into Android Source Code&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;So, take your time to setup your own copy of the Android source code and, next time you&amp;rsquo;re asking yourself &amp;laquo;What&amp;rsquo;s going on when you call an API, you can check the source code!&amp;raquo;&lt;/p&gt;
+
+&lt;h2 id=&#34;on-a-similar-topic-dalvik-vm&#34;&gt;On a similar topic: Dalvik VM&lt;/h2&gt;
+
+&lt;p&gt;Dan Bernstein has presented at Google I/O 2008 a &lt;a href=&#34;https://www.youtube.com/watch?v=ptjedOZEXPM&#34;&gt;talk about the internals of Dalvik VM&lt;/a&gt;. If you&amp;rsquo;re interested in this piece of the Android Source Code, this is a good starting point, even if nowadays ART has taken the place of Dalvik. The basic concept are still the same!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>2014 New Year resolutions</title>
+      <link>http://pietromaggi.com/2014/01/01/2014-new-year-resolutions/</link>
+      <pubDate>Wed, 01 Jan 2014 17:41:32 +0100</pubDate>
+      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <guid>http://pietromaggi.com/2014/01/01/2014-new-year-resolutions/</guid>
+      <description>
+
+&lt;h2 id=&#34;blog-a-bit-more&#34;&gt;Blog a bit more&lt;/h2&gt;
+
+&lt;p&gt;That&amp;rsquo;s been one of my goal for a long time, and something that I always suggest to people to increase their &lt;em&gt;&lt;a href=&#34;http://www.codusoperandi.com/posts/increasing-your-luck-surface-area&#34;&gt;&amp;laquo;Luck Surface Area&amp;raquo;&lt;/a&gt;&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;In my case I can add an additional goal: keep track of what I do, tricks that I find and document procedure, fixes and workarounds.
+That&amp;rsquo;s always a bit of a pain point for me: I manage to do something and then in six months (or six hours) I forgot how I&amp;rsquo;ve done it and I need to start from scratch&amp;hellip; &lt;strong&gt;Never More&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;content-in-markdown&#34;&gt;Content in Markdown&lt;/h3&gt;
+
+&lt;p&gt;That&amp;rsquo;s one of the key technical decisions that I already have clear in mind, the content I&amp;rsquo;m going to produce will be in pure text, using &lt;a href=&#34;http://daringfireball.net/projects/markdown/&#34;&gt;Markdown&lt;/a&gt; formatting.&lt;/p&gt;
+
+&lt;h3 id=&#34;choosing-a-blog-engine-and-an-hosting-platform&#34;&gt;Choosing a blog engine and an hosting platform&lt;/h3&gt;
+
+&lt;p&gt;I don&amp;rsquo;t want to spend a lot of time setting up a system at this moment, I prefer to use my time for other things!
+Github offer a nice way to have a &lt;a href=&#34;https://pages.github.com/&#34;&gt;git repository used as a blog source&lt;/a&gt;. It&amp;rsquo;s a no-brainer for me!&lt;/p&gt;
+
+&lt;p&gt;Static site generators like &lt;a href=&#34;http://jekyllrb.com/&#34;&gt;Jekill&lt;/a&gt; are another &lt;em&gt;no brainer&lt;/em&gt;. In my case I prefer to have some helps so I&amp;rsquo;m going to use &lt;a href=&#34;http://octopress.org/&#34;&gt;octopress&lt;/a&gt; starting with the &lt;a href=&#34;https://github.com/TheChymera/Koenigspress&#34;&gt;KoenigsPress&lt;/a&gt; theme.&lt;/p&gt;
+
+&lt;h3 id=&#34;hosting-solutions&#34;&gt;Hosting solutions&lt;/h3&gt;
+
+&lt;p&gt;Github pages&lt;/p&gt;
+
+&lt;h3 id=&#34;setting-up-my-custom-domain&#34;&gt;Setting up my custom domain&lt;/h3&gt;
+
+&lt;p&gt;At the end I used godaddy.com to buy the domain pietromaggi.com for the next 10 years, I&amp;rsquo;ve managed to find a nice coupon and after few minutes I was able to have everything setup correctly.
+Some additional information are available on stackoverflow and this &lt;a href=&#34;http://learnaholic.me/2012/10/10/deploying-octopress-to-github-pages-and-setting-custom-subdomain-cname/&#34;&gt;blog&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;documenting-my-writing-process&#34;&gt;Documenting my writing process&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;rake new_post[&amp;quot;my new great post&amp;quot;]
+rake preview
+git status
+git add .
+git commit -m &amp;quot;Added new great post&amp;quot;
+git push origin source
+rake gen_deploy
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Hopefully I&amp;rsquo;ll finally start to crank out some content!&lt;/strong&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>2013 in numbers</title>
+      <link>http://pietromaggi.com/2013/12/31/2013-in-numbers/</link>
+      <pubDate>Tue, 31 Dec 2013 20:52:22 +0100</pubDate>
+      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <guid>http://pietromaggi.com/2013/12/31/2013-in-numbers/</guid>
+      <description>
+
+&lt;h2 id=&#34;what-an-interesting-year&#34;&gt;What an interesting year!&lt;/h2&gt;
+
+&lt;p&gt;This is the first year that I joined a regional team and this involved a lot of travel (12900 flight hours) across all EMEA.
+Has been a blast meeting a lot of end-users, partners and colleagues.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;ve started doing my &amp;laquo;RhoMobile Developer Roadshow&amp;raquo;, usually a one man show with up to three events a week for a total of 22 cities, from Lisbon to Dubai, and from Capetown to Helsinki.
+Has been a blast, physically and emotionally! and I really enjoyed it.&lt;/p&gt;
+
+&lt;p&gt;So 2013 has been an year where I&amp;rsquo;ve discovered that I like to travel, especially to meet people and chat with them about technology. I like to train/coach people, I now have few end-users/partners direct relations as the go-to guy for RhoMobile projects and I like to speak in public, both at our small events and at big technology conferences.  I&amp;rsquo;ve discovered this last point presenting at a couple of DroidCon events later in 2013 (London and Amsterdam).&lt;/p&gt;
+
+&lt;p&gt;2013 included a new manager (Hi James, thanks for all the support) and a new team: the dynamic duo with Paul&amp;amp;Pietro. By the end of 2013 Paul decided to follow a different professional path so, all the best to him!&lt;/p&gt;
+
+&lt;p&gt;And now I&amp;rsquo;m ready for 2014!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Rhodes tips &amp; tricks</title>
+      <link>http://pietromaggi.com/2013/12/30/rhodes-tips--tricks/</link>
+      <pubDate>Mon, 30 Dec 2013 13:56:04 +0100</pubDate>
+      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <guid>http://pietromaggi.com/2013/12/30/rhodes-tips--tricks/</guid>
+      <description>
+
+&lt;h2 id=&#34;how-to-rebuild-the-rhodes-gem:95be1d07f91809f8d47f64cb7b4cd9c7&#34;&gt;How to rebuild the rhodes gem&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;git clone https://github.com/rhomobile/rhodes.git
+cd rhodes
+git checkout 3-5-stable
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;make and commit changes if needed, then:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;rm -rf *
+git reset --hard
+git pull
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Otherwise directly&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;rake gem
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Copy files where you need it (on a different machine)
+gem install -l rhodes-3.5.1.13.2 (version given as an example)&lt;/p&gt;
+
+&lt;h2 id=&#34;rhodes-database-encryption:95be1d07f91809f8d47f64cb7b4cd9c7&#34;&gt;Rhodes Database encryption&lt;/h2&gt;
+
+&lt;p&gt;Rhodes uses SQLite as database engine on all the supported platforms and, to provide encryption support we use different solutions depending by the target platform.&lt;/p&gt;
+
+&lt;p&gt;For Windows Mobile we use the [WinCrypt Library]()
+The actual implementation is &lt;a href=&#34;https://github.com/rhomobile/rhodes/blob/master/platform/wm/rhodes/rho/common/RhoCryptImpl.cpp&#34;&gt;under platform folder on github&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://msdn.microsoft.com/en-us/library/aa923618.aspx&#34;&gt;Microsoft WinCrypt library support multiple algorithms&lt;/a&gt; and we use RC4 in Windows Mobile.&lt;/p&gt;
+
+&lt;p&gt;For other operative systems we use the &lt;a href=&#34;http://sqlcipher.net/&#34;&gt;SQLCipher plugin&lt;/a&gt;. A look at the &lt;a href=&#34;https://github.com/rhomobile/rhodes/blob/master/platform/shared/sqlite/crypto.c&#34;&gt;crypto.c source file included in the SQLite folder can give more info&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;making-a-pull-request-to-rhodes:95be1d07f91809f8d47f64cb7b4cd9c7&#34;&gt;Making a pull request to rhodes&amp;hellip;&lt;/h2&gt;
+
+&lt;p&gt;First of all you need to fork rhodes:&lt;/p&gt;
+
+&lt;p&gt;Then you need to be sure that your fork is synced with upstream (this needs to be done before starting making changes):
+&lt;a href=&#34;https://help.github.com/articles/syncing-a-fork&#34;&gt;https://help.github.com/articles/syncing-a-fork&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://help.github.com/articles/using-pull-requests&#34;&gt;https://help.github.com/articles/using-pull-requests&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Ruby Version Manager (aka RVM) the Swiss army knife of Ruby versions</title>
+      <link>http://pietromaggi.com/2013/12/29/ruby-version-manager-aka-rvm-the-swiss-army-knife-of-ruby-versions/</link>
+      <pubDate>Sun, 29 Dec 2013 17:24:54 +0100</pubDate>
+      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <guid>http://pietromaggi.com/2013/12/29/ruby-version-manager-aka-rvm-the-swiss-army-knife-of-ruby-versions/</guid>
+      <description>
+
+&lt;h2 id=&#34;how-many-versions-of-ruby-do-you-need-on-your-machine&#34;&gt;How many versions of Ruby do you need on your machine?&lt;/h2&gt;
+
+&lt;p&gt;Even if OS X 10.9 &lt;em&gt;Mavericks&lt;/em&gt; came with Ruby v2.0.0-p195, the previous OS X versions where released with Ruby v1.8.7.
+On top of this, most of the work I do with &lt;a href=&#34;http://github.com/rhomobile/rhodes&#34;&gt;Rhodes&lt;/a&gt; is still based on Ruby v1.9.3.
+&lt;strong&gt;And&lt;/strong&gt; &lt;a href=&#34;http://www.ruby-lang.org/en/news/2013/12/25/ruby-2-1-0-is-released/&#34;&gt;Ruby v2.1.0 has just been released!&lt;/a&gt; with some nice &lt;a href=&#34;https://github.com/ruby/ruby/blob/v2_1_0/NEWS&#34;&gt;changes&lt;/a&gt;. Particularly interesting in Ruby v2.1 is the &lt;a href=&#34;http://tmm1.net/ruby21-rgengc/&#34;&gt;new Garbage Collector&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;So, &lt;strong&gt;you&amp;rsquo;ve to install on your machine more than one Ruby environment!&lt;/strong&gt;, that means installing a Ruby Version Manager and then installing the different Ruby engine you want to test/use.&lt;/p&gt;
+
+&lt;h2 id=&#34;choosing-a-ruby-version-manager&#34;&gt;Choosing a Ruby Version Manager&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;&amp;laquo;Hey, what do you mean sir, there&amp;rsquo;s more than one?&amp;raquo;&lt;/em&gt;&lt;br /&gt;
+&lt;em&gt;&amp;laquo;Yes, of course!&amp;raquo;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;most common ruby version managers: &lt;a href=&#34;https://github.com/sstephenson/rbenv&#34;&gt;Rbenv&lt;/a&gt;, &lt;a href=&#34;http://rvm.io&#34;&gt;RVM&lt;/a&gt; and &lt;a href=&#34;https://github.com/postmodern/chruby&#34;&gt;ChRuby&lt;/a&gt;. RVM is the oldest solution and the easiest to have an environment up and running on a single machine to make some tests.
+If I&amp;rsquo;ve to work on a project with other developers having different environment (dev, test and deployment) I&amp;rsquo;ll probably give a good look to rbenv that integrates with bundler avoiding the RVM gemsets concept and having the gem necessary to a project in the project folder.&lt;/p&gt;
+
+&lt;h2 id=&#34;go-with-rvm&#34;&gt;Go with RVM&lt;/h2&gt;
+
+&lt;p&gt;Even if I like testing new things, when I need to get things done, I prefer the old trusty road then the new flashy one. In this case I&amp;rsquo;m going to use &lt;a href=&#34;http://rvm.io&#34;&gt;&lt;strong&gt;RVM&lt;/strong&gt;&lt;/a&gt;.
+So, first step is to install RVM on OS X and this requires a package manager to work more easily, this means &lt;a href=&#34;http://brew.sh/&#34;&gt;&lt;strong&gt;HomeBrew&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;first-step-install-homebrew&#34;&gt;First Step: Install HomeBrew&lt;/h3&gt;
+
+&lt;p&gt;Installing HomeBrew is very easy:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;ruby -e &amp;quot;$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You need to have XCode installed and the command line tools, &lt;a href=&#34;https://github.com/Homebrew/homebrew/wiki/Installation&#34;&gt;HomeBrew website makes a good description of these steps&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;second-step-install-rvm&#34;&gt;Second Step: Install RVM&lt;/h3&gt;
+
+&lt;p&gt;We need to install some prerequisite using HomeBrew:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;brew tap homebrew/versions
+brew install gcc46
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;then install RVM itself together with ruby 1.9.3:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;\curl -sSL https://get.rvm.io | bash -s stable --ruby=1.9.3
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;and set it up as default&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;rvm alias create default 1.9.3
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Install others ruby to play with them&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;rvm get stable
+rvm list known
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;upgrade-a-ruby-to-the-latest-patch-available&#34;&gt;Upgrade a ruby to the latest patch available&lt;/h2&gt;
+
+&lt;p&gt;Nowadays ruby 1.9.3-patch484 seems pretty solid, but a lot of activities is on ruby 2.0.
+If you want keep your ruby up-to-date, RVM can help you keeping it aligned to the latest available patch with the command:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;rvm get stable # always check that you&#39;ve the latest rvm available before starting
+rvm list
+rvm list known
+rvm upgrade 2.0.0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This will be followed by some questions:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;XHF648-04M:~ pietro$ rvm upgrade 2.0.0
+Are you sure you wish to upgrade from ruby-2.0.0-p247 to ruby-2.0.0-p353? (Y/n): Y
+Installing new ruby ruby-2.0.0-p353
+Searching for binary rubies, this might take some time.
+Found remote file https://rvm.io/binaries/osx/10.8/x86_64/ruby-2.0.0-p353.tar.bz2
+Checking requirements for osx.
+Updating certificates in &#39;/usr/local/etc/openssl/cert.pem&#39;.
+Requirements installation successful.
+ruby-2.0.0-p353 - #configure
+ruby-2.0.0-p353 - #download
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 8892k  100 8892k    0     0   601k      0  0:00:14  0:00:14 --:--:--  652k
+ruby-2.0.0-p353 - #validate archive
+ruby-2.0.0-p353 - #extract
+ruby-2.0.0-p353 - #validate binary
+ruby-2.0.0-p353 - #setup
+ruby-2.0.0-p353 - #making binaries executable.
+ruby-2.0.0-p353 - #downloading rubygems-2.2.0
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  400k  100  400k    0     0   373k      0  0:00:01  0:00:01 --:--:--  624k
+ruby-2.0.0-p353 - #extracting rubygems-2.2.0.
+ruby-2.0.0-p353 - #removing old rubygems.
+ruby-2.0.0-p353 - #installing rubygems-2.2.0...
+ruby-2.0.0-p353 - #gemset created /Users/pietro/.rvm/gems/ruby-2.0.0-p353@global
+ruby-2.0.0-p353 - #importing gemset /Users/pietro/.rvm/gemsets/global.gems..
+ruby-2.0.0-p353 - #generating global wrappers.
+ruby-2.0.0-p353 - #gemset created /Users/pietro/.rvm/gems/ruby-2.0.0-p353
+ruby-2.0.0-p353 - #importing gemsetfile /Users/pietro/.rvm/gemsets/default.gems evaluated to empty gem list
+ruby-2.0.0-p353 - #generating default wrappers.
+Updating certificates in &#39;/etc/openssl/cert.pem&#39;.
+mkdir: /etc/openssl: Permission denied
+pietro password required for &#39;mkdir -p /etc/openssl&#39;:
+Can not create directory &#39;/etc/openssl&#39; for certificates.
+Migrating gems from ruby-2.0.0-p247 to ruby-2.0.0-p353
+Free disk space 50566MB, required 6MB.
+Are you sure you wish to MOVE gems from ruby-2.0.0-p247 to ruby-2.0.0-p353?
+This will overwrite existing gems in ruby-2.0.0-p353 and remove them from ruby-2.0.0-p247 (Y/n): Y
+Moving ruby-2.0.0-p247@global to ruby-2.0.0-p353@global...............................................................................|
+Making gemset ruby-2.0.0-p353@global pristine.
+Moving ruby-2.0.0-p247 to ruby-2.0.0-p353.............................................................................................|
+Making gemset ruby-2.0.0-p353 pristine.
+Do you wish to move over wrappers? (Y/n): Y
+Do you also wish to completely remove ruby-2.0.0-p247 (inc. archive)? (Y/n): Y
+Removing ruby-2.0.0-p247.
+Successfully migrated ruby-2.0.0-p247 to ruby-2.0.0-p353
+Upgrade complete!
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;what-you-can-do-to-restart-an-rvm-setup-from-scratch&#34;&gt;What you can do to restart an RVM setup from scratch&lt;/h2&gt;
+
+&lt;p&gt;Having an RVM environment growing over time can bring a bit of cruft into the system. If you&amp;rsquo;re starting to encounter more and more errors working on the setup, you can think to cleanup your setup and restart from scratch:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ rvm get stable
+$ rvm cleanup
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;usage&#34;&gt;Usage:&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;    rvm cleanup {all,archives,repos,sources,logs,gemsets,links}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;description&#34;&gt;Description:&lt;/h3&gt;
+
+&lt;p&gt;Cleans up the directory tree for the specified item.
+For gemsets removes remove only those without matching ruby.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ rvm cleanup all
+Cleaning up rvm archives
+Cleaning up rvm repos
+Cleaning up rvm src
+Cleaning up rvm log
+Cleaning up rvm tmp
+Cleaning up rvm gemsets
+Cleaning up rvm links
+Cleanup done.
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Why I like to talk about open source projects</title>
+      <link>http://pietromaggi.com/2013/12/28/why-i-like-to-talk-about-open-source-projects/</link>
+      <pubDate>Sat, 28 Dec 2013 21:33:25 +0100</pubDate>
+      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <guid>http://pietromaggi.com/2013/12/28/why-i-like-to-talk-about-open-source-projects/</guid>
+      <description>&lt;p&gt;Since I joined the RhoMobile group of Motorola Solutions as EIA pre-sale Technical Architect, I started to get disparate question regarding features of the Suite.&lt;/p&gt;
+
+&lt;p&gt;Something on the line:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;How is possible to launch an external application from a Rhodes one? &lt;em&gt;I tried different APIs and nothing seems to work&amp;hellip;&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Looking on the support matrix of the APIs for different OSes, it seems that &lt;em&gt;X&lt;/em&gt; is supported on platform &lt;em&gt;Y&lt;/em&gt; but &lt;em&gt;I&amp;rsquo;m not able to make it working&amp;hellip;&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Usually I try to figure out the answer for these question by myself, it&amp;rsquo;s always useful getting a better understanding of the tool I usually talk about (and it&amp;rsquo;s probably the part of my job that I like the most: finding solutions to problems).&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s see why this is much easier having to understand how an Open Source project works.&lt;/p&gt;
+
+&lt;p&gt;First Question: How is possible to launch an external application from a Rhodes one? I tried different APIs and nothing works&amp;hellip;
+In this case I start my inspection from the docs pages, some usefully tips from the v2.2 API:&lt;/p&gt;
+
+&lt;p&gt;Run an application.&lt;/p&gt;
+
+&lt;p&gt;System.run_app(appname, params)
+appname The name of the application on the device to run, such as com.android.music.
+params  String. List of parameters for the application; nil if no parameters.&lt;/p&gt;
+
+&lt;p&gt;Windows Mobile, Windows CE: appname is path in registry:
+&lt;BR&gt;&lt;code&gt;\&amp;lt;vendor\&amp;gt; \&amp;lt;app\_name\&amp;gt;/\&amp;lt;app_name\&amp;gt;.exe&lt;/code&gt;
+&lt;BR&gt;This is usually recorded in the Key:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;HKLM\Security\AppInstall\[App Name]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;like:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;HKLM\Security\AppInstall\rhomobile store
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;So, to launch this application from your RhoMobile app, you can use the following code:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;System.run_app(&#39;rhomobile store/store.exe&#39;, &#39;someparams&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;OK, the syntax is not exactly what I was expecting&amp;hellip; this may be the cause of the issue.
+Documentation of the same API in v4.0 is not so helpful, no explanation of the differences between OSes and what the parameters are&amp;hellip;
+Let&amp;rsquo;s see what we&amp;rsquo;ve on github rhomobile account.&lt;/p&gt;
+
+&lt;p&gt;In the Kitchen Sink demo, there&amp;rsquo;s some code linked to the System API, but no sample executing the run_app method&amp;hellip; but the others methods seems to use the same, unfamiliar, syntax to reference a Windows Mobile app like: &lt;em&gt;&amp;laquo;rhomobile simple_app/simple_app.exe&amp;raquo;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s see what we&amp;rsquo;ve in  &lt;a href=&#34;https://github.com/rhomobile/rhodes/blob/master/platform/wm/rhodes/rho/rubyext/SystemImpl.cpp&#34;&gt;Rhodes source code for Windows Mobile&lt;/a&gt; and the implementation seems to indicates that these are the right parameters.&lt;/p&gt;
+
+&lt;p&gt;So, it took us a bit more than necessary and the documentation is a bit missing on this topic, however, having the source code available gave us the necessary insight to reach our goal.&lt;/p&gt;
 </description>
     </item>
     

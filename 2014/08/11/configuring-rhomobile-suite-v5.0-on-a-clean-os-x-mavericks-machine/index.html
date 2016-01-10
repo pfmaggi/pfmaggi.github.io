@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>Configuring RhoMobile Suite v5.0 on a clean OS X Mavericks machine  &middot; Pietro F. Maggi</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<meta name="description" content="" />
+
+<meta name="keywords" content="OS X, RhoMobile, ">
+
+
+<meta property="og:title" content="Configuring RhoMobile Suite v5.0 on a clean OS X Mavericks machine  &middot; Pietro F. Maggi ">
+<meta property="og:site_name" content="Pietro F. Maggi"/>
+<meta property="og:url" content="http://pietromaggi.com/2014/08/11/configuring-rhomobile-suite-v5.0-on-a-clean-os-x-mavericks-machine/" />
+<meta property="og:locale" content="en-EN">
+
+
+<meta property="og:type" content="article" />
+<meta property="og:description" content=""/>
+<meta property="og:article:published_time" content="2014-08-11T09:57:10&#43;02:00" />
+<meta property="og:article:modified_time" content="2014-08-11T09:57:10&#43;02:00" />
+
+  
+    
+<meta property="og:article:tag" content="OS X">
+    
+<meta property="og:article:tag" content="RhoMobile">
+    
+  
+
+  
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@pfmaggi" />
+<meta name="twitter:creator" content="@pfmaggi" />
+<meta name="twitter:title" content="Configuring RhoMobile Suite v5.0 on a clean OS X Mavericks machine" />
+<meta name="twitter:description" content="" />
+<meta name="twitter:url" content="http://pietromaggi.com/2014/08/11/configuring-rhomobile-suite-v5.0-on-a-clean-os-x-mavericks-machine/" />
+<meta name="twitter:domain" content="http://pietromaggi.com/">
+  
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "headline": "Configuring RhoMobile Suite v5.0 on a clean OS X Mavericks machine",
+    "author": {
+      "@type": "Person",
+      "name": "http://profiles.google.com/+?rel=author"
+    },
+    "datePublished": "2014-08-11",
+    "description": "",
+    "wordCount":  1879 
+  }
+</script>
+
+
+
+<link rel="canonical" href="http://pietromaggi.com/2014/08/11/configuring-rhomobile-suite-v5.0-on-a-clean-os-x-mavericks-machine/" />
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://pietromaggi.com/touch-icon-144-precomposed.png">
+<link href="http://pietromaggi.com/favicon.png" rel="icon">
+
+<meta name="generator" content="Hugo 0.15" />
+
+  <!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link href='https://fonts.googleapis.com/css?family=Merriweather:300%7CRaleway%7COpen+Sans' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="http://pietromaggi.com/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://pietromaggi.com/css/style.css">
+<link rel="stylesheet" href="http://pietromaggi.com/css/highlight/default.css">
+
+  
+</head>
+<body>
+  <main id="main-wrapper" class="container main_wrapper has-sidebar right">
+    <header id="main-header" class="container main_header">
+  <div class="container brand">
+  <div class="container title h1-like">
+  <a class="baselink" href="http://pietromaggi.com/">
+  Garbage Collector
+
+</a>
+
+</div>
+
+  
+<div class="container topline">
+  
+  Tales from an old nibble
+
+
+</div>
+
+
+</div>
+
+  <nav class="container nav primary no-print">
+  
+
+<a class="homelink" href="http://pietromaggi.com/">Home</a>
+
+
+  
+<a href="http://pietromaggi.com/about">About</a>
+
+<a href="http://pietromaggi.com/post" title="Show list of posts">Posts</a>
+
+<a href="http://pietromaggi.com/speaking">Speaking Appointments</a>
+
+<a href="http://pietromaggi.com/decks">Slide Decks</a>
+
+<a href="http://pietromaggi.com/tags" title="Show list of tags">Tags</a>
+
+
+</nav>
+
+<div class="container nav secondary no-print">
+  
+<a id="contact-link-email" class="contact_link" href="mailto:pfm@pietromaggi.com">
+  <span class="fa fa-envelope-square"></span><span>email</span></a>
+
+
+
+<a id="contact-link-github" class="contact_link" href="https://github.com/pfmaggi">
+  <span class="fa fa-github-square"></span><span>github</span></a>
+
+
+
+<a id="contact-link-bitbucket" class="contact_link" href="https://bitbucket.org/pfmaggi">
+  <span class="fa fa-bitbucket-square"></span><span>bitbucket</span></a>
+
+
+
+<a id="contact-link-linkedin" class="contact_link" href="https://www.linkedin.com/in/pietromaggi">
+  <span class="fa fa-linkedin-square"></span><span>linkedin</span></a>
+
+
+
+
+
+
+
+<a id="contact-link-twitter" class="contact_link" href="https://twitter.com/pfmaggi">
+  <span class="fa fa-twitter-square"></span><span>twitter</span></a>
+
+
+
+
+
+
+
+</div>
+
+
+  
+
+</header>
+
+
+<article id="main-content" class="container main_content single">
+  <header class="container hat">
+  <h1>Configuring RhoMobile Suite v5.0 on a clean OS X Mavericks machine
+</h1>
+
+  <div class="metas">
+<time datetime="2014-08-11">11 Aug, 2014</time>
+
+
+  
+    &middot; by Pietro F. Maggi
+  
+  &middot; Read in about 9 min
+  &middot; (1879 Words)
+  <br>
+  
+<a class="label" href="http://pietromaggi.com/tags/os-x">OS X</a>
+
+<a class="label" href="http://pietromaggi.com/tags/rhomobile">RhoMobile</a>
+
+
+
+</div>
+
+</header>
+
+  <div class="container content">
+  
+
+<h1 id="rhomobile-suite-v5-0">RhoMobile Suite v5.0</h1>
+
+<p>The new main release of Rhodes, RhoElements and RhoConnect had just been released a couple of weeks ago <a href="http://newsroom.motorolasolutions.com/Feature/See-RhoMobile-in-Action-at-OSCON-2014-4a61.aspx">during OSCON</a>. It&rsquo;s now time to install it and start building some mobile apps!</p>
+
+<p>In this post I&rsquo;d like to help you installing RMSv5.0 on a new OS X Mavericks machine and install everything that is needed to build iOS and Android applications, the only pre-requisite is to have a valid OS X Mavericks license installed on a Mac or inside a virtual machine&hellip; on a Mac :-).</p>
+
+<p>These are the steps we will follow:</p>
+
+<ul>
+<li><a href="#OSX_Update">Update OS X to the latest version</a></li>
+<li><a href="#XCode">Install XCode</a></li>
+<li><a href="#Terminal">Familiarize with the Terminal</a></li>
+<li><a href="#JDK7">Install Java JDK 7</a></li>
+<li><a href="#HomeBrew">Install HomeBrew</a></li>
+<li><a href="#RVM">Install RVM and Ruby 1.9.3</a></li>
+<li><a href="#utilities">Install git, node and other little utilities</a></li>
+<li><a href="#Android">Install Android SDK and NDK</a></li>
+<li><a href="#RMS5">Install RMS v5.0</a></li>
+<li><a href="#Account">Create a RhoMobile.com account</a></li>
+<li><a href="#Launching">Launching RhoStudio</a></li>
+<li><a href="#Setup">Configure RhoStudio</a></li>
+<li><a href="#Build">Build a sample app</a></li>
+</ul>
+
+<h3 id="a-name-osx-update-a-update-os-x-to-the-latest-version"><a name="OSX_Update"></a>Update OS X to the latest version</h3>
+
+<p>The first step is to check that the version of OS X on your machine is up-to-date, a quick stop in the Mac AppStore <em>Updates</em> tab can give you an idea of what is available.</p>
+
+<p><img src="/images/OSX_RMS5/updates.png" alt="One Update waiting to be installed" title="One Update Waiting to be installed" /></p>
+
+<h3 id="a-name-xcode-a-install-xcode"><a name="XCode"></a>Install XCode</h3>
+
+<p>The next step is to install the latest XCode on you OS. In this guide I&rsquo;m using XCode 5 as version 6 is still in beta, and we like stable releases!</p>
+
+<p><img src="/images/OSX_RMS5/XCode5.png" alt="XCode 5 available in the Mac AppStore" title="XCode 5 available in the Mac AppStore" /></p>
+
+<p>Once you&rsquo;ve installed XCode, you need to launch it to accept Apple EULA.</p>
+
+<p><img src="/images/OSX_RMS5/XCode5_EULA.png" alt="XCode 5 EULA" title="XCode 5 EULA" /></p>
+
+<h3 id="a-name-terminal-a-familiarize-with-the-terminal"><a name="Terminal"></a>Familiarize with the terminal</h3>
+
+<p>During the initial RMS setup some of the steps require that you use the Terminal, also known as <a href="http://en.wikipedia.org/wiki/Command-line_interface">command prompt or console</a>.
+The Terminal is already available on OS X, and you can find it inside the Utility folder in your Applications.</p>
+
+<p><img src="/images/OSX_RMS5/LaunchTerminal.png" alt="Launching Terminal" title="Launching Terminal" /></p>
+
+<p>Once you&rsquo;ve launched the Terminal could be <strong>very</strong> useful to keep it into the dock, as we will need it for some of the steps to complete RMS setup.</p>
+
+<p><img src="/images/OSX_RMS5/KeepInDock.png" alt="Keep Terminal in the dock" title="Keep Terminal in the dock" /></p>
+
+<h3 id="a-name-jdk7-a-install-java-jdk7"><a name="JDK7"></a>Install Java JDK7</h3>
+
+<p>OS X Mavericks comes without any Java environment installed, &laquo;the easiest way&raquo; to install it, is to open the terminal and type:</p>
+
+<pre><code class="language-sh">java -version
+</code></pre>
+
+<p>This will pop up a windows asking if you want to install Java, the answer is a resounding YES!</p>
+
+<p><img src="/images/OSX_RMS5/NoJava.png" alt="No Java environment" title="No Java Environment" /></p>
+
+<p>Selecting <strong>More Info&hellip;</strong> will open the Safari browser on the Oracle website, you can select the most up-to-date JDK v7 for OS X to download</p>
+
+<p><img src="/images/OSX_RMS5/JavaDownload.png" alt="Download Java" title="Download Java" /></p>
+
+<p>and Install</p>
+
+<p><img src="/images/OSX_RMS5/JavaInstall.png" alt="Install Java" title="Install Java" /></p>
+
+<p>When the install is complete you can test that the java environment is now available:</p>
+
+<p><img src="/images/OSX_RMS5/JavaIsInstalled.png" alt="Java is installed" title="Java is installed" /></p>
+
+<h3 id="a-name-homebrew-a-install-homebrew"><a name="HomeBrew"></a>Install HomeBrew</h3>
+
+<p><a href="http://brew.sh/">HomeBrew</a> is an open source package manager, working from the command line, that help setting up open source application on OS X.</p>
+
+<pre><code class="language-sh">ruby -e &quot;$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)&quot;
+</code></pre>
+
+<p>Paste that at the terminal prompt, execute it and follow the on-screen instruction accepting all the defaults.
+Next step is to check that HomeBrew is setup correctly:</p>
+
+<pre><code class="language-sh">brew doctor
+</code></pre>
+
+<p>If everything is setup correctly you get the message: <em>Your system is ready to brew</em>:</p>
+
+<p><img src="/images/OSX_RMS5/ReadyToBrew.png" alt="Your System is ready to Brew" title="Your System is ready to Brew" /></p>
+
+<p>If you get a different message with some missing or misconfigured software you can follow the on-screen-instruction or you can find further information on the <a href="https://github.com/Homebrew/homebrew/wiki">HomeBrew Wiki</a>.</p>
+
+<h3 id="a-name-rvm-a-install-rvm-and-ruby-1-9-3"><a name="RVM"></a>Install RVM and Ruby 1.9.3</h3>
+
+<p>OS X Mavericks comes with Ruby v2.0 installed by default, however RMSv5 requires Ruby v1.9.3. Overall working with Ruby can require to switch ruby environment often and to release this pain <a href="/blog/ruby-version-manager-aka-rvm-the-swiss-army-knife-of-ruby-versions/">some utilities has been created</a>.</p>
+
+<p>In this case we&rsquo;re going to install RVM and use it to install Ruby v1.9.3.
+First we need to install some prerequisite using HomeBrew:</p>
+
+<pre><code class="language-sh">brew tap homebrew/versions
+brew install gcc46
+brew cleanup
+brew doctor
+</code></pre>
+
+<p>then install RVM itself together with ruby 1.9.3:</p>
+
+<pre><code class="language-sh">\curl -sSL https://get.rvm.io | bash -s stable --ruby=1.9.3
+</code></pre>
+
+<p>Then you need to close the terminal and relaunch it to ave the <strong>RVM</strong> environment available in the command line.</p>
+
+<p>To check that everything is setup correctly you can do:</p>
+
+<pre><code class="language-sh">rvm list
+</code></pre>
+
+<p>and you should get the reply:</p>
+
+<pre><code class="language-sh">rhomobile$ rvm list
+
+rvm rubies
+
+=* ruby-1.9.3-p547 [ x86_64 ]
+
+# =&gt; - current
+# =* - current &amp;&amp; default
+#  * - default
+
+</code></pre>
+
+<p>In this case Ruby v1.9.3 is the current and default ruby environment. If this is not the case, you can set it up as the default ruby using the command:</p>
+
+<pre><code class="language-sh">rvm alias create default 1.9.3
+</code></pre>
+
+<p>To get more information on RVM you can check the documentation available on <a href="https://rvm.io/">its website</a>.</p>
+
+<h3 id="a-name-utilities-a-install-git-node-and-other-little-utilities"><a name="utilities"></a>Install git, node and other little utilities</h3>
+
+<p>RMS uses git <em>a lot</em>, to sync projects with RhoHub, and is overall a nice tool. It&rsquo;s already installed on Mavericks, but is version 1.8.5.2, better to keep an up-to-date version using HomeBrew:</p>
+
+<pre><code class="language-sh">brew install git
+git --version
+</code></pre>
+
+<p>This will install git v2.0.4 (at the moment of writing this).</p>
+
+<p>If asking to the system for the installed git version still report 1.8.5.2:</p>
+
+<pre><code class="language-sh">git --version
+git version 1.8.5.2 (Apple Git-48)
+</code></pre>
+
+<p>Then you need to modify the PATH environment as suggested using the command:</p>
+
+<pre><code class="language-sh">rhomobile$ brew doctor
+Please note that these warnings are just used to help the Homebrew maintainers
+with debugging if you file an issue. If everything you use Homebrew for is
+working fine: please don't worry and just ignore them. Thanks!
+
+Warning: /usr/bin occurs before /usr/local/bin
+This means that system-provided programs will be used instead of those
+provided by Homebrew. The following tools exist at both paths:
+
+    git
+    git-cvsserver
+    git-receive-pack
+    git-shell
+    git-upload-archive
+    git-upload-pack
+
+Consider setting your PATH so that /usr/local/bin
+occurs before /usr/bin. Here is a one-liner:
+    echo export PATH='/usr/local/bin:$PATH' &gt;&gt; ~/.bash_profile
+</code></pre>
+
+<p>So, using the command:</p>
+
+<pre><code class="language-sh">echo export PATH='/usr/local/bin:$PATH' &gt;&gt; ~/.bash_profile
+</code></pre>
+
+<p>Solve the issue (after closing and restarting the <strong>Terminal</strong>).</p>
+
+<p>The second application that we need to install is NodeJS, this is needed by RhoConnect Push and to support RhoConnect Source Adapters in JavaScript. Again, we use HomeBrew for this:</p>
+
+<pre><code class="language-sh">brew install node
+</code></pre>
+
+<p>The Latest application we need to support RhoConnect is <a href="http://redis.io">Redis</a>, again we can use HomeBrew to install it:</p>
+
+<pre><code class="language-sh">brew install redis
+</code></pre>
+
+<p>Then we can install at least one command line utility that can be very handy looking for &laquo;stuffs&raquo; inside source codes: <em>The Silver Searcher</em>:</p>
+
+<pre><code class="language-sh">brew install the_silver_searcher
+man ag
+</code></pre>
+
+<p>As always, using <strong>man</strong> in the command line will open the documentation for the command, in the case of the silver searcher, the command is <strong>ag</strong> (like the Silver symbol).</p>
+
+<h3 id="a-name-android-a-install-android-sdk-and-ndk"><a name="Android"></a>Install Android SDK and NDK</h3>
+
+<p>Next step is to install what is needed to build RhoMobile Android Applications. You need to remember that to compile RhoMobile native applications you need to have the target OS tool chain. For Android this means the SDK and the NDK.</p>
+
+<p>Navigate to the <a href="http://developer.android.com/sdk/index.html">Android developer tools page</a> and download the stand-alone Android SDK tools for Mac:</p>
+
+<p><img src="/images/OSX_RMS5/AndroidSDK.png" alt="Android SDK Tools for Mac" title="Android SDK Tools for Mac" /></p>
+
+<p>When the download is complete you can install the SDK in the <strong>Development</strong> folder, again from the command line:</p>
+
+<pre><code class="language-sh">cd ~/Downloads/
+mkdir ~/Development
+unzip android-sdk_r23.0.2-macosx.zip -d ~/Development/
+</code></pre>
+
+<p>This will create <strong>android-sdk-macosx</strong> under your home folder. To add the sdk to your PATH, use the command:</p>
+
+<pre><code class="language-sh">echo export PATH='$PATH:~/Development/android-sdk-macosx/tools' &gt;&gt; ~/.bash_profile
+</code></pre>
+
+<p>closing and relaunching the Terminal will make this new PATH available. You can now launch the Android SDK manager using the command:</p>
+
+<pre><code class="language-sh">android
+</code></pre>
+
+<p>And install the latest platform tools and the Platform SDK (not shown in the image is the Android Support Library that is always nice to have installed):</p>
+
+<p><img src="/images/OSX_RMS5/UpdateAndroidSDK.png" alt="Update Android SDK" title="Update Android SDK" /></p>
+
+<p>Once you&rsquo;ve installed these packages, you can close the Android SDK Manager and add the now available platform tools folder to your PATH:</p>
+
+<pre><code class="language-sh">echo export PATH='$PATH:~/Development/android-sdk-macosx/platform-tools' &gt;&gt; ~/.bash_profile
+</code></pre>
+
+<p>closing and relaunching the Terminal will make this new PATH available. You can now launch the Android Debug Bridge using the command:</p>
+
+<pre><code class="language-sh">adb devices
+</code></pre>
+
+<p>If you plan to develop using Motorola Solutions (or Symbol) Android devices, you need to modify an Android configuration file:</p>
+
+<pre><code class="language-sh">rhomobile$ android update adb
+adb has been updated. You must restart adb with the following commands
+	adb kill-server
+	adb start-server
+echo -e &quot;0x05e0\n0x0414&quot; &gt;&gt; ~/.android/adb_usb.ini
+</code></pre>
+
+<p>Now attaching your device you can see it with:</p>
+
+<pre><code class="language-sh">adb kill-server
+adb devices
+</code></pre>
+
+<p>Next step is to install the Android NDK, containing the C/C++ compiler for Android, <a href="http://developer.android.com/tools/sdk/ndk/index.html">download and install the Mac OS 64-bit release</a>, following Google <a href="http://developer.android.com/tools/sdk/ndk/index.html#Installing">instructions</a>. Again, from the command line:</p>
+
+<pre><code class="language-sh">cd ~/Development/
+tar xzvf ~/Downloads/android-ndk32-r10-darwin-x86_64.tar.bz2
+</code></pre>
+
+<h3 id="a-name-rms5-a-install-rms-v5-0"><a name="RMS5"></a>Install RMS v5.0</h3>
+
+<p>For this step we can take the info from the <a href="http://docs.rhomobile.com/en/5.0.0/guide/rhomobile-install#mac-os">RhoMobile official documentation</a>.</p>
+
+<p>first of all we need to download the RMS5 image file from [RhoMobile website](). Opening the image will show it&rsquo;s content, first step is to copy the <strong>Motorola RhoStudio</strong> in the application folder:</p>
+
+<p><img src="/images/OSX_RMS5/RMS5_Package.png" alt="RMS5 image file content" title="RMS5 Image file content" /></p>
+
+<p>Then we&rsquo;ve some additional steps to do from the Terminal&hellip; yes, again from the command line :-)</p>
+
+<p><strong>NOTE</strong> I previously used <strong>sudo</strong> at this step and this produce a series of side effects. Just be sure to run the &laquo;Install gems&raquo; script with your user!</p>
+
+<pre><code class="language-sh">cd /Volumes/Motorola\ RhoMobile\ Suite\ Installer/
+./Install\ gems 
+
+Select Ruby version to install gems:
+1) ruby-1.9.3-p547
+2) ruby-1.9.3-p547@global
+#? 2
+
+Using /Users/rhomobile/.rvm/gems/ruby-1.9.3-p547 with gemset global
+ruby 1.9.3p547 (2014-05-14 revision 45962) [x86_64-darwin13.3.0]
+
+Do you want to install gems with 'sudo' command prefix? [yN]  N
+
+</code></pre>
+
+<p>When the gems setup is complete, you can install the support for RhoConnect Push server:</p>
+
+<pre><code class="language-sh">cd /Volumes/Motorola\ RhoMobile\ Suite\ Installer/
+sudo ./Install\ rhoconnect-push
+Password:
+
+Do you want to install rhoconnect-push with 'sudo' command prefix? [Yn]  Y
+</code></pre>
+
+<h3 id="a-name-account-a-create-a-rhomobile-com-account"><a name="Account"></a>Create a RhoMobile.com account</h3>
+
+<p>Version 5 of the RhoMobile Suite has a <a href="http://rhomobile.com/rhopricing.html">new licensing</a>, that is a yearly subscription available in different levels, starting from a free one, up to an Enterprise grade.</p>
+
+<p>Whatever the level you choose, you need to create an account on the RhoMobile.com website to use the Suite, both from RhoStudio and from the command line tools.</p>
+
+<h3 id="a-name-launching-a-launching-rhostudio"><a name="Launching"></a>Launching RhoStudio</h3>
+
+<p>RhoStudio and the whole RhoMobile Suite is now installed on your Mac, but you still need some steps to finish the configuration and start doing some coding. First of all launch RhoStudio from the Application folder (launch the 64-bit version) and select the second ruby environment for it.</p>
+
+<p><img src="/images/OSX_RMS5/LaunchRhoStudio.png" alt="Launch RhoStudio" title="Launch RhoStudio" /></p>
+
+<p><img src="/images/OSX_RMS5/SelectRuby.png" alt="Select Ruby Environment" title="Select Ruby Environment" /></p>
+
+<p>At this moment you will get a request to install a J6SE environment, go ahead and install it (the JDK we installed is for the Android SDK, this is used to run Eclipse)</p>
+
+<p><img src="/images/OSX_RMS5/Java6SE.png" alt="Java 6 Runtime" title="Java 6 Runtime" /></p>
+
+<p>Finally we&rsquo;ve RhoStudio running, we need to configure it!</p>
+
+<p>BTW: if the first launch ends with and error in RhoStudio console, simply close it and relaunch RhoStudio again, you end up with a login request, simply use the RhoMobile account you created at the previous step.</p>
+
+<p><img src="/images/OSX_RMS5/FirstRhoStudio.png" alt="RhoStudio first launch" title="First RhoStudio Launch" /></p>
+
+<h3 id="a-name-setup-a-rhostudio-setup"><a name="Setup"></a>RhoStudio Setup</h3>
+
+<p>There are some parameters to setup in RhoStudio before being able to build any project. Opening the settings windows using <strong>Command-,</strong> you can setup:</p>
+
+<ul>
+<li>JDK Path = /Library/Java/JavaVirtualMachines/jdk1.7.0_67.jdk</li>
+<li>Android SDK Path = <your user folder>/Development/android-sdk-macosx</li>
+<li>Android NDK Path = <your user folder>/Development/android-ndk-r10</li>
+</ul>
+
+<p>as shown in these images:</p>
+
+<p><img src="/images/OSX_RMS5/RhoStudioParam_1.png" alt="JDK Path" title="JDK Path" /></p>
+
+<p><img src="/images/OSX_RMS5/RhoStudioParam_2.png" alt="Android SDK and NDK path" title="Android SDK and NDK path" /></p>
+
+<p>Another (easier?) way to configure Rhodes is doing it from the command line:</p>
+
+<pre><code class="language-sh">rhodes-setup
+We will ask you a few questions below about your dev environment.
+
+JDK path (required) (/Library/Java/Home):
+Android SDK path (blank to skip) (): /Users/rhomobile/Development/android-sdk-macosx/
+Android NDK path (blank to skip) (/Users/rhomobile/Development/android-ndk-r10):
+Windows Mobile 6 SDK CabWiz (blank to skip) ():
+BlackBerry JDE 4.6 (blank to skip) ():
+BlackBerry JDE 4.6 MDS (blank to skip) ():
+BlackBerry JDE 4.2 (blank to skip) ():
+BlackBerry JDE 4.2 MDS (blank to skip) ():
+
+If you want to build with other BlackBerry SDK versions edit: /Users/rhomobile/.rvm/gems/ruby-1.9.3-p547@global/gems/rhodes-5.0.2/rhobuild.yml
+</code></pre>
+
+<h3 id="a-name-build-a-build-your-first-rhomobile-application"><a name="Build"></a>Build your first RhoMobile application</h3>
+
+<p>I&rsquo;ll cut this short at this moment, you should have everything setup at this moment and you should be able to follow the instructions on <a href="http://docs.rhomobile.com/en/5.0.0/guide/creating_a_project">RhoMobile website</a>. You can reach out to me if you&rsquo;ve any question and I plan to add another post with some &laquo;post-setup&raquo; optimization in the near future.</p>
+
+</div>
+
+
+  <footer class="container">
+  <div class="container navigation no-print">
+  <h2>Navigation</h2>
+  
+  
+
+    
+    <a class="prev" href="http://pietromaggi.com/2014/01/10/little-command-line-tricks/" title="Little command line tricks">
+      Previous
+    </a>
+    
+
+    
+    <a class="next" href="http://pietromaggi.com/2014/08/22/rhodes-5.0.2-and-visual-studio-2008-localized-edition/" title="Rhodes 5.0.2 and Visual Studio 2008 Localized edition">
+      Next
+    </a>
+    
+
+  
+
+
+</div>
+
+  <div class="container comments">
+  <h2>Comments</h2>
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  (function() {
+    
+    
+    if (window.location.hostname == "localhost")
+      return;
+
+    var dsq = document.createElement('script'); dsq.async = true; dsq.type = 'text/javascript';
+    dsq.src = '//pietrofmaggi.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+</div>
+
+</footer>
+
+</article>
+      <footer id="main-footer" class="container main_footer">
+  
+
+  <div class="container nav foot no-print">
+  
+<a href="http://pietromaggi.com/license">license</a>
+
+
+  <a class="toplink" href="#">back to top</a>
+
+</div>
+
+  <div class="container credits">
+  
+<div class="container footline">
+  
+  code with <i class='fa fa-heart'></i>
+
+
+</div>
+
+
+  
+<div class="container copyright">
+  
+  &copy; 2015 Pietro F. Maggi.
+
+
+</div>
+
+
+</div>
+
+</footer>
+
+    </main>
+    
+<script type="text/javascript">
+  (function() {
+    
+    
+    if (window.location.hostname == "localhost")
+      return;
+
+    var dsq = document.createElement('script'); dsq.async = true; dsq.type = 'text/javascript';
+    dsq.src = '//pietrofmaggi.disqus.com/count.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+
+<script src="http://pietromaggi.com/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'Your Google Analytics tracking code', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+    
+  </body>
+</html>
+

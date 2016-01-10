@@ -20,14 +20,14 @@
       <guid>http://pietromaggi.com/2015/09/25/android-back-button-and-enterprise-browser/</guid>
       <description>
 
-&lt;h2 id=&#34;enterprise-browser:844fa649910ec6745220f6ecf2ed4454&#34;&gt;Enterprise Browser&lt;/h2&gt;
+&lt;h2 id=&#34;enterprise-browser&#34;&gt;Enterprise Browser&lt;/h2&gt;
 
 &lt;p&gt;Enterprise Browser is Zebra Technologies&amp;rsquo; Industrial Browser built for our Rugged Devices, we support most of our Windows Mobile/Windows CE devices and Android devices.&lt;/p&gt;
 
 &lt;p&gt;This product is usually used with existing web application that cannot be updated/modified moving from one device to another.
 This help us winning some opportunities but sometimes present some unique challenges like, as an example, disabling the Android back button default behaviour.&lt;/p&gt;
 
-&lt;h2 id=&#34;back-button-on-android:844fa649910ec6745220f6ecf2ed4454&#34;&gt;Back Button on Android?&lt;/h2&gt;
+&lt;h2 id=&#34;back-button-on-android&#34;&gt;Back Button on Android?&lt;/h2&gt;
 
 &lt;p&gt;Given that this is a crossplatform product (built on top of our RhoMobile Suite) we don&amp;rsquo;t have a custom settings to disable the back button in the Config.xml configuration file, however it is still possible to add a default Metatags in the configuration so that no changes in the existing pages are needed.&lt;/p&gt;
 
@@ -59,7 +59,7 @@ This help us winning some opportunities but sometimes present some unique challe
 
 &lt;p&gt;We&amp;rsquo;ve a solution for this issue: having a &lt;code&gt;DefaultMetaTags&lt;/code&gt; in Enterprise Browser&amp;rsquo;s configuration.&lt;/p&gt;
 
-&lt;h2 id=&#34;what-s-a-defaultmetatags:844fa649910ec6745220f6ecf2ed4454&#34;&gt;What&amp;rsquo;s a DefaultMetaTags&lt;/h2&gt;
+&lt;h2 id=&#34;what-s-a-defaultmetatags&#34;&gt;What&amp;rsquo;s a DefaultMetaTags&lt;/h2&gt;
 
 &lt;p&gt;We can start from the &lt;a href=&#34;https://developer.motorolasolutions.com/docs/DOC-2571#defaultmetatags&#34;&gt;documentation&lt;/a&gt;, what does it means?&lt;/p&gt;
 
@@ -74,7 +74,7 @@ This help us winning some opportunities but sometimes present some unique challe
 
 &lt;p&gt;BTW: &lt;code&gt;0xA6&lt;/code&gt; is the correct value for the Back Button on a TC55 running Android v4.4 KitKat.&lt;/p&gt;
 
-&lt;h2 id=&#34;closing-comments:844fa649910ec6745220f6ecf2ed4454&#34;&gt;Closing comments&lt;/h2&gt;
+&lt;h2 id=&#34;closing-comments&#34;&gt;Closing comments&lt;/h2&gt;
 
 &lt;p&gt;Enterprise Browser&amp;rsquo;s &lt;code&gt;DefaultMetaTags&lt;/code&gt; is a very flexible way to &amp;laquo;patch&amp;raquo; an existing Web application without touching its source code.&lt;/p&gt;
 
@@ -84,6 +84,52 @@ This help us winning some opportunities but sometimes present some unique challe
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;&lt;em&gt;If you&amp;rsquo;re interested in Enterprise Browser, you can visit us at &lt;a href=&#34;http://bit.ly/EMEAAppForum2015&#34;&gt;EMEA AppForum in London, Oct. 12th-14th&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Little command line tricks</title>
+      <link>http://pietromaggi.com/2014/01/10/little-command-line-tricks/</link>
+      <pubDate>Fri, 10 Jan 2014 19:37:45 +0100</pubDate>
+      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <guid>http://pietromaggi.com/2014/01/10/little-command-line-tricks/</guid>
+      <description>
+
+&lt;p&gt;This is a different blog, more a remainder for me than anything else. Hope that someone else can find these useful&amp;hellip; they&amp;rsquo;re for me!&lt;/p&gt;
+
+&lt;h3 id=&#34;recover-a-failed-download-with-curl:6a6689e238fd9f5933243058cb353f4c&#34;&gt;Recover a failed download with curl:&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;curl -C - -o partially_downloaded_file &#39;www.example.com/path/to/the/file&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;burn-a-playable-dvd-from-a-video-ts-folder-http-hints-macworld-com-article-php-story-20070612161317338:6a6689e238fd9f5933243058cb353f4c&#34;&gt;&lt;a href=&#34;http://hints.macworld.com/article.php?story=20070612161317338&#34;&gt;Burn a playable DVD from a VIDEO_TS folder&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;After searching the forums and trying various things, I still couldn&amp;rsquo;t find a quick, reliable, free method of burning a VIDEO_TS folder to a pure UDF DVD,
+so that it would play in regular DVD players, as well trigger DVD Player to start up automatically. Anyway, as often is the case, Terminal had the answers.
+Just type in this command and change the paths to suit:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;hdiutil makehybrid -udf -udf-volume-name DVD_NAME -o MY_DVD.iso /path/to/VIDEO_TS/parent/folder
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Make sure that /path/to/VIDEO_TS/parent/folder is the path to the folder containing the VIDEO_TS folder, not the VIDEO_TS folder itself.
+Once the .iso file has been created, drag this to Disk Utility and hit the Burn button.&lt;/p&gt;
+
+&lt;h3 id=&#34;generate-a-pdf-from-a-markdown-file:6a6689e238fd9f5933243058cb353f4c&#34;&gt;Generate a pdf from a markdown file&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;markdown &amp;lt;File.md&amp;gt; | htmldoc --cont --headfootsize 8.0 --linkcolor blue --linkstyle plain --format pdf14 - &amp;gt; FileFormat.pdf
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;android-related-commands:6a6689e238fd9f5933243058cb353f4c&#34;&gt;Android related Commands&lt;/h1&gt;
+
+&lt;h3 id=&#34;taking-screenshot-of-an-android-device:6a6689e238fd9f5933243058cb353f4c&#34;&gt;Taking screenshot of an Android device&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;adb shell screencap -p | perl -pe &#39;s/\x0D\x0A/\x0A/g&#39; &amp;gt; screen.png
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;launch-browser-and-navigate-to-url-on-android-devices:6a6689e238fd9f5933243058cb353f4c&#34;&gt;Launch browser and navigate to URL on android devices&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;adb shell am start -a android.intent.action.VIEW -d URL
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     

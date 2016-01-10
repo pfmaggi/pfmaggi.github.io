@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tricks on Pietro F. Maggi</title>
+    <link>http://pietromaggi.com/topics/tricks/</link>
+    <description>Recent content in Tricks on Pietro F. Maggi</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-EN</language>
+    <managingEditor>pfm@pietromaggi.com (Pietro F. Maggi)</managingEditor>
+    <webMaster>pfm@pietromaggi.com (Pietro F. Maggi)</webMaster>
+    <copyright>(c) 2015 Pietro F. Maggi.</copyright>
+    <lastBuildDate>Fri, 10 Jan 2014 19:37:45 +0100</lastBuildDate>
+    <atom:link href="http://pietromaggi.com/topics/tricks/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Little command line tricks</title>
+      <link>http://pietromaggi.com/2014/01/10/little-command-line-tricks/</link>
+      <pubDate>Fri, 10 Jan 2014 19:37:45 +0100</pubDate>
+      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <guid>http://pietromaggi.com/2014/01/10/little-command-line-tricks/</guid>
+      <description>
+
+&lt;p&gt;This is a different blog, more a remainder for me than anything else. Hope that someone else can find these useful&amp;hellip; they&amp;rsquo;re for me!&lt;/p&gt;
+
+&lt;h3 id=&#34;recover-a-failed-download-with-curl:6a6689e238fd9f5933243058cb353f4c&#34;&gt;Recover a failed download with curl:&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;curl -C - -o partially_downloaded_file &#39;www.example.com/path/to/the/file&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;burn-a-playable-dvd-from-a-video-ts-folder-http-hints-macworld-com-article-php-story-20070612161317338:6a6689e238fd9f5933243058cb353f4c&#34;&gt;&lt;a href=&#34;http://hints.macworld.com/article.php?story=20070612161317338&#34;&gt;Burn a playable DVD from a VIDEO_TS folder&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;After searching the forums and trying various things, I still couldn&amp;rsquo;t find a quick, reliable, free method of burning a VIDEO_TS folder to a pure UDF DVD,
+so that it would play in regular DVD players, as well trigger DVD Player to start up automatically. Anyway, as often is the case, Terminal had the answers.
+Just type in this command and change the paths to suit:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;hdiutil makehybrid -udf -udf-volume-name DVD_NAME -o MY_DVD.iso /path/to/VIDEO_TS/parent/folder
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Make sure that /path/to/VIDEO_TS/parent/folder is the path to the folder containing the VIDEO_TS folder, not the VIDEO_TS folder itself.
+Once the .iso file has been created, drag this to Disk Utility and hit the Burn button.&lt;/p&gt;
+
+&lt;h3 id=&#34;generate-a-pdf-from-a-markdown-file:6a6689e238fd9f5933243058cb353f4c&#34;&gt;Generate a pdf from a markdown file&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;markdown &amp;lt;File.md&amp;gt; | htmldoc --cont --headfootsize 8.0 --linkcolor blue --linkstyle plain --format pdf14 - &amp;gt; FileFormat.pdf
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;android-related-commands:6a6689e238fd9f5933243058cb353f4c&#34;&gt;Android related Commands&lt;/h1&gt;
+
+&lt;h3 id=&#34;taking-screenshot-of-an-android-device:6a6689e238fd9f5933243058cb353f4c&#34;&gt;Taking screenshot of an Android device&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;adb shell screencap -p | perl -pe &#39;s/\x0D\x0A/\x0A/g&#39; &amp;gt; screen.png
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;launch-browser-and-navigate-to-url-on-android-devices:6a6689e238fd9f5933243058cb353f4c&#34;&gt;Launch browser and navigate to URL on android devices&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;adb shell am start -a android.intent.action.VIEW -d URL
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

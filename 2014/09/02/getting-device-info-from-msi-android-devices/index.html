@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>Getting device info from MSI Android devices  &middot; Pietro F. Maggi</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<meta name="description" content="" />
+
+<meta name="keywords" content="Android, Zebra Technologies, Sample, ">
+
+
+<meta property="og:title" content="Getting device info from MSI Android devices  &middot; Pietro F. Maggi ">
+<meta property="og:site_name" content="Pietro F. Maggi"/>
+<meta property="og:url" content="http://pietromaggi.com/2014/09/02/getting-device-info-from-msi-android-devices/" />
+<meta property="og:locale" content="en-EN">
+
+
+<meta property="og:type" content="article" />
+<meta property="og:description" content=""/>
+<meta property="og:article:published_time" content="2014-09-02T11:56:38&#43;02:00" />
+<meta property="og:article:modified_time" content="2014-09-02T11:56:38&#43;02:00" />
+
+  
+    
+<meta property="og:article:tag" content="Android">
+    
+<meta property="og:article:tag" content="Zebra Technologies">
+    
+<meta property="og:article:tag" content="Sample">
+    
+  
+
+  
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@pfmaggi" />
+<meta name="twitter:creator" content="@pfmaggi" />
+<meta name="twitter:title" content="Getting device info from MSI Android devices" />
+<meta name="twitter:description" content="" />
+<meta name="twitter:url" content="http://pietromaggi.com/2014/09/02/getting-device-info-from-msi-android-devices/" />
+<meta name="twitter:domain" content="http://pietromaggi.com/">
+  
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "headline": "Getting device info from MSI Android devices",
+    "author": {
+      "@type": "Person",
+      "name": "http://profiles.google.com/+?rel=author"
+    },
+    "datePublished": "2014-09-02",
+    "description": "",
+    "wordCount":  456 
+  }
+</script>
+
+
+
+<link rel="canonical" href="http://pietromaggi.com/2014/09/02/getting-device-info-from-msi-android-devices/" />
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://pietromaggi.com/touch-icon-144-precomposed.png">
+<link href="http://pietromaggi.com/favicon.png" rel="icon">
+
+<meta name="generator" content="Hugo 0.15" />
+
+  <!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link href='https://fonts.googleapis.com/css?family=Merriweather:300%7CRaleway%7COpen+Sans' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="http://pietromaggi.com/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://pietromaggi.com/css/style.css">
+<link rel="stylesheet" href="http://pietromaggi.com/css/highlight/default.css">
+
+  
+</head>
+<body>
+  <main id="main-wrapper" class="container main_wrapper has-sidebar right">
+    <header id="main-header" class="container main_header">
+  <div class="container brand">
+  <div class="container title h1-like">
+  <a class="baselink" href="http://pietromaggi.com/">
+  Garbage Collector
+
+</a>
+
+</div>
+
+  
+<div class="container topline">
+  
+  Tales from an old nibble
+
+
+</div>
+
+
+</div>
+
+  <nav class="container nav primary no-print">
+  
+
+<a class="homelink" href="http://pietromaggi.com/">Home</a>
+
+
+  
+<a href="http://pietromaggi.com/about">About</a>
+
+<a href="http://pietromaggi.com/post" title="Show list of posts">Posts</a>
+
+<a href="http://pietromaggi.com/speaking">Speaking Appointments</a>
+
+<a href="http://pietromaggi.com/decks">Slide Decks</a>
+
+<a href="http://pietromaggi.com/tags" title="Show list of tags">Tags</a>
+
+
+</nav>
+
+<div class="container nav secondary no-print">
+  
+<a id="contact-link-email" class="contact_link" href="mailto:pfm@pietromaggi.com">
+  <span class="fa fa-envelope-square"></span><span>email</span></a>
+
+
+
+<a id="contact-link-github" class="contact_link" href="https://github.com/pfmaggi">
+  <span class="fa fa-github-square"></span><span>github</span></a>
+
+
+
+<a id="contact-link-bitbucket" class="contact_link" href="https://bitbucket.org/pfmaggi">
+  <span class="fa fa-bitbucket-square"></span><span>bitbucket</span></a>
+
+
+
+<a id="contact-link-linkedin" class="contact_link" href="https://www.linkedin.com/in/pietromaggi">
+  <span class="fa fa-linkedin-square"></span><span>linkedin</span></a>
+
+
+
+
+
+
+
+<a id="contact-link-twitter" class="contact_link" href="https://twitter.com/pfmaggi">
+  <span class="fa fa-twitter-square"></span><span>twitter</span></a>
+
+
+
+
+
+
+
+</div>
+
+
+  
+
+</header>
+
+
+<article id="main-content" class="container main_content single">
+  <header class="container hat">
+  <h1>Getting device info from MSI Android devices
+</h1>
+
+  <div class="metas">
+<time datetime="2014-09-02">2 Sep, 2014</time>
+
+
+  
+    &middot; by Pietro F. Maggi
+  
+  &middot; Read in about 3 min
+  &middot; (456 Words)
+  <br>
+  
+<a class="label" href="http://pietromaggi.com/tags/android">Android</a>
+
+<a class="label" href="http://pietromaggi.com/tags/zebra-technologies">Zebra Technologies</a>
+
+<a class="label" href="http://pietromaggi.com/tags/sample">Sample</a>
+
+
+
+</div>
+
+</header>
+
+  <div class="container content">
+  
+
+<h1 id="the-good-old-ways:6ff729e61e92f40fe38fa28f7813d3d2">The good old ways!</h1>
+
+<p>On Symbol/MSI Windows Mobile devices, we where providing some APIs in the EMDK to get additional information.
+Looking into the Resource Coordinator is possible to find APIs like:</p>
+
+<ul>
+<li>RCM_GetESN() - retrieves the device electronic serial number</li>
+<li>RCM_GetUniqueUnitId() - retrieves the unique unit identification number</li>
+<li>RCM_GetVersion() - retrieves version information</li>
+<li>etc&hellip;</li>
+</ul>
+
+<p>&hellip;and we don&rsquo;t have anything like this in the Android EMDK. WHY?</p>
+
+<p>Simply because the functionality is already included in the standard Android SDK.</p>
+
+<p>Let&rsquo;s see how to get this is data on an MSI device with the Android OS.</p>
+
+<h1 id="the-fabulous-new-way:6ff729e61e92f40fe38fa28f7813d3d2">The fabulous new way!</h1>
+
+<p>You can find the completed project in <a href="https://github.com/pfmaggi/GetDeviceInfo">this repository</a> on my github account, I&rsquo;m using Windows 7 and Eclipse+ADT, but you can follow these steps with Android Studio quite nicely.</p>
+
+<h1 id="create-a-new-project:6ff729e61e92f40fe38fa28f7813d3d2">Create a new Project</h1>
+
+<p>Create a new Android project, nothing fancy here, it&rsquo;s just a standard app with a single Blank Activity.
+You can follow these images as a guideline. Your interface may vary as Google updates the Android wizard quite often.</p>
+
+<p><img src="/images/samples/device-info/create_project_01.jpg" alt="Create Project - step 1" title="Android New Project Wizard - page 1" />
+ <img src="/images/samples/device-info/create_project_02.jpg" alt="Create Project - step 2" title="Android New Project Wizard - page 2" />
+ <img src="/images/samples/device-info/create_project_03.jpg" alt="Create Project - step 3" title="Android New Project Wizard - page 3" />
+ <img src="/images/samples/device-info/create_project_04.jpg" alt="Create Project - step 4" title="Android New Project Wizard - page 4" />
+ <img src="/images/samples/device-info/create_project_05.jpg" alt="Create Project - step 5" title="Android New Project Wizard - page 5" /></p>
+
+<p>Then we can do some housekeeping deleting the unnecessary main.xml menu resource:</p>
+
+<p><img src="/images/samples/device-info/delete_menu.jpg" alt="Delete Menu resource" title="Delete unnecessary menu resource" /></p>
+
+<p>We can then start the two main changes:
+  - Setting up the Activity Layout
+  - Updating the Activity onCreate method to retrieve the device data</p>
+
+<p><img src="/images/samples/device-info/activity_layout.jpg" alt="Main Activity Layout" title="Main Activity Layout" /></p>
+
+<p>Here&rsquo;s the code:</p>
+
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+              android:layout_width=&quot;match_parent&quot;
+              android:layout_height=&quot;match_parent&quot;
+              android:orientation=&quot;vertical&quot;
+    &gt;
+    &lt;TextView
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;@string/device_name&quot;
+        /&gt;
+    &lt;TextView
+        android:id=&quot;@+id/device_type&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_marginLeft=&quot;16dp&quot;
+        android:layout_marginRight=&quot;16dp&quot;
+        android:textSize=&quot;18sp&quot;
+        style=&quot;?android:listSeparatorTextViewStyle&quot;
+        /&gt;
+    &lt;TextView
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;@string/electronic_serial_number&quot;
+        /&gt;
+    &lt;TextView
+        android:id=&quot;@+id/device_esn&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_marginLeft=&quot;16dp&quot;
+        android:layout_marginRight=&quot;16dp&quot;
+        android:textSize=&quot;18sp&quot;
+        style=&quot;?android:listSeparatorTextViewStyle&quot;
+        /&gt;
+    &lt;TextView
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;@string/build_number&quot;
+        /&gt;
+    &lt;TextView
+        android:id=&quot;@+id/build_number&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_marginLeft=&quot;16dp&quot;
+        android:layout_marginRight=&quot;16dp&quot;
+        android:textSize=&quot;18sp&quot;
+        style=&quot;?android:listSeparatorTextViewStyle&quot;
+        /&gt;
+&lt;/LinearLayout&gt;
+</code></pre>
+
+<p>This together with the string.xml containing the referenced string:</p>
+
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;resources&gt;
+
+    &lt;string name=&quot;app_name&quot;&gt;Get Device Info&lt;/string&gt;
+    &lt;string name=&quot;electronic_serial_number&quot;&gt;Device ESN:&lt;/string&gt;
+    &lt;string name=&quot;build_number&quot;&gt;Build Number:&lt;/string&gt;
+    &lt;string name=&quot;device_name&quot;&gt;Device:&lt;/string&gt;
+
+&lt;/resources&gt;
+</code></pre>
+
+<p>Then the simple Activity java code to collect the information is:</p>
+
+<pre><code class="language-java">package com.pietromaggi.sample.getdeviceinfo;
+
+import android.os.Build;
+import android.support.v7.app.ActionBarActivity;
+import android.os.Bundle;
+import android.widget.TextView;
+
+
+public class MainActivity extends ActionBarActivity {
+    TextView DeviceNameTextView;
+    TextView ESNTextView;
+    TextView BuildNumberTextView;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        DeviceNameTextView = (TextView)findViewById(R.id.device_type);
+        DeviceNameTextView.setText(Build.DEVICE);
+
+        ESNTextView = (TextView)findViewById(R.id.device_esn);
+        ESNTextView.setText(Build.SERIAL);
+
+        BuildNumberTextView = (TextView)findViewById(R.id.build_number);
+        BuildNumberTextView.setText(Build.ID);
+    }
+}
+</code></pre>
+
+<h1 id="where-s-the-tricks:6ff729e61e92f40fe38fa28f7813d3d2">Where&rsquo;s the tricks?</h1>
+
+<p>There&rsquo;s really no trick, Android SDK provide this information, and more using these constants:</p>
+
+<ul>
+<li><a href="http://developer.android.com/reference/android/os/Build.html#DEVICE">Build.DEVICE = The name of the industrial design</a></li>
+<li><a href="http://developer.android.com/reference/android/os/Build.html#SERIAL">Build.SERIAL = A hardware serial number, if available</a></li>
+<li><a href="http://developer.android.com/reference/android/os/Build.html#ID">Build.ID = changelist number</a></li>
+</ul>
+
+<p>Obviously, it&rsquo;s the OEM building the device that put together the plumbing to link the correct information. Your mileage may vary on different devices.</p>
+
+<p>Running this application on an ET1 with Jelly Bean you get:</p>
+
+<p><img src="/images/samples/device-info/screen_ET1.png" alt="ET1 Screenshot" title="ET1 Screenshot" /></p>
+
+<p>Running this application on an MC40 with Jelly Bean you get:</p>
+
+<p><img src="/images/samples/device-info/screen_MC40.png" alt="MC40 Screenshot" title="MC40 Screenshot" /></p>
+
+<p>While the TC55 is always a bit different :-)</p>
+
+<p><img src="/images/samples/device-info/screen_TC55JB.png" alt="TC55 Screenshot" title="TC55 Screenshot" /></p>
+
+<p>Hope you may find this useful. Send me an email if you&rsquo;d like to see any particular topic on this blog.</p>
+
+</div>
+
+
+  <footer class="container">
+  <div class="container navigation no-print">
+  <h2>Navigation</h2>
+  
+  
+
+    
+    <a class="prev" href="http://pietromaggi.com/2014/08/22/rhodes-5.0.2-and-visual-studio-2008-localized-edition/" title="Rhodes 5.0.2 and Visual Studio 2008 Localized edition">
+      Previous
+    </a>
+    
+
+    
+    <a class="next" href="http://pietromaggi.com/2014/10/19/finding-the-sdcard-path-on-android-devices/" title="Finding the SDCard Path on Android devices">
+      Next
+    </a>
+    
+
+  
+
+
+</div>
+
+  <div class="container comments">
+  <h2>Comments</h2>
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  (function() {
+    
+    
+    if (window.location.hostname == "localhost")
+      return;
+
+    var dsq = document.createElement('script'); dsq.async = true; dsq.type = 'text/javascript';
+    dsq.src = '//pietrofmaggi.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+</div>
+
+</footer>
+
+</article>
+      <footer id="main-footer" class="container main_footer">
+  
+
+  <div class="container nav foot no-print">
+  
+<a href="http://pietromaggi.com/license">license</a>
+
+
+  <a class="toplink" href="#">back to top</a>
+
+</div>
+
+  <div class="container credits">
+  
+<div class="container footline">
+  
+  code with <i class='fa fa-heart'></i>
+
+
+</div>
+
+
+  
+<div class="container copyright">
+  
+  &copy; 2015 Pietro F. Maggi.
+
+
+</div>
+
+
+</div>
+
+</footer>
+
+    </main>
+    
+<script type="text/javascript">
+  (function() {
+    
+    
+    if (window.location.hostname == "localhost")
+      return;
+
+    var dsq = document.createElement('script'); dsq.async = true; dsq.type = 'text/javascript';
+    dsq.src = '//pietrofmaggi.disqus.com/count.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+
+<script src="http://pietromaggi.com/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'Your Google Analytics tracking code', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+    
+  </body>
+</html>
+

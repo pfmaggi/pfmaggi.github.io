@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sdcard on Pietro F. Maggi</title>
+    <link>http://pietromaggi.com/tags/sdcard/</link>
+    <description>Recent content in Sdcard on Pietro F. Maggi</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-EN</language>
+    <managingEditor>pfm@pietromaggi.com (Pietro F. Maggi)</managingEditor>
+    <webMaster>pfm@pietromaggi.com (Pietro F. Maggi)</webMaster>
+    <copyright>(c) 2015 Pietro F. Maggi.</copyright>
+    <lastBuildDate>Sun, 19 Oct 2014 20:55:18 +0200</lastBuildDate>
+    <atom:link href="http://pietromaggi.com/tags/sdcard/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Finding the SDCard Path on Android devices</title>
+      <link>http://pietromaggi.com/2014/10/19/finding-the-sdcard-path-on-android-devices/</link>
+      <pubDate>Sun, 19 Oct 2014 20:55:18 +0200</pubDate>
+      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <guid>http://pietromaggi.com/2014/10/19/finding-the-sdcard-path-on-android-devices/</guid>
+      <description>
+
+&lt;p&gt;With Motorola Solutions we&amp;rsquo;re busy finishing the first round of Android Developer&amp;rsquo;s Kitchens around Europe. Just in time to prepare for the &lt;a href=&#34;http://www.motorolasolutionsevents.com/enterprise_appforum_2014/&#34;&gt;Enterprise App Forum in Brussels!&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The nice things of these events is the interaction with our partners and theirs real live problem!&lt;/p&gt;
+
+&lt;p&gt;Last week I got an interesting question regarding our TC55:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;How can I programmatically get the path for the SDCard on the TC55?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;That&amp;rsquo;s a good question; usually you don&amp;rsquo;t want to insert in your code the dependency to an hardcoded path!
+The usual answer is based around the function &lt;code&gt;Environment.getExternalStorageDirectory();&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;The problem is that this function report a different folder if the SDCard is inserted in the device or not.
+This is not a problem unique to the TC55, it&amp;rsquo;s a common problem on Android and there are different ways to handle it:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://futurewithdreams.blogspot.it/2014/01/get-external-sdcard-location-in-android.html&#34;&gt;Reading the partition table from &lt;code&gt;/proc/mounts&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://stackoverflow.com/a/23949650/118862&#34;&gt;Use some environment variables&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://stackoverflow.com/questions/22219312/android-open-external-storage-directorysdcard-for-storing-file&#34;&gt;Still use the getExternalStorageDirectory() function, together with the isExternalStorageRemovable() and getExternalStorageState() functions&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Given that we&amp;rsquo;ve the luxury to target just a few devices, the Motorola Solutions one :-), the best option is to use the environment variables.&lt;/p&gt;
+
+&lt;h3 id=&#34;let-s-see-what-happens-on-the-tc55:94b5531d6fd1044b8626da491a50030b&#34;&gt;Let&amp;rsquo;s see what happens on the TC55&lt;/h3&gt;
+
+&lt;p&gt;On this device, using &lt;code&gt;Environment.getExternalStorageDirectory();&lt;/code&gt; returns different results depending if you&amp;rsquo;ve installed or not an SDCard:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Without SDCard —&amp;gt; /&lt;code&gt;STORAGE/SDCARD1&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;With SDCard —&amp;gt; &lt;code&gt;/STORAGE/SDCARD0&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Let&amp;rsquo;s see what we can achieve with the environment variables!&lt;/p&gt;
+
+&lt;p&gt;We can log into a TC55 and use the &lt;code&gt;printenv&lt;/code&gt; command:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;adb shell
+printenv
+
+_=/system/bin/printenv
+LD_LIBRARY_PATH=/vendor/lib:/system/lib
+HOSTNAME=android
+BOOTCLASSPATH=/system/framework/core.jar:/system/framework/core-junit.jar:/system/framework/bouncycastle.jar:/system/framework/ext.jar:/system/framework/framework.jar:/system/framework/framework_ext.jar:/system/framework/android.policy.jar:/system/framework/services.jar:/system/framework/apache-xml.jar
+PATH=/sbin:/vendor/bin:/system/sbin:/system/bin:/system/xbin
+LOOP_MOUNTPOINT=/mnt/obb
+ANDROID_DATA=/data
+ANDROID_ROOT=/system
+SHELL=/system/bin/sh
+MKSH=/system/bin/sh
+USER=shell
+EXTERNAL_SDCARD_STORAGE=/storage/sdcard0
+ANDROID_PROPERTY_WORKSPACE=8,49152
+EXTERNAL_STORAGE=/storage/sdcard1
+ANDROID_ASSETS=/system/app
+TERM=vt100
+RANDOM=16913
+ASEC_MOUNTPOINT=/mnt/asec
+SECURE_STORAGE_SDCARD=/storage/sdcard0
+HOME=/data
+ANDROID_BOOTLOGO=1
+MASS_STORAGE=/mnt/udisk
+PS1=$(precmd)$USER@$HOSTNAME:${PWD:-?} $
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;From this is easy to see that the way to get the SDCard path is to use a couple of environment variables:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;System.getenv(&amp;laquo;EXTERNAL_STORAGE&amp;raquo;)&lt;/code&gt; —&amp;gt; Internal SDCard &lt;code&gt;/STORAGE/SDCARD1&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;System.getenv(&amp;laquo;EXTERNAL_SDCARD_STORAGE&amp;raquo;)&lt;/code&gt; —&amp;gt; True SDCard &lt;code&gt;/STORAGE/SDCARD0&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This solutions is still depending on two specific environment variables, is much better than hardcoding the path strings in the application but is probably only acceptable if you&amp;rsquo;re targeting just few devices.
+Another point is that, on other devices, you get the true SDCard path linked to the &lt;code&gt;SECONDARY_STORAGE&lt;/code&gt; environment variable. So a better solution could be to check for both variables with something like:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;String strSDCardPath = System.getenv(&amp;quot;SECONDARY_STORAGE&amp;quot;);
+if ((null == strSDCardPath) || (strSDCardPath.length() == 0)) {
+    strSDCardPath = System.getenv(&amp;quot;EXTERNAL_SDCARD_STORAGE&amp;quot;);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;When we will start to release KitKat based devices it will be even more important taking a look at the right path for these volumes :-)&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;EDIT:&lt;/em&gt; I&amp;rsquo;ve a new &lt;a href=&#34;../secondary-external-storage-in-android-kitkat&#34;&gt;blog post&lt;/a&gt; with additional information for Zebra Technologies KitKat devices.&lt;/p&gt;
+
+&lt;p&gt;You can find in my github account a &lt;a href=&#34;https://github.com/pfmaggi/GetDeviceInfo&#34;&gt;sample application&lt;/a&gt; that retrieves these data.&lt;/p&gt;
+
+&lt;p&gt;Let me know if you find this information useful via &lt;a href=&#34;http://twitter.com/pfmaggi&#34;&gt;twitter @pfmaggi&lt;/a&gt; or &lt;a href=&#34;mailto:pfm@pietromaggi.com&#34;&gt;email&lt;/a&gt; or &lt;a href=&#34;http://www.motorolasolutionsevents.com/enterprise_appforum_2014/&#34;&gt;joining me and the EMEA Software Enablement Team in Brussels for the Enterprise AppForum, our annual developer events&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

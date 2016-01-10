@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hacking on Pietro F. Maggi</title>
+    <link>http://pietromaggi.com/tags/hacking/</link>
+    <description>Recent content in Hacking on Pietro F. Maggi</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-EN</language>
+    <managingEditor>pfm@pietromaggi.com (Pietro F. Maggi)</managingEditor>
+    <webMaster>pfm@pietromaggi.com (Pietro F. Maggi)</webMaster>
+    <copyright>(c) 2015 Pietro F. Maggi.</copyright>
+    <lastBuildDate>Thu, 02 Jan 2014 14:34:27 +0100</lastBuildDate>
+    <atom:link href="http://pietromaggi.com/tags/hacking/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Diving into Android source code</title>
+      <link>http://pietromaggi.com/2014/01/02/diving-into-android-source-code/</link>
+      <pubDate>Thu, 02 Jan 2014 14:34:27 +0100</pubDate>
+      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <guid>http://pietromaggi.com/2014/01/02/diving-into-android-source-code/</guid>
+      <description>
+
+&lt;h2 id=&#34;why-dive-into-android-code&#34;&gt;Why dive into Android code?&lt;/h2&gt;
+
+&lt;p&gt;When you&amp;rsquo;ve to write applications for Android, you&amp;rsquo;re targeting a giant moving API surface, sometimes you can be surprised of some different behavior in different Android versions or with an API call that is not well documented, so having the option to delve into Android Source Code is a great opportunity.&lt;/p&gt;
+
+&lt;p&gt;A lot of things can be written on how to do this, there&amp;rsquo;s some documentation available on &lt;a href=&#34;http://source.android.com/source/index.html&#34;&gt;AOSP website&lt;/a&gt;, however I think that the best starting point is a video tutorial by NewCircle&amp;rsquo;s Instructor Dave Smith on this very topic: &lt;a href=&#34;https://www.youtube.com/watch?v=NsqFOSzoYE8&#34;&gt;Dive into Android Source Code&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;So, take your time to setup your own copy of the Android source code and, next time you&amp;rsquo;re asking yourself &amp;laquo;What&amp;rsquo;s going on when you call an API, you can check the source code!&amp;raquo;&lt;/p&gt;
+
+&lt;h2 id=&#34;on-a-similar-topic-dalvik-vm&#34;&gt;On a similar topic: Dalvik VM&lt;/h2&gt;
+
+&lt;p&gt;Dan Bernstein has presented at Google I/O 2008 a &lt;a href=&#34;https://www.youtube.com/watch?v=ptjedOZEXPM&#34;&gt;talk about the internals of Dalvik VM&lt;/a&gt;. If you&amp;rsquo;re interested in this piece of the Android Source Code, this is a good starting point, even if nowadays ART has taken the place of Dalvik. The basic concept are still the same!&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
