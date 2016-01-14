@@ -12,7 +12,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<meta name="description" content="" />
+<meta name="description" content="Collection of rhodes tips and tricks. More for the people that manage rhodes than who&#39;s only looking for info on how to write rhodes apps." />
 
 <meta name="keywords" content="Rhodes, RhoConnect, RhoMobile, ">
 
@@ -24,7 +24,7 @@
 
 
 <meta property="og:type" content="article" />
-<meta property="og:description" content=""/>
+<meta property="og:description" content="Collection of rhodes tips and tricks. More for the people that manage rhodes than who&#39;s only looking for info on how to write rhodes apps."/>
 <meta property="og:article:published_time" content="2013-12-30T13:56:04&#43;01:00" />
 <meta property="og:article:modified_time" content="2013-12-30T13:56:04&#43;01:00" />
 
@@ -43,7 +43,7 @@
 <meta name="twitter:site" content="@pfmaggi" />
 <meta name="twitter:creator" content="@pfmaggi" />
 <meta name="twitter:title" content="Rhodes tips &amp; tricks" />
-<meta name="twitter:description" content="" />
+<meta name="twitter:description" content="Collection of rhodes tips and tricks. More for the people that manage rhodes than who&#39;s only looking for info on how to write rhodes apps." />
 <meta name="twitter:url" content="http://pietromaggi.com/2013/12/30/rhodes-tips--tricks/" />
 <meta name="twitter:domain" content="http://pietromaggi.com/">
   
@@ -58,8 +58,8 @@
       "name": "http://profiles.google.com/+?rel=author"
     },
     "datePublished": "2013-12-30",
-    "description": "",
-    "wordCount":  173 
+    "description": "Collection of rhodes tips and tricks. More for the people that manage rhodes than who\x27s only looking for info on how to write rhodes apps.",
+    "wordCount":  186 
   }
 </script>
 
@@ -183,7 +183,7 @@
     &middot; by Pietro F. Maggi
   
   &middot; Read in about 1 min
-  &middot; (173 Words)
+  &middot; (186 Words)
   <br>
   
 <a class="label" href="http://pietromaggi.com/tags/rhodes">Rhodes</a>
@@ -201,7 +201,7 @@
   <div class="container content">
   
 
-<h2 id="how-to-rebuild-the-rhodes-gem">How to rebuild the rhodes gem</h2>
+<h2 id="how-to-rebuild-the-rhodes-gem:95be1d07f91809f8d47f64cb7b4cd9c7">How to rebuild the rhodes gem</h2>
 
 <pre><code class="language-sh">git clone https://github.com/rhomobile/rhodes.git
 cd rhodes
@@ -223,7 +223,7 @@ git pull
 <p>Copy files where you need it (on a different machine)
 gem install -l rhodes-3.5.1.13.2 (version given as an example)</p>
 
-<h2 id="rhodes-database-encryption">Rhodes Database encryption</h2>
+<h2 id="rhodes-database-encryption:95be1d07f91809f8d47f64cb7b4cd9c7">Rhodes Database encryption</h2>
 
 <p>Rhodes uses SQLite as database engine on all the supported platforms and, to provide encryption support we use different solutions depending by the target platform.</p>
 
@@ -234,14 +234,16 @@ The actual implementation is <a href="https://github.com/rhomobile/rhodes/blob/m
 
 <p>For other operative systems we use the <a href="http://sqlcipher.net/">SQLCipher plugin</a>. A look at the <a href="https://github.com/rhomobile/rhodes/blob/master/platform/shared/sqlite/crypto.c">crypto.c source file included in the SQLite folder can give more info</a>.</p>
 
-<h2 id="making-a-pull-request-to-rhodes">Making a pull request to rhodes&hellip;</h2>
+<h2 id="making-a-pull-request-to-rhodes:95be1d07f91809f8d47f64cb7b4cd9c7">Making a pull request to rhodes&hellip;</h2>
 
 <p>First of all you need to fork rhodes:</p>
 
-<p>Then you need to be sure that your fork is synced with upstream (this needs to be done before starting making changes):
-<a href="https://help.github.com/articles/syncing-a-fork">https://help.github.com/articles/syncing-a-fork</a></p>
+<p>Then you need to be sure that your fork is synced with upstream (this needs to be done before starting making changes), the following guide from GitHub came handy:</p>
 
-<p><a href="https://help.github.com/articles/using-pull-requests">https://help.github.com/articles/using-pull-requests</a></p>
+<ul>
+<li><a href="https://help.github.com/articles/syncing-a-fork">Syncing a fork</a></li>
+<li><a href="https://help.github.com/articles/using-pull-requests">How to use Pull Requests</a></li>
+</ul>
 
 </div>
 

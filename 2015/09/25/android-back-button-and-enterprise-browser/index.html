@@ -12,7 +12,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<meta name="description" content="How to intercept the Back Button when using Zebra&#39;s Enterprise Browser on Android devices" />
+<meta name="description" content="How to intercept the Back Button when using Zebra&#39;s Enterprise Browser on Android devices." />
 
 <meta name="keywords" content="Android, Enterprise Browser, Tricks, Zebra Technologies, ">
 
@@ -24,7 +24,7 @@
 
 
 <meta property="og:type" content="article" />
-<meta property="og:description" content="How to intercept the Back Button when using Zebra&#39;s Enterprise Browser on Android devices"/>
+<meta property="og:description" content="How to intercept the Back Button when using Zebra&#39;s Enterprise Browser on Android devices."/>
 <meta property="og:article:published_time" content="2015-09-25T11:33:11&#43;02:00" />
 <meta property="og:article:modified_time" content="2015-09-25T11:33:11&#43;02:00" />
 
@@ -45,7 +45,7 @@
 <meta name="twitter:site" content="@pfmaggi" />
 <meta name="twitter:creator" content="@pfmaggi" />
 <meta name="twitter:title" content="Android Back Button and Enterprise Browser" />
-<meta name="twitter:description" content="How to intercept the Back Button when using Zebra&#39;s Enterprise Browser on Android devices" />
+<meta name="twitter:description" content="How to intercept the Back Button when using Zebra&#39;s Enterprise Browser on Android devices." />
 <meta name="twitter:url" content="http://pietromaggi.com/2015/09/25/android-back-button-and-enterprise-browser/" />
 <meta name="twitter:domain" content="http://pietromaggi.com/">
   
@@ -60,8 +60,8 @@
       "name": "http://profiles.google.com/+?rel=author"
     },
     "datePublished": "2015-09-25",
-    "description": "How to intercept the Back Button when using Zebra\x27s Enterprise Browser on Android devices",
-    "wordCount":  427 
+    "description": "How to intercept the Back Button when using Zebra\x27s Enterprise Browser on Android devices.",
+    "wordCount":  428 
   }
 </script>
 
@@ -185,7 +185,7 @@
     &middot; by Pietro F. Maggi
   
   &middot; Read in about 3 min
-  &middot; (427 Words)
+  &middot; (428 Words)
   <br>
   
 <a class="label" href="http://pietromaggi.com/tags/android">Android</a>
@@ -205,16 +205,16 @@
   <div class="container content">
   
 
-<h2 id="enterprise-browser:844fa649910ec6745220f6ecf2ed4454">Enterprise Browser</h2>
+<h2 id="enterprise-browser:7f473ce4cff36ed9ec3742536e6fab0f">Enterprise Browser</h2>
 
 <p>Enterprise Browser is Zebra Technologies&rsquo; Industrial Browser built for our Rugged Devices, we support most of our Windows Mobile/Windows CE devices and Android devices.</p>
 
 <p>This product is usually used with existing web application that cannot be updated/modified moving from one device to another.
-This help us winning some opportunities but sometimes present some unique challenges like, as an example, disabling the Android back button default behaviour.</p>
+This help us winning some opportunities but sometimes present some unique challenges like, as an example, disabling the Android back button default behavior.</p>
 
-<h2 id="back-button-on-android:844fa649910ec6745220f6ecf2ed4454">Back Button on Android?</h2>
+<h2 id="back-button-on-android:7f473ce4cff36ed9ec3742536e6fab0f">Back Button on Android?</h2>
 
-<p>Given that this is a crossplatform product (built on top of our RhoMobile Suite) we don&rsquo;t have a custom settings to disable the back button in the Config.xml configuration file, however it is still possible to add a default Metatags in the configuration so that no changes in the existing pages are needed.</p>
+<p>Given that this is a cross-platform product (built on top of our RhoMobile Suite) we don&rsquo;t have a custom settings to disable the back button in the Config.xml configuration file, however it is still possible to add a default Metatags in the configuration so that no changes in the existing pages are needed.</p>
 
 <p>So, do we&rsquo;ve an API to intercept the Back Button?</p>
 
@@ -244,7 +244,7 @@ This help us winning some opportunities but sometimes present some unique challe
 
 <p>We&rsquo;ve a solution for this issue: having a <code>DefaultMetaTags</code> in Enterprise Browser&rsquo;s configuration.</p>
 
-<h2 id="what-s-a-defaultmetatags:844fa649910ec6745220f6ecf2ed4454">What&rsquo;s a DefaultMetaTags</h2>
+<h2 id="what-s-a-defaultmetatags:7f473ce4cff36ed9ec3742536e6fab0f">What&rsquo;s a DefaultMetaTags</h2>
 
 <p>We can start from the <a href="https://developer.motorolasolutions.com/docs/DOC-2571#defaultmetatags">documentation</a>, what does it means?</p>
 
@@ -259,11 +259,11 @@ This help us winning some opportunities but sometimes present some unique challe
 
 <p>BTW: <code>0xA6</code> is the correct value for the Back Button on a TC55 running Android v4.4 KitKat.</p>
 
-<h2 id="closing-comments:844fa649910ec6745220f6ecf2ed4454">Closing comments</h2>
+<h2 id="closing-comments:7f473ce4cff36ed9ec3742536e6fab0f">Closing comments</h2>
 
 <p>Enterprise Browser&rsquo;s <code>DefaultMetaTags</code> is a very flexible way to &laquo;patch&raquo; an existing Web application without touching its source code.</p>
 
-<p>As a closing comment here&rsquo;s a sample configuration that zoom the current webpage pressing a button:</p>
+<p>As a closing comment here&rsquo;s a sample configuration that zoom the current web page pressing a button:</p>
 
 <pre><code>&lt;MetaTag VALUE=&quot;KeyCapture~KeyValue:0x79;Dispatch:False;KeyEvent:url('JavaScript:eval('zoom.page=\'1.3\';');')&quot;/&gt;
 </code></pre>

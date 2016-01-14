@@ -12,7 +12,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<meta name="description" content="" />
+<meta name="description" content="How to use the standard Android SDK to retrieve information about the device the app is running on." />
 
 <meta name="keywords" content="Android, Zebra Technologies, Sample, ">
 
@@ -24,7 +24,7 @@
 
 
 <meta property="og:type" content="article" />
-<meta property="og:description" content=""/>
+<meta property="og:description" content="How to use the standard Android SDK to retrieve information about the device the app is running on."/>
 <meta property="og:article:published_time" content="2014-09-02T11:56:38&#43;02:00" />
 <meta property="og:article:modified_time" content="2014-09-02T11:56:38&#43;02:00" />
 
@@ -43,7 +43,7 @@
 <meta name="twitter:site" content="@pfmaggi" />
 <meta name="twitter:creator" content="@pfmaggi" />
 <meta name="twitter:title" content="Getting device info from MSI Android devices" />
-<meta name="twitter:description" content="" />
+<meta name="twitter:description" content="How to use the standard Android SDK to retrieve information about the device the app is running on." />
 <meta name="twitter:url" content="http://pietromaggi.com/2014/09/02/getting-device-info-from-msi-android-devices/" />
 <meta name="twitter:domain" content="http://pietromaggi.com/">
   
@@ -58,7 +58,7 @@
       "name": "http://profiles.google.com/+?rel=author"
     },
     "datePublished": "2014-09-02",
-    "description": "",
+    "description": "How to use the standard Android SDK to retrieve information about the device the app is running on.",
     "wordCount":  456 
   }
 </script>
@@ -201,7 +201,7 @@
   <div class="container content">
   
 
-<h1 id="the-good-old-ways:6ff729e61e92f40fe38fa28f7813d3d2">The good old ways!</h1>
+<h1 id="the-good-old-ways">The good old ways!</h1>
 
 <p>On Symbol/MSI Windows Mobile devices, we where providing some APIs in the EMDK to get additional information.
 Looking into the Resource Coordinator is possible to find APIs like:</p>
@@ -219,11 +219,11 @@ Looking into the Resource Coordinator is possible to find APIs like:</p>
 
 <p>Let&rsquo;s see how to get this is data on an MSI device with the Android OS.</p>
 
-<h1 id="the-fabulous-new-way:6ff729e61e92f40fe38fa28f7813d3d2">The fabulous new way!</h1>
+<h1 id="the-fabulous-new-way">The fabulous new way!</h1>
 
 <p>You can find the completed project in <a href="https://github.com/pfmaggi/GetDeviceInfo">this repository</a> on my github account, I&rsquo;m using Windows 7 and Eclipse+ADT, but you can follow these steps with Android Studio quite nicely.</p>
 
-<h1 id="create-a-new-project:6ff729e61e92f40fe38fa28f7813d3d2">Create a new Project</h1>
+<h1 id="create-a-new-project">Create a new Project</h1>
 
 <p>Create a new Android project, nothing fancy here, it&rsquo;s just a standard app with a single Blank Activity.
 You can follow these images as a guideline. Your interface may vary as Google updates the Android wizard quite often.</p>
@@ -343,7 +343,7 @@ public class MainActivity extends ActionBarActivity {
 }
 </code></pre>
 
-<h1 id="where-s-the-tricks:6ff729e61e92f40fe38fa28f7813d3d2">Where&rsquo;s the tricks?</h1>
+<h1 id="where-s-the-tricks">Where&rsquo;s the tricks?</h1>
 
 <p>There&rsquo;s really no trick, Android SDK provide this information, and more using these constants:</p>
 

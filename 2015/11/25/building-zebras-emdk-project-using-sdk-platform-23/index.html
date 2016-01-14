@@ -12,7 +12,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<meta name="description" content="" />
+<meta name="description" content="How-To guide on how to build an Android application using the latest SDK Platform and Zebra Technologies&#39; EMDK." />
 
 <meta name="keywords" content="Android, EMDK, Sample, Zebra Technologies, ">
 
@@ -24,7 +24,7 @@
 
 
 <meta property="og:type" content="article" />
-<meta property="og:description" content=""/>
+<meta property="og:description" content="How-To guide on how to build an Android application using the latest SDK Platform and Zebra Technologies&#39; EMDK."/>
 <meta property="og:article:published_time" content="2015-11-25T09:54:55&#43;01:00" />
 <meta property="og:article:modified_time" content="2015-11-25T09:54:55&#43;01:00" />
 
@@ -45,7 +45,7 @@
 <meta name="twitter:site" content="@pfmaggi" />
 <meta name="twitter:creator" content="@pfmaggi" />
 <meta name="twitter:title" content="Building Zebra&#39;s EMDK project using SDK Platform 23" />
-<meta name="twitter:description" content="" />
+<meta name="twitter:description" content="How-To guide on how to build an Android application using the latest SDK Platform and Zebra Technologies&#39; EMDK." />
 <meta name="twitter:url" content="http://pietromaggi.com/2015/11/25/building-zebras-emdk-project-using-sdk-platform-23/" />
 <meta name="twitter:domain" content="http://pietromaggi.com/">
   
@@ -60,8 +60,8 @@
       "name": "http://profiles.google.com/+?rel=author"
     },
     "datePublished": "2015-11-25",
-    "description": "",
-    "wordCount":  555 
+    "description": "How-To guide on how to build an Android application using the latest SDK Platform and Zebra Technologies\x27 EMDK.",
+    "wordCount":  556 
   }
 </script>
 
@@ -185,7 +185,7 @@
     &middot; by Pietro F. Maggi
   
   &middot; Read in about 3 min
-  &middot; (555 Words)
+  &middot; (556 Words)
   <br>
   
 <a class="label" href="http://pietromaggi.com/tags/android">Android</a>
@@ -209,7 +209,7 @@
 
 <p><a href="https://developer.motorolasolutions.com/message/86287#86287"><em>How can I compile my Android app, using Zebra&rsquo;s EMDK, if I need the latest support library?</em></a></p>
 
-<h1 id="some-background:d6126fed7c29a2aabc3032069235912b">Some background</h1>
+<h1 id="some-background:a73dc43b5349510a6429445ab1819abf">Some background</h1>
 
 <p>With the Android tools moving super-fast (Android studio v1.0 launched at the beginning of 2015, the latest stable release is v1.4.1, we already have v1.5RC and v2.0 has been announced&hellip;) keeping up to this pace is not easy for our EMDK team!</p>
 
@@ -219,7 +219,7 @@
 
 <p><em>Here we can have a problem</em></p>
 
-<h1 id="using-zebra-s-emdk:d6126fed7c29a2aabc3032069235912b">Using Zebra&rsquo;s EMDK</h1>
+<h1 id="using-zebra-s-emdk:a73dc43b5349510a6429445ab1819abf">Using Zebra&rsquo;s EMDK</h1>
 
 <p>So, talking just about Android Studio, that is the current up-to-date Android IDE, we currently document two ways to use the EMDK:</p>
 
@@ -230,11 +230,11 @@
 
 <p>Both methods fails to compile a project using the latest Android Support Library.</p>
 
-<h1 id="a-little-gradle-magic:d6126fed7c29a2aabc3032069235912b">A little gradle magic</h1>
+<h1 id="a-little-gradle-magic:a73dc43b5349510a6429445ab1819abf">A little gradle magic</h1>
 
 <p>Here&rsquo;s a third, <strong>UNOFFICIAL</strong>, way to include the EMDK in an Android project and use the latest available SDK to build the project.</p>
 
-<h2 id="copy-the-lib-file-in-your-project:d6126fed7c29a2aabc3032069235912b">Copy the lib file in your project</h2>
+<h2 id="copy-the-lib-file-in-your-project:a73dc43b5349510a6429445ab1819abf">Copy the lib file in your project</h2>
 
 <p>First of all, create in your Android project a lib folder and copy into it the com.symbol.emdk.jar library that you got installing the EMDK on your PC/Mac:</p>
 
@@ -246,9 +246,9 @@
 
 <p><img src="/images/EMDK_gradle/Android_Project2.jpg" alt="Project Files Panel View" title="Project Files Panel View" /></p>
 
-<h2 id="modify-the-build-gradle-file:d6126fed7c29a2aabc3032069235912b">Modify the build.gradle file</h2>
+<h2 id="modify-the-build-gradle-file:a73dc43b5349510a6429445ab1819abf">Modify the build.gradle file</h2>
 
-<p>OK, once the file is included in our project (and this means that you can checkin this file in your SCM and checkout on a new PC and rebuilt it without the need to Zebra EMDK installed) we can explain to Android Studio how to use it. To do this we need to modify the <code>build.gradle</code> file included in the app folder. If you&rsquo;ve switched back to the &laquo;Android Project view&raquo;, this is the Module: App, gradle file. As shown below:</p>
+<p>OK, once the file is included in our project (and this means that you can check in this file in your SCM and checkout on a new PC and rebuilt it without the need to Zebra EMDK installed) we can explain to Android Studio how to use it. To do this we need to modify the <code>build.gradle</code> file included in the app folder. If you&rsquo;ve switched back to the &laquo;Android Project view&raquo;, this is the Module: App, gradle file. As shown below:</p>
 
 <p><img src="/images/EMDK_gradle/gradle_file.jpg" alt="Gradle file to Edit" title="Gradle file to Edit" /></p>
 

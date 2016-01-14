@@ -115,7 +115,7 @@ Next step is to check that HomeBrew is setup correctly:&lt;/p&gt;
 
 &lt;h3 id=&#34;a-name-rvm-a-install-rvm-and-ruby-1-9-3&#34;&gt;&lt;a name=&#34;RVM&#34;&gt;&lt;/a&gt;Install RVM and Ruby 1.9.3&lt;/h3&gt;
 
-&lt;p&gt;OS X Mavericks comes with Ruby v2.0 installed by default, however RMSv5 requires Ruby v1.9.3. Overall working with Ruby can require to switch ruby environment often and to release this pain &lt;a href=&#34;http://pietromaggi.com/blog/ruby-version-manager-aka-rvm-the-swiss-army-knife-of-ruby-versions/&#34;&gt;some utilities has been created&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;OS X Mavericks comes with Ruby v2.0 installed by default, however RMSv5 requires Ruby v1.9.3. Overall working with Ruby can require to switch ruby environment often and to release this pain &lt;a href=&#34;http://pietromaggi.com/2013/12/29/ruby-version-manager-aka-rvm-the-swiss-army-knife-of-ruby-versions/&#34;&gt;some utilities has been created&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;In this case we&amp;rsquo;re going to install RVM and use it to install Ruby v1.9.3.
 First we need to install some prerequisite using HomeBrew:&lt;/p&gt;
@@ -392,12 +392,12 @@ If you want to build with other BlackBerry SDK versions edit: /Users/rhomobile/.
 
 &lt;p&gt;This is a different blog, more a remainder for me than anything else. Hope that someone else can find these useful&amp;hellip; they&amp;rsquo;re for me!&lt;/p&gt;
 
-&lt;h3 id=&#34;recover-a-failed-download-with-curl:6a6689e238fd9f5933243058cb353f4c&#34;&gt;Recover a failed download with curl:&lt;/h3&gt;
+&lt;h3 id=&#34;recover-a-failed-download-with-curl:4d6d9b75474dffda97a889a3cbd40065&#34;&gt;Recover a failed download with curl:&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;curl -C - -o partially_downloaded_file &#39;www.example.com/path/to/the/file&#39;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;burn-a-playable-dvd-from-a-video-ts-folder-http-hints-macworld-com-article-php-story-20070612161317338:6a6689e238fd9f5933243058cb353f4c&#34;&gt;&lt;a href=&#34;http://hints.macworld.com/article.php?story=20070612161317338&#34;&gt;Burn a playable DVD from a VIDEO_TS folder&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;burn-a-playable-dvd-from-a-video-ts-folder-http-hints-macworld-com-article-php-story-20070612161317338:4d6d9b75474dffda97a889a3cbd40065&#34;&gt;&lt;a href=&#34;http://hints.macworld.com/article.php?story=20070612161317338&#34;&gt;Burn a playable DVD from a VIDEO_TS folder&lt;/a&gt;&lt;/h3&gt;
 
 &lt;p&gt;After searching the forums and trying various things, I still couldn&amp;rsquo;t find a quick, reliable, free method of burning a VIDEO_TS folder to a pure UDF DVD,
 so that it would play in regular DVD players, as well trigger DVD Player to start up automatically. Anyway, as often is the case, Terminal had the answers.
@@ -409,19 +409,19 @@ Just type in this command and change the paths to suit:&lt;/p&gt;
 &lt;p&gt;Make sure that /path/to/VIDEO_TS/parent/folder is the path to the folder containing the VIDEO_TS folder, not the VIDEO_TS folder itself.
 Once the .iso file has been created, drag this to Disk Utility and hit the Burn button.&lt;/p&gt;
 
-&lt;h3 id=&#34;generate-a-pdf-from-a-markdown-file:6a6689e238fd9f5933243058cb353f4c&#34;&gt;Generate a pdf from a markdown file&lt;/h3&gt;
+&lt;h3 id=&#34;generate-a-pdf-from-a-markdown-file:4d6d9b75474dffda97a889a3cbd40065&#34;&gt;Generate a pdf from a markdown file&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;markdown &amp;lt;File.md&amp;gt; | htmldoc --cont --headfootsize 8.0 --linkcolor blue --linkstyle plain --format pdf14 - &amp;gt; FileFormat.pdf
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h1 id=&#34;android-related-commands:6a6689e238fd9f5933243058cb353f4c&#34;&gt;Android related Commands&lt;/h1&gt;
+&lt;h1 id=&#34;android-related-commands:4d6d9b75474dffda97a889a3cbd40065&#34;&gt;Android related Commands&lt;/h1&gt;
 
-&lt;h3 id=&#34;taking-screenshot-of-an-android-device:6a6689e238fd9f5933243058cb353f4c&#34;&gt;Taking screenshot of an Android device&lt;/h3&gt;
+&lt;h3 id=&#34;taking-screenshot-of-an-android-device:4d6d9b75474dffda97a889a3cbd40065&#34;&gt;Taking screenshot of an Android device&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code&gt;adb shell screencap -p | perl -pe &#39;s/\x0D\x0A/\x0A/g&#39; &amp;gt; screen.png
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;launch-browser-and-navigate-to-url-on-android-devices:6a6689e238fd9f5933243058cb353f4c&#34;&gt;Launch browser and navigate to URL on android devices&lt;/h3&gt;
+&lt;h3 id=&#34;launch-browser-and-navigate-to-url-on-android-devices:4d6d9b75474dffda97a889a3cbd40065&#34;&gt;Launch browser and navigate to URL on android devices&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;adb shell am start -a android.intent.action.VIEW -d URL
 &lt;/code&gt;&lt;/pre&gt;
@@ -436,7 +436,7 @@ Once the .iso file has been created, drag this to Disk Utility and hit the Burn 
       <guid>http://pietromaggi.com/2013/12/29/ruby-version-manager-aka-rvm-the-swiss-army-knife-of-ruby-versions/</guid>
       <description>
 
-&lt;h2 id=&#34;how-many-versions-of-ruby-do-you-need-on-your-machine&#34;&gt;How many versions of Ruby do you need on your machine?&lt;/h2&gt;
+&lt;h2 id=&#34;how-many-versions-of-ruby-do-you-need-on-your-machine:e78aed8983ecfa503d1ec50b9119f2da&#34;&gt;How many versions of Ruby do you need on your machine?&lt;/h2&gt;
 
 &lt;p&gt;Even if OS X 10.9 &lt;em&gt;Mavericks&lt;/em&gt; came with Ruby v2.0.0-p195, the previous OS X versions where released with Ruby v1.8.7.
 On top of this, most of the work I do with &lt;a href=&#34;http://github.com/rhomobile/rhodes&#34;&gt;Rhodes&lt;/a&gt; is still based on Ruby v1.9.3.
@@ -444,7 +444,7 @@ On top of this, most of the work I do with &lt;a href=&#34;http://github.com/rho
 
 &lt;p&gt;So, &lt;strong&gt;you&amp;rsquo;ve to install on your machine more than one Ruby environment!&lt;/strong&gt;, that means installing a Ruby Version Manager and then installing the different Ruby engine you want to test/use.&lt;/p&gt;
 
-&lt;h2 id=&#34;choosing-a-ruby-version-manager&#34;&gt;Choosing a Ruby Version Manager&lt;/h2&gt;
+&lt;h2 id=&#34;choosing-a-ruby-version-manager:e78aed8983ecfa503d1ec50b9119f2da&#34;&gt;Choosing a Ruby Version Manager&lt;/h2&gt;
 
 &lt;p&gt;&lt;em&gt;&amp;laquo;Hey, what do you mean sir, there&amp;rsquo;s more than one?&amp;raquo;&lt;/em&gt;&lt;br /&gt;
 &lt;em&gt;&amp;laquo;Yes, of course!&amp;raquo;&lt;/em&gt;&lt;/p&gt;
@@ -452,12 +452,12 @@ On top of this, most of the work I do with &lt;a href=&#34;http://github.com/rho
 &lt;p&gt;most common ruby version managers: &lt;a href=&#34;https://github.com/sstephenson/rbenv&#34;&gt;Rbenv&lt;/a&gt;, &lt;a href=&#34;http://rvm.io&#34;&gt;RVM&lt;/a&gt; and &lt;a href=&#34;https://github.com/postmodern/chruby&#34;&gt;ChRuby&lt;/a&gt;. RVM is the oldest solution and the easiest to have an environment up and running on a single machine to make some tests.
 If I&amp;rsquo;ve to work on a project with other developers having different environment (dev, test and deployment) I&amp;rsquo;ll probably give a good look to rbenv that integrates with bundler avoiding the RVM gemsets concept and having the gem necessary to a project in the project folder.&lt;/p&gt;
 
-&lt;h2 id=&#34;go-with-rvm&#34;&gt;Go with RVM&lt;/h2&gt;
+&lt;h2 id=&#34;go-with-rvm:e78aed8983ecfa503d1ec50b9119f2da&#34;&gt;Go with RVM&lt;/h2&gt;
 
 &lt;p&gt;Even if I like testing new things, when I need to get things done, I prefer the old trusty road then the new flashy one. In this case I&amp;rsquo;m going to use &lt;a href=&#34;http://rvm.io&#34;&gt;&lt;strong&gt;RVM&lt;/strong&gt;&lt;/a&gt;.
 So, first step is to install RVM on OS X and this requires a package manager to work more easily, this means &lt;a href=&#34;http://brew.sh/&#34;&gt;&lt;strong&gt;HomeBrew&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h3 id=&#34;first-step-install-homebrew&#34;&gt;First Step: Install HomeBrew&lt;/h3&gt;
+&lt;h3 id=&#34;first-step-install-homebrew:e78aed8983ecfa503d1ec50b9119f2da&#34;&gt;First Step: Install HomeBrew&lt;/h3&gt;
 
 &lt;p&gt;Installing HomeBrew is very easy:&lt;/p&gt;
 
@@ -466,7 +466,7 @@ So, first step is to install RVM on OS X and this requires a package manager to 
 
 &lt;p&gt;You need to have XCode installed and the command line tools, &lt;a href=&#34;https://github.com/Homebrew/homebrew/wiki/Installation&#34;&gt;HomeBrew website makes a good description of these steps&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h3 id=&#34;second-step-install-rvm&#34;&gt;Second Step: Install RVM&lt;/h3&gt;
+&lt;h3 id=&#34;second-step-install-rvm:e78aed8983ecfa503d1ec50b9119f2da&#34;&gt;Second Step: Install RVM&lt;/h3&gt;
 
 &lt;p&gt;We need to install some prerequisite using HomeBrew:&lt;/p&gt;
 
@@ -490,7 +490,7 @@ brew install gcc46
 rvm list known
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;upgrade-a-ruby-to-the-latest-patch-available&#34;&gt;Upgrade a ruby to the latest patch available&lt;/h2&gt;
+&lt;h2 id=&#34;upgrade-a-ruby-to-the-latest-patch-available:e78aed8983ecfa503d1ec50b9119f2da&#34;&gt;Upgrade a ruby to the latest patch available&lt;/h2&gt;
 
 &lt;p&gt;Nowadays ruby 1.9.3-patch484 seems pretty solid, but a lot of activities is on ruby 2.0.
 If you want keep your ruby up-to-date, RVM can help you keeping it aligned to the latest available patch with the command:&lt;/p&gt;
@@ -553,7 +553,7 @@ Successfully migrated ruby-2.0.0-p247 to ruby-2.0.0-p353
 Upgrade complete!
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;what-you-can-do-to-restart-an-rvm-setup-from-scratch&#34;&gt;What you can do to restart an RVM setup from scratch&lt;/h2&gt;
+&lt;h2 id=&#34;what-you-can-do-to-restart-an-rvm-setup-from-scratch:e78aed8983ecfa503d1ec50b9119f2da&#34;&gt;What you can do to restart an RVM setup from scratch&lt;/h2&gt;
 
 &lt;p&gt;Having an RVM environment growing over time can bring a bit of cruft into the system. If you&amp;rsquo;re starting to encounter more and more errors working on the setup, you can think to cleanup your setup and restart from scratch:&lt;/p&gt;
 
@@ -561,12 +561,12 @@ Upgrade complete!
 $ rvm cleanup
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;usage&#34;&gt;Usage:&lt;/h3&gt;
+&lt;h3 id=&#34;usage:e78aed8983ecfa503d1ec50b9119f2da&#34;&gt;Usage:&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;    rvm cleanup {all,archives,repos,sources,logs,gemsets,links}
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;description&#34;&gt;Description:&lt;/h3&gt;
+&lt;h3 id=&#34;description:e78aed8983ecfa503d1ec50b9119f2da&#34;&gt;Description:&lt;/h3&gt;
 
 &lt;p&gt;Cleans up the directory tree for the specified item.
 For gemsets removes remove only those without matching ruby.&lt;/p&gt;

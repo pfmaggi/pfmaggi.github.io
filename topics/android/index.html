@@ -143,6 +143,35 @@
   
     <article class="container content summary">
   <div class="container hat">
+  <h2><a href="http://pietromaggi.com/2016/01/15/secondary-external-storage-in-android-kitkat---part-1/">Secondary External Storage in Android KitKat - Part 1
+</a>
+</h2>
+
+  <time datetime="2016-01-15">15 Jan, 2016</time>
+
+</div>
+
+  <p class="container content">
+  
+  
+    New rules control Android v4.4 Secondary External Storage, here&#39;s what you need to know.
+  
+
+
+</p>
+
+
+  <div class="container readlink">
+  <a href="http://pietromaggi.com/2016/01/15/secondary-external-storage-in-android-kitkat---part-1/">Read more &rarr;</a>
+
+</div>
+
+
+</article>
+
+  
+    <article class="container content summary">
+  <div class="container hat">
   <h2><a href="http://pietromaggi.com/2014/10/19/finding-the-sdcard-path-on-android-devices/">Finding the SDCard Path on Android devices
 </a>
 </h2>
@@ -154,7 +183,7 @@
   <p class="container content">
   
   
-    With Motorola Solutions we&rsquo;re busy finishing the first round of Android Developer&rsquo;s Kitchens around Europe. Just in time to prepare for the Enterprise App Forum in Brussels!. The nice things of these events is the interaction with our partners and theirs real live problem! Last week I got an interesting question regarding our TC55: How can I programmatically get the path for the SDCard on the TC55? That&rsquo;s a good question; usually you don&rsquo;t want to insert in your code the dependency to an hardcoded path!
+    Finding the real SDCard path in Android v4.1 JellyBean can be tricky. Let see how we can do it on a TC55.
   
 
 
@@ -183,7 +212,7 @@
   <p class="container content">
   
   
-    The good old ways! On Symbol/MSI Windows Mobile devices, we where providing some APIs in the EMDK to get additional information. Looking into the Resource Coordinator is possible to find APIs like: RCM_GetESN() - retrieves the device electronic serial number RCM_GetUniqueUnitId() - retrieves the unique unit identification number RCM_GetVersion() - retrieves version information etc&hellip; &hellip;and we don&rsquo;t have anything like this in the Android EMDK. WHY? Simply because the functionality is already included in the standard Android SDK.
+    How to use the standard Android SDK to retrieve information about the device the app is running on.
   
 
 
@@ -212,7 +241,7 @@
   <p class="container content">
   
   
-    Why dive into Android code? When you&rsquo;ve to write applications for Android, you&rsquo;re targeting a giant moving API surface, sometimes you can be surprised of some different behavior in different Android versions or with an API call that is not well documented, so having the option to delve into Android Source Code is a great opportunity. A lot of things can be written on how to do this, there&rsquo;s some documentation available on AOSP website, however I think that the best starting point is a video tutorial by NewCircle&rsquo;s Instructor Dave Smith on this very topic: Dive into Android Source Code.
+    Why Not? One of the beauty working on an open source OS is to be able to look into the source code to understand how it works. Don&#39;t trust the documentation (or the comments in the source code). Trust only the code itself!
   
 
 

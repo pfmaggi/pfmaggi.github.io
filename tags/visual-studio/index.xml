@@ -34,8 +34,8 @@
 &lt;p&gt;From the same thread, copy the content of the localized package for vcbuild in the main folder; in my case:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;From: C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\vcpackages\1040&lt;/li&gt;
-&lt;li&gt;To: C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\vcpackages&lt;/li&gt;
+&lt;li&gt;From: &lt;code&gt;C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\vcpackages\1040&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;To: &lt;code&gt;C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\vcpackages&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;I just made a copy of the original content before moving the files (you never know).&lt;/p&gt;

@@ -34,8 +34,8 @@
 &lt;p&gt;From the same thread, copy the content of the localized package for vcbuild in the main folder; in my case:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;From: C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\vcpackages\1040&lt;/li&gt;
-&lt;li&gt;To: C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\vcpackages&lt;/li&gt;
+&lt;li&gt;From: &lt;code&gt;C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\vcpackages\1040&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;To: &lt;code&gt;C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\vcpackages&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;I just made a copy of the original content before moving the files (you never know).&lt;/p&gt;
@@ -147,7 +147,7 @@ Next step is to check that HomeBrew is setup correctly:&lt;/p&gt;
 
 &lt;h3 id=&#34;a-name-rvm-a-install-rvm-and-ruby-1-9-3&#34;&gt;&lt;a name=&#34;RVM&#34;&gt;&lt;/a&gt;Install RVM and Ruby 1.9.3&lt;/h3&gt;
 
-&lt;p&gt;OS X Mavericks comes with Ruby v2.0 installed by default, however RMSv5 requires Ruby v1.9.3. Overall working with Ruby can require to switch ruby environment often and to release this pain &lt;a href=&#34;http://pietromaggi.com/blog/ruby-version-manager-aka-rvm-the-swiss-army-knife-of-ruby-versions/&#34;&gt;some utilities has been created&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;OS X Mavericks comes with Ruby v2.0 installed by default, however RMSv5 requires Ruby v1.9.3. Overall working with Ruby can require to switch ruby environment often and to release this pain &lt;a href=&#34;http://pietromaggi.com/2013/12/29/ruby-version-manager-aka-rvm-the-swiss-army-knife-of-ruby-versions/&#34;&gt;some utilities has been created&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;In this case we&amp;rsquo;re going to install RVM and use it to install Ruby v1.9.3.
 First we need to install some prerequisite using HomeBrew:&lt;/p&gt;
@@ -422,7 +422,7 @@ If you want to build with other BlackBerry SDK versions edit: /Users/rhomobile/.
       <guid>http://pietromaggi.com/2013/12/30/rhodes-tips--tricks/</guid>
       <description>
 
-&lt;h2 id=&#34;how-to-rebuild-the-rhodes-gem&#34;&gt;How to rebuild the rhodes gem&lt;/h2&gt;
+&lt;h2 id=&#34;how-to-rebuild-the-rhodes-gem:95be1d07f91809f8d47f64cb7b4cd9c7&#34;&gt;How to rebuild the rhodes gem&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;git clone https://github.com/rhomobile/rhodes.git
 cd rhodes
@@ -444,7 +444,7 @@ git pull
 &lt;p&gt;Copy files where you need it (on a different machine)
 gem install -l rhodes-3.5.1.13.2 (version given as an example)&lt;/p&gt;
 
-&lt;h2 id=&#34;rhodes-database-encryption&#34;&gt;Rhodes Database encryption&lt;/h2&gt;
+&lt;h2 id=&#34;rhodes-database-encryption:95be1d07f91809f8d47f64cb7b4cd9c7&#34;&gt;Rhodes Database encryption&lt;/h2&gt;
 
 &lt;p&gt;Rhodes uses SQLite as database engine on all the supported platforms and, to provide encryption support we use different solutions depending by the target platform.&lt;/p&gt;
 
@@ -455,14 +455,16 @@ The actual implementation is &lt;a href=&#34;https://github.com/rhomobile/rhodes
 
 &lt;p&gt;For other operative systems we use the &lt;a href=&#34;http://sqlcipher.net/&#34;&gt;SQLCipher plugin&lt;/a&gt;. A look at the &lt;a href=&#34;https://github.com/rhomobile/rhodes/blob/master/platform/shared/sqlite/crypto.c&#34;&gt;crypto.c source file included in the SQLite folder can give more info&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h2 id=&#34;making-a-pull-request-to-rhodes&#34;&gt;Making a pull request to rhodes&amp;hellip;&lt;/h2&gt;
+&lt;h2 id=&#34;making-a-pull-request-to-rhodes:95be1d07f91809f8d47f64cb7b4cd9c7&#34;&gt;Making a pull request to rhodes&amp;hellip;&lt;/h2&gt;
 
 &lt;p&gt;First of all you need to fork rhodes:&lt;/p&gt;
 
-&lt;p&gt;Then you need to be sure that your fork is synced with upstream (this needs to be done before starting making changes):
-&lt;a href=&#34;https://help.github.com/articles/syncing-a-fork&#34;&gt;https://help.github.com/articles/syncing-a-fork&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Then you need to be sure that your fork is synced with upstream (this needs to be done before starting making changes), the following guide from GitHub came handy:&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;https://help.github.com/articles/using-pull-requests&#34;&gt;https://help.github.com/articles/using-pull-requests&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://help.github.com/articles/syncing-a-fork&#34;&gt;Syncing a fork&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://help.github.com/articles/using-pull-requests&#34;&gt;How to use Pull Requests&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     
@@ -494,9 +496,9 @@ In this case I start my inspection from the docs pages, some usefully tips from 
 appname The name of the application on the device to run, such as com.android.music.
 params  String. List of parameters for the application; nil if no parameters.&lt;/p&gt;
 
-&lt;p&gt;Windows Mobile, Windows CE: appname is path in registry:
-&lt;BR&gt;&lt;code&gt;\&amp;lt;vendor\&amp;gt; \&amp;lt;app\_name\&amp;gt;/\&amp;lt;app_name\&amp;gt;.exe&lt;/code&gt;
-&lt;BR&gt;This is usually recorded in the Key:&lt;/p&gt;
+&lt;p&gt;Windows Mobile, Windows CE: appname is path in registry:&lt;br /&gt;
+&lt;code&gt;&amp;lt;vendor&amp;gt; &amp;lt;app_name&amp;gt;/&amp;lt;app_name&amp;gt;.exe&lt;/code&gt;&lt;br /&gt;
+This is usually recorded in the Key:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;HKLM\Security\AppInstall\[App Name]
 &lt;/code&gt;&lt;/pre&gt;
