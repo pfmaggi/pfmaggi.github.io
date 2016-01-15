@@ -23,14 +23,14 @@
 &lt;p&gt;First technical post for 2016. Finally!&lt;/p&gt;
 
 &lt;p&gt;To kick-start 2016 I&amp;rsquo;ve chosen a topic that is more and more relevant in our market: The changes introduced by Google in Android v4.4 KitKat, regarding the secondary storage (the SDCard).&lt;br /&gt;
-I&amp;rsquo;ve already talked about this in my AppForum 2015 talk last October in London&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;, but I want to add some extra info and rationales here.&lt;/p&gt;
+I&amp;rsquo;ve already talked about this in my AppForum 2015 talk last October in London&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:51c058b2f0ea7a68582777f63f59ded1:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:51c058b2f0ea7a68582777f63f59ded1:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;, but I want to add some extra info and rationales here.&lt;/p&gt;
 
-&lt;h2 id=&#34;a-bit-of-background&#34;&gt;A bit of background&lt;/h2&gt;
+&lt;h2 id=&#34;a-bit-of-background:51c058b2f0ea7a68582777f63f59ded1&#34;&gt;A bit of background&lt;/h2&gt;
 
 &lt;p&gt;Android&amp;rsquo;s purpose is to establish an open platform for developers to build innovative apps.
 For this reason, Google put in place a compatibility program that defines technical details of the Android Platform;&lt;/p&gt;
 
-&lt;p&gt;For every Android release, there&amp;rsquo;s a Compatibility Definition Document, the last available at this moment is for &lt;a href=&#34;http://static.googleusercontent.com/media/source.android.com/it//compatibility/6.0/android-6.0-cdd.pdf&#34;&gt;Android 6.0, aka Marshmallow&lt;/a&gt;, that defines some of the technical features and device needs to have to be a compatible Android device. And this compatibility is a requirement to be able to license GMS&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:2&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:2&#34;&gt;2&lt;/a&gt;&lt;/sup&gt; for the device.&lt;/p&gt;
+&lt;p&gt;For every Android release, there&amp;rsquo;s a Compatibility Definition Document, the last available at this moment is for &lt;a href=&#34;http://static.googleusercontent.com/media/source.android.com/it//compatibility/6.0/android-6.0-cdd.pdf&#34;&gt;Android 6.0, aka Marshmallow&lt;/a&gt;, that defines some of the technical features and device needs to have to be a compatible Android device. And this compatibility is a requirement to be able to license GMS&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:51c058b2f0ea7a68582777f63f59ded1:2&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:51c058b2f0ea7a68582777f63f59ded1:2&#34;&gt;2&lt;/a&gt;&lt;/sup&gt; for the device.&lt;/p&gt;
 
 &lt;p&gt;To put it clearly:&lt;/p&gt;
 
@@ -40,7 +40,7 @@ For this reason, Google put in place a compatibility program that defines techni
 
 &lt;p&gt;Here we&amp;rsquo;re talking about Android v4.4 KitKat, so here&amp;rsquo;s a link to &lt;a href=&#34;http://source.android.com/compatibility/4.4/android-4.4-cdd.pdf&#34;&gt;Android 4.4 CDD&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;what-s-the-catch&#34;&gt;What&amp;rsquo;s the catch?&lt;/h2&gt;
+&lt;h2 id=&#34;what-s-the-catch:51c058b2f0ea7a68582777f63f59ded1&#34;&gt;What&amp;rsquo;s the catch?&lt;/h2&gt;
 
 &lt;p&gt;From the CDD, Android devices are required to have a Secondary Storage available with a minimum 1GB size if you don&amp;rsquo;t have this internal in your device but you provide an SDCard slot, you need to ship the device with an SDCard, again, 1GB minimum size.&lt;br /&gt;
 So usually, you end up that the SDCard is your &lt;em&gt;Secondary External Storage&lt;/em&gt;, and the &lt;em&gt;Primary External Storage&lt;/em&gt; is the 1GB partition (minimum) you included in the device.&lt;/p&gt;
@@ -56,7 +56,7 @@ So usually, you end up that the SDCard is your &lt;em&gt;Secondary External Stor
 &lt;li&gt;&lt;code&gt;WRITE_EXTERNAL_STORAGE&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;These will gave you read&amp;amp;write access to all the External Storage available&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:3&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:3&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;.&lt;br /&gt;
+&lt;p&gt;These will gave you read&amp;amp;write access to all the External Storage available&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:51c058b2f0ea7a68582777f63f59ded1:3&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:51c058b2f0ea7a68582777f63f59ded1:3&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;.&lt;br /&gt;
 Given that there are ways to gently ask for the &lt;a href=&#34;http://pietromaggi.com/2014/10/19/finding-the-sdcard-path-on-android-devices/&#34;&gt;SDCard true path&lt;/a&gt; this was more or less working.&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -68,7 +68,7 @@ Given that there are ways to gently ask for the &lt;a href=&#34;http://pietromag
 &lt;p&gt;In Android v4.4 Google decides to go a step further mandating that an app can write (with the right permissions that we just saw) only on the Primary External Storage. For all the other External Storage, an app can only write in its package folder. e.g. if you app package is com.pietromaggi.sample.externalstorage, It can only write in the folders &lt;code&gt;&amp;lt;sdcard root&amp;gt;/Android/data/com.pietromaggi.sample.externalstorage&lt;/code&gt;.&lt;br /&gt;
 There&amp;rsquo;s no way, for a normal application, to write anywhere else on the SDCard.&lt;/p&gt;
 
-&lt;h2 id=&#34;ok-but-there-s-an-happy-end-somewhere&#34;&gt;OK, but there&amp;rsquo;s an happy end somewhere?&lt;/h2&gt;
+&lt;h2 id=&#34;ok-but-there-s-an-happy-end-somewhere:51c058b2f0ea7a68582777f63f59ded1&#34;&gt;OK, but there&amp;rsquo;s an happy end somewhere?&lt;/h2&gt;
 
 &lt;p&gt;Really, if you&amp;rsquo;re trying to get a way to revert Android behavior to what it was before API level 19, no, this is it.&lt;br /&gt;
 Luckily Google has introduced new API in KitKat (and Lollipop and Marshmallow) that allows to mitigate the issue. Some user interventions may be needed but at least there are standard APIs available.&lt;/p&gt;
@@ -79,12 +79,12 @@ Luckily Google has introduced new API in KitKat (and Lollipop and Marshmallow) t
 &lt;hr /&gt;
 
 &lt;ol&gt;
-&lt;li id=&#34;fn:1&#34;&gt;Slides presented in London: &lt;script async class=&#39;speakerdeck-embed&#39; data-id=&#39;ef4248bf72454b2e9602db55bdf1e8ed&#39; data-ratio=&#39;1.33333333333333&#39; src=&#39;//speakerdeck.com/assets/embed.js&#39;&gt;&lt;/script&gt;
- &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li id=&#34;fn:2&#34;&gt;GMS Stands for Google Mobile Services, and is the collection of services and application built by Google that are not part of AOSP (Android Open Source Project) like GMail, Google Maps, Google Play Store and the push notification service GCM (Google Cloud Messaging).
- &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:2&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li id=&#34;fn:3&#34;&gt;The catch is that, before Android v4.4, API level 19, and the introduction of the &lt;code&gt;Environment.getExternalFilesDirs()&lt;/code&gt; there was no way to know how many External Storage you had available on a device. The only available API was &lt;code&gt;Environment.getExternalStorageDirectory()&lt;/code&gt; that returns the Primary External Storage.
- &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:3&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:51c058b2f0ea7a68582777f63f59ded1:1&#34;&gt;Slides presented in London: &lt;script async class=&#39;speakerdeck-embed&#39; data-id=&#39;ef4248bf72454b2e9602db55bdf1e8ed&#39; data-ratio=&#39;1.33333333333333&#39; src=&#39;//speakerdeck.com/assets/embed.js&#39;&gt;&lt;/script&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:51c058b2f0ea7a68582777f63f59ded1:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:51c058b2f0ea7a68582777f63f59ded1:2&#34;&gt;GMS Stands for Google Mobile Services, and is the collection of services and application built by Google that are not part of AOSP (Android Open Source Project) like GMail, Google Maps, Google Play Store and the push notification service GCM (Google Cloud Messaging).
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:51c058b2f0ea7a68582777f63f59ded1:2&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:51c058b2f0ea7a68582777f63f59ded1:3&#34;&gt;The catch is that, before Android v4.4, API level 19, and the introduction of the &lt;code&gt;Environment.getExternalFilesDirs()&lt;/code&gt; there was no way to know how many External Storage you had available on a device. The only available API was &lt;code&gt;Environment.getExternalStorageDirectory()&lt;/code&gt; that returns the Primary External Storage.
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:51c058b2f0ea7a68582777f63f59ded1:3&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
 </description>
@@ -120,7 +120,7 @@ This is not a problem unique to the TC55, it&amp;rsquo;s a common problem on And
 
 &lt;p&gt;Given that we&amp;rsquo;ve the luxury to target just a few devices, the Motorola Solutions one :-), the best option is to use the environment variables.&lt;/p&gt;
 
-&lt;h3 id=&#34;let-s-see-what-happens-on-the-tc55&#34;&gt;Let&amp;rsquo;s see what happens on the TC55&lt;/h3&gt;
+&lt;h3 id=&#34;let-s-see-what-happens-on-the-tc55:bc798595bb5986dd70a35d55131e88d5&#34;&gt;Let&amp;rsquo;s see what happens on the TC55&lt;/h3&gt;
 
 &lt;p&gt;On this device, using &lt;code&gt;Environment.getExternalStorageDirectory();&lt;/code&gt; returns different results depending if you&amp;rsquo;ve installed or not an SDCard:&lt;/p&gt;
 
@@ -373,13 +373,13 @@ public class MainActivity extends ActionBarActivity {
       <guid>http://pietromaggi.com/2014/01/02/diving-into-android-source-code/</guid>
       <description>
 
-&lt;h2 id=&#34;why-dive-into-android-code&#34;&gt;Why dive into Android code?&lt;/h2&gt;
+&lt;h2 id=&#34;why-dive-into-android-code:29c65bc279e3a113bf9cc4bb66b79657&#34;&gt;Why dive into Android code?&lt;/h2&gt;
 
 &lt;p&gt;When you&amp;rsquo;ve to write applications for Android, you&amp;rsquo;re targeting a giant moving API surface, sometimes you can be surprised of some different behavior in different Android versions or with an API call that is not well documented, so having the option to delve into Android Source Code is a great opportunity.&lt;/p&gt;
 
 &lt;p&gt;A lot of things can be written on how to do this, there&amp;rsquo;s some documentation available on &lt;a href=&#34;http://source.android.com/source/index.html&#34;&gt;AOSP website&lt;/a&gt;, however I think that the best starting point is a video tutorial by NewCircle&amp;rsquo;s Instructor Dave Smith on this very topic:&lt;/p&gt;
 
-&lt;h4 id=&#34;diving-into-android-source-code&#34;&gt;Diving into Android Source Code&lt;/h4&gt;
+&lt;h4 id=&#34;diving-into-android-source-code:29c65bc279e3a113bf9cc4bb66b79657&#34;&gt;Diving into Android Source Code&lt;/h4&gt;
 
 
 &lt;div style=&#34;position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;&#34;&gt;
@@ -389,11 +389,11 @@ public class MainActivity extends ActionBarActivity {
 
 &lt;p&gt;So, take your time to setup your own copy of the Android source code and, next time you&amp;rsquo;re asking yourself &amp;laquo;What&amp;rsquo;s going on when you call an API, you can check the source code!&amp;raquo;&lt;/p&gt;
 
-&lt;h2 id=&#34;on-a-similar-topic-dalvik-vm&#34;&gt;On a similar topic: Dalvik VM&lt;/h2&gt;
+&lt;h2 id=&#34;on-a-similar-topic-dalvik-vm:29c65bc279e3a113bf9cc4bb66b79657&#34;&gt;On a similar topic: Dalvik VM&lt;/h2&gt;
 
 &lt;p&gt;Dan Bernstein has presented at Google I/O 2008 a talk about the internals of Dalvik VM:&lt;/p&gt;
 
-&lt;h4 id=&#34;dalvik-virtual-machine-internals&#34;&gt;Dalvik Virtual Machine Internals&lt;/h4&gt;
+&lt;h4 id=&#34;dalvik-virtual-machine-internals:29c65bc279e3a113bf9cc4bb66b79657&#34;&gt;Dalvik Virtual Machine Internals&lt;/h4&gt;
 
 &lt;p&gt;
 &lt;div style=&#34;position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;&#34;&gt;
