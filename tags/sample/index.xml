@@ -24,7 +24,7 @@
 
 &lt;p&gt;&lt;a href=&#34;https://developer.motorolasolutions.com/message/86287#86287&#34;&gt;&lt;em&gt;How can I compile my Android app, using Zebra&amp;rsquo;s EMDK, if I need the latest support library?&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;h1 id=&#34;some-background&#34;&gt;Some background&lt;/h1&gt;
+&lt;h1 id=&#34;some-background:a73dc43b5349510a6429445ab1819abf&#34;&gt;Some background&lt;/h1&gt;
 
 &lt;p&gt;With the Android tools moving super-fast (Android studio v1.0 launched at the beginning of 2015, the latest stable release is v1.4.1, we already have v1.5RC and v2.0 has been announced&amp;hellip;) keeping up to this pace is not easy for our EMDK team!&lt;/p&gt;
 
@@ -34,7 +34,7 @@
 
 &lt;p&gt;&lt;em&gt;Here we can have a problem&lt;/em&gt;&lt;/p&gt;
 
-&lt;h1 id=&#34;using-zebra-s-emdk&#34;&gt;Using Zebra&amp;rsquo;s EMDK&lt;/h1&gt;
+&lt;h1 id=&#34;using-zebra-s-emdk:a73dc43b5349510a6429445ab1819abf&#34;&gt;Using Zebra&amp;rsquo;s EMDK&lt;/h1&gt;
 
 &lt;p&gt;So, talking just about Android Studio, that is the current up-to-date Android IDE, we currently document two ways to use the EMDK:&lt;/p&gt;
 
@@ -45,11 +45,11 @@
 
 &lt;p&gt;Both methods fails to compile a project using the latest Android Support Library.&lt;/p&gt;
 
-&lt;h1 id=&#34;a-little-gradle-magic&#34;&gt;A little gradle magic&lt;/h1&gt;
+&lt;h1 id=&#34;a-little-gradle-magic:a73dc43b5349510a6429445ab1819abf&#34;&gt;A little gradle magic&lt;/h1&gt;
 
 &lt;p&gt;Here&amp;rsquo;s a third, &lt;strong&gt;UNOFFICIAL&lt;/strong&gt;, way to include the EMDK in an Android project and use the latest available SDK to build the project.&lt;/p&gt;
 
-&lt;h2 id=&#34;copy-the-lib-file-in-your-project&#34;&gt;Copy the lib file in your project&lt;/h2&gt;
+&lt;h2 id=&#34;copy-the-lib-file-in-your-project:a73dc43b5349510a6429445ab1819abf&#34;&gt;Copy the lib file in your project&lt;/h2&gt;
 
 &lt;p&gt;First of all, create in your Android project a lib folder and copy into it the com.symbol.emdk.jar library that you got installing the EMDK on your PC/Mac:&lt;/p&gt;
 
@@ -61,7 +61,7 @@
 
 &lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/EMDK_gradle/Android_Project2.jpg&#34; alt=&#34;Project Files Panel View&#34; title=&#34;Project Files Panel View&#34; /&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;modify-the-build-gradle-file&#34;&gt;Modify the build.gradle file&lt;/h2&gt;
+&lt;h2 id=&#34;modify-the-build-gradle-file:a73dc43b5349510a6429445ab1819abf&#34;&gt;Modify the build.gradle file&lt;/h2&gt;
 
 &lt;p&gt;OK, once the file is included in our project (and this means that you can check in this file in your SCM and checkout on a new PC and rebuilt it without the need to Zebra EMDK installed) we can explain to Android Studio how to use it. To do this we need to modify the &lt;code&gt;build.gradle&lt;/code&gt; file included in the app folder. If you&amp;rsquo;ve switched back to the &amp;laquo;Android Project view&amp;raquo;, this is the Module: App, gradle file. As shown below:&lt;/p&gt;
 
@@ -115,7 +115,7 @@ This is not a problem unique to the TC55, it&amp;rsquo;s a common problem on And
 
 &lt;p&gt;Given that we&amp;rsquo;ve the luxury to target just a few devices, the Motorola Solutions one :-), the best option is to use the environment variables.&lt;/p&gt;
 
-&lt;h3 id=&#34;let-s-see-what-happens-on-the-tc55:bc798595bb5986dd70a35d55131e88d5&#34;&gt;Let&amp;rsquo;s see what happens on the TC55&lt;/h3&gt;
+&lt;h3 id=&#34;let-s-see-what-happens-on-the-tc55&#34;&gt;Let&amp;rsquo;s see what happens on the TC55&lt;/h3&gt;
 
 &lt;p&gt;On this device, using &lt;code&gt;Environment.getExternalStorageDirectory();&lt;/code&gt; returns different results depending if you&amp;rsquo;ve installed or not an SDCard:&lt;/p&gt;
 
@@ -190,7 +190,7 @@ if ((null == strSDCardPath) || (strSDCardPath.length() == 0)) {
       <guid>http://pietromaggi.com/2014/09/02/getting-device-info-from-msi-android-devices/</guid>
       <description>
 
-&lt;h1 id=&#34;the-good-old-ways&#34;&gt;The good old ways!&lt;/h1&gt;
+&lt;h1 id=&#34;the-good-old-ways:fc4a5c33de3ac7ed61c6a8c68c9cf289&#34;&gt;The good old ways!&lt;/h1&gt;
 
 &lt;p&gt;On Symbol/MSI Windows Mobile devices, we where providing some APIs in the EMDK to get additional information.
 Looking into the Resource Coordinator is possible to find APIs like:&lt;/p&gt;
@@ -208,11 +208,11 @@ Looking into the Resource Coordinator is possible to find APIs like:&lt;/p&gt;
 
 &lt;p&gt;Let&amp;rsquo;s see how to get this is data on an MSI device with the Android OS.&lt;/p&gt;
 
-&lt;h1 id=&#34;the-fabulous-new-way&#34;&gt;The fabulous new way!&lt;/h1&gt;
+&lt;h1 id=&#34;the-fabulous-new-way:fc4a5c33de3ac7ed61c6a8c68c9cf289&#34;&gt;The fabulous new way!&lt;/h1&gt;
 
 &lt;p&gt;You can find the completed project in &lt;a href=&#34;https://github.com/pfmaggi/GetDeviceInfo&#34;&gt;this repository&lt;/a&gt; on my github account, I&amp;rsquo;m using Windows 7 and Eclipse+ADT, but you can follow these steps with Android Studio quite nicely.&lt;/p&gt;
 
-&lt;h1 id=&#34;create-a-new-project&#34;&gt;Create a new Project&lt;/h1&gt;
+&lt;h1 id=&#34;create-a-new-project:fc4a5c33de3ac7ed61c6a8c68c9cf289&#34;&gt;Create a new Project&lt;/h1&gt;
 
 &lt;p&gt;Create a new Android project, nothing fancy here, it&amp;rsquo;s just a standard app with a single Blank Activity.
 You can follow these images as a guideline. Your interface may vary as Google updates the Android wizard quite often.&lt;/p&gt;
@@ -332,7 +332,7 @@ public class MainActivity extends ActionBarActivity {
 }
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h1 id=&#34;where-s-the-tricks&#34;&gt;Where&amp;rsquo;s the tricks?&lt;/h1&gt;
+&lt;h1 id=&#34;where-s-the-tricks:fc4a5c33de3ac7ed61c6a8c68c9cf289&#34;&gt;Where&amp;rsquo;s the tricks?&lt;/h1&gt;
 
 &lt;p&gt;There&amp;rsquo;s really no trick, Android SDK provide this information, and more using these constants:&lt;/p&gt;
 
