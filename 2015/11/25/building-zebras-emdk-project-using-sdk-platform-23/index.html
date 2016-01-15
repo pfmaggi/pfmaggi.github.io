@@ -87,7 +87,7 @@
   
 </head>
 <body>
-  <main id="main-wrapper" class="container main_wrapper has-sidebar right">
+  <main id="main-wrapper" class="container main_wrapper has-sidebar">
     <header id="main-header" class="container main_header">
   <div class="container brand">
   <div class="container title h1-like">
@@ -209,7 +209,7 @@
 
 <p><a href="https://developer.motorolasolutions.com/message/86287#86287"><em>How can I compile my Android app, using Zebra&rsquo;s EMDK, if I need the latest support library?</em></a></p>
 
-<h1 id="some-background:a73dc43b5349510a6429445ab1819abf">Some background</h1>
+<h1 id="some-background">Some background</h1>
 
 <p>With the Android tools moving super-fast (Android studio v1.0 launched at the beginning of 2015, the latest stable release is v1.4.1, we already have v1.5RC and v2.0 has been announced&hellip;) keeping up to this pace is not easy for our EMDK team!</p>
 
@@ -219,7 +219,7 @@
 
 <p><em>Here we can have a problem</em></p>
 
-<h1 id="using-zebra-s-emdk:a73dc43b5349510a6429445ab1819abf">Using Zebra&rsquo;s EMDK</h1>
+<h1 id="using-zebra-s-emdk">Using Zebra&rsquo;s EMDK</h1>
 
 <p>So, talking just about Android Studio, that is the current up-to-date Android IDE, we currently document two ways to use the EMDK:</p>
 
@@ -230,11 +230,11 @@
 
 <p>Both methods fails to compile a project using the latest Android Support Library.</p>
 
-<h1 id="a-little-gradle-magic:a73dc43b5349510a6429445ab1819abf">A little gradle magic</h1>
+<h1 id="a-little-gradle-magic">A little gradle magic</h1>
 
 <p>Here&rsquo;s a third, <strong>UNOFFICIAL</strong>, way to include the EMDK in an Android project and use the latest available SDK to build the project.</p>
 
-<h2 id="copy-the-lib-file-in-your-project:a73dc43b5349510a6429445ab1819abf">Copy the lib file in your project</h2>
+<h2 id="copy-the-lib-file-in-your-project">Copy the lib file in your project</h2>
 
 <p>First of all, create in your Android project a lib folder and copy into it the com.symbol.emdk.jar library that you got installing the EMDK on your PC/Mac:</p>
 
@@ -246,7 +246,7 @@
 
 <p><img src="/images/EMDK_gradle/Android_Project2.jpg" alt="Project Files Panel View" title="Project Files Panel View" /></p>
 
-<h2 id="modify-the-build-gradle-file:a73dc43b5349510a6429445ab1819abf">Modify the build.gradle file</h2>
+<h2 id="modify-the-build-gradle-file">Modify the build.gradle file</h2>
 
 <p>OK, once the file is included in our project (and this means that you can check in this file in your SCM and checkout on a new PC and rebuilt it without the need to Zebra EMDK installed) we can explain to Android Studio how to use it. To do this we need to modify the <code>build.gradle</code> file included in the app folder. If you&rsquo;ve switched back to the &laquo;Android Project view&raquo;, this is the Module: App, gradle file. As shown below:</p>
 

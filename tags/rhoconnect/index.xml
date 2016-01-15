@@ -20,7 +20,7 @@
       <guid>http://pietromaggi.com/2013/12/30/rhodes-tips--tricks/</guid>
       <description>
 
-&lt;h2 id=&#34;how-to-rebuild-the-rhodes-gem:95be1d07f91809f8d47f64cb7b4cd9c7&#34;&gt;How to rebuild the rhodes gem&lt;/h2&gt;
+&lt;h2 id=&#34;how-to-rebuild-the-rhodes-gem&#34;&gt;How to rebuild the rhodes gem&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;git clone https://github.com/rhomobile/rhodes.git
 cd rhodes
@@ -42,7 +42,7 @@ git pull
 &lt;p&gt;Copy files where you need it (on a different machine)
 gem install -l rhodes-3.5.1.13.2 (version given as an example)&lt;/p&gt;
 
-&lt;h2 id=&#34;rhodes-database-encryption:95be1d07f91809f8d47f64cb7b4cd9c7&#34;&gt;Rhodes Database encryption&lt;/h2&gt;
+&lt;h2 id=&#34;rhodes-database-encryption&#34;&gt;Rhodes Database encryption&lt;/h2&gt;
 
 &lt;p&gt;Rhodes uses SQLite as database engine on all the supported platforms and, to provide encryption support we use different solutions depending by the target platform.&lt;/p&gt;
 
@@ -53,7 +53,7 @@ The actual implementation is &lt;a href=&#34;https://github.com/rhomobile/rhodes
 
 &lt;p&gt;For other operative systems we use the &lt;a href=&#34;http://sqlcipher.net/&#34;&gt;SQLCipher plugin&lt;/a&gt;. A look at the &lt;a href=&#34;https://github.com/rhomobile/rhodes/blob/master/platform/shared/sqlite/crypto.c&#34;&gt;crypto.c source file included in the SQLite folder can give more info&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h2 id=&#34;making-a-pull-request-to-rhodes:95be1d07f91809f8d47f64cb7b4cd9c7&#34;&gt;Making a pull request to rhodes&amp;hellip;&lt;/h2&gt;
+&lt;h2 id=&#34;making-a-pull-request-to-rhodes&#34;&gt;Making a pull request to rhodes&amp;hellip;&lt;/h2&gt;
 
 &lt;p&gt;First of all you need to fork rhodes:&lt;/p&gt;
 

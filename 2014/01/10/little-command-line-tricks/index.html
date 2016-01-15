@@ -85,7 +85,7 @@
   
 </head>
 <body>
-  <main id="main-wrapper" class="container main_wrapper has-sidebar right">
+  <main id="main-wrapper" class="container main_wrapper has-sidebar">
     <header id="main-header" class="container main_header">
   <div class="container brand">
   <div class="container title h1-like">
@@ -203,12 +203,12 @@
 
 <p>This is a different blog, more a remainder for me than anything else. Hope that someone else can find these useful&hellip; they&rsquo;re for me!</p>
 
-<h3 id="recover-a-failed-download-with-curl:4d6d9b75474dffda97a889a3cbd40065">Recover a failed download with curl:</h3>
+<h3 id="recover-a-failed-download-with-curl">Recover a failed download with curl:</h3>
 
 <pre><code class="language-sh">curl -C - -o partially_downloaded_file 'www.example.com/path/to/the/file'
 </code></pre>
 
-<h3 id="burn-a-playable-dvd-from-a-video-ts-folder-http-hints-macworld-com-article-php-story-20070612161317338:4d6d9b75474dffda97a889a3cbd40065"><a href="http://hints.macworld.com/article.php?story=20070612161317338">Burn a playable DVD from a VIDEO_TS folder</a></h3>
+<h3 id="burn-a-playable-dvd-from-a-video-ts-folder-http-hints-macworld-com-article-php-story-20070612161317338"><a href="http://hints.macworld.com/article.php?story=20070612161317338">Burn a playable DVD from a VIDEO_TS folder</a></h3>
 
 <p>After searching the forums and trying various things, I still couldn&rsquo;t find a quick, reliable, free method of burning a VIDEO_TS folder to a pure UDF DVD,
 so that it would play in regular DVD players, as well trigger DVD Player to start up automatically. Anyway, as often is the case, Terminal had the answers.
@@ -220,19 +220,19 @@ Just type in this command and change the paths to suit:</p>
 <p>Make sure that /path/to/VIDEO_TS/parent/folder is the path to the folder containing the VIDEO_TS folder, not the VIDEO_TS folder itself.
 Once the .iso file has been created, drag this to Disk Utility and hit the Burn button.</p>
 
-<h3 id="generate-a-pdf-from-a-markdown-file:4d6d9b75474dffda97a889a3cbd40065">Generate a pdf from a markdown file</h3>
+<h3 id="generate-a-pdf-from-a-markdown-file">Generate a pdf from a markdown file</h3>
 
 <pre><code class="language-sh">markdown &lt;File.md&gt; | htmldoc --cont --headfootsize 8.0 --linkcolor blue --linkstyle plain --format pdf14 - &gt; FileFormat.pdf
 </code></pre>
 
-<h1 id="android-related-commands:4d6d9b75474dffda97a889a3cbd40065">Android related Commands</h1>
+<h1 id="android-related-commands">Android related Commands</h1>
 
-<h3 id="taking-screenshot-of-an-android-device:4d6d9b75474dffda97a889a3cbd40065">Taking screenshot of an Android device</h3>
+<h3 id="taking-screenshot-of-an-android-device">Taking screenshot of an Android device</h3>
 
 <pre><code>adb shell screencap -p | perl -pe 's/\x0D\x0A/\x0A/g' &gt; screen.png
 </code></pre>
 
-<h3 id="launch-browser-and-navigate-to-url-on-android-devices:4d6d9b75474dffda97a889a3cbd40065">Launch browser and navigate to URL on android devices</h3>
+<h3 id="launch-browser-and-navigate-to-url-on-android-devices">Launch browser and navigate to URL on android devices</h3>
 
 <pre><code class="language-sh">adb shell am start -a android.intent.action.VIEW -d URL
 </code></pre>
