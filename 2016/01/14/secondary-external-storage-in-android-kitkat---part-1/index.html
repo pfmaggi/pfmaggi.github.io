@@ -204,14 +204,14 @@
 <p>First technical post for 2016. Finally!</p>
 
 <p>To kick-start 2016 I&rsquo;ve chosen a topic that is more and more relevant in our market: The changes introduced by Google in Android v4.4 KitKat, regarding the secondary storage (the SDCard).<br />
-I&rsquo;ve already talked about this in my AppForum 2015 talk last October in London<sup class="footnote-ref" id="fnref:51c058b2f0ea7a68582777f63f59ded1:1"><a rel="footnote" href="#fn:51c058b2f0ea7a68582777f63f59ded1:1">1</a></sup>, but I want to add some extra info and rationales here.</p>
+I&rsquo;ve already talked about this in my AppForum 2015 talk last October in London<sup class="footnote-ref" id="fnref:1"><a rel="footnote" href="#fn:1">1</a></sup>, but I want to add some extra info and rationales here.</p>
 
-<h2 id="a-bit-of-background:51c058b2f0ea7a68582777f63f59ded1">A bit of background</h2>
+<h2 id="a-bit-of-background">A bit of background</h2>
 
 <p>Android&rsquo;s purpose is to establish an open platform for developers to build innovative apps.
 For this reason, Google put in place a compatibility program that defines technical details of the Android Platform;</p>
 
-<p>For every Android release, there&rsquo;s a Compatibility Definition Document, the last available at this moment is for <a href="http://static.googleusercontent.com/media/source.android.com/it//compatibility/6.0/android-6.0-cdd.pdf">Android 6.0, aka Marshmallow</a>, that defines some of the technical features and device needs to have to be a compatible Android device. And this compatibility is a requirement to be able to license GMS<sup class="footnote-ref" id="fnref:51c058b2f0ea7a68582777f63f59ded1:2"><a rel="footnote" href="#fn:51c058b2f0ea7a68582777f63f59ded1:2">2</a></sup> for the device.</p>
+<p>For every Android release, there&rsquo;s a Compatibility Definition Document, the last available at this moment is for <a href="http://static.googleusercontent.com/media/source.android.com/it//compatibility/6.0/android-6.0-cdd.pdf">Android 6.0, aka Marshmallow</a>, that defines some of the technical features and device needs to have to be a compatible Android device. And this compatibility is a requirement to be able to license GMS<sup class="footnote-ref" id="fnref:2"><a rel="footnote" href="#fn:2">2</a></sup> for the device.</p>
 
 <p>To put it clearly:</p>
 
@@ -221,7 +221,7 @@ For this reason, Google put in place a compatibility program that defines techni
 
 <p>Here we&rsquo;re talking about Android v4.4 KitKat, so here&rsquo;s a link to <a href="http://source.android.com/compatibility/4.4/android-4.4-cdd.pdf">Android 4.4 CDD</a></p>
 
-<h2 id="what-s-the-catch:51c058b2f0ea7a68582777f63f59ded1">What&rsquo;s the catch?</h2>
+<h2 id="what-s-the-catch">What&rsquo;s the catch?</h2>
 
 <p>From the CDD, Android devices are required to have a Secondary Storage available with a minimum 1GB size if you don&rsquo;t have this internal in your device but you provide an SDCard slot, you need to ship the device with an SDCard, again, 1GB minimum size.<br />
 So usually, you end up that the SDCard is your <em>Secondary External Storage</em>, and the <em>Primary External Storage</em> is the 1GB partition (minimum) you included in the device.</p>
@@ -237,7 +237,7 @@ So usually, you end up that the SDCard is your <em>Secondary External Storage</e
 <li><code>WRITE_EXTERNAL_STORAGE</code></li>
 </ul>
 
-<p>These will gave you read&amp;write access to all the External Storage available<sup class="footnote-ref" id="fnref:51c058b2f0ea7a68582777f63f59ded1:3"><a rel="footnote" href="#fn:51c058b2f0ea7a68582777f63f59ded1:3">3</a></sup>.<br />
+<p>These will gave you read&amp;write access to all the External Storage available<sup class="footnote-ref" id="fnref:3"><a rel="footnote" href="#fn:3">3</a></sup>.<br />
 Given that there are ways to gently ask for the <a href="/2014/10/19/finding-the-sdcard-path-on-android-devices/">SDCard true path</a> this was more or less working.</p>
 
 <blockquote>
@@ -249,7 +249,7 @@ Given that there are ways to gently ask for the <a href="/2014/10/19/finding-the
 <p>In Android v4.4 Google decides to go a step further mandating that an app can write (with the right permissions that we just saw) only on the Primary External Storage. For all the other External Storage, an app can only write in its package folder. e.g. if you app package is com.pietromaggi.sample.externalstorage, It can only write in the folders <code>&lt;sdcard root&gt;/Android/data/com.pietromaggi.sample.externalstorage</code>.<br />
 There&rsquo;s no way, for a normal application, to write anywhere else on the SDCard.</p>
 
-<h2 id="ok-but-there-s-an-happy-end-somewhere:51c058b2f0ea7a68582777f63f59ded1">OK, but there&rsquo;s an happy end somewhere?</h2>
+<h2 id="ok-but-there-s-an-happy-end-somewhere">OK, but there&rsquo;s an happy end somewhere?</h2>
 
 <p>Really, if you&rsquo;re trying to get a way to revert Android behavior to what it was before API level 19, no, this is it.<br />
 Luckily Google has introduced new API in KitKat (and Lollipop and Marshmallow) that allows to mitigate the issue. Some user interventions may be needed but at least there are standard APIs available.</p>
@@ -260,12 +260,12 @@ Luckily Google has introduced new API in KitKat (and Lollipop and Marshmallow) t
 <hr />
 
 <ol>
-<li id="fn:51c058b2f0ea7a68582777f63f59ded1:1">Slides presented in London: <script async class='speakerdeck-embed' data-id='ef4248bf72454b2e9602db55bdf1e8ed' data-ratio='1.33333333333333' src='//speakerdeck.com/assets/embed.js'></script>
- <a class="footnote-return" href="#fnref:51c058b2f0ea7a68582777f63f59ded1:1"><sup>[return]</sup></a></li>
-<li id="fn:51c058b2f0ea7a68582777f63f59ded1:2">GMS Stands for Google Mobile Services, and is the collection of services and application built by Google that are not part of AOSP (Android Open Source Project) like GMail, Google Maps, Google Play Store and the push notification service GCM (Google Cloud Messaging).
- <a class="footnote-return" href="#fnref:51c058b2f0ea7a68582777f63f59ded1:2"><sup>[return]</sup></a></li>
-<li id="fn:51c058b2f0ea7a68582777f63f59ded1:3">The catch is that, before Android v4.4, API level 19, and the introduction of the <code>Environment.getExternalFilesDirs()</code> there was no way to know how many External Storage you had available on a device. The only available API was <code>Environment.getExternalStorageDirectory()</code> that returns the Primary External Storage.
- <a class="footnote-return" href="#fnref:51c058b2f0ea7a68582777f63f59ded1:3"><sup>[return]</sup></a></li>
+<li id="fn:1">Slides presented in London: <script async class='speakerdeck-embed' data-id='ef4248bf72454b2e9602db55bdf1e8ed' data-ratio='1.33333333333333' src='//speakerdeck.com/assets/embed.js'></script>
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+<li id="fn:2">GMS Stands for Google Mobile Services, and is the collection of services and application built by Google that are not part of AOSP (Android Open Source Project) like GMail, Google Maps, Google Play Store and the push notification service GCM (Google Cloud Messaging).
+ <a class="footnote-return" href="#fnref:2"><sup>[return]</sup></a></li>
+<li id="fn:3">The catch is that, before Android v4.4, API level 19, and the introduction of the <code>Environment.getExternalFilesDirs()</code> there was no way to know how many External Storage you had available on a device. The only available API was <code>Environment.getExternalStorageDirectory()</code> that returns the Primary External Storage.
+ <a class="footnote-return" href="#fnref:3"><sup>[return]</sup></a></li>
 </ol>
 </div>
 
@@ -340,7 +340,7 @@ Luckily Google has introduced new API in KitKat (and Lollipop and Marshmallow) t
   
 <div class="container copyright">
   
-  &copy; 2015 Pietro F. Maggi.
+  &copy; 2013-2016 Pietro F. Maggi
 
 
 </div>
