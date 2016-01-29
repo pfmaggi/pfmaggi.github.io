@@ -197,7 +197,7 @@
   <div class="container content">
   
 
-<h1 id="rhomobile-suite-v5-0:1ccd390bb055ec5c67cc32a64682c5d7">RhoMobile Suite v5.0</h1>
+<h1 id="rhomobile-suite-v5-0">RhoMobile Suite v5.0</h1>
 
 <p>The new main release of Rhodes, RhoElements and RhoConnect had just been released a couple of weeks ago <a href="http://newsroom.motorolasolutions.com/Feature/See-RhoMobile-in-Action-at-OSCON-2014-4a61.aspx">during OSCON</a>. It&rsquo;s now time to install it and start building some mobile apps!</p>
 
@@ -221,13 +221,13 @@
 <li><a href="#Build">Build a sample app</a></li>
 </ul>
 
-<h3 id="a-name-osx-update-a-update-os-x-to-the-latest-version:1ccd390bb055ec5c67cc32a64682c5d7"><a name="OSX_Update"></a>Update OS X to the latest version</h3>
+<h3 id="a-name-osx-update-a-update-os-x-to-the-latest-version"><a name="OSX_Update"></a>Update OS X to the latest version</h3>
 
 <p>The first step is to check that the version of OS X on your machine is up-to-date, a quick stop in the Mac AppStore <em>Updates</em> tab can give you an idea of what is available.</p>
 
 <p><img src="/images/OSX_RMS5/updates.png" alt="One Update waiting to be installed" title="One Update Waiting to be installed" /></p>
 
-<h3 id="a-name-xcode-a-install-xcode:1ccd390bb055ec5c67cc32a64682c5d7"><a name="XCode"></a>Install XCode</h3>
+<h3 id="a-name-xcode-a-install-xcode"><a name="XCode"></a>Install XCode</h3>
 
 <p>The next step is to install the latest XCode on you OS. In this guide I&rsquo;m using XCode 5 as version 6 is still in beta, and we like stable releases!</p>
 
@@ -237,7 +237,7 @@
 
 <p><img src="/images/OSX_RMS5/XCode5_EULA.png" alt="XCode 5 EULA" title="XCode 5 EULA" /></p>
 
-<h3 id="a-name-terminal-a-familiarize-with-the-terminal:1ccd390bb055ec5c67cc32a64682c5d7"><a name="Terminal"></a>Familiarize with the terminal</h3>
+<h3 id="a-name-terminal-a-familiarize-with-the-terminal"><a name="Terminal"></a>Familiarize with the terminal</h3>
 
 <p>During the initial RMS setup some of the steps require that you use the Terminal, also known as <a href="http://en.wikipedia.org/wiki/Command-line_interface">command prompt or console</a>.
 The Terminal is already available on OS X, and you can find it inside the Utility folder in your Applications.</p>
@@ -248,7 +248,7 @@ The Terminal is already available on OS X, and you can find it inside the Utilit
 
 <p><img src="/images/OSX_RMS5/KeepInDock.png" alt="Keep Terminal in the dock" title="Keep Terminal in the dock" /></p>
 
-<h3 id="a-name-jdk7-a-install-java-jdk7:1ccd390bb055ec5c67cc32a64682c5d7"><a name="JDK7"></a>Install Java JDK7</h3>
+<h3 id="a-name-jdk7-a-install-java-jdk7"><a name="JDK7"></a>Install Java JDK7</h3>
 
 <p>OS X Mavericks comes without any Java environment installed, &laquo;the easiest way&raquo; to install it, is to open the terminal and type:</p>
 
@@ -271,7 +271,7 @@ The Terminal is already available on OS X, and you can find it inside the Utilit
 
 <p><img src="/images/OSX_RMS5/JavaIsInstalled.png" alt="Java is installed" title="Java is installed" /></p>
 
-<h3 id="a-name-homebrew-a-install-homebrew:1ccd390bb055ec5c67cc32a64682c5d7"><a name="HomeBrew"></a>Install HomeBrew</h3>
+<h3 id="a-name-homebrew-a-install-homebrew"><a name="HomeBrew"></a>Install HomeBrew</h3>
 
 <p><a href="http://brew.sh/">HomeBrew</a> is an open source package manager, working from the command line, that help setting up open source application on OS X.</p>
 
@@ -290,7 +290,7 @@ Next step is to check that HomeBrew is setup correctly:</p>
 
 <p>If you get a different message with some missing or misconfigured software you can follow the on-screen-instruction or you can find further information on the <a href="https://github.com/Homebrew/homebrew/wiki">HomeBrew Wiki</a>.</p>
 
-<h3 id="a-name-rvm-a-install-rvm-and-ruby-1-9-3:1ccd390bb055ec5c67cc32a64682c5d7"><a name="RVM"></a>Install RVM and Ruby 1.9.3</h3>
+<h3 id="a-name-rvm-a-install-rvm-and-ruby-1-9-3"><a name="RVM"></a>Install RVM and Ruby 1.9.3</h3>
 
 <p>OS X Mavericks comes with Ruby v2.0 installed by default, however RMSv5 requires Ruby v1.9.3. Overall working with Ruby can require to switch ruby environment often and to release this pain <a href="/2013/12/29/ruby-version-manager-aka-rvm-the-swiss-army-knife-of-ruby-versions/">some utilities has been created</a>.</p>
 
@@ -336,7 +336,7 @@ rvm rubies
 
 <p>To get more information on RVM you can check the documentation available on <a href="https://rvm.io/">its website</a>.</p>
 
-<h3 id="a-name-utilities-a-install-git-node-and-other-little-utilities:1ccd390bb055ec5c67cc32a64682c5d7"><a name="utilities"></a>Install git, node and other little utilities</h3>
+<h3 id="a-name-utilities-a-install-git-node-and-other-little-utilities"><a name="utilities"></a>Install git, node and other little utilities</h3>
 
 <p>RMS uses git <em>a lot</em>, to sync projects with RhoHub, and is overall a nice tool. It&rsquo;s already installed on Mavericks, but is version 1.8.5.2, better to keep an up-to-date version using HomeBrew:</p>
 
@@ -400,7 +400,7 @@ man ag
 
 <p>As always, using <strong>man</strong> in the command line will open the documentation for the command, in the case of the silver searcher, the command is <strong>ag</strong> (like the Silver symbol).</p>
 
-<h3 id="a-name-android-a-install-android-sdk-and-ndk:1ccd390bb055ec5c67cc32a64682c5d7"><a name="Android"></a>Install Android SDK and NDK</h3>
+<h3 id="a-name-android-a-install-android-sdk-and-ndk"><a name="Android"></a>Install Android SDK and NDK</h3>
 
 <p>Next step is to install what is needed to build RhoMobile Android Applications. You need to remember that to compile RhoMobile native applications you need to have the target OS tool chain. For Android this means the SDK and the NDK.</p>
 
@@ -460,7 +460,7 @@ adb devices
 tar xzvf ~/Downloads/android-ndk32-r10-darwin-x86_64.tar.bz2
 </code></pre>
 
-<h3 id="a-name-rms5-a-install-rms-v5-0:1ccd390bb055ec5c67cc32a64682c5d7"><a name="RMS5"></a>Install RMS v5.0</h3>
+<h3 id="a-name-rms5-a-install-rms-v5-0"><a name="RMS5"></a>Install RMS v5.0</h3>
 
 <p>For this step we can take the info from the <a href="http://docs.rhomobile.com/en/5.0.0/guide/rhomobile-install#mac-os">RhoMobile official documentation</a>.</p>
 
@@ -496,13 +496,13 @@ Password:
 Do you want to install rhoconnect-push with 'sudo' command prefix? [Yn]  Y
 </code></pre>
 
-<h3 id="a-name-account-a-create-a-rhomobile-com-account:1ccd390bb055ec5c67cc32a64682c5d7"><a name="Account"></a>Create a RhoMobile.com account</h3>
+<h3 id="a-name-account-a-create-a-rhomobile-com-account"><a name="Account"></a>Create a RhoMobile.com account</h3>
 
 <p>Version 5 of the RhoMobile Suite has a <a href="http://rhomobile.com/rhopricing.html">new licensing</a>, that is a yearly subscription available in different levels, starting from a free one, up to an Enterprise grade.</p>
 
 <p>Whatever the level you choose, you need to create an account on the RhoMobile.com website to use the Suite, both from RhoStudio and from the command line tools.</p>
 
-<h3 id="a-name-launching-a-launching-rhostudio:1ccd390bb055ec5c67cc32a64682c5d7"><a name="Launching"></a>Launching RhoStudio</h3>
+<h3 id="a-name-launching-a-launching-rhostudio"><a name="Launching"></a>Launching RhoStudio</h3>
 
 <p>RhoStudio and the whole RhoMobile Suite is now installed on your Mac, but you still need some steps to finish the configuration and start doing some coding. First of all launch RhoStudio from the Application folder (launch the 64-bit version) and select the second ruby environment for it.</p>
 
@@ -520,7 +520,7 @@ Do you want to install rhoconnect-push with 'sudo' command prefix? [Yn]  Y
 
 <p><img src="/images/OSX_RMS5/FirstRhoStudio.png" alt="RhoStudio first launch" title="First RhoStudio Launch" /></p>
 
-<h3 id="a-name-setup-a-rhostudio-setup:1ccd390bb055ec5c67cc32a64682c5d7"><a name="Setup"></a>RhoStudio Setup</h3>
+<h3 id="a-name-setup-a-rhostudio-setup"><a name="Setup"></a>RhoStudio Setup</h3>
 
 <p>There are some parameters to setup in RhoStudio before being able to build any project. Opening the settings windows using <strong>Command-,</strong> you can setup:</p>
 
@@ -553,7 +553,7 @@ BlackBerry JDE 4.2 MDS (blank to skip) ():
 If you want to build with other BlackBerry SDK versions edit: /Users/rhomobile/.rvm/gems/ruby-1.9.3-p547@global/gems/rhodes-5.0.2/rhobuild.yml
 </code></pre>
 
-<h3 id="a-name-build-a-build-your-first-rhomobile-application:1ccd390bb055ec5c67cc32a64682c5d7"><a name="Build"></a>Build your first RhoMobile application</h3>
+<h3 id="a-name-build-a-build-your-first-rhomobile-application"><a name="Build"></a>Build your first RhoMobile application</h3>
 
 <p>I&rsquo;ll cut this short at this moment, you should have everything setup at this moment and you should be able to follow the instructions on <a href="http://docs.rhomobile.com/en/5.0.0/guide/creating_a_project">RhoMobile website</a>. You can reach out to me if you&rsquo;ve any question and I plan to add another post with some &laquo;post-setup&raquo; optimization in the near future.</p>
 

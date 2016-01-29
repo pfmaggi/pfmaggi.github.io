@@ -171,14 +171,22 @@ Luckily Google has introduced new API in KitKat (and Lollipop and Marshmallow) t
       <guid>http://pietromaggi.com/2015/09/25/android-back-button-and-enterprise-browser/</guid>
       <description>
 
-&lt;h2 id=&#34;enterprise-browser&#34;&gt;Enterprise Browser&lt;/h2&gt;
+&lt;h2 id=&#34;edit:7f473ce4cff36ed9ec3742536e6fab0f&#34;&gt;Edit&lt;/h2&gt;
+
+&lt;p&gt;Enteprise Browser v1.3 introduced a change that requires to enable &lt;code&gt;FunctionKeysCapturable&lt;/code&gt; to be able to use the KeyCapture API.&lt;br /&gt;
+To do this you need to update your &lt;code&gt;Config.xml&lt;/code&gt; with:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;FunctionKeysCapturable                 value=&amp;quot;1&amp;quot;/&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;enterprise-browser:7f473ce4cff36ed9ec3742536e6fab0f&#34;&gt;Enterprise Browser&lt;/h2&gt;
 
 &lt;p&gt;Enterprise Browser is Zebra Technologies&amp;rsquo; Industrial Browser built for our Rugged Devices, we support most of our Windows Mobile/Windows CE devices and Android devices.&lt;/p&gt;
 
 &lt;p&gt;This product is usually used with existing web application that cannot be updated/modified moving from one device to another.
 This help us winning some opportunities but sometimes present some unique challenges like, as an example, disabling the Android back button default behavior.&lt;/p&gt;
 
-&lt;h2 id=&#34;back-button-on-android&#34;&gt;Back Button on Android?&lt;/h2&gt;
+&lt;h2 id=&#34;back-button-on-android:7f473ce4cff36ed9ec3742536e6fab0f&#34;&gt;Back Button on Android?&lt;/h2&gt;
 
 &lt;p&gt;Given that this is a cross-platform product (built on top of our RhoMobile Suite) we don&amp;rsquo;t have a custom settings to disable the back button in the Config.xml configuration file, however it is still possible to add a default Metatags in the configuration so that no changes in the existing pages are needed.&lt;/p&gt;
 
@@ -210,7 +218,7 @@ This help us winning some opportunities but sometimes present some unique challe
 
 &lt;p&gt;We&amp;rsquo;ve a solution for this issue: having a &lt;code&gt;DefaultMetaTags&lt;/code&gt; in Enterprise Browser&amp;rsquo;s configuration.&lt;/p&gt;
 
-&lt;h2 id=&#34;what-s-a-defaultmetatags&#34;&gt;What&amp;rsquo;s a DefaultMetaTags&lt;/h2&gt;
+&lt;h2 id=&#34;what-s-a-defaultmetatags:7f473ce4cff36ed9ec3742536e6fab0f&#34;&gt;What&amp;rsquo;s a DefaultMetaTags&lt;/h2&gt;
 
 &lt;p&gt;We can start from the &lt;a href=&#34;https://developer.motorolasolutions.com/docs/DOC-2571#defaultmetatags&#34;&gt;documentation&lt;/a&gt;, what does it means?&lt;/p&gt;
 
@@ -219,13 +227,13 @@ This help us winning some opportunities but sometimes present some unique challe
 &lt;p&gt;So, putting the different things together, we can put this in the &amp;ldquo;Config.xml&amp;rsquo;:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;DefaultMetaTags&amp;gt;
-    &amp;lt;MetaTag value=&amp;quot;KeyCapture~KeyValue:0xA6;Dispatch:False”/&amp;gt;
+    &amp;lt;MetaTag value=&amp;quot;KeyCapture~KeyValue:0xA6;Dispatch:False&amp;quot;/&amp;gt;
  &amp;lt;/DefaultMetaTags&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;BTW: &lt;code&gt;0xA6&lt;/code&gt; is the correct value for the Back Button on a TC55 running Android v4.4 KitKat.&lt;/p&gt;
 
-&lt;h2 id=&#34;closing-comments&#34;&gt;Closing comments&lt;/h2&gt;
+&lt;h2 id=&#34;closing-comments:7f473ce4cff36ed9ec3742536e6fab0f&#34;&gt;Closing comments&lt;/h2&gt;
 
 &lt;p&gt;Enterprise Browser&amp;rsquo;s &lt;code&gt;DefaultMetaTags&lt;/code&gt; is a very flexible way to &amp;laquo;patch&amp;raquo; an existing Web application without touching its source code.&lt;/p&gt;
 
