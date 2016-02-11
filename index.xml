@@ -279,11 +279,11 @@ I&amp;rsquo;ll will probably spend some time in the future to refine the layout,
       <guid>http://pietromaggi.com/decks/</guid>
       <description>
 
-&lt;h2 id=&#34;android-wireless-deepdive-decks-wireless&#34;&gt;&lt;a href=&#34;http://pietromaggi.com/decks/wireless/&#34;&gt;Android Wireless DeepDive&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;android-wireless-deepdive-decks-wireless:349560715c2232f9ac95d312b88a264e&#34;&gt;&lt;a href=&#34;http://pietromaggi.com/decks/wireless/&#34;&gt;Android Wireless DeepDive&lt;/a&gt;&lt;/h2&gt;
 
 &lt;p&gt;Exploring how to build a RhoMobile native extension for an Android undocumented feature&lt;/p&gt;
 
-&lt;h2 id=&#34;mobile-barcode-scanning-api-status-decks-barcodes-api&#34;&gt;&lt;a href=&#34;http://pietromaggi.com/decks/barcodes-api/&#34;&gt;Mobile Barcode Scanning API Status&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;mobile-barcode-scanning-api-status-decks-barcodes-api:349560715c2232f9ac95d312b88a264e&#34;&gt;&lt;a href=&#34;http://pietromaggi.com/decks/barcodes-api/&#34;&gt;Mobile Barcode Scanning API Status&lt;/a&gt;&lt;/h2&gt;
 
 &lt;p&gt;An analysis of barcode scanning API status on mobile devices&lt;/p&gt;
 </description>
@@ -477,7 +477,7 @@ if ((null == strSDCardPath) || (strSDCardPath.length() == 0)) {
       <guid>http://pietromaggi.com/2014/09/02/getting-device-info-from-msi-android-devices/</guid>
       <description>
 
-&lt;h1 id=&#34;the-good-old-ways&#34;&gt;The good old ways!&lt;/h1&gt;
+&lt;h1 id=&#34;the-good-old-ways:fc4a5c33de3ac7ed61c6a8c68c9cf289&#34;&gt;The good old ways!&lt;/h1&gt;
 
 &lt;p&gt;On Symbol/MSI Windows Mobile devices, we where providing some APIs in the EMDK to get additional information.
 Looking into the Resource Coordinator is possible to find APIs like:&lt;/p&gt;
@@ -495,11 +495,11 @@ Looking into the Resource Coordinator is possible to find APIs like:&lt;/p&gt;
 
 &lt;p&gt;Let&amp;rsquo;s see how to get this is data on an MSI device with the Android OS.&lt;/p&gt;
 
-&lt;h1 id=&#34;the-fabulous-new-way&#34;&gt;The fabulous new way!&lt;/h1&gt;
+&lt;h1 id=&#34;the-fabulous-new-way:fc4a5c33de3ac7ed61c6a8c68c9cf289&#34;&gt;The fabulous new way!&lt;/h1&gt;
 
 &lt;p&gt;You can find the completed project in &lt;a href=&#34;https://github.com/pfmaggi/GetDeviceInfo&#34;&gt;this repository&lt;/a&gt; on my github account, I&amp;rsquo;m using Windows 7 and Eclipse+ADT, but you can follow these steps with Android Studio quite nicely.&lt;/p&gt;
 
-&lt;h1 id=&#34;create-a-new-project&#34;&gt;Create a new Project&lt;/h1&gt;
+&lt;h1 id=&#34;create-a-new-project:fc4a5c33de3ac7ed61c6a8c68c9cf289&#34;&gt;Create a new Project&lt;/h1&gt;
 
 &lt;p&gt;Create a new Android project, nothing fancy here, it&amp;rsquo;s just a standard app with a single Blank Activity.
 You can follow these images as a guideline. Your interface may vary as Google updates the Android wizard quite often.&lt;/p&gt;
@@ -619,7 +619,7 @@ public class MainActivity extends ActionBarActivity {
 }
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h1 id=&#34;where-s-the-tricks&#34;&gt;Where&amp;rsquo;s the tricks?&lt;/h1&gt;
+&lt;h1 id=&#34;where-s-the-tricks:fc4a5c33de3ac7ed61c6a8c68c9cf289&#34;&gt;Where&amp;rsquo;s the tricks?&lt;/h1&gt;
 
 &lt;p&gt;There&amp;rsquo;s really no trick, Android SDK provide this information, and more using these constants:&lt;/p&gt;
 
@@ -1059,12 +1059,12 @@ If you want to build with other BlackBerry SDK versions edit: /Users/rhomobile/.
 
 &lt;p&gt;This is a different blog, more a remainder for me than anything else. Hope that someone else can find these useful&amp;hellip; they&amp;rsquo;re for me!&lt;/p&gt;
 
-&lt;h3 id=&#34;recover-a-failed-download-with-curl&#34;&gt;Recover a failed download with curl:&lt;/h3&gt;
+&lt;h3 id=&#34;recover-a-failed-download-with-curl:4d6d9b75474dffda97a889a3cbd40065&#34;&gt;Recover a failed download with curl:&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;curl -C - -o partially_downloaded_file &#39;www.example.com/path/to/the/file&#39;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;burn-a-playable-dvd-from-a-video-ts-folder-http-hints-macworld-com-article-php-story-20070612161317338&#34;&gt;&lt;a href=&#34;http://hints.macworld.com/article.php?story=20070612161317338&#34;&gt;Burn a playable DVD from a VIDEO_TS folder&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;burn-a-playable-dvd-from-a-video-ts-folder-http-hints-macworld-com-article-php-story-20070612161317338:4d6d9b75474dffda97a889a3cbd40065&#34;&gt;&lt;a href=&#34;http://hints.macworld.com/article.php?story=20070612161317338&#34;&gt;Burn a playable DVD from a VIDEO_TS folder&lt;/a&gt;&lt;/h3&gt;
 
 &lt;p&gt;After searching the forums and trying various things, I still couldn&amp;rsquo;t find a quick, reliable, free method of burning a VIDEO_TS folder to a pure UDF DVD,
 so that it would play in regular DVD players, as well trigger DVD Player to start up automatically. Anyway, as often is the case, Terminal had the answers.
@@ -1076,19 +1076,19 @@ Just type in this command and change the paths to suit:&lt;/p&gt;
 &lt;p&gt;Make sure that /path/to/VIDEO_TS/parent/folder is the path to the folder containing the VIDEO_TS folder, not the VIDEO_TS folder itself.
 Once the .iso file has been created, drag this to Disk Utility and hit the Burn button.&lt;/p&gt;
 
-&lt;h3 id=&#34;generate-a-pdf-from-a-markdown-file&#34;&gt;Generate a pdf from a markdown file&lt;/h3&gt;
+&lt;h3 id=&#34;generate-a-pdf-from-a-markdown-file:4d6d9b75474dffda97a889a3cbd40065&#34;&gt;Generate a pdf from a markdown file&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;markdown &amp;lt;File.md&amp;gt; | htmldoc --cont --headfootsize 8.0 --linkcolor blue --linkstyle plain --format pdf14 - &amp;gt; FileFormat.pdf
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h1 id=&#34;android-related-commands&#34;&gt;Android related Commands&lt;/h1&gt;
+&lt;h1 id=&#34;android-related-commands:4d6d9b75474dffda97a889a3cbd40065&#34;&gt;Android related Commands&lt;/h1&gt;
 
-&lt;h3 id=&#34;taking-screenshot-of-an-android-device&#34;&gt;Taking screenshot of an Android device&lt;/h3&gt;
+&lt;h3 id=&#34;taking-screenshot-of-an-android-device:4d6d9b75474dffda97a889a3cbd40065&#34;&gt;Taking screenshot of an Android device&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code&gt;adb shell screencap -p | perl -pe &#39;s/\x0D\x0A/\x0A/g&#39; &amp;gt; screen.png
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;launch-browser-and-navigate-to-url-on-android-devices&#34;&gt;Launch browser and navigate to URL on android devices&lt;/h3&gt;
+&lt;h3 id=&#34;launch-browser-and-navigate-to-url-on-android-devices:4d6d9b75474dffda97a889a3cbd40065&#34;&gt;Launch browser and navigate to URL on android devices&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;adb shell am start -a android.intent.action.VIEW -d URL
 &lt;/code&gt;&lt;/pre&gt;
@@ -1103,13 +1103,13 @@ Once the .iso file has been created, drag this to Disk Utility and hit the Burn 
       <guid>http://pietromaggi.com/2014/01/02/diving-into-android-source-code/</guid>
       <description>
 
-&lt;h2 id=&#34;why-dive-into-android-code&#34;&gt;Why dive into Android code?&lt;/h2&gt;
+&lt;h2 id=&#34;why-dive-into-android-code:29c65bc279e3a113bf9cc4bb66b79657&#34;&gt;Why dive into Android code?&lt;/h2&gt;
 
 &lt;p&gt;When you&amp;rsquo;ve to write applications for Android, you&amp;rsquo;re targeting a giant moving API surface, sometimes you can be surprised of some different behavior in different Android versions or with an API call that is not well documented, so having the option to delve into Android Source Code is a great opportunity.&lt;/p&gt;
 
 &lt;p&gt;A lot of things can be written on how to do this, there&amp;rsquo;s some documentation available on &lt;a href=&#34;http://source.android.com/source/index.html&#34;&gt;AOSP website&lt;/a&gt;, however I think that the best starting point is a video tutorial by NewCircle&amp;rsquo;s Instructor Dave Smith on this very topic:&lt;/p&gt;
 
-&lt;h4 id=&#34;diving-into-android-source-code&#34;&gt;Diving into Android Source Code&lt;/h4&gt;
+&lt;h4 id=&#34;diving-into-android-source-code:29c65bc279e3a113bf9cc4bb66b79657&#34;&gt;Diving into Android Source Code&lt;/h4&gt;
 
 
 &lt;div style=&#34;position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;&#34;&gt;
@@ -1119,11 +1119,11 @@ Once the .iso file has been created, drag this to Disk Utility and hit the Burn 
 
 &lt;p&gt;So, take your time to setup your own copy of the Android source code and, next time you&amp;rsquo;re asking yourself &amp;laquo;What&amp;rsquo;s going on when you call an API, you can check the source code!&amp;raquo;&lt;/p&gt;
 
-&lt;h2 id=&#34;on-a-similar-topic-dalvik-vm&#34;&gt;On a similar topic: Dalvik VM&lt;/h2&gt;
+&lt;h2 id=&#34;on-a-similar-topic-dalvik-vm:29c65bc279e3a113bf9cc4bb66b79657&#34;&gt;On a similar topic: Dalvik VM&lt;/h2&gt;
 
 &lt;p&gt;Dan Bernstein has presented at Google I/O 2008 a talk about the internals of Dalvik VM:&lt;/p&gt;
 
-&lt;h4 id=&#34;dalvik-virtual-machine-internals&#34;&gt;Dalvik Virtual Machine Internals&lt;/h4&gt;
+&lt;h4 id=&#34;dalvik-virtual-machine-internals:29c65bc279e3a113bf9cc4bb66b79657&#34;&gt;Dalvik Virtual Machine Internals&lt;/h4&gt;
 
 &lt;p&gt;
 &lt;div style=&#34;position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;&#34;&gt;
@@ -1143,34 +1143,34 @@ Once the .iso file has been created, drag this to Disk Utility and hit the Burn 
       <guid>http://pietromaggi.com/2014/01/01/2014-new-year-resolutions/</guid>
       <description>
 
-&lt;h2 id=&#34;blog-a-bit-more&#34;&gt;Blog a bit more&lt;/h2&gt;
+&lt;h2 id=&#34;blog-a-bit-more:3ffa1135a53f35cda7dcf694bab43f34&#34;&gt;Blog a bit more&lt;/h2&gt;
 
 &lt;p&gt;That&amp;rsquo;s been one of my goal for a long time, and something that I always suggest to people to increase their &lt;em&gt;&lt;a href=&#34;http://www.codusoperandi.com/posts/increasing-your-luck-surface-area&#34;&gt;&amp;laquo;Luck Surface Area&amp;raquo;&lt;/a&gt;&lt;/em&gt;.&lt;/p&gt;
 
 &lt;p&gt;In my case I can add an additional goal: keep track of what I do, tricks that I find and document procedure, fixes and workarounds.
 That&amp;rsquo;s always a bit of a pain point for me: I manage to do something and then in six months (or six hours) I forgot how I&amp;rsquo;ve done it and I need to start from scratch&amp;hellip; &lt;strong&gt;Never More&lt;/strong&gt;&lt;/p&gt;
 
-&lt;h3 id=&#34;content-in-markdown&#34;&gt;Content in Markdown&lt;/h3&gt;
+&lt;h3 id=&#34;content-in-markdown:3ffa1135a53f35cda7dcf694bab43f34&#34;&gt;Content in Markdown&lt;/h3&gt;
 
 &lt;p&gt;That&amp;rsquo;s one of the key technical decisions that I already have clear in mind, the content I&amp;rsquo;m going to produce will be in pure text, using &lt;a href=&#34;http://daringfireball.net/projects/markdown/&#34;&gt;Markdown&lt;/a&gt; formatting.&lt;/p&gt;
 
-&lt;h3 id=&#34;choosing-a-blog-engine-and-an-hosting-platform&#34;&gt;Choosing a blog engine and an hosting platform&lt;/h3&gt;
+&lt;h3 id=&#34;choosing-a-blog-engine-and-an-hosting-platform:3ffa1135a53f35cda7dcf694bab43f34&#34;&gt;Choosing a blog engine and an hosting platform&lt;/h3&gt;
 
 &lt;p&gt;I don&amp;rsquo;t want to spend a lot of time setting up a system at this moment, I prefer to use my time for other things!
 GitHub offer a nice way to have a &lt;a href=&#34;https://pages.github.com/&#34;&gt;git repository used as a blog source&lt;/a&gt;. It&amp;rsquo;s a no-brainer for me!&lt;/p&gt;
 
 &lt;p&gt;Static site generators like &lt;a href=&#34;http://jekyllrb.com/&#34;&gt;Jekill&lt;/a&gt; are another &lt;em&gt;no brainer&lt;/em&gt;. In my case I prefer to have some helps so I&amp;rsquo;m going to use &lt;a href=&#34;http://octopress.org/&#34;&gt;octopress&lt;/a&gt; starting with the &lt;a href=&#34;https://github.com/TheChymera/Koenigspress&#34;&gt;KoenigsPress&lt;/a&gt; theme.&lt;/p&gt;
 
-&lt;h3 id=&#34;hosting-solutions&#34;&gt;Hosting solutions&lt;/h3&gt;
+&lt;h3 id=&#34;hosting-solutions:3ffa1135a53f35cda7dcf694bab43f34&#34;&gt;Hosting solutions&lt;/h3&gt;
 
 &lt;p&gt;GitHub pages&lt;/p&gt;
 
-&lt;h3 id=&#34;setting-up-my-custom-domain&#34;&gt;Setting up my custom domain&lt;/h3&gt;
+&lt;h3 id=&#34;setting-up-my-custom-domain:3ffa1135a53f35cda7dcf694bab43f34&#34;&gt;Setting up my custom domain&lt;/h3&gt;
 
 &lt;p&gt;At the end I used godaddy.com to buy the domain pietromaggi.com for the next 10 years, I&amp;rsquo;ve managed to find a nice coupon and after few minutes I was able to have everything setup correctly.
 Some additional information are available on stackoverflow and this &lt;a href=&#34;http://learnaholic.me/2012/10/10/deploying-octopress-to-github-pages-and-setting-custom-subdomain-cname/&#34;&gt;blog&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h3 id=&#34;documenting-my-writing-process&#34;&gt;Documenting my writing process&lt;/h3&gt;
+&lt;h3 id=&#34;documenting-my-writing-process:3ffa1135a53f35cda7dcf694bab43f34&#34;&gt;Documenting my writing process&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;rake new_post[&amp;quot;my new great post&amp;quot;]
 rake preview
