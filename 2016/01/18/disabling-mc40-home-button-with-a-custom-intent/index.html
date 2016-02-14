@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>Disabling MC40 Home Button with a custom intent  &middot; Pietro F. Maggi</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<meta name="description" content="MC40 with Android v4.1 and v4.4 includes a feature in the OS that allows to disable the Home Button through an Intent." />
+
+<meta name="keywords" content="Android, MC40, Tricks, Sample, Zebra Technologies, ">
+
+
+<meta property="og:title" content="Disabling MC40 Home Button with a custom intent  &middot; Pietro F. Maggi ">
+<meta property="og:site_name" content="Pietro F. Maggi"/>
+<meta property="og:url" content="http://pietromaggi.com/2016/01/18/disabling-mc40-home-button-with-a-custom-intent/" />
+<meta property="og:locale" content="en-EN">
+
+
+<meta property="og:type" content="article" />
+<meta property="og:description" content="MC40 with Android v4.1 and v4.4 includes a feature in the OS that allows to disable the Home Button through an Intent."/>
+<meta property="og:article:published_time" content="2016-01-18T09:00:00&#43;01:00" />
+<meta property="og:article:modified_time" content="2016-01-18T09:00:00&#43;01:00" />
+
+  
+    
+<meta property="og:article:tag" content="Android">
+    
+<meta property="og:article:tag" content="MC40">
+    
+<meta property="og:article:tag" content="Tricks">
+    
+<meta property="og:article:tag" content="Sample">
+    
+<meta property="og:article:tag" content="Zebra Technologies">
+    
+  
+
+  
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@pfmaggi" />
+<meta name="twitter:creator" content="@pfmaggi" />
+<meta name="twitter:title" content="Disabling MC40 Home Button with a custom intent" />
+<meta name="twitter:description" content="MC40 with Android v4.1 and v4.4 includes a feature in the OS that allows to disable the Home Button through an Intent." />
+<meta name="twitter:url" content="http://pietromaggi.com/2016/01/18/disabling-mc40-home-button-with-a-custom-intent/" />
+<meta name="twitter:domain" content="http://pietromaggi.com/">
+  
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "headline": "Disabling MC40 Home Button with a custom intent",
+    "author": {
+      "@type": "Person",
+      "name": "http://profiles.google.com/+?rel=author"
+    },
+    "datePublished": "2016-01-18",
+    "description": "MC40 with Android v4.1 and v4.4 includes a feature in the OS that allows to disable the Home Button through an Intent.",
+    "wordCount":  849 
+  }
+</script>
+
+
+
+<link rel="canonical" href="http://pietromaggi.com/2016/01/18/disabling-mc40-home-button-with-a-custom-intent/" />
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://pietromaggi.com/touch-icon-144-precomposed.png">
+<link href="http://pietromaggi.com/favicon.png" rel="icon">
+
+<meta name="generator" content="Hugo 0.15" />
+
+  <!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link href='https://fonts.googleapis.com/css?family=Merriweather:300%7CRaleway%7COpen+Sans' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="http://pietromaggi.com/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://pietromaggi.com/css/style.css">
+<link rel="stylesheet" href="http://pietromaggi.com/css/highlight/default.css">
+
+  
+</head>
+<body>
+  <main id="main-wrapper" class="container main_wrapper has-sidebar">
+    <header id="main-header" class="container main_header">
+  <div class="container brand">
+  <div class="container title h1-like">
+  <a class="baselink" href="http://pietromaggi.com/">
+  Garbage Collector
+
+</a>
+
+</div>
+
+  
+<div class="container topline">
+  
+  Tales from an old nibble
+
+
+</div>
+
+
+</div>
+
+  <nav class="container nav primary no-print">
+  
+
+<a class="homelink" href="http://pietromaggi.com/">Home</a>
+
+
+  
+<a href="http://pietromaggi.com/about">About</a>
+
+<a href="http://pietromaggi.com/post" title="Show list of posts">Posts</a>
+
+<a href="http://pietromaggi.com/speaking">Speaking Appointments</a>
+
+<a href="http://pietromaggi.com/decks">Slide Decks</a>
+
+<a href="http://pietromaggi.com/tags" title="Show list of tags">Tags</a>
+
+
+</nav>
+
+<div class="container nav secondary no-print">
+  
+<a id="contact-link-email" class="contact_link" href="mailto:pfm@pietromaggi.com">
+  <span class="fa fa-envelope-square"></span><span>email</span></a>
+
+
+
+<a id="contact-link-github" class="contact_link" href="https://github.com/pfmaggi">
+  <span class="fa fa-github-square"></span><span>github</span></a>
+
+
+
+<a id="contact-link-bitbucket" class="contact_link" href="https://bitbucket.org/pfmaggi">
+  <span class="fa fa-bitbucket-square"></span><span>bitbucket</span></a>
+
+
+
+<a id="contact-link-linkedin" class="contact_link" href="https://www.linkedin.com/in/pietromaggi">
+  <span class="fa fa-linkedin-square"></span><span>linkedin</span></a>
+
+
+
+
+
+
+
+<a id="contact-link-twitter" class="contact_link" href="https://twitter.com/pfmaggi">
+  <span class="fa fa-twitter-square"></span><span>twitter</span></a>
+
+
+
+
+
+
+
+</div>
+
+
+  
+
+</header>
+
+
+<article id="main-content" class="container main_content single">
+  <header class="container hat">
+  <h1>Disabling MC40 Home Button with a custom intent
+</h1>
+
+  <div class="metas">
+<time datetime="2016-01-18">18 Jan, 2016</time>
+
+
+  
+    &middot; by Pietro F. Maggi
+  
+  &middot; Read in about 4 min
+  &middot; (849 Words)
+  <br>
+  
+<a class="label" href="http://pietromaggi.com/tags/android">Android</a>
+
+<a class="label" href="http://pietromaggi.com/tags/mc40">MC40</a>
+
+<a class="label" href="http://pietromaggi.com/tags/tricks">Tricks</a>
+
+<a class="label" href="http://pietromaggi.com/tags/sample">Sample</a>
+
+<a class="label" href="http://pietromaggi.com/tags/zebra-technologies">Zebra Technologies</a>
+
+
+
+</div>
+
+</header>
+
+  <div class="container content">
+  
+
+<h2 id="intro:2e1fe568b32c202e94702c6e9dd9eda0">Intro</h2>
+
+<p>Zebra Technologies&rsquo; devices are purpose built to be single use devices. Having an OS like Android nowadays provides a lot of flexibility&hellip;  sometimes a bit too much.<br />
+With this idea in mind, the Android version used on these devices sometimes provide some nice surprise, like an Intent to disable the omnipresent Android&rsquo;s Home button.</p>
+
+<h2 id="the-basic-idea:2e1fe568b32c202e94702c6e9dd9eda0">The basic idea</h2>
+
+<p>MC40 support an <a href="http://developer.android.com/reference/android/content/Intent.html">Android intent</a> to disable the normal Home button behavior: <em>You can disable it and there&rsquo;s no way to exit from the foreground application</em> <sup class="footnote-ref" id="fnref:2e1fe568b32c202e94702c6e9dd9eda0:1"><a rel="footnote" href="#fn:2e1fe568b32c202e94702c6e9dd9eda0:1">1</a></sup>.</p>
+
+<p><a href="https://developer.zebra.com/community/android/android-forums/android-blogs/blog/2014/12/19/disabling-home-button-via-intent-mc40">You can find a blog by Pavel Machala briefly describing the idea on Launchpad</a>.<br />
+Here I want to present a simple sample that show how to use this intent, covering the only issue that is: <em>handling re-branded devices</em></p>
+
+<h2 id="project-setup:2e1fe568b32c202e94702c6e9dd9eda0">Project setup</h2>
+
+<p>We start creating a new Android application in Android Studio (I&rsquo;m using Android Studio v1.5.1 with Build tools 23.0.1, you&rsquo;re mileage can vary if you&rsquo;re using a different setup).</p>
+
+<p><em>Note:</em> is not required to build this application using Zebra Technologies&rsquo; EMDK. A normal Android application can use this intent.</p>
+
+<p><img src="/images/samples/mc40_home_btn/AndroidNewPrj_01.jpg" alt="Creating a new Android Application, step 1" title="Creating a new Android Application, step 1" />
+<img src="/images/samples/mc40_home_btn/AndroidNewPrj_02.jpg" alt="Creating a new Android Application, step 2" title="Creating a new Android Application, step 2" />
+<img src="/images/samples/mc40_home_btn/AndroidNewPrj_03.jpg" alt="Creating a new Android Application, step 3" title="Creating a new Android Application, step 3" />
+<img src="/images/samples/mc40_home_btn/AndroidNewPrj_04.jpg" alt="Creating a new Android Application, step 4" title="Creating a new Android Application, step 4" /></p>
+
+<p>Once we&rsquo;ve the app framework setup by Android Studio, we can simplify the interface down to a Status message and a button.<br />
+First step: remove <code>content_main.xml</code> and <code>menu_main</code> then replace the content of <code>activity_main.xml</code> with:</p>
+
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;
+    android:gravity=&quot;center&quot;
+    android:orientation=&quot;vertical&quot;&gt;
+                    
+    &lt;TextView
+        android:id=&quot;@+id/tvwHomeBtnStatus&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot; 
+        android:padding=&quot;24dp&quot;
+        android:text=&quot;@string/home_btn_status_on&quot;/&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/btnToggleStatus&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot; 
+        android:text=&quot;@string/toggle&quot;/&gt;
+&lt;/LinearLayout&gt;
+</code></pre>
+
+<p>This layout requires the following <code>string.xml</code> inside the <code>res/values</code> folder:</p>
+
+<pre><code class="language-xml">&lt;resources&gt;
+    &lt;string name=&quot;app_name&quot;&gt;MC40HomeButton&lt;/string&gt;
+    &lt;string name=&quot;home_btn_status_on&quot;&gt;Home Button Enabled&lt;/string&gt;
+    &lt;string name=&quot;home_btn_status_off&quot;&gt;Home Button Disabled&lt;/string&gt;
+    &lt;string name=&quot;toggle&quot;&gt;Toggle current device setting&lt;/string&gt;
+&lt;/resources&gt;
+</code></pre>
+
+<p><img src="/images/samples/mc40_home_btn/Strings.jpg" alt="Our Strings.xml at this point" title="Our Strings.xml at this point" /></p>
+
+<p>We can now remove a lot of the generated template code in <code>MainActivity.java</code> trimming down the code to:</p>
+
+<pre><code class="language-java">package com.pietromaggi.sample.mc40homebutton;
+
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+    
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+}                                
+</code></pre>
+
+<p>If we run the application at this moment, it&rsquo;s not doing a lot :-)</p>
+
+<p><img src="/images/samples/mc40_home_btn/Screenshot_tag1.png" alt="MC40 Screenshot of the app as recorded at tag1" title="MC40 Screenshot of the app as recorded at tag1" /></p>
+
+<p>You can find the app at this stage <a href="https://github.com/pfmaggi/mc40_homebutton/tree/tag1">on the github repository under the <code>tag1</code> tag</a>.</p>
+
+<p>Next step would be to check that we&rsquo;re really running on a Zebra Technologies&rsquo; MC40, and then adding some logic to the app.</p>
+
+<h2 id="dealing-with-multiple-os-versions-and-re-branding:2e1fe568b32c202e94702c6e9dd9eda0">Dealing with multiple OS versions and re-branding</h2>
+
+<p>First we check that we&rsquo;re running on a Zebra&rsquo;s MC40 using a couple of Android constant:</p>
+
+<ul>
+<li><code>android.os.Build.MANUFACTURER</code><br /></li>
+<li><code>android.os.Build.MODEL</code><br /></li>
+</ul>
+
+<p>The catch is that MC40, running Jelly Bean, report &laquo;Motorola Solution&raquo; as <code>MANUFACTURER</code>, we need to address this difference and, as reported in <a href="https://developer.zebra.com/community/android/android-forums/android-blogs/blog/2014/12/19/disabling-home-button-via-intent-mc40">Pavel&rsquo;s notes</a>, the broadcast intent action is different for Motorola Solution or Zebra&rsquo;s MC40.</p>
+
+<p>Once we&rsquo;ve seen if the device the app is running on is supported, we can send a first Intent, to disable the home button, and configure the toggle button, so that is really toggle the Home Button status from disable to enabled and vice versa.</p>
+
+<pre><code>package com.pietromaggi.sample.mc40homebutton;
+
+import android.content.Intent;
+import android.os.Build;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+public class MainActivity extends AppCompatActivity {
+  private static final String MANUFACTURER_ZEBRA = &quot;Zebra Technologies&quot;;
+  private static final String MANUFACTURER_MSI = &quot;Motorola Solutions&quot;;
+  private static final String MODEL_MC40 = &quot;MC40N0&quot;;
+  private static final String INTENT_ZEBRA = &quot;com.symbol.intent.action.HOMEKEY_MODE&quot;;
+  private static final String INTENT_MSI = &quot;com.motorolasolutions.intent.action.HOMEKEY_MODE&quot;;
+  private static final String INTENT_EXTRA = &quot;state&quot;;
+  private String mStrIntent;
+  private TextView mTvwStatus;
+  private int mStatus;
+
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    String StrManufacturer = Build.MANUFACTURER;
+    String strModel = Build.MODEL;
+    boolean bSupported = true;
+
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+
+    mTvwStatus = (TextView) findViewById(R.id.tvwHomeBtnStatus);
+
+    if (strModel.equalsIgnoreCase(MODEL_MC40)) {
+      // We're running on an MC40
+      if (StrManufacturer.equalsIgnoreCase(MANUFACTURER_ZEBRA)) {
+        // This is a Zebra Device
+        mStrIntent = INTENT_ZEBRA;
+      } else if (StrManufacturer.equalsIgnoreCase(MANUFACTURER_MSI)) {
+        // This is a Motorola Solution Device
+        // just double OS version, only Jelly Bean is supported
+        mStrIntent = INTENT_MSI;
+        if (Build.VERSION_CODES.JELLY_BEAN != Build.VERSION.SDK_INT) {
+          bSupported = false;
+        }
+
+      }
+    } else {
+      // This is something else, not supported
+      bSupported = false;
+    }
+
+    Button btnToggle = (Button)findViewById(R.id.btnToggleStatus);
+    if (bSupported) {
+      mTvwStatus.setText(R.string.home_btn_status_off);
+      mStatus = 0;
+      Intent i = new Intent(mStrIntent);
+      i.putExtra(INTENT_EXTRA, mStatus);
+      sendBroadcast(i);
+
+      btnToggle.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View v) {
+          //Toggle Current Status
+          if (0 == mStatus) {
+            mStatus = 1;
+            mTvwStatus.setText(R.string.home_btn_status_on);
+          } else {
+            mStatus = 0;
+            mTvwStatus.setText(R.string.home_btn_status_off);
+          }
+          Intent i = new Intent(mStrIntent);
+          i.putExtra(INTENT_EXTRA, mStatus);
+          sendBroadcast(i);
+        }
+      });
+    } else {
+      mTvwStatus.setText(R.string.device_not_supported);
+      btnToggle.setEnabled(false);
+    }
+  }
+}
+</code></pre>
+
+<p>If we run the application on a supported device, we get the expected behavior:</p>
+
+<p><img src="/images/samples/mc40_home_btn/Screenshot_tag2.png" alt="MC40 Screenshot of the app as recorded at tag2" title="MC40 Screenshot of the app as recorded at tag2" /></p>
+
+<h2 id="managing-state:2e1fe568b32c202e94702c6e9dd9eda0">Managing state</h2>
+
+<p>The application now works as expected, but with an issue linked to not managing the state. As an example, simply rotating the device, the Activity is destroyed to create a new one with the standard behavior to disable the Home Button, even if we just re-enabled it using the <code>toggle</code> button.<br />
+An easy solution is to add some code to manage the Application status overriding the <code>onSaveInstanceState(Bundle)</code> method:</p>
+
+<pre><code>@Override
+public void onSaveInstanceState(Bundle savedInstanceState) {
+  super.onSaveInstanceState(savedInstanceState);
+  savedInstanceState.putInt(KEY_STATE, mState);
+}
+</code></pre>
+
+<p>And update the <a href="https://github.com/pfmaggi/mc40_homebutton/blob/tag3/app/src/main/java/com/pietromaggi/sample/mc40homebutton/MainActivity.java#L55"><code>onCreate</code> method to check the bundle to see if it&rsquo;s defined and behave accordingly</a>.<br />
+The final version of the application, managing the state, can be find on github associated to <a href="https://github.com/pfmaggi/mc40_homebutton/tree/tag3">tag3</a>.</p>
+
+<p>Let me know if you&rsquo;ve found this article useful.</p>
+
+<hr />
+
+<h5 id="notes:2e1fe568b32c202e94702c6e9dd9eda0">Notes</h5>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:2e1fe568b32c202e94702c6e9dd9eda0:1">If your app locks down a few other things or you&rsquo;re using something like Zebra&rsquo;s <a href="https://www.zebra.com/us/en/products/software/mobile-computers/mobile-app-utilities/enterprise-home-screen.html">Enterprise Home Screen</a>.
+ <a class="footnote-return" href="#fnref:2e1fe568b32c202e94702c6e9dd9eda0:1"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+</div>
+
+
+  <footer class="container">
+  <div class="container navigation no-print">
+  <h2>Navigation</h2>
+  
+  
+
+    
+    <a class="prev" href="http://pietromaggi.com/2016/01/14/secondary-external-storage-in-android-kitkat---part-1/" title="Secondary External Storage in Android KitKat - Part 1">
+      Previous
+    </a>
+    
+
+    
+
+  
+
+
+</div>
+
+  <div class="container comments">
+  <h2>Comments</h2>
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  (function() {
+    
+    
+    if (window.location.hostname == "localhost")
+      return;
+
+    var dsq = document.createElement('script'); dsq.async = true; dsq.type = 'text/javascript';
+    dsq.src = '//pietrofmaggi.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+</div>
+
+</footer>
+
+</article>
+      <footer id="main-footer" class="container main_footer">
+  
+
+  <div class="container nav foot no-print">
+  
+<a href="http://pietromaggi.com/license">license</a>
+
+
+  <a class="toplink" href="#">back to top</a>
+
+</div>
+
+  <div class="container credits">
+  
+<div class="container footline">
+  
+  code with <i class='fa fa-heart'></i>
+
+
+</div>
+
+
+  
+<div class="container copyright">
+  
+  &copy; 2013-2016 Pietro F. Maggi
+
+
+</div>
+
+
+</div>
+
+</footer>
+
+    </main>
+    
+<script type="text/javascript">
+  (function() {
+    
+    
+    if (window.location.hostname == "localhost")
+      return;
+
+    var dsq = document.createElement('script'); dsq.async = true; dsq.type = 'text/javascript';
+    dsq.src = '//pietrofmaggi.disqus.com/count.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+
+<script src="http://pietromaggi.com/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'Your Google Analytics tracking code', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+    
+  </body>
+</html>
+

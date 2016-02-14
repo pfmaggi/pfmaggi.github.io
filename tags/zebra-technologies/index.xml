@@ -9,8 +9,233 @@
     <managingEditor>pfm@pietromaggi.com (Pietro F. Maggi)</managingEditor>
     <webMaster>pfm@pietromaggi.com (Pietro F. Maggi)</webMaster>
     <copyright>(c) 2013-2016 Pietro F. Maggi</copyright>
-    <lastBuildDate>Thu, 14 Jan 2016 23:00:00 +0100</lastBuildDate>
+    <lastBuildDate>Mon, 18 Jan 2016 09:00:00 +0100</lastBuildDate>
     <atom:link href="http://pietromaggi.com/tags/zebra-technologies/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Disabling MC40 Home Button with a custom intent</title>
+      <link>http://pietromaggi.com/2016/01/18/disabling-mc40-home-button-with-a-custom-intent/</link>
+      <pubDate>Mon, 18 Jan 2016 09:00:00 +0100</pubDate>
+      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <guid>http://pietromaggi.com/2016/01/18/disabling-mc40-home-button-with-a-custom-intent/</guid>
+      <description>
+
+&lt;h2 id=&#34;intro:2e1fe568b32c202e94702c6e9dd9eda0&#34;&gt;Intro&lt;/h2&gt;
+
+&lt;p&gt;Zebra Technologies&amp;rsquo; devices are purpose built to be single use devices. Having an OS like Android nowadays provides a lot of flexibility&amp;hellip;  sometimes a bit too much.&lt;br /&gt;
+With this idea in mind, the Android version used on these devices sometimes provide some nice surprise, like an Intent to disable the omnipresent Android&amp;rsquo;s Home button.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-basic-idea:2e1fe568b32c202e94702c6e9dd9eda0&#34;&gt;The basic idea&lt;/h2&gt;
+
+&lt;p&gt;MC40 support an &lt;a href=&#34;http://developer.android.com/reference/android/content/Intent.html&#34;&gt;Android intent&lt;/a&gt; to disable the normal Home button behavior: &lt;em&gt;You can disable it and there&amp;rsquo;s no way to exit from the foreground application&lt;/em&gt; &lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:2e1fe568b32c202e94702c6e9dd9eda0:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:2e1fe568b32c202e94702c6e9dd9eda0:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://developer.zebra.com/community/android/android-forums/android-blogs/blog/2014/12/19/disabling-home-button-via-intent-mc40&#34;&gt;You can find a blog by Pavel Machala briefly describing the idea on Launchpad&lt;/a&gt;.&lt;br /&gt;
+Here I want to present a simple sample that show how to use this intent, covering the only issue that is: &lt;em&gt;handling re-branded devices&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;project-setup:2e1fe568b32c202e94702c6e9dd9eda0&#34;&gt;Project setup&lt;/h2&gt;
+
+&lt;p&gt;We start creating a new Android application in Android Studio (I&amp;rsquo;m using Android Studio v1.5.1 with Build tools 23.0.1, you&amp;rsquo;re mileage can vary if you&amp;rsquo;re using a different setup).&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Note:&lt;/em&gt; is not required to build this application using Zebra Technologies&amp;rsquo; EMDK. A normal Android application can use this intent.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/samples/mc40_home_btn/AndroidNewPrj_01.jpg&#34; alt=&#34;Creating a new Android Application, step 1&#34; title=&#34;Creating a new Android Application, step 1&#34; /&gt;
+&lt;img src=&#34;http://pietromaggi.com/images/samples/mc40_home_btn/AndroidNewPrj_02.jpg&#34; alt=&#34;Creating a new Android Application, step 2&#34; title=&#34;Creating a new Android Application, step 2&#34; /&gt;
+&lt;img src=&#34;http://pietromaggi.com/images/samples/mc40_home_btn/AndroidNewPrj_03.jpg&#34; alt=&#34;Creating a new Android Application, step 3&#34; title=&#34;Creating a new Android Application, step 3&#34; /&gt;
+&lt;img src=&#34;http://pietromaggi.com/images/samples/mc40_home_btn/AndroidNewPrj_04.jpg&#34; alt=&#34;Creating a new Android Application, step 4&#34; title=&#34;Creating a new Android Application, step 4&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Once we&amp;rsquo;ve the app framework setup by Android Studio, we can simplify the interface down to a Status message and a button.&lt;br /&gt;
+First step: remove &lt;code&gt;content_main.xml&lt;/code&gt; and &lt;code&gt;menu_main&lt;/code&gt; then replace the content of &lt;code&gt;activity_main.xml&lt;/code&gt; with:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
+&amp;lt;LinearLayout xmlns:android=&amp;quot;http://schemas.android.com/apk/res/android&amp;quot;
+    android:layout_width=&amp;quot;match_parent&amp;quot;
+    android:layout_height=&amp;quot;match_parent&amp;quot;
+    android:gravity=&amp;quot;center&amp;quot;
+    android:orientation=&amp;quot;vertical&amp;quot;&amp;gt;
+                    
+    &amp;lt;TextView
+        android:id=&amp;quot;@+id/tvwHomeBtnStatus&amp;quot;
+        android:layout_width=&amp;quot;wrap_content&amp;quot;
+        android:layout_height=&amp;quot;wrap_content&amp;quot; 
+        android:padding=&amp;quot;24dp&amp;quot;
+        android:text=&amp;quot;@string/home_btn_status_on&amp;quot;/&amp;gt;
+
+    &amp;lt;Button
+        android:id=&amp;quot;@+id/btnToggleStatus&amp;quot;
+        android:layout_width=&amp;quot;wrap_content&amp;quot;
+        android:layout_height=&amp;quot;wrap_content&amp;quot; 
+        android:text=&amp;quot;@string/toggle&amp;quot;/&amp;gt;
+&amp;lt;/LinearLayout&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This layout requires the following &lt;code&gt;string.xml&lt;/code&gt; inside the &lt;code&gt;res/values&lt;/code&gt; folder:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;resources&amp;gt;
+    &amp;lt;string name=&amp;quot;app_name&amp;quot;&amp;gt;MC40HomeButton&amp;lt;/string&amp;gt;
+    &amp;lt;string name=&amp;quot;home_btn_status_on&amp;quot;&amp;gt;Home Button Enabled&amp;lt;/string&amp;gt;
+    &amp;lt;string name=&amp;quot;home_btn_status_off&amp;quot;&amp;gt;Home Button Disabled&amp;lt;/string&amp;gt;
+    &amp;lt;string name=&amp;quot;toggle&amp;quot;&amp;gt;Toggle current device setting&amp;lt;/string&amp;gt;
+&amp;lt;/resources&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/samples/mc40_home_btn/Strings.jpg&#34; alt=&#34;Our Strings.xml at this point&#34; title=&#34;Our Strings.xml at this point&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We can now remove a lot of the generated template code in &lt;code&gt;MainActivity.java&lt;/code&gt; trimming down the code to:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;package com.pietromaggi.sample.mc40homebutton;
+
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+    
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+}                                
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If we run the application at this moment, it&amp;rsquo;s not doing a lot :-)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/samples/mc40_home_btn/Screenshot_tag1.png&#34; alt=&#34;MC40 Screenshot of the app as recorded at tag1&#34; title=&#34;MC40 Screenshot of the app as recorded at tag1&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;You can find the app at this stage &lt;a href=&#34;https://github.com/pfmaggi/mc40_homebutton/tree/tag1&#34;&gt;on the github repository under the &lt;code&gt;tag1&lt;/code&gt; tag&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Next step would be to check that we&amp;rsquo;re really running on a Zebra Technologies&amp;rsquo; MC40, and then adding some logic to the app.&lt;/p&gt;
+
+&lt;h2 id=&#34;dealing-with-multiple-os-versions-and-re-branding:2e1fe568b32c202e94702c6e9dd9eda0&#34;&gt;Dealing with multiple OS versions and re-branding&lt;/h2&gt;
+
+&lt;p&gt;First we check that we&amp;rsquo;re running on a Zebra&amp;rsquo;s MC40 using a couple of Android constant:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;android.os.Build.MANUFACTURER&lt;/code&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;android.os.Build.MODEL&lt;/code&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The catch is that MC40, running Jelly Bean, report &amp;laquo;Motorola Solution&amp;raquo; as &lt;code&gt;MANUFACTURER&lt;/code&gt;, we need to address this difference and, as reported in &lt;a href=&#34;https://developer.zebra.com/community/android/android-forums/android-blogs/blog/2014/12/19/disabling-home-button-via-intent-mc40&#34;&gt;Pavel&amp;rsquo;s notes&lt;/a&gt;, the broadcast intent action is different for Motorola Solution or Zebra&amp;rsquo;s MC40.&lt;/p&gt;
+
+&lt;p&gt;Once we&amp;rsquo;ve seen if the device the app is running on is supported, we can send a first Intent, to disable the home button, and configure the toggle button, so that is really toggle the Home Button status from disable to enabled and vice versa.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;package com.pietromaggi.sample.mc40homebutton;
+
+import android.content.Intent;
+import android.os.Build;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+public class MainActivity extends AppCompatActivity {
+  private static final String MANUFACTURER_ZEBRA = &amp;quot;Zebra Technologies&amp;quot;;
+  private static final String MANUFACTURER_MSI = &amp;quot;Motorola Solutions&amp;quot;;
+  private static final String MODEL_MC40 = &amp;quot;MC40N0&amp;quot;;
+  private static final String INTENT_ZEBRA = &amp;quot;com.symbol.intent.action.HOMEKEY_MODE&amp;quot;;
+  private static final String INTENT_MSI = &amp;quot;com.motorolasolutions.intent.action.HOMEKEY_MODE&amp;quot;;
+  private static final String INTENT_EXTRA = &amp;quot;state&amp;quot;;
+  private String mStrIntent;
+  private TextView mTvwStatus;
+  private int mStatus;
+
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    String StrManufacturer = Build.MANUFACTURER;
+    String strModel = Build.MODEL;
+    boolean bSupported = true;
+
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+
+    mTvwStatus = (TextView) findViewById(R.id.tvwHomeBtnStatus);
+
+    if (strModel.equalsIgnoreCase(MODEL_MC40)) {
+      // We&#39;re running on an MC40
+      if (StrManufacturer.equalsIgnoreCase(MANUFACTURER_ZEBRA)) {
+        // This is a Zebra Device
+        mStrIntent = INTENT_ZEBRA;
+      } else if (StrManufacturer.equalsIgnoreCase(MANUFACTURER_MSI)) {
+        // This is a Motorola Solution Device
+        // just double OS version, only Jelly Bean is supported
+        mStrIntent = INTENT_MSI;
+        if (Build.VERSION_CODES.JELLY_BEAN != Build.VERSION.SDK_INT) {
+          bSupported = false;
+        }
+
+      }
+    } else {
+      // This is something else, not supported
+      bSupported = false;
+    }
+
+    Button btnToggle = (Button)findViewById(R.id.btnToggleStatus);
+    if (bSupported) {
+      mTvwStatus.setText(R.string.home_btn_status_off);
+      mStatus = 0;
+      Intent i = new Intent(mStrIntent);
+      i.putExtra(INTENT_EXTRA, mStatus);
+      sendBroadcast(i);
+
+      btnToggle.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View v) {
+          //Toggle Current Status
+          if (0 == mStatus) {
+            mStatus = 1;
+            mTvwStatus.setText(R.string.home_btn_status_on);
+          } else {
+            mStatus = 0;
+            mTvwStatus.setText(R.string.home_btn_status_off);
+          }
+          Intent i = new Intent(mStrIntent);
+          i.putExtra(INTENT_EXTRA, mStatus);
+          sendBroadcast(i);
+        }
+      });
+    } else {
+      mTvwStatus.setText(R.string.device_not_supported);
+      btnToggle.setEnabled(false);
+    }
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If we run the application on a supported device, we get the expected behavior:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/samples/mc40_home_btn/Screenshot_tag2.png&#34; alt=&#34;MC40 Screenshot of the app as recorded at tag2&#34; title=&#34;MC40 Screenshot of the app as recorded at tag2&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;managing-state:2e1fe568b32c202e94702c6e9dd9eda0&#34;&gt;Managing state&lt;/h2&gt;
+
+&lt;p&gt;The application now works as expected, but with an issue linked to not managing the state. As an example, simply rotating the device, the Activity is destroyed to create a new one with the standard behavior to disable the Home Button, even if we just re-enabled it using the &lt;code&gt;toggle&lt;/code&gt; button.&lt;br /&gt;
+An easy solution is to add some code to manage the Application status overriding the &lt;code&gt;onSaveInstanceState(Bundle)&lt;/code&gt; method:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;@Override
+public void onSaveInstanceState(Bundle savedInstanceState) {
+  super.onSaveInstanceState(savedInstanceState);
+  savedInstanceState.putInt(KEY_STATE, mState);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And update the &lt;a href=&#34;https://github.com/pfmaggi/mc40_homebutton/blob/tag3/app/src/main/java/com/pietromaggi/sample/mc40homebutton/MainActivity.java#L55&#34;&gt;&lt;code&gt;onCreate&lt;/code&gt; method to check the bundle to see if it&amp;rsquo;s defined and behave accordingly&lt;/a&gt;.&lt;br /&gt;
+The final version of the application, managing the state, can be find on github associated to &lt;a href=&#34;https://github.com/pfmaggi/mc40_homebutton/tree/tag3&#34;&gt;tag3&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Let me know if you&amp;rsquo;ve found this article useful.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h5 id=&#34;notes:2e1fe568b32c202e94702c6e9dd9eda0&#34;&gt;Notes&lt;/h5&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+&lt;li id=&#34;fn:2e1fe568b32c202e94702c6e9dd9eda0:1&#34;&gt;If your app locks down a few other things or you&amp;rsquo;re using something like Zebra&amp;rsquo;s &lt;a href=&#34;https://www.zebra.com/us/en/products/software/mobile-computers/mobile-app-utilities/enterprise-home-screen.html&#34;&gt;Enterprise Home Screen&lt;/a&gt;.
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:2e1fe568b32c202e94702c6e9dd9eda0:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
     
     <item>
       <title>Secondary External Storage in Android KitKat - Part 1</title>
@@ -23,14 +248,14 @@
 &lt;p&gt;First technical post for 2016. Finally!&lt;/p&gt;
 
 &lt;p&gt;To kick-start 2016 I&amp;rsquo;ve chosen a topic that is more and more relevant in our market: The changes introduced by Google in Android v4.4 KitKat, regarding the secondary storage (the SDCard).&lt;br /&gt;
-I&amp;rsquo;ve already talked about this in my AppForum 2015 talk last October in London&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:51c058b2f0ea7a68582777f63f59ded1:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:51c058b2f0ea7a68582777f63f59ded1:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;, but I want to add some extra info and rationales here.&lt;/p&gt;
+I&amp;rsquo;ve already talked about this in my AppForum 2015 talk last October in London&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;, but I want to add some extra info and rationales here.&lt;/p&gt;
 
-&lt;h2 id=&#34;a-bit-of-background:51c058b2f0ea7a68582777f63f59ded1&#34;&gt;A bit of background&lt;/h2&gt;
+&lt;h2 id=&#34;a-bit-of-background&#34;&gt;A bit of background&lt;/h2&gt;
 
 &lt;p&gt;Android&amp;rsquo;s purpose is to establish an open platform for developers to build innovative apps.
 For this reason, Google put in place a compatibility program that defines technical details of the Android Platform;&lt;/p&gt;
 
-&lt;p&gt;For every Android release, there&amp;rsquo;s a Compatibility Definition Document, the last available at this moment is for &lt;a href=&#34;http://static.googleusercontent.com/media/source.android.com/it//compatibility/6.0/android-6.0-cdd.pdf&#34;&gt;Android 6.0, aka Marshmallow&lt;/a&gt;, that defines some of the technical features and device needs to have to be a compatible Android device. And this compatibility is a requirement to be able to license GMS&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:51c058b2f0ea7a68582777f63f59ded1:2&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:51c058b2f0ea7a68582777f63f59ded1:2&#34;&gt;2&lt;/a&gt;&lt;/sup&gt; for the device.&lt;/p&gt;
+&lt;p&gt;For every Android release, there&amp;rsquo;s a Compatibility Definition Document, the last available at this moment is for &lt;a href=&#34;http://static.googleusercontent.com/media/source.android.com/it//compatibility/6.0/android-6.0-cdd.pdf&#34;&gt;Android 6.0, aka Marshmallow&lt;/a&gt;, that defines some of the technical features and device needs to have to be a compatible Android device. And this compatibility is a requirement to be able to license GMS&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:2&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:2&#34;&gt;2&lt;/a&gt;&lt;/sup&gt; for the device.&lt;/p&gt;
 
 &lt;p&gt;To put it clearly:&lt;/p&gt;
 
@@ -40,7 +265,7 @@ For this reason, Google put in place a compatibility program that defines techni
 
 &lt;p&gt;Here we&amp;rsquo;re talking about Android v4.4 KitKat, so here&amp;rsquo;s a link to &lt;a href=&#34;http://source.android.com/compatibility/4.4/android-4.4-cdd.pdf&#34;&gt;Android 4.4 CDD&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;what-s-the-catch:51c058b2f0ea7a68582777f63f59ded1&#34;&gt;What&amp;rsquo;s the catch?&lt;/h2&gt;
+&lt;h2 id=&#34;what-s-the-catch&#34;&gt;What&amp;rsquo;s the catch?&lt;/h2&gt;
 
 &lt;p&gt;From the CDD, Android devices are required to have a Secondary Storage available with a minimum 1GB size if you don&amp;rsquo;t have this internal in your device but you provide an SDCard slot, you need to ship the device with an SDCard, again, 1GB minimum size.&lt;br /&gt;
 So usually, you end up that the SDCard is your &lt;em&gt;Secondary External Storage&lt;/em&gt;, and the &lt;em&gt;Primary External Storage&lt;/em&gt; is the 1GB partition (minimum) you included in the device.&lt;/p&gt;
@@ -56,7 +281,7 @@ So usually, you end up that the SDCard is your &lt;em&gt;Secondary External Stor
 &lt;li&gt;&lt;code&gt;WRITE_EXTERNAL_STORAGE&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;These will gave you read&amp;amp;write access to all the External Storage available&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:51c058b2f0ea7a68582777f63f59ded1:3&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:51c058b2f0ea7a68582777f63f59ded1:3&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;.&lt;br /&gt;
+&lt;p&gt;These will gave you read&amp;amp;write access to all the External Storage available&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:3&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:3&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;.&lt;br /&gt;
 Given that there are ways to gently ask for the &lt;a href=&#34;http://pietromaggi.com/2014/10/19/finding-the-sdcard-path-on-android-devices/&#34;&gt;SDCard true path&lt;/a&gt; this was more or less working.&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -68,7 +293,7 @@ Given that there are ways to gently ask for the &lt;a href=&#34;http://pietromag
 &lt;p&gt;In Android v4.4 Google decides to go a step further mandating that an app can write (with the right permissions that we just saw) only on the Primary External Storage. For all the other External Storage, an app can only write in its package folder. e.g. if you app package is com.pietromaggi.sample.externalstorage, It can only write in the folders &lt;code&gt;&amp;lt;sdcard root&amp;gt;/Android/data/com.pietromaggi.sample.externalstorage&lt;/code&gt;.&lt;br /&gt;
 There&amp;rsquo;s no way, for a normal application, to write anywhere else on the SDCard.&lt;/p&gt;
 
-&lt;h2 id=&#34;ok-but-there-s-an-happy-end-somewhere:51c058b2f0ea7a68582777f63f59ded1&#34;&gt;OK, but there&amp;rsquo;s an happy end somewhere?&lt;/h2&gt;
+&lt;h2 id=&#34;ok-but-there-s-an-happy-end-somewhere&#34;&gt;OK, but there&amp;rsquo;s an happy end somewhere?&lt;/h2&gt;
 
 &lt;p&gt;Really, if you&amp;rsquo;re trying to get a way to revert Android behavior to what it was before API level 19, no, this is it.&lt;br /&gt;
 Luckily Google has introduced new API in KitKat (and Lollipop and Marshmallow) that allows to mitigate the issue. Some user interventions may be needed but at least there are standard APIs available.&lt;/p&gt;
@@ -79,12 +304,12 @@ Luckily Google has introduced new API in KitKat (and Lollipop and Marshmallow) t
 &lt;hr /&gt;
 
 &lt;ol&gt;
-&lt;li id=&#34;fn:51c058b2f0ea7a68582777f63f59ded1:1&#34;&gt;Slides presented in London: &lt;script async class=&#39;speakerdeck-embed&#39; data-id=&#39;ef4248bf72454b2e9602db55bdf1e8ed&#39; data-ratio=&#39;1.33333333333333&#39; src=&#39;//speakerdeck.com/assets/embed.js&#39;&gt;&lt;/script&gt;
- &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:51c058b2f0ea7a68582777f63f59ded1:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li id=&#34;fn:51c058b2f0ea7a68582777f63f59ded1:2&#34;&gt;GMS Stands for Google Mobile Services, and is the collection of services and application built by Google that are not part of AOSP (Android Open Source Project) like GMail, Google Maps, Google Play Store and the push notification service GCM (Google Cloud Messaging).
- &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:51c058b2f0ea7a68582777f63f59ded1:2&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li id=&#34;fn:51c058b2f0ea7a68582777f63f59ded1:3&#34;&gt;The catch is that, before Android v4.4, API level 19, and the introduction of the &lt;code&gt;Environment.getExternalFilesDirs()&lt;/code&gt; there was no way to know how many External Storage you had available on a device. The only available API was &lt;code&gt;Environment.getExternalStorageDirectory()&lt;/code&gt; that returns the Primary External Storage.
- &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:51c058b2f0ea7a68582777f63f59ded1:3&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:1&#34;&gt;Slides presented in London: &lt;script async class=&#39;speakerdeck-embed&#39; data-id=&#39;ef4248bf72454b2e9602db55bdf1e8ed&#39; data-ratio=&#39;1.33333333333333&#39; src=&#39;//speakerdeck.com/assets/embed.js&#39;&gt;&lt;/script&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34;&gt;GMS Stands for Google Mobile Services, and is the collection of services and application built by Google that are not part of AOSP (Android Open Source Project) like GMail, Google Maps, Google Play Store and the push notification service GCM (Google Cloud Messaging).
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:2&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:3&#34;&gt;The catch is that, before Android v4.4, API level 19, and the introduction of the &lt;code&gt;Environment.getExternalFilesDirs()&lt;/code&gt; there was no way to know how many External Storage you had available on a device. The only available API was &lt;code&gt;Environment.getExternalStorageDirectory()&lt;/code&gt; that returns the Primary External Storage.
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:3&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
 </description>
@@ -171,7 +396,7 @@ Luckily Google has introduced new API in KitKat (and Lollipop and Marshmallow) t
       <guid>http://pietromaggi.com/2015/09/25/android-back-button-and-enterprise-browser/</guid>
       <description>
 
-&lt;h2 id=&#34;edit:7f473ce4cff36ed9ec3742536e6fab0f&#34;&gt;Edit&lt;/h2&gt;
+&lt;h2 id=&#34;edit&#34;&gt;Edit&lt;/h2&gt;
 
 &lt;p&gt;Enteprise Browser v1.3 introduced a change that requires to enable &lt;code&gt;FunctionKeysCapturable&lt;/code&gt; to be able to use the KeyCapture API.&lt;br /&gt;
 To do this you need to update your &lt;code&gt;Config.xml&lt;/code&gt; with:&lt;/p&gt;
@@ -179,14 +404,14 @@ To do this you need to update your &lt;code&gt;Config.xml&lt;/code&gt; with:&lt;
 &lt;pre&gt;&lt;code&gt;&amp;lt;FunctionKeysCapturable                 value=&amp;quot;1&amp;quot;/&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;enterprise-browser:7f473ce4cff36ed9ec3742536e6fab0f&#34;&gt;Enterprise Browser&lt;/h2&gt;
+&lt;h2 id=&#34;enterprise-browser&#34;&gt;Enterprise Browser&lt;/h2&gt;
 
 &lt;p&gt;Enterprise Browser is Zebra Technologies&amp;rsquo; Industrial Browser built for our Rugged Devices, we support most of our Windows Mobile/Windows CE devices and Android devices.&lt;/p&gt;
 
 &lt;p&gt;This product is usually used with existing web application that cannot be updated/modified moving from one device to another.
 This help us winning some opportunities but sometimes present some unique challenges like, as an example, disabling the Android back button default behavior.&lt;/p&gt;
 
-&lt;h2 id=&#34;back-button-on-android:7f473ce4cff36ed9ec3742536e6fab0f&#34;&gt;Back Button on Android?&lt;/h2&gt;
+&lt;h2 id=&#34;back-button-on-android&#34;&gt;Back Button on Android?&lt;/h2&gt;
 
 &lt;p&gt;Given that this is a cross-platform product (built on top of our RhoMobile Suite) we don&amp;rsquo;t have a custom settings to disable the back button in the Config.xml configuration file, however it is still possible to add a default Metatags in the configuration so that no changes in the existing pages are needed.&lt;/p&gt;
 
@@ -218,7 +443,7 @@ This help us winning some opportunities but sometimes present some unique challe
 
 &lt;p&gt;We&amp;rsquo;ve a solution for this issue: having a &lt;code&gt;DefaultMetaTags&lt;/code&gt; in Enterprise Browser&amp;rsquo;s configuration.&lt;/p&gt;
 
-&lt;h2 id=&#34;what-s-a-defaultmetatags:7f473ce4cff36ed9ec3742536e6fab0f&#34;&gt;What&amp;rsquo;s a DefaultMetaTags&lt;/h2&gt;
+&lt;h2 id=&#34;what-s-a-defaultmetatags&#34;&gt;What&amp;rsquo;s a DefaultMetaTags&lt;/h2&gt;
 
 &lt;p&gt;We can start from the &lt;a href=&#34;https://developer.motorolasolutions.com/docs/DOC-2571#defaultmetatags&#34;&gt;documentation&lt;/a&gt;, what does it means?&lt;/p&gt;
 
@@ -233,7 +458,7 @@ This help us winning some opportunities but sometimes present some unique challe
 
 &lt;p&gt;BTW: &lt;code&gt;0xA6&lt;/code&gt; is the correct value for the Back Button on a TC55 running Android v4.4 KitKat.&lt;/p&gt;
 
-&lt;h2 id=&#34;closing-comments:7f473ce4cff36ed9ec3742536e6fab0f&#34;&gt;Closing comments&lt;/h2&gt;
+&lt;h2 id=&#34;closing-comments&#34;&gt;Closing comments&lt;/h2&gt;
 
 &lt;p&gt;Enterprise Browser&amp;rsquo;s &lt;code&gt;DefaultMetaTags&lt;/code&gt; is a very flexible way to &amp;laquo;patch&amp;raquo; an existing Web application without touching its source code.&lt;/p&gt;
 
