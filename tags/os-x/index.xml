@@ -20,7 +20,7 @@
       <guid>http://pietromaggi.com/2014/08/11/configuring-rhomobile-suite-v5.0-on-a-clean-os-x-mavericks-machine/</guid>
       <description>
 
-&lt;h1 id=&#34;rhomobile-suite-v5-0:1ccd390bb055ec5c67cc32a64682c5d7&#34;&gt;RhoMobile Suite v5.0&lt;/h1&gt;
+&lt;h1 id=&#34;rhomobile-suite-v5-0&#34;&gt;RhoMobile Suite v5.0&lt;/h1&gt;
 
 &lt;p&gt;The new main release of Rhodes, RhoElements and RhoConnect had just been released a couple of weeks ago &lt;a href=&#34;http://newsroom.motorolasolutions.com/Feature/See-RhoMobile-in-Action-at-OSCON-2014-4a61.aspx&#34;&gt;during OSCON&lt;/a&gt;. It&amp;rsquo;s now time to install it and start building some mobile apps!&lt;/p&gt;
 
@@ -44,13 +44,13 @@
 &lt;li&gt;&lt;a href=&#34;#Build&#34;&gt;Build a sample app&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&#34;a-name-osx-update-a-update-os-x-to-the-latest-version:1ccd390bb055ec5c67cc32a64682c5d7&#34;&gt;&lt;a name=&#34;OSX_Update&#34;&gt;&lt;/a&gt;Update OS X to the latest version&lt;/h3&gt;
+&lt;h3 id=&#34;a-name-osx-update-a-update-os-x-to-the-latest-version&#34;&gt;&lt;a name=&#34;OSX_Update&#34;&gt;&lt;/a&gt;Update OS X to the latest version&lt;/h3&gt;
 
 &lt;p&gt;The first step is to check that the version of OS X on your machine is up-to-date, a quick stop in the Mac AppStore &lt;em&gt;Updates&lt;/em&gt; tab can give you an idea of what is available.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/OSX_RMS5/updates.png&#34; alt=&#34;One Update waiting to be installed&#34; title=&#34;One Update Waiting to be installed&#34; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&#34;a-name-xcode-a-install-xcode:1ccd390bb055ec5c67cc32a64682c5d7&#34;&gt;&lt;a name=&#34;XCode&#34;&gt;&lt;/a&gt;Install XCode&lt;/h3&gt;
+&lt;h3 id=&#34;a-name-xcode-a-install-xcode&#34;&gt;&lt;a name=&#34;XCode&#34;&gt;&lt;/a&gt;Install XCode&lt;/h3&gt;
 
 &lt;p&gt;The next step is to install the latest XCode on you OS. In this guide I&amp;rsquo;m using XCode 5 as version 6 is still in beta, and we like stable releases!&lt;/p&gt;
 
@@ -60,7 +60,7 @@
 
 &lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/OSX_RMS5/XCode5_EULA.png&#34; alt=&#34;XCode 5 EULA&#34; title=&#34;XCode 5 EULA&#34; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&#34;a-name-terminal-a-familiarize-with-the-terminal:1ccd390bb055ec5c67cc32a64682c5d7&#34;&gt;&lt;a name=&#34;Terminal&#34;&gt;&lt;/a&gt;Familiarize with the terminal&lt;/h3&gt;
+&lt;h3 id=&#34;a-name-terminal-a-familiarize-with-the-terminal&#34;&gt;&lt;a name=&#34;Terminal&#34;&gt;&lt;/a&gt;Familiarize with the terminal&lt;/h3&gt;
 
 &lt;p&gt;During the initial RMS setup some of the steps require that you use the Terminal, also known as &lt;a href=&#34;http://en.wikipedia.org/wiki/Command-line_interface&#34;&gt;command prompt or console&lt;/a&gt;.
 The Terminal is already available on OS X, and you can find it inside the Utility folder in your Applications.&lt;/p&gt;
@@ -71,7 +71,7 @@ The Terminal is already available on OS X, and you can find it inside the Utilit
 
 &lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/OSX_RMS5/KeepInDock.png&#34; alt=&#34;Keep Terminal in the dock&#34; title=&#34;Keep Terminal in the dock&#34; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&#34;a-name-jdk7-a-install-java-jdk7:1ccd390bb055ec5c67cc32a64682c5d7&#34;&gt;&lt;a name=&#34;JDK7&#34;&gt;&lt;/a&gt;Install Java JDK7&lt;/h3&gt;
+&lt;h3 id=&#34;a-name-jdk7-a-install-java-jdk7&#34;&gt;&lt;a name=&#34;JDK7&#34;&gt;&lt;/a&gt;Install Java JDK7&lt;/h3&gt;
 
 &lt;p&gt;OS X Mavericks comes without any Java environment installed, &amp;laquo;the easiest way&amp;raquo; to install it, is to open the terminal and type:&lt;/p&gt;
 
@@ -94,7 +94,7 @@ The Terminal is already available on OS X, and you can find it inside the Utilit
 
 &lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/OSX_RMS5/JavaIsInstalled.png&#34; alt=&#34;Java is installed&#34; title=&#34;Java is installed&#34; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&#34;a-name-homebrew-a-install-homebrew:1ccd390bb055ec5c67cc32a64682c5d7&#34;&gt;&lt;a name=&#34;HomeBrew&#34;&gt;&lt;/a&gt;Install HomeBrew&lt;/h3&gt;
+&lt;h3 id=&#34;a-name-homebrew-a-install-homebrew&#34;&gt;&lt;a name=&#34;HomeBrew&#34;&gt;&lt;/a&gt;Install HomeBrew&lt;/h3&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://brew.sh/&#34;&gt;HomeBrew&lt;/a&gt; is an open source package manager, working from the command line, that help setting up open source application on OS X.&lt;/p&gt;
 
@@ -113,7 +113,7 @@ Next step is to check that HomeBrew is setup correctly:&lt;/p&gt;
 
 &lt;p&gt;If you get a different message with some missing or misconfigured software you can follow the on-screen-instruction or you can find further information on the &lt;a href=&#34;https://github.com/Homebrew/homebrew/wiki&#34;&gt;HomeBrew Wiki&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h3 id=&#34;a-name-rvm-a-install-rvm-and-ruby-1-9-3:1ccd390bb055ec5c67cc32a64682c5d7&#34;&gt;&lt;a name=&#34;RVM&#34;&gt;&lt;/a&gt;Install RVM and Ruby 1.9.3&lt;/h3&gt;
+&lt;h3 id=&#34;a-name-rvm-a-install-rvm-and-ruby-1-9-3&#34;&gt;&lt;a name=&#34;RVM&#34;&gt;&lt;/a&gt;Install RVM and Ruby 1.9.3&lt;/h3&gt;
 
 &lt;p&gt;OS X Mavericks comes with Ruby v2.0 installed by default, however RMSv5 requires Ruby v1.9.3. Overall working with Ruby can require to switch ruby environment often and to release this pain &lt;a href=&#34;http://pietromaggi.com/2013/12/29/ruby-version-manager-aka-rvm-the-swiss-army-knife-of-ruby-versions/&#34;&gt;some utilities has been created&lt;/a&gt;.&lt;/p&gt;
 
@@ -159,7 +159,7 @@ rvm rubies
 
 &lt;p&gt;To get more information on RVM you can check the documentation available on &lt;a href=&#34;https://rvm.io/&#34;&gt;its website&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h3 id=&#34;a-name-utilities-a-install-git-node-and-other-little-utilities:1ccd390bb055ec5c67cc32a64682c5d7&#34;&gt;&lt;a name=&#34;utilities&#34;&gt;&lt;/a&gt;Install git, node and other little utilities&lt;/h3&gt;
+&lt;h3 id=&#34;a-name-utilities-a-install-git-node-and-other-little-utilities&#34;&gt;&lt;a name=&#34;utilities&#34;&gt;&lt;/a&gt;Install git, node and other little utilities&lt;/h3&gt;
 
 &lt;p&gt;RMS uses git &lt;em&gt;a lot&lt;/em&gt;, to sync projects with RhoHub, and is overall a nice tool. It&amp;rsquo;s already installed on Mavericks, but is version 1.8.5.2, better to keep an up-to-date version using HomeBrew:&lt;/p&gt;
 
@@ -223,7 +223,7 @@ man ag
 
 &lt;p&gt;As always, using &lt;strong&gt;man&lt;/strong&gt; in the command line will open the documentation for the command, in the case of the silver searcher, the command is &lt;strong&gt;ag&lt;/strong&gt; (like the Silver symbol).&lt;/p&gt;
 
-&lt;h3 id=&#34;a-name-android-a-install-android-sdk-and-ndk:1ccd390bb055ec5c67cc32a64682c5d7&#34;&gt;&lt;a name=&#34;Android&#34;&gt;&lt;/a&gt;Install Android SDK and NDK&lt;/h3&gt;
+&lt;h3 id=&#34;a-name-android-a-install-android-sdk-and-ndk&#34;&gt;&lt;a name=&#34;Android&#34;&gt;&lt;/a&gt;Install Android SDK and NDK&lt;/h3&gt;
 
 &lt;p&gt;Next step is to install what is needed to build RhoMobile Android Applications. You need to remember that to compile RhoMobile native applications you need to have the target OS tool chain. For Android this means the SDK and the NDK.&lt;/p&gt;
 
@@ -283,7 +283,7 @@ adb devices
 tar xzvf ~/Downloads/android-ndk32-r10-darwin-x86_64.tar.bz2
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;a-name-rms5-a-install-rms-v5-0:1ccd390bb055ec5c67cc32a64682c5d7&#34;&gt;&lt;a name=&#34;RMS5&#34;&gt;&lt;/a&gt;Install RMS v5.0&lt;/h3&gt;
+&lt;h3 id=&#34;a-name-rms5-a-install-rms-v5-0&#34;&gt;&lt;a name=&#34;RMS5&#34;&gt;&lt;/a&gt;Install RMS v5.0&lt;/h3&gt;
 
 &lt;p&gt;For this step we can take the info from the &lt;a href=&#34;http://docs.rhomobile.com/en/5.0.0/guide/rhomobile-install#mac-os&#34;&gt;RhoMobile official documentation&lt;/a&gt;.&lt;/p&gt;
 
@@ -319,13 +319,13 @@ Password:
 Do you want to install rhoconnect-push with &#39;sudo&#39; command prefix? [Yn]  Y
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;a-name-account-a-create-a-rhomobile-com-account:1ccd390bb055ec5c67cc32a64682c5d7&#34;&gt;&lt;a name=&#34;Account&#34;&gt;&lt;/a&gt;Create a RhoMobile.com account&lt;/h3&gt;
+&lt;h3 id=&#34;a-name-account-a-create-a-rhomobile-com-account&#34;&gt;&lt;a name=&#34;Account&#34;&gt;&lt;/a&gt;Create a RhoMobile.com account&lt;/h3&gt;
 
 &lt;p&gt;Version 5 of the RhoMobile Suite has a &lt;a href=&#34;http://rhomobile.com/rhopricing.html&#34;&gt;new licensing&lt;/a&gt;, that is a yearly subscription available in different levels, starting from a free one, up to an Enterprise grade.&lt;/p&gt;
 
 &lt;p&gt;Whatever the level you choose, you need to create an account on the RhoMobile.com website to use the Suite, both from RhoStudio and from the command line tools.&lt;/p&gt;
 
-&lt;h3 id=&#34;a-name-launching-a-launching-rhostudio:1ccd390bb055ec5c67cc32a64682c5d7&#34;&gt;&lt;a name=&#34;Launching&#34;&gt;&lt;/a&gt;Launching RhoStudio&lt;/h3&gt;
+&lt;h3 id=&#34;a-name-launching-a-launching-rhostudio&#34;&gt;&lt;a name=&#34;Launching&#34;&gt;&lt;/a&gt;Launching RhoStudio&lt;/h3&gt;
 
 &lt;p&gt;RhoStudio and the whole RhoMobile Suite is now installed on your Mac, but you still need some steps to finish the configuration and start doing some coding. First of all launch RhoStudio from the Application folder (launch the 64-bit version) and select the second ruby environment for it.&lt;/p&gt;
 
@@ -343,7 +343,7 @@ Do you want to install rhoconnect-push with &#39;sudo&#39; command prefix? [Yn] 
 
 &lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/OSX_RMS5/FirstRhoStudio.png&#34; alt=&#34;RhoStudio first launch&#34; title=&#34;First RhoStudio Launch&#34; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&#34;a-name-setup-a-rhostudio-setup:1ccd390bb055ec5c67cc32a64682c5d7&#34;&gt;&lt;a name=&#34;Setup&#34;&gt;&lt;/a&gt;RhoStudio Setup&lt;/h3&gt;
+&lt;h3 id=&#34;a-name-setup-a-rhostudio-setup&#34;&gt;&lt;a name=&#34;Setup&#34;&gt;&lt;/a&gt;RhoStudio Setup&lt;/h3&gt;
 
 &lt;p&gt;There are some parameters to setup in RhoStudio before being able to build any project. Opening the settings windows using &lt;strong&gt;Command-,&lt;/strong&gt; you can setup:&lt;/p&gt;
 
@@ -376,7 +376,7 @@ BlackBerry JDE 4.2 MDS (blank to skip) ():
 If you want to build with other BlackBerry SDK versions edit: /Users/rhomobile/.rvm/gems/ruby-1.9.3-p547@global/gems/rhodes-5.0.2/rhobuild.yml
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;a-name-build-a-build-your-first-rhomobile-application:1ccd390bb055ec5c67cc32a64682c5d7&#34;&gt;&lt;a name=&#34;Build&#34;&gt;&lt;/a&gt;Build your first RhoMobile application&lt;/h3&gt;
+&lt;h3 id=&#34;a-name-build-a-build-your-first-rhomobile-application&#34;&gt;&lt;a name=&#34;Build&#34;&gt;&lt;/a&gt;Build your first RhoMobile application&lt;/h3&gt;
 
 &lt;p&gt;I&amp;rsquo;ll cut this short at this moment, you should have everything setup at this moment and you should be able to follow the instructions on &lt;a href=&#34;http://docs.rhomobile.com/en/5.0.0/guide/creating_a_project&#34;&gt;RhoMobile website&lt;/a&gt;. You can reach out to me if you&amp;rsquo;ve any question and I plan to add another post with some &amp;laquo;post-setup&amp;raquo; optimization in the near future.&lt;/p&gt;
 </description>
@@ -392,12 +392,12 @@ If you want to build with other BlackBerry SDK versions edit: /Users/rhomobile/.
 
 &lt;p&gt;This is a different blog, more a remainder for me than anything else. Hope that someone else can find these useful&amp;hellip; they&amp;rsquo;re for me!&lt;/p&gt;
 
-&lt;h3 id=&#34;recover-a-failed-download-with-curl:4d6d9b75474dffda97a889a3cbd40065&#34;&gt;Recover a failed download with curl:&lt;/h3&gt;
+&lt;h3 id=&#34;recover-a-failed-download-with-curl&#34;&gt;Recover a failed download with curl:&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;curl -C - -o partially_downloaded_file &#39;www.example.com/path/to/the/file&#39;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;burn-a-playable-dvd-from-a-video-ts-folder-http-hints-macworld-com-article-php-story-20070612161317338:4d6d9b75474dffda97a889a3cbd40065&#34;&gt;&lt;a href=&#34;http://hints.macworld.com/article.php?story=20070612161317338&#34;&gt;Burn a playable DVD from a VIDEO_TS folder&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;burn-a-playable-dvd-from-a-video-ts-folder-http-hints-macworld-com-article-php-story-20070612161317338&#34;&gt;&lt;a href=&#34;http://hints.macworld.com/article.php?story=20070612161317338&#34;&gt;Burn a playable DVD from a VIDEO_TS folder&lt;/a&gt;&lt;/h3&gt;
 
 &lt;p&gt;After searching the forums and trying various things, I still couldn&amp;rsquo;t find a quick, reliable, free method of burning a VIDEO_TS folder to a pure UDF DVD,
 so that it would play in regular DVD players, as well trigger DVD Player to start up automatically. Anyway, as often is the case, Terminal had the answers.
@@ -409,19 +409,19 @@ Just type in this command and change the paths to suit:&lt;/p&gt;
 &lt;p&gt;Make sure that /path/to/VIDEO_TS/parent/folder is the path to the folder containing the VIDEO_TS folder, not the VIDEO_TS folder itself.
 Once the .iso file has been created, drag this to Disk Utility and hit the Burn button.&lt;/p&gt;
 
-&lt;h3 id=&#34;generate-a-pdf-from-a-markdown-file:4d6d9b75474dffda97a889a3cbd40065&#34;&gt;Generate a pdf from a markdown file&lt;/h3&gt;
+&lt;h3 id=&#34;generate-a-pdf-from-a-markdown-file&#34;&gt;Generate a pdf from a markdown file&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;markdown &amp;lt;File.md&amp;gt; | htmldoc --cont --headfootsize 8.0 --linkcolor blue --linkstyle plain --format pdf14 - &amp;gt; FileFormat.pdf
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h1 id=&#34;android-related-commands:4d6d9b75474dffda97a889a3cbd40065&#34;&gt;Android related Commands&lt;/h1&gt;
+&lt;h1 id=&#34;android-related-commands&#34;&gt;Android related Commands&lt;/h1&gt;
 
-&lt;h3 id=&#34;taking-screenshot-of-an-android-device:4d6d9b75474dffda97a889a3cbd40065&#34;&gt;Taking screenshot of an Android device&lt;/h3&gt;
+&lt;h3 id=&#34;taking-screenshot-of-an-android-device&#34;&gt;Taking screenshot of an Android device&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code&gt;adb shell screencap -p | perl -pe &#39;s/\x0D\x0A/\x0A/g&#39; &amp;gt; screen.png
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;launch-browser-and-navigate-to-url-on-android-devices:4d6d9b75474dffda97a889a3cbd40065&#34;&gt;Launch browser and navigate to URL on android devices&lt;/h3&gt;
+&lt;h3 id=&#34;launch-browser-and-navigate-to-url-on-android-devices&#34;&gt;Launch browser and navigate to URL on android devices&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;adb shell am start -a android.intent.action.VIEW -d URL
 &lt;/code&gt;&lt;/pre&gt;
