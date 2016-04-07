@@ -140,12 +140,6 @@
 
 public Button.OnClickListener mScan = new Button.OnClickListener() {
     public void onClick(View v) {
-         <section>
-          <h2></h2>
-          <p>...still missing an official Android API.<br>Closest thing is ZXing Intent:</p>
-
-        </section>
-
        Intent intent = new Intent("com.google.zxing.client.android.SCAN");
         intent.putExtra("SCAN_MODE", "QR_CODE_MODE");
         startActivityForResult(intent, 0);
