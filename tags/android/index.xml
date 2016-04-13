@@ -9,8 +9,314 @@
     <managingEditor>pfm@pietromaggi.com (Pietro F. Maggi)</managingEditor>
     <webMaster>pfm@pietromaggi.com (Pietro F. Maggi)</webMaster>
     <copyright>(c) 2013-2016 Pietro F. Maggi</copyright>
-    <lastBuildDate>Mon, 18 Jan 2016 09:00:00 +0100</lastBuildDate>
+    <lastBuildDate>Wed, 13 Apr 2016 09:00:00 +0100</lastBuildDate>
     <atom:link href="http://pietromaggi.com/tags/android/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>The Story of Three Barcodes</title>
+      <link>http://pietromaggi.com/2016/04/13/the-story-of-three-barcodes/</link>
+      <pubDate>Wed, 13 Apr 2016 09:00:00 +0100</pubDate>
+      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <guid>http://pietromaggi.com/2016/04/13/the-story-of-three-barcodes/</guid>
+      <description>
+
+&lt;h2 id=&#34;intro:b992efff59f828918c2030b8fd3cff3d&#34;&gt;Intro&lt;/h2&gt;
+
+&lt;p&gt;Simple questions can bring to complex investigation.&lt;br /&gt;
+Last month my colleague Alberto asked me:&lt;br /&gt;
+&lt;em&gt;&amp;laquo;Can I use SimulScan to read labels with three barcodes?&amp;raquo;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;&amp;laquo;Of course&amp;raquo;&lt;/em&gt;, was my default answer. &lt;em&gt;&amp;laquo;That&amp;rsquo;s what SimulScan is for!&amp;raquo;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Fire up a TC75, launch the SimulScan demo and go to select the custom template for three barcodes and&amp;hellip; wait.&lt;br /&gt;
+Where&amp;rsquo;s the template for three barcodes?&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/simulscan/available_custom.png&#34; alt=&#34;SimulScan available custom template&#34; title=&#34;SimulScan available custom template&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Ok, seems that we actually need to do some work&amp;hellip;&lt;/p&gt;
+
+&lt;h2 id=&#34;first-option-define-a-template:b992efff59f828918c2030b8fd3cff3d&#34;&gt;First option: define a template&lt;/h2&gt;
+
+&lt;p&gt;Some background:&lt;br /&gt;
+SimulScan came with an online template builder that allows to upload the image of the label you want to acquire, and build a template defining active areas for barcodes, images and text fields.
+Very powerful, but of little use if you want to be able to read all the labels with three barcodes&amp;hellip; whatever decoder you need to use for the barcodes.&lt;/p&gt;
+
+&lt;p&gt;Alberto built a template for one of the label his customer needed to read, and it was working well there, but it was not reading the other labels&amp;hellip; building a different template for every single label was not an option&amp;hellip;&lt;/p&gt;
+
+&lt;h2 id=&#34;another-option-can-we-build-a-new-custom-template-for-three-barcodes:b992efff59f828918c2030b8fd3cff3d&#34;&gt;Another option: can we build a new custom template for three barcodes?&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;&amp;laquo;Sure, how hard can it be?&amp;raquo;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;It ends up that is was a bit harder than expected, but way more interesting!&lt;/p&gt;
+
+&lt;h2 id=&#34;the-journey:b992efff59f828918c2030b8fd3cff3d&#34;&gt;The journey&lt;/h2&gt;
+
+&lt;h3 id=&#34;step-1-get-the-templates:b992efff59f828918c2030b8fd3cff3d&#34;&gt;Step 1 - Get the templates.&lt;/h3&gt;
+
+&lt;p&gt;Where are the custom templates?
+In the &lt;code&gt;/enterprise/device/settings/datawedge/templates/&lt;/code&gt; folder of one of the supported devices.&lt;br /&gt;
+A much more complicated (but more fun) to get these files (or if you don&amp;rsquo;t have a device handy) is to retrieve the templates from the SimulScan demo application or, more exactly, in the &lt;code&gt;SimulScanRes.apk&lt;/code&gt; that you can find in the &lt;code&gt;\system&lt;/code&gt; folder of our Android devices that includes SimulScan (TC55 KK, TC75, TC70 and TC8000).&lt;br /&gt;
+You can retrieve it with &lt;code&gt;adb&lt;/code&gt; or directly from the recovery images available on &lt;a href=&#34;https://portal.motorolasolutions.com/Support/US-EN/Resolution?solutionId=100517&amp;amp;productDetailGUID=a6f635630acbd410VgnVCM20000013c7b00aRCRD&amp;amp;detailChannelGUID=2202caf8fb16e310VgnVCM1000000389bd0aRCRD&#34;&gt;Zebra&amp;rsquo;s support website&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Once we&amp;rsquo;ve the apk, we can use a tool like &lt;a href=&#34;http://ibotpeaches.github.io/Apktool/&#34;&gt;&lt;code&gt;apktool&lt;/code&gt;&lt;/a&gt; to decompress it:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;apktool d SimulScanRes.apk
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This will unpack the content of the apk, decompiling the xml resources and making available the SMALI source of the application. For this particular application, simply unzipping the apk is enough as the templates are in the &lt;code&gt;assets&lt;/code&gt; folder.&lt;br /&gt;
+Files in the asset folder are included in the apk unmodified.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/simulscan/asset_templates.png&#34; alt=&#34;SimulScan templates in the asset folder&#34; title=&#34;SimulScan templates in the asset folder&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s take a look at the content of one of these files, as an example &lt;code&gt;Default - Barcode 1&lt;/code&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/simulscan/template_xml.png&#34; alt=&#34;SimulScan templates xml&#34; title=&#34;SimulScan templates xml&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Ok, not exactly what I was expecting in an XML file&amp;hellip;&lt;/p&gt;
+
+&lt;h3 id=&#34;step-2-understand-how-the-templates-are-built:b992efff59f828918c2030b8fd3cff3d&#34;&gt;Step 2 - Understand how the templates are built&lt;/h3&gt;
+
+&lt;p&gt;Nevertheless, the file looks familiar, and the &lt;code&gt;PD94&lt;/code&gt; start of the file rings a bell&amp;hellip; could it be a BASE64 encoded file?&lt;br /&gt;
+Let&amp;rsquo;s try with &lt;a href=&#34;https://www.base64decode.org/&#34;&gt;an online BASE64 encoder/decoder&lt;/a&gt;, and what we get is much better:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;
+&amp;lt;ssmain version=&amp;quot;2.0&amp;quot; name=&amp;quot;Barcode 1&amp;quot;&amp;gt;
+&amp;lt;sstemplate number=&amp;quot;1&amp;quot; name=&amp;quot;Barcode 1&amp;quot; width=&amp;quot;0&amp;quot; height=&amp;quot;0&amp;quot; ttype=&amp;quot;default-barcode&amp;quot;&amp;gt;
+    &amp;lt;region number=&amp;quot;1&amp;quot; name=&amp;quot;Barcode&amp;quot; x=&amp;quot;0&amp;quot; y=&amp;quot;0&amp;quot; width=&amp;quot;0&amp;quot; height=&amp;quot;0&amp;quot; rtype=&amp;quot;0x02&amp;quot;&amp;gt;
+    &amp;lt;procmode ptype=&amp;quot;barcode&amp;quot; barcodeType=&amp;quot;any&amp;quot; /&amp;gt;
+    &amp;lt;/region&amp;gt;
+    &amp;lt;!--******** Common parameters for this template *********--&amp;gt;
+    &amp;lt;dparam id=&amp;quot;ui_result_confirmation&amp;quot; type=&amp;quot;boolean&amp;quot; value=&amp;quot;false&amp;quot; /&amp;gt;
+    &amp;lt;dparam id=&amp;quot;auto_capture_sensitivity&amp;quot; type=&amp;quot;integer&amp;quot; value=&amp;quot;1&amp;quot; /&amp;gt;
+    &amp;lt;!--Flexiscript corresponding to this template--&amp;gt;
+    &amp;lt;templatefs&amp;gt;7A3377526522702B7733707C616D2B73216E876D216F226E7056772170637000&amp;lt;/templatefs&amp;gt;
+    &amp;lt;!--
+Corresponding Flexiscript output :
+Decode
+i = N-1;
+a = i;
+
+EndOfFrame
+If (a &amp;gt;= 0)
+    OutputEx(0,1);
+    R = 0;
+EndIf;
+--&amp;gt;
+&amp;lt;/sstemplate&amp;gt;
+&amp;lt;!--Flexiscript corresponding to this form--&amp;gt;
+&amp;lt;mainfs&amp;gt;7A3377526522702B7733707C616D2B73216E886D65226F226E7062886D65226F65226E70637000&amp;lt;/mainfs&amp;gt;
+&amp;lt;!--
+Corresponding Flexiscript output :
+Decode
+i = N-1;
+a = i;
+
+EndOfFrame
+If (a &amp;gt;= 0)
+    Message(-1,1);
+Else
+    Message(-1,-1);
+EndIf;
+--&amp;gt;
+&amp;lt;/ssmain&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Ok, we still get some fancy HEX string and a reference to Flexiscript.&lt;br /&gt;
+I cannot be sure about this, but a reference to Flexiscript can be found in &lt;a href=&#34;http://scholar.harvard.edu/files/mzhang/files/resume_minzhang.pdf?m=1431284569&#34;&gt;Min Zhang CV&lt;/a&gt;, she&amp;rsquo;s currently a PhD at Harvard that worked as an intern in Motorola Solution in 2011-2012. On his CV we can find:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;FlexiScript Project:&lt;/strong&gt; &lt;em&gt;Establish the whole GUI system of FlexiScript, a language for barcode decoding. Such as text coloring, breakpoints, frame design, Meta data, Most-Recently Used files List, barcode image generating, etc. (C# &amp;amp; C, Windows)&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Well, at least seems that it&amp;rsquo;s not something that we will find much more information on internet&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;Back to the HEX string.&lt;br /&gt;
+They looks like ASCII code to me. Let&amp;rsquo;s try with an &lt;a href=&#34;http://www.rapidtables.com/convert/number/hex-to-ascii.htm&#34;&gt;HEX to ASCII converter&lt;/a&gt;.&lt;br /&gt;
+The first HEX string: &lt;code&gt;7A3377526522702B7733707C616D2B73216E876D216F226E7056772170637000&lt;/code&gt;&lt;br /&gt;
+becomes: &lt;code&gt;z3wRe&amp;quot;p+w3p|am+s!nm!o&amp;quot;npVw!pcp&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;And the second one, from: &lt;code&gt;7A3377526522702B7733707C616D2B73216E886D65226F226E7062886D65226F65226E70637000&lt;/code&gt;&lt;br /&gt;
+becomes: &lt;code&gt;z3wRe&amp;quot;p+w3p|am+s!nme&amp;quot;o&amp;quot;npbme&amp;quot;oe&amp;quot;npcp&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Ok, seems that we&amp;rsquo;ve all the pieces now.&lt;/p&gt;
+
+&lt;p&gt;We just need to bring them back together in the right order!&lt;/p&gt;
+
+&lt;h3 id=&#34;step-3-test-your-assumptions:b992efff59f828918c2030b8fd3cff3d&#34;&gt;Step 3 - Test your assumptions!&lt;/h3&gt;
+
+&lt;p&gt;Let&amp;rsquo;s start with a different template and see if we can change bits of it to slowly reach our goal of a 3 Barcodes custom template, our Holy Grail!&lt;/p&gt;
+
+&lt;p&gt;The original decode template looks like:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
+&amp;lt;ssmain version=&amp;quot;2.0&amp;quot; name=&amp;quot;Barcode 4&amp;quot;&amp;gt;
+    &amp;lt;sstemplate name=&amp;quot;Barcode 4&amp;quot; width=&amp;quot;0&amp;quot; height=&amp;quot;0&amp;quot; number=&amp;quot;1&amp;quot; ttype=&amp;quot;barcode&amp;quot;&amp;gt;
+        &amp;lt;region number=&amp;quot;1&amp;quot; name=&amp;quot;Barcode1&amp;quot; x=&amp;quot;0&amp;quot; y=&amp;quot;0&amp;quot; width=&amp;quot;0&amp;quot; height=&amp;quot;0&amp;quot; rtype=&amp;quot;0x02&amp;quot;&amp;gt;
+        &amp;lt;procmode ptype=&amp;quot;barcode&amp;quot; barcodeType=&amp;quot;any&amp;quot; /&amp;gt;
+        &amp;lt;/region&amp;gt;
+        &amp;lt;region number=&amp;quot;2&amp;quot; name=&amp;quot;Barcode2&amp;quot; x=&amp;quot;0&amp;quot; y=&amp;quot;0&amp;quot; width=&amp;quot;0&amp;quot; height=&amp;quot;0&amp;quot; rtype=&amp;quot;0x02&amp;quot;&amp;gt;
+        &amp;lt;procmode ptype=&amp;quot;barcode&amp;quot; barcodeType=&amp;quot;any&amp;quot; /&amp;gt;
+        &amp;lt;/region&amp;gt;
+        &amp;lt;region number=&amp;quot;3&amp;quot; name=&amp;quot;Barcode3&amp;quot; x=&amp;quot;0&amp;quot; y=&amp;quot;0&amp;quot; width=&amp;quot;0&amp;quot; height=&amp;quot;0&amp;quot; rtype=&amp;quot;0x02&amp;quot;&amp;gt;
+        &amp;lt;procmode ptype=&amp;quot;barcode&amp;quot; barcodeType=&amp;quot;any&amp;quot; /&amp;gt;
+        &amp;lt;/region&amp;gt;
+        &amp;lt;region number=&amp;quot;4&amp;quot; name=&amp;quot;Barcode4&amp;quot; x=&amp;quot;0&amp;quot; y=&amp;quot;0&amp;quot; width=&amp;quot;0&amp;quot; height=&amp;quot;0&amp;quot; rtype=&amp;quot;0x02&amp;quot;&amp;gt;
+        &amp;lt;procmode ptype=&amp;quot;barcode&amp;quot; barcodeType=&amp;quot;any&amp;quot; /&amp;gt;
+        &amp;lt;/region&amp;gt;
+        &amp;lt;!--Flexiscript corresponding to this template--&amp;gt;
+        &amp;lt;templatefs&amp;gt;7A3377526522707C616D5273256E876D216F226E70876D226F236E70876D236F246E70876D246F256E7056772170637000&amp;lt;/templatefs&amp;gt;
+        &amp;lt;!--******** Common parameters for this template *********--&amp;gt;
+        &amp;lt;dparam id=&amp;quot;auto_capture_sensitivity&amp;quot; type=&amp;quot;integer&amp;quot; value=&amp;quot;1&amp;quot; /&amp;gt;
+        &amp;lt;dparam id=&amp;quot;ui_result_confirmation&amp;quot; type=&amp;quot;boolean&amp;quot; value=&amp;quot;False&amp;quot; /&amp;gt;
+        &amp;lt;!--
+            Corresponding Flexiscript output :
+            Decode
+            i = N-1;
+
+            EndOfFrame
+            If ( N&amp;gt;=4 )
+                OutputEx(0,1);
+                OutputEx(1,2);
+                OutputEx(2,3);
+                OutputEx(3,4);
+                R = 0;
+            EndIf;--&amp;gt;
+    &amp;lt;/sstemplate&amp;gt;
+    &amp;lt;!--Flexiscript corresponding to this template--&amp;gt;
+    &amp;lt;mainfs&amp;gt;7A3377526522707C616D5273256E886D65226F226E7062886D65226F65226E70637000&amp;lt;/mainfs&amp;gt;
+
+    &amp;lt;!--******** Common parameters for this template *********--&amp;gt;
+    &amp;lt;!--
+        Corresponding Flexiscript output :
+        Decode
+        i = N-1;
+
+        EndOfFrame
+        If ( N&amp;gt;=4 )
+            Message(-1,1);
+        Else
+            Message(-1,-1);
+        EndIf;--&amp;gt;
+&amp;lt;/ssmain&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;First, test the untouched template, with a 4 barcodes label:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/simulscan/4_barcodes_1.png&#34; alt=&#34;SimulScan with 4 Barcodes label, no changes to the template&#34; title=&#34;SimulScan with 4 Barcodes label, no changes to the template&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;And now let&amp;rsquo;s try to change some of the parameters, the region name and the template name:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
+&amp;lt;ssmain version=&amp;quot;2.0&amp;quot; name=&amp;quot;Barcode 4a&amp;quot;&amp;gt;
+    &amp;lt;sstemplate name=&amp;quot;Barcode 4&amp;quot; width=&amp;quot;0&amp;quot; height=&amp;quot;0&amp;quot; number=&amp;quot;1&amp;quot; ttype=&amp;quot;barcode&amp;quot;&amp;gt;
+        &amp;lt;region number=&amp;quot;1&amp;quot; name=&amp;quot;part&amp;quot; x=&amp;quot;0&amp;quot; y=&amp;quot;0&amp;quot; width=&amp;quot;0&amp;quot; height=&amp;quot;0&amp;quot; rtype=&amp;quot;0x02&amp;quot;&amp;gt;
+        &amp;lt;procmode ptype=&amp;quot;barcode&amp;quot; barcodeType=&amp;quot;any&amp;quot; /&amp;gt;
+        &amp;lt;/region&amp;gt;
+        &amp;lt;region number=&amp;quot;2&amp;quot; name=&amp;quot;supplier&amp;quot; x=&amp;quot;0&amp;quot; y=&amp;quot;0&amp;quot; width=&amp;quot;0&amp;quot; height=&amp;quot;0&amp;quot; rtype=&amp;quot;0x02&amp;quot;&amp;gt;
+        &amp;lt;procmode ptype=&amp;quot;barcode&amp;quot; barcodeType=&amp;quot;any&amp;quot; /&amp;gt;
+        &amp;lt;/region&amp;gt;
+        &amp;lt;region number=&amp;quot;3&amp;quot; name=&amp;quot;quantity&amp;quot; x=&amp;quot;0&amp;quot; y=&amp;quot;0&amp;quot; width=&amp;quot;0&amp;quot; height=&amp;quot;0&amp;quot; rtype=&amp;quot;0x02&amp;quot;&amp;gt;
+        &amp;lt;procmode ptype=&amp;quot;barcode&amp;quot; barcodeType=&amp;quot;any&amp;quot; /&amp;gt;
+        &amp;lt;/region&amp;gt;
+        &amp;lt;region number=&amp;quot;4&amp;quot; name=&amp;quot;serial&amp;quot; x=&amp;quot;0&amp;quot; y=&amp;quot;0&amp;quot; width=&amp;quot;0&amp;quot; height=&amp;quot;0&amp;quot; rtype=&amp;quot;0x02&amp;quot;&amp;gt;
+        &amp;lt;procmode ptype=&amp;quot;barcode&amp;quot; barcodeType=&amp;quot;any&amp;quot; /&amp;gt;
+        &amp;lt;/region&amp;gt;
+        &amp;lt;!--Flexiscript corresponding to this template--&amp;gt;
+        &amp;lt;templatefs&amp;gt;7A3377526522707C616D5273256E876D216F226E70876D226F236E70876D236F246E70876D246F256E7056772170637000&amp;lt;/templatefs&amp;gt;
+        &amp;lt;!--******** Common parameters for this template *********--&amp;gt;
+        &amp;lt;dparam id=&amp;quot;auto_capture_sensitivity&amp;quot; type=&amp;quot;integer&amp;quot; value=&amp;quot;1&amp;quot; /&amp;gt;
+        &amp;lt;dparam id=&amp;quot;ui_result_confirmation&amp;quot; type=&amp;quot;boolean&amp;quot; value=&amp;quot;False&amp;quot; /&amp;gt;
+    &amp;lt;/sstemplate&amp;gt;
+    &amp;lt;mainfs&amp;gt;7A3377526522707C616D5273256E886D65226F226E7062886D65226F65226E70637000&amp;lt;/mainfs&amp;gt;
+&amp;lt;/ssmain&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We now need to convert it to BASE64, we can still use the &lt;a href=&#34;https://www.base64encode.org/&#34;&gt;same website&lt;/a&gt; we used to decode it, to now encode it to:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/simulscan/4_barcodes_2.png&#34; alt=&#34;SimulScan 4 Barcodes template encoded in BASE64&#34; title=&#34;SimulScan 4 Barcodes template encoded in BASE64&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Loading the templates to &lt;code&gt;/enterprise/device/settings/datawedge/templates/&lt;/code&gt;, relaunching SimulScan and selecting our template, we can see that the new names are used:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/simulscan/4_barcodes_3.png&#34; alt=&#34;SimulScan with 4 Barcodes label, changed names&#34; title=&#34;SimulScan with 4 Barcodes label, changed names&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;So, the idea that the template is an xml with a simple BASE64 encoding is correct.&lt;br /&gt;
+Now the fun part, make it works with three barcodes!&lt;/p&gt;
+
+&lt;h3 id=&#34;step-4-heavy-lifting:b992efff59f828918c2030b8fd3cff3d&#34;&gt;Step 4 - Heavy lifting&lt;/h3&gt;
+
+&lt;p&gt;Here we need to change the actual Flexiscript code to process only three barcodes. The idea is to build something like:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
+&amp;lt;ssmain version=&amp;quot;2.0&amp;quot; name=&amp;quot;Barcode 3&amp;quot;&amp;gt;
+    &amp;lt;sstemplate name=&amp;quot;Barcode 3&amp;quot; width=&amp;quot;0&amp;quot; height=&amp;quot;0&amp;quot; number=&amp;quot;1&amp;quot; ttype=&amp;quot;barcode&amp;quot;&amp;gt;
+        &amp;lt;region number=&amp;quot;1&amp;quot; name=&amp;quot;Barcode1&amp;quot; x=&amp;quot;0&amp;quot; y=&amp;quot;0&amp;quot; width=&amp;quot;0&amp;quot; height=&amp;quot;0&amp;quot; rtype=&amp;quot;0x02&amp;quot;&amp;gt;
+        &amp;lt;procmode ptype=&amp;quot;barcode&amp;quot; barcodeType=&amp;quot;any&amp;quot; /&amp;gt;
+        &amp;lt;/region&amp;gt;
+        &amp;lt;region number=&amp;quot;2&amp;quot; name=&amp;quot;Barcode2&amp;quot; x=&amp;quot;0&amp;quot; y=&amp;quot;0&amp;quot; width=&amp;quot;0&amp;quot; height=&amp;quot;0&amp;quot; rtype=&amp;quot;0x02&amp;quot;&amp;gt;
+        &amp;lt;procmode ptype=&amp;quot;barcode&amp;quot; barcodeType=&amp;quot;any&amp;quot; /&amp;gt;
+        &amp;lt;/region&amp;gt;
+        &amp;lt;region number=&amp;quot;3&amp;quot; name=&amp;quot;Barcode3&amp;quot; x=&amp;quot;0&amp;quot; y=&amp;quot;0&amp;quot; width=&amp;quot;0&amp;quot; height=&amp;quot;0&amp;quot; rtype=&amp;quot;0x02&amp;quot;&amp;gt;
+        &amp;lt;procmode ptype=&amp;quot;barcode&amp;quot; barcodeType=&amp;quot;any&amp;quot; /&amp;gt;
+        &amp;lt;/region&amp;gt;
+        &amp;lt;!--Flexiscript corresponding to this template--&amp;gt;
+        &amp;lt;templatefs&amp;gt;??????&amp;lt;/templatefs&amp;gt;
+        &amp;lt;!--******** Common parameters for this template *********--&amp;gt;
+        &amp;lt;dparam id=&amp;quot;auto_capture_sensitivity&amp;quot; type=&amp;quot;integer&amp;quot; value=&amp;quot;1&amp;quot; /&amp;gt;
+        &amp;lt;dparam id=&amp;quot;ui_result_confirmation&amp;quot; type=&amp;quot;boolean&amp;quot; value=&amp;quot;False&amp;quot; /&amp;gt;
+        &amp;lt;!--
+            Corresponding Flexiscript output :
+            Decode
+            i = N-1;
+
+            EndOfFrame
+            If ( N&amp;gt;=3 )
+                OutputEx(0,1);
+                OutputEx(1,2);
+                OutputEx(2,3);
+                R = 0;
+            EndIf;--&amp;gt;
+    &amp;lt;/sstemplate&amp;gt;
+    &amp;lt;!--Flexiscript corresponding to this template--&amp;gt;
+    &amp;lt;mainfs&amp;gt;??????&amp;lt;/mainfs&amp;gt;
+
+    &amp;lt;!--******** Common parameters for this template *********--&amp;gt;
+    &amp;lt;!--
+        Corresponding Flexiscript output :
+        Decode
+        i = N-1;
+
+        EndOfFrame
+        If ( N&amp;gt;=3 )
+            Message(-1,1);
+        Else
+            Message(-1,-1);
+        EndIf;--&amp;gt;
+&amp;lt;/ssmain&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Not bad, we just miss the encoding of the actual Flexiscript&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;The original code for the first snippets was: &lt;code&gt;z3wRe&amp;quot;p|amRs%nm!o&amp;quot;npm&amp;quot;o#npm#o$npm$o%npVw!pcp&lt;/code&gt;.  Looking in the other files for 5 and 10 barcodes:&lt;/p&gt;
+
+&lt;p&gt;4 Barcodes &lt;code&gt;z3wRe&amp;quot;p|amRs%nm!o&amp;quot;npm&amp;quot;o#npm#o$npm$o%npVw!pcp&lt;/code&gt;&lt;br /&gt;
+5 Barcodes &lt;code&gt;z3wRe&amp;quot;p|amRs&amp;amp;nm!o&amp;quot;npm&amp;quot;o#npm#o$npm$o%npm%o&amp;amp;npVw!pcp&lt;/code&gt;&lt;br /&gt;
+10 Barcodes &lt;code&gt;z3wRe&amp;quot;p|amRs&amp;quot;!nm!o&amp;quot;npm&amp;quot;o#npm#o$npm$o%npm%o&amp;amp;npm&amp;amp;o&#39;npm&#39;o(npm(o)npm)o*npm*o&amp;quot;!npVw!pcp&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;One of the assumptions that I can make is that the numbers are encoded as follow:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/simulscan/numbers.png&#34; alt=&#34;Flexiscript numbers encoding&#34; title=&#34;Flexiscript numbers encoding&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;My first test would be to use &lt;code&gt;z3wRe&amp;quot;p|amRs$nm!o&amp;quot;npm&amp;quot;o#npm#o$npVw!pcp&lt;/code&gt; that is translated to: &lt;code&gt;7A3377526522707C616D5273246E876D216F226E70876D226F236E70876D236F246E7056772170637000&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;For the second snippets, we can proceeds in the same way, starting from the original &lt;code&gt;z3wRe&amp;quot;p|amRs%nme&amp;quot;o&amp;quot;npbme&amp;quot;oe&amp;quot;npcp&lt;/code&gt; and using the &lt;code&gt;$&lt;/code&gt; instead of &lt;code&gt;%&lt;/code&gt;: &lt;code&gt;z3wRe&amp;quot;p|amRs$nme&amp;quot;o&amp;quot;npbme&amp;quot;oe&amp;quot;npcp&lt;/code&gt;.  This is then translated to the final: &lt;code&gt;7A3377526522707C616D5273246E886D65226F226E7062886D65226F65226E70637000&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;step-5-profitt:b992efff59f828918c2030b8fd3cff3d&#34;&gt;Step 5 - Profitt&lt;/h3&gt;
+
+&lt;p&gt;Putting everything together and encoding it to BASE64, we can get &lt;a href=&#34;http://pietromaggi.com/assets/pfm_barcode_3.xml&#34;&gt;the desired template&lt;/a&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/simulscan/3_barcodes.png&#34; alt=&#34;SimulScan with 3 Barcodes label&#34; title=&#34;SimulScan with 3 Barcodes label&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Hopefully Alberto will be happy!&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Disabling MC40 Home Button with a custom intent</title>
@@ -248,14 +554,14 @@ The final version of the application, managing the state, can be find on github 
 &lt;p&gt;First technical post for 2016. Finally!&lt;/p&gt;
 
 &lt;p&gt;To kick-start 2016 I&amp;rsquo;ve chosen a topic that is more and more relevant in our market: The changes introduced by Google in Android v4.4 KitKat, regarding the secondary storage (the SDCard).&lt;br /&gt;
-I&amp;rsquo;ve already talked about this in my AppForum 2015 talk last October in London&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;, but I want to add some extra info and rationales here.&lt;/p&gt;
+I&amp;rsquo;ve already talked about this in my AppForum 2015 talk last October in London&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:51c058b2f0ea7a68582777f63f59ded1:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:51c058b2f0ea7a68582777f63f59ded1:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;, but I want to add some extra info and rationales here.&lt;/p&gt;
 
-&lt;h2 id=&#34;a-bit-of-background&#34;&gt;A bit of background&lt;/h2&gt;
+&lt;h2 id=&#34;a-bit-of-background:51c058b2f0ea7a68582777f63f59ded1&#34;&gt;A bit of background&lt;/h2&gt;
 
 &lt;p&gt;Android&amp;rsquo;s purpose is to establish an open platform for developers to build innovative apps.
 For this reason, Google put in place a compatibility program that defines technical details of the Android Platform;&lt;/p&gt;
 
-&lt;p&gt;For every Android release, there&amp;rsquo;s a Compatibility Definition Document, the last available at this moment is for &lt;a href=&#34;http://static.googleusercontent.com/media/source.android.com/it//compatibility/6.0/android-6.0-cdd.pdf&#34;&gt;Android 6.0, aka Marshmallow&lt;/a&gt;, that defines some of the technical features and device needs to have to be a compatible Android device. And this compatibility is a requirement to be able to license GMS&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:2&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:2&#34;&gt;2&lt;/a&gt;&lt;/sup&gt; for the device.&lt;/p&gt;
+&lt;p&gt;For every Android release, there&amp;rsquo;s a Compatibility Definition Document, the last available at this moment is for &lt;a href=&#34;http://static.googleusercontent.com/media/source.android.com/it//compatibility/6.0/android-6.0-cdd.pdf&#34;&gt;Android 6.0, aka Marshmallow&lt;/a&gt;, that defines some of the technical features and device needs to have to be a compatible Android device. And this compatibility is a requirement to be able to license GMS&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:51c058b2f0ea7a68582777f63f59ded1:2&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:51c058b2f0ea7a68582777f63f59ded1:2&#34;&gt;2&lt;/a&gt;&lt;/sup&gt; for the device.&lt;/p&gt;
 
 &lt;p&gt;To put it clearly:&lt;/p&gt;
 
@@ -265,7 +571,7 @@ For this reason, Google put in place a compatibility program that defines techni
 
 &lt;p&gt;Here we&amp;rsquo;re talking about Android v4.4 KitKat, so here&amp;rsquo;s a link to &lt;a href=&#34;http://source.android.com/compatibility/4.4/android-4.4-cdd.pdf&#34;&gt;Android 4.4 CDD&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;what-s-the-catch&#34;&gt;What&amp;rsquo;s the catch?&lt;/h2&gt;
+&lt;h2 id=&#34;what-s-the-catch:51c058b2f0ea7a68582777f63f59ded1&#34;&gt;What&amp;rsquo;s the catch?&lt;/h2&gt;
 
 &lt;p&gt;From the CDD, Android devices are required to have a Secondary Storage available with a minimum 1GB size if you don&amp;rsquo;t have this internal in your device but you provide an SDCard slot, you need to ship the device with an SDCard, again, 1GB minimum size.&lt;br /&gt;
 So usually, you end up that the SDCard is your &lt;em&gt;Secondary External Storage&lt;/em&gt;, and the &lt;em&gt;Primary External Storage&lt;/em&gt; is the 1GB partition (minimum) you included in the device.&lt;/p&gt;
@@ -281,7 +587,7 @@ So usually, you end up that the SDCard is your &lt;em&gt;Secondary External Stor
 &lt;li&gt;&lt;code&gt;WRITE_EXTERNAL_STORAGE&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;These will gave you read&amp;amp;write access to all the External Storage available&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:3&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:3&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;.&lt;br /&gt;
+&lt;p&gt;These will gave you read&amp;amp;write access to all the External Storage available&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:51c058b2f0ea7a68582777f63f59ded1:3&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:51c058b2f0ea7a68582777f63f59ded1:3&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;.&lt;br /&gt;
 Given that there are ways to gently ask for the &lt;a href=&#34;http://pietromaggi.com/2014/10/19/finding-the-sdcard-path-on-android-devices/&#34;&gt;SDCard true path&lt;/a&gt; this was more or less working.&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -293,7 +599,7 @@ Given that there are ways to gently ask for the &lt;a href=&#34;http://pietromag
 &lt;p&gt;In Android v4.4 Google decides to go a step further mandating that an app can write (with the right permissions that we just saw) only on the Primary External Storage. For all the other External Storage, an app can only write in its package folder. e.g. if you app package is com.pietromaggi.sample.externalstorage, It can only write in the folders &lt;code&gt;&amp;lt;sdcard root&amp;gt;/Android/data/com.pietromaggi.sample.externalstorage&lt;/code&gt;.&lt;br /&gt;
 There&amp;rsquo;s no way, for a normal application, to write anywhere else on the SDCard.&lt;/p&gt;
 
-&lt;h2 id=&#34;ok-but-there-s-an-happy-end-somewhere&#34;&gt;OK, but there&amp;rsquo;s an happy end somewhere?&lt;/h2&gt;
+&lt;h2 id=&#34;ok-but-there-s-an-happy-end-somewhere:51c058b2f0ea7a68582777f63f59ded1&#34;&gt;OK, but there&amp;rsquo;s an happy end somewhere?&lt;/h2&gt;
 
 &lt;p&gt;Really, if you&amp;rsquo;re trying to get a way to revert Android behavior to what it was before API level 19, no, this is it.&lt;br /&gt;
 Luckily Google has introduced new API in KitKat (and Lollipop and Marshmallow) that allows to mitigate the issue. Some user interventions may be needed but at least there are standard APIs available.&lt;/p&gt;
@@ -304,12 +610,12 @@ Luckily Google has introduced new API in KitKat (and Lollipop and Marshmallow) t
 &lt;hr /&gt;
 
 &lt;ol&gt;
-&lt;li id=&#34;fn:1&#34;&gt;Slides presented in London: &lt;script async class=&#39;speakerdeck-embed&#39; data-id=&#39;ef4248bf72454b2e9602db55bdf1e8ed&#39; data-ratio=&#39;1.33333333333333&#39; src=&#39;//speakerdeck.com/assets/embed.js&#39;&gt;&lt;/script&gt;
- &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li id=&#34;fn:2&#34;&gt;GMS Stands for Google Mobile Services, and is the collection of services and application built by Google that are not part of AOSP (Android Open Source Project) like GMail, Google Maps, Google Play Store and the push notification service GCM (Google Cloud Messaging).
- &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:2&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li id=&#34;fn:3&#34;&gt;The catch is that, before Android v4.4, API level 19, and the introduction of the &lt;code&gt;Environment.getExternalFilesDirs()&lt;/code&gt; there was no way to know how many External Storage you had available on a device. The only available API was &lt;code&gt;Environment.getExternalStorageDirectory()&lt;/code&gt; that returns the Primary External Storage.
- &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:3&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:51c058b2f0ea7a68582777f63f59ded1:1&#34;&gt;Slides presented in London: &lt;script async class=&#39;speakerdeck-embed&#39; data-id=&#39;ef4248bf72454b2e9602db55bdf1e8ed&#39; data-ratio=&#39;1.33333333333333&#39; src=&#39;//speakerdeck.com/assets/embed.js&#39;&gt;&lt;/script&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:51c058b2f0ea7a68582777f63f59ded1:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:51c058b2f0ea7a68582777f63f59ded1:2&#34;&gt;GMS Stands for Google Mobile Services, and is the collection of services and application built by Google that are not part of AOSP (Android Open Source Project) like GMail, Google Maps, Google Play Store and the push notification service GCM (Google Cloud Messaging).
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:51c058b2f0ea7a68582777f63f59ded1:2&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:51c058b2f0ea7a68582777f63f59ded1:3&#34;&gt;The catch is that, before Android v4.4, API level 19, and the introduction of the &lt;code&gt;Environment.getExternalFilesDirs()&lt;/code&gt; there was no way to know how many External Storage you had available on a device. The only available API was &lt;code&gt;Environment.getExternalStorageDirectory()&lt;/code&gt; that returns the Primary External Storage.
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:51c058b2f0ea7a68582777f63f59ded1:3&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
 </description>
@@ -396,7 +702,7 @@ Luckily Google has introduced new API in KitKat (and Lollipop and Marshmallow) t
       <guid>http://pietromaggi.com/2015/09/25/android-back-button-and-enterprise-browser/</guid>
       <description>
 
-&lt;h2 id=&#34;edit:7f473ce4cff36ed9ec3742536e6fab0f&#34;&gt;Edit&lt;/h2&gt;
+&lt;h2 id=&#34;edit&#34;&gt;Edit&lt;/h2&gt;
 
 &lt;p&gt;Enteprise Browser v1.3 introduced a change that requires to enable &lt;code&gt;FunctionKeysCapturable&lt;/code&gt; to be able to use the KeyCapture API.&lt;br /&gt;
 To do this you need to update your &lt;code&gt;Config.xml&lt;/code&gt; with:&lt;/p&gt;
@@ -404,14 +710,14 @@ To do this you need to update your &lt;code&gt;Config.xml&lt;/code&gt; with:&lt;
 &lt;pre&gt;&lt;code&gt;&amp;lt;FunctionKeysCapturable                 value=&amp;quot;1&amp;quot;/&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;enterprise-browser:7f473ce4cff36ed9ec3742536e6fab0f&#34;&gt;Enterprise Browser&lt;/h2&gt;
+&lt;h2 id=&#34;enterprise-browser&#34;&gt;Enterprise Browser&lt;/h2&gt;
 
 &lt;p&gt;Enterprise Browser is Zebra Technologies&amp;rsquo; Industrial Browser built for our Rugged Devices, we support most of our Windows Mobile/Windows CE devices and Android devices.&lt;/p&gt;
 
 &lt;p&gt;This product is usually used with existing web application that cannot be updated/modified moving from one device to another.
 This help us winning some opportunities but sometimes present some unique challenges like, as an example, disabling the Android back button default behavior.&lt;/p&gt;
 
-&lt;h2 id=&#34;back-button-on-android:7f473ce4cff36ed9ec3742536e6fab0f&#34;&gt;Back Button on Android?&lt;/h2&gt;
+&lt;h2 id=&#34;back-button-on-android&#34;&gt;Back Button on Android?&lt;/h2&gt;
 
 &lt;p&gt;Given that this is a cross-platform product (built on top of our RhoMobile Suite) we don&amp;rsquo;t have a custom settings to disable the back button in the Config.xml configuration file, however it is still possible to add a default Metatags in the configuration so that no changes in the existing pages are needed.&lt;/p&gt;
 
@@ -443,7 +749,7 @@ This help us winning some opportunities but sometimes present some unique challe
 
 &lt;p&gt;We&amp;rsquo;ve a solution for this issue: having a &lt;code&gt;DefaultMetaTags&lt;/code&gt; in Enterprise Browser&amp;rsquo;s configuration.&lt;/p&gt;
 
-&lt;h2 id=&#34;what-s-a-defaultmetatags:7f473ce4cff36ed9ec3742536e6fab0f&#34;&gt;What&amp;rsquo;s a DefaultMetaTags&lt;/h2&gt;
+&lt;h2 id=&#34;what-s-a-defaultmetatags&#34;&gt;What&amp;rsquo;s a DefaultMetaTags&lt;/h2&gt;
 
 &lt;p&gt;We can start from the &lt;a href=&#34;https://developer.motorolasolutions.com/docs/DOC-2571#defaultmetatags&#34;&gt;documentation&lt;/a&gt;, what does it means?&lt;/p&gt;
 
@@ -458,7 +764,7 @@ This help us winning some opportunities but sometimes present some unique challe
 
 &lt;p&gt;BTW: &lt;code&gt;0xA6&lt;/code&gt; is the correct value for the Back Button on a TC55 running Android v4.4 KitKat.&lt;/p&gt;
 
-&lt;h2 id=&#34;closing-comments:7f473ce4cff36ed9ec3742536e6fab0f&#34;&gt;Closing comments&lt;/h2&gt;
+&lt;h2 id=&#34;closing-comments&#34;&gt;Closing comments&lt;/h2&gt;
 
 &lt;p&gt;Enterprise Browser&amp;rsquo;s &lt;code&gt;DefaultMetaTags&lt;/code&gt; is a very flexible way to &amp;laquo;patch&amp;raquo; an existing Web application without touching its source code.&lt;/p&gt;
 
@@ -576,7 +882,7 @@ if ((null == strSDCardPath) || (strSDCardPath.length() == 0)) {
       <guid>http://pietromaggi.com/2014/09/02/getting-device-info-from-msi-android-devices/</guid>
       <description>
 
-&lt;h1 id=&#34;the-good-old-ways&#34;&gt;The good old ways!&lt;/h1&gt;
+&lt;h1 id=&#34;the-good-old-ways:fc4a5c33de3ac7ed61c6a8c68c9cf289&#34;&gt;The good old ways!&lt;/h1&gt;
 
 &lt;p&gt;On Symbol/MSI Windows Mobile devices, we where providing some APIs in the EMDK to get additional information.
 Looking into the Resource Coordinator is possible to find APIs like:&lt;/p&gt;
@@ -594,11 +900,11 @@ Looking into the Resource Coordinator is possible to find APIs like:&lt;/p&gt;
 
 &lt;p&gt;Let&amp;rsquo;s see how to get this is data on an MSI device with the Android OS.&lt;/p&gt;
 
-&lt;h1 id=&#34;the-fabulous-new-way&#34;&gt;The fabulous new way!&lt;/h1&gt;
+&lt;h1 id=&#34;the-fabulous-new-way:fc4a5c33de3ac7ed61c6a8c68c9cf289&#34;&gt;The fabulous new way!&lt;/h1&gt;
 
 &lt;p&gt;You can find the completed project in &lt;a href=&#34;https://github.com/pfmaggi/GetDeviceInfo&#34;&gt;this repository&lt;/a&gt; on my github account, I&amp;rsquo;m using Windows 7 and Eclipse+ADT, but you can follow these steps with Android Studio quite nicely.&lt;/p&gt;
 
-&lt;h1 id=&#34;create-a-new-project&#34;&gt;Create a new Project&lt;/h1&gt;
+&lt;h1 id=&#34;create-a-new-project:fc4a5c33de3ac7ed61c6a8c68c9cf289&#34;&gt;Create a new Project&lt;/h1&gt;
 
 &lt;p&gt;Create a new Android project, nothing fancy here, it&amp;rsquo;s just a standard app with a single Blank Activity.
 You can follow these images as a guideline. Your interface may vary as Google updates the Android wizard quite often.&lt;/p&gt;
@@ -718,7 +1024,7 @@ public class MainActivity extends ActionBarActivity {
 }
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h1 id=&#34;where-s-the-tricks&#34;&gt;Where&amp;rsquo;s the tricks?&lt;/h1&gt;
+&lt;h1 id=&#34;where-s-the-tricks:fc4a5c33de3ac7ed61c6a8c68c9cf289&#34;&gt;Where&amp;rsquo;s the tricks?&lt;/h1&gt;
 
 &lt;p&gt;There&amp;rsquo;s really no trick, Android SDK provide this information, and more using these constants:&lt;/p&gt;
 
@@ -754,13 +1060,13 @@ public class MainActivity extends ActionBarActivity {
       <guid>http://pietromaggi.com/2014/01/02/diving-into-android-source-code/</guid>
       <description>
 
-&lt;h2 id=&#34;why-dive-into-android-code&#34;&gt;Why dive into Android code?&lt;/h2&gt;
+&lt;h2 id=&#34;why-dive-into-android-code:29c65bc279e3a113bf9cc4bb66b79657&#34;&gt;Why dive into Android code?&lt;/h2&gt;
 
 &lt;p&gt;When you&amp;rsquo;ve to write applications for Android, you&amp;rsquo;re targeting a giant moving API surface, sometimes you can be surprised of some different behavior in different Android versions or with an API call that is not well documented, so having the option to delve into Android Source Code is a great opportunity.&lt;/p&gt;
 
 &lt;p&gt;A lot of things can be written on how to do this, there&amp;rsquo;s some documentation available on &lt;a href=&#34;http://source.android.com/source/index.html&#34;&gt;AOSP website&lt;/a&gt;, however I think that the best starting point is a video tutorial by NewCircle&amp;rsquo;s Instructor Dave Smith on this very topic:&lt;/p&gt;
 
-&lt;h4 id=&#34;diving-into-android-source-code&#34;&gt;Diving into Android Source Code&lt;/h4&gt;
+&lt;h4 id=&#34;diving-into-android-source-code:29c65bc279e3a113bf9cc4bb66b79657&#34;&gt;Diving into Android Source Code&lt;/h4&gt;
 
 
 &lt;div style=&#34;position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;&#34;&gt;
@@ -770,11 +1076,11 @@ public class MainActivity extends ActionBarActivity {
 
 &lt;p&gt;So, take your time to setup your own copy of the Android source code and, next time you&amp;rsquo;re asking yourself &amp;laquo;What&amp;rsquo;s going on when you call an API, you can check the source code!&amp;raquo;&lt;/p&gt;
 
-&lt;h2 id=&#34;on-a-similar-topic-dalvik-vm&#34;&gt;On a similar topic: Dalvik VM&lt;/h2&gt;
+&lt;h2 id=&#34;on-a-similar-topic-dalvik-vm:29c65bc279e3a113bf9cc4bb66b79657&#34;&gt;On a similar topic: Dalvik VM&lt;/h2&gt;
 
 &lt;p&gt;Dan Bernstein has presented at Google I/O 2008 a talk about the internals of Dalvik VM:&lt;/p&gt;
 
-&lt;h4 id=&#34;dalvik-virtual-machine-internals&#34;&gt;Dalvik Virtual Machine Internals&lt;/h4&gt;
+&lt;h4 id=&#34;dalvik-virtual-machine-internals:29c65bc279e3a113bf9cc4bb66b79657&#34;&gt;Dalvik Virtual Machine Internals&lt;/h4&gt;
 
 &lt;p&gt;
 &lt;div style=&#34;position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;&#34;&gt;
