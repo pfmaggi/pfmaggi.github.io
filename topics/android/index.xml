@@ -120,7 +120,7 @@ This is not a problem unique to the TC55, it&amp;rsquo;s a common problem on And
 
 &lt;p&gt;Given that we&amp;rsquo;ve the luxury to target just a few devices, the Motorola Solutions one :-), the best option is to use the environment variables.&lt;/p&gt;
 
-&lt;h3 id=&#34;let-s-see-what-happens-on-the-tc55&#34;&gt;Let&amp;rsquo;s see what happens on the TC55&lt;/h3&gt;
+&lt;h3 id=&#34;let-s-see-what-happens-on-the-tc55:bc798595bb5986dd70a35d55131e88d5&#34;&gt;Let&amp;rsquo;s see what happens on the TC55&lt;/h3&gt;
 
 &lt;p&gt;On this device, using &lt;code&gt;Environment.getExternalStorageDirectory();&lt;/code&gt; returns different results depending if you&amp;rsquo;ve installed or not an SDCard:&lt;/p&gt;
 
@@ -195,7 +195,7 @@ if ((null == strSDCardPath) || (strSDCardPath.length() == 0)) {
       <guid>http://pietromaggi.com/2014/09/02/getting-device-info-from-msi-android-devices/</guid>
       <description>
 
-&lt;h1 id=&#34;the-good-old-ways:fc4a5c33de3ac7ed61c6a8c68c9cf289&#34;&gt;The good old ways!&lt;/h1&gt;
+&lt;h1 id=&#34;the-good-old-ways&#34;&gt;The good old ways!&lt;/h1&gt;
 
 &lt;p&gt;On Symbol/MSI Windows Mobile devices, we where providing some APIs in the EMDK to get additional information.
 Looking into the Resource Coordinator is possible to find APIs like:&lt;/p&gt;
@@ -213,11 +213,11 @@ Looking into the Resource Coordinator is possible to find APIs like:&lt;/p&gt;
 
 &lt;p&gt;Let&amp;rsquo;s see how to get this is data on an MSI device with the Android OS.&lt;/p&gt;
 
-&lt;h1 id=&#34;the-fabulous-new-way:fc4a5c33de3ac7ed61c6a8c68c9cf289&#34;&gt;The fabulous new way!&lt;/h1&gt;
+&lt;h1 id=&#34;the-fabulous-new-way&#34;&gt;The fabulous new way!&lt;/h1&gt;
 
 &lt;p&gt;You can find the completed project in &lt;a href=&#34;https://github.com/pfmaggi/GetDeviceInfo&#34;&gt;this repository&lt;/a&gt; on my github account, I&amp;rsquo;m using Windows 7 and Eclipse+ADT, but you can follow these steps with Android Studio quite nicely.&lt;/p&gt;
 
-&lt;h1 id=&#34;create-a-new-project:fc4a5c33de3ac7ed61c6a8c68c9cf289&#34;&gt;Create a new Project&lt;/h1&gt;
+&lt;h1 id=&#34;create-a-new-project&#34;&gt;Create a new Project&lt;/h1&gt;
 
 &lt;p&gt;Create a new Android project, nothing fancy here, it&amp;rsquo;s just a standard app with a single Blank Activity.
 You can follow these images as a guideline. Your interface may vary as Google updates the Android wizard quite often.&lt;/p&gt;
@@ -337,7 +337,7 @@ public class MainActivity extends ActionBarActivity {
 }
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h1 id=&#34;where-s-the-tricks:fc4a5c33de3ac7ed61c6a8c68c9cf289&#34;&gt;Where&amp;rsquo;s the tricks?&lt;/h1&gt;
+&lt;h1 id=&#34;where-s-the-tricks&#34;&gt;Where&amp;rsquo;s the tricks?&lt;/h1&gt;
 
 &lt;p&gt;There&amp;rsquo;s really no trick, Android SDK provide this information, and more using these constants:&lt;/p&gt;
 
@@ -373,13 +373,13 @@ public class MainActivity extends ActionBarActivity {
       <guid>http://pietromaggi.com/2014/01/02/diving-into-android-source-code/</guid>
       <description>
 
-&lt;h2 id=&#34;why-dive-into-android-code:29c65bc279e3a113bf9cc4bb66b79657&#34;&gt;Why dive into Android code?&lt;/h2&gt;
+&lt;h2 id=&#34;why-dive-into-android-code&#34;&gt;Why dive into Android code?&lt;/h2&gt;
 
 &lt;p&gt;When you&amp;rsquo;ve to write applications for Android, you&amp;rsquo;re targeting a giant moving API surface, sometimes you can be surprised of some different behavior in different Android versions or with an API call that is not well documented, so having the option to delve into Android Source Code is a great opportunity.&lt;/p&gt;
 
 &lt;p&gt;A lot of things can be written on how to do this, there&amp;rsquo;s some documentation available on &lt;a href=&#34;http://source.android.com/source/index.html&#34;&gt;AOSP website&lt;/a&gt;, however I think that the best starting point is a video tutorial by NewCircle&amp;rsquo;s Instructor Dave Smith on this very topic:&lt;/p&gt;
 
-&lt;h4 id=&#34;diving-into-android-source-code:29c65bc279e3a113bf9cc4bb66b79657&#34;&gt;Diving into Android Source Code&lt;/h4&gt;
+&lt;h4 id=&#34;diving-into-android-source-code&#34;&gt;Diving into Android Source Code&lt;/h4&gt;
 
 
 &lt;div style=&#34;position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;&#34;&gt;
@@ -389,11 +389,11 @@ public class MainActivity extends ActionBarActivity {
 
 &lt;p&gt;So, take your time to setup your own copy of the Android source code and, next time you&amp;rsquo;re asking yourself &amp;laquo;What&amp;rsquo;s going on when you call an API, you can check the source code!&amp;raquo;&lt;/p&gt;
 
-&lt;h2 id=&#34;on-a-similar-topic-dalvik-vm:29c65bc279e3a113bf9cc4bb66b79657&#34;&gt;On a similar topic: Dalvik VM&lt;/h2&gt;
+&lt;h2 id=&#34;on-a-similar-topic-dalvik-vm&#34;&gt;On a similar topic: Dalvik VM&lt;/h2&gt;
 
 &lt;p&gt;Dan Bernstein has presented at Google I/O 2008 a talk about the internals of Dalvik VM:&lt;/p&gt;
 
-&lt;h4 id=&#34;dalvik-virtual-machine-internals:29c65bc279e3a113bf9cc4bb66b79657&#34;&gt;Dalvik Virtual Machine Internals&lt;/h4&gt;
+&lt;h4 id=&#34;dalvik-virtual-machine-internals&#34;&gt;Dalvik Virtual Machine Internals&lt;/h4&gt;
 
 &lt;p&gt;
 &lt;div style=&#34;position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;&#34;&gt;

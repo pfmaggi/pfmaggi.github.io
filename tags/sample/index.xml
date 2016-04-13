@@ -20,19 +20,19 @@
       <guid>http://pietromaggi.com/2016/01/18/disabling-mc40-home-button-with-a-custom-intent/</guid>
       <description>
 
-&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+&lt;h2 id=&#34;intro:2e1fe568b32c202e94702c6e9dd9eda0&#34;&gt;Intro&lt;/h2&gt;
 
 &lt;p&gt;Zebra Technologies&amp;rsquo; devices are purpose built to be single use devices. Having an OS like Android nowadays provides a lot of flexibility&amp;hellip;  sometimes a bit too much.&lt;br /&gt;
 With this idea in mind, the Android version used on these devices sometimes provide some nice surprise, like an Intent to disable the omnipresent Android&amp;rsquo;s Home button.&lt;/p&gt;
 
-&lt;h2 id=&#34;the-basic-idea&#34;&gt;The basic idea&lt;/h2&gt;
+&lt;h2 id=&#34;the-basic-idea:2e1fe568b32c202e94702c6e9dd9eda0&#34;&gt;The basic idea&lt;/h2&gt;
 
-&lt;p&gt;MC40 support an &lt;a href=&#34;http://developer.android.com/reference/android/content/Intent.html&#34;&gt;Android intent&lt;/a&gt; to disable the normal Home button behavior: &lt;em&gt;You can disable it and there&amp;rsquo;s no way to exit from the foreground application&lt;/em&gt; &lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+&lt;p&gt;MC40 support an &lt;a href=&#34;http://developer.android.com/reference/android/content/Intent.html&#34;&gt;Android intent&lt;/a&gt; to disable the normal Home button behavior: &lt;em&gt;You can disable it and there&amp;rsquo;s no way to exit from the foreground application&lt;/em&gt; &lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:2e1fe568b32c202e94702c6e9dd9eda0:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:2e1fe568b32c202e94702c6e9dd9eda0:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://developer.zebra.com/community/android/android-forums/android-blogs/blog/2014/12/19/disabling-home-button-via-intent-mc40&#34;&gt;You can find a blog by Pavel Machala briefly describing the idea on Launchpad&lt;/a&gt;.&lt;br /&gt;
 Here I want to present a simple sample that show how to use this intent, covering the only issue that is: &lt;em&gt;handling re-branded devices&lt;/em&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;project-setup&#34;&gt;Project setup&lt;/h2&gt;
+&lt;h2 id=&#34;project-setup:2e1fe568b32c202e94702c6e9dd9eda0&#34;&gt;Project setup&lt;/h2&gt;
 
 &lt;p&gt;We start creating a new Android application in Android Studio (I&amp;rsquo;m using Android Studio v1.5.1 with Build tools 23.0.1, you&amp;rsquo;re mileage can vary if you&amp;rsquo;re using a different setup).&lt;/p&gt;
 
@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
 
 &lt;p&gt;Next step would be to check that we&amp;rsquo;re really running on a Zebra Technologies&amp;rsquo; MC40, and then adding some logic to the app.&lt;/p&gt;
 
-&lt;h2 id=&#34;dealing-with-multiple-os-versions-and-re-branding&#34;&gt;Dealing with multiple OS versions and re-branding&lt;/h2&gt;
+&lt;h2 id=&#34;dealing-with-multiple-os-versions-and-re-branding:2e1fe568b32c202e94702c6e9dd9eda0&#34;&gt;Dealing with multiple OS versions and re-branding&lt;/h2&gt;
 
 &lt;p&gt;First we check that we&amp;rsquo;re running on a Zebra&amp;rsquo;s MC40 using a couple of Android constant:&lt;/p&gt;
 
@@ -205,7 +205,7 @@ public class MainActivity extends AppCompatActivity {
 
 &lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/samples/mc40_home_btn/Screenshot_tag2.png&#34; alt=&#34;MC40 Screenshot of the app as recorded at tag2&#34; title=&#34;MC40 Screenshot of the app as recorded at tag2&#34; /&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;managing-state&#34;&gt;Managing state&lt;/h2&gt;
+&lt;h2 id=&#34;managing-state:2e1fe568b32c202e94702c6e9dd9eda0&#34;&gt;Managing state&lt;/h2&gt;
 
 &lt;p&gt;The application now works as expected, but with an issue linked to not managing the state. As an example, simply rotating the device, the Activity is destroyed to create a new one with the standard behavior to disable the Home Button, even if we just re-enabled it using the &lt;code&gt;toggle&lt;/code&gt; button.&lt;br /&gt;
 An easy solution is to add some code to manage the Application status overriding the &lt;code&gt;onSaveInstanceState(Bundle)&lt;/code&gt; method:&lt;/p&gt;
@@ -224,14 +224,14 @@ The final version of the application, managing the state, can be find on github 
 
 &lt;hr /&gt;
 
-&lt;h5 id=&#34;notes&#34;&gt;Notes&lt;/h5&gt;
+&lt;h5 id=&#34;notes:2e1fe568b32c202e94702c6e9dd9eda0&#34;&gt;Notes&lt;/h5&gt;
 &lt;div class=&#34;footnotes&#34;&gt;
 
 &lt;hr /&gt;
 
 &lt;ol&gt;
-&lt;li id=&#34;fn:1&#34;&gt;If your app locks down a few other things or you&amp;rsquo;re using something like Zebra&amp;rsquo;s &lt;a href=&#34;https://www.zebra.com/us/en/products/software/mobile-computers/mobile-app-utilities/enterprise-home-screen.html&#34;&gt;Enterprise Home Screen&lt;/a&gt;.
- &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:2e1fe568b32c202e94702c6e9dd9eda0:1&#34;&gt;If your app locks down a few other things or you&amp;rsquo;re using something like Zebra&amp;rsquo;s &lt;a href=&#34;https://www.zebra.com/us/en/products/software/mobile-computers/mobile-app-utilities/enterprise-home-screen.html&#34;&gt;Enterprise Home Screen&lt;/a&gt;.
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:2e1fe568b32c202e94702c6e9dd9eda0:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
 </description>
@@ -340,7 +340,7 @@ This is not a problem unique to the TC55, it&amp;rsquo;s a common problem on And
 
 &lt;p&gt;Given that we&amp;rsquo;ve the luxury to target just a few devices, the Motorola Solutions one :-), the best option is to use the environment variables.&lt;/p&gt;
 
-&lt;h3 id=&#34;let-s-see-what-happens-on-the-tc55&#34;&gt;Let&amp;rsquo;s see what happens on the TC55&lt;/h3&gt;
+&lt;h3 id=&#34;let-s-see-what-happens-on-the-tc55:bc798595bb5986dd70a35d55131e88d5&#34;&gt;Let&amp;rsquo;s see what happens on the TC55&lt;/h3&gt;
 
 &lt;p&gt;On this device, using &lt;code&gt;Environment.getExternalStorageDirectory();&lt;/code&gt; returns different results depending if you&amp;rsquo;ve installed or not an SDCard:&lt;/p&gt;
 
@@ -415,7 +415,7 @@ if ((null == strSDCardPath) || (strSDCardPath.length() == 0)) {
       <guid>http://pietromaggi.com/2014/09/02/getting-device-info-from-msi-android-devices/</guid>
       <description>
 
-&lt;h1 id=&#34;the-good-old-ways:fc4a5c33de3ac7ed61c6a8c68c9cf289&#34;&gt;The good old ways!&lt;/h1&gt;
+&lt;h1 id=&#34;the-good-old-ways&#34;&gt;The good old ways!&lt;/h1&gt;
 
 &lt;p&gt;On Symbol/MSI Windows Mobile devices, we where providing some APIs in the EMDK to get additional information.
 Looking into the Resource Coordinator is possible to find APIs like:&lt;/p&gt;
@@ -433,11 +433,11 @@ Looking into the Resource Coordinator is possible to find APIs like:&lt;/p&gt;
 
 &lt;p&gt;Let&amp;rsquo;s see how to get this is data on an MSI device with the Android OS.&lt;/p&gt;
 
-&lt;h1 id=&#34;the-fabulous-new-way:fc4a5c33de3ac7ed61c6a8c68c9cf289&#34;&gt;The fabulous new way!&lt;/h1&gt;
+&lt;h1 id=&#34;the-fabulous-new-way&#34;&gt;The fabulous new way!&lt;/h1&gt;
 
 &lt;p&gt;You can find the completed project in &lt;a href=&#34;https://github.com/pfmaggi/GetDeviceInfo&#34;&gt;this repository&lt;/a&gt; on my github account, I&amp;rsquo;m using Windows 7 and Eclipse+ADT, but you can follow these steps with Android Studio quite nicely.&lt;/p&gt;
 
-&lt;h1 id=&#34;create-a-new-project:fc4a5c33de3ac7ed61c6a8c68c9cf289&#34;&gt;Create a new Project&lt;/h1&gt;
+&lt;h1 id=&#34;create-a-new-project&#34;&gt;Create a new Project&lt;/h1&gt;
 
 &lt;p&gt;Create a new Android project, nothing fancy here, it&amp;rsquo;s just a standard app with a single Blank Activity.
 You can follow these images as a guideline. Your interface may vary as Google updates the Android wizard quite often.&lt;/p&gt;
@@ -557,7 +557,7 @@ public class MainActivity extends ActionBarActivity {
 }
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h1 id=&#34;where-s-the-tricks:fc4a5c33de3ac7ed61c6a8c68c9cf289&#34;&gt;Where&amp;rsquo;s the tricks?&lt;/h1&gt;
+&lt;h1 id=&#34;where-s-the-tricks&#34;&gt;Where&amp;rsquo;s the tricks?&lt;/h1&gt;
 
 &lt;p&gt;There&amp;rsquo;s really no trick, Android SDK provide this information, and more using these constants:&lt;/p&gt;
 

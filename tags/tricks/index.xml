@@ -20,19 +20,19 @@
       <guid>http://pietromaggi.com/2016/01/18/disabling-mc40-home-button-with-a-custom-intent/</guid>
       <description>
 
-&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+&lt;h2 id=&#34;intro:2e1fe568b32c202e94702c6e9dd9eda0&#34;&gt;Intro&lt;/h2&gt;
 
 &lt;p&gt;Zebra Technologies&amp;rsquo; devices are purpose built to be single use devices. Having an OS like Android nowadays provides a lot of flexibility&amp;hellip;  sometimes a bit too much.&lt;br /&gt;
 With this idea in mind, the Android version used on these devices sometimes provide some nice surprise, like an Intent to disable the omnipresent Android&amp;rsquo;s Home button.&lt;/p&gt;
 
-&lt;h2 id=&#34;the-basic-idea&#34;&gt;The basic idea&lt;/h2&gt;
+&lt;h2 id=&#34;the-basic-idea:2e1fe568b32c202e94702c6e9dd9eda0&#34;&gt;The basic idea&lt;/h2&gt;
 
-&lt;p&gt;MC40 support an &lt;a href=&#34;http://developer.android.com/reference/android/content/Intent.html&#34;&gt;Android intent&lt;/a&gt; to disable the normal Home button behavior: &lt;em&gt;You can disable it and there&amp;rsquo;s no way to exit from the foreground application&lt;/em&gt; &lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+&lt;p&gt;MC40 support an &lt;a href=&#34;http://developer.android.com/reference/android/content/Intent.html&#34;&gt;Android intent&lt;/a&gt; to disable the normal Home button behavior: &lt;em&gt;You can disable it and there&amp;rsquo;s no way to exit from the foreground application&lt;/em&gt; &lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:2e1fe568b32c202e94702c6e9dd9eda0:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:2e1fe568b32c202e94702c6e9dd9eda0:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://developer.zebra.com/community/android/android-forums/android-blogs/blog/2014/12/19/disabling-home-button-via-intent-mc40&#34;&gt;You can find a blog by Pavel Machala briefly describing the idea on Launchpad&lt;/a&gt;.&lt;br /&gt;
 Here I want to present a simple sample that show how to use this intent, covering the only issue that is: &lt;em&gt;handling re-branded devices&lt;/em&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;project-setup&#34;&gt;Project setup&lt;/h2&gt;
+&lt;h2 id=&#34;project-setup:2e1fe568b32c202e94702c6e9dd9eda0&#34;&gt;Project setup&lt;/h2&gt;
 
 &lt;p&gt;We start creating a new Android application in Android Studio (I&amp;rsquo;m using Android Studio v1.5.1 with Build tools 23.0.1, you&amp;rsquo;re mileage can vary if you&amp;rsquo;re using a different setup).&lt;/p&gt;
 
@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
 
 &lt;p&gt;Next step would be to check that we&amp;rsquo;re really running on a Zebra Technologies&amp;rsquo; MC40, and then adding some logic to the app.&lt;/p&gt;
 
-&lt;h2 id=&#34;dealing-with-multiple-os-versions-and-re-branding&#34;&gt;Dealing with multiple OS versions and re-branding&lt;/h2&gt;
+&lt;h2 id=&#34;dealing-with-multiple-os-versions-and-re-branding:2e1fe568b32c202e94702c6e9dd9eda0&#34;&gt;Dealing with multiple OS versions and re-branding&lt;/h2&gt;
 
 &lt;p&gt;First we check that we&amp;rsquo;re running on a Zebra&amp;rsquo;s MC40 using a couple of Android constant:&lt;/p&gt;
 
@@ -205,7 +205,7 @@ public class MainActivity extends AppCompatActivity {
 
 &lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/samples/mc40_home_btn/Screenshot_tag2.png&#34; alt=&#34;MC40 Screenshot of the app as recorded at tag2&#34; title=&#34;MC40 Screenshot of the app as recorded at tag2&#34; /&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;managing-state&#34;&gt;Managing state&lt;/h2&gt;
+&lt;h2 id=&#34;managing-state:2e1fe568b32c202e94702c6e9dd9eda0&#34;&gt;Managing state&lt;/h2&gt;
 
 &lt;p&gt;The application now works as expected, but with an issue linked to not managing the state. As an example, simply rotating the device, the Activity is destroyed to create a new one with the standard behavior to disable the Home Button, even if we just re-enabled it using the &lt;code&gt;toggle&lt;/code&gt; button.&lt;br /&gt;
 An easy solution is to add some code to manage the Application status overriding the &lt;code&gt;onSaveInstanceState(Bundle)&lt;/code&gt; method:&lt;/p&gt;
@@ -224,14 +224,14 @@ The final version of the application, managing the state, can be find on github 
 
 &lt;hr /&gt;
 
-&lt;h5 id=&#34;notes&#34;&gt;Notes&lt;/h5&gt;
+&lt;h5 id=&#34;notes:2e1fe568b32c202e94702c6e9dd9eda0&#34;&gt;Notes&lt;/h5&gt;
 &lt;div class=&#34;footnotes&#34;&gt;
 
 &lt;hr /&gt;
 
 &lt;ol&gt;
-&lt;li id=&#34;fn:1&#34;&gt;If your app locks down a few other things or you&amp;rsquo;re using something like Zebra&amp;rsquo;s &lt;a href=&#34;https://www.zebra.com/us/en/products/software/mobile-computers/mobile-app-utilities/enterprise-home-screen.html&#34;&gt;Enterprise Home Screen&lt;/a&gt;.
- &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:2e1fe568b32c202e94702c6e9dd9eda0:1&#34;&gt;If your app locks down a few other things or you&amp;rsquo;re using something like Zebra&amp;rsquo;s &lt;a href=&#34;https://www.zebra.com/us/en/products/software/mobile-computers/mobile-app-utilities/enterprise-home-screen.html&#34;&gt;Enterprise Home Screen&lt;/a&gt;.
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:2e1fe568b32c202e94702c6e9dd9eda0:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
 </description>
@@ -245,7 +245,7 @@ The final version of the application, managing the state, can be find on github 
       <guid>http://pietromaggi.com/2015/09/25/android-back-button-and-enterprise-browser/</guid>
       <description>
 
-&lt;h2 id=&#34;edit&#34;&gt;Edit&lt;/h2&gt;
+&lt;h2 id=&#34;edit:7f473ce4cff36ed9ec3742536e6fab0f&#34;&gt;Edit&lt;/h2&gt;
 
 &lt;p&gt;Enteprise Browser v1.3 introduced a change that requires to enable &lt;code&gt;FunctionKeysCapturable&lt;/code&gt; to be able to use the KeyCapture API.&lt;br /&gt;
 To do this you need to update your &lt;code&gt;Config.xml&lt;/code&gt; with:&lt;/p&gt;
@@ -253,14 +253,14 @@ To do this you need to update your &lt;code&gt;Config.xml&lt;/code&gt; with:&lt;
 &lt;pre&gt;&lt;code&gt;&amp;lt;FunctionKeysCapturable                 value=&amp;quot;1&amp;quot;/&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;enterprise-browser&#34;&gt;Enterprise Browser&lt;/h2&gt;
+&lt;h2 id=&#34;enterprise-browser:7f473ce4cff36ed9ec3742536e6fab0f&#34;&gt;Enterprise Browser&lt;/h2&gt;
 
 &lt;p&gt;Enterprise Browser is Zebra Technologies&amp;rsquo; Industrial Browser built for our Rugged Devices, we support most of our Windows Mobile/Windows CE devices and Android devices.&lt;/p&gt;
 
 &lt;p&gt;This product is usually used with existing web application that cannot be updated/modified moving from one device to another.
 This help us winning some opportunities but sometimes present some unique challenges like, as an example, disabling the Android back button default behavior.&lt;/p&gt;
 
-&lt;h2 id=&#34;back-button-on-android&#34;&gt;Back Button on Android?&lt;/h2&gt;
+&lt;h2 id=&#34;back-button-on-android:7f473ce4cff36ed9ec3742536e6fab0f&#34;&gt;Back Button on Android?&lt;/h2&gt;
 
 &lt;p&gt;Given that this is a cross-platform product (built on top of our RhoMobile Suite) we don&amp;rsquo;t have a custom settings to disable the back button in the Config.xml configuration file, however it is still possible to add a default Metatags in the configuration so that no changes in the existing pages are needed.&lt;/p&gt;
 
@@ -292,7 +292,7 @@ This help us winning some opportunities but sometimes present some unique challe
 
 &lt;p&gt;We&amp;rsquo;ve a solution for this issue: having a &lt;code&gt;DefaultMetaTags&lt;/code&gt; in Enterprise Browser&amp;rsquo;s configuration.&lt;/p&gt;
 
-&lt;h2 id=&#34;what-s-a-defaultmetatags&#34;&gt;What&amp;rsquo;s a DefaultMetaTags&lt;/h2&gt;
+&lt;h2 id=&#34;what-s-a-defaultmetatags:7f473ce4cff36ed9ec3742536e6fab0f&#34;&gt;What&amp;rsquo;s a DefaultMetaTags&lt;/h2&gt;
 
 &lt;p&gt;We can start from the &lt;a href=&#34;https://developer.motorolasolutions.com/docs/DOC-2571#defaultmetatags&#34;&gt;documentation&lt;/a&gt;, what does it means?&lt;/p&gt;
 
@@ -307,7 +307,7 @@ This help us winning some opportunities but sometimes present some unique challe
 
 &lt;p&gt;BTW: &lt;code&gt;0xA6&lt;/code&gt; is the correct value for the Back Button on a TC55 running Android v4.4 KitKat.&lt;/p&gt;
 
-&lt;h2 id=&#34;closing-comments&#34;&gt;Closing comments&lt;/h2&gt;
+&lt;h2 id=&#34;closing-comments:7f473ce4cff36ed9ec3742536e6fab0f&#34;&gt;Closing comments&lt;/h2&gt;
 
 &lt;p&gt;Enterprise Browser&amp;rsquo;s &lt;code&gt;DefaultMetaTags&lt;/code&gt; is a very flexible way to &amp;laquo;patch&amp;raquo; an existing Web application without touching its source code.&lt;/p&gt;
 
@@ -330,12 +330,12 @@ This help us winning some opportunities but sometimes present some unique challe
 
 &lt;p&gt;This is a different blog, more a remainder for me than anything else. Hope that someone else can find these useful&amp;hellip; they&amp;rsquo;re for me!&lt;/p&gt;
 
-&lt;h3 id=&#34;recover-a-failed-download-with-curl:4d6d9b75474dffda97a889a3cbd40065&#34;&gt;Recover a failed download with curl:&lt;/h3&gt;
+&lt;h3 id=&#34;recover-a-failed-download-with-curl&#34;&gt;Recover a failed download with curl:&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;curl -C - -o partially_downloaded_file &#39;www.example.com/path/to/the/file&#39;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;burn-a-playable-dvd-from-a-video-ts-folder-http-hints-macworld-com-article-php-story-20070612161317338:4d6d9b75474dffda97a889a3cbd40065&#34;&gt;&lt;a href=&#34;http://hints.macworld.com/article.php?story=20070612161317338&#34;&gt;Burn a playable DVD from a VIDEO_TS folder&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;burn-a-playable-dvd-from-a-video-ts-folder-http-hints-macworld-com-article-php-story-20070612161317338&#34;&gt;&lt;a href=&#34;http://hints.macworld.com/article.php?story=20070612161317338&#34;&gt;Burn a playable DVD from a VIDEO_TS folder&lt;/a&gt;&lt;/h3&gt;
 
 &lt;p&gt;After searching the forums and trying various things, I still couldn&amp;rsquo;t find a quick, reliable, free method of burning a VIDEO_TS folder to a pure UDF DVD,
 so that it would play in regular DVD players, as well trigger DVD Player to start up automatically. Anyway, as often is the case, Terminal had the answers.
@@ -347,19 +347,19 @@ Just type in this command and change the paths to suit:&lt;/p&gt;
 &lt;p&gt;Make sure that /path/to/VIDEO_TS/parent/folder is the path to the folder containing the VIDEO_TS folder, not the VIDEO_TS folder itself.
 Once the .iso file has been created, drag this to Disk Utility and hit the Burn button.&lt;/p&gt;
 
-&lt;h3 id=&#34;generate-a-pdf-from-a-markdown-file:4d6d9b75474dffda97a889a3cbd40065&#34;&gt;Generate a pdf from a markdown file&lt;/h3&gt;
+&lt;h3 id=&#34;generate-a-pdf-from-a-markdown-file&#34;&gt;Generate a pdf from a markdown file&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;markdown &amp;lt;File.md&amp;gt; | htmldoc --cont --headfootsize 8.0 --linkcolor blue --linkstyle plain --format pdf14 - &amp;gt; FileFormat.pdf
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h1 id=&#34;android-related-commands:4d6d9b75474dffda97a889a3cbd40065&#34;&gt;Android related Commands&lt;/h1&gt;
+&lt;h1 id=&#34;android-related-commands&#34;&gt;Android related Commands&lt;/h1&gt;
 
-&lt;h3 id=&#34;taking-screenshot-of-an-android-device:4d6d9b75474dffda97a889a3cbd40065&#34;&gt;Taking screenshot of an Android device&lt;/h3&gt;
+&lt;h3 id=&#34;taking-screenshot-of-an-android-device&#34;&gt;Taking screenshot of an Android device&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code&gt;adb shell screencap -p | perl -pe &#39;s/\x0D\x0A/\x0A/g&#39; &amp;gt; screen.png
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;launch-browser-and-navigate-to-url-on-android-devices:4d6d9b75474dffda97a889a3cbd40065&#34;&gt;Launch browser and navigate to URL on android devices&lt;/h3&gt;
+&lt;h3 id=&#34;launch-browser-and-navigate-to-url-on-android-devices&#34;&gt;Launch browser and navigate to URL on android devices&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;adb shell am start -a android.intent.action.VIEW -d URL
 &lt;/code&gt;&lt;/pre&gt;

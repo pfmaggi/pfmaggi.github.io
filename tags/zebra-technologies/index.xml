@@ -9,314 +9,8 @@
     <managingEditor>pfm@pietromaggi.com (Pietro F. Maggi)</managingEditor>
     <webMaster>pfm@pietromaggi.com (Pietro F. Maggi)</webMaster>
     <copyright>(c) 2013-2016 Pietro F. Maggi</copyright>
-    <lastBuildDate>Wed, 13 Apr 2016 09:00:00 +0100</lastBuildDate>
+    <lastBuildDate>Mon, 18 Jan 2016 09:00:00 +0100</lastBuildDate>
     <atom:link href="http://pietromaggi.com/tags/zebra-technologies/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>The Story of Three Barcodes</title>
-      <link>http://pietromaggi.com/2016/04/13/the-story-of-three-barcodes/</link>
-      <pubDate>Wed, 13 Apr 2016 09:00:00 +0100</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
-      <guid>http://pietromaggi.com/2016/04/13/the-story-of-three-barcodes/</guid>
-      <description>
-
-&lt;h2 id=&#34;intro:b992efff59f828918c2030b8fd3cff3d&#34;&gt;Intro&lt;/h2&gt;
-
-&lt;p&gt;Simple questions can bring to complex investigation.&lt;br /&gt;
-Last month my colleague Alberto asked me:&lt;br /&gt;
-&lt;em&gt;&amp;laquo;Can I use SimulScan to read labels with three barcodes?&amp;raquo;&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;&amp;laquo;Of course&amp;raquo;&lt;/em&gt;, was my default answer. &lt;em&gt;&amp;laquo;That&amp;rsquo;s what SimulScan is for!&amp;raquo;&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;Fire up a TC75, launch the SimulScan demo and go to select the custom template for three barcodes and&amp;hellip; wait.&lt;br /&gt;
-Where&amp;rsquo;s the template for three barcodes?&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/simulscan/available_custom.png&#34; alt=&#34;SimulScan available custom template&#34; title=&#34;SimulScan available custom template&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Ok, seems that we actually need to do some work&amp;hellip;&lt;/p&gt;
-
-&lt;h2 id=&#34;first-option-define-a-template:b992efff59f828918c2030b8fd3cff3d&#34;&gt;First option: define a template&lt;/h2&gt;
-
-&lt;p&gt;Some background:&lt;br /&gt;
-SimulScan came with an online template builder that allows to upload the image of the label you want to acquire, and build a template defining active areas for barcodes, images and text fields.
-Very powerful, but of little use if you want to be able to read all the labels with three barcodes&amp;hellip; whatever decoder you need to use for the barcodes.&lt;/p&gt;
-
-&lt;p&gt;Alberto built a template for one of the label his customer needed to read, and it was working well there, but it was not reading the other labels&amp;hellip; building a different template for every single label was not an option&amp;hellip;&lt;/p&gt;
-
-&lt;h2 id=&#34;another-option-can-we-build-a-new-custom-template-for-three-barcodes:b992efff59f828918c2030b8fd3cff3d&#34;&gt;Another option: can we build a new custom template for three barcodes?&lt;/h2&gt;
-
-&lt;p&gt;&lt;em&gt;&amp;laquo;Sure, how hard can it be?&amp;raquo;&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;It ends up that is was a bit harder than expected, but way more interesting!&lt;/p&gt;
-
-&lt;h2 id=&#34;the-journey:b992efff59f828918c2030b8fd3cff3d&#34;&gt;The journey&lt;/h2&gt;
-
-&lt;h3 id=&#34;step-1-get-the-templates:b992efff59f828918c2030b8fd3cff3d&#34;&gt;Step 1 - Get the templates.&lt;/h3&gt;
-
-&lt;p&gt;Where are the custom templates?
-In the &lt;code&gt;/enterprise/device/settings/datawedge/templates/&lt;/code&gt; folder of one of the supported devices.&lt;br /&gt;
-A much more complicated (but more fun) to get these files (or if you don&amp;rsquo;t have a device handy) is to retrieve the templates from the SimulScan demo application or, more exactly, in the &lt;code&gt;SimulScanRes.apk&lt;/code&gt; that you can find in the &lt;code&gt;\system&lt;/code&gt; folder of our Android devices that includes SimulScan (TC55 KK, TC75, TC70 and TC8000).&lt;br /&gt;
-You can retrieve it with &lt;code&gt;adb&lt;/code&gt; or directly from the recovery images available on &lt;a href=&#34;https://portal.motorolasolutions.com/Support/US-EN/Resolution?solutionId=100517&amp;amp;productDetailGUID=a6f635630acbd410VgnVCM20000013c7b00aRCRD&amp;amp;detailChannelGUID=2202caf8fb16e310VgnVCM1000000389bd0aRCRD&#34;&gt;Zebra&amp;rsquo;s support website&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Once we&amp;rsquo;ve the apk, we can use a tool like &lt;a href=&#34;http://ibotpeaches.github.io/Apktool/&#34;&gt;&lt;code&gt;apktool&lt;/code&gt;&lt;/a&gt; to decompress it:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;apktool d SimulScanRes.apk
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This will unpack the content of the apk, decompiling the xml resources and making available the SMALI source of the application. For this particular application, simply unzipping the apk is enough as the templates are in the &lt;code&gt;assets&lt;/code&gt; folder.&lt;br /&gt;
-Files in the asset folder are included in the apk unmodified.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/simulscan/asset_templates.png&#34; alt=&#34;SimulScan templates in the asset folder&#34; title=&#34;SimulScan templates in the asset folder&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Let&amp;rsquo;s take a look at the content of one of these files, as an example &lt;code&gt;Default - Barcode 1&lt;/code&gt;:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/simulscan/template_xml.png&#34; alt=&#34;SimulScan templates xml&#34; title=&#34;SimulScan templates xml&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Ok, not exactly what I was expecting in an XML file&amp;hellip;&lt;/p&gt;
-
-&lt;h3 id=&#34;step-2-understand-how-the-templates-are-built:b992efff59f828918c2030b8fd3cff3d&#34;&gt;Step 2 - Understand how the templates are built&lt;/h3&gt;
-
-&lt;p&gt;Nevertheless, the file looks familiar, and the &lt;code&gt;PD94&lt;/code&gt; start of the file rings a bell&amp;hellip; could it be a BASE64 encoded file?&lt;br /&gt;
-Let&amp;rsquo;s try with &lt;a href=&#34;https://www.base64decode.org/&#34;&gt;an online BASE64 encoder/decoder&lt;/a&gt;, and what we get is much better:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;
-&amp;lt;ssmain version=&amp;quot;2.0&amp;quot; name=&amp;quot;Barcode 1&amp;quot;&amp;gt;
-&amp;lt;sstemplate number=&amp;quot;1&amp;quot; name=&amp;quot;Barcode 1&amp;quot; width=&amp;quot;0&amp;quot; height=&amp;quot;0&amp;quot; ttype=&amp;quot;default-barcode&amp;quot;&amp;gt;
-    &amp;lt;region number=&amp;quot;1&amp;quot; name=&amp;quot;Barcode&amp;quot; x=&amp;quot;0&amp;quot; y=&amp;quot;0&amp;quot; width=&amp;quot;0&amp;quot; height=&amp;quot;0&amp;quot; rtype=&amp;quot;0x02&amp;quot;&amp;gt;
-    &amp;lt;procmode ptype=&amp;quot;barcode&amp;quot; barcodeType=&amp;quot;any&amp;quot; /&amp;gt;
-    &amp;lt;/region&amp;gt;
-    &amp;lt;!--******** Common parameters for this template *********--&amp;gt;
-    &amp;lt;dparam id=&amp;quot;ui_result_confirmation&amp;quot; type=&amp;quot;boolean&amp;quot; value=&amp;quot;false&amp;quot; /&amp;gt;
-    &amp;lt;dparam id=&amp;quot;auto_capture_sensitivity&amp;quot; type=&amp;quot;integer&amp;quot; value=&amp;quot;1&amp;quot; /&amp;gt;
-    &amp;lt;!--Flexiscript corresponding to this template--&amp;gt;
-    &amp;lt;templatefs&amp;gt;7A3377526522702B7733707C616D2B73216E876D216F226E7056772170637000&amp;lt;/templatefs&amp;gt;
-    &amp;lt;!--
-Corresponding Flexiscript output :
-Decode
-i = N-1;
-a = i;
-
-EndOfFrame
-If (a &amp;gt;= 0)
-    OutputEx(0,1);
-    R = 0;
-EndIf;
---&amp;gt;
-&amp;lt;/sstemplate&amp;gt;
-&amp;lt;!--Flexiscript corresponding to this form--&amp;gt;
-&amp;lt;mainfs&amp;gt;7A3377526522702B7733707C616D2B73216E886D65226F226E7062886D65226F65226E70637000&amp;lt;/mainfs&amp;gt;
-&amp;lt;!--
-Corresponding Flexiscript output :
-Decode
-i = N-1;
-a = i;
-
-EndOfFrame
-If (a &amp;gt;= 0)
-    Message(-1,1);
-Else
-    Message(-1,-1);
-EndIf;
---&amp;gt;
-&amp;lt;/ssmain&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Ok, we still get some fancy HEX string and a reference to Flexiscript.&lt;br /&gt;
-I cannot be sure about this, but a reference to Flexiscript can be found in &lt;a href=&#34;http://scholar.harvard.edu/files/mzhang/files/resume_minzhang.pdf?m=1431284569&#34;&gt;Min Zhang CV&lt;/a&gt;, she&amp;rsquo;s currently a PhD at Harvard that worked as an intern in Motorola Solution in 2011-2012. On his CV we can find:&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;FlexiScript Project:&lt;/strong&gt; &lt;em&gt;Establish the whole GUI system of FlexiScript, a language for barcode decoding. Such as text coloring, breakpoints, frame design, Meta data, Most-Recently Used files List, barcode image generating, etc. (C# &amp;amp; C, Windows)&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;Well, at least seems that it&amp;rsquo;s not something that we will find much more information on internet&amp;hellip;&lt;/p&gt;
-
-&lt;p&gt;Back to the HEX string.&lt;br /&gt;
-They looks like ASCII code to me. Let&amp;rsquo;s try with an &lt;a href=&#34;http://www.rapidtables.com/convert/number/hex-to-ascii.htm&#34;&gt;HEX to ASCII converter&lt;/a&gt;.&lt;br /&gt;
-The first HEX string: &lt;code&gt;7A3377526522702B7733707C616D2B73216E876D216F226E7056772170637000&lt;/code&gt;&lt;br /&gt;
-becomes: &lt;code&gt;z3wRe&amp;quot;p+w3p|am+s!nm!o&amp;quot;npVw!pcp&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;And the second one, from: &lt;code&gt;7A3377526522702B7733707C616D2B73216E886D65226F226E7062886D65226F65226E70637000&lt;/code&gt;&lt;br /&gt;
-becomes: &lt;code&gt;z3wRe&amp;quot;p+w3p|am+s!nme&amp;quot;o&amp;quot;npbme&amp;quot;oe&amp;quot;npcp&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Ok, seems that we&amp;rsquo;ve all the pieces now.&lt;/p&gt;
-
-&lt;p&gt;We just need to bring them back together in the right order!&lt;/p&gt;
-
-&lt;h3 id=&#34;step-3-test-your-assumptions:b992efff59f828918c2030b8fd3cff3d&#34;&gt;Step 3 - Test your assumptions!&lt;/h3&gt;
-
-&lt;p&gt;Let&amp;rsquo;s start with a different template and see if we can change bits of it to slowly reach our goal of a 3 Barcodes custom template, our Holy Grail!&lt;/p&gt;
-
-&lt;p&gt;The original decode template looks like:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
-&amp;lt;ssmain version=&amp;quot;2.0&amp;quot; name=&amp;quot;Barcode 4&amp;quot;&amp;gt;
-    &amp;lt;sstemplate name=&amp;quot;Barcode 4&amp;quot; width=&amp;quot;0&amp;quot; height=&amp;quot;0&amp;quot; number=&amp;quot;1&amp;quot; ttype=&amp;quot;barcode&amp;quot;&amp;gt;
-        &amp;lt;region number=&amp;quot;1&amp;quot; name=&amp;quot;Barcode1&amp;quot; x=&amp;quot;0&amp;quot; y=&amp;quot;0&amp;quot; width=&amp;quot;0&amp;quot; height=&amp;quot;0&amp;quot; rtype=&amp;quot;0x02&amp;quot;&amp;gt;
-        &amp;lt;procmode ptype=&amp;quot;barcode&amp;quot; barcodeType=&amp;quot;any&amp;quot; /&amp;gt;
-        &amp;lt;/region&amp;gt;
-        &amp;lt;region number=&amp;quot;2&amp;quot; name=&amp;quot;Barcode2&amp;quot; x=&amp;quot;0&amp;quot; y=&amp;quot;0&amp;quot; width=&amp;quot;0&amp;quot; height=&amp;quot;0&amp;quot; rtype=&amp;quot;0x02&amp;quot;&amp;gt;
-        &amp;lt;procmode ptype=&amp;quot;barcode&amp;quot; barcodeType=&amp;quot;any&amp;quot; /&amp;gt;
-        &amp;lt;/region&amp;gt;
-        &amp;lt;region number=&amp;quot;3&amp;quot; name=&amp;quot;Barcode3&amp;quot; x=&amp;quot;0&amp;quot; y=&amp;quot;0&amp;quot; width=&amp;quot;0&amp;quot; height=&amp;quot;0&amp;quot; rtype=&amp;quot;0x02&amp;quot;&amp;gt;
-        &amp;lt;procmode ptype=&amp;quot;barcode&amp;quot; barcodeType=&amp;quot;any&amp;quot; /&amp;gt;
-        &amp;lt;/region&amp;gt;
-        &amp;lt;region number=&amp;quot;4&amp;quot; name=&amp;quot;Barcode4&amp;quot; x=&amp;quot;0&amp;quot; y=&amp;quot;0&amp;quot; width=&amp;quot;0&amp;quot; height=&amp;quot;0&amp;quot; rtype=&amp;quot;0x02&amp;quot;&amp;gt;
-        &amp;lt;procmode ptype=&amp;quot;barcode&amp;quot; barcodeType=&amp;quot;any&amp;quot; /&amp;gt;
-        &amp;lt;/region&amp;gt;
-        &amp;lt;!--Flexiscript corresponding to this template--&amp;gt;
-        &amp;lt;templatefs&amp;gt;7A3377526522707C616D5273256E876D216F226E70876D226F236E70876D236F246E70876D246F256E7056772170637000&amp;lt;/templatefs&amp;gt;
-        &amp;lt;!--******** Common parameters for this template *********--&amp;gt;
-        &amp;lt;dparam id=&amp;quot;auto_capture_sensitivity&amp;quot; type=&amp;quot;integer&amp;quot; value=&amp;quot;1&amp;quot; /&amp;gt;
-        &amp;lt;dparam id=&amp;quot;ui_result_confirmation&amp;quot; type=&amp;quot;boolean&amp;quot; value=&amp;quot;False&amp;quot; /&amp;gt;
-        &amp;lt;!--
-            Corresponding Flexiscript output :
-            Decode
-            i = N-1;
-
-            EndOfFrame
-            If ( N&amp;gt;=4 )
-                OutputEx(0,1);
-                OutputEx(1,2);
-                OutputEx(2,3);
-                OutputEx(3,4);
-                R = 0;
-            EndIf;--&amp;gt;
-    &amp;lt;/sstemplate&amp;gt;
-    &amp;lt;!--Flexiscript corresponding to this template--&amp;gt;
-    &amp;lt;mainfs&amp;gt;7A3377526522707C616D5273256E886D65226F226E7062886D65226F65226E70637000&amp;lt;/mainfs&amp;gt;
-
-    &amp;lt;!--******** Common parameters for this template *********--&amp;gt;
-    &amp;lt;!--
-        Corresponding Flexiscript output :
-        Decode
-        i = N-1;
-
-        EndOfFrame
-        If ( N&amp;gt;=4 )
-            Message(-1,1);
-        Else
-            Message(-1,-1);
-        EndIf;--&amp;gt;
-&amp;lt;/ssmain&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;First, test the untouched template, with a 4 barcodes label:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/simulscan/4_barcodes_1.png&#34; alt=&#34;SimulScan with 4 Barcodes label, no changes to the template&#34; title=&#34;SimulScan with 4 Barcodes label, no changes to the template&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;And now let&amp;rsquo;s try to change some of the parameters, the region name and the template name:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
-&amp;lt;ssmain version=&amp;quot;2.0&amp;quot; name=&amp;quot;Barcode 4a&amp;quot;&amp;gt;
-    &amp;lt;sstemplate name=&amp;quot;Barcode 4&amp;quot; width=&amp;quot;0&amp;quot; height=&amp;quot;0&amp;quot; number=&amp;quot;1&amp;quot; ttype=&amp;quot;barcode&amp;quot;&amp;gt;
-        &amp;lt;region number=&amp;quot;1&amp;quot; name=&amp;quot;part&amp;quot; x=&amp;quot;0&amp;quot; y=&amp;quot;0&amp;quot; width=&amp;quot;0&amp;quot; height=&amp;quot;0&amp;quot; rtype=&amp;quot;0x02&amp;quot;&amp;gt;
-        &amp;lt;procmode ptype=&amp;quot;barcode&amp;quot; barcodeType=&amp;quot;any&amp;quot; /&amp;gt;
-        &amp;lt;/region&amp;gt;
-        &amp;lt;region number=&amp;quot;2&amp;quot; name=&amp;quot;supplier&amp;quot; x=&amp;quot;0&amp;quot; y=&amp;quot;0&amp;quot; width=&amp;quot;0&amp;quot; height=&amp;quot;0&amp;quot; rtype=&amp;quot;0x02&amp;quot;&amp;gt;
-        &amp;lt;procmode ptype=&amp;quot;barcode&amp;quot; barcodeType=&amp;quot;any&amp;quot; /&amp;gt;
-        &amp;lt;/region&amp;gt;
-        &amp;lt;region number=&amp;quot;3&amp;quot; name=&amp;quot;quantity&amp;quot; x=&amp;quot;0&amp;quot; y=&amp;quot;0&amp;quot; width=&amp;quot;0&amp;quot; height=&amp;quot;0&amp;quot; rtype=&amp;quot;0x02&amp;quot;&amp;gt;
-        &amp;lt;procmode ptype=&amp;quot;barcode&amp;quot; barcodeType=&amp;quot;any&amp;quot; /&amp;gt;
-        &amp;lt;/region&amp;gt;
-        &amp;lt;region number=&amp;quot;4&amp;quot; name=&amp;quot;serial&amp;quot; x=&amp;quot;0&amp;quot; y=&amp;quot;0&amp;quot; width=&amp;quot;0&amp;quot; height=&amp;quot;0&amp;quot; rtype=&amp;quot;0x02&amp;quot;&amp;gt;
-        &amp;lt;procmode ptype=&amp;quot;barcode&amp;quot; barcodeType=&amp;quot;any&amp;quot; /&amp;gt;
-        &amp;lt;/region&amp;gt;
-        &amp;lt;!--Flexiscript corresponding to this template--&amp;gt;
-        &amp;lt;templatefs&amp;gt;7A3377526522707C616D5273256E876D216F226E70876D226F236E70876D236F246E70876D246F256E7056772170637000&amp;lt;/templatefs&amp;gt;
-        &amp;lt;!--******** Common parameters for this template *********--&amp;gt;
-        &amp;lt;dparam id=&amp;quot;auto_capture_sensitivity&amp;quot; type=&amp;quot;integer&amp;quot; value=&amp;quot;1&amp;quot; /&amp;gt;
-        &amp;lt;dparam id=&amp;quot;ui_result_confirmation&amp;quot; type=&amp;quot;boolean&amp;quot; value=&amp;quot;False&amp;quot; /&amp;gt;
-    &amp;lt;/sstemplate&amp;gt;
-    &amp;lt;mainfs&amp;gt;7A3377526522707C616D5273256E886D65226F226E7062886D65226F65226E70637000&amp;lt;/mainfs&amp;gt;
-&amp;lt;/ssmain&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;We now need to convert it to BASE64, we can still use the &lt;a href=&#34;https://www.base64encode.org/&#34;&gt;same website&lt;/a&gt; we used to decode it, to now encode it to:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/simulscan/4_barcodes_2.png&#34; alt=&#34;SimulScan 4 Barcodes template encoded in BASE64&#34; title=&#34;SimulScan 4 Barcodes template encoded in BASE64&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Loading the templates to &lt;code&gt;/enterprise/device/settings/datawedge/templates/&lt;/code&gt;, relaunching SimulScan and selecting our template, we can see that the new names are used:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/simulscan/4_barcodes_3.png&#34; alt=&#34;SimulScan with 4 Barcodes label, changed names&#34; title=&#34;SimulScan with 4 Barcodes label, changed names&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;So, the idea that the template is an xml with a simple BASE64 encoding is correct.&lt;br /&gt;
-Now the fun part, make it works with three barcodes!&lt;/p&gt;
-
-&lt;h3 id=&#34;step-4-heavy-lifting:b992efff59f828918c2030b8fd3cff3d&#34;&gt;Step 4 - Heavy lifting&lt;/h3&gt;
-
-&lt;p&gt;Here we need to change the actual Flexiscript code to process only three barcodes. The idea is to build something like:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
-&amp;lt;ssmain version=&amp;quot;2.0&amp;quot; name=&amp;quot;Barcode 3&amp;quot;&amp;gt;
-    &amp;lt;sstemplate name=&amp;quot;Barcode 3&amp;quot; width=&amp;quot;0&amp;quot; height=&amp;quot;0&amp;quot; number=&amp;quot;1&amp;quot; ttype=&amp;quot;barcode&amp;quot;&amp;gt;
-        &amp;lt;region number=&amp;quot;1&amp;quot; name=&amp;quot;Barcode1&amp;quot; x=&amp;quot;0&amp;quot; y=&amp;quot;0&amp;quot; width=&amp;quot;0&amp;quot; height=&amp;quot;0&amp;quot; rtype=&amp;quot;0x02&amp;quot;&amp;gt;
-        &amp;lt;procmode ptype=&amp;quot;barcode&amp;quot; barcodeType=&amp;quot;any&amp;quot; /&amp;gt;
-        &amp;lt;/region&amp;gt;
-        &amp;lt;region number=&amp;quot;2&amp;quot; name=&amp;quot;Barcode2&amp;quot; x=&amp;quot;0&amp;quot; y=&amp;quot;0&amp;quot; width=&amp;quot;0&amp;quot; height=&amp;quot;0&amp;quot; rtype=&amp;quot;0x02&amp;quot;&amp;gt;
-        &amp;lt;procmode ptype=&amp;quot;barcode&amp;quot; barcodeType=&amp;quot;any&amp;quot; /&amp;gt;
-        &amp;lt;/region&amp;gt;
-        &amp;lt;region number=&amp;quot;3&amp;quot; name=&amp;quot;Barcode3&amp;quot; x=&amp;quot;0&amp;quot; y=&amp;quot;0&amp;quot; width=&amp;quot;0&amp;quot; height=&amp;quot;0&amp;quot; rtype=&amp;quot;0x02&amp;quot;&amp;gt;
-        &amp;lt;procmode ptype=&amp;quot;barcode&amp;quot; barcodeType=&amp;quot;any&amp;quot; /&amp;gt;
-        &amp;lt;/region&amp;gt;
-        &amp;lt;!--Flexiscript corresponding to this template--&amp;gt;
-        &amp;lt;templatefs&amp;gt;??????&amp;lt;/templatefs&amp;gt;
-        &amp;lt;!--******** Common parameters for this template *********--&amp;gt;
-        &amp;lt;dparam id=&amp;quot;auto_capture_sensitivity&amp;quot; type=&amp;quot;integer&amp;quot; value=&amp;quot;1&amp;quot; /&amp;gt;
-        &amp;lt;dparam id=&amp;quot;ui_result_confirmation&amp;quot; type=&amp;quot;boolean&amp;quot; value=&amp;quot;False&amp;quot; /&amp;gt;
-        &amp;lt;!--
-            Corresponding Flexiscript output :
-            Decode
-            i = N-1;
-
-            EndOfFrame
-            If ( N&amp;gt;=3 )
-                OutputEx(0,1);
-                OutputEx(1,2);
-                OutputEx(2,3);
-                R = 0;
-            EndIf;--&amp;gt;
-    &amp;lt;/sstemplate&amp;gt;
-    &amp;lt;!--Flexiscript corresponding to this template--&amp;gt;
-    &amp;lt;mainfs&amp;gt;??????&amp;lt;/mainfs&amp;gt;
-
-    &amp;lt;!--******** Common parameters for this template *********--&amp;gt;
-    &amp;lt;!--
-        Corresponding Flexiscript output :
-        Decode
-        i = N-1;
-
-        EndOfFrame
-        If ( N&amp;gt;=3 )
-            Message(-1,1);
-        Else
-            Message(-1,-1);
-        EndIf;--&amp;gt;
-&amp;lt;/ssmain&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Not bad, we just miss the encoding of the actual Flexiscript&amp;hellip;&lt;/p&gt;
-
-&lt;p&gt;The original code for the first snippets was: &lt;code&gt;z3wRe&amp;quot;p|amRs%nm!o&amp;quot;npm&amp;quot;o#npm#o$npm$o%npVw!pcp&lt;/code&gt;.  Looking in the other files for 5 and 10 barcodes:&lt;/p&gt;
-
-&lt;p&gt;4 Barcodes &lt;code&gt;z3wRe&amp;quot;p|amRs%nm!o&amp;quot;npm&amp;quot;o#npm#o$npm$o%npVw!pcp&lt;/code&gt;&lt;br /&gt;
-5 Barcodes &lt;code&gt;z3wRe&amp;quot;p|amRs&amp;amp;nm!o&amp;quot;npm&amp;quot;o#npm#o$npm$o%npm%o&amp;amp;npVw!pcp&lt;/code&gt;&lt;br /&gt;
-10 Barcodes &lt;code&gt;z3wRe&amp;quot;p|amRs&amp;quot;!nm!o&amp;quot;npm&amp;quot;o#npm#o$npm$o%npm%o&amp;amp;npm&amp;amp;o&#39;npm&#39;o(npm(o)npm)o*npm*o&amp;quot;!npVw!pcp&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;One of the assumptions that I can make is that the numbers are encoded as follow:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/simulscan/numbers.png&#34; alt=&#34;Flexiscript numbers encoding&#34; title=&#34;Flexiscript numbers encoding&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;My first test would be to use &lt;code&gt;z3wRe&amp;quot;p|amRs$nm!o&amp;quot;npm&amp;quot;o#npm#o$npVw!pcp&lt;/code&gt; that is translated to: &lt;code&gt;7A3377526522707C616D5273246E876D216F226E70876D226F236E70876D236F246E7056772170637000&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;For the second snippets, we can proceeds in the same way, starting from the original &lt;code&gt;z3wRe&amp;quot;p|amRs%nme&amp;quot;o&amp;quot;npbme&amp;quot;oe&amp;quot;npcp&lt;/code&gt; and using the &lt;code&gt;$&lt;/code&gt; instead of &lt;code&gt;%&lt;/code&gt;: &lt;code&gt;z3wRe&amp;quot;p|amRs$nme&amp;quot;o&amp;quot;npbme&amp;quot;oe&amp;quot;npcp&lt;/code&gt;.  This is then translated to the final: &lt;code&gt;7A3377526522707C616D5273246E886D65226F226E7062886D65226F65226E70637000&lt;/code&gt;.&lt;/p&gt;
-
-&lt;h3 id=&#34;step-5-profitt:b992efff59f828918c2030b8fd3cff3d&#34;&gt;Step 5 - Profitt&lt;/h3&gt;
-
-&lt;p&gt;Putting everything together and encoding it to BASE64, we can get &lt;a href=&#34;http://pietromaggi.com/assets/pfm_barcode_3.xml&#34;&gt;the desired template&lt;/a&gt;:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/simulscan/3_barcodes.png&#34; alt=&#34;SimulScan with 3 Barcodes label&#34; title=&#34;SimulScan with 3 Barcodes label&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Hopefully Alberto will be happy!&lt;/p&gt;
-</description>
-    </item>
     
     <item>
       <title>Disabling MC40 Home Button with a custom intent</title>
@@ -326,19 +20,19 @@ Now the fun part, make it works with three barcodes!&lt;/p&gt;
       <guid>http://pietromaggi.com/2016/01/18/disabling-mc40-home-button-with-a-custom-intent/</guid>
       <description>
 
-&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+&lt;h2 id=&#34;intro:2e1fe568b32c202e94702c6e9dd9eda0&#34;&gt;Intro&lt;/h2&gt;
 
 &lt;p&gt;Zebra Technologies&amp;rsquo; devices are purpose built to be single use devices. Having an OS like Android nowadays provides a lot of flexibility&amp;hellip;  sometimes a bit too much.&lt;br /&gt;
 With this idea in mind, the Android version used on these devices sometimes provide some nice surprise, like an Intent to disable the omnipresent Android&amp;rsquo;s Home button.&lt;/p&gt;
 
-&lt;h2 id=&#34;the-basic-idea&#34;&gt;The basic idea&lt;/h2&gt;
+&lt;h2 id=&#34;the-basic-idea:2e1fe568b32c202e94702c6e9dd9eda0&#34;&gt;The basic idea&lt;/h2&gt;
 
-&lt;p&gt;MC40 support an &lt;a href=&#34;http://developer.android.com/reference/android/content/Intent.html&#34;&gt;Android intent&lt;/a&gt; to disable the normal Home button behavior: &lt;em&gt;You can disable it and there&amp;rsquo;s no way to exit from the foreground application&lt;/em&gt; &lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+&lt;p&gt;MC40 support an &lt;a href=&#34;http://developer.android.com/reference/android/content/Intent.html&#34;&gt;Android intent&lt;/a&gt; to disable the normal Home button behavior: &lt;em&gt;You can disable it and there&amp;rsquo;s no way to exit from the foreground application&lt;/em&gt; &lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:2e1fe568b32c202e94702c6e9dd9eda0:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:2e1fe568b32c202e94702c6e9dd9eda0:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://developer.zebra.com/community/android/android-forums/android-blogs/blog/2014/12/19/disabling-home-button-via-intent-mc40&#34;&gt;You can find a blog by Pavel Machala briefly describing the idea on Launchpad&lt;/a&gt;.&lt;br /&gt;
 Here I want to present a simple sample that show how to use this intent, covering the only issue that is: &lt;em&gt;handling re-branded devices&lt;/em&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;project-setup&#34;&gt;Project setup&lt;/h2&gt;
+&lt;h2 id=&#34;project-setup:2e1fe568b32c202e94702c6e9dd9eda0&#34;&gt;Project setup&lt;/h2&gt;
 
 &lt;p&gt;We start creating a new Android application in Android Studio (I&amp;rsquo;m using Android Studio v1.5.1 with Build tools 23.0.1, you&amp;rsquo;re mileage can vary if you&amp;rsquo;re using a different setup).&lt;/p&gt;
 
@@ -411,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
 
 &lt;p&gt;Next step would be to check that we&amp;rsquo;re really running on a Zebra Technologies&amp;rsquo; MC40, and then adding some logic to the app.&lt;/p&gt;
 
-&lt;h2 id=&#34;dealing-with-multiple-os-versions-and-re-branding&#34;&gt;Dealing with multiple OS versions and re-branding&lt;/h2&gt;
+&lt;h2 id=&#34;dealing-with-multiple-os-versions-and-re-branding:2e1fe568b32c202e94702c6e9dd9eda0&#34;&gt;Dealing with multiple OS versions and re-branding&lt;/h2&gt;
 
 &lt;p&gt;First we check that we&amp;rsquo;re running on a Zebra&amp;rsquo;s MC40 using a couple of Android constant:&lt;/p&gt;
 
@@ -511,7 +205,7 @@ public class MainActivity extends AppCompatActivity {
 
 &lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/samples/mc40_home_btn/Screenshot_tag2.png&#34; alt=&#34;MC40 Screenshot of the app as recorded at tag2&#34; title=&#34;MC40 Screenshot of the app as recorded at tag2&#34; /&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;managing-state&#34;&gt;Managing state&lt;/h2&gt;
+&lt;h2 id=&#34;managing-state:2e1fe568b32c202e94702c6e9dd9eda0&#34;&gt;Managing state&lt;/h2&gt;
 
 &lt;p&gt;The application now works as expected, but with an issue linked to not managing the state. As an example, simply rotating the device, the Activity is destroyed to create a new one with the standard behavior to disable the Home Button, even if we just re-enabled it using the &lt;code&gt;toggle&lt;/code&gt; button.&lt;br /&gt;
 An easy solution is to add some code to manage the Application status overriding the &lt;code&gt;onSaveInstanceState(Bundle)&lt;/code&gt; method:&lt;/p&gt;
@@ -530,14 +224,14 @@ The final version of the application, managing the state, can be find on github 
 
 &lt;hr /&gt;
 
-&lt;h5 id=&#34;notes&#34;&gt;Notes&lt;/h5&gt;
+&lt;h5 id=&#34;notes:2e1fe568b32c202e94702c6e9dd9eda0&#34;&gt;Notes&lt;/h5&gt;
 &lt;div class=&#34;footnotes&#34;&gt;
 
 &lt;hr /&gt;
 
 &lt;ol&gt;
-&lt;li id=&#34;fn:1&#34;&gt;If your app locks down a few other things or you&amp;rsquo;re using something like Zebra&amp;rsquo;s &lt;a href=&#34;https://www.zebra.com/us/en/products/software/mobile-computers/mobile-app-utilities/enterprise-home-screen.html&#34;&gt;Enterprise Home Screen&lt;/a&gt;.
- &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:2e1fe568b32c202e94702c6e9dd9eda0:1&#34;&gt;If your app locks down a few other things or you&amp;rsquo;re using something like Zebra&amp;rsquo;s &lt;a href=&#34;https://www.zebra.com/us/en/products/software/mobile-computers/mobile-app-utilities/enterprise-home-screen.html&#34;&gt;Enterprise Home Screen&lt;/a&gt;.
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:2e1fe568b32c202e94702c6e9dd9eda0:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
 </description>
@@ -702,7 +396,7 @@ Luckily Google has introduced new API in KitKat (and Lollipop and Marshmallow) t
       <guid>http://pietromaggi.com/2015/09/25/android-back-button-and-enterprise-browser/</guid>
       <description>
 
-&lt;h2 id=&#34;edit&#34;&gt;Edit&lt;/h2&gt;
+&lt;h2 id=&#34;edit:7f473ce4cff36ed9ec3742536e6fab0f&#34;&gt;Edit&lt;/h2&gt;
 
 &lt;p&gt;Enteprise Browser v1.3 introduced a change that requires to enable &lt;code&gt;FunctionKeysCapturable&lt;/code&gt; to be able to use the KeyCapture API.&lt;br /&gt;
 To do this you need to update your &lt;code&gt;Config.xml&lt;/code&gt; with:&lt;/p&gt;
@@ -710,14 +404,14 @@ To do this you need to update your &lt;code&gt;Config.xml&lt;/code&gt; with:&lt;
 &lt;pre&gt;&lt;code&gt;&amp;lt;FunctionKeysCapturable                 value=&amp;quot;1&amp;quot;/&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;enterprise-browser&#34;&gt;Enterprise Browser&lt;/h2&gt;
+&lt;h2 id=&#34;enterprise-browser:7f473ce4cff36ed9ec3742536e6fab0f&#34;&gt;Enterprise Browser&lt;/h2&gt;
 
 &lt;p&gt;Enterprise Browser is Zebra Technologies&amp;rsquo; Industrial Browser built for our Rugged Devices, we support most of our Windows Mobile/Windows CE devices and Android devices.&lt;/p&gt;
 
 &lt;p&gt;This product is usually used with existing web application that cannot be updated/modified moving from one device to another.
 This help us winning some opportunities but sometimes present some unique challenges like, as an example, disabling the Android back button default behavior.&lt;/p&gt;
 
-&lt;h2 id=&#34;back-button-on-android&#34;&gt;Back Button on Android?&lt;/h2&gt;
+&lt;h2 id=&#34;back-button-on-android:7f473ce4cff36ed9ec3742536e6fab0f&#34;&gt;Back Button on Android?&lt;/h2&gt;
 
 &lt;p&gt;Given that this is a cross-platform product (built on top of our RhoMobile Suite) we don&amp;rsquo;t have a custom settings to disable the back button in the Config.xml configuration file, however it is still possible to add a default Metatags in the configuration so that no changes in the existing pages are needed.&lt;/p&gt;
 
@@ -749,7 +443,7 @@ This help us winning some opportunities but sometimes present some unique challe
 
 &lt;p&gt;We&amp;rsquo;ve a solution for this issue: having a &lt;code&gt;DefaultMetaTags&lt;/code&gt; in Enterprise Browser&amp;rsquo;s configuration.&lt;/p&gt;
 
-&lt;h2 id=&#34;what-s-a-defaultmetatags&#34;&gt;What&amp;rsquo;s a DefaultMetaTags&lt;/h2&gt;
+&lt;h2 id=&#34;what-s-a-defaultmetatags:7f473ce4cff36ed9ec3742536e6fab0f&#34;&gt;What&amp;rsquo;s a DefaultMetaTags&lt;/h2&gt;
 
 &lt;p&gt;We can start from the &lt;a href=&#34;https://developer.motorolasolutions.com/docs/DOC-2571#defaultmetatags&#34;&gt;documentation&lt;/a&gt;, what does it means?&lt;/p&gt;
 
@@ -764,7 +458,7 @@ This help us winning some opportunities but sometimes present some unique challe
 
 &lt;p&gt;BTW: &lt;code&gt;0xA6&lt;/code&gt; is the correct value for the Back Button on a TC55 running Android v4.4 KitKat.&lt;/p&gt;
 
-&lt;h2 id=&#34;closing-comments&#34;&gt;Closing comments&lt;/h2&gt;
+&lt;h2 id=&#34;closing-comments:7f473ce4cff36ed9ec3742536e6fab0f&#34;&gt;Closing comments&lt;/h2&gt;
 
 &lt;p&gt;Enterprise Browser&amp;rsquo;s &lt;code&gt;DefaultMetaTags&lt;/code&gt; is a very flexible way to &amp;laquo;patch&amp;raquo; an existing Web application without touching its source code.&lt;/p&gt;
 
@@ -807,7 +501,7 @@ This is not a problem unique to the TC55, it&amp;rsquo;s a common problem on And
 
 &lt;p&gt;Given that we&amp;rsquo;ve the luxury to target just a few devices, the Motorola Solutions one :-), the best option is to use the environment variables.&lt;/p&gt;
 
-&lt;h3 id=&#34;let-s-see-what-happens-on-the-tc55&#34;&gt;Let&amp;rsquo;s see what happens on the TC55&lt;/h3&gt;
+&lt;h3 id=&#34;let-s-see-what-happens-on-the-tc55:bc798595bb5986dd70a35d55131e88d5&#34;&gt;Let&amp;rsquo;s see what happens on the TC55&lt;/h3&gt;
 
 &lt;p&gt;On this device, using &lt;code&gt;Environment.getExternalStorageDirectory();&lt;/code&gt; returns different results depending if you&amp;rsquo;ve installed or not an SDCard:&lt;/p&gt;
 
@@ -882,7 +576,7 @@ if ((null == strSDCardPath) || (strSDCardPath.length() == 0)) {
       <guid>http://pietromaggi.com/2014/09/02/getting-device-info-from-msi-android-devices/</guid>
       <description>
 
-&lt;h1 id=&#34;the-good-old-ways:fc4a5c33de3ac7ed61c6a8c68c9cf289&#34;&gt;The good old ways!&lt;/h1&gt;
+&lt;h1 id=&#34;the-good-old-ways&#34;&gt;The good old ways!&lt;/h1&gt;
 
 &lt;p&gt;On Symbol/MSI Windows Mobile devices, we where providing some APIs in the EMDK to get additional information.
 Looking into the Resource Coordinator is possible to find APIs like:&lt;/p&gt;
@@ -900,11 +594,11 @@ Looking into the Resource Coordinator is possible to find APIs like:&lt;/p&gt;
 
 &lt;p&gt;Let&amp;rsquo;s see how to get this is data on an MSI device with the Android OS.&lt;/p&gt;
 
-&lt;h1 id=&#34;the-fabulous-new-way:fc4a5c33de3ac7ed61c6a8c68c9cf289&#34;&gt;The fabulous new way!&lt;/h1&gt;
+&lt;h1 id=&#34;the-fabulous-new-way&#34;&gt;The fabulous new way!&lt;/h1&gt;
 
 &lt;p&gt;You can find the completed project in &lt;a href=&#34;https://github.com/pfmaggi/GetDeviceInfo&#34;&gt;this repository&lt;/a&gt; on my github account, I&amp;rsquo;m using Windows 7 and Eclipse+ADT, but you can follow these steps with Android Studio quite nicely.&lt;/p&gt;
 
-&lt;h1 id=&#34;create-a-new-project:fc4a5c33de3ac7ed61c6a8c68c9cf289&#34;&gt;Create a new Project&lt;/h1&gt;
+&lt;h1 id=&#34;create-a-new-project&#34;&gt;Create a new Project&lt;/h1&gt;
 
 &lt;p&gt;Create a new Android project, nothing fancy here, it&amp;rsquo;s just a standard app with a single Blank Activity.
 You can follow these images as a guideline. Your interface may vary as Google updates the Android wizard quite often.&lt;/p&gt;
@@ -1024,7 +718,7 @@ public class MainActivity extends ActionBarActivity {
 }
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h1 id=&#34;where-s-the-tricks:fc4a5c33de3ac7ed61c6a8c68c9cf289&#34;&gt;Where&amp;rsquo;s the tricks?&lt;/h1&gt;
+&lt;h1 id=&#34;where-s-the-tricks&#34;&gt;Where&amp;rsquo;s the tricks?&lt;/h1&gt;
 
 &lt;p&gt;There&amp;rsquo;s really no trick, Android SDK provide this information, and more using these constants:&lt;/p&gt;
 
