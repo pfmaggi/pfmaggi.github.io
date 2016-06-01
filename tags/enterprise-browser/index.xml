@@ -151,7 +151,7 @@ The you can proceeds copying it to your PC to apply some changes.&lt;/p&gt;
 &lt;p&gt;You need to apply three changes to follow along the rest of this blog:&lt;/p&gt;
 
 &lt;ol&gt;
-&lt;li&gt;Enable the internal EB webserver and specify the folder how we plan to have the local files (as an example on the internal sdcard of the TC55 KK):&lt;/li&gt;
+&lt;li&gt;&lt;a name=&#34;Config_1&#34;&gt;&lt;/a&gt;Enable the internal EB webserver and specify the folder how we plan to have the local files (as an example on the internal sdcard of the TC55 KK):&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;pre&gt;&lt;code&gt;    &amp;lt;WebServer&amp;gt;
@@ -191,7 +191,8 @@ The you can proceeds copying it to your PC to apply some changes.&lt;/p&gt;
     &amp;lt;/html&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Testing this page on the device we see that we can:&lt;/p&gt;
+&lt;p&gt;To test this page on the device, we&amp;rsquo;ve to copy it into the root folder of the HTTP server we configured in our &lt;code&gt;Config.xml&lt;/code&gt;, if you used the settings reported &lt;a href=&#34;#Config_1&#34;&gt;here&lt;/a&gt;, you can copy this file to &lt;code&gt;/storage/sdcard0/www/&lt;/code&gt; giving it the name: &lt;code&gt;index.html&lt;/code&gt;.&lt;br /&gt;
+Opening Enterprise Browser we see that we can:&lt;/p&gt;
 
 &lt;ol&gt;
 &lt;li&gt;touch the edit field (and have the numeric keyboard displayed)&lt;/li&gt;
@@ -320,6 +321,10 @@ Personally I think that if you want to customize your web app to have a better i
 &lt;p&gt;Talking about Simulscan, it could be interesting evaluate how to integrate DataWedge SimulScan Intent output with EB&amp;hellip; Till there&amp;rsquo;s no integrated SimulScan API in Enterprise Browser.&lt;/p&gt;
 
 &lt;p&gt;Let me know if you have any comment on these topics.&lt;/p&gt;
+
+&lt;h4 id=&#34;edit:1b590469ff2d9700a874a759be47ee99&#34;&gt;Edit&lt;/h4&gt;
+
+&lt;p&gt;2016-06-01 - Minor correction to the initial write-up (added explanation about where to copy the html pages on the device).&lt;/p&gt;
 </description>
     </item>
     
@@ -331,7 +336,7 @@ Personally I think that if you want to customize your web app to have a better i
       <guid>http://pietromaggi.com/2015/09/25/android-back-button-and-enterprise-browser/</guid>
       <description>
 
-&lt;h2 id=&#34;edit&#34;&gt;Edit&lt;/h2&gt;
+&lt;h2 id=&#34;edit:7f473ce4cff36ed9ec3742536e6fab0f&#34;&gt;Edit&lt;/h2&gt;
 
 &lt;p&gt;Enteprise Browser v1.3 introduced a change that requires to enable &lt;code&gt;FunctionKeysCapturable&lt;/code&gt; to be able to use the KeyCapture API.&lt;br /&gt;
 To do this you need to update your &lt;code&gt;Config.xml&lt;/code&gt; with:&lt;/p&gt;
@@ -339,14 +344,14 @@ To do this you need to update your &lt;code&gt;Config.xml&lt;/code&gt; with:&lt;
 &lt;pre&gt;&lt;code&gt;&amp;lt;FunctionKeysCapturable                 value=&amp;quot;1&amp;quot;/&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;enterprise-browser&#34;&gt;Enterprise Browser&lt;/h2&gt;
+&lt;h2 id=&#34;enterprise-browser:7f473ce4cff36ed9ec3742536e6fab0f&#34;&gt;Enterprise Browser&lt;/h2&gt;
 
 &lt;p&gt;Enterprise Browser is Zebra Technologies&amp;rsquo; Industrial Browser built for our Rugged Devices, we support most of our Windows Mobile/Windows CE devices and Android devices.&lt;/p&gt;
 
 &lt;p&gt;This product is usually used with existing web application that cannot be updated/modified moving from one device to another.
 This help us winning some opportunities but sometimes present some unique challenges like, as an example, disabling the Android back button default behavior.&lt;/p&gt;
 
-&lt;h2 id=&#34;back-button-on-android&#34;&gt;Back Button on Android?&lt;/h2&gt;
+&lt;h2 id=&#34;back-button-on-android:7f473ce4cff36ed9ec3742536e6fab0f&#34;&gt;Back Button on Android?&lt;/h2&gt;
 
 &lt;p&gt;Given that this is a cross-platform product (built on top of our RhoMobile Suite) we don&amp;rsquo;t have a custom settings to disable the back button in the Config.xml configuration file, however it is still possible to add a default Metatags in the configuration so that no changes in the existing pages are needed.&lt;/p&gt;
 
@@ -378,7 +383,7 @@ This help us winning some opportunities but sometimes present some unique challe
 
 &lt;p&gt;We&amp;rsquo;ve a solution for this issue: having a &lt;code&gt;DefaultMetaTags&lt;/code&gt; in Enterprise Browser&amp;rsquo;s configuration.&lt;/p&gt;
 
-&lt;h2 id=&#34;what-s-a-defaultmetatags&#34;&gt;What&amp;rsquo;s a DefaultMetaTags&lt;/h2&gt;
+&lt;h2 id=&#34;what-s-a-defaultmetatags:7f473ce4cff36ed9ec3742536e6fab0f&#34;&gt;What&amp;rsquo;s a DefaultMetaTags&lt;/h2&gt;
 
 &lt;p&gt;We can start from the &lt;a href=&#34;https://developer.motorolasolutions.com/docs/DOC-2571#defaultmetatags&#34;&gt;documentation&lt;/a&gt;, what does it means?&lt;/p&gt;
 
@@ -393,7 +398,7 @@ This help us winning some opportunities but sometimes present some unique challe
 
 &lt;p&gt;BTW: &lt;code&gt;0xA6&lt;/code&gt; is the correct value for the Back Button on a TC55 running Android v4.4 KitKat.&lt;/p&gt;
 
-&lt;h2 id=&#34;closing-comments&#34;&gt;Closing comments&lt;/h2&gt;
+&lt;h2 id=&#34;closing-comments:7f473ce4cff36ed9ec3742536e6fab0f&#34;&gt;Closing comments&lt;/h2&gt;
 
 &lt;p&gt;Enterprise Browser&amp;rsquo;s &lt;code&gt;DefaultMetaTags&lt;/code&gt; is a very flexible way to &amp;laquo;patch&amp;raquo; an existing Web application without touching its source code.&lt;/p&gt;
 

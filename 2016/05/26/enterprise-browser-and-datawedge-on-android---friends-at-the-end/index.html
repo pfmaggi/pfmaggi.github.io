@@ -12,7 +12,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<meta name="description" content="Enterprise Browser 1.4, out of the box, disable DataWedge on Android to be able to fully controll the barcode scanner. Here you can find a step-by-step guide on how to integrate this two Mobility DNA&#39;s component to enjoy features like SimulScan and SwipeAssist inside Enterprise Browser." />
+<meta name="description" content="Enterprise Browser 1.4, out of the box, disable DataWedge on Android to be able to fully control the barcode scanner. Here you can find a step-by-step guide on how to integrate this two Mobility DNA&#39;s component to enjoy features like SimulScan and SwipeAssist inside Enterprise Browser." />
 
 <meta name="keywords" content="Android, Enterprise Browser, DataWedge, Zebra Technologies, ">
 
@@ -24,7 +24,7 @@
 
 
 <meta property="og:type" content="article" />
-<meta property="og:description" content="Enterprise Browser 1.4, out of the box, disable DataWedge on Android to be able to fully controll the barcode scanner. Here you can find a step-by-step guide on how to integrate this two Mobility DNA&#39;s component to enjoy features like SimulScan and SwipeAssist inside Enterprise Browser."/>
+<meta property="og:description" content="Enterprise Browser 1.4, out of the box, disable DataWedge on Android to be able to fully control the barcode scanner. Here you can find a step-by-step guide on how to integrate this two Mobility DNA&#39;s component to enjoy features like SimulScan and SwipeAssist inside Enterprise Browser."/>
 <meta property="og:article:published_time" content="2016-05-26T20:00:00&#43;01:00" />
 <meta property="og:article:modified_time" content="2016-05-26T20:00:00&#43;01:00" />
 
@@ -45,7 +45,7 @@
 <meta name="twitter:site" content="@pfmaggi" />
 <meta name="twitter:creator" content="@pfmaggi" />
 <meta name="twitter:title" content="Enterprise Browser and DataWedge on Android - friends at the end" />
-<meta name="twitter:description" content="Enterprise Browser 1.4, out of the box, disable DataWedge on Android to be able to fully controll the barcode scanner. Here you can find a step-by-step guide on how to integrate this two Mobility DNA&#39;s component to enjoy features like SimulScan and SwipeAssist inside Enterprise Browser." />
+<meta name="twitter:description" content="Enterprise Browser 1.4, out of the box, disable DataWedge on Android to be able to fully control the barcode scanner. Here you can find a step-by-step guide on how to integrate this two Mobility DNA&#39;s component to enjoy features like SimulScan and SwipeAssist inside Enterprise Browser." />
 <meta name="twitter:url" content="http://pietromaggi.com/2016/05/26/enterprise-browser-and-datawedge-on-android---friends-at-the-end/" />
 <meta name="twitter:domain" content="http://pietromaggi.com/">
   
@@ -60,8 +60,8 @@
       "name": "http://profiles.google.com/+?rel=author"
     },
     "datePublished": "2016-05-26",
-    "description": "Enterprise Browser 1.4, out of the box, disable DataWedge on Android to be able to fully controll the barcode scanner. Here you can find a step-by-step guide on how to integrate this two Mobility DNA\x27s component to enjoy features like SimulScan and SwipeAssist inside Enterprise Browser.",
-    "wordCount":  1653 
+    "description": "Enterprise Browser 1.4, out of the box, disable DataWedge on Android to be able to fully control the barcode scanner. Here you can find a step-by-step guide on how to integrate this two Mobility DNA\x27s component to enjoy features like SimulScan and SwipeAssist inside Enterprise Browser.",
+    "wordCount":  1714 
   }
 </script>
 
@@ -191,8 +191,8 @@
   
     &middot; by Pietro F. Maggi
   
-  &middot; Read in about 8 min
-  &middot; (1653 Words)
+  &middot; Read in about 9 min
+  &middot; (1714 Words)
   <br>
   
 <a class="label" href="http://pietromaggi.com/tags/android">Android</a>
@@ -343,7 +343,7 @@ The you can proceeds copying it to your PC to apply some changes.</p>
 <p>You need to apply three changes to follow along the rest of this blog:</p>
 
 <ol>
-<li>Enable the internal EB webserver and specify the folder how we plan to have the local files (as an example on the internal sdcard of the TC55 KK):</li>
+<li><a name="Config_1"></a>Enable the internal EB webserver and specify the folder how we plan to have the local files (as an example on the internal sdcard of the TC55 KK):</li>
 </ol>
 
 <pre><code>    &lt;WebServer&gt;
@@ -383,7 +383,8 @@ The you can proceeds copying it to your PC to apply some changes.</p>
     &lt;/html&gt;
 </code></pre>
 
-<p>Testing this page on the device we see that we can:</p>
+<p>To test this page on the device, we&rsquo;ve to copy it into the root folder of the HTTP server we configured in our <code>Config.xml</code>, if you used the settings reported <a href="#Config_1">here</a>, you can copy this file to <code>/storage/sdcard0/www/</code> giving it the name: <code>index.html</code>.<br />
+Opening Enterprise Browser we see that we can:</p>
 
 <ol>
 <li>touch the edit field (and have the numeric keyboard displayed)</li>
@@ -512,6 +513,10 @@ Personally I think that if you want to customize your web app to have a better i
 <p>Talking about Simulscan, it could be interesting evaluate how to integrate DataWedge SimulScan Intent output with EB&hellip; Till there&rsquo;s no integrated SimulScan API in Enterprise Browser.</p>
 
 <p>Let me know if you have any comment on these topics.</p>
+
+<h4 id="edit:1b590469ff2d9700a874a759be47ee99">Edit</h4>
+
+<p>2016-06-01 - Minor correction to the initial write-up (added explanation about where to copy the html pages on the device).</p>
 
 </div>
 
