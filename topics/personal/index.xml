@@ -20,34 +20,34 @@
       <guid>http://pietromaggi.com/2014/01/01/2014-new-year-resolutions/</guid>
       <description>
 
-&lt;h2 id=&#34;blog-a-bit-more&#34;&gt;Blog a bit more&lt;/h2&gt;
+&lt;h2 id=&#34;blog-a-bit-more:3ffa1135a53f35cda7dcf694bab43f34&#34;&gt;Blog a bit more&lt;/h2&gt;
 
 &lt;p&gt;That&amp;rsquo;s been one of my goal for a long time, and something that I always suggest to people to increase their &lt;em&gt;&lt;a href=&#34;http://www.codusoperandi.com/posts/increasing-your-luck-surface-area&#34;&gt;&amp;laquo;Luck Surface Area&amp;raquo;&lt;/a&gt;&lt;/em&gt;.&lt;/p&gt;
 
 &lt;p&gt;In my case I can add an additional goal: keep track of what I do, tricks that I find and document procedure, fixes and workarounds.
 That&amp;rsquo;s always a bit of a pain point for me: I manage to do something and then in six months (or six hours) I forgot how I&amp;rsquo;ve done it and I need to start from scratch&amp;hellip; &lt;strong&gt;Never More&lt;/strong&gt;&lt;/p&gt;
 
-&lt;h3 id=&#34;content-in-markdown&#34;&gt;Content in Markdown&lt;/h3&gt;
+&lt;h3 id=&#34;content-in-markdown:3ffa1135a53f35cda7dcf694bab43f34&#34;&gt;Content in Markdown&lt;/h3&gt;
 
 &lt;p&gt;That&amp;rsquo;s one of the key technical decisions that I already have clear in mind, the content I&amp;rsquo;m going to produce will be in pure text, using &lt;a href=&#34;http://daringfireball.net/projects/markdown/&#34;&gt;Markdown&lt;/a&gt; formatting.&lt;/p&gt;
 
-&lt;h3 id=&#34;choosing-a-blog-engine-and-an-hosting-platform&#34;&gt;Choosing a blog engine and an hosting platform&lt;/h3&gt;
+&lt;h3 id=&#34;choosing-a-blog-engine-and-an-hosting-platform:3ffa1135a53f35cda7dcf694bab43f34&#34;&gt;Choosing a blog engine and an hosting platform&lt;/h3&gt;
 
 &lt;p&gt;I don&amp;rsquo;t want to spend a lot of time setting up a system at this moment, I prefer to use my time for other things!
 GitHub offer a nice way to have a &lt;a href=&#34;https://pages.github.com/&#34;&gt;git repository used as a blog source&lt;/a&gt;. It&amp;rsquo;s a no-brainer for me!&lt;/p&gt;
 
 &lt;p&gt;Static site generators like &lt;a href=&#34;http://jekyllrb.com/&#34;&gt;Jekill&lt;/a&gt; are another &lt;em&gt;no brainer&lt;/em&gt;. In my case I prefer to have some helps so I&amp;rsquo;m going to use &lt;a href=&#34;http://octopress.org/&#34;&gt;octopress&lt;/a&gt; starting with the &lt;a href=&#34;https://github.com/TheChymera/Koenigspress&#34;&gt;KoenigsPress&lt;/a&gt; theme.&lt;/p&gt;
 
-&lt;h3 id=&#34;hosting-solutions&#34;&gt;Hosting solutions&lt;/h3&gt;
+&lt;h3 id=&#34;hosting-solutions:3ffa1135a53f35cda7dcf694bab43f34&#34;&gt;Hosting solutions&lt;/h3&gt;
 
 &lt;p&gt;GitHub pages&lt;/p&gt;
 
-&lt;h3 id=&#34;setting-up-my-custom-domain&#34;&gt;Setting up my custom domain&lt;/h3&gt;
+&lt;h3 id=&#34;setting-up-my-custom-domain:3ffa1135a53f35cda7dcf694bab43f34&#34;&gt;Setting up my custom domain&lt;/h3&gt;
 
 &lt;p&gt;At the end I used godaddy.com to buy the domain pietromaggi.com for the next 10 years, I&amp;rsquo;ve managed to find a nice coupon and after few minutes I was able to have everything setup correctly.
 Some additional information are available on stackoverflow and this &lt;a href=&#34;http://learnaholic.me/2012/10/10/deploying-octopress-to-github-pages-and-setting-custom-subdomain-cname/&#34;&gt;blog&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h3 id=&#34;documenting-my-writing-process&#34;&gt;Documenting my writing process&lt;/h3&gt;
+&lt;h3 id=&#34;documenting-my-writing-process:3ffa1135a53f35cda7dcf694bab43f34&#34;&gt;Documenting my writing process&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;rake new_post[&amp;quot;my new great post&amp;quot;]
 rake preview
@@ -70,7 +70,7 @@ rake gen_deploy
       <guid>http://pietromaggi.com/2013/12/31/2013-in-numbers/</guid>
       <description>
 
-&lt;h2 id=&#34;what-an-interesting-year&#34;&gt;What an interesting year!&lt;/h2&gt;
+&lt;h2 id=&#34;what-an-interesting-year:51abfbfcacde8f43d827325a2afc34bf&#34;&gt;What an interesting year!&lt;/h2&gt;
 
 &lt;p&gt;This is the first year that I joined a regional team and this involved a lot of travel (12900 flight hours) across all EMEA.
 Has been a blast meeting a lot of end-users, partners and colleagues.&lt;/p&gt;

@@ -25,7 +25,7 @@
 &lt;p&gt;During Enterprise Browser hands-on lab, I got some enquiry about using other MobilityDNA utilities together with EB; in particular how to integrate &lt;em&gt;SwipeAssist&lt;/em&gt; and &lt;em&gt;Simulscan&lt;/em&gt;.&lt;br /&gt;
 These utilities can be integrated, with some heavy lifting, and accepting some constraints.&lt;/p&gt;
 
-&lt;h2 id=&#34;some-background:1b590469ff2d9700a874a759be47ee99&#34;&gt;Some background&lt;/h2&gt;
+&lt;h2 id=&#34;some-background&#34;&gt;Some background&lt;/h2&gt;
 
 &lt;p&gt;The current scanner framework implementation on our Android devices make available a single scanner object that provides full Scanner control. As always &amp;hellip;&amp;laquo;with great power comes great responsibility&amp;raquo;: an application using the scanner object from the Barcode API, is required to release it when it&amp;rsquo;s going in the background (usually you do this handling in the &lt;code&gt;onPause()&lt;/code&gt; callback in your native application).&lt;br /&gt;
 Enteprise Browser implements its own &lt;code&gt;Barcode API&lt;/code&gt; on top of the native EMDK Barcode API, however, due to the nature of the web application running inside EB, it does not release the scanner object. This locks the use of the scanner out for any other application that is in foreground while EB is in the background; &lt;em&gt;including DataWedge&lt;/em&gt;.&lt;br /&gt;
@@ -34,12 +34,12 @@ Because utilities like SwipeAssist, are linked to DataWedge:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;NO DataWedge --&amp;gt; NO SwipeAssist
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;the-standard-experience:1b590469ff2d9700a874a759be47ee99&#34;&gt;The standard experience&lt;/h3&gt;
+&lt;h3 id=&#34;the-standard-experience&#34;&gt;The standard experience&lt;/h3&gt;
 
 &lt;p&gt;When you run EB v1.4 on our Android devices, DataWedge is completely disabled, even when EB is in the background&amp;hellip;&lt;br /&gt;
 This is good if you plan to work completely inside an EB application, however, sometimes, you want to have some sort of integration.&lt;/p&gt;
 
-&lt;h3 id=&#34;some-of-the-requests:1b590469ff2d9700a874a759be47ee99&#34;&gt;Some of the requests&lt;/h3&gt;
+&lt;h3 id=&#34;some-of-the-requests&#34;&gt;Some of the requests&lt;/h3&gt;
 
 &lt;p&gt;During these last weeks I got some request from Enterprise Browser users:&lt;/p&gt;
 
@@ -51,12 +51,12 @@ This is good if you plan to work completely inside an EB application, however, s
 
 &lt;p&gt;Let&amp;rsquo;s start from the first request!&lt;/p&gt;
 
-&lt;h2 id=&#34;making-eb-and-dw-coexist:1b590469ff2d9700a874a759be47ee99&#34;&gt;Making EB and DW coexist&lt;/h2&gt;
+&lt;h2 id=&#34;making-eb-and-dw-coexist&#34;&gt;Making EB and DW coexist&lt;/h2&gt;
 
 &lt;p&gt;We&amp;rsquo;ve documented the steps to use DataWedge in EB on the &lt;a href=&#34;http://ebzebra.github.io/docs/1.4/#guide-datawedge&#34;&gt;documentation website for EB v1.4&lt;/a&gt;.&lt;br /&gt;
 Somehow, I think that it takes a lot of thinks for granted, so I&amp;rsquo;m going to put here a step-by-step guide on how to do the integration.&lt;/p&gt;
 
-&lt;h3 id=&#34;the-hidden-datawedge-profiles:1b590469ff2d9700a874a759be47ee99&#34;&gt;The hidden DataWedge profiles&lt;/h3&gt;
+&lt;h3 id=&#34;the-hidden-datawedge-profiles&#34;&gt;The hidden DataWedge profiles&lt;/h3&gt;
 
 &lt;p&gt;On a new Zebra&amp;rsquo;s Android device, you just have three visible DataWedge profiles, however there&amp;rsquo;re more profiles that are hidden and not editable.&lt;/p&gt;
 
@@ -67,7 +67,7 @@ So better proceeds with some caution, starting doing this on a test device.&lt;/
 
 &lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/eb_dw/lifting.png&#34; alt=&#34;Lifting&#34; title=&#34;Lifting&#34; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&#34;manually-modify-datawedge-profiles:1b590469ff2d9700a874a759be47ee99&#34;&gt;Manually Modify DataWedge profiles&lt;/h3&gt;
+&lt;h3 id=&#34;manually-modify-datawedge-profiles&#34;&gt;Manually Modify DataWedge profiles&lt;/h3&gt;
 
 &lt;p&gt;First step is to export all the profiles:&lt;/p&gt;
 
@@ -105,7 +105,7 @@ In my DataWedge.db I&amp;rsquo;ve two line to delete:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/eb_dw/dw_7.png&#34; alt=&#34;RhoElements profile is now visible&#34; title=&#34;RhoElements profile is now visible&#34; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&#34;create-a-new-datawedge-profile-linked-to-enterprise-browser-activity:1b590469ff2d9700a874a759be47ee99&#34;&gt;Create a new DataWedge Profile linked to Enterprise Browser Activity&lt;/h3&gt;
+&lt;h3 id=&#34;create-a-new-datawedge-profile-linked-to-enterprise-browser-activity&#34;&gt;Create a new DataWedge Profile linked to Enterprise Browser Activity&lt;/h3&gt;
 
 &lt;p&gt;Next step is to create a DataWedge profile linked to our Enteprise Browser, in this way it will be possible to customize DW experience inside EB.&lt;br /&gt;
 This requires to have Enterprise Browser installed on the device so, if you&amp;rsquo;ve not yet installed it, proceeds to our &lt;a href=&#34;https://developer.motorolasolutions.com/community/technologies/enterprisebrowser&#34;&gt;developer community website&lt;/a&gt;, download the latest release, install it, and then come back.&lt;/p&gt;
@@ -141,7 +141,7 @@ To do this, open the EB_Simulscan profile and tap on &lt;code&gt;Associated apps
 
 &lt;p&gt;We&amp;rsquo;re now ready to play with Enteprise Browser configuration to see if this works.&lt;/p&gt;
 
-&lt;h3 id=&#34;update-config-xml-and-test-a-sample-webpage:1b590469ff2d9700a874a759be47ee99&#34;&gt;Update Config.xml and test a sample webpage&lt;/h3&gt;
+&lt;h3 id=&#34;update-config-xml-and-test-a-sample-webpage&#34;&gt;Update Config.xml and test a sample webpage&lt;/h3&gt;
 
 &lt;p&gt;To follow this steps you need to have launched EB at least once, so that it creates its default configuration files under &lt;code&gt;/&amp;lt;sdcard/internal&amp;gt;/Android/data/com.symbol.enterprisebrowser&lt;/code&gt;.&lt;br /&gt;
 The you can proceeds copying it to your PC to apply some changes.&lt;/p&gt;
@@ -202,7 +202,7 @@ Opening Enterprise Browser we see that we can:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/eb_dw/eb_step1.png&#34; alt=&#34;EB and DW test1&#34; title=&#34;EB and DW test1&#34; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&#34;automate-this-step-a-bit:1b590469ff2d9700a874a759be47ee99&#34;&gt;Automate this step a bit&lt;/h3&gt;
+&lt;h3 id=&#34;automate-this-step-a-bit&#34;&gt;Automate this step a bit&lt;/h3&gt;
 
 &lt;p&gt;Next thing that would be nice to have is to avoid to touch the display to be able to scan, in this case a little JavaScript can help.&lt;br /&gt;
 With this version of the sample we can immediately scan a barcode getting the data in the input field. Note that no Keyboard is shown as I&amp;rsquo;ve not touched the input field here:&lt;/p&gt;
@@ -228,7 +228,7 @@ With this version of the sample we can immediately scan a barcode getting the da
 
 &lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/eb_dw/eb_step2.png&#34; alt=&#34;EB and DW test2&#34; title=&#34;EB and DW test2&#34; /&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;eb-and-swipeassist:1b590469ff2d9700a874a759be47ee99&#34;&gt;EB and SwipeAssist&lt;/h2&gt;
+&lt;h2 id=&#34;eb-and-swipeassist&#34;&gt;EB and SwipeAssist&lt;/h2&gt;
 
 &lt;p&gt;What if we want to use SwipeAssist inside this demo application?&lt;br /&gt;
 It&amp;rsquo;s simply a matter of enabling the &lt;code&gt;Show&lt;/code&gt; option in the Data Capture Panel section of our DataWedge profile &lt;code&gt;EB_Simulscan&lt;/code&gt;:&lt;/p&gt;
@@ -239,7 +239,7 @@ It&amp;rsquo;s simply a matter of enabling the &lt;code&gt;Show&lt;/code&gt; opt
 
 &lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/eb_dw/eb_swipeassist.png&#34; alt=&#34;SwipeAssist active in EB&#34; title=&#34;SwipeAssist active in EB&#34; /&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;eb-and-simulscan:1b590469ff2d9700a874a759be47ee99&#34;&gt;EB and SimulScan&lt;/h2&gt;
+&lt;h2 id=&#34;eb-and-simulscan&#34;&gt;EB and SimulScan&lt;/h2&gt;
 
 &lt;p&gt;Next, and final, goal is to use SimulScan to read two barcodes and have the data filled in two different input field, with the minimum JavaScript necessary to select the first input field:&lt;/p&gt;
 
@@ -311,7 +311,7 @@ The basic idea is to send the first 9 chars of the data coming from Simulscan (i
 
 &lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/eb_dw/eb_step3.png&#34; alt=&#34;The final app scanning two barcodes at once with Simulscan&#34; title=&#34;The final app scanning two barcodes at once with Simulscan&#34; /&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;conclusion:1b590469ff2d9700a874a759be47ee99&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
 
 &lt;p&gt;We reached the end of this exploration on how is possible to integrate Enterprise Browser with DataWedge.&lt;br /&gt;
 In some cases it makes sense to use a similar setup to enable existing webpages without touching them. For this reason, in the samples presented here, I tried to minimize the amout of JavaScript code needed to have them working.&lt;br /&gt;
@@ -322,7 +322,7 @@ Personally I think that if you want to customize your web app to have a better i
 
 &lt;p&gt;Let me know if you have any comment on these topics.&lt;/p&gt;
 
-&lt;h4 id=&#34;edit:1b590469ff2d9700a874a759be47ee99&#34;&gt;Edit&lt;/h4&gt;
+&lt;h4 id=&#34;edit&#34;&gt;Edit&lt;/h4&gt;
 
 &lt;p&gt;2016-06-01 - Minor correction to the initial write-up (added explanation about where to copy the html pages on the device).&lt;/p&gt;
 </description>
@@ -639,7 +639,7 @@ Luckily Google has introduced new API in KitKat (and Lollipop and Marshmallow) t
       <guid>http://pietromaggi.com/speaking/</guid>
       <description>
 
-&lt;h2 id=&#34;june-2016:991f6edce4c158f0d781901c75294628&#34;&gt;JUNE 2016&lt;/h2&gt;
+&lt;h2 id=&#34;june-2016&#34;&gt;JUNE 2016&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;15-17 June - droidcon Berlin with a couple of talks:
@@ -650,7 +650,7 @@ Luckily Google has introduced new API in KitKat (and Lollipop and Marshmallow) t
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&#34;archive-and-talk-links:991f6edce4c158f0d781901c75294628&#34;&gt;ARCHIVE AND TALK LINKS&lt;/h2&gt;
+&lt;h2 id=&#34;archive-and-talk-links&#34;&gt;ARCHIVE AND TALK LINKS&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;19/20 April - &lt;a href=&#34;https://germany.apps-world.net/&#34;&gt;Apps World Berlin: &amp;laquo;Android: it&amp;rsquo;s time to go to work!&amp;raquo;&lt;/a&gt;&lt;/li&gt;
@@ -754,13 +754,13 @@ I&amp;rsquo;ll will probably spend some time in the future to refine the layout,
       <guid>http://pietromaggi.com/2015/11/25/building-zebras-emdk-project-using-sdk-platform-23/</guid>
       <description>
 
-&lt;h1 id=&#34;note-emdk-4-0-is-now-documenting-this-method-to-add-com-symbol-emdk-jar-as-a-dependency-http-techdocs-zebra-com-emdk-for-android-4-0-tutorial-tutcreateprojectandroidstudio-emdkasadependencyingradlebuild:a73dc43b5349510a6429445ab1819abf&#34;&gt;Note: &lt;a href=&#34;http://techdocs.zebra.com/emdk-for-android/4-0/tutorial/tutCreateProjectAndroidStudio/#emdkasadependencyingradlebuild&#34;&gt;EMDK 4.0 is now documenting this method to add com.symbol.emdk.jar as a dependency&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id=&#34;note-emdk-4-0-is-now-documenting-this-method-to-add-com-symbol-emdk-jar-as-a-dependency-http-techdocs-zebra-com-emdk-for-android-4-0-tutorial-tutcreateprojectandroidstudio-emdkasadependencyingradlebuild&#34;&gt;Note: &lt;a href=&#34;http://techdocs.zebra.com/emdk-for-android/4-0/tutorial/tutCreateProjectAndroidStudio/#emdkasadependencyingradlebuild&#34;&gt;EMDK 4.0 is now documenting this method to add com.symbol.emdk.jar as a dependency&lt;/a&gt;&lt;/h1&gt;
 
 &lt;p&gt;There&amp;rsquo;s a recurring question coming to me and to Launchpad&amp;rsquo;s forums lately:&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://developer.zebra.com/message/86287#86287&#34;&gt;&lt;em&gt;How can I compile my Android app, using Zebra&amp;rsquo;s EMDK, if I need the latest support library?&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;h1 id=&#34;some-background:a73dc43b5349510a6429445ab1819abf&#34;&gt;Some background&lt;/h1&gt;
+&lt;h1 id=&#34;some-background&#34;&gt;Some background&lt;/h1&gt;
 
 &lt;p&gt;With the Android tools moving super-fast (Android studio v1.0 launched at the beginning of 2015, the latest stable release is v1.4.1, we already have v1.5RC and v2.0 has been announced&amp;hellip;) keeping up to this pace is not easy for our EMDK team!&lt;/p&gt;
 
@@ -770,7 +770,7 @@ I&amp;rsquo;ll will probably spend some time in the future to refine the layout,
 
 &lt;p&gt;&lt;em&gt;Here we can have a problem&lt;/em&gt;&lt;/p&gt;
 
-&lt;h1 id=&#34;using-zebra-s-emdk:a73dc43b5349510a6429445ab1819abf&#34;&gt;Using Zebra&amp;rsquo;s EMDK&lt;/h1&gt;
+&lt;h1 id=&#34;using-zebra-s-emdk&#34;&gt;Using Zebra&amp;rsquo;s EMDK&lt;/h1&gt;
 
 &lt;p&gt;So, talking just about Android Studio, that is the current up-to-date Android IDE, we currently document two ways to use the EMDK:&lt;/p&gt;
 
@@ -781,11 +781,11 @@ I&amp;rsquo;ll will probably spend some time in the future to refine the layout,
 
 &lt;p&gt;Both methods fails to compile a project using the latest Android Support Library.&lt;/p&gt;
 
-&lt;h1 id=&#34;a-little-gradle-magic:a73dc43b5349510a6429445ab1819abf&#34;&gt;A little gradle magic&lt;/h1&gt;
+&lt;h1 id=&#34;a-little-gradle-magic&#34;&gt;A little gradle magic&lt;/h1&gt;
 
 &lt;p&gt;Here&amp;rsquo;s a third, &lt;strong&gt;UNOFFICIAL&lt;/strong&gt;, way to include the EMDK in an Android project and use the latest available SDK to build the project.&lt;/p&gt;
 
-&lt;h2 id=&#34;copy-the-lib-file-in-your-project:a73dc43b5349510a6429445ab1819abf&#34;&gt;Copy the lib file in your project&lt;/h2&gt;
+&lt;h2 id=&#34;copy-the-lib-file-in-your-project&#34;&gt;Copy the lib file in your project&lt;/h2&gt;
 
 &lt;p&gt;First of all, create in your Android project a lib folder and copy into it the com.symbol.emdk.jar library that you got installing the EMDK on your PC/Mac:&lt;/p&gt;
 
@@ -797,7 +797,7 @@ I&amp;rsquo;ll will probably spend some time in the future to refine the layout,
 
 &lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/EMDK_gradle/Android_Project2.jpg&#34; alt=&#34;Project Files Panel View&#34; title=&#34;Project Files Panel View&#34; /&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;modify-the-build-gradle-file:a73dc43b5349510a6429445ab1819abf&#34;&gt;Modify the build.gradle file&lt;/h2&gt;
+&lt;h2 id=&#34;modify-the-build-gradle-file&#34;&gt;Modify the build.gradle file&lt;/h2&gt;
 
 &lt;p&gt;OK, once the file is included in our project (and this means that you can check in this file in your SCM and checkout on a new PC and rebuilt it without the need to Zebra EMDK installed) we can explain to Android Studio how to use it. To do this we need to modify the &lt;code&gt;build.gradle&lt;/code&gt; file included in the app folder. If you&amp;rsquo;ve switched back to the &amp;laquo;Android Project view&amp;raquo;, this is the Module: App, gradle file. As shown below:&lt;/p&gt;
 
@@ -829,11 +829,11 @@ I&amp;rsquo;ll will probably spend some time in the future to refine the layout,
       <guid>http://pietromaggi.com/decks/</guid>
       <description>
 
-&lt;h2 id=&#34;android-wireless-deepdive-decks-wireless:349560715c2232f9ac95d312b88a264e&#34;&gt;&lt;a href=&#34;http://pietromaggi.com/decks/wireless/&#34;&gt;Android Wireless DeepDive&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;android-wireless-deepdive-decks-wireless&#34;&gt;&lt;a href=&#34;http://pietromaggi.com/decks/wireless/&#34;&gt;Android Wireless DeepDive&lt;/a&gt;&lt;/h2&gt;
 
 &lt;p&gt;Exploring how to build a RhoMobile native extension for an Android undocumented feature&lt;/p&gt;
 
-&lt;h2 id=&#34;mobile-barcode-scanning-api-status-decks-barcodes-api:349560715c2232f9ac95d312b88a264e&#34;&gt;&lt;a href=&#34;http://pietromaggi.com/decks/barcodes-api/&#34;&gt;Mobile Barcode Scanning API Status&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;mobile-barcode-scanning-api-status-decks-barcodes-api&#34;&gt;&lt;a href=&#34;http://pietromaggi.com/decks/barcodes-api/&#34;&gt;Mobile Barcode Scanning API Status&lt;/a&gt;&lt;/h2&gt;
 
 &lt;p&gt;An analysis of barcode scanning API status on mobile devices&lt;/p&gt;
 </description>
@@ -847,7 +847,7 @@ I&amp;rsquo;ll will probably spend some time in the future to refine the layout,
       <guid>http://pietromaggi.com/2015/09/25/android-back-button-and-enterprise-browser/</guid>
       <description>
 
-&lt;h2 id=&#34;edit:7f473ce4cff36ed9ec3742536e6fab0f&#34;&gt;Edit&lt;/h2&gt;
+&lt;h2 id=&#34;edit&#34;&gt;Edit&lt;/h2&gt;
 
 &lt;p&gt;Enteprise Browser v1.3 introduced a change that requires to enable &lt;code&gt;FunctionKeysCapturable&lt;/code&gt; to be able to use the KeyCapture API.&lt;br /&gt;
 To do this you need to update your &lt;code&gt;Config.xml&lt;/code&gt; with:&lt;/p&gt;
@@ -855,14 +855,14 @@ To do this you need to update your &lt;code&gt;Config.xml&lt;/code&gt; with:&lt;
 &lt;pre&gt;&lt;code&gt;&amp;lt;FunctionKeysCapturable                 value=&amp;quot;1&amp;quot;/&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;enterprise-browser:7f473ce4cff36ed9ec3742536e6fab0f&#34;&gt;Enterprise Browser&lt;/h2&gt;
+&lt;h2 id=&#34;enterprise-browser&#34;&gt;Enterprise Browser&lt;/h2&gt;
 
 &lt;p&gt;Enterprise Browser is Zebra Technologies&amp;rsquo; Industrial Browser built for our Rugged Devices, we support most of our Windows Mobile/Windows CE devices and Android devices.&lt;/p&gt;
 
 &lt;p&gt;This product is usually used with existing web application that cannot be updated/modified moving from one device to another.
 This help us winning some opportunities but sometimes present some unique challenges like, as an example, disabling the Android back button default behavior.&lt;/p&gt;
 
-&lt;h2 id=&#34;back-button-on-android:7f473ce4cff36ed9ec3742536e6fab0f&#34;&gt;Back Button on Android?&lt;/h2&gt;
+&lt;h2 id=&#34;back-button-on-android&#34;&gt;Back Button on Android?&lt;/h2&gt;
 
 &lt;p&gt;Given that this is a cross-platform product (built on top of our RhoMobile Suite) we don&amp;rsquo;t have a custom settings to disable the back button in the Config.xml configuration file, however it is still possible to add a default Metatags in the configuration so that no changes in the existing pages are needed.&lt;/p&gt;
 
@@ -894,7 +894,7 @@ This help us winning some opportunities but sometimes present some unique challe
 
 &lt;p&gt;We&amp;rsquo;ve a solution for this issue: having a &lt;code&gt;DefaultMetaTags&lt;/code&gt; in Enterprise Browser&amp;rsquo;s configuration.&lt;/p&gt;
 
-&lt;h2 id=&#34;what-s-a-defaultmetatags:7f473ce4cff36ed9ec3742536e6fab0f&#34;&gt;What&amp;rsquo;s a DefaultMetaTags&lt;/h2&gt;
+&lt;h2 id=&#34;what-s-a-defaultmetatags&#34;&gt;What&amp;rsquo;s a DefaultMetaTags&lt;/h2&gt;
 
 &lt;p&gt;We can start from the &lt;a href=&#34;https://developer.motorolasolutions.com/docs/DOC-2571#defaultmetatags&#34;&gt;documentation&lt;/a&gt;, what does it means?&lt;/p&gt;
 
@@ -909,7 +909,7 @@ This help us winning some opportunities but sometimes present some unique challe
 
 &lt;p&gt;BTW: &lt;code&gt;0xA6&lt;/code&gt; is the correct value for the Back Button on a TC55 running Android v4.4 KitKat.&lt;/p&gt;
 
-&lt;h2 id=&#34;closing-comments:7f473ce4cff36ed9ec3742536e6fab0f&#34;&gt;Closing comments&lt;/h2&gt;
+&lt;h2 id=&#34;closing-comments&#34;&gt;Closing comments&lt;/h2&gt;
 
 &lt;p&gt;Enterprise Browser&amp;rsquo;s &lt;code&gt;DefaultMetaTags&lt;/code&gt; is a very flexible way to &amp;laquo;patch&amp;raquo; an existing Web application without touching its source code.&lt;/p&gt;
 
@@ -952,7 +952,7 @@ This is not a problem unique to the TC55, it&amp;rsquo;s a common problem on And
 
 &lt;p&gt;Given that we&amp;rsquo;ve the luxury to target just a few devices, the Motorola Solutions one :-), the best option is to use the environment variables.&lt;/p&gt;
 
-&lt;h3 id=&#34;let-s-see-what-happens-on-the-tc55&#34;&gt;Let&amp;rsquo;s see what happens on the TC55&lt;/h3&gt;
+&lt;h3 id=&#34;let-s-see-what-happens-on-the-tc55:bc798595bb5986dd70a35d55131e88d5&#34;&gt;Let&amp;rsquo;s see what happens on the TC55&lt;/h3&gt;
 
 &lt;p&gt;On this device, using &lt;code&gt;Environment.getExternalStorageDirectory();&lt;/code&gt; returns different results depending if you&amp;rsquo;ve installed or not an SDCard:&lt;/p&gt;
 
@@ -1237,7 +1237,7 @@ public class MainActivity extends ActionBarActivity {
       <guid>http://pietromaggi.com/2014/08/11/configuring-rhomobile-suite-v5.0-on-a-clean-os-x-mavericks-machine/</guid>
       <description>
 
-&lt;h1 id=&#34;rhomobile-suite-v5-0:1ccd390bb055ec5c67cc32a64682c5d7&#34;&gt;RhoMobile Suite v5.0&lt;/h1&gt;
+&lt;h1 id=&#34;rhomobile-suite-v5-0&#34;&gt;RhoMobile Suite v5.0&lt;/h1&gt;
 
 &lt;p&gt;The new main release of Rhodes, RhoElements and RhoConnect had just been released a couple of weeks ago &lt;a href=&#34;http://newsroom.motorolasolutions.com/Feature/See-RhoMobile-in-Action-at-OSCON-2014-4a61.aspx&#34;&gt;during OSCON&lt;/a&gt;. It&amp;rsquo;s now time to install it and start building some mobile apps!&lt;/p&gt;
 
@@ -1261,13 +1261,13 @@ public class MainActivity extends ActionBarActivity {
 &lt;li&gt;&lt;a href=&#34;#Build&#34;&gt;Build a sample app&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&#34;a-name-osx-update-a-update-os-x-to-the-latest-version:1ccd390bb055ec5c67cc32a64682c5d7&#34;&gt;&lt;a name=&#34;OSX_Update&#34;&gt;&lt;/a&gt;Update OS X to the latest version&lt;/h3&gt;
+&lt;h3 id=&#34;a-name-osx-update-a-update-os-x-to-the-latest-version&#34;&gt;&lt;a name=&#34;OSX_Update&#34;&gt;&lt;/a&gt;Update OS X to the latest version&lt;/h3&gt;
 
 &lt;p&gt;The first step is to check that the version of OS X on your machine is up-to-date, a quick stop in the Mac AppStore &lt;em&gt;Updates&lt;/em&gt; tab can give you an idea of what is available.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/OSX_RMS5/updates.png&#34; alt=&#34;One Update waiting to be installed&#34; title=&#34;One Update Waiting to be installed&#34; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&#34;a-name-xcode-a-install-xcode:1ccd390bb055ec5c67cc32a64682c5d7&#34;&gt;&lt;a name=&#34;XCode&#34;&gt;&lt;/a&gt;Install XCode&lt;/h3&gt;
+&lt;h3 id=&#34;a-name-xcode-a-install-xcode&#34;&gt;&lt;a name=&#34;XCode&#34;&gt;&lt;/a&gt;Install XCode&lt;/h3&gt;
 
 &lt;p&gt;The next step is to install the latest XCode on you OS. In this guide I&amp;rsquo;m using XCode 5 as version 6 is still in beta, and we like stable releases!&lt;/p&gt;
 
@@ -1277,7 +1277,7 @@ public class MainActivity extends ActionBarActivity {
 
 &lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/OSX_RMS5/XCode5_EULA.png&#34; alt=&#34;XCode 5 EULA&#34; title=&#34;XCode 5 EULA&#34; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&#34;a-name-terminal-a-familiarize-with-the-terminal:1ccd390bb055ec5c67cc32a64682c5d7&#34;&gt;&lt;a name=&#34;Terminal&#34;&gt;&lt;/a&gt;Familiarize with the terminal&lt;/h3&gt;
+&lt;h3 id=&#34;a-name-terminal-a-familiarize-with-the-terminal&#34;&gt;&lt;a name=&#34;Terminal&#34;&gt;&lt;/a&gt;Familiarize with the terminal&lt;/h3&gt;
 
 &lt;p&gt;During the initial RMS setup some of the steps require that you use the Terminal, also known as &lt;a href=&#34;http://en.wikipedia.org/wiki/Command-line_interface&#34;&gt;command prompt or console&lt;/a&gt;.
 The Terminal is already available on OS X, and you can find it inside the Utility folder in your Applications.&lt;/p&gt;
@@ -1288,7 +1288,7 @@ The Terminal is already available on OS X, and you can find it inside the Utilit
 
 &lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/OSX_RMS5/KeepInDock.png&#34; alt=&#34;Keep Terminal in the dock&#34; title=&#34;Keep Terminal in the dock&#34; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&#34;a-name-jdk7-a-install-java-jdk7:1ccd390bb055ec5c67cc32a64682c5d7&#34;&gt;&lt;a name=&#34;JDK7&#34;&gt;&lt;/a&gt;Install Java JDK7&lt;/h3&gt;
+&lt;h3 id=&#34;a-name-jdk7-a-install-java-jdk7&#34;&gt;&lt;a name=&#34;JDK7&#34;&gt;&lt;/a&gt;Install Java JDK7&lt;/h3&gt;
 
 &lt;p&gt;OS X Mavericks comes without any Java environment installed, &amp;laquo;the easiest way&amp;raquo; to install it, is to open the terminal and type:&lt;/p&gt;
 
@@ -1311,7 +1311,7 @@ The Terminal is already available on OS X, and you can find it inside the Utilit
 
 &lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/OSX_RMS5/JavaIsInstalled.png&#34; alt=&#34;Java is installed&#34; title=&#34;Java is installed&#34; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&#34;a-name-homebrew-a-install-homebrew:1ccd390bb055ec5c67cc32a64682c5d7&#34;&gt;&lt;a name=&#34;HomeBrew&#34;&gt;&lt;/a&gt;Install HomeBrew&lt;/h3&gt;
+&lt;h3 id=&#34;a-name-homebrew-a-install-homebrew&#34;&gt;&lt;a name=&#34;HomeBrew&#34;&gt;&lt;/a&gt;Install HomeBrew&lt;/h3&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://brew.sh/&#34;&gt;HomeBrew&lt;/a&gt; is an open source package manager, working from the command line, that help setting up open source application on OS X.&lt;/p&gt;
 
@@ -1330,7 +1330,7 @@ Next step is to check that HomeBrew is setup correctly:&lt;/p&gt;
 
 &lt;p&gt;If you get a different message with some missing or misconfigured software you can follow the on-screen-instruction or you can find further information on the &lt;a href=&#34;https://github.com/Homebrew/homebrew/wiki&#34;&gt;HomeBrew Wiki&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h3 id=&#34;a-name-rvm-a-install-rvm-and-ruby-1-9-3:1ccd390bb055ec5c67cc32a64682c5d7&#34;&gt;&lt;a name=&#34;RVM&#34;&gt;&lt;/a&gt;Install RVM and Ruby 1.9.3&lt;/h3&gt;
+&lt;h3 id=&#34;a-name-rvm-a-install-rvm-and-ruby-1-9-3&#34;&gt;&lt;a name=&#34;RVM&#34;&gt;&lt;/a&gt;Install RVM and Ruby 1.9.3&lt;/h3&gt;
 
 &lt;p&gt;OS X Mavericks comes with Ruby v2.0 installed by default, however RMSv5 requires Ruby v1.9.3. Overall working with Ruby can require to switch ruby environment often and to release this pain &lt;a href=&#34;http://pietromaggi.com/2013/12/29/ruby-version-manager-aka-rvm-the-swiss-army-knife-of-ruby-versions/&#34;&gt;some utilities has been created&lt;/a&gt;.&lt;/p&gt;
 
@@ -1376,7 +1376,7 @@ rvm rubies
 
 &lt;p&gt;To get more information on RVM you can check the documentation available on &lt;a href=&#34;https://rvm.io/&#34;&gt;its website&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h3 id=&#34;a-name-utilities-a-install-git-node-and-other-little-utilities:1ccd390bb055ec5c67cc32a64682c5d7&#34;&gt;&lt;a name=&#34;utilities&#34;&gt;&lt;/a&gt;Install git, node and other little utilities&lt;/h3&gt;
+&lt;h3 id=&#34;a-name-utilities-a-install-git-node-and-other-little-utilities&#34;&gt;&lt;a name=&#34;utilities&#34;&gt;&lt;/a&gt;Install git, node and other little utilities&lt;/h3&gt;
 
 &lt;p&gt;RMS uses git &lt;em&gt;a lot&lt;/em&gt;, to sync projects with RhoHub, and is overall a nice tool. It&amp;rsquo;s already installed on Mavericks, but is version 1.8.5.2, better to keep an up-to-date version using HomeBrew:&lt;/p&gt;
 
@@ -1440,7 +1440,7 @@ man ag
 
 &lt;p&gt;As always, using &lt;strong&gt;man&lt;/strong&gt; in the command line will open the documentation for the command, in the case of the silver searcher, the command is &lt;strong&gt;ag&lt;/strong&gt; (like the Silver symbol).&lt;/p&gt;
 
-&lt;h3 id=&#34;a-name-android-a-install-android-sdk-and-ndk:1ccd390bb055ec5c67cc32a64682c5d7&#34;&gt;&lt;a name=&#34;Android&#34;&gt;&lt;/a&gt;Install Android SDK and NDK&lt;/h3&gt;
+&lt;h3 id=&#34;a-name-android-a-install-android-sdk-and-ndk&#34;&gt;&lt;a name=&#34;Android&#34;&gt;&lt;/a&gt;Install Android SDK and NDK&lt;/h3&gt;
 
 &lt;p&gt;Next step is to install what is needed to build RhoMobile Android Applications. You need to remember that to compile RhoMobile native applications you need to have the target OS tool chain. For Android this means the SDK and the NDK.&lt;/p&gt;
 
@@ -1500,7 +1500,7 @@ adb devices
 tar xzvf ~/Downloads/android-ndk32-r10-darwin-x86_64.tar.bz2
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;a-name-rms5-a-install-rms-v5-0:1ccd390bb055ec5c67cc32a64682c5d7&#34;&gt;&lt;a name=&#34;RMS5&#34;&gt;&lt;/a&gt;Install RMS v5.0&lt;/h3&gt;
+&lt;h3 id=&#34;a-name-rms5-a-install-rms-v5-0&#34;&gt;&lt;a name=&#34;RMS5&#34;&gt;&lt;/a&gt;Install RMS v5.0&lt;/h3&gt;
 
 &lt;p&gt;For this step we can take the info from the &lt;a href=&#34;http://docs.rhomobile.com/en/5.0.0/guide/rhomobile-install#mac-os&#34;&gt;RhoMobile official documentation&lt;/a&gt;.&lt;/p&gt;
 
@@ -1536,13 +1536,13 @@ Password:
 Do you want to install rhoconnect-push with &#39;sudo&#39; command prefix? [Yn]  Y
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;a-name-account-a-create-a-rhomobile-com-account:1ccd390bb055ec5c67cc32a64682c5d7&#34;&gt;&lt;a name=&#34;Account&#34;&gt;&lt;/a&gt;Create a RhoMobile.com account&lt;/h3&gt;
+&lt;h3 id=&#34;a-name-account-a-create-a-rhomobile-com-account&#34;&gt;&lt;a name=&#34;Account&#34;&gt;&lt;/a&gt;Create a RhoMobile.com account&lt;/h3&gt;
 
 &lt;p&gt;Version 5 of the RhoMobile Suite has a &lt;a href=&#34;http://rhomobile.com/rhopricing.html&#34;&gt;new licensing&lt;/a&gt;, that is a yearly subscription available in different levels, starting from a free one, up to an Enterprise grade.&lt;/p&gt;
 
 &lt;p&gt;Whatever the level you choose, you need to create an account on the RhoMobile.com website to use the Suite, both from RhoStudio and from the command line tools.&lt;/p&gt;
 
-&lt;h3 id=&#34;a-name-launching-a-launching-rhostudio:1ccd390bb055ec5c67cc32a64682c5d7&#34;&gt;&lt;a name=&#34;Launching&#34;&gt;&lt;/a&gt;Launching RhoStudio&lt;/h3&gt;
+&lt;h3 id=&#34;a-name-launching-a-launching-rhostudio&#34;&gt;&lt;a name=&#34;Launching&#34;&gt;&lt;/a&gt;Launching RhoStudio&lt;/h3&gt;
 
 &lt;p&gt;RhoStudio and the whole RhoMobile Suite is now installed on your Mac, but you still need some steps to finish the configuration and start doing some coding. First of all launch RhoStudio from the Application folder (launch the 64-bit version) and select the second ruby environment for it.&lt;/p&gt;
 
@@ -1560,7 +1560,7 @@ Do you want to install rhoconnect-push with &#39;sudo&#39; command prefix? [Yn] 
 
 &lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/OSX_RMS5/FirstRhoStudio.png&#34; alt=&#34;RhoStudio first launch&#34; title=&#34;First RhoStudio Launch&#34; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&#34;a-name-setup-a-rhostudio-setup:1ccd390bb055ec5c67cc32a64682c5d7&#34;&gt;&lt;a name=&#34;Setup&#34;&gt;&lt;/a&gt;RhoStudio Setup&lt;/h3&gt;
+&lt;h3 id=&#34;a-name-setup-a-rhostudio-setup&#34;&gt;&lt;a name=&#34;Setup&#34;&gt;&lt;/a&gt;RhoStudio Setup&lt;/h3&gt;
 
 &lt;p&gt;There are some parameters to setup in RhoStudio before being able to build any project. Opening the settings windows using &lt;strong&gt;Command-,&lt;/strong&gt; you can setup:&lt;/p&gt;
 
@@ -1593,7 +1593,7 @@ BlackBerry JDE 4.2 MDS (blank to skip) ():
 If you want to build with other BlackBerry SDK versions edit: /Users/rhomobile/.rvm/gems/ruby-1.9.3-p547@global/gems/rhodes-5.0.2/rhobuild.yml
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;a-name-build-a-build-your-first-rhomobile-application:1ccd390bb055ec5c67cc32a64682c5d7&#34;&gt;&lt;a name=&#34;Build&#34;&gt;&lt;/a&gt;Build your first RhoMobile application&lt;/h3&gt;
+&lt;h3 id=&#34;a-name-build-a-build-your-first-rhomobile-application&#34;&gt;&lt;a name=&#34;Build&#34;&gt;&lt;/a&gt;Build your first RhoMobile application&lt;/h3&gt;
 
 &lt;p&gt;I&amp;rsquo;ll cut this short at this moment, you should have everything setup at this moment and you should be able to follow the instructions on &lt;a href=&#34;http://docs.rhomobile.com/en/5.0.0/guide/creating_a_project&#34;&gt;RhoMobile website&lt;/a&gt;. You can reach out to me if you&amp;rsquo;ve any question and I plan to add another post with some &amp;laquo;post-setup&amp;raquo; optimization in the near future.&lt;/p&gt;
 </description>
@@ -1609,12 +1609,12 @@ If you want to build with other BlackBerry SDK versions edit: /Users/rhomobile/.
 
 &lt;p&gt;This is a different blog, more a remainder for me than anything else. Hope that someone else can find these useful&amp;hellip; they&amp;rsquo;re for me!&lt;/p&gt;
 
-&lt;h3 id=&#34;recover-a-failed-download-with-curl&#34;&gt;Recover a failed download with curl:&lt;/h3&gt;
+&lt;h3 id=&#34;recover-a-failed-download-with-curl:4d6d9b75474dffda97a889a3cbd40065&#34;&gt;Recover a failed download with curl:&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;curl -C - -o partially_downloaded_file &#39;www.example.com/path/to/the/file&#39;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;burn-a-playable-dvd-from-a-video-ts-folder-http-hints-macworld-com-article-php-story-20070612161317338&#34;&gt;&lt;a href=&#34;http://hints.macworld.com/article.php?story=20070612161317338&#34;&gt;Burn a playable DVD from a VIDEO_TS folder&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;burn-a-playable-dvd-from-a-video-ts-folder-http-hints-macworld-com-article-php-story-20070612161317338:4d6d9b75474dffda97a889a3cbd40065&#34;&gt;&lt;a href=&#34;http://hints.macworld.com/article.php?story=20070612161317338&#34;&gt;Burn a playable DVD from a VIDEO_TS folder&lt;/a&gt;&lt;/h3&gt;
 
 &lt;p&gt;After searching the forums and trying various things, I still couldn&amp;rsquo;t find a quick, reliable, free method of burning a VIDEO_TS folder to a pure UDF DVD,
 so that it would play in regular DVD players, as well trigger DVD Player to start up automatically. Anyway, as often is the case, Terminal had the answers.
@@ -1626,19 +1626,19 @@ Just type in this command and change the paths to suit:&lt;/p&gt;
 &lt;p&gt;Make sure that /path/to/VIDEO_TS/parent/folder is the path to the folder containing the VIDEO_TS folder, not the VIDEO_TS folder itself.
 Once the .iso file has been created, drag this to Disk Utility and hit the Burn button.&lt;/p&gt;
 
-&lt;h3 id=&#34;generate-a-pdf-from-a-markdown-file&#34;&gt;Generate a pdf from a markdown file&lt;/h3&gt;
+&lt;h3 id=&#34;generate-a-pdf-from-a-markdown-file:4d6d9b75474dffda97a889a3cbd40065&#34;&gt;Generate a pdf from a markdown file&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;markdown &amp;lt;File.md&amp;gt; | htmldoc --cont --headfootsize 8.0 --linkcolor blue --linkstyle plain --format pdf14 - &amp;gt; FileFormat.pdf
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h1 id=&#34;android-related-commands&#34;&gt;Android related Commands&lt;/h1&gt;
+&lt;h1 id=&#34;android-related-commands:4d6d9b75474dffda97a889a3cbd40065&#34;&gt;Android related Commands&lt;/h1&gt;
 
-&lt;h3 id=&#34;taking-screenshot-of-an-android-device&#34;&gt;Taking screenshot of an Android device&lt;/h3&gt;
+&lt;h3 id=&#34;taking-screenshot-of-an-android-device:4d6d9b75474dffda97a889a3cbd40065&#34;&gt;Taking screenshot of an Android device&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code&gt;adb shell screencap -p | perl -pe &#39;s/\x0D\x0A/\x0A/g&#39; &amp;gt; screen.png
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;launch-browser-and-navigate-to-url-on-android-devices&#34;&gt;Launch browser and navigate to URL on android devices&lt;/h3&gt;
+&lt;h3 id=&#34;launch-browser-and-navigate-to-url-on-android-devices:4d6d9b75474dffda97a889a3cbd40065&#34;&gt;Launch browser and navigate to URL on android devices&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;adb shell am start -a android.intent.action.VIEW -d URL
 &lt;/code&gt;&lt;/pre&gt;
