@@ -239,7 +239,7 @@ The funny thing is that, most of the time, answer to a question with another one
 <p>In this case the answer is yes, with some little help.
 <img src="/images/autorotate/disable.gif" alt="Disable AutoRotate" title="Disable AutoRotate" /></p>
 
-<h2 id="the-blueprint:33ffeed4f9880d7ffc6dd1f754318306">The blueprint</h2>
+<h2 id="the-blueprint">The blueprint</h2>
 
 <p>The idea to implement this is to have an application on the device that can disable this setting&hellip;<br />
 Ok, so not really ground-breaking. But wait, there&rsquo;s more.<br />
@@ -253,7 +253,7 @@ Instead of having an application that blindly disable this setting, we can build
 <li>Uninstall the application (optional step)</li>
 </ol>
 
-<h3 id="writing-to-the-settings:33ffeed4f9880d7ffc6dd1f754318306">Writing to the settings</h3>
+<h3 id="writing-to-the-settings">Writing to the settings</h3>
 
 <p>An Android application can update the settings if it has the permission:</p>
 
@@ -267,7 +267,7 @@ Instead of having an application that blindly disable this setting, we can build
 <pre><code>android.provider.Settings.System.putInt(getContentResolver(), Settings.System.ACCELEROMETER_ROTATION, value);
 </code></pre>
 
-<h3 id="using-intent-extra-parameters:33ffeed4f9880d7ffc6dd1f754318306">Using Intent extra parameters</h3>
+<h3 id="using-intent-extra-parameters">Using Intent extra parameters</h3>
 
 <p>Ok, now that we&rsquo;ve a way to set the settings, we want to have a way to get a parameter from StageNow to decide if we&rsquo;ve to enable or disable the Display AutoRotate setting.<br />
 To do this we can use some extra parameters in the Intent that is used to launch our application:</p>
@@ -285,7 +285,7 @@ if (extras != null) {
 <pre><code>adb shell am start -n com.pietromaggi.sample.autorotate/.MainActivity --ei &quot;AutoRotate&quot; 0 
 </code></pre>
 
-<h2 id="putting-the-different-pieces-together:33ffeed4f9880d7ffc6dd1f754318306">Putting the different pieces together</h2>
+<h2 id="putting-the-different-pieces-together">Putting the different pieces together</h2>
 
 <p>To keep things simple, I&rsquo;ve build a very simple demo application that implement these two features, and then closes the activity.<br />
 you can find the source code <a href="https://github.com/pfmaggi/autorotate">in this github repository</a> and the <a href="https://github.com/pfmaggi/autorotate/releases/download/v1.0.0/autorotate.apk">final release apk here</a>.</p>
@@ -294,28 +294,28 @@ you can find the source code <a href="https://github.com/pfmaggi/autorotate">in 
 
 <p>To create the StageNow profile use the Expert Mode and add these steps:</p>
 
-<h3 id="1-file-manager-to-copy-the-apk-on-the-device:33ffeed4f9880d7ffc6dd1f754318306">1. File Manager - to copy the apk on the device</h3>
+<h3 id="1-file-manager-to-copy-the-apk-on-the-device">1. File Manager - to copy the apk on the device</h3>
 
 <p><img src="/images/autorotate/StageNow_1.png" alt="Copy AutoRotate apk on the device" title="Copy AutoRotate apk on the device" /></p>
 
-<h3 id="2-app-manager-to-install-update-the-apk:33ffeed4f9880d7ffc6dd1f754318306">2. App Manager - to install/update the apk</h3>
+<h3 id="2-app-manager-to-install-update-the-apk">2. App Manager - to install/update the apk</h3>
 
 <p><img src="/images/autorotate/StageNow_2.png" alt="Install/update the apk" title="Install/update the apk" /></p>
 
-<h3 id="3-intent-manager-to-launch-the-autorotate-app-with-the-disable-parameter:33ffeed4f9880d7ffc6dd1f754318306">3. Intent Manager - to launch the autorotate app with the disable parameter</h3>
+<h3 id="3-intent-manager-to-launch-the-autorotate-app-with-the-disable-parameter">3. Intent Manager - to launch the autorotate app with the disable parameter</h3>
 
 <p><img src="/images/autorotate/StageNow_3.png" alt="launch the autorotate app with the disable parameter" title="launch the autorotate app with the disable parameter" /></p>
 
-<h3 id="4-app-manager-uninstall-the-apk:33ffeed4f9880d7ffc6dd1f754318306">4. App Manager - uninstall the apk</h3>
+<h3 id="4-app-manager-uninstall-the-apk">4. App Manager - uninstall the apk</h3>
 
 <p><img src="/images/autorotate/StageNow_4.png" alt="uninstall the apk" title="uninstall the apk" /></p>
 
-<h2 id="testing:33ffeed4f9880d7ffc6dd1f754318306">Testing</h2>
+<h2 id="testing">Testing</h2>
 
 <p>Once we&rsquo;ve created the StageNow profile, it&rsquo;s simply a matter of putting the device on the same network of the StageNow server and scan the two barcodes.<br />
 The StageNow client on the device will start downloading the apk, installing it, etc. reporting a staging succesful message at the end&hellip; hopefully :-)</p>
 
-<h2 id="where-to-go-from-here:33ffeed4f9880d7ffc6dd1f754318306">Where to go from here</h2>
+<h2 id="where-to-go-from-here">Where to go from here</h2>
 
 <p>A natural evolution of this technique would be to add more settings handling to this sample app, assigning a different Intent Extra to every parameter, so we can use a single application to manage multiple settings.</p>
 

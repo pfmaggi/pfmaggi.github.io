@@ -47,7 +47,7 @@ The funny thing is that, most of the time, answer to a question with another one
 &lt;p&gt;In this case the answer is yes, with some little help.
 &lt;img src=&#34;http://pietromaggi.com/images/autorotate/disable.gif&#34; alt=&#34;Disable AutoRotate&#34; title=&#34;Disable AutoRotate&#34; /&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;the-blueprint:33ffeed4f9880d7ffc6dd1f754318306&#34;&gt;The blueprint&lt;/h2&gt;
+&lt;h2 id=&#34;the-blueprint&#34;&gt;The blueprint&lt;/h2&gt;
 
 &lt;p&gt;The idea to implement this is to have an application on the device that can disable this setting&amp;hellip;&lt;br /&gt;
 Ok, so not really ground-breaking. But wait, there&amp;rsquo;s more.&lt;br /&gt;
@@ -61,7 +61,7 @@ Instead of having an application that blindly disable this setting, we can build
 &lt;li&gt;Uninstall the application (optional step)&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h3 id=&#34;writing-to-the-settings:33ffeed4f9880d7ffc6dd1f754318306&#34;&gt;Writing to the settings&lt;/h3&gt;
+&lt;h3 id=&#34;writing-to-the-settings&#34;&gt;Writing to the settings&lt;/h3&gt;
 
 &lt;p&gt;An Android application can update the settings if it has the permission:&lt;/p&gt;
 
@@ -75,7 +75,7 @@ Instead of having an application that blindly disable this setting, we can build
 &lt;pre&gt;&lt;code&gt;android.provider.Settings.System.putInt(getContentResolver(), Settings.System.ACCELEROMETER_ROTATION, value);
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;using-intent-extra-parameters:33ffeed4f9880d7ffc6dd1f754318306&#34;&gt;Using Intent extra parameters&lt;/h3&gt;
+&lt;h3 id=&#34;using-intent-extra-parameters&#34;&gt;Using Intent extra parameters&lt;/h3&gt;
 
 &lt;p&gt;Ok, now that we&amp;rsquo;ve a way to set the settings, we want to have a way to get a parameter from StageNow to decide if we&amp;rsquo;ve to enable or disable the Display AutoRotate setting.&lt;br /&gt;
 To do this we can use some extra parameters in the Intent that is used to launch our application:&lt;/p&gt;
@@ -93,7 +93,7 @@ if (extras != null) {
 &lt;pre&gt;&lt;code&gt;adb shell am start -n com.pietromaggi.sample.autorotate/.MainActivity --ei &amp;quot;AutoRotate&amp;quot; 0 
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;putting-the-different-pieces-together:33ffeed4f9880d7ffc6dd1f754318306&#34;&gt;Putting the different pieces together&lt;/h2&gt;
+&lt;h2 id=&#34;putting-the-different-pieces-together&#34;&gt;Putting the different pieces together&lt;/h2&gt;
 
 &lt;p&gt;To keep things simple, I&amp;rsquo;ve build a very simple demo application that implement these two features, and then closes the activity.&lt;br /&gt;
 you can find the source code &lt;a href=&#34;https://github.com/pfmaggi/autorotate&#34;&gt;in this github repository&lt;/a&gt; and the &lt;a href=&#34;https://github.com/pfmaggi/autorotate/releases/download/v1.0.0/autorotate.apk&#34;&gt;final release apk here&lt;/a&gt;.&lt;/p&gt;
@@ -102,28 +102,28 @@ you can find the source code &lt;a href=&#34;https://github.com/pfmaggi/autorota
 
 &lt;p&gt;To create the StageNow profile use the Expert Mode and add these steps:&lt;/p&gt;
 
-&lt;h3 id=&#34;1-file-manager-to-copy-the-apk-on-the-device:33ffeed4f9880d7ffc6dd1f754318306&#34;&gt;1. File Manager - to copy the apk on the device&lt;/h3&gt;
+&lt;h3 id=&#34;1-file-manager-to-copy-the-apk-on-the-device&#34;&gt;1. File Manager - to copy the apk on the device&lt;/h3&gt;
 
 &lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/autorotate/StageNow_1.png&#34; alt=&#34;Copy AutoRotate apk on the device&#34; title=&#34;Copy AutoRotate apk on the device&#34; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&#34;2-app-manager-to-install-update-the-apk:33ffeed4f9880d7ffc6dd1f754318306&#34;&gt;2. App Manager - to install/update the apk&lt;/h3&gt;
+&lt;h3 id=&#34;2-app-manager-to-install-update-the-apk&#34;&gt;2. App Manager - to install/update the apk&lt;/h3&gt;
 
 &lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/autorotate/StageNow_2.png&#34; alt=&#34;Install/update the apk&#34; title=&#34;Install/update the apk&#34; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&#34;3-intent-manager-to-launch-the-autorotate-app-with-the-disable-parameter:33ffeed4f9880d7ffc6dd1f754318306&#34;&gt;3. Intent Manager - to launch the autorotate app with the disable parameter&lt;/h3&gt;
+&lt;h3 id=&#34;3-intent-manager-to-launch-the-autorotate-app-with-the-disable-parameter&#34;&gt;3. Intent Manager - to launch the autorotate app with the disable parameter&lt;/h3&gt;
 
 &lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/autorotate/StageNow_3.png&#34; alt=&#34;launch the autorotate app with the disable parameter&#34; title=&#34;launch the autorotate app with the disable parameter&#34; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&#34;4-app-manager-uninstall-the-apk:33ffeed4f9880d7ffc6dd1f754318306&#34;&gt;4. App Manager - uninstall the apk&lt;/h3&gt;
+&lt;h3 id=&#34;4-app-manager-uninstall-the-apk&#34;&gt;4. App Manager - uninstall the apk&lt;/h3&gt;
 
 &lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/autorotate/StageNow_4.png&#34; alt=&#34;uninstall the apk&#34; title=&#34;uninstall the apk&#34; /&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;testing:33ffeed4f9880d7ffc6dd1f754318306&#34;&gt;Testing&lt;/h2&gt;
+&lt;h2 id=&#34;testing&#34;&gt;Testing&lt;/h2&gt;
 
 &lt;p&gt;Once we&amp;rsquo;ve created the StageNow profile, it&amp;rsquo;s simply a matter of putting the device on the same network of the StageNow server and scan the two barcodes.&lt;br /&gt;
 The StageNow client on the device will start downloading the apk, installing it, etc. reporting a staging succesful message at the end&amp;hellip; hopefully :-)&lt;/p&gt;
 
-&lt;h2 id=&#34;where-to-go-from-here:33ffeed4f9880d7ffc6dd1f754318306&#34;&gt;Where to go from here&lt;/h2&gt;
+&lt;h2 id=&#34;where-to-go-from-here&#34;&gt;Where to go from here&lt;/h2&gt;
 
 &lt;p&gt;A natural evolution of this technique would be to add more settings handling to this sample app, assigning a different Intent Extra to every parameter, so we can use a single application to manage multiple settings.&lt;/p&gt;
 
@@ -683,14 +683,14 @@ The final version of the application, managing the state, can be find on github 
 &lt;p&gt;First technical post for 2016. Finally!&lt;/p&gt;
 
 &lt;p&gt;To kick-start 2016 I&amp;rsquo;ve chosen a topic that is more and more relevant in our market: The changes introduced by Google in Android v4.4 KitKat, regarding the secondary storage (the SDCard).&lt;br /&gt;
-I&amp;rsquo;ve already talked about this in my AppForum 2015 talk last October in London&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;, but I want to add some extra info and rationales here.&lt;/p&gt;
+I&amp;rsquo;ve already talked about this in my AppForum 2015 talk last October in London&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:51c058b2f0ea7a68582777f63f59ded1:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:51c058b2f0ea7a68582777f63f59ded1:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;, but I want to add some extra info and rationales here.&lt;/p&gt;
 
-&lt;h2 id=&#34;a-bit-of-background&#34;&gt;A bit of background&lt;/h2&gt;
+&lt;h2 id=&#34;a-bit-of-background:51c058b2f0ea7a68582777f63f59ded1&#34;&gt;A bit of background&lt;/h2&gt;
 
 &lt;p&gt;Android&amp;rsquo;s purpose is to establish an open platform for developers to build innovative apps.
 For this reason, Google put in place a compatibility program that defines technical details of the Android Platform;&lt;/p&gt;
 
-&lt;p&gt;For every Android release, there&amp;rsquo;s a Compatibility Definition Document, the last available at this moment is for &lt;a href=&#34;http://static.googleusercontent.com/media/source.android.com/it//compatibility/6.0/android-6.0-cdd.pdf&#34;&gt;Android 6.0, aka Marshmallow&lt;/a&gt;, that defines some of the technical features and device needs to have to be a compatible Android device. And this compatibility is a requirement to be able to license GMS&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:2&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:2&#34;&gt;2&lt;/a&gt;&lt;/sup&gt; for the device.&lt;/p&gt;
+&lt;p&gt;For every Android release, there&amp;rsquo;s a Compatibility Definition Document, the last available at this moment is for &lt;a href=&#34;http://static.googleusercontent.com/media/source.android.com/it//compatibility/6.0/android-6.0-cdd.pdf&#34;&gt;Android 6.0, aka Marshmallow&lt;/a&gt;, that defines some of the technical features and device needs to have to be a compatible Android device. And this compatibility is a requirement to be able to license GMS&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:51c058b2f0ea7a68582777f63f59ded1:2&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:51c058b2f0ea7a68582777f63f59ded1:2&#34;&gt;2&lt;/a&gt;&lt;/sup&gt; for the device.&lt;/p&gt;
 
 &lt;p&gt;To put it clearly:&lt;/p&gt;
 
@@ -700,7 +700,7 @@ For this reason, Google put in place a compatibility program that defines techni
 
 &lt;p&gt;Here we&amp;rsquo;re talking about Android v4.4 KitKat, so here&amp;rsquo;s a link to &lt;a href=&#34;http://source.android.com/compatibility/4.4/android-4.4-cdd.pdf&#34;&gt;Android 4.4 CDD&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;what-s-the-catch&#34;&gt;What&amp;rsquo;s the catch?&lt;/h2&gt;
+&lt;h2 id=&#34;what-s-the-catch:51c058b2f0ea7a68582777f63f59ded1&#34;&gt;What&amp;rsquo;s the catch?&lt;/h2&gt;
 
 &lt;p&gt;From the CDD, Android devices are required to have a Secondary Storage available with a minimum 1GB size if you don&amp;rsquo;t have this internal in your device but you provide an SDCard slot, you need to ship the device with an SDCard, again, 1GB minimum size.&lt;br /&gt;
 So usually, you end up that the SDCard is your &lt;em&gt;Secondary External Storage&lt;/em&gt;, and the &lt;em&gt;Primary External Storage&lt;/em&gt; is the 1GB partition (minimum) you included in the device.&lt;/p&gt;
@@ -716,7 +716,7 @@ So usually, you end up that the SDCard is your &lt;em&gt;Secondary External Stor
 &lt;li&gt;&lt;code&gt;WRITE_EXTERNAL_STORAGE&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;These will gave you read&amp;amp;write access to all the External Storage available&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:3&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:3&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;.&lt;br /&gt;
+&lt;p&gt;These will gave you read&amp;amp;write access to all the External Storage available&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:51c058b2f0ea7a68582777f63f59ded1:3&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:51c058b2f0ea7a68582777f63f59ded1:3&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;.&lt;br /&gt;
 Given that there are ways to gently ask for the &lt;a href=&#34;http://pietromaggi.com/2014/10/19/finding-the-sdcard-path-on-android-devices/&#34;&gt;SDCard true path&lt;/a&gt; this was more or less working.&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -728,7 +728,7 @@ Given that there are ways to gently ask for the &lt;a href=&#34;http://pietromag
 &lt;p&gt;In Android v4.4 Google decides to go a step further mandating that an app can write (with the right permissions that we just saw) only on the Primary External Storage. For all the other External Storage, an app can only write in its package folder. e.g. if you app package is com.pietromaggi.sample.externalstorage, It can only write in the folders &lt;code&gt;&amp;lt;sdcard root&amp;gt;/Android/data/com.pietromaggi.sample.externalstorage&lt;/code&gt;.&lt;br /&gt;
 There&amp;rsquo;s no way, for a normal application, to write anywhere else on the SDCard.&lt;/p&gt;
 
-&lt;h2 id=&#34;ok-but-there-s-an-happy-end-somewhere&#34;&gt;OK, but there&amp;rsquo;s an happy end somewhere?&lt;/h2&gt;
+&lt;h2 id=&#34;ok-but-there-s-an-happy-end-somewhere:51c058b2f0ea7a68582777f63f59ded1&#34;&gt;OK, but there&amp;rsquo;s an happy end somewhere?&lt;/h2&gt;
 
 &lt;p&gt;Really, if you&amp;rsquo;re trying to get a way to revert Android behavior to what it was before API level 19, no, this is it.&lt;br /&gt;
 Luckily Google has introduced new API in KitKat (and Lollipop and Marshmallow) that allows to mitigate the issue. Some user interventions may be needed but at least there are standard APIs available.&lt;/p&gt;
@@ -739,12 +739,12 @@ Luckily Google has introduced new API in KitKat (and Lollipop and Marshmallow) t
 &lt;hr /&gt;
 
 &lt;ol&gt;
-&lt;li id=&#34;fn:1&#34;&gt;Slides presented in London: &lt;script async class=&#39;speakerdeck-embed&#39; data-id=&#39;ef4248bf72454b2e9602db55bdf1e8ed&#39; data-ratio=&#39;1.33333333333333&#39; src=&#39;//speakerdeck.com/assets/embed.js&#39;&gt;&lt;/script&gt;
- &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li id=&#34;fn:2&#34;&gt;GMS Stands for Google Mobile Services, and is the collection of services and application built by Google that are not part of AOSP (Android Open Source Project) like GMail, Google Maps, Google Play Store and the push notification service GCM (Google Cloud Messaging).
- &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:2&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li id=&#34;fn:3&#34;&gt;The catch is that, before Android v4.4, API level 19, and the introduction of the &lt;code&gt;Environment.getExternalFilesDirs()&lt;/code&gt; there was no way to know how many External Storage you had available on a device. The only available API was &lt;code&gt;Environment.getExternalStorageDirectory()&lt;/code&gt; that returns the Primary External Storage.
- &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:3&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:51c058b2f0ea7a68582777f63f59ded1:1&#34;&gt;Slides presented in London: &lt;script async class=&#39;speakerdeck-embed&#39; data-id=&#39;ef4248bf72454b2e9602db55bdf1e8ed&#39; data-ratio=&#39;1.33333333333333&#39; src=&#39;//speakerdeck.com/assets/embed.js&#39;&gt;&lt;/script&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:51c058b2f0ea7a68582777f63f59ded1:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:51c058b2f0ea7a68582777f63f59ded1:2&#34;&gt;GMS Stands for Google Mobile Services, and is the collection of services and application built by Google that are not part of AOSP (Android Open Source Project) like GMail, Google Maps, Google Play Store and the push notification service GCM (Google Cloud Messaging).
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:51c058b2f0ea7a68582777f63f59ded1:2&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:51c058b2f0ea7a68582777f63f59ded1:3&#34;&gt;The catch is that, before Android v4.4, API level 19, and the introduction of the &lt;code&gt;Environment.getExternalFilesDirs()&lt;/code&gt; there was no way to know how many External Storage you had available on a device. The only available API was &lt;code&gt;Environment.getExternalStorageDirectory()&lt;/code&gt; that returns the Primary External Storage.
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:51c058b2f0ea7a68582777f63f59ded1:3&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
 </description>
@@ -781,13 +781,13 @@ I&amp;rsquo;ll will probably spend some time in the future to refine the layout,
       <guid>http://pietromaggi.com/2015/11/25/building-zebras-emdk-project-using-sdk-platform-23/</guid>
       <description>
 
-&lt;h1 id=&#34;note-emdk-4-0-is-now-documenting-this-method-to-add-com-symbol-emdk-jar-as-a-dependency-http-techdocs-zebra-com-emdk-for-android-4-0-tutorial-tutcreateprojectandroidstudio-emdkasadependencyingradlebuild:a73dc43b5349510a6429445ab1819abf&#34;&gt;Note: &lt;a href=&#34;http://techdocs.zebra.com/emdk-for-android/4-0/tutorial/tutCreateProjectAndroidStudio/#emdkasadependencyingradlebuild&#34;&gt;EMDK 4.0 is now documenting this method to add com.symbol.emdk.jar as a dependency&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id=&#34;note-emdk-4-0-is-now-documenting-this-method-to-add-com-symbol-emdk-jar-as-a-dependency-http-techdocs-zebra-com-emdk-for-android-4-0-tutorial-tutcreateprojectandroidstudio-emdkasadependencyingradlebuild&#34;&gt;Note: &lt;a href=&#34;http://techdocs.zebra.com/emdk-for-android/4-0/tutorial/tutCreateProjectAndroidStudio/#emdkasadependencyingradlebuild&#34;&gt;EMDK 4.0 is now documenting this method to add com.symbol.emdk.jar as a dependency&lt;/a&gt;&lt;/h1&gt;
 
 &lt;p&gt;There&amp;rsquo;s a recurring question coming to me and to Launchpad&amp;rsquo;s forums lately:&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://developer.zebra.com/message/86287#86287&#34;&gt;&lt;em&gt;How can I compile my Android app, using Zebra&amp;rsquo;s EMDK, if I need the latest support library?&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;h1 id=&#34;some-background:a73dc43b5349510a6429445ab1819abf&#34;&gt;Some background&lt;/h1&gt;
+&lt;h1 id=&#34;some-background&#34;&gt;Some background&lt;/h1&gt;
 
 &lt;p&gt;With the Android tools moving super-fast (Android studio v1.0 launched at the beginning of 2015, the latest stable release is v1.4.1, we already have v1.5RC and v2.0 has been announced&amp;hellip;) keeping up to this pace is not easy for our EMDK team!&lt;/p&gt;
 
@@ -797,7 +797,7 @@ I&amp;rsquo;ll will probably spend some time in the future to refine the layout,
 
 &lt;p&gt;&lt;em&gt;Here we can have a problem&lt;/em&gt;&lt;/p&gt;
 
-&lt;h1 id=&#34;using-zebra-s-emdk:a73dc43b5349510a6429445ab1819abf&#34;&gt;Using Zebra&amp;rsquo;s EMDK&lt;/h1&gt;
+&lt;h1 id=&#34;using-zebra-s-emdk&#34;&gt;Using Zebra&amp;rsquo;s EMDK&lt;/h1&gt;
 
 &lt;p&gt;So, talking just about Android Studio, that is the current up-to-date Android IDE, we currently document two ways to use the EMDK:&lt;/p&gt;
 
@@ -808,11 +808,11 @@ I&amp;rsquo;ll will probably spend some time in the future to refine the layout,
 
 &lt;p&gt;Both methods fails to compile a project using the latest Android Support Library.&lt;/p&gt;
 
-&lt;h1 id=&#34;a-little-gradle-magic:a73dc43b5349510a6429445ab1819abf&#34;&gt;A little gradle magic&lt;/h1&gt;
+&lt;h1 id=&#34;a-little-gradle-magic&#34;&gt;A little gradle magic&lt;/h1&gt;
 
 &lt;p&gt;Here&amp;rsquo;s a third, &lt;strong&gt;UNOFFICIAL&lt;/strong&gt;, way to include the EMDK in an Android project and use the latest available SDK to build the project.&lt;/p&gt;
 
-&lt;h2 id=&#34;copy-the-lib-file-in-your-project:a73dc43b5349510a6429445ab1819abf&#34;&gt;Copy the lib file in your project&lt;/h2&gt;
+&lt;h2 id=&#34;copy-the-lib-file-in-your-project&#34;&gt;Copy the lib file in your project&lt;/h2&gt;
 
 &lt;p&gt;First of all, create in your Android project a lib folder and copy into it the com.symbol.emdk.jar library that you got installing the EMDK on your PC/Mac:&lt;/p&gt;
 
@@ -824,7 +824,7 @@ I&amp;rsquo;ll will probably spend some time in the future to refine the layout,
 
 &lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/EMDK_gradle/Android_Project2.jpg&#34; alt=&#34;Project Files Panel View&#34; title=&#34;Project Files Panel View&#34; /&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;modify-the-build-gradle-file:a73dc43b5349510a6429445ab1819abf&#34;&gt;Modify the build.gradle file&lt;/h2&gt;
+&lt;h2 id=&#34;modify-the-build-gradle-file&#34;&gt;Modify the build.gradle file&lt;/h2&gt;
 
 &lt;p&gt;OK, once the file is included in our project (and this means that you can check in this file in your SCM and checkout on a new PC and rebuilt it without the need to Zebra EMDK installed) we can explain to Android Studio how to use it. To do this we need to modify the &lt;code&gt;build.gradle&lt;/code&gt; file included in the app folder. If you&amp;rsquo;ve switched back to the &amp;laquo;Android Project view&amp;raquo;, this is the Module: App, gradle file. As shown below:&lt;/p&gt;
 
@@ -856,7 +856,7 @@ I&amp;rsquo;ll will probably spend some time in the future to refine the layout,
       <guid>http://pietromaggi.com/2015/09/25/android-back-button-and-enterprise-browser/</guid>
       <description>
 
-&lt;h2 id=&#34;edit:7f473ce4cff36ed9ec3742536e6fab0f&#34;&gt;Edit&lt;/h2&gt;
+&lt;h2 id=&#34;edit&#34;&gt;Edit&lt;/h2&gt;
 
 &lt;p&gt;Enteprise Browser v1.3 introduced a change that requires to enable &lt;code&gt;FunctionKeysCapturable&lt;/code&gt; to be able to use the KeyCapture API.&lt;br /&gt;
 To do this you need to update your &lt;code&gt;Config.xml&lt;/code&gt; with:&lt;/p&gt;
@@ -864,14 +864,14 @@ To do this you need to update your &lt;code&gt;Config.xml&lt;/code&gt; with:&lt;
 &lt;pre&gt;&lt;code&gt;&amp;lt;FunctionKeysCapturable                 value=&amp;quot;1&amp;quot;/&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;enterprise-browser:7f473ce4cff36ed9ec3742536e6fab0f&#34;&gt;Enterprise Browser&lt;/h2&gt;
+&lt;h2 id=&#34;enterprise-browser&#34;&gt;Enterprise Browser&lt;/h2&gt;
 
 &lt;p&gt;Enterprise Browser is Zebra Technologies&amp;rsquo; Industrial Browser built for our Rugged Devices, we support most of our Windows Mobile/Windows CE devices and Android devices.&lt;/p&gt;
 
 &lt;p&gt;This product is usually used with existing web application that cannot be updated/modified moving from one device to another.
 This help us winning some opportunities but sometimes present some unique challenges like, as an example, disabling the Android back button default behavior.&lt;/p&gt;
 
-&lt;h2 id=&#34;back-button-on-android:7f473ce4cff36ed9ec3742536e6fab0f&#34;&gt;Back Button on Android?&lt;/h2&gt;
+&lt;h2 id=&#34;back-button-on-android&#34;&gt;Back Button on Android?&lt;/h2&gt;
 
 &lt;p&gt;Given that this is a cross-platform product (built on top of our RhoMobile Suite) we don&amp;rsquo;t have a custom settings to disable the back button in the Config.xml configuration file, however it is still possible to add a default Metatags in the configuration so that no changes in the existing pages are needed.&lt;/p&gt;
 
@@ -903,7 +903,7 @@ This help us winning some opportunities but sometimes present some unique challe
 
 &lt;p&gt;We&amp;rsquo;ve a solution for this issue: having a &lt;code&gt;DefaultMetaTags&lt;/code&gt; in Enterprise Browser&amp;rsquo;s configuration.&lt;/p&gt;
 
-&lt;h2 id=&#34;what-s-a-defaultmetatags:7f473ce4cff36ed9ec3742536e6fab0f&#34;&gt;What&amp;rsquo;s a DefaultMetaTags&lt;/h2&gt;
+&lt;h2 id=&#34;what-s-a-defaultmetatags&#34;&gt;What&amp;rsquo;s a DefaultMetaTags&lt;/h2&gt;
 
 &lt;p&gt;We can start from the &lt;a href=&#34;https://developer.motorolasolutions.com/docs/DOC-2571#defaultmetatags&#34;&gt;documentation&lt;/a&gt;, what does it means?&lt;/p&gt;
 
@@ -918,7 +918,7 @@ This help us winning some opportunities but sometimes present some unique challe
 
 &lt;p&gt;BTW: &lt;code&gt;0xA6&lt;/code&gt; is the correct value for the Back Button on a TC55 running Android v4.4 KitKat.&lt;/p&gt;
 
-&lt;h2 id=&#34;closing-comments:7f473ce4cff36ed9ec3742536e6fab0f&#34;&gt;Closing comments&lt;/h2&gt;
+&lt;h2 id=&#34;closing-comments&#34;&gt;Closing comments&lt;/h2&gt;
 
 &lt;p&gt;Enterprise Browser&amp;rsquo;s &lt;code&gt;DefaultMetaTags&lt;/code&gt; is a very flexible way to &amp;laquo;patch&amp;raquo; an existing Web application without touching its source code.&lt;/p&gt;
 
@@ -961,7 +961,7 @@ This is not a problem unique to the TC55, it&amp;rsquo;s a common problem on And
 
 &lt;p&gt;Given that we&amp;rsquo;ve the luxury to target just a few devices, the Motorola Solutions one :-), the best option is to use the environment variables.&lt;/p&gt;
 
-&lt;h3 id=&#34;let-s-see-what-happens-on-the-tc55&#34;&gt;Let&amp;rsquo;s see what happens on the TC55&lt;/h3&gt;
+&lt;h3 id=&#34;let-s-see-what-happens-on-the-tc55:bc798595bb5986dd70a35d55131e88d5&#34;&gt;Let&amp;rsquo;s see what happens on the TC55&lt;/h3&gt;
 
 &lt;p&gt;On this device, using &lt;code&gt;Environment.getExternalStorageDirectory();&lt;/code&gt; returns different results depending if you&amp;rsquo;ve installed or not an SDCard:&lt;/p&gt;
 
@@ -1036,7 +1036,7 @@ if ((null == strSDCardPath) || (strSDCardPath.length() == 0)) {
       <guid>http://pietromaggi.com/2014/09/02/getting-device-info-from-msi-android-devices/</guid>
       <description>
 
-&lt;h1 id=&#34;the-good-old-ways:fc4a5c33de3ac7ed61c6a8c68c9cf289&#34;&gt;The good old ways!&lt;/h1&gt;
+&lt;h1 id=&#34;the-good-old-ways&#34;&gt;The good old ways!&lt;/h1&gt;
 
 &lt;p&gt;On Symbol/MSI Windows Mobile devices, we where providing some APIs in the EMDK to get additional information.
 Looking into the Resource Coordinator is possible to find APIs like:&lt;/p&gt;
@@ -1054,11 +1054,11 @@ Looking into the Resource Coordinator is possible to find APIs like:&lt;/p&gt;
 
 &lt;p&gt;Let&amp;rsquo;s see how to get this is data on an MSI device with the Android OS.&lt;/p&gt;
 
-&lt;h1 id=&#34;the-fabulous-new-way:fc4a5c33de3ac7ed61c6a8c68c9cf289&#34;&gt;The fabulous new way!&lt;/h1&gt;
+&lt;h1 id=&#34;the-fabulous-new-way&#34;&gt;The fabulous new way!&lt;/h1&gt;
 
 &lt;p&gt;You can find the completed project in &lt;a href=&#34;https://github.com/pfmaggi/GetDeviceInfo&#34;&gt;this repository&lt;/a&gt; on my github account, I&amp;rsquo;m using Windows 7 and Eclipse+ADT, but you can follow these steps with Android Studio quite nicely.&lt;/p&gt;
 
-&lt;h1 id=&#34;create-a-new-project:fc4a5c33de3ac7ed61c6a8c68c9cf289&#34;&gt;Create a new Project&lt;/h1&gt;
+&lt;h1 id=&#34;create-a-new-project&#34;&gt;Create a new Project&lt;/h1&gt;
 
 &lt;p&gt;Create a new Android project, nothing fancy here, it&amp;rsquo;s just a standard app with a single Blank Activity.
 You can follow these images as a guideline. Your interface may vary as Google updates the Android wizard quite often.&lt;/p&gt;
@@ -1178,7 +1178,7 @@ public class MainActivity extends ActionBarActivity {
 }
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h1 id=&#34;where-s-the-tricks:fc4a5c33de3ac7ed61c6a8c68c9cf289&#34;&gt;Where&amp;rsquo;s the tricks?&lt;/h1&gt;
+&lt;h1 id=&#34;where-s-the-tricks&#34;&gt;Where&amp;rsquo;s the tricks?&lt;/h1&gt;
 
 &lt;p&gt;There&amp;rsquo;s really no trick, Android SDK provide this information, and more using these constants:&lt;/p&gt;
 
@@ -1662,13 +1662,13 @@ Once the .iso file has been created, drag this to Disk Utility and hit the Burn 
       <guid>http://pietromaggi.com/2014/01/02/diving-into-android-source-code/</guid>
       <description>
 
-&lt;h2 id=&#34;why-dive-into-android-code&#34;&gt;Why dive into Android code?&lt;/h2&gt;
+&lt;h2 id=&#34;why-dive-into-android-code:29c65bc279e3a113bf9cc4bb66b79657&#34;&gt;Why dive into Android code?&lt;/h2&gt;
 
 &lt;p&gt;When you&amp;rsquo;ve to write applications for Android, you&amp;rsquo;re targeting a giant moving API surface, sometimes you can be surprised of some different behavior in different Android versions or with an API call that is not well documented, so having the option to delve into Android Source Code is a great opportunity.&lt;/p&gt;
 
 &lt;p&gt;A lot of things can be written on how to do this, there&amp;rsquo;s some documentation available on &lt;a href=&#34;http://source.android.com/source/index.html&#34;&gt;AOSP website&lt;/a&gt;, however I think that the best starting point is a video tutorial by NewCircle&amp;rsquo;s Instructor Dave Smith on this very topic:&lt;/p&gt;
 
-&lt;h4 id=&#34;diving-into-android-source-code&#34;&gt;Diving into Android Source Code&lt;/h4&gt;
+&lt;h4 id=&#34;diving-into-android-source-code:29c65bc279e3a113bf9cc4bb66b79657&#34;&gt;Diving into Android Source Code&lt;/h4&gt;
 
 
 &lt;div style=&#34;position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;&#34;&gt;
@@ -1678,11 +1678,11 @@ Once the .iso file has been created, drag this to Disk Utility and hit the Burn 
 
 &lt;p&gt;So, take your time to setup your own copy of the Android source code and, next time you&amp;rsquo;re asking yourself &amp;laquo;What&amp;rsquo;s going on when you call an API, you can check the source code!&amp;raquo;&lt;/p&gt;
 
-&lt;h2 id=&#34;on-a-similar-topic-dalvik-vm&#34;&gt;On a similar topic: Dalvik VM&lt;/h2&gt;
+&lt;h2 id=&#34;on-a-similar-topic-dalvik-vm:29c65bc279e3a113bf9cc4bb66b79657&#34;&gt;On a similar topic: Dalvik VM&lt;/h2&gt;
 
 &lt;p&gt;Dan Bernstein has presented at Google I/O 2008 a talk about the internals of Dalvik VM:&lt;/p&gt;
 
-&lt;h4 id=&#34;dalvik-virtual-machine-internals&#34;&gt;Dalvik Virtual Machine Internals&lt;/h4&gt;
+&lt;h4 id=&#34;dalvik-virtual-machine-internals:29c65bc279e3a113bf9cc4bb66b79657&#34;&gt;Dalvik Virtual Machine Internals&lt;/h4&gt;
 
 &lt;p&gt;
 &lt;div style=&#34;position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;&#34;&gt;
