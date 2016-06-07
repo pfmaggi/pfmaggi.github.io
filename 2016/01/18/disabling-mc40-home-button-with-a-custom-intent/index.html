@@ -216,19 +216,19 @@
   <div class="container content">
   
 
-<h2 id="intro">Intro</h2>
+<h2 id="intro:2e1fe568b32c202e94702c6e9dd9eda0">Intro</h2>
 
 <p>Zebra Technologies&rsquo; devices are purpose built to be single use devices. Having an OS like Android nowadays provides a lot of flexibility&hellip;  sometimes a bit too much.<br />
 With this idea in mind, the Android version used on these devices sometimes provide some nice surprise, like an Intent to disable the omnipresent Android&rsquo;s Home button.</p>
 
-<h2 id="the-basic-idea">The basic idea</h2>
+<h2 id="the-basic-idea:2e1fe568b32c202e94702c6e9dd9eda0">The basic idea</h2>
 
-<p>MC40 support an <a href="http://developer.android.com/reference/android/content/Intent.html">Android intent</a> to disable the normal Home button behavior: <em>You can disable it and there&rsquo;s no way to exit from the foreground application</em> <sup class="footnote-ref" id="fnref:1"><a rel="footnote" href="#fn:1">1</a></sup>.</p>
+<p>MC40 support an <a href="http://developer.android.com/reference/android/content/Intent.html">Android intent</a> to disable the normal Home button behavior: <em>You can disable it and there&rsquo;s no way to exit from the foreground application</em> <sup class="footnote-ref" id="fnref:2e1fe568b32c202e94702c6e9dd9eda0:1"><a rel="footnote" href="#fn:2e1fe568b32c202e94702c6e9dd9eda0:1">1</a></sup>.</p>
 
 <p><a href="https://developer.zebra.com/community/android/android-forums/android-blogs/blog/2014/12/19/disabling-home-button-via-intent-mc40">You can find a blog by Pavel Machala briefly describing the idea on Launchpad</a>.<br />
 Here I want to present a simple sample that show how to use this intent, covering the only issue that is: <em>handling re-branded devices</em></p>
 
-<h2 id="project-setup">Project setup</h2>
+<h2 id="project-setup:2e1fe568b32c202e94702c6e9dd9eda0">Project setup</h2>
 
 <p>We start creating a new Android application in Android Studio (I&rsquo;m using Android Studio v1.5.1 with Build tools 23.0.1, you&rsquo;re mileage can vary if you&rsquo;re using a different setup).</p>
 
@@ -301,7 +301,7 @@ public class MainActivity extends AppCompatActivity {
 
 <p>Next step would be to check that we&rsquo;re really running on a Zebra Technologies&rsquo; MC40, and then adding some logic to the app.</p>
 
-<h2 id="dealing-with-multiple-os-versions-and-re-branding">Dealing with multiple OS versions and re-branding</h2>
+<h2 id="dealing-with-multiple-os-versions-and-re-branding:2e1fe568b32c202e94702c6e9dd9eda0">Dealing with multiple OS versions and re-branding</h2>
 
 <p>First we check that we&rsquo;re running on a Zebra&rsquo;s MC40 using a couple of Android constant:</p>
 
@@ -401,7 +401,7 @@ public class MainActivity extends AppCompatActivity {
 
 <p><img src="/images/samples/mc40_home_btn/Screenshot_tag2.png" alt="MC40 Screenshot of the app as recorded at tag2" title="MC40 Screenshot of the app as recorded at tag2" /></p>
 
-<h2 id="managing-state">Managing state</h2>
+<h2 id="managing-state:2e1fe568b32c202e94702c6e9dd9eda0">Managing state</h2>
 
 <p>The application now works as expected, but with an issue linked to not managing the state. As an example, simply rotating the device, the Activity is destroyed to create a new one with the standard behavior to disable the Home Button, even if we just re-enabled it using the <code>toggle</code> button.<br />
 An easy solution is to add some code to manage the Application status overriding the <code>onSaveInstanceState(Bundle)</code> method:</p>
@@ -420,14 +420,14 @@ The final version of the application, managing the state, can be find on github 
 
 <hr />
 
-<h5 id="notes">Notes</h5>
+<h5 id="notes:2e1fe568b32c202e94702c6e9dd9eda0">Notes</h5>
 <div class="footnotes">
 
 <hr />
 
 <ol>
-<li id="fn:1">If your app locks down a few other things or you&rsquo;re using something like Zebra&rsquo;s <a href="https://www.zebra.com/us/en/products/software/mobile-computers/mobile-app-utilities/enterprise-home-screen.html">Enterprise Home Screen</a>.
- <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+<li id="fn:2e1fe568b32c202e94702c6e9dd9eda0:1">If your app locks down a few other things or you&rsquo;re using something like Zebra&rsquo;s <a href="https://www.zebra.com/us/en/products/software/mobile-computers/mobile-app-utilities/enterprise-home-screen.html">Enterprise Home Screen</a>.
+ <a class="footnote-return" href="#fnref:2e1fe568b32c202e94702c6e9dd9eda0:1"><sup>[return]</sup></a></li>
 </ol>
 </div>
 

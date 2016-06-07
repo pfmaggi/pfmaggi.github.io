@@ -9,8 +9,127 @@
     <managingEditor>pfm@pietromaggi.com (Pietro F. Maggi)</managingEditor>
     <webMaster>pfm@pietromaggi.com (Pietro F. Maggi)</webMaster>
     <copyright>(c) 2013-2016 Pietro F. Maggi</copyright>
-    <lastBuildDate>Thu, 26 May 2016 20:00:00 +0100</lastBuildDate>
+    <lastBuildDate>Tue, 07 Jun 2016 20:00:00 +0100</lastBuildDate>
     <atom:link href="http://pietromaggi.com/tags/android/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Managing Display AutoRotation from StageNow</title>
+      <link>http://pietromaggi.com/2016/06/07/managing-display-autorotation-from-stagenow/</link>
+      <pubDate>Tue, 07 Jun 2016 20:00:00 +0100</pubDate>
+      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <guid>http://pietromaggi.com/2016/06/07/managing-display-autorotation-from-stagenow/</guid>
+      <description>
+
+&lt;p&gt;Another busy day with enquiry about our devices/tools.&lt;br /&gt;
+The funny thing is that, most of the time, answer to a question with another one is actually a good strategy :-)&lt;/p&gt;
+
+&lt;p&gt;This one cames from my colleague Raymond:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Can we launch an adb commands from Stagenow?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The quick answer is no, the right answer is: &lt;em&gt;what are you trying to achieve?&lt;/em&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;I need a way to disable the Disaply AutoRotate setting, something that is possible to do using an &lt;code&gt;adb shell&lt;/code&gt; command:&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code&gt;adb shell content insert --uri content://settings/system --bind name:s:accelerometer_rotation 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Ok, so the real question is:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Can I disable Display AutoRotation using StageNow?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;In this case the answer is yes, with some little help.
+&lt;img src=&#34;http://pietromaggi.com/images/autorotate/disable.gif&#34; alt=&#34;Disable AutoRotate&#34; title=&#34;Disable AutoRotate&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;the-blueprint:33ffeed4f9880d7ffc6dd1f754318306&#34;&gt;The blueprint&lt;/h2&gt;
+
+&lt;p&gt;The idea to implement this is to have an application on the device that can disable this setting&amp;hellip;&lt;br /&gt;
+Ok, so not really ground-breaking. But wait, there&amp;rsquo;s more.&lt;br /&gt;
+Instead of having an application that blindly disable this setting, we can build it so that we can launch it with different arguments and act on the arguments.&lt;/p&gt;
+
+&lt;p&gt;To give you the complete picture, we can think that to implement the complete solution we need few steps in StageNow:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Install the application on the device&lt;/li&gt;
+&lt;li&gt;Launch the application with the proper argument (activate or deactivate AutoRotate in this case)&lt;/li&gt;
+&lt;li&gt;Uninstall the application (optional step)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;writing-to-the-settings:33ffeed4f9880d7ffc6dd1f754318306&#34;&gt;Writing to the settings&lt;/h3&gt;
+
+&lt;p&gt;An Android application can update the settings if it has the permission:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;android.permission.WRITE_SETTINGS
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Just keep in mind that &lt;a href=&#34;https://developer.android.com/reference/android/Manifest.permission.html#WRITE_SETTINGS&#34;&gt;this does not allow full access to the settings&lt;/a&gt;, since Android v4.2.2, Google moved some of the settings under the &lt;em&gt;Secure Settings&lt;/em&gt; that requires a different permission that can be granted only to application that resides in the system folder or are signed with the platform keys. For additional information take a look at &lt;a href=&#34;https://developer.android.com/reference/android/Manifest.permission.html#WRITE_SECURE_SETTINGS&#34;&gt;&lt;code&gt;android.permission.WRITE_SECURE_SETTINGS&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Given that you application has the permission to write to the settings you can use the following code to write a new value to the AutoRotate setting:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;android.provider.Settings.System.putInt(getContentResolver(), Settings.System.ACCELEROMETER_ROTATION, value);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;using-intent-extra-parameters:33ffeed4f9880d7ffc6dd1f754318306&#34;&gt;Using Intent extra parameters&lt;/h3&gt;
+
+&lt;p&gt;Ok, now that we&amp;rsquo;ve a way to set the settings, we want to have a way to get a parameter from StageNow to decide if we&amp;rsquo;ve to enable or disable the Display AutoRotate setting.&lt;br /&gt;
+To do this we can use some extra parameters in the Intent that is used to launch our application:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;private final static String KEY_ROTATION = &amp;quot;AutoRotate&amp;quot;;
+
+Bundle extras = getIntent().getExtras();
+if (extras != null) {
+    value = extras.getInt(KEY_ROTATION);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now, from the command line, &lt;code&gt;adb shell&lt;/code&gt; to send the right parameter to our sample app:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;adb shell am start -n com.pietromaggi.sample.autorotate/.MainActivity --ei &amp;quot;AutoRotate&amp;quot; 0 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;putting-the-different-pieces-together:33ffeed4f9880d7ffc6dd1f754318306&#34;&gt;Putting the different pieces together&lt;/h2&gt;
+
+&lt;p&gt;To keep things simple, I&amp;rsquo;ve build a very simple demo application that implement these two features, and then closes the activity.&lt;br /&gt;
+you can find the source code &lt;a href=&#34;https://github.com/pfmaggi/autorotate&#34;&gt;in this github repository&lt;/a&gt; and the &lt;a href=&#34;https://github.com/pfmaggi/autorotate/releases/download/v1.0.0/autorotate.apk&#34;&gt;final release apk here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;This on the device, we now need to put together the StageNow profile that install the apk and then send the intent to our application.&lt;/p&gt;
+
+&lt;p&gt;To create the StageNow profile use the Expert Mode and add these steps:&lt;/p&gt;
+
+&lt;h3 id=&#34;1-file-manager-to-copy-the-apk-on-the-device:33ffeed4f9880d7ffc6dd1f754318306&#34;&gt;1. File Manager - to copy the apk on the device&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/autorotate/StageNow_1.png&#34; alt=&#34;Copy AutoRotate apk on the device&#34; title=&#34;Copy AutoRotate apk on the device&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;2-app-manager-to-install-update-the-apk:33ffeed4f9880d7ffc6dd1f754318306&#34;&gt;2. App Manager - to install/update the apk&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/autorotate/StageNow_2.png&#34; alt=&#34;Install/update the apk&#34; title=&#34;Install/update the apk&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;3-intent-manager-to-launch-the-autorotate-app-with-the-disable-parameter:33ffeed4f9880d7ffc6dd1f754318306&#34;&gt;3. Intent Manager - to launch the autorotate app with the disable parameter&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/autorotate/StageNow_3.png&#34; alt=&#34;launch the autorotate app with the disable parameter&#34; title=&#34;launch the autorotate app with the disable parameter&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;4-app-manager-uninstall-the-apk:33ffeed4f9880d7ffc6dd1f754318306&#34;&gt;4. App Manager - uninstall the apk&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/autorotate/StageNow_4.png&#34; alt=&#34;uninstall the apk&#34; title=&#34;uninstall the apk&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;testing:33ffeed4f9880d7ffc6dd1f754318306&#34;&gt;Testing&lt;/h2&gt;
+
+&lt;p&gt;Once we&amp;rsquo;ve created the StageNow profile, it&amp;rsquo;s simply a matter of putting the device on the same network of the StageNow server and scan the two barcodes.&lt;br /&gt;
+The StageNow client on the device will start downloading the apk, installing it, etc. reporting a staging succesful message at the end&amp;hellip; hopefully :-)&lt;/p&gt;
+
+&lt;h2 id=&#34;where-to-go-from-here:33ffeed4f9880d7ffc6dd1f754318306&#34;&gt;Where to go from here&lt;/h2&gt;
+
+&lt;p&gt;A natural evolution of this technique would be to add more settings handling to this sample app, assigning a different Intent Extra to every parameter, so we can use a single application to manage multiple settings.&lt;/p&gt;
+
+&lt;p&gt;Let me know if you&amp;rsquo;ve any comment/request about this topic.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Enterprise Browser and DataWedge on Android - friends at the end</title>
@@ -336,19 +455,19 @@ Personally I think that if you want to customize your web app to have a better i
       <guid>http://pietromaggi.com/2016/01/18/disabling-mc40-home-button-with-a-custom-intent/</guid>
       <description>
 
-&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+&lt;h2 id=&#34;intro:2e1fe568b32c202e94702c6e9dd9eda0&#34;&gt;Intro&lt;/h2&gt;
 
 &lt;p&gt;Zebra Technologies&amp;rsquo; devices are purpose built to be single use devices. Having an OS like Android nowadays provides a lot of flexibility&amp;hellip;  sometimes a bit too much.&lt;br /&gt;
 With this idea in mind, the Android version used on these devices sometimes provide some nice surprise, like an Intent to disable the omnipresent Android&amp;rsquo;s Home button.&lt;/p&gt;
 
-&lt;h2 id=&#34;the-basic-idea&#34;&gt;The basic idea&lt;/h2&gt;
+&lt;h2 id=&#34;the-basic-idea:2e1fe568b32c202e94702c6e9dd9eda0&#34;&gt;The basic idea&lt;/h2&gt;
 
-&lt;p&gt;MC40 support an &lt;a href=&#34;http://developer.android.com/reference/android/content/Intent.html&#34;&gt;Android intent&lt;/a&gt; to disable the normal Home button behavior: &lt;em&gt;You can disable it and there&amp;rsquo;s no way to exit from the foreground application&lt;/em&gt; &lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+&lt;p&gt;MC40 support an &lt;a href=&#34;http://developer.android.com/reference/android/content/Intent.html&#34;&gt;Android intent&lt;/a&gt; to disable the normal Home button behavior: &lt;em&gt;You can disable it and there&amp;rsquo;s no way to exit from the foreground application&lt;/em&gt; &lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:2e1fe568b32c202e94702c6e9dd9eda0:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:2e1fe568b32c202e94702c6e9dd9eda0:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://developer.zebra.com/community/android/android-forums/android-blogs/blog/2014/12/19/disabling-home-button-via-intent-mc40&#34;&gt;You can find a blog by Pavel Machala briefly describing the idea on Launchpad&lt;/a&gt;.&lt;br /&gt;
 Here I want to present a simple sample that show how to use this intent, covering the only issue that is: &lt;em&gt;handling re-branded devices&lt;/em&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;project-setup&#34;&gt;Project setup&lt;/h2&gt;
+&lt;h2 id=&#34;project-setup:2e1fe568b32c202e94702c6e9dd9eda0&#34;&gt;Project setup&lt;/h2&gt;
 
 &lt;p&gt;We start creating a new Android application in Android Studio (I&amp;rsquo;m using Android Studio v1.5.1 with Build tools 23.0.1, you&amp;rsquo;re mileage can vary if you&amp;rsquo;re using a different setup).&lt;/p&gt;
 
@@ -421,7 +540,7 @@ public class MainActivity extends AppCompatActivity {
 
 &lt;p&gt;Next step would be to check that we&amp;rsquo;re really running on a Zebra Technologies&amp;rsquo; MC40, and then adding some logic to the app.&lt;/p&gt;
 
-&lt;h2 id=&#34;dealing-with-multiple-os-versions-and-re-branding&#34;&gt;Dealing with multiple OS versions and re-branding&lt;/h2&gt;
+&lt;h2 id=&#34;dealing-with-multiple-os-versions-and-re-branding:2e1fe568b32c202e94702c6e9dd9eda0&#34;&gt;Dealing with multiple OS versions and re-branding&lt;/h2&gt;
 
 &lt;p&gt;First we check that we&amp;rsquo;re running on a Zebra&amp;rsquo;s MC40 using a couple of Android constant:&lt;/p&gt;
 
@@ -521,7 +640,7 @@ public class MainActivity extends AppCompatActivity {
 
 &lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/samples/mc40_home_btn/Screenshot_tag2.png&#34; alt=&#34;MC40 Screenshot of the app as recorded at tag2&#34; title=&#34;MC40 Screenshot of the app as recorded at tag2&#34; /&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;managing-state&#34;&gt;Managing state&lt;/h2&gt;
+&lt;h2 id=&#34;managing-state:2e1fe568b32c202e94702c6e9dd9eda0&#34;&gt;Managing state&lt;/h2&gt;
 
 &lt;p&gt;The application now works as expected, but with an issue linked to not managing the state. As an example, simply rotating the device, the Activity is destroyed to create a new one with the standard behavior to disable the Home Button, even if we just re-enabled it using the &lt;code&gt;toggle&lt;/code&gt; button.&lt;br /&gt;
 An easy solution is to add some code to manage the Application status overriding the &lt;code&gt;onSaveInstanceState(Bundle)&lt;/code&gt; method:&lt;/p&gt;
@@ -540,14 +659,14 @@ The final version of the application, managing the state, can be find on github 
 
 &lt;hr /&gt;
 
-&lt;h5 id=&#34;notes&#34;&gt;Notes&lt;/h5&gt;
+&lt;h5 id=&#34;notes:2e1fe568b32c202e94702c6e9dd9eda0&#34;&gt;Notes&lt;/h5&gt;
 &lt;div class=&#34;footnotes&#34;&gt;
 
 &lt;hr /&gt;
 
 &lt;ol&gt;
-&lt;li id=&#34;fn:1&#34;&gt;If your app locks down a few other things or you&amp;rsquo;re using something like Zebra&amp;rsquo;s &lt;a href=&#34;https://www.zebra.com/us/en/products/software/mobile-computers/mobile-app-utilities/enterprise-home-screen.html&#34;&gt;Enterprise Home Screen&lt;/a&gt;.
- &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:2e1fe568b32c202e94702c6e9dd9eda0:1&#34;&gt;If your app locks down a few other things or you&amp;rsquo;re using something like Zebra&amp;rsquo;s &lt;a href=&#34;https://www.zebra.com/us/en/products/software/mobile-computers/mobile-app-utilities/enterprise-home-screen.html&#34;&gt;Enterprise Home Screen&lt;/a&gt;.
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:2e1fe568b32c202e94702c6e9dd9eda0:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
 </description>

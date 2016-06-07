@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>Managing Display AutoRotation from StageNow  &middot; Pietro F. Maggi</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<meta name="description" content="Zebra Technologies&#39; StageNow is a powerful tool that allows to easily stage a lot of the parameters required on COBO device. However we don&#39;t have a 100% coverage of all the Android Settings. Here I&#39;ll show how to build a minimal application that can be controlled from StageNow to set up the Display AutoRotation parameter. As this is not a reserved setting, any application can change this value." />
+
+<meta name="keywords" content="Android, Settings, StageNow, Zebra Technologies, ">
+
+
+<meta property="og:title" content="Managing Display AutoRotation from StageNow  &middot; Pietro F. Maggi ">
+<meta property="og:site_name" content="Pietro F. Maggi"/>
+<meta property="og:url" content="http://pietromaggi.com/2016/06/07/managing-display-autorotation-from-stagenow/" />
+<meta property="og:locale" content="en-EN">
+
+
+<meta property="og:type" content="article" />
+<meta property="og:description" content="Zebra Technologies&#39; StageNow is a powerful tool that allows to easily stage a lot of the parameters required on COBO device. However we don&#39;t have a 100% coverage of all the Android Settings. Here I&#39;ll show how to build a minimal application that can be controlled from StageNow to set up the Display AutoRotation parameter. As this is not a reserved setting, any application can change this value."/>
+<meta property="og:article:published_time" content="2016-06-07T20:00:00&#43;01:00" />
+<meta property="og:article:modified_time" content="2016-06-07T20:00:00&#43;01:00" />
+
+  
+    
+<meta property="og:article:tag" content="Android">
+    
+<meta property="og:article:tag" content="Settings">
+    
+<meta property="og:article:tag" content="StageNow">
+    
+<meta property="og:article:tag" content="Zebra Technologies">
+    
+  
+
+  
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@pfmaggi" />
+<meta name="twitter:creator" content="@pfmaggi" />
+<meta name="twitter:title" content="Managing Display AutoRotation from StageNow" />
+<meta name="twitter:description" content="Zebra Technologies&#39; StageNow is a powerful tool that allows to easily stage a lot of the parameters required on COBO device. However we don&#39;t have a 100% coverage of all the Android Settings. Here I&#39;ll show how to build a minimal application that can be controlled from StageNow to set up the Display AutoRotation parameter. As this is not a reserved setting, any application can change this value." />
+<meta name="twitter:url" content="http://pietromaggi.com/2016/06/07/managing-display-autorotation-from-stagenow/" />
+<meta name="twitter:domain" content="http://pietromaggi.com/">
+  
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "headline": "Managing Display AutoRotation from StageNow",
+    "author": {
+      "@type": "Person",
+      "name": "http://profiles.google.com/+?rel=author"
+    },
+    "datePublished": "2016-06-07",
+    "description": "Zebra Technologies\x27 StageNow is a powerful tool that allows to easily stage a lot of the parameters required on COBO device. However we don\x27t have a 100% coverage of all the Android Settings. Here I\x27ll show how to build a minimal application that can be controlled from StageNow to set up the Display AutoRotation parameter. As this is not a reserved setting, any application can change this value.",
+    "wordCount":  647 
+  }
+</script>
+
+
+
+<link rel="canonical" href="http://pietromaggi.com/2016/06/07/managing-display-autorotation-from-stagenow/" />
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://pietromaggi.com/touch-icon-144-precomposed.png">
+<link href="http://pietromaggi.com/favicon.png" rel="icon">
+
+<meta name="generator" content="Hugo 0.15" />
+
+  <!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link href='https://fonts.googleapis.com/css?family=Merriweather:300%7CRaleway%7COpen+Sans' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="http://pietromaggi.com/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://pietromaggi.com/css/style.css">
+<link rel="stylesheet" href="http://pietromaggi.com/css/highlight/default.css">
+
+  
+<script type="text/javascript">
+    window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":"http://pietromaggi.com/privacy_policy/","theme":"dark-floating"};
+</script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.9/cookieconsent.min.js"></script>
+
+
+</head>
+<body>
+  <main id="main-wrapper" class="container main_wrapper has-sidebar">
+    <header id="main-header" class="container main_header">
+  <div class="container brand">
+  <div class="container title h1-like">
+  <a class="baselink" href="http://pietromaggi.com/">
+  Garbage Collector
+
+</a>
+
+</div>
+
+  
+<div class="container topline">
+  
+  Tales from an old nibble
+
+
+</div>
+
+
+</div>
+
+  <nav class="container nav primary no-print">
+  
+
+<a class="homelink" href="http://pietromaggi.com/">Home</a>
+
+
+  
+<a href="http://pietromaggi.com/about">About</a>
+
+<a href="http://pietromaggi.com/post" title="Show list of posts">Posts</a>
+
+<a href="http://pietromaggi.com/speaking">Speaking Appointments</a>
+
+<a href="http://pietromaggi.com/decks">Slide Decks</a>
+
+<a href="http://pietromaggi.com/tags" title="Show list of tags">Tags</a>
+
+
+</nav>
+
+<div class="container nav secondary no-print">
+  
+<a id="contact-link-email" class="contact_link" href="mailto:pfm@pietromaggi.com">
+  <span class="fa fa-envelope-square"></span><span>email</span></a>
+
+
+
+<a id="contact-link-github" class="contact_link" href="https://github.com/pfmaggi">
+  <span class="fa fa-github-square"></span><span>github</span></a>
+
+
+
+<a id="contact-link-bitbucket" class="contact_link" href="https://bitbucket.org/pfmaggi">
+  <span class="fa fa-bitbucket-square"></span><span>bitbucket</span></a>
+
+
+
+<a id="contact-link-linkedin" class="contact_link" href="https://www.linkedin.com/in/pietromaggi">
+  <span class="fa fa-linkedin-square"></span><span>linkedin</span></a>
+
+
+
+
+
+
+
+<a id="contact-link-twitter" class="contact_link" href="https://twitter.com/pfmaggi">
+  <span class="fa fa-twitter-square"></span><span>twitter</span></a>
+
+
+
+
+
+
+
+</div>
+
+
+  
+
+</header>
+
+
+<article id="main-content" class="container main_content single">
+  <header class="container hat">
+  <h1>Managing Display AutoRotation from StageNow
+</h1>
+
+  <div class="metas">
+<time datetime="2016-06-07">7 Jun, 2016</time>
+
+
+  
+    &middot; by Pietro F. Maggi
+  
+  &middot; Read in about 4 min
+  &middot; (647 Words)
+  <br>
+  
+<a class="label" href="http://pietromaggi.com/tags/android">Android</a>
+
+<a class="label" href="http://pietromaggi.com/tags/settings">Settings</a>
+
+<a class="label" href="http://pietromaggi.com/tags/stagenow">StageNow</a>
+
+<a class="label" href="http://pietromaggi.com/tags/zebra-technologies">Zebra Technologies</a>
+
+
+
+</div>
+
+</header>
+
+  <div class="container content">
+  
+
+<p>Another busy day with enquiry about our devices/tools.<br />
+The funny thing is that, most of the time, answer to a question with another one is actually a good strategy :-)</p>
+
+<p>This one cames from my colleague Raymond:</p>
+
+<blockquote>
+<p>Can we launch an adb commands from Stagenow?</p>
+</blockquote>
+
+<p>The quick answer is no, the right answer is: <em>what are you trying to achieve?</em></p>
+
+<blockquote>
+<p>I need a way to disable the Disaply AutoRotate setting, something that is possible to do using an <code>adb shell</code> command:</p>
+</blockquote>
+
+<pre><code>adb shell content insert --uri content://settings/system --bind name:s:accelerometer_rotation 
+</code></pre>
+
+<p>Ok, so the real question is:</p>
+
+<blockquote>
+<p>Can I disable Display AutoRotation using StageNow?</p>
+</blockquote>
+
+<p>In this case the answer is yes, with some little help.
+<img src="/images/autorotate/disable.gif" alt="Disable AutoRotate" title="Disable AutoRotate" /></p>
+
+<h2 id="the-blueprint:33ffeed4f9880d7ffc6dd1f754318306">The blueprint</h2>
+
+<p>The idea to implement this is to have an application on the device that can disable this setting&hellip;<br />
+Ok, so not really ground-breaking. But wait, there&rsquo;s more.<br />
+Instead of having an application that blindly disable this setting, we can build it so that we can launch it with different arguments and act on the arguments.</p>
+
+<p>To give you the complete picture, we can think that to implement the complete solution we need few steps in StageNow:</p>
+
+<ol>
+<li>Install the application on the device</li>
+<li>Launch the application with the proper argument (activate or deactivate AutoRotate in this case)</li>
+<li>Uninstall the application (optional step)</li>
+</ol>
+
+<h3 id="writing-to-the-settings:33ffeed4f9880d7ffc6dd1f754318306">Writing to the settings</h3>
+
+<p>An Android application can update the settings if it has the permission:</p>
+
+<pre><code>android.permission.WRITE_SETTINGS
+</code></pre>
+
+<p>Just keep in mind that <a href="https://developer.android.com/reference/android/Manifest.permission.html#WRITE_SETTINGS">this does not allow full access to the settings</a>, since Android v4.2.2, Google moved some of the settings under the <em>Secure Settings</em> that requires a different permission that can be granted only to application that resides in the system folder or are signed with the platform keys. For additional information take a look at <a href="https://developer.android.com/reference/android/Manifest.permission.html#WRITE_SECURE_SETTINGS"><code>android.permission.WRITE_SECURE_SETTINGS</code></a>.</p>
+
+<p>Given that you application has the permission to write to the settings you can use the following code to write a new value to the AutoRotate setting:</p>
+
+<pre><code>android.provider.Settings.System.putInt(getContentResolver(), Settings.System.ACCELEROMETER_ROTATION, value);
+</code></pre>
+
+<h3 id="using-intent-extra-parameters:33ffeed4f9880d7ffc6dd1f754318306">Using Intent extra parameters</h3>
+
+<p>Ok, now that we&rsquo;ve a way to set the settings, we want to have a way to get a parameter from StageNow to decide if we&rsquo;ve to enable or disable the Display AutoRotate setting.<br />
+To do this we can use some extra parameters in the Intent that is used to launch our application:</p>
+
+<pre><code>private final static String KEY_ROTATION = &quot;AutoRotate&quot;;
+
+Bundle extras = getIntent().getExtras();
+if (extras != null) {
+    value = extras.getInt(KEY_ROTATION);
+}
+</code></pre>
+
+<p>Now, from the command line, <code>adb shell</code> to send the right parameter to our sample app:</p>
+
+<pre><code>adb shell am start -n com.pietromaggi.sample.autorotate/.MainActivity --ei &quot;AutoRotate&quot; 0 
+</code></pre>
+
+<h2 id="putting-the-different-pieces-together:33ffeed4f9880d7ffc6dd1f754318306">Putting the different pieces together</h2>
+
+<p>To keep things simple, I&rsquo;ve build a very simple demo application that implement these two features, and then closes the activity.<br />
+you can find the source code <a href="https://github.com/pfmaggi/autorotate">in this github repository</a> and the <a href="https://github.com/pfmaggi/autorotate/releases/download/v1.0.0/autorotate.apk">final release apk here</a>.</p>
+
+<p>This on the device, we now need to put together the StageNow profile that install the apk and then send the intent to our application.</p>
+
+<p>To create the StageNow profile use the Expert Mode and add these steps:</p>
+
+<h3 id="1-file-manager-to-copy-the-apk-on-the-device:33ffeed4f9880d7ffc6dd1f754318306">1. File Manager - to copy the apk on the device</h3>
+
+<p><img src="/images/autorotate/StageNow_1.png" alt="Copy AutoRotate apk on the device" title="Copy AutoRotate apk on the device" /></p>
+
+<h3 id="2-app-manager-to-install-update-the-apk:33ffeed4f9880d7ffc6dd1f754318306">2. App Manager - to install/update the apk</h3>
+
+<p><img src="/images/autorotate/StageNow_2.png" alt="Install/update the apk" title="Install/update the apk" /></p>
+
+<h3 id="3-intent-manager-to-launch-the-autorotate-app-with-the-disable-parameter:33ffeed4f9880d7ffc6dd1f754318306">3. Intent Manager - to launch the autorotate app with the disable parameter</h3>
+
+<p><img src="/images/autorotate/StageNow_3.png" alt="launch the autorotate app with the disable parameter" title="launch the autorotate app with the disable parameter" /></p>
+
+<h3 id="4-app-manager-uninstall-the-apk:33ffeed4f9880d7ffc6dd1f754318306">4. App Manager - uninstall the apk</h3>
+
+<p><img src="/images/autorotate/StageNow_4.png" alt="uninstall the apk" title="uninstall the apk" /></p>
+
+<h2 id="testing:33ffeed4f9880d7ffc6dd1f754318306">Testing</h2>
+
+<p>Once we&rsquo;ve created the StageNow profile, it&rsquo;s simply a matter of putting the device on the same network of the StageNow server and scan the two barcodes.<br />
+The StageNow client on the device will start downloading the apk, installing it, etc. reporting a staging succesful message at the end&hellip; hopefully :-)</p>
+
+<h2 id="where-to-go-from-here:33ffeed4f9880d7ffc6dd1f754318306">Where to go from here</h2>
+
+<p>A natural evolution of this technique would be to add more settings handling to this sample app, assigning a different Intent Extra to every parameter, so we can use a single application to manage multiple settings.</p>
+
+<p>Let me know if you&rsquo;ve any comment/request about this topic.</p>
+
+</div>
+
+
+  <footer class="container">
+  <div class="container navigation no-print">
+  <h2>Navigation</h2>
+  
+  
+
+    
+    <a class="prev" href="http://pietromaggi.com/2016/05/26/enterprise-browser-and-datawedge-on-android---friends-at-the-end/" title="Enterprise Browser and DataWedge on Android - friends at the end">
+      Previous
+    </a>
+    
+
+    
+
+  
+
+
+</div>
+
+  <div class="container comments">
+  <h2>Comments</h2>
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  (function() {
+    
+    
+    if (window.location.hostname == "localhost")
+      return;
+
+    var dsq = document.createElement('script'); dsq.async = true; dsq.type = 'text/javascript';
+    dsq.src = '//pietrofmaggi.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+</div>
+
+</footer>
+
+</article>
+      <footer id="main-footer" class="container main_footer">
+  
+
+  <div class="container nav foot no-print">
+  
+<a href="http://pietromaggi.com/license">license</a>
+
+
+  <a class="toplink" href="#">back to top</a>
+
+</div>
+
+  <div class="container credits">
+  
+<div class="container footline">
+  
+  code with <i class='fa fa-heart'></i>
+
+
+</div>
+
+
+  
+<div class="container copyright">
+  
+  &copy; 2013-2016 Pietro F. Maggi
+
+
+</div>
+
+
+</div>
+
+</footer>
+
+    </main>
+    
+<script type="text/javascript">
+  (function() {
+    
+    
+    if (window.location.hostname == "localhost")
+      return;
+
+    var dsq = document.createElement('script'); dsq.async = true; dsq.type = 'text/javascript';
+    dsq.src = '//pietrofmaggi.disqus.com/count.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+
+<script src="http://pietromaggi.com/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-78928627-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+    
+  </body>
+</html>
+
