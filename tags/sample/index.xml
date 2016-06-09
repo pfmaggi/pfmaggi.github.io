@@ -342,7 +342,7 @@ This is not a problem unique to the TC55, it&amp;rsquo;s a common problem on And
 
 &lt;p&gt;Given that we&amp;rsquo;ve the luxury to target just a few devices, the Motorola Solutions one :-), the best option is to use the environment variables.&lt;/p&gt;
 
-&lt;h3 id=&#34;let-s-see-what-happens-on-the-tc55:bc798595bb5986dd70a35d55131e88d5&#34;&gt;Let&amp;rsquo;s see what happens on the TC55&lt;/h3&gt;
+&lt;h3 id=&#34;let-s-see-what-happens-on-the-tc55&#34;&gt;Let&amp;rsquo;s see what happens on the TC55&lt;/h3&gt;
 
 &lt;p&gt;On this device, using &lt;code&gt;Environment.getExternalStorageDirectory();&lt;/code&gt; returns different results depending if you&amp;rsquo;ve installed or not an SDCard:&lt;/p&gt;
 

@@ -132,322 +132,6 @@ The StageNow client on the device will start downloading the apk, installing it,
     </item>
     
     <item>
-      <title>Enterprise Browser and DataWedge on Android - friends at the end</title>
-      <link>http://pietromaggi.com/2016/05/26/enterprise-browser-and-datawedge-on-android---friends-at-the-end/</link>
-      <pubDate>Thu, 26 May 2016 20:00:00 +0100</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
-      <guid>http://pietromaggi.com/2016/05/26/enterprise-browser-and-datawedge-on-android---friends-at-the-end/</guid>
-      <description>
-
-&lt;p&gt;This has been a tough week: a flat tire (and a lost flight), three (very) late flights in a row and sleep deprivation. Luckily I have our Developer&amp;rsquo;s Kitchen workshops keeping me awake, with interesting questions from the attendees.&lt;/p&gt;
-
-&lt;p&gt;During Enterprise Browser hands-on lab, I got some enquiry about using other MobilityDNA utilities together with EB; in particular how to integrate &lt;em&gt;SwipeAssist&lt;/em&gt; and &lt;em&gt;Simulscan&lt;/em&gt;.&lt;br /&gt;
-These utilities can be integrated, with some heavy lifting, and accepting some constraints.&lt;/p&gt;
-
-&lt;h2 id=&#34;some-background&#34;&gt;Some background&lt;/h2&gt;
-
-&lt;p&gt;The current scanner framework implementation on our Android devices make available a single scanner object that provides full Scanner control. As always &amp;hellip;&amp;laquo;with great power comes great responsibility&amp;raquo;: an application using the scanner object from the Barcode API, is required to release it when it&amp;rsquo;s going in the background (usually you do this handling in the &lt;code&gt;onPause()&lt;/code&gt; callback in your native application).&lt;br /&gt;
-Enteprise Browser implements its own &lt;code&gt;Barcode API&lt;/code&gt; on top of the native EMDK Barcode API, however, due to the nature of the web application running inside EB, it does not release the scanner object. This locks the use of the scanner out for any other application that is in foreground while EB is in the background; &lt;em&gt;including DataWedge&lt;/em&gt;.&lt;br /&gt;
-Because utilities like SwipeAssist, are linked to DataWedge:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;NO DataWedge --&amp;gt; NO SwipeAssist
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;the-standard-experience&#34;&gt;The standard experience&lt;/h3&gt;
-
-&lt;p&gt;When you run EB v1.4 on our Android devices, DataWedge is completely disabled, even when EB is in the background&amp;hellip;&lt;br /&gt;
-This is good if you plan to work completely inside an EB application, however, sometimes, you want to have some sort of integration.&lt;/p&gt;
-
-&lt;h3 id=&#34;some-of-the-requests&#34;&gt;Some of the requests&lt;/h3&gt;
-
-&lt;p&gt;During these last weeks I got some request from Enterprise Browser users:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Being able to use DataWedge to scan barcodes inside EB&lt;/li&gt;
-&lt;li&gt;Being able to use SwipeAssist&lt;/li&gt;
-&lt;li&gt;Being able to use SimulScan multibarcode scanning from EB&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Let&amp;rsquo;s start from the first request!&lt;/p&gt;
-
-&lt;h2 id=&#34;making-eb-and-dw-coexist&#34;&gt;Making EB and DW coexist&lt;/h2&gt;
-
-&lt;p&gt;We&amp;rsquo;ve documented the steps to use DataWedge in EB on the &lt;a href=&#34;http://ebzebra.github.io/docs/1.4/#guide-datawedge&#34;&gt;documentation website for EB v1.4&lt;/a&gt;.&lt;br /&gt;
-Somehow, I think that it takes a lot of thinks for granted, so I&amp;rsquo;m going to put here a step-by-step guide on how to do the integration.&lt;/p&gt;
-
-&lt;h3 id=&#34;the-hidden-datawedge-profiles&#34;&gt;The hidden DataWedge profiles&lt;/h3&gt;
-
-&lt;p&gt;On a new Zebra&amp;rsquo;s Android device, you just have three visible DataWedge profiles, however there&amp;rsquo;re more profiles that are hidden and not editable.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/eb_dw/dw_1.png&#34; alt=&#34;DataWedge initial setup&#34; title=&#34;DataWedge initial setup&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;As you can guess, we need to modify one of the profiles that are not modificable, this means, a bit of heavy lifting.&lt;br /&gt;
-So better proceeds with some caution, starting doing this on a test device.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/eb_dw/lifting.png&#34; alt=&#34;Lifting&#34; title=&#34;Lifting&#34; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;manually-modify-datawedge-profiles&#34;&gt;Manually Modify DataWedge profiles&lt;/h3&gt;
-
-&lt;p&gt;First step is to export all the profiles:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Launch DataWedge and Export the profiles using the &lt;code&gt;Menu-&amp;gt;Settings-&amp;gt;Export&lt;/code&gt; option to export the profiles into (for a TC55KK) &lt;code&gt;/storage/sdcard0/Android/data/com.symbol.datawedge/files&lt;/code&gt;:&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/eb_dw/dw_2.png&#34; alt=&#34;Export all DataWedge profiles&#34; title=&#34;Export all DataWedge profiles&#34; /&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Copy the file on your PC and use an utility like &lt;a href=&#34;http://sqlite2009pro.azurewebsites.net/&#34;&gt;SQLite2009 Pro Enterprise Manager&lt;/a&gt; for Windows or &lt;a href=&#34;https://menial.co.uk/base/&#34;&gt;Base&lt;/a&gt; for the mac to open and modify it. Any SQLite editor is ok for this, even sqlite command line interface.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Here&amp;rsquo;re the profiles included in DataWedge on a brand new TC55 KK with BSP 2.65:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/eb_dw/dw_3.png&#34; alt=&#34;All DataWedge profiles&#34; title=&#34;All DataWedge profiles&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;In this picture I&amp;rsquo;ve highlighted the RhoElements profile that is the one associated to Enterprise Browser package.&lt;br /&gt;
-We need to update a couple of tables, first, take a note about the &lt;code&gt;id&lt;/code&gt; associated with this profile, in my case it&amp;rsquo;s the profile number 6.&lt;/p&gt;
-
-&lt;p&gt;First table to modify is &lt;code&gt;applist&lt;/code&gt;, where we need to delete all packages/activities associated with the &lt;code&gt;profile_id&lt;/code&gt; linked to the RhoElements profile.&lt;br /&gt;
-In my DataWedge.db I&amp;rsquo;ve two line to delete:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/eb_dw/dw_4.png&#34; alt=&#34;RhoElements profile associated apps&#34; title=&#34;RhoElements profile associated apps&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Second step is to update the RhoElements entry in the profiles table to make this profile editable and deletable:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/eb_dw/dw_5.png&#34; alt=&#34;Update RhoElements profile&#34; title=&#34;Update RhoElements profile&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;We then need to save the DataWedge.db database and copy it back to the device, I&amp;rsquo;m going to use the same folder &lt;code&gt;/storage/sdcard0/Android/data/com.symbol.datawedge/files&lt;/code&gt; and manually import it back into DataWedge using the command &lt;code&gt;Menu-&amp;gt;Settings-&amp;gt;Import&lt;/code&gt;:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/eb_dw/dw_6.png&#34; alt=&#34;Import all DataWedge profiles&#34; title=&#34;Import all DataWedge profiles&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Now the RhoElements profile is visible and can me modified on the device if needed. We&amp;rsquo;re good to go with no changes at this moment.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/eb_dw/dw_7.png&#34; alt=&#34;RhoElements profile is now visible&#34; title=&#34;RhoElements profile is now visible&#34; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;create-a-new-datawedge-profile-linked-to-enterprise-browser-activity&#34;&gt;Create a new DataWedge Profile linked to Enterprise Browser Activity&lt;/h3&gt;
-
-&lt;p&gt;Next step is to create a DataWedge profile linked to our Enteprise Browser, in this way it will be possible to customize DW experience inside EB.&lt;br /&gt;
-This requires to have Enterprise Browser installed on the device so, if you&amp;rsquo;ve not yet installed it, proceeds to our &lt;a href=&#34;https://developer.motorolasolutions.com/community/technologies/enterprisebrowser&#34;&gt;developer community website&lt;/a&gt;, download the latest release, install it, and then come back.&lt;/p&gt;
-
-&lt;p&gt;Once, you&amp;rsquo;ve EB installed on the device, from inside DataWedge, you can create a new profile using the &lt;code&gt;Menus-&amp;gt;New profile&lt;/code&gt; command, we can use &lt;code&gt;EB_Simulscan&lt;/code&gt; as new profile name to remember what is our final goal :-)&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/eb_dw/dw_8.png&#34; alt=&#34;Create a new EB profile&#34; title=&#34;Create a new EB profile&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;In this way we will have our new playground available:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/eb_dw/dw_9.png&#34; alt=&#34;Our new EB profile&#34; title=&#34;Our new EB profile&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Now we need to link this profile with EB package name and activities.&lt;br /&gt;
-To do this, open the EB_Simulscan profile and tap on &lt;code&gt;Associated apps&lt;/code&gt;:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/eb_dw/dw_10.png&#34; alt=&#34;Tap on Associated apps&#34; title=&#34;Tap on Associated apps&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;From the association screen we need to select &lt;code&gt;Menu-&amp;gt;New app/activity&lt;/code&gt;:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/eb_dw/dw_11.png&#34; alt=&#34;Select New app/activity&#34; title=&#34;Select New app/activity&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Then select EB package from the list (EB v1.4 needs to be installed at this point):&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/eb_dw/dw_12.png&#34; alt=&#34;Select EB package&#34; title=&#34;Select EB package&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Then select &lt;code&gt;*&lt;/code&gt; to indicate that this profile is linked to all activities of the selected package:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/eb_dw/dw_13.png&#34; alt=&#34;Select * as activity&#34; title=&#34;Select * as activity&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;At the end we get this configuration for our profile:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/eb_dw/dw_14.png&#34; alt=&#34;Final configuration for our new EB profile&#34; title=&#34;Final configuration for our new EB profile&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;We&amp;rsquo;re now ready to play with Enteprise Browser configuration to see if this works.&lt;/p&gt;
-
-&lt;h3 id=&#34;update-config-xml-and-test-a-sample-webpage&#34;&gt;Update Config.xml and test a sample webpage&lt;/h3&gt;
-
-&lt;p&gt;To follow this steps you need to have launched EB at least once, so that it creates its default configuration files under &lt;code&gt;/&amp;lt;sdcard/internal&amp;gt;/Android/data/com.symbol.enterprisebrowser&lt;/code&gt;.&lt;br /&gt;
-The you can proceeds copying it to your PC to apply some changes.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/eb_dw/eb_Config.xml.png&#34; alt=&#34;Copy Config.xml to your PC to Modify it&#34; title=&#34;Copy Config.xml to your PC to modify it&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;You need to apply three changes to follow along the rest of this blog:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;a name=&#34;Config_1&#34;&gt;&lt;/a&gt;Enable the internal EB webserver and specify the folder how we plan to have the local files (as an example on the internal sdcard of the TC55 KK):&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;pre&gt;&lt;code&gt;    &amp;lt;WebServer&amp;gt;
-      &amp;lt;Enabled VALUE=&amp;quot;1&amp;quot;/&amp;gt;
-      &amp;lt;Port VALUE=&amp;quot;8082&amp;quot;/&amp;gt;
-      &amp;lt;WebFolder VALUE=&amp;quot;/storage/sdcard0/www/&amp;quot;/&amp;gt;
-      &amp;lt;Public VALUE=&amp;quot;0&amp;quot;/&amp;gt;
-    &amp;lt;/WebServer&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Modify the startpage value:&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;pre&gt;&lt;code&gt;    &amp;lt;General&amp;gt;
-      &amp;lt;Name value=&amp;quot;Menu&amp;quot;/&amp;gt;
-      &amp;lt;StartPage value=&amp;quot;http://127.0.0.1:8082/index.html&amp;quot; name=&amp;quot;Lab&amp;quot;/&amp;gt;
-      &amp;lt;UseRegularExpressions value=&amp;quot;0&amp;quot;/&amp;gt;
-    &amp;lt;/General&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Enable the use of DataWedge for barcode scanning inside Enteprise Browser&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;pre&gt;&lt;code&gt;    &amp;lt;usedwforscanning  value=&amp;quot;1&amp;quot;/&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Now we can try with a simple HTML page to see if it works:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;    &amp;lt;html&amp;gt;
-      &amp;lt;head&amp;gt;
-      &amp;lt;/head&amp;gt;
-      &amp;lt;body&amp;gt;
-        &amp;lt;input type=&amp;quot;number&amp;quot; id=&amp;quot;Barcode&amp;quot; /&amp;gt;
-      &amp;lt;/body&amp;gt;
-    &amp;lt;/html&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;To test this page on the device, we&amp;rsquo;ve to copy it into the root folder of the HTTP server we configured in our &lt;code&gt;Config.xml&lt;/code&gt;, if you used the settings reported &lt;a href=&#34;#Config_1&#34;&gt;here&lt;/a&gt;, you can copy this file to &lt;code&gt;/storage/sdcard0/www/&lt;/code&gt; giving it the name: &lt;code&gt;index.html&lt;/code&gt;.&lt;br /&gt;
-Opening Enterprise Browser we see that we can:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;touch the edit field (and have the numeric keyboard displayed)&lt;/li&gt;
-&lt;li&gt;scan a barcode with the hardware trigger&lt;/li&gt;
-&lt;li&gt;have the barcode inserted in the edit field by DataWedge&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/eb_dw/eb_step1.png&#34; alt=&#34;EB and DW test1&#34; title=&#34;EB and DW test1&#34; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;automate-this-step-a-bit&#34;&gt;Automate this step a bit&lt;/h3&gt;
-
-&lt;p&gt;Next thing that would be nice to have is to avoid to touch the display to be able to scan, in this case a little JavaScript can help.&lt;br /&gt;
-With this version of the sample we can immediately scan a barcode getting the data in the input field. Note that no Keyboard is shown as I&amp;rsquo;ve not touched the input field here:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;html&amp;gt;
-  &amp;lt;head&amp;gt;
-    &amp;lt;script&amp;gt;
-      function domReadyEvent() {
-        setTimeout(function() {
-          var fld = document.getElementById(&#39;Barcode&#39;);
-          fld.focus();
-        }, 1000);
-      }
-      
-      window.addEventListener(&#39;DOMContentLoaded&#39;, domReadyEvent);
-    &amp;lt;/script&amp;gt;
-  &amp;lt;/head&amp;gt;
-  &amp;lt;body&amp;gt;
-    &amp;lt;input type=&amp;quot;number&amp;quot; id=&amp;quot;Barcode&amp;quot; /&amp;gt;
-  &amp;lt;/body&amp;gt;
-&amp;lt;/html&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/eb_dw/eb_step2.png&#34; alt=&#34;EB and DW test2&#34; title=&#34;EB and DW test2&#34; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;eb-and-swipeassist&#34;&gt;EB and SwipeAssist&lt;/h2&gt;
-
-&lt;p&gt;What if we want to use SwipeAssist inside this demo application?&lt;br /&gt;
-It&amp;rsquo;s simply a matter of enabling the &lt;code&gt;Show&lt;/code&gt; option in the Data Capture Panel section of our DataWedge profile &lt;code&gt;EB_Simulscan&lt;/code&gt;:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/eb_dw/dw_15.png&#34; alt=&#34;Activate SwipeAssist in DataWedge Profile for EB&#34; title=&#34;Activate SwipeAssist in DataWedge Profile for EB&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;And the result in EB is:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/eb_dw/eb_swipeassist.png&#34; alt=&#34;SwipeAssist active in EB&#34; title=&#34;SwipeAssist active in EB&#34; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;eb-and-simulscan&#34;&gt;EB and SimulScan&lt;/h2&gt;
-
-&lt;p&gt;Next, and final, goal is to use SimulScan to read two barcodes and have the data filled in two different input field, with the minimum JavaScript necessary to select the first input field:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;html&amp;gt;
-  &amp;lt;head&amp;gt;
-    &amp;lt;script&amp;gt;
-      function domReadyEvent() {
-        setTimeout(function() {
-          var fld = document.getElementById(&#39;Barcode&#39;);
-          fld.focus();
-        }, 1000);
-      }
-      
-      window.addEventListener(&#39;DOMContentLoaded&#39;, domReadyEvent);
-    &amp;lt;/script&amp;gt;
-  &amp;lt;/head&amp;gt;
-  &amp;lt;body&amp;gt;
-    &amp;lt;input type=&amp;quot;number&amp;quot; id=&amp;quot;Barcode&amp;quot; /&amp;gt; &amp;lt;br&amp;gt;
-    &amp;lt;input type=&amp;quot;number&amp;quot; id=&amp;quot;Barcode2&amp;quot; /&amp;gt;
-  &amp;lt;/body&amp;gt;
-&amp;lt;/html&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;It now time to play a bit with the DataWedge profile configuration, starting disabling the Data Capture Panel, and Enabling Simulscan, selecting the &lt;code&gt;Default - Barcode 2&lt;/code&gt; template:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/eb_dw/dw_16.png&#34; alt=&#34;Enable Simulscan in DataWedge Profile for EB&#34; title=&#34;Enable Simulscan in DataWedge Profile for EB&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;If we now try this on our page, we see that the two barcodes are send as a single string, we need to split the two barcodes.  The &lt;code&gt;Region Separator&lt;/code&gt; seems like a good candidate, however, even sending a tab as a separator is not going to solve this issue.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/eb_dw/dw_17.png&#34; alt=&#34;Tab as Region Separator&#34; title=&#34;Tab as Region Separator&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/eb_dw/dw_18.png&#34; alt=&#34;Final DataWedge Profile with Tab Terminator in Simulscan&#34; title=&#34;Final DataWedge Profile with Tab Terminator in Simulscan&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;The reason is that the web pages takes to much time to switch the focus to the second input field and so you end up loosing the data of the second barcodes:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/eb_dw/eb_step3a.png&#34; alt=&#34;Second barcode from Simulscan is lost&#34; title=&#34;Second barcode from Simulscan is lost&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;We can try a different solution using DataWedge &lt;em&gt;Advanced Data Formatting&lt;/em&gt; so, we revert back to not have any region separator for Simulscan and we add and Advanced Data formatting rule:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/eb_dw/dw_19.png&#34; alt=&#34;Add an Advanced Formatting Rule&#34; title=&#34;Add an Advanced Formatting Rule&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Enable it!&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/eb_dw/dw_20.png&#34; alt=&#34;Enable it&#34; title=&#34;Enable it&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;and specify when it needs to be activated. I this case for me it&amp;rsquo;s always in my scenario&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/eb_dw/dw_21.png&#34; alt=&#34;ADF Criteria&#34; title=&#34;ADF Criteria&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Just checking that this rule is only applied to data coming from Simulscan and not from the Barcode scanner&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/eb_dw/dw_22.png&#34; alt=&#34;ADF Source&#34; title=&#34;ADF Source&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;And now the actual rule.&lt;br /&gt;
-The basic idea is to send the first 9 chars of the data coming from Simulscan (in my case this is the first barcode), then send a tab, wait for 100ms and then send the rest of the data coming from Simulscan:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/eb_dw/dw_23.png&#34; alt=&#34;Enable it&#34; title=&#34;Enable it&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Again:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Send the first 9 chars&lt;/li&gt;
-&lt;li&gt;Send a tab (&lt;code&gt;0x09&lt;/code&gt;)&lt;/li&gt;
-&lt;li&gt;Wait 100ms&lt;/li&gt;
-&lt;li&gt;Send the rest of the data&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;If we try this setup with our simple test page, the result is actually the desidered one:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/eb_dw/eb_step3.png&#34; alt=&#34;The final app scanning two barcodes at once with Simulscan&#34; title=&#34;The final app scanning two barcodes at once with Simulscan&#34; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
-
-&lt;p&gt;We reached the end of this exploration on how is possible to integrate Enterprise Browser with DataWedge.&lt;br /&gt;
-In some cases it makes sense to use a similar setup to enable existing webpages without touching them. For this reason, in the samples presented here, I tried to minimize the amout of JavaScript code needed to have them working.&lt;br /&gt;
-A much better integration can be achieved starting to work on the onKeyPress events or using EB Intent API.&lt;br /&gt;
-Personally I think that if you want to customize your web app to have a better integration on Zebra devices, using EB&amp;rsquo;s Barcode API is a better choice that following the DataWedge route.&lt;/p&gt;
-
-&lt;p&gt;Talking about Simulscan, it could be interesting evaluate how to integrate DataWedge SimulScan Intent output with EB&amp;hellip; Till there&amp;rsquo;s no integrated SimulScan API in Enterprise Browser.&lt;/p&gt;
-
-&lt;p&gt;Let me know if you have any comment on these topics.&lt;/p&gt;
-
-&lt;h4 id=&#34;edit&#34;&gt;Edit&lt;/h4&gt;
-
-&lt;p&gt;2016-06-01 - Minor correction to the initial write-up (added explanation about where to copy the html pages on the device).&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
       <title>Disabling MC40 Home Button with a custom intent</title>
       <link>http://pietromaggi.com/2016/01/18/disabling-mc40-home-button-with-a-custom-intent/</link>
       <pubDate>Mon, 18 Jan 2016 09:00:00 +0100</pubDate>
@@ -683,14 +367,14 @@ The final version of the application, managing the state, can be find on github 
 &lt;p&gt;First technical post for 2016. Finally!&lt;/p&gt;
 
 &lt;p&gt;To kick-start 2016 I&amp;rsquo;ve chosen a topic that is more and more relevant in our market: The changes introduced by Google in Android v4.4 KitKat, regarding the secondary storage (the SDCard).&lt;br /&gt;
-I&amp;rsquo;ve already talked about this in my AppForum 2015 talk last October in London&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:51c058b2f0ea7a68582777f63f59ded1:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:51c058b2f0ea7a68582777f63f59ded1:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;, but I want to add some extra info and rationales here.&lt;/p&gt;
+I&amp;rsquo;ve already talked about this in my AppForum 2015 talk last October in London&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;, but I want to add some extra info and rationales here.&lt;/p&gt;
 
-&lt;h2 id=&#34;a-bit-of-background:51c058b2f0ea7a68582777f63f59ded1&#34;&gt;A bit of background&lt;/h2&gt;
+&lt;h2 id=&#34;a-bit-of-background&#34;&gt;A bit of background&lt;/h2&gt;
 
 &lt;p&gt;Android&amp;rsquo;s purpose is to establish an open platform for developers to build innovative apps.
 For this reason, Google put in place a compatibility program that defines technical details of the Android Platform;&lt;/p&gt;
 
-&lt;p&gt;For every Android release, there&amp;rsquo;s a Compatibility Definition Document, the last available at this moment is for &lt;a href=&#34;http://static.googleusercontent.com/media/source.android.com/it//compatibility/6.0/android-6.0-cdd.pdf&#34;&gt;Android 6.0, aka Marshmallow&lt;/a&gt;, that defines some of the technical features and device needs to have to be a compatible Android device. And this compatibility is a requirement to be able to license GMS&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:51c058b2f0ea7a68582777f63f59ded1:2&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:51c058b2f0ea7a68582777f63f59ded1:2&#34;&gt;2&lt;/a&gt;&lt;/sup&gt; for the device.&lt;/p&gt;
+&lt;p&gt;For every Android release, there&amp;rsquo;s a Compatibility Definition Document, the last available at this moment is for &lt;a href=&#34;http://static.googleusercontent.com/media/source.android.com/it//compatibility/6.0/android-6.0-cdd.pdf&#34;&gt;Android 6.0, aka Marshmallow&lt;/a&gt;, that defines some of the technical features and device needs to have to be a compatible Android device. And this compatibility is a requirement to be able to license GMS&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:2&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:2&#34;&gt;2&lt;/a&gt;&lt;/sup&gt; for the device.&lt;/p&gt;
 
 &lt;p&gt;To put it clearly:&lt;/p&gt;
 
@@ -700,7 +384,7 @@ For this reason, Google put in place a compatibility program that defines techni
 
 &lt;p&gt;Here we&amp;rsquo;re talking about Android v4.4 KitKat, so here&amp;rsquo;s a link to &lt;a href=&#34;http://source.android.com/compatibility/4.4/android-4.4-cdd.pdf&#34;&gt;Android 4.4 CDD&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;what-s-the-catch:51c058b2f0ea7a68582777f63f59ded1&#34;&gt;What&amp;rsquo;s the catch?&lt;/h2&gt;
+&lt;h2 id=&#34;what-s-the-catch&#34;&gt;What&amp;rsquo;s the catch?&lt;/h2&gt;
 
 &lt;p&gt;From the CDD, Android devices are required to have a Secondary Storage available with a minimum 1GB size if you don&amp;rsquo;t have this internal in your device but you provide an SDCard slot, you need to ship the device with an SDCard, again, 1GB minimum size.&lt;br /&gt;
 So usually, you end up that the SDCard is your &lt;em&gt;Secondary External Storage&lt;/em&gt;, and the &lt;em&gt;Primary External Storage&lt;/em&gt; is the 1GB partition (minimum) you included in the device.&lt;/p&gt;
@@ -716,7 +400,7 @@ So usually, you end up that the SDCard is your &lt;em&gt;Secondary External Stor
 &lt;li&gt;&lt;code&gt;WRITE_EXTERNAL_STORAGE&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;These will gave you read&amp;amp;write access to all the External Storage available&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:51c058b2f0ea7a68582777f63f59ded1:3&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:51c058b2f0ea7a68582777f63f59ded1:3&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;.&lt;br /&gt;
+&lt;p&gt;These will gave you read&amp;amp;write access to all the External Storage available&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:3&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:3&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;.&lt;br /&gt;
 Given that there are ways to gently ask for the &lt;a href=&#34;http://pietromaggi.com/2014/10/19/finding-the-sdcard-path-on-android-devices/&#34;&gt;SDCard true path&lt;/a&gt; this was more or less working.&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -728,7 +412,7 @@ Given that there are ways to gently ask for the &lt;a href=&#34;http://pietromag
 &lt;p&gt;In Android v4.4 Google decides to go a step further mandating that an app can write (with the right permissions that we just saw) only on the Primary External Storage. For all the other External Storage, an app can only write in its package folder. e.g. if you app package is com.pietromaggi.sample.externalstorage, It can only write in the folders &lt;code&gt;&amp;lt;sdcard root&amp;gt;/Android/data/com.pietromaggi.sample.externalstorage&lt;/code&gt;.&lt;br /&gt;
 There&amp;rsquo;s no way, for a normal application, to write anywhere else on the SDCard.&lt;/p&gt;
 
-&lt;h2 id=&#34;ok-but-there-s-an-happy-end-somewhere:51c058b2f0ea7a68582777f63f59ded1&#34;&gt;OK, but there&amp;rsquo;s an happy end somewhere?&lt;/h2&gt;
+&lt;h2 id=&#34;ok-but-there-s-an-happy-end-somewhere&#34;&gt;OK, but there&amp;rsquo;s an happy end somewhere?&lt;/h2&gt;
 
 &lt;p&gt;Really, if you&amp;rsquo;re trying to get a way to revert Android behavior to what it was before API level 19, no, this is it.&lt;br /&gt;
 Luckily Google has introduced new API in KitKat (and Lollipop and Marshmallow) that allows to mitigate the issue. Some user interventions may be needed but at least there are standard APIs available.&lt;/p&gt;
@@ -739,12 +423,12 @@ Luckily Google has introduced new API in KitKat (and Lollipop and Marshmallow) t
 &lt;hr /&gt;
 
 &lt;ol&gt;
-&lt;li id=&#34;fn:51c058b2f0ea7a68582777f63f59ded1:1&#34;&gt;Slides presented in London: &lt;script async class=&#39;speakerdeck-embed&#39; data-id=&#39;ef4248bf72454b2e9602db55bdf1e8ed&#39; data-ratio=&#39;1.33333333333333&#39; src=&#39;//speakerdeck.com/assets/embed.js&#39;&gt;&lt;/script&gt;
- &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:51c058b2f0ea7a68582777f63f59ded1:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li id=&#34;fn:51c058b2f0ea7a68582777f63f59ded1:2&#34;&gt;GMS Stands for Google Mobile Services, and is the collection of services and application built by Google that are not part of AOSP (Android Open Source Project) like GMail, Google Maps, Google Play Store and the push notification service GCM (Google Cloud Messaging).
- &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:51c058b2f0ea7a68582777f63f59ded1:2&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li id=&#34;fn:51c058b2f0ea7a68582777f63f59ded1:3&#34;&gt;The catch is that, before Android v4.4, API level 19, and the introduction of the &lt;code&gt;Environment.getExternalFilesDirs()&lt;/code&gt; there was no way to know how many External Storage you had available on a device. The only available API was &lt;code&gt;Environment.getExternalStorageDirectory()&lt;/code&gt; that returns the Primary External Storage.
- &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:51c058b2f0ea7a68582777f63f59ded1:3&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:1&#34;&gt;Slides presented in London: &lt;script async class=&#39;speakerdeck-embed&#39; data-id=&#39;ef4248bf72454b2e9602db55bdf1e8ed&#39; data-ratio=&#39;1.33333333333333&#39; src=&#39;//speakerdeck.com/assets/embed.js&#39;&gt;&lt;/script&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34;&gt;GMS Stands for Google Mobile Services, and is the collection of services and application built by Google that are not part of AOSP (Android Open Source Project) like GMail, Google Maps, Google Play Store and the push notification service GCM (Google Cloud Messaging).
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:2&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:3&#34;&gt;The catch is that, before Android v4.4, API level 19, and the introduction of the &lt;code&gt;Environment.getExternalFilesDirs()&lt;/code&gt; there was no way to know how many External Storage you had available on a device. The only available API was &lt;code&gt;Environment.getExternalStorageDirectory()&lt;/code&gt; that returns the Primary External Storage.
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:3&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
 </description>
@@ -938,7 +622,7 @@ This is not a problem unique to the TC55, it&amp;rsquo;s a common problem on And
 
 &lt;p&gt;Given that we&amp;rsquo;ve the luxury to target just a few devices, the Motorola Solutions one :-), the best option is to use the environment variables.&lt;/p&gt;
 
-&lt;h3 id=&#34;let-s-see-what-happens-on-the-tc55:bc798595bb5986dd70a35d55131e88d5&#34;&gt;Let&amp;rsquo;s see what happens on the TC55&lt;/h3&gt;
+&lt;h3 id=&#34;let-s-see-what-happens-on-the-tc55&#34;&gt;Let&amp;rsquo;s see what happens on the TC55&lt;/h3&gt;
 
 &lt;p&gt;On this device, using &lt;code&gt;Environment.getExternalStorageDirectory();&lt;/code&gt; returns different results depending if you&amp;rsquo;ve installed or not an SDCard:&lt;/p&gt;
 
