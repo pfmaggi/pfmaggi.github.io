@@ -369,7 +369,7 @@ protected void onCreate(Bundle savedInstanceState) {
 &lt;p&gt;Mx is getting better and better, and the latest version have introduced some interesting additional features and more are going to be added in the future.&lt;br /&gt;
 I hope that this small blog has made this clear and you can find more interesting suggestion on EMDK official documentation.&lt;/p&gt;
 
-&lt;p&gt;For now I leave you with a video of the app working and the complete source code of the project available on github.&lt;/p&gt;
+&lt;p&gt;For now I leave you with a video of the app working and the complete source code of the project available on &lt;a href=&#34;https://github.com/pfmaggi/MxHomeButton&#34;&gt;github&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/samples/mx_home_btn/AppUI.gif&#34; alt=&#34;Sample UI with Toggle Button&#34; title=&#34;Sample UI with Toggle Button&#34; /&gt;&lt;/p&gt;
 &lt;div class=&#34;footnotes&#34;&gt;
