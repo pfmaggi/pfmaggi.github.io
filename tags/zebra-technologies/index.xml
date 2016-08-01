@@ -9,8 +9,382 @@
     <managingEditor>pfm@pietromaggi.com (Pietro F. Maggi)</managingEditor>
     <webMaster>pfm@pietromaggi.com (Pietro F. Maggi)</webMaster>
     <copyright>(c) 2013-2016 Pietro F. Maggi</copyright>
-    <lastBuildDate>Tue, 07 Jun 2016 20:00:00 +0100</lastBuildDate>
+    <lastBuildDate>Mon, 01 Aug 2016 17:00:00 +0200</lastBuildDate>
     <atom:link href="http://pietromaggi.com/tags/zebra-technologies/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Disabling Home Button on Zebra Android devices</title>
+      <link>http://pietromaggi.com/2016/08/01/disabling-home-button-on-zebra-android-devices/</link>
+      <pubDate>Mon, 01 Aug 2016 17:00:00 +0200</pubDate>
+      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <guid>http://pietromaggi.com/2016/08/01/disabling-home-button-on-zebra-android-devices/</guid>
+      <description>
+
+&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+
+&lt;p&gt;I presented in the past a method to disable the Home Button on Zebra&amp;rsquo;s MC40 Android device, using a custom intent&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;br /&gt;
+After having published it, I got some enquiries, about having the same behaviour on other Zebra&amp;rsquo;s devices. Well, it turns out that there&amp;rsquo;s now a &amp;laquo;standard&amp;raquo; way to do this in Zebra&amp;rsquo;s Mx extension using the UI Manager profile. This post is going to show how to implement a simple application that can disable the Home Button on all Zebra&amp;rsquo;s devices that have Mx v4.3 installed&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:2&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:2&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-basic-idea&#34;&gt;The basic idea&lt;/h2&gt;
+
+&lt;p&gt;Mx v4.3 introduced the support in the &lt;a href=&#34;http://techdocs.zebra.com/emdk-for-android/4-2/mx/uimgr/#homekey-enabledisable&#34;&gt;UI Manager to disable the Home Button&lt;/a&gt; to disable the normal Home button behavior: &lt;em&gt;You can disable it and there&amp;rsquo;s no way to exit from the foreground application&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;project-setup&#34;&gt;Project setup&lt;/h2&gt;
+
+&lt;p&gt;We start creating a new Android application in Android Studio. I&amp;rsquo;m using Android Studio v2.1.2 with Build tools 23.0.3, and the EMDK v4.2. Your mileage can vary if you&amp;rsquo;re using a different setup.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Note:&lt;/em&gt; I prefer to integrate Zebra Technologies&amp;rsquo; EMDK as a library in the gradle module file. You can find more information about this in the &lt;a href=&#34;http://techdocs.zebra.com/emdk-for-android/4-2/tutorial/tutCreateProjectAndroidStudio/#emdkasadependencyingradlebuild&#34;&gt;EMDK documentation&lt;/a&gt; and in &lt;a href=&#34;http://pietromaggi.com/2015/11/25/building-zebras-emdk-project-using-sdk-platform-23/&#34;&gt;this blog&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;create-a-new-android-project&#34;&gt;Create a new Android project&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/samples/mx_home_btn/AndroidNewPrj_01.png&#34; alt=&#34;Creating a new Android Application, step 1&#34; title=&#34;Creating a new Android Application, step 1&#34; /&gt;
+&lt;img src=&#34;http://pietromaggi.com/images/samples/mx_home_btn/AndroidNewPrj_02.png&#34; alt=&#34;Creating a new Android Application, step 2&#34; title=&#34;Creating a new Android Application, step 2&#34; /&gt;
+&lt;img src=&#34;http://pietromaggi.com/images/samples/mx_home_btn/AndroidNewPrj_03.png&#34; alt=&#34;Creating a new Android Application, step 3&#34; title=&#34;Creating a new Android Application, step 3&#34; /&gt;
+&lt;img src=&#34;http://pietromaggi.com/images/samples/mx_home_btn/AndroidNewPrj_04.png&#34; alt=&#34;Creating a new Android Application, step 4&#34; title=&#34;Creating a new Android Application, step 4&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;add-the-emdk-library-reference-to-the-project&#34;&gt;Add the EMDK library reference to the project&lt;/h3&gt;
+
+&lt;p&gt;Next step is to add a reference to the EMDK library that you need to have already installed on your development machine &lt;a href=&#34;http://techdocs.zebra.com/emdk-for-android/4-2/guide/setup/&#34;&gt;following the Getting Started guide&lt;/a&gt;.  In my case I&amp;rsquo;m using a mac and I need to modify my gradle file as:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;apply plugin: &#39;com.android.application&#39;
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion &amp;quot;23.0.3&amp;quot;
+
+    defaultConfig {
+        applicationId &amp;quot;com.pietromaggi.sample.mxhomebutton&amp;quot;
+        minSdkVersion 16
+        targetSdkVersion 23
+        versionCode 1
+        versionName &amp;quot;1.0&amp;quot;
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile(&#39;proguard-android.txt&#39;), &#39;proguard-rules.pro&#39;
+        }
+    }
+}
+
+dependencies {
+    provided fileTree(include: [&#39;com.symbol.emdk.jar&#39;], dir: &#39;/Applications/androidSDK/add-ons/addon-symbol-emdk_v4.2-API-16/libs/&#39;)
+    compile fileTree(exclude: [&#39;com.symbol.emdk.jar&#39;], dir: &#39;libs&#39;)
+    testCompile &#39;junit:junit:4.12&#39;
+    compile &#39;com.android.support:appcompat-v7:23.4.0&#39;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;add-the-emdk-library-and-permission-reference-to-the-android-manifest-xml-file&#34;&gt;Add the EMDK library and permission reference to the Android Manifest XML file&lt;/h3&gt;
+
+&lt;p&gt;Next we need to update the AndroidManifest.xml file to add the requirement of having the EMDK library and requesting the EMDK permission:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
+&amp;lt;manifest xmlns:android=&amp;quot;http://schemas.android.com/apk/res/android&amp;quot;
+    package=&amp;quot;com.pietromaggi.sample.mxhomebutton&amp;quot;&amp;gt;
+
+    &amp;lt;uses-permission android:name=&amp;quot;com.symbol.emdk.permission.EMDK&amp;quot; /&amp;gt;
+
+    &amp;lt;application
+        android:allowBackup=&amp;quot;true&amp;quot;
+        android:icon=&amp;quot;@mipmap/ic_launcher&amp;quot;
+        android:label=&amp;quot;@string/app_name&amp;quot;
+        android:supportsRtl=&amp;quot;true&amp;quot;
+        android:theme=&amp;quot;@style/AppTheme&amp;quot;&amp;gt;
+
+        &amp;lt;uses-library android:name=&amp;quot;com.symbol.emdk&amp;quot; /&amp;gt;
+
+        &amp;lt;activity android:name=&amp;quot;.MainActivity&amp;quot;&amp;gt;
+            &amp;lt;intent-filter&amp;gt;
+                &amp;lt;action android:name=&amp;quot;android.intent.action.MAIN&amp;quot; /&amp;gt;
+
+                &amp;lt;category android:name=&amp;quot;android.intent.category.LAUNCHER&amp;quot; /&amp;gt;
+            &amp;lt;/intent-filter&amp;gt;
+        &amp;lt;/activity&amp;gt;
+    &amp;lt;/application&amp;gt;
+
+&amp;lt;/manifest&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;create-the-mx-profile-to-disable-the-home-button&#34;&gt;Create the Mx Profile to disable the Home Button&lt;/h3&gt;
+
+&lt;p&gt;We can use EMDK&amp;rsquo;s Wizard to create the&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/samples/mx_home_btn/EMDKWizard_01.png&#34; alt=&#34;Create EMDK UIManager Profile, step 1&#34; title=&#34;Create EMDK UIManager Profile, step 1&#34; /&gt;
+&lt;img src=&#34;http://pietromaggi.com/images/samples/mx_home_btn/EMDKWizard_02.png&#34; alt=&#34;Create EMDK UIManager Profile, step 2&#34; title=&#34;Create EMDK UIManager Profile, step 2&#34; /&gt;
+&lt;img src=&#34;http://pietromaggi.com/images/samples/mx_home_btn/EMDKWizard_03.png&#34; alt=&#34;Create EMDK UIManager Profile, step 3&#34; title=&#34;Create EMDK UIManager Profile, step 3&#34; /&gt;
+&lt;img src=&#34;http://pietromaggi.com/images/samples/mx_home_btn/EMDKWizard_04.png&#34; alt=&#34;Create EMDK UIManager Profile, step 4&#34; title=&#34;Create EMDK UIManager Profile, step 4&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;In this way we obtain this profile to disable the home button:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;
+&amp;lt;!--This is an auto generated document. Changes to this document may cause incorrect behavior.--&amp;gt;
+&amp;lt;wap-provisioningdoc&amp;gt;
+    &amp;lt;characteristic type=&amp;quot;ProfileInfo&amp;quot;&amp;gt;
+        &amp;lt;parm name=&amp;quot;created_wizard_version&amp;quot; value=&amp;quot;4.1.1&amp;quot;/&amp;gt;
+    &amp;lt;/characteristic&amp;gt;
+    &amp;lt;characteristic type=&amp;quot;Profile&amp;quot;&amp;gt;
+        &amp;lt;parm name=&amp;quot;ProfileName&amp;quot; value=&amp;quot;HomeButton&amp;quot;/&amp;gt;
+        &amp;lt;parm name=&amp;quot;ModifiedDate&amp;quot; value=&amp;quot;2016-08-01 14:12:10&amp;quot;/&amp;gt;
+        &amp;lt;parm name=&amp;quot;TargetSystemVersion&amp;quot; value=&amp;quot;4.4&amp;quot;/&amp;gt;
+        &amp;lt;characteristic type=&amp;quot;UiMgr&amp;quot; version=&amp;quot;4.3&amp;quot;&amp;gt;
+        &amp;lt;parm name=&amp;quot;emdk_name&amp;quot; value=&amp;quot;&amp;quot;/&amp;gt;
+        &amp;lt;parm name=&amp;quot;HomeKeyUsage&amp;quot; value=&amp;quot;2&amp;quot;/&amp;gt;
+        &amp;lt;/characteristic&amp;gt;
+    &amp;lt;/characteristic&amp;gt;
+&amp;lt;/wap-provisioningdoc&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;add-handling-of-emdk-profile-apis-in-mainactivity&#34;&gt;Add handling of EMDK Profile APIs in MainActivity&lt;/h3&gt;
+
+&lt;p&gt;Here we can follow along EMDK documentation&amp;rsquo;s &lt;a href=&#34;http://techdocs.zebra.com/emdk-for-android/4-2/tutorial/tutdatacaptureprofile/&#34;&gt;Data Capture Profile Feature Tutorial&lt;/a&gt;.&lt;br /&gt;
+First step is to implement the EMDKListener interface in the MainActivity class, obtaining this code:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;package com.pietromaggi.sample.mxhomebutton;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+
+import com.symbol.emdk.EMDKManager;
+
+public class MainActivity extends AppCompatActivity implements EMDKManager.EMDKListener {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+
+    @Override
+    public void onOpened(EMDKManager emdkManager) {
+
+    }
+
+    @Override
+    public void onClosed() {
+
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We&amp;rsquo;ve now to request an EMDKMAnager Instance and, in the &lt;code&gt;onOpened&lt;/code&gt; callback, get an instance of the Profile Manager to process the profile we created at the previous step.&lt;/p&gt;
+
+&lt;p&gt;Again, this is just a cut and past from the &lt;a href=&#34;http://techdocs.zebra.com/emdk-for-android/4-2/tutorial/tutdatacaptureprofile/&#34;&gt;Data Capture Profile Feature Tutorial&lt;/a&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;package com.pietromaggi.sample.mxhomebutton;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.widget.Toast;
+
+import com.symbol.emdk.EMDKManager;
+import com.symbol.emdk.EMDKResults;
+import com.symbol.emdk.ProfileManager;
+
+public class MainActivity extends AppCompatActivity implements EMDKManager.EMDKListener {
+
+    private EMDKManager emdkManager;
+    private ProfileManager mProfileManager;
+    private String profileName = &amp;quot;HomeButton&amp;quot;;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        //The EMDKManager object will be created and returned in the callback.
+        EMDKResults results = EMDKManager.getEMDKManager(getApplicationContext(), this);
+
+        //Check the return status of getEMDKManager
+        if(results.statusCode != EMDKResults.STATUS_CODE.SUCCESS)
+        {
+            //Failed to create EMDKManager object
+            Toast.makeText(this, &amp;quot;Error retrieving EMDK Manager instance.&amp;quot;, Toast.LENGTH_SHORT);
+        }
+    }
+
+    @Override
+    public void onOpened(EMDKManager emdkManager) {
+        this.emdkManager = emdkManager;
+        //Get the ProfileManager object to process the profiles
+        mProfileManager = (ProfileManager) emdkManager.getInstance(EMDKManager.FEATURE_TYPE.PROFILE);
+
+        if(mProfileManager != null)
+        {
+            try{
+
+                String[] modifyData = new String[1];
+                //Call processProfile with profile name and SET flag to create the profile. The modifyData can be null.
+
+                EMDKResults results = mProfileManager.processProfile(profileName, ProfileManager.PROFILE_FLAG.SET, modifyData);
+                if(results.statusCode == EMDKResults.STATUS_CODE.FAILURE)
+                {
+                    //Failed to set profile
+                }
+            }catch (Exception ex){
+                // Handle any exception
+            }
+
+
+        }
+    }
+
+    @Override
+    public void onClosed() {
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        //Clean up the objects created by EMDK manager
+        emdkManager.release();
+    }
+}
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If we run this application on a Zebra device with Mx v4.3+ we see that it disables the Home Button.&lt;br /&gt;
+Notes that this is not a kiosk mode, settings and notifications are still available and you need to use other Mx Profiles to disable these.  However, this setting is now persisted on the device even if you reset it.  To revert back to the default you need to do an &lt;em&gt;Enterprise Reset&lt;/em&gt; or a &lt;em&gt;Factory Reset&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;add-a-small-interface-to-enable-disable-the-home-button&#34;&gt;Add a small interface to enable/disable the home button&lt;/h3&gt;
+
+&lt;p&gt;To complete this sample could be useful to add a small UI that allows to enable/disable the home button; something like:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/samples/mx_home_btn/AppUI.png&#34; alt=&#34;Sample UI with Toggle Button&#34; title=&#34;Sample UI with Toggle Button&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This is the new layout file:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
+&amp;lt;RelativeLayout xmlns:android=&amp;quot;http://schemas.android.com/apk/res/android&amp;quot;
+    xmlns:tools=&amp;quot;http://schemas.android.com/tools&amp;quot;
+    android:layout_width=&amp;quot;match_parent&amp;quot;
+    android:layout_height=&amp;quot;match_parent&amp;quot;
+    android:paddingBottom=&amp;quot;@dimen/activity_vertical_margin&amp;quot;
+    android:paddingLeft=&amp;quot;@dimen/activity_horizontal_margin&amp;quot;
+    android:paddingRight=&amp;quot;@dimen/activity_horizontal_margin&amp;quot;
+    android:paddingTop=&amp;quot;@dimen/activity_vertical_margin&amp;quot;
+    tools:context=&amp;quot;com.pietromaggi.sample.mxhomebutton.MainActivity&amp;quot;&amp;gt;
+
+    &amp;lt;LinearLayout
+        android:orientation=&amp;quot;horizontal&amp;quot;
+        android:layout_width=&amp;quot;match_parent&amp;quot;
+        android:layout_height=&amp;quot;wrap_content&amp;quot;
+        android:layout_centerHorizontal=&amp;quot;true&amp;quot;&amp;gt;
+
+        &amp;lt;TextView
+            android:layout_width=&amp;quot;wrap_content&amp;quot;
+            android:layout_height=&amp;quot;wrap_content&amp;quot;
+            android:text=&amp;quot;@string/home_button_status&amp;quot;
+            android:layout_centerHorizontal=&amp;quot;true&amp;quot; /&amp;gt;
+
+        &amp;lt;ToggleButton
+            android:id=&amp;quot;@+id/tgHomeButton&amp;quot;
+            android:layout_width=&amp;quot;wrap_content&amp;quot;
+            android:layout_height=&amp;quot;wrap_content&amp;quot;
+            android:textOn=&amp;quot;Enabled&amp;quot;
+            android:textOff=&amp;quot;Disabled&amp;quot; /&amp;gt;
+
+
+    &amp;lt;/LinearLayout&amp;gt;
+&amp;lt;/RelativeLayout&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And this is the code taking care of the click event for the toggle button. You can find here the whole onCreate callback:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+
+    //The EMDKManager object will be created and returned in the callback.
+    EMDKResults results = EMDKManager.getEMDKManager(getApplicationContext(), this);
+
+    final ToggleButton tgHomeButton = (ToggleButton)findViewById(R.id.tgHomeButton);
+
+    //Check the return status of getEMDKManager
+    if(results.statusCode != EMDKResults.STATUS_CODE.SUCCESS)
+    {
+        //Failed to create EMDKManager object
+        Toast.makeText(this, &amp;quot;Error retrieving EMDK Manager instance.&amp;quot;, Toast.LENGTH_SHORT);
+        tgHomeButton.setEnabled(false);
+    } else {
+        tgHomeButton.setEnabled(true);
+
+        tgHomeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(mProfileManager != null)
+                {
+                    try{
+
+                        String[] modifyData = new String[1];
+
+                        boolean on = ((ToggleButton) v).isChecked();
+                            modifyData[0] =
+                                    &amp;quot;&amp;lt;?xml version=\&amp;quot;1.0\&amp;quot; encoding=\&amp;quot;UTF-8\&amp;quot;?&amp;gt;&amp;lt;!--This is an auto generated document. Changes to this document may cause incorrect behavior.--&amp;gt;&amp;lt;wap-provisioningdoc&amp;gt;\n&amp;quot; +
+                                    &amp;quot;  &amp;lt;characteristic type=\&amp;quot;ProfileInfo\&amp;quot;&amp;gt;\n&amp;quot; +
+                                    &amp;quot;    &amp;lt;parm name=\&amp;quot;created_wizard_version\&amp;quot; value=\&amp;quot;4.1.1\&amp;quot;/&amp;gt;\n&amp;quot; +
+                                    &amp;quot;  &amp;lt;/characteristic&amp;gt;\n&amp;quot; +
+                                    &amp;quot;  &amp;lt;characteristic type=\&amp;quot;Profile\&amp;quot;&amp;gt;\n&amp;quot; +
+                                    &amp;quot;    &amp;lt;parm name=\&amp;quot;ProfileName\&amp;quot; value=\&amp;quot;HomeButton\&amp;quot;/&amp;gt;\n&amp;quot; +
+                                    &amp;quot;    &amp;lt;parm name=\&amp;quot;ModifiedDate\&amp;quot; value=\&amp;quot;2016-08-01 16:30:10\&amp;quot;/&amp;gt;\n&amp;quot; +
+                                    &amp;quot;    &amp;lt;parm name=\&amp;quot;TargetSystemVersion\&amp;quot; value=\&amp;quot;4.4\&amp;quot;/&amp;gt;\n&amp;quot; +
+                                    &amp;quot;    &amp;lt;characteristic type=\&amp;quot;UiMgr\&amp;quot; version=\&amp;quot;4.3\&amp;quot;&amp;gt;\n&amp;quot; +
+                                    &amp;quot;      &amp;lt;parm name=\&amp;quot;emdk_name\&amp;quot; value=\&amp;quot;\&amp;quot;/&amp;gt;\n&amp;quot; +
+                                    &amp;quot;      &amp;lt;parm name=\&amp;quot;HomeKeyUsage\&amp;quot; value=\&amp;quot;&amp;quot; + (on?&amp;quot;1&amp;quot;:&amp;quot;2&amp;quot;) + &amp;quot;\&amp;quot;/&amp;gt;\n&amp;quot; +
+                                    &amp;quot;    &amp;lt;/characteristic&amp;gt;\n&amp;quot; +
+                                    &amp;quot;  &amp;lt;/characteristic&amp;gt;\n&amp;quot; +
+                                    &amp;quot;&amp;lt;/wap-provisioningdoc&amp;gt;\n&amp;quot;;
+
+                        //Call processProfile with profile name and SET flag to create the profile. The modifyData can be null.
+                        EMDKResults results = mProfileManager.processProfile(profileName, ProfileManager.PROFILE_FLAG.SET, modifyData);
+                        if(results.statusCode == EMDKResults.STATUS_CODE.FAILURE)
+                        {
+                            //Failed to set profile
+                            Toast.makeText(MainActivity.this, &amp;quot;Failed to set the new profile&amp;quot;, Toast.LENGTH_SHORT).show();
+                        } else if (results.statusCode == EMDKResults.STATUS_CODE.CHECK_XML) {
+                            String responseXML = results.getStatusString();
+                            if (responseXML.contains(&amp;quot;error&amp;quot;)) {
+                                Toast.makeText(MainActivity.this, &amp;quot;Failed to set the new profile&amp;quot;, Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    }catch (Exception ex){
+                        // Handle any exception
+                        Toast.makeText(MainActivity.this, &amp;quot;Failed to set the new profile&amp;quot;, Toast.LENGTH_SHORT).show();
+                    }
+
+
+                }
+            }
+
+        });
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h3&gt;
+
+&lt;p&gt;Mx is getting better and better, and the latest version have introduced some interesting additional features and more are going to be added in the future.&lt;br /&gt;
+I hope that this small blog has made this clear and you can find more interesting suggestion on EMDK official documentation.&lt;/p&gt;
+
+&lt;p&gt;For now I leave you with a video of the app working and the complete source code of the project available on github.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/samples/mx_home_btn/AppUI.gif&#34; alt=&#34;Sample UI with Toggle Button&#34; title=&#34;Sample UI with Toggle Button&#34; /&gt;&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;&lt;a href=&#34;http://pietromaggi.com/2016/01/18/disabling-mc40-home-button-with-a-custom-intent/&#34;&gt;Disabling MC40 Home Button with a custom intent&lt;/a&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34;&gt;&lt;a href=&#34;http://techdocs.zebra.com/emdk-for-android/4-2/mx/uimgr/#homekey-enabledisable&#34;&gt;UI Manager documentation&lt;/a&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:2&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
     
     <item>
       <title>Managing Display AutoRotation from StageNow</title>
