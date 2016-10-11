@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Pietro F. Maggi</title>
-    <link>http://pietromaggi.com/</link>
+    <link>http://pietromaggi.com/index.xml</link>
     <description>Recent content on Pietro F. Maggi</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-EN</language>
@@ -820,16 +820,12 @@ Luckily Google has introduced new API in KitKat (and Lollipop and Marshmallow) t
       <guid>http://pietromaggi.com/speaking/</guid>
       <description>
 
-&lt;h2 id=&#34;june-2016&#34;&gt;JUNE 2016&lt;/h2&gt;
+&lt;h2 id=&#34;november-2016&#34;&gt;NOVEMBER 2016&lt;/h2&gt;
 
 &lt;ul&gt;
-&lt;li&gt;15-17 June - droidcon Berlin with a couple of talks:
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://de.droidcon.com/en/sessions/life-enterprise-android-developers-age-android-works&#34;&gt;LIFE OF ENTERPRISE ANDROID DEVELOPERS IN THE AGE OF ANDROID FOR WORKS&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Zebra sponsored talk. yet yo be defined
-&lt;br /&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;08 November - Android Workshop in Serbia, location to be announced later&lt;/li&gt;
+&lt;li&gt;10 November - Android Workshop in Slovenia, location to be announced later&lt;/li&gt;
+&lt;li&gt;29 November - Android Workshop in Riyadh, Saudi Arabia, location to be announced later&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&#34;archive-and-talk-links&#34;&gt;ARCHIVE AND TALK LINKS&lt;/h2&gt;
@@ -839,7 +835,7 @@ Luckily Google has introduced new API in KitKat (and Lollipop and Marshmallow) t
 &lt;li&gt;19/20 April - &lt;a href=&#34;https://germany.apps-world.net/&#34;&gt;Apps World Berlin: &amp;laquo;Android: it&amp;rsquo;s time to go to work!&amp;raquo;&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;08-Apr-16 - droidcon Italy 2016 - &lt;strong&gt;Android: it&amp;rsquo;s time to go to Work!&lt;/strong&gt; &lt;script async class=&#39;speakerdeck-embed&#39; data-id=&#39;5e134bce838f4ee8abb2753ed3bea731&#39; data-ratio=&#39;1.33333333333333&#39; src=&#39;//speakerdeck.com/assets/embed.js&#39;&gt;&lt;/script&gt;&lt;/li&gt;
 &lt;li&gt;20-Nov-15 - Partner Technical Session in Rome organized by the Italian team. They gently invited me to help, finally back to Rome!&lt;/li&gt;
-&lt;li&gt;14-Oct-15 - Talk on What&amp;rsquo;s new in Android from JellyBean to Marshmallow for Enterprise Developers, presented at 2015 AppForum edition in London.&lt;br /&gt;
+&lt;li&gt;14-Oct-15 - Talk on What&amp;rsquo;s new in Android from JellyBean to Marshmallow for Enterprise Developers, presented at 2015 AppForum edition in London.
 &lt;img src=&#34;http://pietromaggi.com/images/conferences/AppForum2015.png&#34; alt=&#34;Enterprise AppForum&#34; title=&#34;Anterprise AppForum Banner&#34; /&gt;
 &lt;script async class=&#39;speakerdeck-embed&#39; data-id=&#39;ef4248bf72454b2e9602db55bdf1e8ed&#39; data-ratio=&#39;1.33333333333333&#39; src=&#39;//speakerdeck.com/assets/embed.js&#39;&gt;&lt;/script&gt;&lt;/li&gt;
 &lt;li&gt;08-Apr-15 - DroidCon Turin - &lt;strong&gt;Android Industrial Mobility&lt;/strong&gt;. 

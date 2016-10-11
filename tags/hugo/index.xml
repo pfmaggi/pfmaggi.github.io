@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Hugo on Pietro F. Maggi</title>
-    <link>http://pietromaggi.com/tags/hugo/</link>
-    <description>Recent content in Hugo on Pietro F. Maggi</description>
+    <title>Pietro F. Maggi</title>
+    <link>http://pietromaggi.com/tags/hugo/index.xml</link>
+    <description>Recent content on Pietro F. Maggi</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-EN</language>
     <managingEditor>pfm@pietromaggi.com (Pietro F. Maggi)</managingEditor>
     <webMaster>pfm@pietromaggi.com (Pietro F. Maggi)</webMaster>
     <copyright>(c) 2013-2016 Pietro F. Maggi</copyright>
-    <lastBuildDate>Sat, 09 Jan 2016 20:50:14 +0100</lastBuildDate>
     <atom:link href="http://pietromaggi.com/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
