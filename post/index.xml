@@ -9,8 +9,239 @@
     <managingEditor>pfm@pietromaggi.com (Pietro F. Maggi)</managingEditor>
     <webMaster>pfm@pietromaggi.com (Pietro F. Maggi)</webMaster>
     <copyright>(c) 2013-2016 Pietro F. Maggi</copyright>
-    <lastBuildDate>Mon, 01 Aug 2016 17:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Sat, 29 Oct 2016 11:00:00 +0100</lastBuildDate>
     <atom:link href="http://pietromaggi.com/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Enterprise Browser and DataWedge on Android - friends at the end</title>
+      <link>http://pietromaggi.com/2016/10/29/enterprise-browser-and-datawedge-on-android---friends-at-the-end/</link>
+      <pubDate>Sat, 29 Oct 2016 11:00:00 +0100</pubDate>
+      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <guid>http://pietromaggi.com/2016/10/29/enterprise-browser-and-datawedge-on-android---friends-at-the-end/</guid>
+      <description>
+
+&lt;p&gt;During Enterprise Browser hands-on lab, I got some enquiry about using other MobilityDNA utilities together with EB; in particular how to integrate &lt;em&gt;SwipeAssist&lt;/em&gt; and &lt;em&gt;Simulscan&lt;/em&gt;.
+These utilities can be integrated, with some heavy lifting, and accepting some constraints.&lt;/p&gt;
+
+&lt;h2 id=&#34;some-background&#34;&gt;Some background&lt;/h2&gt;
+
+&lt;p&gt;The current scanner framework implementation on our Android devices make available a single scanner object that provides full Scanner control. As always &amp;hellip;&amp;laquo;with great power comes great responsibility&amp;raquo;: an application using the scanner object from the Barcode API, is required to release it when it&amp;rsquo;s going in the background (usually you do this handling in the &lt;code&gt;onPause()&lt;/code&gt; callback in your native application).
+Enteprise Browser implements its own &lt;code&gt;Barcode API&lt;/code&gt; on top of the native EMDK Barcode API, however, due to the nature of the web application running inside EB, it does not release the scanner object. This locks the use of the scanner out for any other application that is in foreground while EB is in the background; &lt;em&gt;including DataWedge&lt;/em&gt;.
+Because utilities like SwipeAssist, are linked to DataWedge:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;NO DataWedge --&amp;gt; NO SwipeAssist
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;the-standard-experience&#34;&gt;The standard experience&lt;/h3&gt;
+
+&lt;p&gt;When you run EB v1.5 on our Android devices, DataWedge is completely disabled, even when EB is in the background&amp;hellip;
+This is good if you plan to work completely inside an EB application, however, sometimes, you want to have some sort of integration.&lt;/p&gt;
+
+&lt;h3 id=&#34;some-of-the-requests&#34;&gt;Some of the requests&lt;/h3&gt;
+
+&lt;p&gt;During these last weeks I got some request from Enterprise Browser users:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Being able to use DataWedge to scan barcodes inside EB&lt;/li&gt;
+&lt;li&gt;Being able to use SwipeAssist&lt;/li&gt;
+&lt;li&gt;Being able to use SimulScan multibarcode scanning from EB&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Let&amp;rsquo;s start from the first request!&lt;/p&gt;
+
+&lt;h2 id=&#34;making-eb-and-dw-coexist&#34;&gt;Making EB and DW coexist&lt;/h2&gt;
+
+&lt;p&gt;We&amp;rsquo;ve documented the steps to enable DataWedge in EB on the &lt;a href=&#34;http://techdocs.zebra.com/enterprise-browser/1-5/guide/datawedge/&#34;&gt;documentation website for EB v1.5&lt;/a&gt;.
+So, go there, and download the new DW profiles documented there!&lt;/p&gt;
+
+&lt;p&gt;Once you&amp;rsquo;ve imported the two profile from the previous section, DataWedge will display a new profile with the name &amp;laquo;EnterpriseBrowser&amp;raquo;:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/eb_dw/dw_7b.png&#34; alt=&#34;EnterpriseBrowser profile now shown&#34; title=&#34;profile&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We&amp;rsquo;re now ready to play with Enteprise Browser configuration to see if this works.&lt;/p&gt;
+
+&lt;h3 id=&#34;update-config-xml-and-test-a-sample-webpage&#34;&gt;Update Config.xml and test a sample webpage&lt;/h3&gt;
+
+&lt;p&gt;To follow this steps you need to have launched EB at least once, so that it creates its default configuration files under &lt;code&gt;/&amp;lt;sdcard/internal&amp;gt;/Android/data/com.symbol.enterprisebrowser&lt;/code&gt;.
+The you can proceeds copying it to your PC to apply some changes.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/eb_dw/eb_Config.xml.png&#34; alt=&#34;Copy Config.xml to your PC to Modify it&#34; title=&#34;Copy Config.xml to your PC to modify it&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;You need to apply three changes to follow along the rest of this blog:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a name=&#34;Config_1&#34;&gt;&lt;/a&gt;Enable the internal EB webserver and specify the folder how we plan to have the local files (as an example on the internal sdcard of the TC55 KK):&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code&gt;    &amp;lt;WebServer&amp;gt;
+      &amp;lt;Enabled VALUE=&amp;quot;1&amp;quot;/&amp;gt;
+      &amp;lt;Port VALUE=&amp;quot;8082&amp;quot;/&amp;gt;
+      &amp;lt;WebFolder VALUE=&amp;quot;/storage/sdcard0/www/&amp;quot;/&amp;gt;
+      &amp;lt;Public VALUE=&amp;quot;0&amp;quot;/&amp;gt;
+    &amp;lt;/WebServer&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Modify the startpage value:&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code&gt;    &amp;lt;General&amp;gt;
+      &amp;lt;Name value=&amp;quot;Menu&amp;quot;/&amp;gt;
+      &amp;lt;StartPage value=&amp;quot;http://127.0.0.1:8082/index.html&amp;quot; name=&amp;quot;Lab&amp;quot;/&amp;gt;
+      &amp;lt;UseRegularExpressions value=&amp;quot;0&amp;quot;/&amp;gt;
+    &amp;lt;/General&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Enable the use of DataWedge for barcode scanning inside Enteprise Browser&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code&gt;    &amp;lt;usedwforscanning  value=&amp;quot;1&amp;quot;/&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now we can try with a simple HTML page to see if it works:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    &amp;lt;html&amp;gt;
+      &amp;lt;head&amp;gt;
+      &amp;lt;/head&amp;gt;
+      &amp;lt;body&amp;gt;
+        &amp;lt;input type=&amp;quot;number&amp;quot; id=&amp;quot;Barcode&amp;quot; /&amp;gt;
+      &amp;lt;/body&amp;gt;
+    &amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To test this page on the device, we&amp;rsquo;ve to copy it into the root folder of the HTTP server we configured in our &lt;code&gt;Config.xml&lt;/code&gt;, if you used the settings reported &lt;a href=&#34;#Config_1&#34;&gt;here&lt;/a&gt;, you can copy this file to &lt;code&gt;/storage/sdcard0/www/&lt;/code&gt; giving it the name: &lt;code&gt;index.html&lt;/code&gt;.
+Opening Enterprise Browser we see that we can:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;touch the edit field (and have the numeric keyboard displayed)&lt;/li&gt;
+&lt;li&gt;scan a barcode with the hardware trigger&lt;/li&gt;
+&lt;li&gt;have the barcode inserted in the edit field by DataWedge&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/eb_dw/eb_step1.png&#34; alt=&#34;EB and DW test1&#34; title=&#34;EB and DW test1&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;automate-this-step-a-bit&#34;&gt;Automate this step a bit&lt;/h3&gt;
+
+&lt;p&gt;Next thing that would be nice to have is to avoid to touch the display to be able to scan, in this case a little JavaScript can help.
+With this version of the sample we can immediately scan a barcode getting the data in the input field. Note that no Keyboard is shown as I&amp;rsquo;ve not touched the input field here:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    &amp;lt;script&amp;gt;
+      function domReadyEvent() {
+        setTimeout(function() {
+          var fld = document.getElementById(&#39;Barcode&#39;);
+          fld.focus();
+        }, 1000);
+      }
+
+      window.addEventListener(&#39;DOMContentLoaded&#39;, domReadyEvent);
+    &amp;lt;/script&amp;gt;
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;input type=&amp;quot;number&amp;quot; id=&amp;quot;Barcode&amp;quot; /&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/eb_dw/eb_step2.png&#34; alt=&#34;EB and DW test2&#34; title=&#34;EB and DW test2&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;eb-and-swipeassist&#34;&gt;EB and SwipeAssist&lt;/h2&gt;
+
+&lt;p&gt;What if we want to use SwipeAssist inside this demo application?
+It&amp;rsquo;s simply a matter of enabling the &lt;code&gt;Show&lt;/code&gt; option in the Data Capture Panel section of our DataWedge profile &lt;code&gt;EB_Simulscan&lt;/code&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/eb_dw/dw_15.png&#34; alt=&#34;Activate SwipeAssist in DataWedge Profile for EB&#34; title=&#34;Activate SwipeAssist in DataWedge Profile for EB&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;And the result in EB is:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/eb_dw/eb_swipeassist.png&#34; alt=&#34;SwipeAssist active in EB&#34; title=&#34;SwipeAssist active in EB&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;eb-and-simulscan&#34;&gt;EB and SimulScan&lt;/h2&gt;
+
+&lt;p&gt;Next, and final, goal is to use SimulScan to read two barcodes and have the data filled in two different input field, with the minimum JavaScript necessary to select the first input field:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    &amp;lt;script&amp;gt;
+      function domReadyEvent() {
+        setTimeout(function() {
+          var fld = document.getElementById(&#39;Barcode&#39;);
+          fld.focus();
+        }, 1000);
+      }
+
+      window.addEventListener(&#39;DOMContentLoaded&#39;, domReadyEvent);
+    &amp;lt;/script&amp;gt;
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;input type=&amp;quot;number&amp;quot; id=&amp;quot;Barcode&amp;quot; /&amp;gt; &amp;lt;br&amp;gt;
+    &amp;lt;input type=&amp;quot;number&amp;quot; id=&amp;quot;Barcode2&amp;quot; /&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;It now time to play a bit with the DataWedge profile configuration, starting disabling the Data Capture Panel, and Enabling Simulscan, selecting the &lt;code&gt;Default - Barcode 2&lt;/code&gt; template:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/eb_dw/dw_16.png&#34; alt=&#34;Enable Simulscan in DataWedge Profile for EB&#34; title=&#34;Enable Simulscan in DataWedge Profile for EB&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;If we now try this on our page, we see that the two barcodes are send as a single string, we need to split the two barcodes.  The &lt;code&gt;Region Separator&lt;/code&gt; seems like a good candidate, however, even sending a tab as a separator is not going to solve this issue.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/eb_dw/dw_17.png&#34; alt=&#34;Tab as Region Separator&#34; title=&#34;Tab as Region Separator&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/eb_dw/dw_18.png&#34; alt=&#34;Final DataWedge Profile with Tab Terminator in Simulscan&#34; title=&#34;Final DataWedge Profile with Tab Terminator in Simulscan&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The reason is that the web pages takes to much time to switch the focus to the second input field and so you end up loosing the data of the second barcodes:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/eb_dw/eb_step3a.png&#34; alt=&#34;Second barcode from Simulscan is lost&#34; title=&#34;Second barcode from Simulscan is lost&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We can try a different solution using DataWedge &lt;em&gt;Advanced Data Formatting&lt;/em&gt; so, we revert back to not have any region separator for Simulscan and we add and Advanced Data formatting rule:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/eb_dw/dw_19.png&#34; alt=&#34;Add an Advanced Formatting Rule&#34; title=&#34;Add an Advanced Formatting Rule&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Enable it!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/eb_dw/dw_20.png&#34; alt=&#34;Enable it&#34; title=&#34;Enable it&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;and specify when it needs to be activated. I this case for me it&amp;rsquo;s always in my scenario&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/eb_dw/dw_21.png&#34; alt=&#34;ADF Criteria&#34; title=&#34;ADF Criteria&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Just checking that this rule is only applied to data coming from Simulscan and not from the Barcode scanner&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/eb_dw/dw_22.png&#34; alt=&#34;ADF Source&#34; title=&#34;ADF Source&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;And now the actual rule.
+The basic idea is to send the first 9 chars of the data coming from Simulscan (in my case this is the first barcode), then send a tab, wait for 100ms and then send the rest of the data coming from Simulscan:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/eb_dw/dw_23.png&#34; alt=&#34;Enable it&#34; title=&#34;Enable it&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Again:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Send the first 9 chars&lt;/li&gt;
+&lt;li&gt;Send a tab (&lt;code&gt;0x09&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;Wait 100ms&lt;/li&gt;
+&lt;li&gt;Send the rest of the data&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;If we try this setup with our simple test page, the result is actually the desidered one:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/eb_dw/eb_step3.png&#34; alt=&#34;The final app scanning two barcodes at once with Simulscan&#34; title=&#34;The final app scanning two barcodes at once with Simulscan&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;We reached the end of this exploration on how is possible to integrate Enterprise Browser with DataWedge.
+In some cases it makes sense to use a similar setup to enable existing webpages without touching them. For this reason, in the samples presented here, I tried to minimize the amout of JavaScript code needed to have them working.
+A much better integration can be achieved starting to work on the onKeyPress events or using EB Intent API.
+Personally I think that if you want to customize your web app to have a better integration on Zebra devices, using EB&amp;rsquo;s Barcode API is a better choice that following the DataWedge route.&lt;/p&gt;
+
+&lt;p&gt;Talking about Simulscan, it could be interesting evaluate how to integrate DataWedge SimulScan Intent output with EB&amp;hellip; Till there&amp;rsquo;s no integrated SimulScan API in Enterprise Browser.&lt;/p&gt;
+
+&lt;p&gt;Let me know if you have any comment on these topics.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Disabling Home Button on Zebra Android devices</title>
@@ -1803,30 +2034,6 @@ rake gen_deploy
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;&lt;strong&gt;Hopefully I&amp;rsquo;ll finally start to crank out some content!&lt;/strong&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>2013 in numbers</title>
-      <link>http://pietromaggi.com/2013/12/31/2013-in-numbers/</link>
-      <pubDate>Tue, 31 Dec 2013 20:52:22 +0100</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
-      <guid>http://pietromaggi.com/2013/12/31/2013-in-numbers/</guid>
-      <description>
-
-&lt;h2 id=&#34;what-an-interesting-year&#34;&gt;What an interesting year!&lt;/h2&gt;
-
-&lt;p&gt;This is the first year that I joined a regional team and this involved a lot of travel (12900 flight hours) across all EMEA.
-Has been a blast meeting a lot of end-users, partners and colleagues.&lt;/p&gt;
-
-&lt;p&gt;I&amp;rsquo;ve started doing my &amp;laquo;RhoMobile Developer Roadshow&amp;raquo;, usually a one man show with up to three events a week for a total of 22 cities, from Lisbon to Dubai, and from Capetown to Helsinki.
-Has been a blast, physically and emotionally! and I really enjoyed it.&lt;/p&gt;
-
-&lt;p&gt;So 2013 has been an year where I&amp;rsquo;ve discovered that I like to travel, especially to meet people and chat with them about technology. I like to train/coach people, I now have few end-users/partners direct relations as the go-to guy for RhoMobile projects and I like to speak in public, both at our small events and at big technology conferences.  I&amp;rsquo;ve discovered this last point presenting at a couple of DroidCon events later in 2013 (London and Amsterdam).&lt;/p&gt;
-
-&lt;p&gt;2013 included a new manager (Hi James, thanks for all the support) and a new team: the dynamic duo with Paul&amp;amp;Pietro. By the end of 2013 Paul decided to follow a different professional path so, all the best to him!&lt;/p&gt;
-
-&lt;p&gt;And now I&amp;rsquo;m ready for 2014!&lt;/p&gt;
 </description>
     </item>
     
