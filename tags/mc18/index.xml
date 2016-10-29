@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pietro F. Maggi</title>
+    <link>http://pietromaggi.com/tags/mc18/index.xml</link>
+    <description>Recent content on Pietro F. Maggi</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-EN</language>
+    <managingEditor>pfm@pietromaggi.com (Pietro F. Maggi)</managingEditor>
+    <webMaster>pfm@pietromaggi.com (Pietro F. Maggi)</webMaster>
+    <copyright>(c) 2013-2016 Pietro F. Maggi</copyright>
+    <atom:link href="http://pietromaggi.com/tags/mc18/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Toggling MC18 Navigation (and Status) Bar visible state</title>
+      <link>http://pietromaggi.com/2016/10/30/toggling-mc18-navigation-and-status-bar-visible-state/</link>
+      <pubDate>Sun, 30 Oct 2016 11:00:00 +0100</pubDate>
+      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <guid>http://pietromaggi.com/2016/10/30/toggling-mc18-navigation-and-status-bar-visible-state/</guid>
+      <description>
+
+&lt;p&gt;MC18 is the only Zebra Android mobile computer (at least till now) that uses a Navigation bar instead of phisycal buttons for the back and home.
+This is the first device where it makes sense to use &lt;a href=&#34;https://developer.android.com/samples/ImmersiveMode/index.html&#34;&gt;Android immersive mode&lt;/a&gt;!&lt;/p&gt;
+
+&lt;p&gt;The problem with the standard immersive mode is that swiping from the bottom or the top of the screen re-enable both Navigation and Status bar. It&amp;rsquo;s not really intended to be a kiosk mode&amp;hellip; is just to have a full screen capability.&lt;/p&gt;
+
+&lt;p&gt;Luckily, MC18 Android supports natively a setup to hide both Status and Navigation bar making much more easy to lock a user inside a single application.&lt;/p&gt;
+
+&lt;h2 id=&#34;enter-the-navbarconfig-xml&#34;&gt;Enter the &lt;code&gt;navbarconfig.xml&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;Android version of the MC18 has a configuration xml file to control the navbar visibility status located in the &lt;code&gt;/enterprise&lt;/code&gt; partition:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/enterprise/device/settings/navbarconfig/navbarconfig.xml
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This file can be used to configure permanently the visibility status or to change it dynamically (this latest option is supported starting from BSP v02-13-12).&lt;/p&gt;
+
+&lt;p&gt;To change it permanently, set the content of the file to:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
+&amp;lt;navbarconfig&amp;gt;
+    &amp;lt;hidenavbar&amp;gt;false&amp;lt;/hidenavbar&amp;gt;
+&amp;lt;/navbarconfig&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You can copy the file created in this way to the device using adb or an MDM, but you cannot navigate to &lt;code&gt;/enterprise&lt;/code&gt; due to some permission restrictions. However you can navigate directly to the &lt;code&gt;/enterprise/device/&lt;/code&gt; folder (and the folders under it).  So, can use adb to push the data on the device:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;adb push navbarconfig.xml /enterprise/device/settings/navbarconfig/navbarconfig.xml
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then you need to reset the device to activare the new setting.&lt;/p&gt;
+
+&lt;p&gt;If you&amp;rsquo;ve the BSP v0-13-12 or newer you can change the setting dynamically, without the need of restarting the device, you can use this xml file inside your &lt;code&gt;navbarconfig.xml&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
+&amp;lt;navbarconfig&amp;gt;
+    &amp;lt;hidenavbarinstant&amp;gt;false&amp;lt;/hidenavbarinstant&amp;gt;
+&amp;lt;/navbarconfig&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Once you push this file to the device, it will modify immediately the configuration.
+If you&amp;rsquo;ve an older BSP &lt;a href=&#34;https://portal.motorolasolutions.com/Support/XU-EN/Resolution?solutionId=101574&amp;amp;productDetailGUID=a3b89f5683686410VgnVCM10000001c7b00aRCRD&amp;amp;detailChannelGUID=96d05645aa79f310VgnVCM10000081c7b10aRCRD&#34;&gt;you can download v02-13-12 from our support website&lt;/a&gt; if you have a valid maintenance contract or you&amp;rsquo;re registered as an ISV partner.&lt;/p&gt;
+
+&lt;p&gt;As an alternative you can toggle the navbar status using a broadcast intent with action &lt;code&gt;com.symbol.intent.action.systembarvisibility&lt;/code&gt;, with a boolean extra with name  &lt;code&gt;visibility&lt;/code&gt; as shown below in the code snippets:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;private final static String mStrIntent = &amp;quot;com.symbol.intent.action.systembarvisibility&amp;quot;;
+private final static String INTENT_EXTRA = &amp;quot;visibility&amp;quot;;
+
+Intent i = new Intent(mStrIntent);
+i.putExtra(INTENT_EXTRA, mbNavBarVisible);
+sendBroadcast(i);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This allows your application to hide/show the Navigation bar at will.&lt;/p&gt;
+
+&lt;p&gt;Nice trick :-)&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Thanks to Kelly, Gary, Andy and Kjell for providing the info needed to put this together!!!&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;NOTE:&lt;/strong&gt; The Intent to control the visibility status is not currently documented and, even if it works on the current version of the Operative System, it is not guarantee to work on future OS releases.&lt;/p&gt;
+
+&lt;p&gt;If you want a future proof control of the NavBar visibility, you can copy the updated configuration file from your app to the &lt;code&gt;/enterprise/device/settings/navbarconfig/&lt;/code&gt; folder.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

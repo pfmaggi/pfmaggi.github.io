@@ -9,8 +9,80 @@
     <managingEditor>pfm@pietromaggi.com (Pietro F. Maggi)</managingEditor>
     <webMaster>pfm@pietromaggi.com (Pietro F. Maggi)</webMaster>
     <copyright>(c) 2013-2016 Pietro F. Maggi</copyright>
-    <lastBuildDate>Sat, 29 Oct 2016 11:00:00 +0100</lastBuildDate>
+    <lastBuildDate>Sun, 30 Oct 2016 11:00:00 +0100</lastBuildDate>
     <atom:link href="http://pietromaggi.com/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Toggling MC18 Navigation (and Status) Bar visible state</title>
+      <link>http://pietromaggi.com/2016/10/30/toggling-mc18-navigation-and-status-bar-visible-state/</link>
+      <pubDate>Sun, 30 Oct 2016 11:00:00 +0100</pubDate>
+      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <guid>http://pietromaggi.com/2016/10/30/toggling-mc18-navigation-and-status-bar-visible-state/</guid>
+      <description>
+
+&lt;p&gt;MC18 is the only Zebra Android mobile computer (at least till now) that uses a Navigation bar instead of phisycal buttons for the back and home.
+This is the first device where it makes sense to use &lt;a href=&#34;https://developer.android.com/samples/ImmersiveMode/index.html&#34;&gt;Android immersive mode&lt;/a&gt;!&lt;/p&gt;
+
+&lt;p&gt;The problem with the standard immersive mode is that swiping from the bottom or the top of the screen re-enable both Navigation and Status bar. It&amp;rsquo;s not really intended to be a kiosk mode&amp;hellip; is just to have a full screen capability.&lt;/p&gt;
+
+&lt;p&gt;Luckily, MC18 Android supports natively a setup to hide both Status and Navigation bar making much more easy to lock a user inside a single application.&lt;/p&gt;
+
+&lt;h2 id=&#34;enter-the-navbarconfig-xml&#34;&gt;Enter the &lt;code&gt;navbarconfig.xml&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;Android version of the MC18 has a configuration xml file to control the navbar visibility status located in the &lt;code&gt;/enterprise&lt;/code&gt; partition:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/enterprise/device/settings/navbarconfig/navbarconfig.xml
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This file can be used to configure permanently the visibility status or to change it dynamically (this latest option is supported starting from BSP v02-13-12).&lt;/p&gt;
+
+&lt;p&gt;To change it permanently, set the content of the file to:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
+&amp;lt;navbarconfig&amp;gt;
+    &amp;lt;hidenavbar&amp;gt;false&amp;lt;/hidenavbar&amp;gt;
+&amp;lt;/navbarconfig&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You can copy the file created in this way to the device using adb or an MDM, but you cannot navigate to &lt;code&gt;/enterprise&lt;/code&gt; due to some permission restrictions. However you can navigate directly to the &lt;code&gt;/enterprise/device/&lt;/code&gt; folder (and the folders under it).  So, can use adb to push the data on the device:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;adb push navbarconfig.xml /enterprise/device/settings/navbarconfig/navbarconfig.xml
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then you need to reset the device to activare the new setting.&lt;/p&gt;
+
+&lt;p&gt;If you&amp;rsquo;ve the BSP v0-13-12 or newer you can change the setting dynamically, without the need of restarting the device, you can use this xml file inside your &lt;code&gt;navbarconfig.xml&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
+&amp;lt;navbarconfig&amp;gt;
+    &amp;lt;hidenavbarinstant&amp;gt;false&amp;lt;/hidenavbarinstant&amp;gt;
+&amp;lt;/navbarconfig&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Once you push this file to the device, it will modify immediately the configuration.
+If you&amp;rsquo;ve an older BSP &lt;a href=&#34;https://portal.motorolasolutions.com/Support/XU-EN/Resolution?solutionId=101574&amp;amp;productDetailGUID=a3b89f5683686410VgnVCM10000001c7b00aRCRD&amp;amp;detailChannelGUID=96d05645aa79f310VgnVCM10000081c7b10aRCRD&#34;&gt;you can download v02-13-12 from our support website&lt;/a&gt; if you have a valid maintenance contract or you&amp;rsquo;re registered as an ISV partner.&lt;/p&gt;
+
+&lt;p&gt;As an alternative you can toggle the navbar status using a broadcast intent with action &lt;code&gt;com.symbol.intent.action.systembarvisibility&lt;/code&gt;, with a boolean extra with name  &lt;code&gt;visibility&lt;/code&gt; as shown below in the code snippets:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;private final static String mStrIntent = &amp;quot;com.symbol.intent.action.systembarvisibility&amp;quot;;
+private final static String INTENT_EXTRA = &amp;quot;visibility&amp;quot;;
+
+Intent i = new Intent(mStrIntent);
+i.putExtra(INTENT_EXTRA, mbNavBarVisible);
+sendBroadcast(i);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This allows your application to hide/show the Navigation bar at will.&lt;/p&gt;
+
+&lt;p&gt;Nice trick :-)&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Thanks to Kelly, Gary, Andy and Kjell for providing the info needed to put this together!!!&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;NOTE:&lt;/strong&gt; The Intent to control the visibility status is not currently documented and, even if it works on the current version of the Operative System, it is not guarantee to work on future OS releases.&lt;/p&gt;
+
+&lt;p&gt;If you want a future proof control of the NavBar visibility, you can copy the updated configuration file from your app to the &lt;code&gt;/enterprise/device/settings/navbarconfig/&lt;/code&gt; folder.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Enterprise Browser and DataWedge on Android - friends at the end</title>
@@ -1984,56 +2056,6 @@ Once the .iso file has been created, drag this to Disk Utility and hit the Burn 
 
 
 &lt;p&gt;If you&amp;rsquo;re interested in this piece of the Android Source Code, this is the best starting point, even if nowadays ART has taken the place of Dalvik. A lot of Dalvik design is still in use nowadays!&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>2014 New Year resolutions</title>
-      <link>http://pietromaggi.com/2014/01/01/2014-new-year-resolutions/</link>
-      <pubDate>Wed, 01 Jan 2014 17:41:32 +0100</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
-      <guid>http://pietromaggi.com/2014/01/01/2014-new-year-resolutions/</guid>
-      <description>
-
-&lt;h2 id=&#34;blog-a-bit-more&#34;&gt;Blog a bit more&lt;/h2&gt;
-
-&lt;p&gt;That&amp;rsquo;s been one of my goal for a long time, and something that I always suggest to people to increase their &lt;em&gt;&lt;a href=&#34;http://www.codusoperandi.com/posts/increasing-your-luck-surface-area&#34;&gt;&amp;laquo;Luck Surface Area&amp;raquo;&lt;/a&gt;&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;In my case I can add an additional goal: keep track of what I do, tricks that I find and document procedure, fixes and workarounds.
-That&amp;rsquo;s always a bit of a pain point for me: I manage to do something and then in six months (or six hours) I forgot how I&amp;rsquo;ve done it and I need to start from scratch&amp;hellip; &lt;strong&gt;Never More&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;content-in-markdown&#34;&gt;Content in Markdown&lt;/h3&gt;
-
-&lt;p&gt;That&amp;rsquo;s one of the key technical decisions that I already have clear in mind, the content I&amp;rsquo;m going to produce will be in pure text, using &lt;a href=&#34;http://daringfireball.net/projects/markdown/&#34;&gt;Markdown&lt;/a&gt; formatting.&lt;/p&gt;
-
-&lt;h3 id=&#34;choosing-a-blog-engine-and-an-hosting-platform&#34;&gt;Choosing a blog engine and an hosting platform&lt;/h3&gt;
-
-&lt;p&gt;I don&amp;rsquo;t want to spend a lot of time setting up a system at this moment, I prefer to use my time for other things!
-GitHub offer a nice way to have a &lt;a href=&#34;https://pages.github.com/&#34;&gt;git repository used as a blog source&lt;/a&gt;. It&amp;rsquo;s a no-brainer for me!&lt;/p&gt;
-
-&lt;p&gt;Static site generators like &lt;a href=&#34;http://jekyllrb.com/&#34;&gt;Jekill&lt;/a&gt; are another &lt;em&gt;no brainer&lt;/em&gt;. In my case I prefer to have some helps so I&amp;rsquo;m going to use &lt;a href=&#34;http://octopress.org/&#34;&gt;octopress&lt;/a&gt; starting with the &lt;a href=&#34;https://github.com/TheChymera/Koenigspress&#34;&gt;KoenigsPress&lt;/a&gt; theme.&lt;/p&gt;
-
-&lt;h3 id=&#34;hosting-solutions&#34;&gt;Hosting solutions&lt;/h3&gt;
-
-&lt;p&gt;GitHub pages&lt;/p&gt;
-
-&lt;h3 id=&#34;setting-up-my-custom-domain&#34;&gt;Setting up my custom domain&lt;/h3&gt;
-
-&lt;p&gt;At the end I used godaddy.com to buy the domain pietromaggi.com for the next 10 years, I&amp;rsquo;ve managed to find a nice coupon and after few minutes I was able to have everything setup correctly.
-Some additional information are available on stackoverflow and this &lt;a href=&#34;http://learnaholic.me/2012/10/10/deploying-octopress-to-github-pages-and-setting-custom-subdomain-cname/&#34;&gt;blog&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&#34;documenting-my-writing-process&#34;&gt;Documenting my writing process&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;rake new_post[&amp;quot;my new great post&amp;quot;]
-rake preview
-git status
-git add .
-git commit -m &amp;quot;Added new great post&amp;quot;
-git push origin source
-rake gen_deploy
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;Hopefully I&amp;rsquo;ll finally start to crank out some content!&lt;/strong&gt;&lt;/p&gt;
 </description>
     </item>
     
