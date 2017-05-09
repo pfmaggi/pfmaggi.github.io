@@ -2,14 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Rhodes on Pietro F. Maggi</title>
-    <link>http://pietromaggi.com/tags/rhodes/index.xml</link>
+    <link>http://pietromaggi.com/tags/rhodes/</link>
     <description>Recent content in Rhodes on Pietro F. Maggi</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-EN</language>
     <managingEditor>pfm@pietromaggi.com (Pietro F. Maggi)</managingEditor>
     <webMaster>pfm@pietromaggi.com (Pietro F. Maggi)</webMaster>
     <copyright>(c) 2013-2016 Pietro F. Maggi</copyright>
-    <atom:link href="http://pietromaggi.com/tags/rhodes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 30 Dec 2013 13:56:04 +0100</lastBuildDate>
+    
+	<atom:link href="http://pietromaggi.com/tags/rhodes/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Rhodes tips &amp; tricks</title>
@@ -17,52 +20,10 @@
       <pubDate>Mon, 30 Dec 2013 13:56:04 +0100</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>http://pietromaggi.com/2013/12/30/rhodes-tips--tricks/</guid>
-      <description>
-
-&lt;h2 id=&#34;how-to-rebuild-the-rhodes-gem&#34;&gt;How to rebuild the rhodes gem&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;git clone https://github.com/rhomobile/rhodes.git
-cd rhodes
-git checkout 3-5-stable
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;make and commit changes if needed, then:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;rm -rf *
-git reset --hard
-git pull
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Otherwise directly&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;rake gem
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Copy files where you need it (on a different machine)
-gem install -l rhodes-3.5.1.13.2 (version given as an example)&lt;/p&gt;
-
-&lt;h2 id=&#34;rhodes-database-encryption&#34;&gt;Rhodes Database encryption&lt;/h2&gt;
-
-&lt;p&gt;Rhodes uses SQLite as database engine on all the supported platforms and, to provide encryption support we use different solutions depending by the target platform.&lt;/p&gt;
-
-&lt;p&gt;For Windows Mobile we use the [WinCrypt Library]()
-The actual implementation is &lt;a href=&#34;https://github.com/rhomobile/rhodes/blob/master/platform/wm/rhodes/rho/common/RhoCryptImpl.cpp&#34;&gt;under platform folder on github&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://msdn.microsoft.com/en-us/library/aa923618.aspx&#34;&gt;Microsoft WinCrypt library support multiple algorithms&lt;/a&gt; and we use RC4 in Windows Mobile.&lt;/p&gt;
-
-&lt;p&gt;For other operative systems we use the &lt;a href=&#34;http://sqlcipher.net/&#34;&gt;SQLCipher plugin&lt;/a&gt;. A look at the &lt;a href=&#34;https://github.com/rhomobile/rhodes/blob/master/platform/shared/sqlite/crypto.c&#34;&gt;crypto.c source file included in the SQLite folder can give more info&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&#34;making-a-pull-request-to-rhodes&#34;&gt;Making a pull request to rhodes&amp;hellip;&lt;/h2&gt;
-
-&lt;p&gt;First of all you need to fork rhodes:&lt;/p&gt;
-
-&lt;p&gt;Then you need to be sure that your fork is synced with upstream (this needs to be done before starting making changes), the following guide from GitHub came handy:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://help.github.com/articles/syncing-a-fork&#34;&gt;Syncing a fork&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://help.github.com/articles/using-pull-requests&#34;&gt;How to use Pull Requests&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+      <description>How to rebuild the rhodes gem git clone https://github.com/rhomobile/rhodes.git cd rhodes git checkout 3-5-stable  make and commit changes if needed, then:
+rm -rf * git reset --hard git pull  Otherwise directly
+rake gem  Copy files where you need it (on a different machine) gem install -l rhodes-3.5.1.13.2 (version given as an example)
+Rhodes Database encryption Rhodes uses SQLite as database engine on all the supported platforms and, to provide encryption support we use different solutions depending by the target platform.</description>
     </item>
     
     <item>
@@ -71,55 +32,9 @@ The actual implementation is &lt;a href=&#34;https://github.com/rhomobile/rhodes
       <pubDate>Sat, 28 Dec 2013 21:33:25 +0100</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>http://pietromaggi.com/2013/12/28/why-i-like-to-talk-about-open-source-projects/</guid>
-      <description>&lt;p&gt;Since I joined the RhoMobile group of Motorola Solutions as EIA pre-sale Technical Architect, I started to get disparate question regarding features of the Suite.&lt;/p&gt;
-
-&lt;p&gt;Something on the line:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;How is possible to launch an external application from a Rhodes one? &lt;em&gt;I tried different APIs and nothing seems to work&amp;hellip;&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;Looking on the support matrix of the APIs for different OSes, it seems that &lt;em&gt;X&lt;/em&gt; is supported on platform &lt;em&gt;Y&lt;/em&gt; but &lt;em&gt;I&amp;rsquo;m not able to make it working&amp;hellip;&lt;/em&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Usually I try to figure out the answer for these question by myself, it&amp;rsquo;s always useful getting a better understanding of the tool I usually talk about (and it&amp;rsquo;s probably the part of my job that I like the most: finding solutions to problems).&lt;/p&gt;
-
-&lt;p&gt;Let&amp;rsquo;s see why this is much easier having to understand how an Open Source project works.&lt;/p&gt;
-
-&lt;p&gt;First Question: How is possible to launch an external application from a Rhodes one? I tried different APIs and nothing works&amp;hellip;
-In this case I start my inspection from the docs pages, some usefully tips from the v2.2 API:&lt;/p&gt;
-
-&lt;p&gt;Run an application.&lt;/p&gt;
-
-&lt;p&gt;System.run_app(appname, params)
-appname The name of the application on the device to run, such as com.android.music.
-params  String. List of parameters for the application; nil if no parameters.&lt;/p&gt;
-
-&lt;p&gt;Windows Mobile, Windows CE: appname is path in registry:&lt;br /&gt;
-&lt;code&gt;&amp;lt;vendor&amp;gt; &amp;lt;app_name&amp;gt;/&amp;lt;app_name&amp;gt;.exe&lt;/code&gt;&lt;br /&gt;
-This is usually recorded in the Key:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;HKLM\Security\AppInstall\[App Name]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;like:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;HKLM\Security\AppInstall\rhomobile store
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;So, to launch this application from your RhoMobile app, you can use the following code:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;System.run_app(&#39;rhomobile store/store.exe&#39;, &#39;someparams&#39;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;OK, the syntax is not exactly what I was expecting&amp;hellip; this may be the cause of the issue.
-Documentation of the same API in v4.0 is not so helpful, no explanation of the differences between OSes and what the parameters are&amp;hellip;
-Let&amp;rsquo;s see what we&amp;rsquo;ve on github rhomobile account.&lt;/p&gt;
-
-&lt;p&gt;In the Kitchen Sink demo, there&amp;rsquo;s some code linked to the System API, but no sample executing the run_app method&amp;hellip; but the others methods seems to use the same, unfamiliar, syntax to reference a Windows Mobile app like: &lt;em&gt;&amp;laquo;rhomobile simple_app/simple_app.exe&amp;raquo;&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;Let&amp;rsquo;s see what we&amp;rsquo;ve in  &lt;a href=&#34;https://github.com/rhomobile/rhodes/blob/master/platform/wm/rhodes/rho/rubyext/SystemImpl.cpp&#34;&gt;Rhodes source code for Windows Mobile&lt;/a&gt; and the implementation seems to indicates that these are the right parameters.&lt;/p&gt;
-
-&lt;p&gt;So, it took us a bit more than necessary and the documentation is a bit missing on this topic, however, having the source code available gave us the necessary insight to reach our goal.&lt;/p&gt;
-</description>
+      <description>Since I joined the RhoMobile group of Motorola Solutions as EIA pre-sale Technical Architect, I started to get disparate question regarding features of the Suite.
+Something on the line:
+ How is possible to launch an external application from a Rhodes one? I tried different APIs and nothing seems to work&amp;hellip; Looking on the support matrix of the APIs for different OSes, it seems that X is supported on platform Y but I&amp;rsquo;m not able to make it working&amp;hellip;  Usually I try to figure out the answer for these question by myself, it&amp;rsquo;s always useful getting a better understanding of the tool I usually talk about (and it&amp;rsquo;s probably the part of my job that I like the most: finding solutions to problems).</description>
     </item>
     
   </channel>

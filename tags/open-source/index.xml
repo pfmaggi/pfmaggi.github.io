@@ -2,14 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Open Source on Pietro F. Maggi</title>
-    <link>http://pietromaggi.com/tags/open-source/index.xml</link>
+    <link>http://pietromaggi.com/tags/open-source/</link>
     <description>Recent content in Open Source on Pietro F. Maggi</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-EN</language>
     <managingEditor>pfm@pietromaggi.com (Pietro F. Maggi)</managingEditor>
     <webMaster>pfm@pietromaggi.com (Pietro F. Maggi)</webMaster>
     <copyright>(c) 2013-2016 Pietro F. Maggi</copyright>
-    <atom:link href="http://pietromaggi.com/tags/open-source/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 02 Jan 2014 14:34:27 +0100</lastBuildDate>
+    
+	<atom:link href="http://pietromaggi.com/tags/open-source/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Diving into Android source code</title>
@@ -17,38 +20,8 @@
       <pubDate>Thu, 02 Jan 2014 14:34:27 +0100</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>http://pietromaggi.com/2014/01/02/diving-into-android-source-code/</guid>
-      <description>
-
-&lt;h2 id=&#34;why-dive-into-android-code&#34;&gt;Why dive into Android code?&lt;/h2&gt;
-
-&lt;p&gt;When you&amp;rsquo;ve to write applications for Android, you&amp;rsquo;re targeting a giant moving API surface, sometimes you can be surprised of some different behavior in different Android versions or with an API call that is not well documented, so having the option to delve into Android Source Code is a great opportunity.&lt;/p&gt;
-
-&lt;p&gt;A lot of things can be written on how to do this, there&amp;rsquo;s some documentation available on &lt;a href=&#34;http://source.android.com/source/index.html&#34;&gt;AOSP website&lt;/a&gt;, however I think that the best starting point is a video tutorial by NewCircle&amp;rsquo;s Instructor Dave Smith on this very topic:&lt;/p&gt;
-
-&lt;h4 id=&#34;diving-into-android-source-code&#34;&gt;Diving into Android Source Code&lt;/h4&gt;
-
-
-&lt;div style=&#34;position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;&#34;&gt;
-  &lt;iframe src=&#34;//www.youtube.com/embed/NsqFOSzoYE8&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%;&#34; allowfullscreen frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
- &lt;/div&gt;
-
-
-&lt;p&gt;So, take your time to setup your own copy of the Android source code and, next time you&amp;rsquo;re asking yourself &amp;laquo;What&amp;rsquo;s going on when you call an API, you can check the source code!&amp;raquo;&lt;/p&gt;
-
-&lt;h2 id=&#34;on-a-similar-topic-dalvik-vm&#34;&gt;On a similar topic: Dalvik VM&lt;/h2&gt;
-
-&lt;p&gt;Dan Bernstein has presented at Google I/O 2008 a talk about the internals of Dalvik VM:&lt;/p&gt;
-
-&lt;h4 id=&#34;dalvik-virtual-machine-internals&#34;&gt;Dalvik Virtual Machine Internals&lt;/h4&gt;
-
-
-&lt;div style=&#34;position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;&#34;&gt;
-  &lt;iframe src=&#34;//www.youtube.com/embed/ptjedOZEXPM&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%;&#34; allowfullscreen frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
- &lt;/div&gt;
-
-
-&lt;p&gt;If you&amp;rsquo;re interested in this piece of the Android Source Code, this is the best starting point, even if nowadays ART has taken the place of Dalvik. A lot of Dalvik design is still in use nowadays!&lt;/p&gt;
-</description>
+      <description>Why dive into Android code? When you&amp;rsquo;ve to write applications for Android, you&amp;rsquo;re targeting a giant moving API surface, sometimes you can be surprised of some different behavior in different Android versions or with an API call that is not well documented, so having the option to delve into Android Source Code is a great opportunity.
+A lot of things can be written on how to do this, there&amp;rsquo;s some documentation available on AOSP website, however I think that the best starting point is a video tutorial by NewCircle&amp;rsquo;s Instructor Dave Smith on this very topic:</description>
     </item>
     
     <item>
@@ -57,55 +30,9 @@
       <pubDate>Sat, 28 Dec 2013 21:33:25 +0100</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>http://pietromaggi.com/2013/12/28/why-i-like-to-talk-about-open-source-projects/</guid>
-      <description>&lt;p&gt;Since I joined the RhoMobile group of Motorola Solutions as EIA pre-sale Technical Architect, I started to get disparate question regarding features of the Suite.&lt;/p&gt;
-
-&lt;p&gt;Something on the line:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;How is possible to launch an external application from a Rhodes one? &lt;em&gt;I tried different APIs and nothing seems to work&amp;hellip;&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;Looking on the support matrix of the APIs for different OSes, it seems that &lt;em&gt;X&lt;/em&gt; is supported on platform &lt;em&gt;Y&lt;/em&gt; but &lt;em&gt;I&amp;rsquo;m not able to make it working&amp;hellip;&lt;/em&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Usually I try to figure out the answer for these question by myself, it&amp;rsquo;s always useful getting a better understanding of the tool I usually talk about (and it&amp;rsquo;s probably the part of my job that I like the most: finding solutions to problems).&lt;/p&gt;
-
-&lt;p&gt;Let&amp;rsquo;s see why this is much easier having to understand how an Open Source project works.&lt;/p&gt;
-
-&lt;p&gt;First Question: How is possible to launch an external application from a Rhodes one? I tried different APIs and nothing works&amp;hellip;
-In this case I start my inspection from the docs pages, some usefully tips from the v2.2 API:&lt;/p&gt;
-
-&lt;p&gt;Run an application.&lt;/p&gt;
-
-&lt;p&gt;System.run_app(appname, params)
-appname The name of the application on the device to run, such as com.android.music.
-params  String. List of parameters for the application; nil if no parameters.&lt;/p&gt;
-
-&lt;p&gt;Windows Mobile, Windows CE: appname is path in registry:&lt;br /&gt;
-&lt;code&gt;&amp;lt;vendor&amp;gt; &amp;lt;app_name&amp;gt;/&amp;lt;app_name&amp;gt;.exe&lt;/code&gt;&lt;br /&gt;
-This is usually recorded in the Key:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;HKLM\Security\AppInstall\[App Name]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;like:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;HKLM\Security\AppInstall\rhomobile store
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;So, to launch this application from your RhoMobile app, you can use the following code:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;System.run_app(&#39;rhomobile store/store.exe&#39;, &#39;someparams&#39;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;OK, the syntax is not exactly what I was expecting&amp;hellip; this may be the cause of the issue.
-Documentation of the same API in v4.0 is not so helpful, no explanation of the differences between OSes and what the parameters are&amp;hellip;
-Let&amp;rsquo;s see what we&amp;rsquo;ve on github rhomobile account.&lt;/p&gt;
-
-&lt;p&gt;In the Kitchen Sink demo, there&amp;rsquo;s some code linked to the System API, but no sample executing the run_app method&amp;hellip; but the others methods seems to use the same, unfamiliar, syntax to reference a Windows Mobile app like: &lt;em&gt;&amp;laquo;rhomobile simple_app/simple_app.exe&amp;raquo;&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;Let&amp;rsquo;s see what we&amp;rsquo;ve in  &lt;a href=&#34;https://github.com/rhomobile/rhodes/blob/master/platform/wm/rhodes/rho/rubyext/SystemImpl.cpp&#34;&gt;Rhodes source code for Windows Mobile&lt;/a&gt; and the implementation seems to indicates that these are the right parameters.&lt;/p&gt;
-
-&lt;p&gt;So, it took us a bit more than necessary and the documentation is a bit missing on this topic, however, having the source code available gave us the necessary insight to reach our goal.&lt;/p&gt;
-</description>
+      <description>Since I joined the RhoMobile group of Motorola Solutions as EIA pre-sale Technical Architect, I started to get disparate question regarding features of the Suite.
+Something on the line:
+ How is possible to launch an external application from a Rhodes one? I tried different APIs and nothing seems to work&amp;hellip; Looking on the support matrix of the APIs for different OSes, it seems that X is supported on platform Y but I&amp;rsquo;m not able to make it working&amp;hellip;  Usually I try to figure out the answer for these question by myself, it&amp;rsquo;s always useful getting a better understanding of the tool I usually talk about (and it&amp;rsquo;s probably the part of my job that I like the most: finding solutions to problems).</description>
     </item>
     
   </channel>

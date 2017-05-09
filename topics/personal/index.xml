@@ -2,14 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Personal on Pietro F. Maggi</title>
-    <link>http://pietromaggi.com/topics/personal/index.xml</link>
+    <link>http://pietromaggi.com/topics/personal/</link>
     <description>Recent content in Personal on Pietro F. Maggi</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-EN</language>
     <managingEditor>pfm@pietromaggi.com (Pietro F. Maggi)</managingEditor>
     <webMaster>pfm@pietromaggi.com (Pietro F. Maggi)</webMaster>
     <copyright>(c) 2013-2016 Pietro F. Maggi</copyright>
-    <atom:link href="http://pietromaggi.com/topics/personal/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 01 Jan 2014 17:41:32 +0100</lastBuildDate>
+    
+	<atom:link href="http://pietromaggi.com/topics/personal/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>2014 New Year resolutions</title>
@@ -17,48 +20,8 @@
       <pubDate>Wed, 01 Jan 2014 17:41:32 +0100</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>http://pietromaggi.com/2014/01/01/2014-new-year-resolutions/</guid>
-      <description>
-
-&lt;h2 id=&#34;blog-a-bit-more&#34;&gt;Blog a bit more&lt;/h2&gt;
-
-&lt;p&gt;That&amp;rsquo;s been one of my goal for a long time, and something that I always suggest to people to increase their &lt;em&gt;&lt;a href=&#34;http://www.codusoperandi.com/posts/increasing-your-luck-surface-area&#34;&gt;&amp;laquo;Luck Surface Area&amp;raquo;&lt;/a&gt;&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;In my case I can add an additional goal: keep track of what I do, tricks that I find and document procedure, fixes and workarounds.
-That&amp;rsquo;s always a bit of a pain point for me: I manage to do something and then in six months (or six hours) I forgot how I&amp;rsquo;ve done it and I need to start from scratch&amp;hellip; &lt;strong&gt;Never More&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;content-in-markdown&#34;&gt;Content in Markdown&lt;/h3&gt;
-
-&lt;p&gt;That&amp;rsquo;s one of the key technical decisions that I already have clear in mind, the content I&amp;rsquo;m going to produce will be in pure text, using &lt;a href=&#34;http://daringfireball.net/projects/markdown/&#34;&gt;Markdown&lt;/a&gt; formatting.&lt;/p&gt;
-
-&lt;h3 id=&#34;choosing-a-blog-engine-and-an-hosting-platform&#34;&gt;Choosing a blog engine and an hosting platform&lt;/h3&gt;
-
-&lt;p&gt;I don&amp;rsquo;t want to spend a lot of time setting up a system at this moment, I prefer to use my time for other things!
-GitHub offer a nice way to have a &lt;a href=&#34;https://pages.github.com/&#34;&gt;git repository used as a blog source&lt;/a&gt;. It&amp;rsquo;s a no-brainer for me!&lt;/p&gt;
-
-&lt;p&gt;Static site generators like &lt;a href=&#34;http://jekyllrb.com/&#34;&gt;Jekill&lt;/a&gt; are another &lt;em&gt;no brainer&lt;/em&gt;. In my case I prefer to have some helps so I&amp;rsquo;m going to use &lt;a href=&#34;http://octopress.org/&#34;&gt;octopress&lt;/a&gt; starting with the &lt;a href=&#34;https://github.com/TheChymera/Koenigspress&#34;&gt;KoenigsPress&lt;/a&gt; theme.&lt;/p&gt;
-
-&lt;h3 id=&#34;hosting-solutions&#34;&gt;Hosting solutions&lt;/h3&gt;
-
-&lt;p&gt;GitHub pages&lt;/p&gt;
-
-&lt;h3 id=&#34;setting-up-my-custom-domain&#34;&gt;Setting up my custom domain&lt;/h3&gt;
-
-&lt;p&gt;At the end I used godaddy.com to buy the domain pietromaggi.com for the next 10 years, I&amp;rsquo;ve managed to find a nice coupon and after few minutes I was able to have everything setup correctly.
-Some additional information are available on stackoverflow and this &lt;a href=&#34;http://learnaholic.me/2012/10/10/deploying-octopress-to-github-pages-and-setting-custom-subdomain-cname/&#34;&gt;blog&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&#34;documenting-my-writing-process&#34;&gt;Documenting my writing process&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;rake new_post[&amp;quot;my new great post&amp;quot;]
-rake preview
-git status
-git add .
-git commit -m &amp;quot;Added new great post&amp;quot;
-git push origin source
-rake gen_deploy
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;Hopefully I&amp;rsquo;ll finally start to crank out some content!&lt;/strong&gt;&lt;/p&gt;
-</description>
+      <description>Blog a bit more That&amp;rsquo;s been one of my goal for a long time, and something that I always suggest to people to increase their &amp;laquo;Luck Surface Area&amp;raquo;.
+In my case I can add an additional goal: keep track of what I do, tricks that I find and document procedure, fixes and workarounds. That&amp;rsquo;s always a bit of a pain point for me: I manage to do something and then in six months (or six hours) I forgot how I&amp;rsquo;ve done it and I need to start from scratch&amp;hellip; Never More</description>
     </item>
     
     <item>
@@ -67,22 +30,8 @@ rake gen_deploy
       <pubDate>Tue, 31 Dec 2013 20:52:22 +0100</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>http://pietromaggi.com/2013/12/31/2013-in-numbers/</guid>
-      <description>
-
-&lt;h2 id=&#34;what-an-interesting-year&#34;&gt;What an interesting year!&lt;/h2&gt;
-
-&lt;p&gt;This is the first year that I joined a regional team and this involved a lot of travel (12900 flight hours) across all EMEA.
-Has been a blast meeting a lot of end-users, partners and colleagues.&lt;/p&gt;
-
-&lt;p&gt;I&amp;rsquo;ve started doing my &amp;laquo;RhoMobile Developer Roadshow&amp;raquo;, usually a one man show with up to three events a week for a total of 22 cities, from Lisbon to Dubai, and from Capetown to Helsinki.
-Has been a blast, physically and emotionally! and I really enjoyed it.&lt;/p&gt;
-
-&lt;p&gt;So 2013 has been an year where I&amp;rsquo;ve discovered that I like to travel, especially to meet people and chat with them about technology. I like to train/coach people, I now have few end-users/partners direct relations as the go-to guy for RhoMobile projects and I like to speak in public, both at our small events and at big technology conferences.  I&amp;rsquo;ve discovered this last point presenting at a couple of DroidCon events later in 2013 (London and Amsterdam).&lt;/p&gt;
-
-&lt;p&gt;2013 included a new manager (Hi James, thanks for all the support) and a new team: the dynamic duo with Paul&amp;amp;Pietro. By the end of 2013 Paul decided to follow a different professional path so, all the best to him!&lt;/p&gt;
-
-&lt;p&gt;And now I&amp;rsquo;m ready for 2014!&lt;/p&gt;
-</description>
+      <description>What an interesting year! This is the first year that I joined a regional team and this involved a lot of travel (12900 flight hours) across all EMEA. Has been a blast meeting a lot of end-users, partners and colleagues.
+I&amp;rsquo;ve started doing my &amp;laquo;RhoMobile Developer Roadshow&amp;raquo;, usually a one man show with up to three events a week for a total of 22 cities, from Lisbon to Dubai, and from Capetown to Helsinki.</description>
     </item>
     
   </channel>

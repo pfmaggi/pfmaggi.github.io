@@ -2,14 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Writing on Pietro F. Maggi</title>
-    <link>http://pietromaggi.com/tags/writing/index.xml</link>
+    <link>http://pietromaggi.com/tags/writing/</link>
     <description>Recent content in Writing on Pietro F. Maggi</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-EN</language>
     <managingEditor>pfm@pietromaggi.com (Pietro F. Maggi)</managingEditor>
     <webMaster>pfm@pietromaggi.com (Pietro F. Maggi)</webMaster>
     <copyright>(c) 2013-2016 Pietro F. Maggi</copyright>
-    <atom:link href="http://pietromaggi.com/tags/writing/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 09 Jan 2016 20:50:14 +0100</lastBuildDate>
+    
+	<atom:link href="http://pietromaggi.com/tags/writing/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Welcome</title>
@@ -17,21 +20,9 @@
       <pubDate>Sat, 09 Jan 2016 20:50:14 +0100</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>http://pietromaggi.com/2016/01/09/welcome/</guid>
-      <description>&lt;p&gt;Time for revamping a bit this blog.&lt;br /&gt;
-From a technical point of view, I struggled with octopress v2.x to keep this blog aligned across the multiple machine I use in my work/life. Octopress v3 is supposed to solve most of the issue that plagued me over these years but, I wanted to test something a bit different.&lt;/p&gt;
-
-&lt;p&gt;New year new static blog generator. Given that I want to spend some time evaluating &lt;a href=&#34;http://golang.org&#34;&gt;Go&lt;/a&gt; I decided to give &lt;a href=&#34;http://gohugo.io&#34;&gt;Hugo&lt;/a&gt; a try.&lt;/p&gt;
-
-&lt;p&gt;As always, I don&amp;rsquo;t want to spend much time on the layout and the style of this site. My main concern is to be able to post content regularly, something that is not so easy, given the rate I had releasing new content.&lt;/p&gt;
-
-&lt;p&gt;So, back on track for 2016, I want to release new content on this site, and I hope that this new platform will support me well.
-At this moment I&amp;rsquo;ve moved all the previous content, correcting few typos in the process, using one of the vanilla themes available.
-I&amp;rsquo;ll will probably spend some time in the future to refine the layout, but this is more or less it.&lt;/p&gt;
-
-&lt;p&gt;Another change is the comment section, that will go life with one of the free discussion platform available, still have to decide which one.&lt;/p&gt;
-
-&lt;p&gt;Let me know if you enjoy the change and, more important, which topics you&amp;rsquo;ll like that I cover here.&lt;/p&gt;
-</description>
+      <description>Time for revamping a bit this blog.
+From a technical point of view, I struggled with octopress v2.x to keep this blog aligned across the multiple machine I use in my work/life. Octopress v3 is supposed to solve most of the issue that plagued me over these years but, I wanted to test something a bit different.
+New year new static blog generator. Given that I want to spend some time evaluating Go I decided to give Hugo a try.</description>
     </item>
     
   </channel>

@@ -2,14 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Android on Pietro F. Maggi</title>
-    <link>http://pietromaggi.com/topics/android/index.xml</link>
+    <link>http://pietromaggi.com/topics/android/</link>
     <description>Recent content in Android on Pietro F. Maggi</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-EN</language>
     <managingEditor>pfm@pietromaggi.com (Pietro F. Maggi)</managingEditor>
     <webMaster>pfm@pietromaggi.com (Pietro F. Maggi)</webMaster>
     <copyright>(c) 2013-2016 Pietro F. Maggi</copyright>
-    <atom:link href="http://pietromaggi.com/topics/android/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 14 Jan 2016 23:00:00 +0100</lastBuildDate>
+    
+	<atom:link href="http://pietromaggi.com/topics/android/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Secondary External Storage in Android KitKat - Part 1</title>
@@ -17,76 +20,10 @@
       <pubDate>Thu, 14 Jan 2016 23:00:00 +0100</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>http://pietromaggi.com/2016/01/14/secondary-external-storage-in-android-kitkat---part-1/</guid>
-      <description>
-
-&lt;p&gt;First technical post for 2016. Finally!&lt;/p&gt;
-
-&lt;p&gt;To kick-start 2016 I&amp;rsquo;ve chosen a topic that is more and more relevant in our market: The changes introduced by Google in Android v4.4 KitKat, regarding the secondary storage (the SDCard).&lt;br /&gt;
-I&amp;rsquo;ve already talked about this in my AppForum 2015 talk last October in London&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;, but I want to add some extra info and rationales here.&lt;/p&gt;
-
-&lt;h2 id=&#34;a-bit-of-background&#34;&gt;A bit of background&lt;/h2&gt;
-
-&lt;p&gt;Android&amp;rsquo;s purpose is to establish an open platform for developers to build innovative apps.
-For this reason, Google put in place a compatibility program that defines technical details of the Android Platform;&lt;/p&gt;
-
-&lt;p&gt;For every Android release, there&amp;rsquo;s a Compatibility Definition Document, the last available at this moment is for &lt;a href=&#34;http://static.googleusercontent.com/media/source.android.com/it//compatibility/6.0/android-6.0-cdd.pdf&#34;&gt;Android 6.0, aka Marshmallow&lt;/a&gt;, that defines some of the technical features and device needs to have to be a compatible Android device. And this compatibility is a requirement to be able to license GMS&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:2&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:2&#34;&gt;2&lt;/a&gt;&lt;/sup&gt; for the device.&lt;/p&gt;
-
-&lt;p&gt;To put it clearly:&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;You want GMS? You need to comply to the CDD&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Here we&amp;rsquo;re talking about Android v4.4 KitKat, so here&amp;rsquo;s a link to &lt;a href=&#34;http://source.android.com/compatibility/4.4/android-4.4-cdd.pdf&#34;&gt;Android 4.4 CDD&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;what-s-the-catch&#34;&gt;What&amp;rsquo;s the catch?&lt;/h2&gt;
-
-&lt;p&gt;From the CDD, Android devices are required to have a Secondary Storage available with a minimum 1GB size if you don&amp;rsquo;t have this internal in your device but you provide an SDCard slot, you need to ship the device with an SDCard, again, 1GB minimum size.&lt;br /&gt;
-So usually, you end up that the SDCard is your &lt;em&gt;Secondary External Storage&lt;/em&gt;, and the &lt;em&gt;Primary External Storage&lt;/em&gt; is the 1GB partition (minimum) you included in the device.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Not a big deal&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;To access an External Storage on Android v4.3 and previous versions, you have to specify a couple of permissions in your &lt;code&gt;AndroidManifest.xml&lt;/code&gt;:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;READ_EXTERNAL_STORAGE&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;WRITE_EXTERNAL_STORAGE&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;These will gave you read&amp;amp;write access to all the External Storage available&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:3&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:3&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;.&lt;br /&gt;
-Given that there are ways to gently ask for the &lt;a href=&#34;http://pietromaggi.com/2014/10/19/finding-the-sdcard-path-on-android-devices/&#34;&gt;SDCard true path&lt;/a&gt; this was more or less working.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;But Android is now a multiuser OS! and an SDCard with a FAT file system, is not very good protecting the data between the different users&amp;hellip;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Android support SDCard with FAT file system, to provide a layer of security, it uses the &lt;a href=&#34;https://en.wikipedia.org/wiki/Filesystem_in_Userspace&#34;&gt;Linux FUSE&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;In Android v4.4 Google decides to go a step further mandating that an app can write (with the right permissions that we just saw) only on the Primary External Storage. For all the other External Storage, an app can only write in its package folder. e.g. if you app package is com.pietromaggi.sample.externalstorage, It can only write in the folders &lt;code&gt;&amp;lt;sdcard root&amp;gt;/Android/data/com.pietromaggi.sample.externalstorage&lt;/code&gt;.&lt;br /&gt;
-There&amp;rsquo;s no way, for a normal application, to write anywhere else on the SDCard.&lt;/p&gt;
-
-&lt;h2 id=&#34;ok-but-there-s-an-happy-end-somewhere&#34;&gt;OK, but there&amp;rsquo;s an happy end somewhere?&lt;/h2&gt;
-
-&lt;p&gt;Really, if you&amp;rsquo;re trying to get a way to revert Android behavior to what it was before API level 19, no, this is it.&lt;br /&gt;
-Luckily Google has introduced new API in KitKat (and Lollipop and Marshmallow) that allows to mitigate the issue. Some user interventions may be needed but at least there are standard APIs available.&lt;/p&gt;
-
-&lt;p&gt;In the second part of this blog I&amp;rsquo;ll present a sample app that uses some of these APIs.&lt;/p&gt;
-&lt;div class=&#34;footnotes&#34;&gt;
-
-&lt;hr /&gt;
-
-&lt;ol&gt;
-&lt;li id=&#34;fn:1&#34;&gt;Slides presented in London: &lt;script async class=&#39;speakerdeck-embed&#39; data-id=&#39;ef4248bf72454b2e9602db55bdf1e8ed&#39; data-ratio=&#39;1.33333333333333&#39; src=&#39;//speakerdeck.com/assets/embed.js&#39;&gt;&lt;/script&gt;
- &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li id=&#34;fn:2&#34;&gt;GMS Stands for Google Mobile Services, and is the collection of services and application built by Google that are not part of AOSP (Android Open Source Project) like GMail, Google Maps, Google Play Store and the push notification service GCM (Google Cloud Messaging).
- &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:2&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li id=&#34;fn:3&#34;&gt;The catch is that, before Android v4.4, API level 19, and the introduction of the &lt;code&gt;Environment.getExternalFilesDirs()&lt;/code&gt; there was no way to know how many External Storage you had available on a device. The only available API was &lt;code&gt;Environment.getExternalStorageDirectory()&lt;/code&gt; that returns the Primary External Storage.
- &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:3&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-</description>
+      <description>First technical post for 2016. Finally!
+To kick-start 2016 I&amp;rsquo;ve chosen a topic that is more and more relevant in our market: The changes introduced by Google in Android v4.4 KitKat, regarding the secondary storage (the SDCard).
+I&amp;rsquo;ve already talked about this in my AppForum 2015 talk last October in London1, but I want to add some extra info and rationales here.
+A bit of background Android&amp;rsquo;s purpose is to establish an open platform for developers to build innovative apps.</description>
     </item>
     
     <item>
@@ -95,95 +32,11 @@ Luckily Google has introduced new API in KitKat (and Lollipop and Marshmallow) t
       <pubDate>Sun, 19 Oct 2014 20:55:18 +0200</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>http://pietromaggi.com/2014/10/19/finding-the-sdcard-path-on-android-devices/</guid>
-      <description>
-
-&lt;p&gt;With Motorola Solutions we&amp;rsquo;re busy finishing the first round of Android Developer&amp;rsquo;s Kitchens around Europe. Just in time to prepare for the &lt;a href=&#34;http://www.motorolasolutionsevents.com/enterprise_appforum_2014/&#34;&gt;Enterprise App Forum in Brussels!&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;The nice things of these events is the interaction with our partners and theirs real live problem!&lt;/p&gt;
-
-&lt;p&gt;Last week I got an interesting question regarding our TC55:&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;How can I programmatically get the path for the SDCard on the TC55?&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;That&amp;rsquo;s a good question; usually you don&amp;rsquo;t want to insert in your code the dependency to an hard coded path!
-The usual answer is based around the function &lt;code&gt;Environment.getExternalStorageDirectory();&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;The problem is that this function report a different folder if the SDCard is inserted in the device or not.
-This is not a problem unique to the TC55, it&amp;rsquo;s a common problem on Android and there are different ways to handle it:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://futurewithdreams.blogspot.it/2014/01/get-external-sdcard-location-in-android.html&#34;&gt;Reading the partition table from &lt;code&gt;/proc/mounts&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://stackoverflow.com/a/23949650/118862&#34;&gt;Use some environment variables&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://stackoverflow.com/questions/22219312/android-open-external-storage-directorysdcard-for-storing-file&#34;&gt;Still use the getExternalStorageDirectory() function, together with the isExternalStorageRemovable() and getExternalStorageState() functions&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Given that we&amp;rsquo;ve the luxury to target just a few devices, the Motorola Solutions one :-), the best option is to use the environment variables.&lt;/p&gt;
-
-&lt;h3 id=&#34;let-s-see-what-happens-on-the-tc55&#34;&gt;Let&amp;rsquo;s see what happens on the TC55&lt;/h3&gt;
-
-&lt;p&gt;On this device, using &lt;code&gt;Environment.getExternalStorageDirectory();&lt;/code&gt; returns different results depending if you&amp;rsquo;ve installed or not an SDCard:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Without SDCard —&amp;gt; /&lt;code&gt;STORAGE/SDCARD1&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;With SDCard —&amp;gt; &lt;code&gt;/STORAGE/SDCARD0&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Let&amp;rsquo;s see what we can achieve with the environment variables!&lt;/p&gt;
-
-&lt;p&gt;We can log into a TC55 and use the &lt;code&gt;printenv&lt;/code&gt; command:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;adb shell
-printenv
-
-_=/system/bin/printenv
-LD_LIBRARY_PATH=/vendor/lib:/system/lib
-HOSTNAME=android
-BOOTCLASSPATH=/system/framework/core.jar:/system/framework/core-junit.jar:/system/framework/bouncycastle.jar:/system/framework/ext.jar:/system/framework/framework.jar:/system/framework/framework_ext.jar:/system/framework/android.policy.jar:/system/framework/services.jar:/system/framework/apache-xml.jar
-PATH=/sbin:/vendor/bin:/system/sbin:/system/bin:/system/xbin
-LOOP_MOUNTPOINT=/mnt/obb
-ANDROID_DATA=/data
-ANDROID_ROOT=/system
-SHELL=/system/bin/sh
-MKSH=/system/bin/sh
-USER=shell
-EXTERNAL_SDCARD_STORAGE=/storage/sdcard0
-ANDROID_PROPERTY_WORKSPACE=8,49152
-EXTERNAL_STORAGE=/storage/sdcard1
-ANDROID_ASSETS=/system/app
-TERM=vt100
-RANDOM=16913
-ASEC_MOUNTPOINT=/mnt/asec
-SECURE_STORAGE_SDCARD=/storage/sdcard0
-HOME=/data
-ANDROID_BOOTLOGO=1
-MASS_STORAGE=/mnt/udisk
-PS1=$(precmd)$USER@$HOSTNAME:${PWD:-?} $
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;From this is easy to see that the way to get the SDCard path is to use a couple of environment variables:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;System.getenv(&amp;laquo;EXTERNAL_STORAGE&amp;raquo;)&lt;/code&gt; —&amp;gt; Internal SDCard &lt;code&gt;/STORAGE/SDCARD1&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;System.getenv(&amp;laquo;EXTERNAL_SDCARD_STORAGE&amp;raquo;)&lt;/code&gt; —&amp;gt; True SDCard &lt;code&gt;/STORAGE/SDCARD0&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;This solutions is still depending on two specific environment variables, is much better than hardcoding the path strings in the application but is probably only acceptable if you&amp;rsquo;re targeting just few devices.
-Another point is that, on other devices, you get the true SDCard path linked to the &lt;code&gt;SECONDARY_STORAGE&lt;/code&gt; environment variable. So a better solution could be to check for both variables with something like:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;String strSDCardPath = System.getenv(&amp;quot;SECONDARY_STORAGE&amp;quot;);
-if ((null == strSDCardPath) || (strSDCardPath.length() == 0)) {
-    strSDCardPath = System.getenv(&amp;quot;EXTERNAL_SDCARD_STORAGE&amp;quot;);
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;When we will start to release KitKat based devices it will be even more important taking a look at the right path for these volumes :-)&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;EDIT:&lt;/em&gt; I&amp;rsquo;ve a new &lt;a href=&#34;http://pietromaggi.com/2016/01/14/secondary-external-storage-in-android-kitkat---part-1/&#34;&gt;blog post&lt;/a&gt; with additional information for Zebra Technologies KitKat devices.&lt;/p&gt;
-
-&lt;p&gt;You can find in my github account a &lt;a href=&#34;https://github.com/pfmaggi/GetDeviceInfo&#34;&gt;sample application&lt;/a&gt; that retrieves these data.&lt;/p&gt;
-
-&lt;p&gt;Let me know if you find this information useful via &lt;a href=&#34;http://twitter.com/pfmaggi&#34;&gt;twitter @pfmaggi&lt;/a&gt; or &lt;a href=&#34;mailto:pfm@pietromaggi.com&#34;&gt;email&lt;/a&gt; or &lt;a href=&#34;http://www.motorolasolutionsevents.com/enterprise_appforum_2014/&#34;&gt;joining me and the EMEA Software Enablement Team in Brussels for the Enterprise AppForum, our annual developer events&lt;/a&gt;.&lt;/p&gt;
-</description>
+      <description>With Motorola Solutions we&amp;rsquo;re busy finishing the first round of Android Developer&amp;rsquo;s Kitchens around Europe. Just in time to prepare for the Enterprise App Forum in Brussels!.
+The nice things of these events is the interaction with our partners and theirs real live problem!
+Last week I got an interesting question regarding our TC55:
+How can I programmatically get the path for the SDCard on the TC55?
+That&amp;rsquo;s a good question; usually you don&amp;rsquo;t want to insert in your code the dependency to an hard coded path!</description>
     </item>
     
     <item>
@@ -192,176 +45,9 @@ if ((null == strSDCardPath) || (strSDCardPath.length() == 0)) {
       <pubDate>Tue, 02 Sep 2014 11:56:38 +0200</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>http://pietromaggi.com/2014/09/02/getting-device-info-from-msi-android-devices/</guid>
-      <description>
-
-&lt;h1 id=&#34;the-good-old-ways&#34;&gt;The good old ways!&lt;/h1&gt;
-
-&lt;p&gt;On Symbol/MSI Windows Mobile devices, we where providing some APIs in the EMDK to get additional information.
-Looking into the Resource Coordinator is possible to find APIs like:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;RCM_GetESN() - retrieves the device electronic serial number&lt;/li&gt;
-&lt;li&gt;RCM_GetUniqueUnitId() - retrieves the unique unit identification number&lt;/li&gt;
-&lt;li&gt;RCM_GetVersion() - retrieves version information&lt;/li&gt;
-&lt;li&gt;etc&amp;hellip;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&amp;hellip;and we don&amp;rsquo;t have anything like this in the Android EMDK. WHY?&lt;/p&gt;
-
-&lt;p&gt;Simply because the functionality is already included in the standard Android SDK.&lt;/p&gt;
-
-&lt;p&gt;Let&amp;rsquo;s see how to get this is data on an MSI device with the Android OS.&lt;/p&gt;
-
-&lt;h1 id=&#34;the-fabulous-new-way&#34;&gt;The fabulous new way!&lt;/h1&gt;
-
-&lt;p&gt;You can find the completed project in &lt;a href=&#34;https://github.com/pfmaggi/GetDeviceInfo&#34;&gt;this repository&lt;/a&gt; on my github account, I&amp;rsquo;m using Windows 7 and Eclipse+ADT, but you can follow these steps with Android Studio quite nicely.&lt;/p&gt;
-
-&lt;h1 id=&#34;create-a-new-project&#34;&gt;Create a new Project&lt;/h1&gt;
-
-&lt;p&gt;Create a new Android project, nothing fancy here, it&amp;rsquo;s just a standard app with a single Blank Activity.
-You can follow these images as a guideline. Your interface may vary as Google updates the Android wizard quite often.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/samples/device-info/create_project_01.jpg&#34; alt=&#34;Create Project - step 1&#34; title=&#34;Android New Project Wizard - page 1&#34; /&gt;
- &lt;img src=&#34;http://pietromaggi.com/images/samples/device-info/create_project_02.jpg&#34; alt=&#34;Create Project - step 2&#34; title=&#34;Android New Project Wizard - page 2&#34; /&gt;
- &lt;img src=&#34;http://pietromaggi.com/images/samples/device-info/create_project_03.jpg&#34; alt=&#34;Create Project - step 3&#34; title=&#34;Android New Project Wizard - page 3&#34; /&gt;
- &lt;img src=&#34;http://pietromaggi.com/images/samples/device-info/create_project_04.jpg&#34; alt=&#34;Create Project - step 4&#34; title=&#34;Android New Project Wizard - page 4&#34; /&gt;
- &lt;img src=&#34;http://pietromaggi.com/images/samples/device-info/create_project_05.jpg&#34; alt=&#34;Create Project - step 5&#34; title=&#34;Android New Project Wizard - page 5&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Then we can do some housekeeping deleting the unnecessary main.xml menu resource:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/samples/device-info/delete_menu.jpg&#34; alt=&#34;Delete Menu resource&#34; title=&#34;Delete unnecessary menu resource&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;We can then start the two main changes:
-  - Setting up the Activity Layout
-  - Updating the Activity onCreate method to retrieve the device data&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/samples/device-info/activity_layout.jpg&#34; alt=&#34;Main Activity Layout&#34; title=&#34;Main Activity Layout&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Here&amp;rsquo;s the code:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
-
-&amp;lt;LinearLayout xmlns:android=&amp;quot;http://schemas.android.com/apk/res/android&amp;quot;
-              android:layout_width=&amp;quot;match_parent&amp;quot;
-              android:layout_height=&amp;quot;match_parent&amp;quot;
-              android:orientation=&amp;quot;vertical&amp;quot;
-    &amp;gt;
-    &amp;lt;TextView
-        android:layout_width=&amp;quot;match_parent&amp;quot;
-        android:layout_height=&amp;quot;wrap_content&amp;quot;
-        android:text=&amp;quot;@string/device_name&amp;quot;
-        /&amp;gt;
-    &amp;lt;TextView
-        android:id=&amp;quot;@+id/device_type&amp;quot;
-        android:layout_width=&amp;quot;match_parent&amp;quot;
-        android:layout_height=&amp;quot;wrap_content&amp;quot;
-        android:layout_marginLeft=&amp;quot;16dp&amp;quot;
-        android:layout_marginRight=&amp;quot;16dp&amp;quot;
-        android:textSize=&amp;quot;18sp&amp;quot;
-        style=&amp;quot;?android:listSeparatorTextViewStyle&amp;quot;
-        /&amp;gt;
-    &amp;lt;TextView
-        android:layout_width=&amp;quot;match_parent&amp;quot;
-        android:layout_height=&amp;quot;wrap_content&amp;quot;
-        android:text=&amp;quot;@string/electronic_serial_number&amp;quot;
-        /&amp;gt;
-    &amp;lt;TextView
-        android:id=&amp;quot;@+id/device_esn&amp;quot;
-        android:layout_width=&amp;quot;match_parent&amp;quot;
-        android:layout_height=&amp;quot;wrap_content&amp;quot;
-        android:layout_marginLeft=&amp;quot;16dp&amp;quot;
-        android:layout_marginRight=&amp;quot;16dp&amp;quot;
-        android:textSize=&amp;quot;18sp&amp;quot;
-        style=&amp;quot;?android:listSeparatorTextViewStyle&amp;quot;
-        /&amp;gt;
-    &amp;lt;TextView
-        android:layout_width=&amp;quot;match_parent&amp;quot;
-        android:layout_height=&amp;quot;wrap_content&amp;quot;
-        android:text=&amp;quot;@string/build_number&amp;quot;
-        /&amp;gt;
-    &amp;lt;TextView
-        android:id=&amp;quot;@+id/build_number&amp;quot;
-        android:layout_width=&amp;quot;match_parent&amp;quot;
-        android:layout_height=&amp;quot;wrap_content&amp;quot;
-        android:layout_marginLeft=&amp;quot;16dp&amp;quot;
-        android:layout_marginRight=&amp;quot;16dp&amp;quot;
-        android:textSize=&amp;quot;18sp&amp;quot;
-        style=&amp;quot;?android:listSeparatorTextViewStyle&amp;quot;
-        /&amp;gt;
-&amp;lt;/LinearLayout&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This together with the string.xml containing the referenced string:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
-&amp;lt;resources&amp;gt;
-
-    &amp;lt;string name=&amp;quot;app_name&amp;quot;&amp;gt;Get Device Info&amp;lt;/string&amp;gt;
-    &amp;lt;string name=&amp;quot;electronic_serial_number&amp;quot;&amp;gt;Device ESN:&amp;lt;/string&amp;gt;
-    &amp;lt;string name=&amp;quot;build_number&amp;quot;&amp;gt;Build Number:&amp;lt;/string&amp;gt;
-    &amp;lt;string name=&amp;quot;device_name&amp;quot;&amp;gt;Device:&amp;lt;/string&amp;gt;
-
-&amp;lt;/resources&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Then the simple Activity java code to collect the information is:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;package com.pietromaggi.sample.getdeviceinfo;
-
-import android.os.Build;
-import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
-import android.widget.TextView;
-
-
-public class MainActivity extends ActionBarActivity {
-    TextView DeviceNameTextView;
-    TextView ESNTextView;
-    TextView BuildNumberTextView;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        DeviceNameTextView = (TextView)findViewById(R.id.device_type);
-        DeviceNameTextView.setText(Build.DEVICE);
-
-        ESNTextView = (TextView)findViewById(R.id.device_esn);
-        ESNTextView.setText(Build.SERIAL);
-
-        BuildNumberTextView = (TextView)findViewById(R.id.build_number);
-        BuildNumberTextView.setText(Build.ID);
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;where-s-the-tricks&#34;&gt;Where&amp;rsquo;s the tricks?&lt;/h1&gt;
-
-&lt;p&gt;There&amp;rsquo;s really no trick, Android SDK provide this information, and more using these constants:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://developer.android.com/reference/android/os/Build.html#DEVICE&#34;&gt;Build.DEVICE = The name of the industrial design&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://developer.android.com/reference/android/os/Build.html#SERIAL&#34;&gt;Build.SERIAL = A hardware serial number, if available&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://developer.android.com/reference/android/os/Build.html#ID&#34;&gt;Build.ID = changelist number&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Obviously, it&amp;rsquo;s the OEM building the device that put together the plumbing to link the correct information. Your mileage may vary on different devices.&lt;/p&gt;
-
-&lt;p&gt;Running this application on an ET1 with Jelly Bean you get:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/samples/device-info/screen_ET1.png&#34; alt=&#34;ET1 Screenshot&#34; title=&#34;ET1 Screenshot&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Running this application on an MC40 with Jelly Bean you get:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/samples/device-info/screen_MC40.png&#34; alt=&#34;MC40 Screenshot&#34; title=&#34;MC40 Screenshot&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;While the TC55 is always a bit different :-)&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/samples/device-info/screen_TC55JB.png&#34; alt=&#34;TC55 Screenshot&#34; title=&#34;TC55 Screenshot&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Hope you may find this useful. Send me an email if you&amp;rsquo;d like to see any particular topic on this blog.&lt;/p&gt;
-</description>
+      <description>The good old ways! On Symbol/MSI Windows Mobile devices, we where providing some APIs in the EMDK to get additional information. Looking into the Resource Coordinator is possible to find APIs like:
+ RCM_GetESN() - retrieves the device electronic serial number RCM_GetUniqueUnitId() - retrieves the unique unit identification number RCM_GetVersion() - retrieves version information etc&amp;hellip;  &amp;hellip;and we don&amp;rsquo;t have anything like this in the Android EMDK. WHY?
+Simply because the functionality is already included in the standard Android SDK.</description>
     </item>
     
     <item>
@@ -370,38 +56,8 @@ public class MainActivity extends ActionBarActivity {
       <pubDate>Thu, 02 Jan 2014 14:34:27 +0100</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>http://pietromaggi.com/2014/01/02/diving-into-android-source-code/</guid>
-      <description>
-
-&lt;h2 id=&#34;why-dive-into-android-code&#34;&gt;Why dive into Android code?&lt;/h2&gt;
-
-&lt;p&gt;When you&amp;rsquo;ve to write applications for Android, you&amp;rsquo;re targeting a giant moving API surface, sometimes you can be surprised of some different behavior in different Android versions or with an API call that is not well documented, so having the option to delve into Android Source Code is a great opportunity.&lt;/p&gt;
-
-&lt;p&gt;A lot of things can be written on how to do this, there&amp;rsquo;s some documentation available on &lt;a href=&#34;http://source.android.com/source/index.html&#34;&gt;AOSP website&lt;/a&gt;, however I think that the best starting point is a video tutorial by NewCircle&amp;rsquo;s Instructor Dave Smith on this very topic:&lt;/p&gt;
-
-&lt;h4 id=&#34;diving-into-android-source-code&#34;&gt;Diving into Android Source Code&lt;/h4&gt;
-
-
-&lt;div style=&#34;position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;&#34;&gt;
-  &lt;iframe src=&#34;//www.youtube.com/embed/NsqFOSzoYE8&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%;&#34; allowfullscreen frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
- &lt;/div&gt;
-
-
-&lt;p&gt;So, take your time to setup your own copy of the Android source code and, next time you&amp;rsquo;re asking yourself &amp;laquo;What&amp;rsquo;s going on when you call an API, you can check the source code!&amp;raquo;&lt;/p&gt;
-
-&lt;h2 id=&#34;on-a-similar-topic-dalvik-vm&#34;&gt;On a similar topic: Dalvik VM&lt;/h2&gt;
-
-&lt;p&gt;Dan Bernstein has presented at Google I/O 2008 a talk about the internals of Dalvik VM:&lt;/p&gt;
-
-&lt;h4 id=&#34;dalvik-virtual-machine-internals&#34;&gt;Dalvik Virtual Machine Internals&lt;/h4&gt;
-
-
-&lt;div style=&#34;position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;&#34;&gt;
-  &lt;iframe src=&#34;//www.youtube.com/embed/ptjedOZEXPM&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%;&#34; allowfullscreen frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
- &lt;/div&gt;
-
-
-&lt;p&gt;If you&amp;rsquo;re interested in this piece of the Android Source Code, this is the best starting point, even if nowadays ART has taken the place of Dalvik. A lot of Dalvik design is still in use nowadays!&lt;/p&gt;
-</description>
+      <description>Why dive into Android code? When you&amp;rsquo;ve to write applications for Android, you&amp;rsquo;re targeting a giant moving API surface, sometimes you can be surprised of some different behavior in different Android versions or with an API call that is not well documented, so having the option to delve into Android Source Code is a great opportunity.
+A lot of things can be written on how to do this, there&amp;rsquo;s some documentation available on AOSP website, however I think that the best starting point is a video tutorial by NewCircle&amp;rsquo;s Instructor Dave Smith on this very topic:</description>
     </item>
     
   </channel>

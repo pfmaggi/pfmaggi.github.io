@@ -2,14 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Rhomobile on Pietro F. Maggi</title>
-    <link>http://pietromaggi.com/topics/rhomobile/index.xml</link>
+    <link>http://pietromaggi.com/topics/rhomobile/</link>
     <description>Recent content in Rhomobile on Pietro F. Maggi</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-EN</language>
     <managingEditor>pfm@pietromaggi.com (Pietro F. Maggi)</managingEditor>
     <webMaster>pfm@pietromaggi.com (Pietro F. Maggi)</webMaster>
     <copyright>(c) 2013-2016 Pietro F. Maggi</copyright>
-    <atom:link href="http://pietromaggi.com/topics/rhomobile/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 22 Aug 2014 13:01:48 +0200</lastBuildDate>
+    
+	<atom:link href="http://pietromaggi.com/topics/rhomobile/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Rhodes 5.0.2 and Visual Studio 2008 Localized edition</title>
@@ -17,30 +20,9 @@
       <pubDate>Fri, 22 Aug 2014 13:01:48 +0200</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>http://pietromaggi.com/2014/08/22/rhodes-5.0.2-and-visual-studio-2008-localized-edition/</guid>
-      <description>&lt;p&gt;Oh the joy of a new RhoMobile version!&lt;/p&gt;
-
-&lt;p&gt;Creating new virtual machines and finally deciding that is time to leave the old trusty Windows XP and jump on the new Windows 7 with 63+1 bits. Oh man! what a pleasant use of time :-)&lt;/p&gt;
-
-&lt;p&gt;On top of this I wanted to spin the setup a bit and decided to use a localized version of Visual Studio 2008&amp;hellip; what can go wrong with it?&lt;/p&gt;
-
-&lt;p&gt;Well&amp;hellip; you may encounter a fancy Microsoft &amp;laquo;feature&amp;raquo; with a message that more or less reads:
-&lt;a href=&#34;http://social.msdn.microsoft.com/Forums/vstudio/en-US/14dc118f-5adc-4a90-9c07-fde701f6b36c/vcbld0001-vcprojectenginedll-could-not-be-loaded?forum=vcgeneral&#34;&gt;&amp;laquo;VCProjectEngine.dll&amp;raquo; Could not be loaded&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;This obviously, in your language of choice.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;The Solution?&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;From the same thread, copy the content of the localized package for vcbuild in the main folder; in my case:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;From: &lt;code&gt;C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\vcpackages\1040&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;To: &lt;code&gt;C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\vcpackages&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;I just made a copy of the original content before moving the files (you never know).&lt;/p&gt;
-
-&lt;p&gt;Enjoy your localized Visual Studio!&lt;/p&gt;
-</description>
+      <description>Oh the joy of a new RhoMobile version!
+Creating new virtual machines and finally deciding that is time to leave the old trusty Windows XP and jump on the new Windows 7 with 63+1 bits. Oh man! what a pleasant use of time :-)
+On top of this I wanted to spin the setup a bit and decided to use a localized version of Visual Studio 2008&amp;hellip; what can go wrong with it?</description>
     </item>
     
     <item>
@@ -49,368 +31,8 @@
       <pubDate>Mon, 11 Aug 2014 09:57:10 +0200</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>http://pietromaggi.com/2014/08/11/configuring-rhomobile-suite-v5.0-on-a-clean-os-x-mavericks-machine/</guid>
-      <description>
-
-&lt;h1 id=&#34;rhomobile-suite-v5-0&#34;&gt;RhoMobile Suite v5.0&lt;/h1&gt;
-
-&lt;p&gt;The new main release of Rhodes, RhoElements and RhoConnect had just been released a couple of weeks ago &lt;a href=&#34;http://newsroom.motorolasolutions.com/Feature/See-RhoMobile-in-Action-at-OSCON-2014-4a61.aspx&#34;&gt;during OSCON&lt;/a&gt;. It&amp;rsquo;s now time to install it and start building some mobile apps!&lt;/p&gt;
-
-&lt;p&gt;In this post I&amp;rsquo;d like to help you installing RMSv5.0 on a new OS X Mavericks machine and install everything that is needed to build iOS and Android applications, the only pre-requisite is to have a valid OS X Mavericks license installed on a Mac or inside a virtual machine&amp;hellip; on a Mac :-).&lt;/p&gt;
-
-&lt;p&gt;These are the steps we will follow:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#OSX_Update&#34;&gt;Update OS X to the latest version&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#XCode&#34;&gt;Install XCode&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#Terminal&#34;&gt;Familiarize with the Terminal&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#JDK7&#34;&gt;Install Java JDK 7&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#HomeBrew&#34;&gt;Install HomeBrew&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#RVM&#34;&gt;Install RVM and Ruby 1.9.3&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#utilities&#34;&gt;Install git, node and other little utilities&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#Android&#34;&gt;Install Android SDK and NDK&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#RMS5&#34;&gt;Install RMS v5.0&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#Account&#34;&gt;Create a RhoMobile.com account&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#Launching&#34;&gt;Launching RhoStudio&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#Setup&#34;&gt;Configure RhoStudio&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#Build&#34;&gt;Build a sample app&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;a-name-osx-update-a-update-os-x-to-the-latest-version&#34;&gt;&lt;a name=&#34;OSX_Update&#34;&gt;&lt;/a&gt;Update OS X to the latest version&lt;/h3&gt;
-
-&lt;p&gt;The first step is to check that the version of OS X on your machine is up-to-date, a quick stop in the Mac AppStore &lt;em&gt;Updates&lt;/em&gt; tab can give you an idea of what is available.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/OSX_RMS5/updates.png&#34; alt=&#34;One Update waiting to be installed&#34; title=&#34;One Update Waiting to be installed&#34; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;a-name-xcode-a-install-xcode&#34;&gt;&lt;a name=&#34;XCode&#34;&gt;&lt;/a&gt;Install XCode&lt;/h3&gt;
-
-&lt;p&gt;The next step is to install the latest XCode on you OS. In this guide I&amp;rsquo;m using XCode 5 as version 6 is still in beta, and we like stable releases!&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/OSX_RMS5/XCode5.png&#34; alt=&#34;XCode 5 available in the Mac AppStore&#34; title=&#34;XCode 5 available in the Mac AppStore&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Once you&amp;rsquo;ve installed XCode, you need to launch it to accept Apple EULA.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/OSX_RMS5/XCode5_EULA.png&#34; alt=&#34;XCode 5 EULA&#34; title=&#34;XCode 5 EULA&#34; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;a-name-terminal-a-familiarize-with-the-terminal&#34;&gt;&lt;a name=&#34;Terminal&#34;&gt;&lt;/a&gt;Familiarize with the terminal&lt;/h3&gt;
-
-&lt;p&gt;During the initial RMS setup some of the steps require that you use the Terminal, also known as &lt;a href=&#34;http://en.wikipedia.org/wiki/Command-line_interface&#34;&gt;command prompt or console&lt;/a&gt;.
-The Terminal is already available on OS X, and you can find it inside the Utility folder in your Applications.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/OSX_RMS5/LaunchTerminal.png&#34; alt=&#34;Launching Terminal&#34; title=&#34;Launching Terminal&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Once you&amp;rsquo;ve launched the Terminal could be &lt;strong&gt;very&lt;/strong&gt; useful to keep it into the dock, as we will need it for some of the steps to complete RMS setup.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/OSX_RMS5/KeepInDock.png&#34; alt=&#34;Keep Terminal in the dock&#34; title=&#34;Keep Terminal in the dock&#34; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;a-name-jdk7-a-install-java-jdk7&#34;&gt;&lt;a name=&#34;JDK7&#34;&gt;&lt;/a&gt;Install Java JDK7&lt;/h3&gt;
-
-&lt;p&gt;OS X Mavericks comes without any Java environment installed, &amp;laquo;the easiest way&amp;raquo; to install it, is to open the terminal and type:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;java -version
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This will pop up a windows asking if you want to install Java, the answer is a resounding YES!&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/OSX_RMS5/NoJava.png&#34; alt=&#34;No Java environment&#34; title=&#34;No Java Environment&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Selecting &lt;strong&gt;More Info&amp;hellip;&lt;/strong&gt; will open the Safari browser on the Oracle website, you can select the most up-to-date JDK v7 for OS X to download&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/OSX_RMS5/JavaDownload.png&#34; alt=&#34;Download Java&#34; title=&#34;Download Java&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;and Install&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/OSX_RMS5/JavaInstall.png&#34; alt=&#34;Install Java&#34; title=&#34;Install Java&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;When the install is complete you can test that the java environment is now available:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/OSX_RMS5/JavaIsInstalled.png&#34; alt=&#34;Java is installed&#34; title=&#34;Java is installed&#34; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;a-name-homebrew-a-install-homebrew&#34;&gt;&lt;a name=&#34;HomeBrew&#34;&gt;&lt;/a&gt;Install HomeBrew&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://brew.sh/&#34;&gt;HomeBrew&lt;/a&gt; is an open source package manager, working from the command line, that help setting up open source application on OS X.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;ruby -e &amp;quot;$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Paste that at the terminal prompt, execute it and follow the on-screen instruction accepting all the defaults.
-Next step is to check that HomeBrew is setup correctly:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;brew doctor
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;If everything is setup correctly you get the message: &lt;em&gt;Your system is ready to brew&lt;/em&gt;:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/OSX_RMS5/ReadyToBrew.png&#34; alt=&#34;Your System is ready to Brew&#34; title=&#34;Your System is ready to Brew&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;If you get a different message with some missing or misconfigured software you can follow the on-screen-instruction or you can find further information on the &lt;a href=&#34;https://github.com/Homebrew/homebrew/wiki&#34;&gt;HomeBrew Wiki&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&#34;a-name-rvm-a-install-rvm-and-ruby-1-9-3&#34;&gt;&lt;a name=&#34;RVM&#34;&gt;&lt;/a&gt;Install RVM and Ruby 1.9.3&lt;/h3&gt;
-
-&lt;p&gt;OS X Mavericks comes with Ruby v2.0 installed by default, however RMSv5 requires Ruby v1.9.3. Overall working with Ruby can require to switch ruby environment often and to release this pain &lt;a href=&#34;http://pietromaggi.com/2013/12/29/ruby-version-manager-aka-rvm-the-swiss-army-knife-of-ruby-versions/&#34;&gt;some utilities has been created&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;In this case we&amp;rsquo;re going to install RVM and use it to install Ruby v1.9.3.
-First we need to install some prerequisite using HomeBrew:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;brew tap homebrew/versions
-brew install gcc46
-brew cleanup
-brew doctor
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;then install RVM itself together with ruby 1.9.3:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;\curl -sSL https://get.rvm.io | bash -s stable --ruby=1.9.3
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Then you need to close the terminal and relaunch it to ave the &lt;strong&gt;RVM&lt;/strong&gt; environment available in the command line.&lt;/p&gt;
-
-&lt;p&gt;To check that everything is setup correctly you can do:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;rvm list
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;and you should get the reply:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;rhomobile$ rvm list
-
-rvm rubies
-
-=* ruby-1.9.3-p547 [ x86_64 ]
-
-# =&amp;gt; - current
-# =* - current &amp;amp;&amp;amp; default
-#  * - default
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;In this case Ruby v1.9.3 is the current and default ruby environment. If this is not the case, you can set it up as the default ruby using the command:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;rvm alias create default 1.9.3
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;To get more information on RVM you can check the documentation available on &lt;a href=&#34;https://rvm.io/&#34;&gt;its website&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&#34;a-name-utilities-a-install-git-node-and-other-little-utilities&#34;&gt;&lt;a name=&#34;utilities&#34;&gt;&lt;/a&gt;Install git, node and other little utilities&lt;/h3&gt;
-
-&lt;p&gt;RMS uses git &lt;em&gt;a lot&lt;/em&gt;, to sync projects with RhoHub, and is overall a nice tool. It&amp;rsquo;s already installed on Mavericks, but is version 1.8.5.2, better to keep an up-to-date version using HomeBrew:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;brew install git
-git --version
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This will install git v2.0.4 (at the moment of writing this).&lt;/p&gt;
-
-&lt;p&gt;If asking to the system for the installed git version still report 1.8.5.2:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;git --version
-git version 1.8.5.2 (Apple Git-48)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Then you need to modify the PATH environment as suggested using the command:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;rhomobile$ brew doctor
-Please note that these warnings are just used to help the Homebrew maintainers
-with debugging if you file an issue. If everything you use Homebrew for is
-working fine: please don&#39;t worry and just ignore them. Thanks!
-
-Warning: /usr/bin occurs before /usr/local/bin
-This means that system-provided programs will be used instead of those
-provided by Homebrew. The following tools exist at both paths:
-
-    git
-    git-cvsserver
-    git-receive-pack
-    git-shell
-    git-upload-archive
-    git-upload-pack
-
-Consider setting your PATH so that /usr/local/bin
-occurs before /usr/bin. Here is a one-liner:
-    echo export PATH=&#39;/usr/local/bin:$PATH&#39; &amp;gt;&amp;gt; ~/.bash_profile
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;So, using the command:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;echo export PATH=&#39;/usr/local/bin:$PATH&#39; &amp;gt;&amp;gt; ~/.bash_profile
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Solve the issue (after closing and restarting the &lt;strong&gt;Terminal&lt;/strong&gt;).&lt;/p&gt;
-
-&lt;p&gt;The second application that we need to install is NodeJS, this is needed by RhoConnect Push and to support RhoConnect Source Adapters in JavaScript. Again, we use HomeBrew for this:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;brew install node
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The Latest application we need to support RhoConnect is &lt;a href=&#34;http://redis.io&#34;&gt;Redis&lt;/a&gt;, again we can use HomeBrew to install it:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;brew install redis
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Then we can install at least one command line utility that can be very handy looking for &amp;laquo;stuffs&amp;raquo; inside source codes: &lt;em&gt;The Silver Searcher&lt;/em&gt;:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;brew install the_silver_searcher
-man ag
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;As always, using &lt;strong&gt;man&lt;/strong&gt; in the command line will open the documentation for the command, in the case of the silver searcher, the command is &lt;strong&gt;ag&lt;/strong&gt; (like the Silver symbol).&lt;/p&gt;
-
-&lt;h3 id=&#34;a-name-android-a-install-android-sdk-and-ndk&#34;&gt;&lt;a name=&#34;Android&#34;&gt;&lt;/a&gt;Install Android SDK and NDK&lt;/h3&gt;
-
-&lt;p&gt;Next step is to install what is needed to build RhoMobile Android Applications. You need to remember that to compile RhoMobile native applications you need to have the target OS tool chain. For Android this means the SDK and the NDK.&lt;/p&gt;
-
-&lt;p&gt;Navigate to the &lt;a href=&#34;http://developer.android.com/sdk/index.html&#34;&gt;Android developer tools page&lt;/a&gt; and download the stand-alone Android SDK tools for Mac:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/OSX_RMS5/AndroidSDK.png&#34; alt=&#34;Android SDK Tools for Mac&#34; title=&#34;Android SDK Tools for Mac&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;When the download is complete you can install the SDK in the &lt;strong&gt;Development&lt;/strong&gt; folder, again from the command line:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;cd ~/Downloads/
-mkdir ~/Development
-unzip android-sdk_r23.0.2-macosx.zip -d ~/Development/
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This will create &lt;strong&gt;android-sdk-macosx&lt;/strong&gt; under your home folder. To add the sdk to your PATH, use the command:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;echo export PATH=&#39;$PATH:~/Development/android-sdk-macosx/tools&#39; &amp;gt;&amp;gt; ~/.bash_profile
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;closing and relaunching the Terminal will make this new PATH available. You can now launch the Android SDK manager using the command:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;android
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;And install the latest platform tools and the Platform SDK (not shown in the image is the Android Support Library that is always nice to have installed):&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/OSX_RMS5/UpdateAndroidSDK.png&#34; alt=&#34;Update Android SDK&#34; title=&#34;Update Android SDK&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Once you&amp;rsquo;ve installed these packages, you can close the Android SDK Manager and add the now available platform tools folder to your PATH:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;echo export PATH=&#39;$PATH:~/Development/android-sdk-macosx/platform-tools&#39; &amp;gt;&amp;gt; ~/.bash_profile
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;closing and relaunching the Terminal will make this new PATH available. You can now launch the Android Debug Bridge using the command:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;adb devices
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;If you plan to develop using Motorola Solutions (or Symbol) Android devices, you need to modify an Android configuration file:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;rhomobile$ android update adb
-adb has been updated. You must restart adb with the following commands
-	adb kill-server
-	adb start-server
-echo -e &amp;quot;0x05e0\n0x0414&amp;quot; &amp;gt;&amp;gt; ~/.android/adb_usb.ini
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Now attaching your device you can see it with:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;adb kill-server
-adb devices
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Next step is to install the Android NDK, containing the C/C++ compiler for Android, &lt;a href=&#34;http://developer.android.com/tools/sdk/ndk/index.html&#34;&gt;download and install the Mac OS 64-bit release&lt;/a&gt;, following Google &lt;a href=&#34;http://developer.android.com/tools/sdk/ndk/index.html#Installing&#34;&gt;instructions&lt;/a&gt;. Again, from the command line:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;cd ~/Development/
-tar xzvf ~/Downloads/android-ndk32-r10-darwin-x86_64.tar.bz2
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;a-name-rms5-a-install-rms-v5-0&#34;&gt;&lt;a name=&#34;RMS5&#34;&gt;&lt;/a&gt;Install RMS v5.0&lt;/h3&gt;
-
-&lt;p&gt;For this step we can take the info from the &lt;a href=&#34;http://docs.rhomobile.com/en/5.0.0/guide/rhomobile-install#mac-os&#34;&gt;RhoMobile official documentation&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;first of all we need to download the RMS5 image file from [RhoMobile website](). Opening the image will show it&amp;rsquo;s content, first step is to copy the &lt;strong&gt;Motorola RhoStudio&lt;/strong&gt; in the application folder:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/OSX_RMS5/RMS5_Package.png&#34; alt=&#34;RMS5 image file content&#34; title=&#34;RMS5 Image file content&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Then we&amp;rsquo;ve some additional steps to do from the Terminal&amp;hellip; yes, again from the command line :-)&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;NOTE&lt;/strong&gt; I previously used &lt;strong&gt;sudo&lt;/strong&gt; at this step and this produce a series of side effects. Just be sure to run the &amp;laquo;Install gems&amp;raquo; script with your user!&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;cd /Volumes/Motorola\ RhoMobile\ Suite\ Installer/
-./Install\ gems 
-
-Select Ruby version to install gems:
-1) ruby-1.9.3-p547
-2) ruby-1.9.3-p547@global
-#? 2
-
-Using /Users/rhomobile/.rvm/gems/ruby-1.9.3-p547 with gemset global
-ruby 1.9.3p547 (2014-05-14 revision 45962) [x86_64-darwin13.3.0]
-
-Do you want to install gems with &#39;sudo&#39; command prefix? [yN]  N
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;When the gems setup is complete, you can install the support for RhoConnect Push server:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;cd /Volumes/Motorola\ RhoMobile\ Suite\ Installer/
-sudo ./Install\ rhoconnect-push
-Password:
-
-Do you want to install rhoconnect-push with &#39;sudo&#39; command prefix? [Yn]  Y
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;a-name-account-a-create-a-rhomobile-com-account&#34;&gt;&lt;a name=&#34;Account&#34;&gt;&lt;/a&gt;Create a RhoMobile.com account&lt;/h3&gt;
-
-&lt;p&gt;Version 5 of the RhoMobile Suite has a &lt;a href=&#34;http://rhomobile.com/rhopricing.html&#34;&gt;new licensing&lt;/a&gt;, that is a yearly subscription available in different levels, starting from a free one, up to an Enterprise grade.&lt;/p&gt;
-
-&lt;p&gt;Whatever the level you choose, you need to create an account on the RhoMobile.com website to use the Suite, both from RhoStudio and from the command line tools.&lt;/p&gt;
-
-&lt;h3 id=&#34;a-name-launching-a-launching-rhostudio&#34;&gt;&lt;a name=&#34;Launching&#34;&gt;&lt;/a&gt;Launching RhoStudio&lt;/h3&gt;
-
-&lt;p&gt;RhoStudio and the whole RhoMobile Suite is now installed on your Mac, but you still need some steps to finish the configuration and start doing some coding. First of all launch RhoStudio from the Application folder (launch the 64-bit version) and select the second ruby environment for it.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/OSX_RMS5/LaunchRhoStudio.png&#34; alt=&#34;Launch RhoStudio&#34; title=&#34;Launch RhoStudio&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/OSX_RMS5/SelectRuby.png&#34; alt=&#34;Select Ruby Environment&#34; title=&#34;Select Ruby Environment&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;At this moment you will get a request to install a J6SE environment, go ahead and install it (the JDK we installed is for the Android SDK, this is used to run Eclipse)&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/OSX_RMS5/Java6SE.png&#34; alt=&#34;Java 6 Runtime&#34; title=&#34;Java 6 Runtime&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Finally we&amp;rsquo;ve RhoStudio running, we need to configure it!&lt;/p&gt;
-
-&lt;p&gt;BTW: if the first launch ends with and error in RhoStudio console, simply close it and relaunch RhoStudio again, you end up with a login request, simply use the RhoMobile account you created at the previous step.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/OSX_RMS5/FirstRhoStudio.png&#34; alt=&#34;RhoStudio first launch&#34; title=&#34;First RhoStudio Launch&#34; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;a-name-setup-a-rhostudio-setup&#34;&gt;&lt;a name=&#34;Setup&#34;&gt;&lt;/a&gt;RhoStudio Setup&lt;/h3&gt;
-
-&lt;p&gt;There are some parameters to setup in RhoStudio before being able to build any project. Opening the settings windows using &lt;strong&gt;Command-,&lt;/strong&gt; you can setup:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;JDK Path = /Library/Java/JavaVirtualMachines/jdk1.7.0_67.jdk&lt;/li&gt;
-&lt;li&gt;Android SDK Path = &lt;your user folder&gt;/Development/android-sdk-macosx&lt;/li&gt;
-&lt;li&gt;Android NDK Path = &lt;your user folder&gt;/Development/android-ndk-r10&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;as shown in these images:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/OSX_RMS5/RhoStudioParam_1.png&#34; alt=&#34;JDK Path&#34; title=&#34;JDK Path&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://pietromaggi.com/images/OSX_RMS5/RhoStudioParam_2.png&#34; alt=&#34;Android SDK and NDK path&#34; title=&#34;Android SDK and NDK path&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Another (easier?) way to configure Rhodes is doing it from the command line:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;rhodes-setup
-We will ask you a few questions below about your dev environment.
-
-JDK path (required) (/Library/Java/Home):
-Android SDK path (blank to skip) (): /Users/rhomobile/Development/android-sdk-macosx/
-Android NDK path (blank to skip) (/Users/rhomobile/Development/android-ndk-r10):
-Windows Mobile 6 SDK CabWiz (blank to skip) ():
-BlackBerry JDE 4.6 (blank to skip) ():
-BlackBerry JDE 4.6 MDS (blank to skip) ():
-BlackBerry JDE 4.2 (blank to skip) ():
-BlackBerry JDE 4.2 MDS (blank to skip) ():
-
-If you want to build with other BlackBerry SDK versions edit: /Users/rhomobile/.rvm/gems/ruby-1.9.3-p547@global/gems/rhodes-5.0.2/rhobuild.yml
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;a-name-build-a-build-your-first-rhomobile-application&#34;&gt;&lt;a name=&#34;Build&#34;&gt;&lt;/a&gt;Build your first RhoMobile application&lt;/h3&gt;
-
-&lt;p&gt;I&amp;rsquo;ll cut this short at this moment, you should have everything setup at this moment and you should be able to follow the instructions on &lt;a href=&#34;http://docs.rhomobile.com/en/5.0.0/guide/creating_a_project&#34;&gt;RhoMobile website&lt;/a&gt;. You can reach out to me if you&amp;rsquo;ve any question and I plan to add another post with some &amp;laquo;post-setup&amp;raquo; optimization in the near future.&lt;/p&gt;
-</description>
+      <description>RhoMobile Suite v5.0 The new main release of Rhodes, RhoElements and RhoConnect had just been released a couple of weeks ago during OSCON. It&amp;rsquo;s now time to install it and start building some mobile apps!
+In this post I&amp;rsquo;d like to help you installing RMSv5.0 on a new OS X Mavericks machine and install everything that is needed to build iOS and Android applications, the only pre-requisite is to have a valid OS X Mavericks license installed on a Mac or inside a virtual machine&amp;hellip; on a Mac :-).</description>
     </item>
     
     <item>
@@ -419,52 +41,10 @@ If you want to build with other BlackBerry SDK versions edit: /Users/rhomobile/.
       <pubDate>Mon, 30 Dec 2013 13:56:04 +0100</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>http://pietromaggi.com/2013/12/30/rhodes-tips--tricks/</guid>
-      <description>
-
-&lt;h2 id=&#34;how-to-rebuild-the-rhodes-gem&#34;&gt;How to rebuild the rhodes gem&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;git clone https://github.com/rhomobile/rhodes.git
-cd rhodes
-git checkout 3-5-stable
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;make and commit changes if needed, then:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;rm -rf *
-git reset --hard
-git pull
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Otherwise directly&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;rake gem
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Copy files where you need it (on a different machine)
-gem install -l rhodes-3.5.1.13.2 (version given as an example)&lt;/p&gt;
-
-&lt;h2 id=&#34;rhodes-database-encryption&#34;&gt;Rhodes Database encryption&lt;/h2&gt;
-
-&lt;p&gt;Rhodes uses SQLite as database engine on all the supported platforms and, to provide encryption support we use different solutions depending by the target platform.&lt;/p&gt;
-
-&lt;p&gt;For Windows Mobile we use the [WinCrypt Library]()
-The actual implementation is &lt;a href=&#34;https://github.com/rhomobile/rhodes/blob/master/platform/wm/rhodes/rho/common/RhoCryptImpl.cpp&#34;&gt;under platform folder on github&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://msdn.microsoft.com/en-us/library/aa923618.aspx&#34;&gt;Microsoft WinCrypt library support multiple algorithms&lt;/a&gt; and we use RC4 in Windows Mobile.&lt;/p&gt;
-
-&lt;p&gt;For other operative systems we use the &lt;a href=&#34;http://sqlcipher.net/&#34;&gt;SQLCipher plugin&lt;/a&gt;. A look at the &lt;a href=&#34;https://github.com/rhomobile/rhodes/blob/master/platform/shared/sqlite/crypto.c&#34;&gt;crypto.c source file included in the SQLite folder can give more info&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&#34;making-a-pull-request-to-rhodes&#34;&gt;Making a pull request to rhodes&amp;hellip;&lt;/h2&gt;
-
-&lt;p&gt;First of all you need to fork rhodes:&lt;/p&gt;
-
-&lt;p&gt;Then you need to be sure that your fork is synced with upstream (this needs to be done before starting making changes), the following guide from GitHub came handy:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://help.github.com/articles/syncing-a-fork&#34;&gt;Syncing a fork&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://help.github.com/articles/using-pull-requests&#34;&gt;How to use Pull Requests&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+      <description>How to rebuild the rhodes gem git clone https://github.com/rhomobile/rhodes.git cd rhodes git checkout 3-5-stable  make and commit changes if needed, then:
+rm -rf * git reset --hard git pull  Otherwise directly
+rake gem  Copy files where you need it (on a different machine) gem install -l rhodes-3.5.1.13.2 (version given as an example)
+Rhodes Database encryption Rhodes uses SQLite as database engine on all the supported platforms and, to provide encryption support we use different solutions depending by the target platform.</description>
     </item>
     
     <item>
@@ -473,55 +53,9 @@ The actual implementation is &lt;a href=&#34;https://github.com/rhomobile/rhodes
       <pubDate>Sat, 28 Dec 2013 21:33:25 +0100</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>http://pietromaggi.com/2013/12/28/why-i-like-to-talk-about-open-source-projects/</guid>
-      <description>&lt;p&gt;Since I joined the RhoMobile group of Motorola Solutions as EIA pre-sale Technical Architect, I started to get disparate question regarding features of the Suite.&lt;/p&gt;
-
-&lt;p&gt;Something on the line:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;How is possible to launch an external application from a Rhodes one? &lt;em&gt;I tried different APIs and nothing seems to work&amp;hellip;&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;Looking on the support matrix of the APIs for different OSes, it seems that &lt;em&gt;X&lt;/em&gt; is supported on platform &lt;em&gt;Y&lt;/em&gt; but &lt;em&gt;I&amp;rsquo;m not able to make it working&amp;hellip;&lt;/em&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Usually I try to figure out the answer for these question by myself, it&amp;rsquo;s always useful getting a better understanding of the tool I usually talk about (and it&amp;rsquo;s probably the part of my job that I like the most: finding solutions to problems).&lt;/p&gt;
-
-&lt;p&gt;Let&amp;rsquo;s see why this is much easier having to understand how an Open Source project works.&lt;/p&gt;
-
-&lt;p&gt;First Question: How is possible to launch an external application from a Rhodes one? I tried different APIs and nothing works&amp;hellip;
-In this case I start my inspection from the docs pages, some usefully tips from the v2.2 API:&lt;/p&gt;
-
-&lt;p&gt;Run an application.&lt;/p&gt;
-
-&lt;p&gt;System.run_app(appname, params)
-appname The name of the application on the device to run, such as com.android.music.
-params  String. List of parameters for the application; nil if no parameters.&lt;/p&gt;
-
-&lt;p&gt;Windows Mobile, Windows CE: appname is path in registry:&lt;br /&gt;
-&lt;code&gt;&amp;lt;vendor&amp;gt; &amp;lt;app_name&amp;gt;/&amp;lt;app_name&amp;gt;.exe&lt;/code&gt;&lt;br /&gt;
-This is usually recorded in the Key:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;HKLM\Security\AppInstall\[App Name]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;like:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;HKLM\Security\AppInstall\rhomobile store
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;So, to launch this application from your RhoMobile app, you can use the following code:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;System.run_app(&#39;rhomobile store/store.exe&#39;, &#39;someparams&#39;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;OK, the syntax is not exactly what I was expecting&amp;hellip; this may be the cause of the issue.
-Documentation of the same API in v4.0 is not so helpful, no explanation of the differences between OSes and what the parameters are&amp;hellip;
-Let&amp;rsquo;s see what we&amp;rsquo;ve on github rhomobile account.&lt;/p&gt;
-
-&lt;p&gt;In the Kitchen Sink demo, there&amp;rsquo;s some code linked to the System API, but no sample executing the run_app method&amp;hellip; but the others methods seems to use the same, unfamiliar, syntax to reference a Windows Mobile app like: &lt;em&gt;&amp;laquo;rhomobile simple_app/simple_app.exe&amp;raquo;&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;Let&amp;rsquo;s see what we&amp;rsquo;ve in  &lt;a href=&#34;https://github.com/rhomobile/rhodes/blob/master/platform/wm/rhodes/rho/rubyext/SystemImpl.cpp&#34;&gt;Rhodes source code for Windows Mobile&lt;/a&gt; and the implementation seems to indicates that these are the right parameters.&lt;/p&gt;
-
-&lt;p&gt;So, it took us a bit more than necessary and the documentation is a bit missing on this topic, however, having the source code available gave us the necessary insight to reach our goal.&lt;/p&gt;
-</description>
+      <description>Since I joined the RhoMobile group of Motorola Solutions as EIA pre-sale Technical Architect, I started to get disparate question regarding features of the Suite.
+Something on the line:
+ How is possible to launch an external application from a Rhodes one? I tried different APIs and nothing seems to work&amp;hellip; Looking on the support matrix of the APIs for different OSes, it seems that X is supported on platform Y but I&amp;rsquo;m not able to make it working&amp;hellip;  Usually I try to figure out the answer for these question by myself, it&amp;rsquo;s always useful getting a better understanding of the tool I usually talk about (and it&amp;rsquo;s probably the part of my job that I like the most: finding solutions to problems).</description>
     </item>
     
   </channel>

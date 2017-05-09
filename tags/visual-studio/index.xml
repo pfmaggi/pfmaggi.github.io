@@ -2,14 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Visual Studio on Pietro F. Maggi</title>
-    <link>http://pietromaggi.com/tags/visual-studio/index.xml</link>
+    <link>http://pietromaggi.com/tags/visual-studio/</link>
     <description>Recent content in Visual Studio on Pietro F. Maggi</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-EN</language>
     <managingEditor>pfm@pietromaggi.com (Pietro F. Maggi)</managingEditor>
     <webMaster>pfm@pietromaggi.com (Pietro F. Maggi)</webMaster>
     <copyright>(c) 2013-2016 Pietro F. Maggi</copyright>
-    <atom:link href="http://pietromaggi.com/tags/visual-studio/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 22 Aug 2014 13:01:48 +0200</lastBuildDate>
+    
+	<atom:link href="http://pietromaggi.com/tags/visual-studio/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Rhodes 5.0.2 and Visual Studio 2008 Localized edition</title>
@@ -17,30 +20,9 @@
       <pubDate>Fri, 22 Aug 2014 13:01:48 +0200</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>http://pietromaggi.com/2014/08/22/rhodes-5.0.2-and-visual-studio-2008-localized-edition/</guid>
-      <description>&lt;p&gt;Oh the joy of a new RhoMobile version!&lt;/p&gt;
-
-&lt;p&gt;Creating new virtual machines and finally deciding that is time to leave the old trusty Windows XP and jump on the new Windows 7 with 63+1 bits. Oh man! what a pleasant use of time :-)&lt;/p&gt;
-
-&lt;p&gt;On top of this I wanted to spin the setup a bit and decided to use a localized version of Visual Studio 2008&amp;hellip; what can go wrong with it?&lt;/p&gt;
-
-&lt;p&gt;Well&amp;hellip; you may encounter a fancy Microsoft &amp;laquo;feature&amp;raquo; with a message that more or less reads:
-&lt;a href=&#34;http://social.msdn.microsoft.com/Forums/vstudio/en-US/14dc118f-5adc-4a90-9c07-fde701f6b36c/vcbld0001-vcprojectenginedll-could-not-be-loaded?forum=vcgeneral&#34;&gt;&amp;laquo;VCProjectEngine.dll&amp;raquo; Could not be loaded&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;This obviously, in your language of choice.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;The Solution?&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;From the same thread, copy the content of the localized package for vcbuild in the main folder; in my case:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;From: &lt;code&gt;C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\vcpackages\1040&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;To: &lt;code&gt;C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\vcpackages&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;I just made a copy of the original content before moving the files (you never know).&lt;/p&gt;
-
-&lt;p&gt;Enjoy your localized Visual Studio!&lt;/p&gt;
-</description>
+      <description>Oh the joy of a new RhoMobile version!
+Creating new virtual machines and finally deciding that is time to leave the old trusty Windows XP and jump on the new Windows 7 with 63+1 bits. Oh man! what a pleasant use of time :-)
+On top of this I wanted to spin the setup a bit and decided to use a localized version of Visual Studio 2008&amp;hellip; what can go wrong with it?</description>
     </item>
     
   </channel>
