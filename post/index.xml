@@ -9,10 +9,21 @@
     <managingEditor>pfm@pietromaggi.com (Pietro F. Maggi)</managingEditor>
     <webMaster>pfm@pietromaggi.com (Pietro F. Maggi)</webMaster>
     <copyright>(c) 2013-2016 Pietro F. Maggi</copyright>
-    <lastBuildDate>Sun, 30 Oct 2016 11:00:00 +0100</lastBuildDate>
+    <lastBuildDate>Tue, 08 Aug 2017 17:20:00 +0100</lastBuildDate>
     
 	<atom:link href="http://pietromaggi.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Using Android `sdk.dir` property to locate EMDK&#39;s jar Library.</title>
+      <link>http://pietromaggi.com/2017/08/08/using-android-sdk.dir-property-to-locate-emdks-jar-library./</link>
+      <pubDate>Tue, 08 Aug 2017 17:20:00 +0100</pubDate>
+      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <guid>http://pietromaggi.com/2017/08/08/using-android-sdk.dir-property-to-locate-emdks-jar-library./</guid>
+      <description>Note this post has been published on Zebra developer portal, if you&amp;rsquo;ve any comment, probably best to post them over there.
+Working in Android Studio you can notice that every project contains a local.properties file with at least a couple of properties containing the path for Android SDK and Android NDK.
+Android Studio populates this information when it creates the project based on the ANDROID_HOME environment variable. If this variable is not present in your system Android Studio will find the correct path in other ways, but having ANDROID_HOME setup correctly is a really good idea, see the note at the end of this short post.</description>
+    </item>
     
     <item>
       <title>Toggling MC18 Navigation (and Status) Bar visible state</title>
