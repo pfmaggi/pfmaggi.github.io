@@ -8,7 +8,7 @@
     <language>en-EN</language>
     <managingEditor>pfm@pietromaggi.com (Pietro F. Maggi)</managingEditor>
     <webMaster>pfm@pietromaggi.com (Pietro F. Maggi)</webMaster>
-    <copyright>(c) 2013-2016 Pietro F. Maggi</copyright>
+    <copyright>(c) 2013-2017 Pietro F. Maggi</copyright>
     <lastBuildDate>Tue, 08 Aug 2017 17:20:00 +0100</lastBuildDate>
     
 	<atom:link href="http://pietromaggi.com/index.xml" rel="self" type="application/rss+xml" />
@@ -98,7 +98,7 @@ A bit of background Android&amp;rsquo;s purpose is to establish an open platform
       <pubDate>Sat, 09 Jan 2016 21:53:35 +0100</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>http://pietromaggi.com/speaking/</guid>
-      <description>MAY 2017  16 May - Android Workshop in Tel Aviv 31 May - Android Workshop in Warsaw  JUNE 2017  14-16 June - Zebra&amp;rsquo;s AppForum EMEA in Prague  ARCHIVE AND TALK LINKS  07-Apr-17 - droidcon Turin 2017 - Android Security, an Enterprise perspective.    16-Jun-16 - droidcon Berlin 2016 - Life of Enterprise Android Developers in the Age of Android for Work  19/20 April - Apps World Berlin: &amp;laquo;Android: it&amp;rsquo;s time to go to work!</description>
+      <description>SEPTEMBER 2017  12-Sep-17 - Rome - Zebra Technologies Developer Kitchen  October 2017  04-Oct-17 - Madrid - Zebra Technologies Android Workshop 19-Oct-17 - Breda (NL) - Zebra Technologies Android Workshop 31-Oct-17 - Moscow - Zebra Technologies Android Workshop  November 2017  14-Nov-17 - Zurich - Zebra Technologies Android Workshop 15 Nov-17 - Dusseldorf - Zebra Technologies Android Workshop  ARCHIVE AND TALK LINKS  04-Sep-17 - Droidcon Berlin- Android Security, an Enteprise Perspective.</description>
     </item>
     
     <item>
