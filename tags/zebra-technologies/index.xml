@@ -9,10 +9,22 @@
     <managingEditor>pfm@pietromaggi.com (Pietro F. Maggi)</managingEditor>
     <webMaster>pfm@pietromaggi.com (Pietro F. Maggi)</webMaster>
     <copyright>(c) 2013-2017 Pietro F. Maggi</copyright>
-    <lastBuildDate>Tue, 08 Aug 2017 17:20:00 +0100</lastBuildDate>
+    <lastBuildDate>Sun, 10 Sep 2017 21:00:00 +0100</lastBuildDate>
     
 	<atom:link href="http://pietromaggi.com/tags/zebra-technologies/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>droidcon Berlin 2017 Day 0 - the best Android community event!</title>
+      <link>http://pietromaggi.com/2017/09/10/droidcon-berlin-2017-day-0---the-best-android-community-event/</link>
+      <pubDate>Sun, 10 Sep 2017 21:00:00 +0100</pubDate>
+      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <guid>http://pietromaggi.com/2017/09/10/droidcon-berlin-2017-day-0---the-best-android-community-event/</guid>
+      <description>Another year, another droidcon Berlin.
+This year I decided to took some detailed notes. This is the report for the first day, Sunday September 3rd, I&amp;rsquo;ll add a couple of other posts for the main conference days.
+Day 0 - Sunday September 3rd The event this year started on Sunday September 3rd with a barcamp, and a panel on data persistency.
+Being there for setting up the booth in the morning I pitched a talk about &amp;laquo;Barcode Scanning on Android&amp;raquo; in Android and got accepted straight away&amp;hellip; it&amp;rsquo;s incredible the interest in this technology that was invented the same year I was born, 1970&amp;hellip; is this a coincidence?</description>
+    </item>
     
     <item>
       <title>Using Android `sdk.dir` property to locate EMDK&#39;s jar Library.</title>

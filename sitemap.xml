@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://pietromaggi.com/2017/09/10/droidcon-berlin-2017-day-0---the-best-android-community-event/</loc>
+    <lastmod>2017-09-10T21:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://pietromaggi.com/2017/08/08/using-android-sdk.dir-property-to-locate-emdks-jar-library./</loc>
     <lastmod>2017-08-08T17:20:00+01:00</lastmod>
   </url>
@@ -132,7 +137,7 @@
   
   <url>
     <loc>http://pietromaggi.com/tags/android/</loc>
-    <lastmod>2017-08-08T17:20:00+01:00</lastmod>
+    <lastmod>2017-09-10T21:00:00+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -169,6 +174,12 @@
   <url>
     <loc>http://pietromaggi.com/tags/enterprise-browser/</loc>
     <lastmod>2016-10-29T11:00:00+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://pietromaggi.com/tags/events/</loc>
+    <lastmod>2017-09-10T21:00:00+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -234,13 +245,13 @@
   
   <url>
     <loc>http://pietromaggi.com/</loc>
-    <lastmod>2017-08-08T17:20:00+01:00</lastmod>
+    <lastmod>2017-09-10T21:00:00+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://pietromaggi.com/post/</loc>
-    <lastmod>2017-08-08T17:20:00+01:00</lastmod>
+    <lastmod>2017-09-10T21:00:00+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -312,7 +323,7 @@
   
   <url>
     <loc>http://pietromaggi.com/tags/</loc>
-    <lastmod>2017-08-08T17:20:00+01:00</lastmod>
+    <lastmod>2017-09-10T21:00:00+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -354,7 +365,7 @@
   
   <url>
     <loc>http://pietromaggi.com/tags/zebra-technologies/</loc>
-    <lastmod>2017-08-08T17:20:00+01:00</lastmod>
+    <lastmod>2017-09-10T21:00:00+01:00</lastmod>
     <priority>0</priority>
   </url>
   

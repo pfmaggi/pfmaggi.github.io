@@ -9,7 +9,7 @@
     <managingEditor>pfm@pietromaggi.com (Pietro F. Maggi)</managingEditor>
     <webMaster>pfm@pietromaggi.com (Pietro F. Maggi)</webMaster>
     <copyright>(c) 2013-2017 Pietro F. Maggi</copyright>
-    <lastBuildDate>Tue, 08 Aug 2017 17:20:00 +0100</lastBuildDate>
+    <lastBuildDate>Sun, 10 Sep 2017 21:00:00 +0100</lastBuildDate>
     
 	<atom:link href="http://pietromaggi.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -17,7 +17,7 @@
     <item>
       <title>Android</title>
       <link>http://pietromaggi.com/tags/android/</link>
-      <pubDate>Tue, 08 Aug 2017 17:20:00 +0100</pubDate>
+      <pubDate>Sun, 10 Sep 2017 21:00:00 +0100</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>http://pietromaggi.com/tags/android/</guid>
       <description></description>
@@ -65,6 +65,15 @@
       <pubDate>Sat, 29 Oct 2016 11:00:00 +0100</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>http://pietromaggi.com/tags/enterprise-browser/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Events</title>
+      <link>http://pietromaggi.com/tags/events/</link>
+      <pubDate>Sun, 10 Sep 2017 21:00:00 +0100</pubDate>
+      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <guid>http://pietromaggi.com/tags/events/</guid>
       <description></description>
     </item>
     
@@ -269,7 +278,7 @@
     <item>
       <title>Zebra Technologies</title>
       <link>http://pietromaggi.com/tags/zebra-technologies/</link>
-      <pubDate>Tue, 08 Aug 2017 17:20:00 +0100</pubDate>
+      <pubDate>Sun, 10 Sep 2017 21:00:00 +0100</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>http://pietromaggi.com/tags/zebra-technologies/</guid>
       <description></description>
