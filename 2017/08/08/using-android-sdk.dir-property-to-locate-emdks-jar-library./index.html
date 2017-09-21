@@ -59,7 +59,7 @@
     },
     "datePublished": "2017-08-08",
     "description": "My personal preference is to reference Zebra&#39;s EMDK jar library in gradle&#39;s dependencies, and this requires to indicate the correct path to the library. So far so good if you&#39;re working on a single machine. This short post shows a better way to indicate EMDK library path independently from the machine where you&#39;re building your app.",
-    "wordCount": 311
+    "wordCount": 406
   }
 </script>
 
@@ -70,7 +70,7 @@
 <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://pietromaggi.com/touch-icon-144-precomposed.png">
 <link href="http://pietromaggi.com/favicon.png" rel="icon">
 
-<meta name="generator" content="Hugo 0.26" />
+<meta name="generator" content="Hugo 0.27.1" />
 
   
 <!--[if lt IE 9]>
@@ -202,7 +202,7 @@
     &middot; by Pietro F. Maggi
   
   &middot; Read in about 2 min
-  &middot; (311 Words)
+  &middot; (406 Words)
   <br>
   
 <a class="label" href="http://pietromaggi.com/tags/android">Android</a>
@@ -254,6 +254,50 @@ Imagine that you&rsquo;re sharing a project with a colleague or with a remote CI
 <li>If <code>local.properties</code> is not available, Gradle will use <code>ANDROID_HOME</code> automatically.</li>
 <li>If <code>local.properties</code> is available, Gradle will use this file having a wrong <code>sdk.dir</code> set and fail.</li>
 </ul>
+
+<h2 id="update">Update</h2>
+
+<p>I got some enquiry to provide a complete gradle file to understand where to do the pasting.<br />
+Here&rsquo;s one sample file:</p>
+
+<pre><code>    apply plugin: 'com.android.application'
+
+    Properties properties = new Properties()
+    properties.load(project.rootProject.file('local.properties').newDataInputStream())
+    def sdkDir = properties.getProperty('sdk.dir')
+
+    android {
+        compileSdkVersion 26
+        buildToolsVersion &quot;26.0.1&quot;
+        defaultConfig {
+            applicationId &quot;com.pietromaggi.sample.barcode&quot;
+            minSdkVersion 19
+            targetSdkVersion 22
+            versionCode 1
+            versionName &quot;1.0&quot;
+            testInstrumentationRunner &quot;android.support.test.runner.AndroidJUnitRunner&quot;
+        }
+        buildTypes {
+            release {
+                minifyEnabled false
+                proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            }
+        }
+    }
+
+    dependencies {
+        compile fileTree(dir: 'libs', include: ['*.jar'])
+
+        provided fileTree(include: ['com.symbol.emdk.jar'], dir: sdkDir+'/add-ons/addon-symbol_emdk-symbol-23/libs/')
+
+        androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+            exclude group: 'com.android.support', module: 'support-annotations'
+        })
+        compile 'com.android.support:appcompat-v7:26.+'
+        compile 'com.android.support.constraint:constraint-layout:1.0.2'
+        testCompile 'junit:junit:4.12'
+    }
+</code></pre>
 
 </div>
 
