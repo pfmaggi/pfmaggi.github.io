@@ -9,10 +9,21 @@
     <managingEditor>pfm@pietromaggi.com (Pietro F. Maggi)</managingEditor>
     <webMaster>pfm@pietromaggi.com (Pietro F. Maggi)</webMaster>
     <copyright>(c) 2013-2017 Pietro F. Maggi</copyright>
-    <lastBuildDate>Tue, 08 Aug 2017 17:20:00 +0100</lastBuildDate>
+    <lastBuildDate>Fri, 13 Oct 2017 17:20:00 +0100</lastBuildDate>
     
 	<atom:link href="http://pietromaggi.com/tags/tipstricks/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Tips on how to demo Android devices</title>
+      <link>http://pietromaggi.com/2017/10/13/tips-on-how-to-demo-android-devices/</link>
+      <pubDate>Fri, 13 Oct 2017 17:20:00 +0100</pubDate>
+      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <guid>http://pietromaggi.com/2017/10/13/tips-on-how-to-demo-android-devices/</guid>
+      <description>Have you ever presented a new Android device to a tech crowd trying to explain some feature?
+it happens to me quite a lot and over time I built my little bag of tricks on how to do it.
+1. Use Vysor to show my device on the screen Vysor is my go-to solution for showing my device screen on the PC during demo. The only requirement in this case is to have adb enabled on your device and having a working adb on your PC/mac.</description>
+    </item>
     
     <item>
       <title>Using Android `sdk.dir` property to locate EMDK&#39;s jar Library.</title>

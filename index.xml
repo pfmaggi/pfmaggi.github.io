@@ -9,10 +9,21 @@
     <managingEditor>pfm@pietromaggi.com (Pietro F. Maggi)</managingEditor>
     <webMaster>pfm@pietromaggi.com (Pietro F. Maggi)</webMaster>
     <copyright>(c) 2013-2017 Pietro F. Maggi</copyright>
-    <lastBuildDate>Sun, 10 Sep 2017 21:00:00 +0100</lastBuildDate>
+    <lastBuildDate>Fri, 13 Oct 2017 17:20:00 +0100</lastBuildDate>
     
 	<atom:link href="http://pietromaggi.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Tips on how to demo Android devices</title>
+      <link>http://pietromaggi.com/2017/10/13/tips-on-how-to-demo-android-devices/</link>
+      <pubDate>Fri, 13 Oct 2017 17:20:00 +0100</pubDate>
+      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <guid>http://pietromaggi.com/2017/10/13/tips-on-how-to-demo-android-devices/</guid>
+      <description>Have you ever presented a new Android device to a tech crowd trying to explain some feature?
+it happens to me quite a lot and over time I built my little bag of tricks on how to do it.
+1. Use Vysor to show my device on the screen Vysor is my go-to solution for showing my device screen on the PC during demo. The only requirement in this case is to have adb enabled on your device and having a working adb on your PC/mac.</description>
+    </item>
     
     <item>
       <title>droidcon Berlin 2017 Day 0 - the best Android community event!</title>
@@ -110,7 +121,7 @@ A bit of background Android&amp;rsquo;s purpose is to establish an open platform
       <pubDate>Sat, 09 Jan 2016 21:53:35 +0100</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>http://pietromaggi.com/speaking/</guid>
-      <description>SEPTEMBER 2017  12-Sep-17 - Rome - Zebra Technologies Developer Kitchen  October 2017  04-Oct-17 - Madrid - Zebra Technologies Android Workshop 19-Oct-17 - Breda (NL) - Zebra Technologies Android Workshop 31-Oct-17 - Moscow - Zebra Technologies Android Workshop  November 2017  14-Nov-17 - Zurich - Zebra Technologies Android Workshop 15 Nov-17 - Dusseldorf - Zebra Technologies Android Workshop  ARCHIVE AND TALK LINKS  04-Sep-17 - Droidcon Berlin- Android Security, an Enteprise Perspective.</description>
+      <description>19-Oct-17 - Breda (NL) - Zebra Technologies Android Workshop  November 2017  07-Nov-17 - Netherlands - Zebra Technologies Enterprise Browser Workshop 14-Nov-17 - Zurich - Zebra Technologies Android Workshop  December 2017  05-Dec-17 - Dusseldorf - Zebra Technologies Android Workshop  ARCHIVE AND TALK LINKS  04-Sep-17 - Droidcon Berlin- Android Security, an Enteprise Perspective.  14-16 June - Zebra&amp;rsquo;s AppForum EMEA in Prague  With Darryn Campbell: What&amp;rsquo;s The Difference in Android L,M,N,and O Migrating from Win Mobile to Android Create Scanning Applications Across Multiple Android Devices  07-Apr-17 - droidcon Turin 2017 - Android Security, an Enterprise perspective.</description>
     </item>
     
     <item>
