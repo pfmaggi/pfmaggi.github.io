@@ -9,10 +9,21 @@
     <managingEditor>pfm@pietromaggi.com (Pietro F. Maggi)</managingEditor>
     <webMaster>pfm@pietromaggi.com (Pietro F. Maggi)</webMaster>
     <copyright>(c) 2013-2017 Pietro F. Maggi</copyright>
-    <lastBuildDate>Fri, 13 Oct 2017 17:20:00 +0100</lastBuildDate>
+    <lastBuildDate>Tue, 31 Oct 2017 21:00:00 +0100</lastBuildDate>
     
 	<atom:link href="http://pietromaggi.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Android Auto testing</title>
+      <link>http://pietromaggi.com/2017/10/31/android-auto-testing/</link>
+      <pubDate>Tue, 31 Oct 2017 21:00:00 +0100</pubDate>
+      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <guid>http://pietromaggi.com/2017/10/31/android-auto-testing/</guid>
+      <description>Android Auto? Why? This summer I bought a new car and it came with a nice 8&amp;raquo; touch panel that supports Android Auto and Apple Car.
+It even came with seven seats and a nice engine, and that was way more important than having an additional screen&amp;hellip; but, it&amp;rsquo;s there and I started to make good use of it.
+Playing with Android Auto is a bit of a hit and miss.</description>
+    </item>
     
     <item>
       <title>Tips on how to demo Android devices</title>
@@ -74,8 +85,7 @@ Some background The current scanner framework implementation on our Android devi
       <pubDate>Mon, 01 Aug 2016 17:00:00 +0200</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>http://pietromaggi.com/2016/08/01/disabling-home-button-on-zebra-android-devices/</guid>
-      <description>Intro I presented in the past a method to disable the Home Button on Zebra&amp;rsquo;s MC40 Android device, using a custom intent1.
-After having published it, I got some enquiries, about having the same behaviour on other Zebra&amp;rsquo;s devices. Well, it turns out that there&amp;rsquo;s now a &amp;laquo;standard&amp;raquo; way to do this in Zebra&amp;rsquo;s Mx extension using the UI Manager profile. This post is going to show how to implement a simple application that can disable the Home Button on all Zebra&amp;rsquo;s devices that have Mx v4.</description>
+      <description>Intro I presented in the past a method to disable the Home Button on Zebra&amp;rsquo;s MC40 Android device, using a custom intent1. After having published it, I got some enquiries, about having the same behaviour on other Zebra&amp;rsquo;s devices. Well, it turns out that there&amp;rsquo;s now a &amp;laquo;standard&amp;raquo; way to do this in Zebra&amp;rsquo;s Mx extension using the UI Manager profile. This post is going to show how to implement a simple application that can disable the Home Button on all Zebra&amp;rsquo;s devices that have Mx v4.</description>
     </item>
     
     <item>

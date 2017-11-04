@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>Android Auto testing  &middot; Pietro F. Maggi</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<meta name="description" content="I got a new car this summer that supports Android Auto, some apps I use on my phone works out of the box, others required some work. I remembered a couple of years ago Google presenting a tool to test AndroidAuto apps... it ends up that there&#39;s &#34;space for improvements&#34; in the  available documentation." />
+
+<meta name="keywords" content="Android, AndroidAuto, Testing, ">
+
+
+<meta property="og:title" content="Android Auto testing  &middot; Pietro F. Maggi ">
+<meta property="og:site_name" content="Pietro F. Maggi"/>
+<meta property="og:url" content="http://pietromaggi.com/2017/10/31/android-auto-testing/" />
+<meta property="og:locale" content="en-EN">
+
+
+<meta property="og:type" content="article" />
+<meta property="og:description" content="I got a new car this summer that supports Android Auto, some apps I use on my phone works out of the box, others required some work. I remembered a couple of years ago Google presenting a tool to test AndroidAuto apps... it ends up that there&#39;s &#34;space for improvements&#34; in the  available documentation."/>
+<meta property="og:article:published_time" content="2017-10-31T21:00:00&#43;01:00" />
+<meta property="og:article:modified_time" content="2017-10-31T21:00:00&#43;01:00" />
+
+  
+    
+<meta property="og:article:tag" content="Android">
+    
+<meta property="og:article:tag" content="AndroidAuto">
+    
+<meta property="og:article:tag" content="Testing">
+    
+  
+
+  
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@pfmaggi" />
+<meta name="twitter:creator" content="@pfmaggi" />
+<meta name="twitter:title" content="Android Auto testing" />
+<meta name="twitter:description" content="I got a new car this summer that supports Android Auto, some apps I use on my phone works out of the box, others required some work. I remembered a couple of years ago Google presenting a tool to test AndroidAuto apps... it ends up that there&#39;s &#34;space for improvements&#34; in the  available documentation." />
+<meta name="twitter:url" content="http://pietromaggi.com/2017/10/31/android-auto-testing/" />
+<meta name="twitter:domain" content="http://pietromaggi.com/">
+  
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "headline": "Android Auto testing",
+    "author": {
+      "@type": "Person",
+      "name": "http://profiles.google.com/+?rel=author"
+    },
+    "datePublished": "2017-10-31",
+    "description": "I got a new car this summer that supports Android Auto, some apps I use on my phone works out of the box, others required some work. I remembered a couple of years ago Google presenting a tool to test AndroidAuto apps... it ends up that there&#39;s &#34;space for improvements&#34; in the  available documentation.",
+    "wordCount": 606
+  }
+</script>
+
+
+
+<link rel="canonical" href="http://pietromaggi.com/2017/10/31/android-auto-testing/" />
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://pietromaggi.com/touch-icon-144-precomposed.png">
+<link href="http://pietromaggi.com/favicon.png" rel="icon">
+
+<meta name="generator" content="Hugo 0.30.2" />
+
+  
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link href='https://fonts.googleapis.com/css?family=Merriweather:300%7CRaleway%7COpen+Sans' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="http://pietromaggi.com/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://pietromaggi.com/css/style.css">
+<link rel="stylesheet" href="http://pietromaggi.com/css/highlight/docco.css">
+
+  
+  
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-78928627-1', 'auto');
+	  ga('send', 'pageview');
+
+	</script>
+
+</head>
+<body>
+  <main id="main-wrapper" class="container main_wrapper has-sidebar">
+    <header id="main-header" class="container main_header">
+  <div class="container brand">
+  <div class="container title h1-like">
+  <a class="baselink" href="http://pietromaggi.com/">
+  Garbage Collector
+
+</a>
+
+</div>
+
+  
+<div class="container topline">
+  
+  Tales from an old nibble
+
+
+</div>
+
+
+</div>
+
+  <nav class="container nav primary no-print">
+  
+
+<a class="homelink" href="http://pietromaggi.com/">Home</a>
+
+
+  
+<a href="http://pietromaggi.com/about">About</a>
+
+<a href="http://pietromaggi.com/post" title="Show list of posts">Posts</a>
+
+<a href="http://pietromaggi.com/speaking">Speaking Appointments</a>
+
+<a href="http://pietromaggi.com/decks">Slide Decks</a>
+
+<a href="http://pietromaggi.com/tags" title="Show list of tags">Tags</a>
+
+
+</nav>
+
+<div class="container nav secondary no-print">
+  
+<a id="contact-link-email" class="contact_link" href="mailto:pfm@pietromaggi.com">
+  <span class="fa fa-envelope-square"></span><span>email</span></a>
+
+
+
+<a id="contact-link-github" class="contact_link" href="https://github.com/pfmaggi">
+  <span class="fa fa-github-square"></span><span>github</span></a>
+
+
+
+<a id="contact-link-bitbucket" class="contact_link" href="https://bitbucket.org/pfmaggi">
+  <span class="fa fa-bitbucket-square"></span><span>bitbucket</span></a>
+
+
+
+<a id="contact-link-linkedin" class="contact_link" href="https://www.linkedin.com/in/pietromaggi">
+  <span class="fa fa-linkedin-square"></span><span>linkedin</span></a>
+
+
+
+
+
+
+
+<a id="contact-link-twitter" class="contact_link" href="https://twitter.com/pfmaggi">
+  <span class="fa fa-twitter-square"></span><span>twitter</span></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+  
+
+</header>
+
+
+<article id="main-content" class="container main_content single">
+  <header class="container hat">
+  <h1>Android Auto testing
+</h1>
+
+  <div class="metas">
+<time datetime="2017-10-31">31 Oct, 2017</time>
+
+
+  
+    &middot; by Pietro F. Maggi
+  
+  &middot; Read in about 3 min
+  &middot; (606 Words)
+  <br>
+  
+<a class="label" href="http://pietromaggi.com/tags/android">Android</a>
+
+<a class="label" href="http://pietromaggi.com/tags/androidauto">AndroidAuto</a>
+
+<a class="label" href="http://pietromaggi.com/tags/testing">Testing</a>
+
+
+
+</div>
+
+</header>
+
+  <div class="container content">
+  
+
+<h2 id="android-auto-why">Android Auto? Why?</h2>
+
+<p>This summer I bought a new car and it came with a nice 8&raquo; touch panel that supports Android Auto and Apple Car.</p>
+
+<p>It even came with seven seats and a nice engine, and that was way more important than having an additional screen&hellip; but, it&rsquo;s there and I started to make good use of it.</p>
+
+<p>Playing with Android Auto is a bit of a hit and miss. I never looked into it, but it works well on the basic features but I didn&rsquo;t understand why it was not supporting <a href="https://github.com/AntennaPod/AntennaPod">AntennaPod</a>. This is my app of choice to listen to podcasts, something that I&rsquo;d like to do when having to commute to the office or travelling alone.</p>
+
+<p>Looking into AntennaPod repository it looks like that it supports Android Auto, but nothing was coming up on the car while other audio apps work.</p>
+
+<p>I needed to understand what was going on.</p>
+
+<h2 id="some-investigation">Some investigation</h2>
+
+<p>To use Android Auto, first, you need to install
+<a href="https://play.google.com/store/apps/details?id=com.google.android.projection.gearhead">Android Auto Companion App</a> on your mobile.</p>
+
+<p>Then, connecting the mobile to the car through USB, you get the supported apps on the 8&raquo; screen.</p>
+
+<p>The development pieces are explained on <a href="https://developer.android.com/training/auto/index.html">Android Auto developer website</a>, we&rsquo;re are supposed to find there all the information&hellip;</p>
+
+<p>Given that AntennaPod is opensource, I started to investigate if all the required pieces were in place and recompiled the app from sources. However having to go to the car to test the build didn&rsquo;t look like a great idea.</p>
+
+<p>For sure there&rsquo;s need to be a better way.</p>
+
+<h2 id="need-for-testing">Need for testing</h2>
+
+<p>Luckily (or more probably, on purpose) Google released in 2015 <a href="https://android-developers.googleblog.com/2015/08/announcing-android-auto-desktop-head.html">Android Auto Desktop Head Unit</a>. A desktop application that can be used to test Android Apps behaviour of an Android app.</p>
+
+<p><img src="/images/android_auto/desktop_head_unit.png" alt="Android Auto Desktop Head Unit" title="Android Auto Desktop Head Unit" /></p>
+
+<p>All good if only the documentation was correct.</p>
+
+<p>Let me explain, to use the Desktop Head Unit, you need to enable developer mode on the Companion App (on your android device), but the documentation is probably out of sync with the current version of the Companion App.</p>
+
+<p>At least, for me, the first step of the process to enable developer mode was non-sense:</p>
+
+<blockquote>
+<p>On the mobile device, enable Android Auto developer mode by starting the Android Auto companion app and then tapping the Android Auto toolbar title 10 times. This step is only required the first time you run the companion app.</p>
+</blockquote>
+
+<p>So, after having tapped everywhere on the app, I went back to the source of all truth <strong>StackOverflow</strong> and found this question: <a href="https://stackoverflow.com/questions/33578041/android-auto-how-to-enable-developer-mode">Android auto - how to enable developer mode</a>.</p>
+
+<p>Here you can find some reference to the documentation and then, down in the thread someone, suggesting the right steps:</p>
+
+<p>To enable Android Auto developer mode:</p>
+
+<ol>
+<li>Start the <a href="https://play.google.com/store/apps/details?id=com.google.android.projection.gearhead&amp;hl=en">Android Auto companion app</a></li>
+<li>Open Navigation Drawer</li>
+<li><strong>Tap About menu item</strong></li>
+<li><strong>Tap 10 times the top horizontal Toolbar where it says &laquo;About Android Auto&raquo;</strong></li>
+<li>A Toast message shows up when the developer mode has been activated</li>
+<li>Continue with the next steps - <a href="https://developer.android.com/training/auto/testing/index.html#running-dhu">Start head unit server from the menu</a>, etc.</li>
+</ol>
+
+<p>And this works! at least with the current version of the companion app.</p>
+
+<h2 id="comments">Comments</h2>
+
+<p>My initial idea with Android Auto was that I could have controlled the screen on my car from the mobile phone app. In reality, and probably not a bad idea, what is possible for an application is somewhat limited for security reason.  However, I&rsquo;m now happily listening to my podcasts while commuting being able to control AntennaPod from my car interface&hellip; if only it was possible to change the replay speed&hellip; maybe next time :-)</p>
+
+<h2 id="references">References</h2>
+
+<ul>
+<li><a href="https://play.google.com/store/apps/details?id=com.google.android.projection.gearhead&amp;hl=en">Android Auto companion app</a></li>
+<li><a href="https://android-developers.googleblog.com/2015/08/announcing-android-auto-desktop-head.html">Announcing Android Auto Desktop Head Unit</a></li>
+<li><a href="https://developer.android.com/training/auto/index.html">Android Auto developer website</a></li>
+<li><a href="https://github.com/AntennaPod/AntennaPod">AntennaPod</a></li>
+</ul>
+
+</div>
+
+
+  <footer class="container">
+  <div class="container navigation no-print">
+  <h2>Navigation</h2>
+  
+  
+
+    
+    <a class="prev" href="http://pietromaggi.com/2017/10/13/tips-on-how-to-demo-android-devices/" title="Tips on how to demo Android devices">
+      Previous
+    </a>
+    
+
+    
+
+  
+
+
+</div>
+
+  <div class="container comments">
+  <h2>Comments</h2>
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  (function() {
+    
+    
+    if (window.location.hostname == "localhost")
+      return;
+
+    var dsq = document.createElement('script'); dsq.async = true; dsq.type = 'text/javascript';
+    dsq.src = '//pietrofmaggi.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+</div>
+
+</footer>
+
+</article>
+      <footer id="main-footer" class="container main_footer">
+  
+
+  <div class="container nav foot no-print">
+  
+<a href="http://pietromaggi.com/license">license</a>
+
+
+  <a class="toplink" href="#">back to top</a>
+
+</div>
+
+  <div class="container credits">
+  
+<div class="container footline">
+  
+  code with <i class='fa fa-heart'></i>
+
+
+</div>
+
+
+  
+<div class="container copyright">
+  
+  &copy; 2013-2017 Pietro F. Maggi
+
+
+</div>
+
+
+</div>
+
+</footer>
+
+    </main>
+    
+<script type="text/javascript">
+  (function() {
+    
+    
+    if (window.location.hostname == "localhost")
+      return;
+
+    var dsq = document.createElement('script'); dsq.async = true; dsq.type = 'text/javascript';
+    dsq.src = '//pietrofmaggi.disqus.com/count.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+
+<script src="http://pietromaggi.com/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+    
+  </body>
+</html>
+
