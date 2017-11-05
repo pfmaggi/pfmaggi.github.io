@@ -59,7 +59,7 @@
     },
     "datePublished": "2017-10-31",
     "description": "I got a new car this summer that supports Android Auto, some apps I use on my phone works out of the box, others required some work. I remembered a couple of years ago Google presenting a tool to test AndroidAuto apps... it ends up that there&#39;s &#34;space for improvements&#34; in the  available documentation.",
-    "wordCount": 606
+    "wordCount": 612
   }
 </script>
 
@@ -202,7 +202,7 @@
     &middot; by Pietro F. Maggi
   
   &middot; Read in about 3 min
-  &middot; (606 Words)
+  &middot; (612 Words)
   <br>
   
 <a class="label" href="http://pietromaggi.com/tags/android">Android</a>
@@ -222,13 +222,13 @@
 
 <h2 id="android-auto-why">Android Auto? Why?</h2>
 
-<p>This summer I bought a new car and it came with a nice 8&raquo; touch panel that supports Android Auto and Apple Car.</p>
+<p>This summer I bought a new car and it came with a nice 8&rdquo; touch panel that supports Android Auto and Apple Car.</p>
 
-<p>It even came with seven seats and a nice engine, and that was way more important than having an additional screen&hellip; but, it&rsquo;s there and I started to make good use of it.</p>
+<p>It even came with seven seats and a nice engine, and that was way more important than having an additional screen&hellip; but, it&rsquo;s there, and I started to make good use of it.</p>
 
-<p>Playing with Android Auto is a bit of a hit and miss. I never looked into it, but it works well on the basic features but I didn&rsquo;t understand why it was not supporting <a href="https://github.com/AntennaPod/AntennaPod">AntennaPod</a>. This is my app of choice to listen to podcasts, something that I&rsquo;d like to do when having to commute to the office or travelling alone.</p>
+<p>Playing with Android Auto is a bit of a hit and miss. At least for me! I never looked into it, but it works well for the basic features, but I didn&rsquo;t understand why it&rsquo;s not supporting <a href="https://github.com/AntennaPod/AntennaPod">AntennaPod</a>. This is my app of choice to listen to podcasts, something that I&rsquo;d like to do when I commute to the office or when I drive alone.</p>
 
-<p>Looking into AntennaPod repository it looks like that it supports Android Auto, but nothing was coming up on the car while other audio apps work.</p>
+<p>Looking into AntennaPod repository it looks like that it supports Android Auto, but nothing is coming up on the car while other audio apps &laquo;just works&raquo;.</p>
 
 <p>I needed to understand what was going on.</p>
 
@@ -237,17 +237,17 @@
 <p>To use Android Auto, first, you need to install
 <a href="https://play.google.com/store/apps/details?id=com.google.android.projection.gearhead">Android Auto Companion App</a> on your mobile.</p>
 
-<p>Then, connecting the mobile to the car through USB, you get the supported apps on the 8&raquo; screen.</p>
+<p>Then, connecting the mobile to the car through USB, you get the supported apps on the 8&rdquo; screen.</p>
 
-<p>The development pieces are explained on <a href="https://developer.android.com/training/auto/index.html">Android Auto developer website</a>, we&rsquo;re are supposed to find there all the information&hellip;</p>
+<p>The development pieces are explained on <a href="https://developer.android.com/training/auto/index.html">Android Auto developer website</a>, we&rsquo;re supposed to find there all the information&hellip;</p>
 
 <p>Given that AntennaPod is opensource, I started to investigate if all the required pieces were in place and recompiled the app from sources. However having to go to the car to test the build didn&rsquo;t look like a great idea.</p>
 
-<p>For sure there&rsquo;s need to be a better way.</p>
+<p>For sure there should be a better way to test it!</p>
 
 <h2 id="need-for-testing">Need for testing</h2>
 
-<p>Luckily (or more probably, on purpose) Google released in 2015 <a href="https://android-developers.googleblog.com/2015/08/announcing-android-auto-desktop-head.html">Android Auto Desktop Head Unit</a>. A desktop application that can be used to test Android Apps behaviour of an Android app.</p>
+<p>Luckily (or more probably, on purpose) Google released in 2015 <a href="https://android-developers.googleblog.com/2015/08/announcing-android-auto-desktop-head.html">Android Auto Desktop Head Unit</a>. A desktop application that can be used to test Android Auto behaviour of an Android app.</p>
 
 <p><img src="/images/android_auto/desktop_head_unit.png" alt="Android Auto Desktop Head Unit" title="Android Auto Desktop Head Unit" /></p>
 
@@ -261,9 +261,9 @@
 <p>On the mobile device, enable Android Auto developer mode by starting the Android Auto companion app and then tapping the Android Auto toolbar title 10 times. This step is only required the first time you run the companion app.</p>
 </blockquote>
 
-<p>So, after having tapped everywhere on the app, I went back to the source of all truth <strong>StackOverflow</strong> and found this question: <a href="https://stackoverflow.com/questions/33578041/android-auto-how-to-enable-developer-mode">Android auto - how to enable developer mode</a>.</p>
+<p>So, after having tapped everywhere on the app, I went back to the source of all truth, <strong>StackOverflow</strong>, and found this question: <a href="https://stackoverflow.com/questions/33578041/android-auto-how-to-enable-developer-mode">Android auto - how to enable developer mode</a>.</p>
 
-<p>Here you can find some reference to the documentation and then, down in the thread someone, suggesting the right steps:</p>
+<p>Here you can find some reference to the documentation and then, down in the thread, someone suggesting the right steps:</p>
 
 <p>To enable Android Auto developer mode:</p>
 
