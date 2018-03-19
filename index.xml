@@ -126,15 +126,6 @@ A bit of background Android&amp;rsquo;s purpose is to establish an open platform
     </item>
     
     <item>
-      <title>Speaking Appointments</title>
-      <link>http://pietromaggi.com/speaking/</link>
-      <pubDate>Sat, 09 Jan 2016 21:53:35 +0100</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
-      <guid>http://pietromaggi.com/speaking/</guid>
-      <description>May 2018  29-May-18 - Tel-Aviv - Ingram Israel - Mobile Developer event  April 2018  13-Apr-18 - Droidcon Dubai - &amp;laquo;Here be Dragons - The Enterprise Mobile Security Journey&amp;raquo; 19-Apr-18 - Droidcon Turin - &amp;laquo;Here be Dragons - The Enterprise Mobile Security Journey&amp;raquo;   ARCHIVE AND TALK LINKS  04-Sep-17 - Droidcon Berlin- Android Security, an Enterprise Perspective.  14-16 June - Zebra&amp;rsquo;s AppForum EMEA in Prague  With Darryn Campbell: What&amp;rsquo;s The Difference in Android L,M,N,and O Migrating from Win Mobile to Android Create Scanning Applications Across Multiple Android Devices  07-Apr-17 - droidcon Turin 2017 - Android Security, an Enterprise perspective.</description>
-    </item>
-    
-    <item>
       <title>about</title>
       <link>http://pietromaggi.com/about/</link>
       <pubDate>Sat, 09 Jan 2016 20:50:38 +0100</pubDate>
@@ -173,8 +164,8 @@ Some background With the Android tools moving super-fast (Android studio v1.0 la
       <pubDate>Sun, 25 Oct 2015 19:31:46 +0100</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>http://pietromaggi.com/decks/</guid>
-      <description>Android Wireless DeepDive Exploring how to build a RhoMobile native extension for an Android undocumented feature
-Mobile Barcode Scanning API Status An analysis of barcode scanning API status on mobile devices</description>
+      <description>Android Wireless DeepDive Exploring how to build a RhoMobile native extension for an Android undocumented feature.
+Mobile Barcode Scanning API Status An analysis of barcode scanning API status on mobile devices.</description>
     </item>
     
     <item>

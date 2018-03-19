@@ -70,7 +70,7 @@
 <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://pietromaggi.com/touch-icon-144-precomposed.png">
 <link href="http://pietromaggi.com/favicon.png" rel="icon">
 
-<meta name="generator" content="Hugo 0.36.1" />
+<meta name="generator" content="Hugo 0.37.1" />
 
   
 <!--[if lt IE 9]>
@@ -223,14 +223,14 @@
 <p>First technical post for 2016. Finally!</p>
 
 <p>To kick-start 2016 I&rsquo;ve chosen a topic that is more and more relevant in our market: The changes introduced by Google in Android v4.4 KitKat, regarding the secondary storage (the SDCard).<br />
-I&rsquo;ve already talked about this in my AppForum 2015 talk last October in London<sup class="footnote-ref" id="fnref:1"><a rel="footnote" href="#fn:1">1</a></sup>, but I want to add some extra info and rationales here.</p>
+I&rsquo;ve already talked about this in my AppForum 2015 talk last October in London<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup>, but I want to add some extra info and rationales here.</p>
 
 <h2 id="a-bit-of-background">A bit of background</h2>
 
 <p>Android&rsquo;s purpose is to establish an open platform for developers to build innovative apps.
 For this reason, Google put in place a compatibility program that defines technical details of the Android Platform;</p>
 
-<p>For every Android release, there&rsquo;s a Compatibility Definition Document, the last available at this moment is for <a href="http://static.googleusercontent.com/media/source.android.com/it//compatibility/6.0/android-6.0-cdd.pdf">Android 6.0, aka Marshmallow</a>, that defines some of the technical features and device needs to have to be a compatible Android device. And this compatibility is a requirement to be able to license GMS<sup class="footnote-ref" id="fnref:2"><a rel="footnote" href="#fn:2">2</a></sup> for the device.</p>
+<p>For every Android release, there&rsquo;s a Compatibility Definition Document, the last available at this moment is for <a href="http://static.googleusercontent.com/media/source.android.com/it//compatibility/6.0/android-6.0-cdd.pdf">Android 6.0, aka Marshmallow</a>, that defines some of the technical features and device needs to have to be a compatible Android device. And this compatibility is a requirement to be able to license GMS<sup class="footnote-ref" id="fnref:2"><a href="#fn:2">2</a></sup> for the device.</p>
 
 <p>To put it clearly:</p>
 
@@ -256,7 +256,7 @@ So usually, you end up that the SDCard is your <em>Secondary External Storage</e
 <li><code>WRITE_EXTERNAL_STORAGE</code></li>
 </ul>
 
-<p>These will gave you read&amp;write access to all the External Storage available<sup class="footnote-ref" id="fnref:3"><a rel="footnote" href="#fn:3">3</a></sup>.<br />
+<p>These will gave you read&amp;write access to all the External Storage available<sup class="footnote-ref" id="fnref:3"><a href="#fn:3">3</a></sup>.<br />
 Given that there are ways to gently ask for the <a href="/2014/10/19/finding-the-sdcard-path-on-android-devices/">SDCard true path</a> this was more or less working.</p>
 
 <blockquote>
