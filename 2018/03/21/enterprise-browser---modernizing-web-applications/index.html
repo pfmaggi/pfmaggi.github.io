@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>Enterprise Browser - Modernizing web applications  &middot; Pietro F. Maggi</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<meta name="description" content="Enteprise Browser allows to create shortcuts to different `Config.xml` so the user can access them using a different icon on your Android Launcher screen. This is a step-by-step guide on how to create, test and distribute them." />
+
+<meta name="keywords" content="">
+
+
+<meta property="og:title" content="Enterprise Browser - Modernizing web applications  &middot; Pietro F. Maggi ">
+<meta property="og:site_name" content="Pietro F. Maggi"/>
+<meta property="og:url" content="http://pietromaggi.com/2018/03/21/enterprise-browser---modernizing-web-applications/" />
+<meta property="og:locale" content="en-EN">
+
+
+<meta property="og:type" content="article" />
+<meta property="og:description" content="Enteprise Browser allows to create shortcuts to different `Config.xml` so the user can access them using a different icon on your Android Launcher screen. This is a step-by-step guide on how to create, test and distribute them."/>
+<meta property="og:article:published_time" content="2018-03-21T21:30:48&#43;01:00" />
+<meta property="og:article:modified_time" content="2018-03-21T21:30:48&#43;01:00" />
+
+  
+
+  
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@pfmaggi" />
+<meta name="twitter:creator" content="@pfmaggi" />
+<meta name="twitter:title" content="Enterprise Browser - Modernizing web applications" />
+<meta name="twitter:description" content="Enteprise Browser allows to create shortcuts to different `Config.xml` so the user can access them using a different icon on your Android Launcher screen. This is a step-by-step guide on how to create, test and distribute them." />
+<meta name="twitter:url" content="http://pietromaggi.com/2018/03/21/enterprise-browser---modernizing-web-applications/" />
+<meta name="twitter:domain" content="http://pietromaggi.com/">
+  
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "headline": "Enterprise Browser - Modernizing web applications",
+    "author": {
+      "@type": "Person",
+      "name": "http://profiles.google.com/+?rel=author"
+    },
+    "datePublished": "2018-03-21",
+    "description": "Enteprise Browser allows to create shortcuts to different `Config.xml` so the user can access them using a different icon on your Android Launcher screen. This is a step-by-step guide on how to create, test and distribute them.",
+    "wordCount": 3175
+  }
+</script>
+
+
+
+<link rel="canonical" href="http://pietromaggi.com/2018/03/21/enterprise-browser---modernizing-web-applications/" />
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://pietromaggi.com/touch-icon-144-precomposed.png">
+<link href="http://pietromaggi.com/favicon.png" rel="icon">
+
+<meta name="generator" content="Hugo 0.38" />
+
+  
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link href='https://fonts.googleapis.com/css?family=Merriweather:300%7CRaleway%7COpen+Sans' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="http://pietromaggi.com/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://pietromaggi.com/css/style.css">
+<link rel="stylesheet" href="http://pietromaggi.com/css/highlight/docco.css">
+
+  
+  
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-78928627-1', 'auto');
+	  ga('send', 'pageview');
+
+	</script>
+
+</head>
+<body>
+  <main id="main-wrapper" class="container main_wrapper has-sidebar">
+    <header id="main-header" class="container main_header">
+  <div class="container brand">
+  <div class="container title h1-like">
+  <a class="baselink" href="http://pietromaggi.com/">
+  Garbage Collector
+
+</a>
+
+</div>
+
+  
+<div class="container topline">
+  
+  Tales from an old nibble
+
+
+</div>
+
+
+</div>
+
+  <nav class="container nav primary no-print">
+  
+
+<a class="homelink" href="http://pietromaggi.com/">Home</a>
+
+
+  
+<a href="http://pietromaggi.com/about">About</a>
+
+<a href="http://pietromaggi.com/post" title="Show list of posts">Posts</a>
+
+<a href="http://pietromaggi.com/speaking">Speaking Appointments</a>
+
+<a href="http://pietromaggi.com/decks">Slide Decks</a>
+
+<a href="http://pietromaggi.com/tags" title="Show list of tags">Tags</a>
+
+
+</nav>
+
+<div class="container nav secondary no-print">
+  
+<a id="contact-link-email" class="contact_link" href="mailto:pfm@pietromaggi.com">
+  <span class="fa fa-envelope-square"></span><span>email</span></a>
+
+
+
+<a id="contact-link-github" class="contact_link" href="https://github.com/pfmaggi">
+  <span class="fa fa-github-square"></span><span>github</span></a>
+
+
+
+<a id="contact-link-bitbucket" class="contact_link" href="https://bitbucket.org/pfmaggi">
+  <span class="fa fa-bitbucket-square"></span><span>bitbucket</span></a>
+
+
+
+<a id="contact-link-linkedin" class="contact_link" href="https://www.linkedin.com/in/pietromaggi">
+  <span class="fa fa-linkedin-square"></span><span>linkedin</span></a>
+
+
+
+
+
+
+
+<a id="contact-link-twitter" class="contact_link" href="https://twitter.com/pfmaggi">
+  <span class="fa fa-twitter-square"></span><span>twitter</span></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+  
+
+</header>
+
+
+<article id="main-content" class="container main_content single">
+  <header class="container hat">
+  <h1>Enterprise Browser - Modernizing web applications
+</h1>
+
+  <div class="metas">
+<time datetime="2018-03-21">21 Mar, 2018</time>
+
+
+  
+  &middot; Read in about 15 min
+  &middot; (3175 Words)
+  <br>
+  
+
+
+</div>
+
+</header>
+
+  <div class="container content">
+  
+
+<h2 id="note"><em>Note:</em></h2>
+
+<p>This blog describe the contente presented during Zebra Technologies&rsquo; DEVTALK recorded March 21st 2018 about Enterprise Browser. <a href="https://developer.zebra.com/community/home/blog/2018/03/28/devtalk-l-wednesday-march-21-2018-l-1000-am-cdt-l-enterprise-browser-enable-your-web-application">You can find a recording of the presentation on Zebra&rsquo;s Developer Portal</a>.</p>
+
+<h1 id="modernize-web-application">Modernize Web Application</h1>
+
+<blockquote>
+<p>Enterprise Browser is not just a browser, it&rsquo;s a business enabler that Symbol, Motorola, Motorola Solutions and now Zebra has developed over the last 15 years.</p>
+</blockquote>
+
+<p><span style="display:block;text-align:center">
+<img src="/images/20180321_eb_modernization/cat_believe.png" alt="Believe!" title="Believe!" />
+</span></p>
+
+<p>I know that fancy tag line remembers those cats&rsquo; posters: but it&rsquo;s true!</p>
+
+<h2 id="what-is-enterprise-browser">What is Enterprise Browser?</h2>
+
+<p><a href="https://www.zebra.com/it/it/products/software/mobile-computers/mobile-app-utilities/enterprise-browser.html">Stealing from the official website</a>, Enterprise Browser (EB from now on) allows to use standard web technologies (HTML5, CSS and JavaScript) to build application that can fully exploit the hardware features of Zebra Technologies&rsquo; devices, across multiple operative systems:</p>
+
+<ul>
+<li>Android</li>
+<li>Windows CE</li>
+<li>Windows Mobile</li>
+</ul>
+
+<h3 id="how-can-you-exploit-hw-capabilities-like-barcode-scanners">How can you exploit HW capabilities like Barcode scanners?</h3>
+
+<p>Enterprise Browser makes available a set of proprietary APIs that allows direct control of barcode scanner, RFID, connected printers, camera, etc.</p>
+
+<p>But this is only half of the story for Enterprise Browser, another good set of functionalities derives from it&rsquo;s configuration capabilities through it&rsquo;s <a href="https://techdocs.zebra.com/enterprise-browser/1-8/guide/configreference/"><code>config.xml</code></a>.<br />
+This is the file where you select the URL that is going to be used by the browser, but this is just the start. You can lock down a device, so that EB is running in Kiosk mode (both on legacy windows and Android); You can inject new functionality to an existing Web Application, without the need to modify anything on the server side (it&rsquo;s not magic, it&rsquo;s what we call <a href="http://techdocs.zebra.com/enterprise-browser/1-8/guide/DOMinjection/">DOM Injection</a>) or isaply a fully customizable on-screen keyboard when using EB on an Android full-touch device.</p>
+
+<h2 id="how-we-end-up-here">How we end-up here?</h2>
+
+<p>If we look at this product history we can see that it&rsquo;s not only about companies with different names. The product itself has been through multiple phases:</p>
+
+<ol>
+<li>Symbol PocketBrowser</li>
+<li>Motorola PocketBrowser</li>
+<li>Motorola Project Neon / RhoElements v1.x</li>
+<li>Motorola RhoElements v2.x Shared Runtime</li>
+<li>Motorola RhoElements v4.x Common API</li>
+<li>Zebra Enterprise Browser</li>
+</ol>
+
+<p>Looking back at this product history should not surprise you that, over the last 15 years, we spent time adding features to support customers request. The end result of this activities is that the same goal can be achieved using different API or configuration settings.</p>
+
+<h3 id="emml-1-x-enterprise-mashup-markup-language">EMML 1.x - Enterprise Mashup Markup Language</h3>
+
+<p>EMML is the Enterprise MetaTags Markup Language used initially by Pocket Browser to add capabilities to web application and it evolved from the initial syntax in PB v1.x and 2.x to what is now used in EB (EMML1.1):</p>
+
+<p>PB v2.x syntax to scan a barcode:</p>
+
+<pre><code>&lt;HTML&gt;
+    &lt;HEAD&gt;
+        &lt;Meta http-equiv=&quot;scanner&quot; content=&quot;AIM_TYPE_PRESENTATION&quot;&gt;
+        &lt;Meta http-equiv=&quot;scannernavigate&quot; content=&quot;Javascript:doScan('%s');&quot;&gt;
+        &lt;Meta http-equiv=&quot;scanner&quot; content=&quot;enabled&quot;&gt;
+    &lt;/HEAD&gt;
+    &lt;BODY onLoad=&quot;doSoftScan();&quot;&gt;
+        &lt;SCRIPT LANGAUGE=&quot;JavaScript&quot;&gt;
+            var Generic = new ActiveXObject(&quot;SymbolBrowser.Generic&quot;);
+
+            function doSoftScan()
+            {
+                Generic.InvokeMetaFunction('scanner', 'start');
+            }
+
+            function doScan(data)
+            {
+                bcode.innerHTML = data;
+                doSoftScan();
+            }
+        &lt;/SCRIPT&gt;
+        &lt;div id=&quot;bcode&quot;&gt;&lt;/div&gt;
+    &lt;/BODY&gt;
+&lt;/HTML&gt;
+</code></pre>
+
+<p>If we look at the same functionality in RhoElements v2.x Shared runtime, the syntax to scan a barcode using MetaTags and the <code>Scanner</code> API is not so different:</p>
+
+<pre><code>&lt;HTML&gt;
+    &lt;HEAD&gt;
+        &lt;Meta http-equiv=&quot;scanner&quot; content=&quot;aimType:presentation&quot;&gt;
+        &lt;Meta http-equiv=&quot;scanner&quot; content=&quot;DecodeEvent:url('Javascript:doScan('%s');')&quot;&gt;
+        &lt;Meta http-equiv=&quot;scanner&quot; content=&quot;enable&quot;&gt;
+    &lt;/HEAD&gt;
+    &lt;BODY onLoad=&quot;doSoftScan();&quot;&gt;
+        &lt;SCRIPT LANGUAGE=&quot;JavaScript&quot;&gt;
+
+            function doSoftScan() {
+                scanner.start();
+            }
+
+            function doScan(jsonObject) {
+                bcode.innerHTML = jsonObject.data;
+                doSoftScan();
+            }
+        &lt;/SCRIPT&gt;
+        &lt;div id=&quot;bcode&quot;&gt;&lt;/div&gt;
+    &lt;/BODY&gt;
+&lt;/HTML&gt;
+</code></pre>
+
+<h3 id="rhoelements-v4-x-and-the-common-api-in-javascript-and-ruby">RhoElements v4.x and the Common API in JavaScript (and Ruby)</h3>
+
+<p>RhoElements v4.0 introduced the concept of a <em>CommonAPI</em>, one true API to overcome all the differences between the original EMML syntax, RhoElements v1.x Syntax and the RhoMobile framework syntax:</p>
+
+<blockquote>
+<p>Three Rings for the Elven-kings under the sky,<br />
+Seven for the Dwarf-lords in their halls of stone,<br />
+Nine for Mortal Men doomed to die,<br />
+One for the Dark Lord on his dark throne<br />
+In the Land of Mordor where the Shadows lie.<br />
+One Ring to rule them all, One Ring to find them,<br />
+One Ring to bring them all and in the darkness bind them<br />
+In the Land of Mordor where the Shadows lie.</p>
+</blockquote>
+
+<p>The CommonAPI architecture is much more JavaScript and DOM friendly, adding only a single object:</p>
+
+<ul>
+<li><code>Rho</code> - in the original RhoMobile v4.x syntax</li>
+<li><code>EB</code> - in the current Enterprise Browser syntax</li>
+</ul>
+
+<p>So, nowadays, all the new CommonAPIs are available under the <code>EB</code> object.<br />
+To scan a barcode, the syntax now becames:</p>
+
+<pre><code>&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Barcode API Test&lt;/title&gt;
+    &lt;script type=&quot;text/javascript&quot; charset=&quot;utf-8&quot; src=&quot;ebapi-modules.js&quot;&gt;&lt;/script&gt;
+
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        function scanReceived(params){
+            // No data or no timestamp, scan failed.
+            if(params['data']== &quot;&quot; || params['time']==&quot;&quot;){
+                document.getElementById('display').innerHTML = &quot;Failed!&quot;;
+                return;
+            }
+            // Data and timestamp exist, barcode successful, show results
+            var displayStr = &quot;Barcode Data: &quot; + params['data']+&quot;&lt;br&gt;Time: &quot;+params['time'];
+            document.getElementById(&quot;display&quot;).innerHTML = displayStr;
+        }
+
+        function enableScanners(){
+            EB.Barcode.enable({}, scanReceived);
+            // Empty property hash, '{}' loads default values for the scanner.
+        }
+
+        function unloadEvent(){
+            EB.Barcode.disable();
+            // Disable Barcode on unload of page to free it up for other operations.
+        }
+    &lt;/script&gt;
+    &lt;/head&gt;
+
+    &lt;body onunload='unloadEvent()'&gt;
+        &lt;h1&gt;Barcode API Test&lt;/h1&gt;
+        &lt;div id=&quot;display&quot;&gt;
+            Barcode Data: &lt;br&gt;
+            Time: &lt;br&gt;
+        &lt;/div&gt;
+        &lt;button onclick=&quot;enableScanners()&quot;&gt;Enable Barcode Scanners&lt;/button&gt;
+    &lt;/body&gt;              
+&lt;/html&gt;
+</code></pre>
+
+<blockquote>
+<p><em>What does this means?</em><br />
+<strong>There may be multiple ways to achieve the same result in EB!</strong></p>
+</blockquote>
+
+<h3 id="example-1-scale-webpage-to-a-different-size">Example 1: Scale Webpage to a different size</h3>
+
+<p>One common request when users/partners needs to use and existing web application to a new device is to adapt the dimension to the available screen-size.</p>
+
+<p>A very easy way to customize this in Enterprise Browser is to configure the Zoom parameters in <code>Config.xml</code>:</p>
+
+<pre><code>&lt;Screen&gt;
+    &lt;FullScreen value=&quot;1&quot;/&gt;
+    &lt;PageZoom value=&quot;1.0&quot; /&gt;
+    &lt;EnableZoom value=&quot;1&quot;/&gt;
+&lt;/Screen&gt;
+</code></pre>
+
+<p>Looking at the <a href="https://techdocs.zebra.com/enterprise-browser/1-8/guide/configreference/#pagezoom">documentation for <code>PageZoom</code></a>:</p>
+
+<blockquote>
+<h3 id="pagezoom">PageZoom</h3>
+
+<p>Sets the zoom factor of the page.<br />
+Default zoom value is 1.0 (if unspecified). On Android, zero and negative values are not supported. On Windows, zoom value less than 1.0 reverts to 1.0 since lower values would not be readable. Page zoom settings will sometimes be reflected a few milliseconds after navigating from one page to another. A one-second delay should be anticipated. Not Supported when using Internet Explorer as the rendering engine.</p>
+</blockquote>
+
+<p>Wait, what do you mean that <em>&laquo;On Windows, zoom value less than 1.0 reverts to 1.0.&raquo;</em>?</p>
+
+<p>Well, it means that if you&rsquo;re trying to use a web application built for a larger desktop screen, you cannot scale it down with this configuration!<br />
+Are we out of luck?<br />
+of course not! we can digg up the <code>Zoom</code> metatag that allows to scale up and down a webpage.
+To have this applied to all the pages, we can use the <code>DefaultMetaTags</code> portion in the <code>Config.xml</code>:</p>
+
+<pre><code>&lt;DefaultMetaTags&gt;
+    &lt;MetaTag VALUE=“zoom~page:0.5;text:1” /&gt;
+&lt;/DefaultMetaTags&gt;
+</code></pre>
+
+<p>So, you can not only zoom out the page, but you can keep the text at the default zoom.</p>
+
+<h2 id="customize-screen-size">Customize screen size</h2>
+
+<p>This is a common topic, that we just saw has a very simple answer using the <code>PageZoom</code> option in EB&rsquo;s <code>Config.xml</code> and, because usually you want to Zoom in on an existing Web Application, that&rsquo;s cover most of the cases.</p>
+
+<p>We saw another option with the <code>Zoom</code> Tag that usually needs to be included in every page of the web application but, we can cover this with the <code>DefaultMetaTags</code> option in EB&rsquo;s <code>Config.xml</code>.</p>
+
+<h3 id="but-wait-there-s-more">But wait, there&rsquo;s more!</h3>
+
+<p>Enterprise Browser v1.3 introduced support for DOM Injection that allows to add elements to the DOM. We can use this functionality to &laquo;inject&raquo; on every page the <code>Zoom</code> tag (or do more fancy stuffs that we&rsquo;re describing later).<br />
+Where this DOM Injection functionality can be very helpful is that it allows us to specify a subset of pages where we want to inject the tag.  Think about wanting to zoom in only on the login page.</p>
+
+<p>In this case we need to add a reference to our &laquo;tags file&raquo; that describe the elements that we want to add to the pages. This needs to reside on the device and is going to be referenced in EB&rsquo;s <code>Config.xml</code> by the <a href="https://techdocs.zebra.com/enterprise-browser/1-8/guide/configreference/#dominjection"><code>CustomDomElements</code> tag</a>:</p>
+
+<pre><code>&lt;CustomDOMElements value=&quot;file://%INSTALLDIR%\di_tags.txt&quot;/&gt;
+</code></pre>
+
+<p>We can then specify that we want to have the <code>Zoom</code> tag injected on all the pages:</p>
+
+<pre><code>&lt;!-- Zoom in all pages--&gt;
+&lt;META HTTP-Equiv=&quot;zoom&quot; Content=&quot;page:0.5&quot; pages='*'/&gt; 
+</code></pre>
+
+<p>or just on a subset (in theory):</p>
+
+<pre><code>&lt;!-- Zoom in only the login page--&gt;
+&lt;META HTTP-Equiv=&quot;zoom&quot; Content=&quot;page:1.0&quot; pages='*'/&gt; 
+&lt;META HTTP-Equiv=&quot;zoom&quot; Content=&quot;page:0.5&quot; pages='/login.html'/&gt; 
+</code></pre>
+
+<p>But here&rsquo;s where we can start to see the limits of this technology: the tag is injected after that the DOM is rendered and this generate some strange behaviour (you see that the zoom is taking effect only you navigate to the next page).</p>
+
+<h3 id="first-thing-first-what-s-dom-injection">First thing first&hellip; what&rsquo;s DOM Injection?</h3>
+
+<p>From <a href="https://techdocs.zebra.com/enterprise-browser/1-8/guide/DOMinjection/">EB&rsquo;s documentation</a></p>
+
+<blockquote>
+<h3 id="overview">Overview</h3>
+
+<p>Apps made with Enterprise Browser 1.3 and higher are able to perform DOM Injection, the ability insert CSS, JavaScript and/or meta tags into the DOM without modifying the underlying application. This permits features, capabilities and even the look of one or more server-based Enterprise Browser app pages to be modified at runtime using DOM elements stored in a text file on the device.</p>
+</blockquote>
+
+<h3 id="a-better-sample-of-dom-injection">A better sample of DOM Injection</h3>
+
+<p>A better sample for DOM Injection could be the necessity to select a screen orientation for an existing Web Application. This can be useful when you want to use a device in a particular orientation (landscape, as an example, for a wearable device) and you discover that the available options in <code>Config.xml</code> only allows you to disable the rotation. So, whatever is the selected orientation when you launch EB, it became the orientation that you&rsquo;re going to use:</p>
+
+<pre><code>&lt;ScreenOrientation&gt;
+    &lt;AutoRotate value=&quot;0&quot; /&gt;
+&lt;/ScreenOrientation&gt;
+</code></pre>
+
+<p>A better solution can be enabled using DOM Injection and some easy JavaScript.</p>
+
+<p>First of all, we can inject EB&rsquo;s JavaScript libraries in our <code>Config.xml</code> this allows us to have the libraries available:</p>
+
+<pre><code>&lt;InjectEBLibraries&gt;
+    &lt;JSLibraries value=&quot;1&quot;/&gt;
+&lt;/InjectEBLibraries&gt;
+</code></pre>
+
+<p>Now we can inject a JavaScript file in our application as we have seen before, but this time the tag file needs to reference a script:</p>
+
+<pre><code>&lt;!-- Landscape all pages--&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;/landscape.js&quot; pages=&quot;*&quot; /&gt;
+</code></pre>
+
+<p>And the <code>landscape.js</code> file itself:</p>
+
+<pre><code>EB.ScreenOrientation.rightHanded();
+console.log('Landscape Configured');
+</code></pre>
+
+<p>This guarantee that the web application is always using the correct screen orientation.</p>
+
+<p><strong>Note:</strong> It may seems silly to include a <code>console.log</code> in such a simple JavaScript code, but it is useful for two reasons:</p>
+
+<ol>
+<li>It allows to see on the DevChrome Tools&rsquo; console that the code has been injected</li>
+<li>It provides an easy way to retrieve the code (Chrome devTools put a link to the console statement close to the logged text)</li>
+</ol>
+
+<h3 id="a-final-sample-adding-barcode-scanning-capabilities-to-an-application">A final sample: adding barcode scanning capabilities to an application</h3>
+
+<p>As a final sample for DOM Injection I&rsquo;m going to present one of the main usecase for DOM Injection: adding barcode scanning capabilities to an existing application.<br />
+We&rsquo;re going to focus on Android as the target operative system, and we know that, on this operative system, Zebra Technologies&rsquo; devices can use DataWedge to scan barcodes. But with EB&rsquo;s DOM Injection we can achieve a much better integration!</p>
+
+<p>Again, we start with some plumbing in <code>config.xml</code> enabling EB&rsquo;s JavaScript libraries injection to have the libraries available:</p>
+
+<pre><code>&lt;InjectEBLibraries&gt;
+    &lt;JSLibraries value=&quot;1&quot;/&gt;
+&lt;/InjectEBLibraries&gt;
+</code></pre>
+
+<p>Next, we need to add a reference to the tag file:</p>
+
+<pre><code>&lt;CustomDOMElements value=&quot;file://%INSTALLDIR%\di_tags.txt&quot;/&gt;
+</code></pre>
+
+<p>Now we can inject a JavaScript file in our application as we have seen before, but this time the tag file needs to reference a script:</p>
+
+<pre><code>&lt;!-- Landscape all pages--&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;/scanning.js&quot; pages=&quot;*&quot; /&gt;
+</code></pre>
+
+<p>And the <code>scanning.js</code> file itself:</p>
+
+<pre><code>function scanReceived(params){
+    var barcodeStr = params['data'];
+
+    //put the barcode into the field in focus
+    document.activeElement.value = barcodeStr;
+
+    //now we are going to place the data into the input field with id barcode1
+    document.getElementById(&quot;barcode1&quot;).value = barcodeStr;
+}   
+
+function enableScanners(){
+    EB.Barcode.enable({}, scanReceived);
+    // Empty property hash, '{}' loads default values for the scanner.
+}
+
+function unloadEvent(){
+    EB.Barcode.disable();
+    // Disable Barcode on unload of page to free it up for other operations.
+}
+
+enableScanners();
+console.log(&quot;file injected&quot;);
+</code></pre>
+
+<p>This code is going to enable the barcode scanner with the default properties, then inserting the barcode data into the current element (the focused element).<br />
+As an alternative example, if you need to read Interleaved 2of5 barcodes, you can enable the barcode API with this parameters:</p>
+
+<pre><code>EB.Barcode.enable({i2of5:true, i2of5maxLength:30, i2of5minLength:4}, scanReceived);
+</code></pre>
+
+<p>For a full list of the available properties take a look at <a href="https://techdocs.zebra.com/enterprise-browser/1-8/api/barcode/">EB&rsquo;s Barcode API documentation</a>.</p>
+
+<h2 id="adding-a-custom-on-screen-keyboard-to-an-existing-application">Adding a custom on-screen keyboard to an existing application</h2>
+
+<p>The official name for custom keyboards in Enterprise Browser is <a href="http://techdocs.zebra.com/enterprise-browser/1-8/guide/customize/">ButtonBar</a>. Let&rsquo;s take a look at what the documentation says about them:</p>
+
+<blockquote>
+<h3 id="overview-1">Overview</h3>
+
+<p>Enterprise Browser 1.7 (and higher) for Android includes ButtonBar APIs, which can deliver custom features and functions through on-screen buttons or keys. Functions can include simple actions such as launching an app or activity, sending an intent or virtually any action that can be executed using JavaScript.</p>
+</blockquote>
+
+<h4 id="how-it-works">How it Works</h4>
+
+<p>The settings, parameters, actions and attributes of the desired on-screen button(s) are stored in an XML container called <code>Button.xml</code>. If any of those buttons are to execute JavaScript, the JavaScript code is contained in a second file called <code>CustomScript.xml</code>. Both files are stored on the device in the same folder of the <code>Config.xml</code> file.</p>
+
+<p>ButtonBars can be shown and hidden programmatically as required by an app&rsquo;s pages through methods implemented in one of 50 ButtonBar APIs currently supported.</p>
+
+<h4 id="let-s-see-an-example">Let&rsquo;s see an example</h4>
+
+<p>Starting from the <code>Button.xml</code> this can be a quite complex file, where we&rsquo;ve all the description of the keyboard layout. It&rsquo;s still a manual process at this moment, but we are planning to have a tool to help in the process. Still just a plan!</p>
+
+<pre><code>&lt;?xml version = &quot;1.0&quot;?&gt;
+&lt;Buttonbargroup&gt;
+
+    &lt;ButtonBar1&gt;
+        &lt;barOrientation value=&quot;Horizontal&quot;/&gt;
+        &lt;barColor value=&quot;#003370&quot; /&gt;
+        &lt;barColorPressed value=&quot;#003370&quot; /&gt;
+        &lt;barTransparency value=&quot;0&quot; /&gt;
+        &lt;barFontSize value=&quot;20&quot; /&gt;
+        &lt;barGap value=&quot;0&quot; /&gt;
+        &lt;barLeft value=&quot;0&quot; /&gt;
+        &lt;barTop value=&quot;596&quot; /&gt;
+        &lt;barWidth value=&quot;144&quot; /&gt;
+        &lt;barHeight value=&quot;144&quot; /&gt;
+        &lt;Buttons&gt;
+            &lt;Button1&gt;
+            &lt;buttonAction value =&quot;runscript-togglescript1&quot;/&gt;
+            &lt;buttonImage value =&quot;/storage/emulated/0/Android/data/com.symbol.enterprisebrowser/keyboard_up.png&quot;/&gt;
+            &lt;/Button1&gt;
+        &lt;/Buttons&gt;
+    &lt;/ButtonBar1&gt;
+
+    &lt;ButtonBar2&gt;
+        &lt;barOrientation value=&quot;Horizontal&quot;/&gt;
+        &lt;barColor value=&quot;#0033cc&quot; /&gt;
+        &lt;barColorPressed value=&quot;#0040ff&quot; /&gt;
+        &lt;barTransparency value=&quot;70&quot; /&gt;
+        &lt;barFontSize value=&quot;20&quot; /&gt;
+        &lt;barGap value=&quot;2&quot; /&gt;
+        &lt;barLeft value=&quot;560&quot; /&gt;
+        &lt;barTop value=&quot;200&quot; /&gt;
+        &lt;barWidth value=&quot;640&quot; /&gt;
+        &lt;barHeight value=&quot;100&quot; /&gt;
+        &lt;Buttons&gt;
+            &lt;Button1&gt;
+                &lt;buttonText value =&quot;7&quot;/&gt;
+                &lt;buttonAction value =&quot;key-14&quot;/&gt;
+            &lt;/Button1&gt;
+            &lt;Button2&gt;
+                &lt;buttonText value =&quot;8&quot;/&gt;
+                &lt;buttonAction value =&quot;key-15&quot;/&gt;
+            &lt;/Button2&gt;
+            &lt;Button3&gt;
+                &lt;buttonText value =&quot;9&quot;/&gt;
+                &lt;buttonAction value =&quot;key-16&quot;/&gt;
+            &lt;/Button3&gt;
+        &lt;/Buttons&gt;
+    &lt;/ButtonBar2&gt; 
+
+    &lt;ButtonBar3&gt;
+        &lt;barOrientation value=&quot;Horizontal&quot;/&gt;
+        &lt;barColor value=&quot;#0033cc&quot; /&gt;
+        &lt;barColorPressed value=&quot;#0040ff&quot; /&gt;
+        &lt;barTransparency value=&quot;70&quot; /&gt;
+        &lt;barFontSize value=&quot;20&quot; /&gt;
+        &lt;barGap value=&quot;2&quot; /&gt;
+        &lt;barLeft value=&quot;560&quot; /&gt;
+        &lt;barTop value=&quot;302&quot; /&gt;
+        &lt;barWidth value=&quot;640&quot; /&gt;
+        &lt;barHeight value=&quot;100&quot; /&gt;
+        &lt;Buttons&gt;
+            &lt;Button1&gt;
+                &lt;buttonText value =&quot;4&quot;/&gt;
+                &lt;buttonAction value =&quot;key-11&quot;/&gt;
+            &lt;/Button1&gt;
+            &lt;Button2&gt;
+                &lt;buttonText value =&quot;5&quot;/&gt;
+                &lt;buttonAction value =&quot;key-12&quot;/&gt;
+            &lt;/Button2&gt;
+            &lt;Button3&gt;
+                &lt;buttonText value =&quot;6&quot;/&gt;
+                &lt;buttonAction value =&quot;key-13&quot;/&gt;
+            &lt;/Button3&gt;
+        &lt;/Buttons&gt;
+    &lt;/ButtonBar3&gt; 
+
+    &lt;ButtonBar4&gt;
+        &lt;barOrientation value=&quot;Horizontal&quot;/&gt;
+        &lt;barColor value=&quot;#0033cc&quot; /&gt;
+        &lt;barColorPressed value=&quot;#0040ff&quot; /&gt;
+        &lt;barTransparency value=&quot;70&quot; /&gt;
+        &lt;barFontSize value=&quot;20&quot; /&gt;
+        &lt;barGap value=&quot;2&quot; /&gt;
+        &lt;barLeft value=&quot;560&quot; /&gt;
+        &lt;barTop value=&quot;404&quot; /&gt;
+        &lt;barWidth value=&quot;640&quot; /&gt;
+        &lt;barHeight value=&quot;100&quot; /&gt;
+        &lt;Buttons&gt;
+            &lt;Button1&gt;
+                &lt;buttonText value =&quot;1&quot;/&gt;
+                &lt;buttonAction value =&quot;key-8&quot;/&gt;
+            &lt;/Button1&gt;
+            &lt;Button2&gt;
+                &lt;buttonText value =&quot;2&quot;/&gt;
+                &lt;buttonAction value =&quot;key-9&quot;/&gt;
+            &lt;/Button2&gt;
+            &lt;Button3&gt;
+                &lt;buttonText value =&quot;3&quot;/&gt;
+                &lt;buttonAction value =&quot;key-10&quot;/&gt;
+            &lt;/Button3&gt;
+        &lt;/Buttons&gt;
+    &lt;/ButtonBar4&gt;
+
+    &lt;ButtonBar5&gt;
+        &lt;barOrientation value=&quot;Horizontal&quot;/&gt;
+        &lt;barColor value=&quot;#0033cc&quot; /&gt;
+        &lt;barColorPressed value=&quot;#0040ff&quot; /&gt;
+        &lt;barTransparency value=&quot;70&quot; /&gt;
+        &lt;barFontSize value=&quot;20&quot; /&gt;
+        &lt;barGap value=&quot;0&quot; /&gt;
+        &lt;barLeft value=&quot;560&quot; /&gt;
+        &lt;barTop value=&quot;506&quot; /&gt;
+        &lt;barWidth value=&quot;212&quot; /&gt;
+        &lt;barHeight value=&quot;100&quot; /&gt;
+        &lt;Buttons&gt;
+            &lt;Button1&gt;
+                &lt;buttonText value =&quot;0&quot;/&gt;
+                &lt;buttonAction value =&quot;key-7&quot;/&gt;
+            &lt;/Button1&gt;  
+        &lt;/Buttons&gt;
+    &lt;/ButtonBar5&gt;
+
+    &lt;ButtonBar6&gt;
+        &lt;barOrientation value=&quot;Horizontal&quot;/&gt;
+        &lt;barColor value=&quot;#0033cc&quot; /&gt;
+        &lt;barColorPressed value=&quot;#0040ff&quot; /&gt;
+        &lt;barTransparency value=&quot;70&quot; /&gt;
+        &lt;barFontSize value=&quot;60&quot; /&gt;
+        &lt;barGap value=&quot;0&quot; /&gt;
+        &lt;barLeft value=&quot;774&quot; /&gt;
+        &lt;barTop value=&quot;506&quot; /&gt;
+        &lt;barWidth value=&quot;212&quot; /&gt;
+        &lt;barHeight value=&quot;208&quot; /&gt;
+        &lt;Buttons&gt;
+            &lt;Button5&gt;
+                &lt;buttonText value=&quot;↵&quot;/&gt;
+                &lt;buttonAction value =&quot;key-160&quot;/&gt;
+                &lt;!-- &lt;buttonImage value =&quot;/storage/emulated/0/Android/data/com.symbol.enterprisebrowser/enter.png&quot;/&gt; --&gt;
+            &lt;/Button5&gt;
+        &lt;/Buttons&gt;
+    &lt;/ButtonBar6&gt;
+
+    &lt;ButtonBar7&gt;
+        &lt;barOrientation value=&quot;Horizontal&quot;/&gt;
+        &lt;barColor value=&quot;#0033cc&quot; /&gt;
+        &lt;barColorPressed value=&quot;#0040ff&quot; /&gt;
+        &lt;barTransparency value=&quot;70&quot; /&gt;
+        &lt;barFontSize value=&quot;30&quot; /&gt;
+        &lt;barGap value=&quot;0&quot; /&gt;
+        &lt;barLeft value=&quot;988&quot; /&gt;
+        &lt;barTop value=&quot;506&quot; /&gt;
+        &lt;barWidth value=&quot;212&quot; /&gt;
+        &lt;barHeight value=&quot;100&quot; /&gt;
+        &lt;Buttons&gt;
+            &lt;Button5&gt;
+                &lt;buttonText value=&quot;⬅︎&quot;/&gt;
+                &lt;buttonAction value =&quot;key-67&quot;/&gt;
+                &lt;!-- &lt;buttonImage value =&quot;/storage/emulated/0/Android/data/com.symbol.enterprisebrowser/delete.png&quot;/&gt; --&gt;
+            &lt;/Button5&gt;
+        &lt;/Buttons&gt;
+    &lt;/ButtonBar7&gt; 
+
+    &lt;ButtonBar8&gt;
+        &lt;barOrientation value=&quot;Horizontal&quot;/&gt;
+        &lt;barColor value=&quot;#0033cc&quot; /&gt;
+        &lt;barColorPressed value=&quot;#0040ff&quot; /&gt;
+        &lt;barTransparency value=&quot;70&quot; /&gt;
+        &lt;barFontSize value=&quot;20&quot; /&gt;
+        &lt;barGap value=&quot;0&quot; /&gt;
+        &lt;barLeft value=&quot;560&quot; /&gt;
+        &lt;barTop value=&quot;608&quot; /&gt;
+        &lt;barWidth value=&quot;212&quot; /&gt;
+        &lt;barHeight value=&quot;108&quot; /&gt;
+        &lt;Buttons&gt;
+            &lt;Button1&gt;
+                &lt;buttonText value =&quot;F3&quot;/&gt;
+                &lt;buttonAction value =&quot;key-133&quot;/&gt;
+            &lt;/Button1&gt;
+        &lt;/Buttons&gt;
+    &lt;/ButtonBar8&gt; 
+
+    &lt;ButtonBar9&gt;
+        &lt;barOrientation value=&quot;Horizontal&quot;/&gt;
+        &lt;barColor value=&quot;#0033cc&quot; /&gt;
+        &lt;barColorPressed value=&quot;#0040ff&quot; /&gt;
+        &lt;barTransparency value=&quot;70&quot; /&gt;
+        &lt;barFontSize value=&quot;20&quot; /&gt;
+        &lt;barGap value=&quot;0&quot; /&gt;
+        &lt;barLeft value=&quot;988&quot; /&gt;
+        &lt;barTop value=&quot;608&quot; /&gt;
+        &lt;barWidth value=&quot;212&quot; /&gt;
+        &lt;barHeight value=&quot;108&quot; /&gt;
+        &lt;Buttons&gt;
+            &lt;Button1&gt;
+                &lt;buttonText value =&quot;F4&quot;/&gt;
+                &lt;buttonAction value =&quot;key-134&quot;/&gt;
+            &lt;/Button1&gt;
+        &lt;/Buttons&gt;
+    &lt;/ButtonBar9&gt;
+
+    &lt;ButtonBar10&gt;
+        &lt;barOrientation value=&quot;Horizontal&quot;/&gt;
+        &lt;barColor value=&quot;#003370&quot; /&gt;
+        &lt;barColorPressed value=&quot;#003370&quot; /&gt;
+        &lt;barTransparency value=&quot;0&quot; /&gt;
+        &lt;barFontSize value=&quot;20&quot; /&gt;
+        &lt;barGap value=&quot;0&quot; /&gt;
+        &lt;barLeft value=&quot;0&quot; /&gt;
+        &lt;barTop value=&quot;596&quot; /&gt;
+        &lt;barWidth value=&quot;144&quot; /&gt;
+        &lt;barHeight value=&quot;144&quot; /&gt;
+        &lt;Buttons&gt;
+            &lt;Button1&gt;
+            &lt;buttonAction value =&quot;runscript-togglescript2&quot;/&gt;
+            &lt;buttonImage value =&quot;/storage/emulated/0/Android/data/com.symbol.enterprisebrowser/keyboard_down.png&quot;/&gt;
+            &lt;/Button1&gt;
+        &lt;/Buttons&gt;
+    &lt;/ButtonBar10&gt;
+
+&lt;/Buttonbargroup&gt;
+</code></pre>
+
+<p>This is a sample that I&rsquo;ve implemented for Enterprise Browser v1.7. The current version 1.8 introduces some new features that allows to use relative Coordinates for ButtonBar positioning</p>
+
+<pre><code>&lt;barLeft value=&quot;0.25*devicewidth&quot;/&gt;    
+&lt;barTop value=&quot;0.25*deviceheight&quot;/&gt;
+&lt;barLeft value=&quot;0.5*devicewidth&quot;/&gt;
+&lt;barheight value=&quot;deviceheight-100&quot;/&gt;
+&lt;barwidth value=&quot;devicewidth/2&quot;/&gt;
+</code></pre>
+
+<p>This allows to build button bars that can be used on multiple devices (maintaining a similar screen geometry), without having to create and maintain a different keyboard for every device.</p>
+
+<h3 id="debugging-techniques-aka-real-life-survival-guide">Debugging Techniques - aka: Real Life Survival Guide</h3>
+
+<h4 id="config-xml"><code>Config.xml</code></h4>
+
+<p>One of the major cause of issues with Enterprise Browser is using an old <code>Config.xml</code> (from a previous EB&rsquo;s version); so, my main troubleshooting technique is to always start with a fresh <code>Config.xml</code> using this steps:</p>
+
+<ol>
+<li>Install a new version of EB on a clean device (EB creates a new <code>Config.xml</code> only if there&rsquo;s none in <code>/sdcard/Android/data/com.symbol.enterprisebrowser</code>)</li>
+<li>Launch EB</li>
+<li>Close EB</li>
+<li>Copy the newly created configuration from <code>/sdcard/Android/data/com.symbol.enterprisebrowser/Config.xml</code></li>
+</ol>
+
+<p>EB v1.8 now includes some information about the version that created the file and this information is displayed in EB&rsquo;s Log:</p>
+
+<pre><code>&lt;?xml version = &quot;1.0&quot;?&gt;
+&lt;!--
+EnterpriseBrowser_v1.8.0.0 Configuration file
+--&gt;
+&lt;Configuration&gt;
+    &lt;EB_VERSION value=&quot;1.8.0.0&quot;/&gt;
+
+    :   :   :   :   :   :   :   :
+
+&lt;/Configuration&gt;
+</code></pre>
+
+<h5 id="logging-and-webpage-capture">Logging and WebPage Capture</h5>
+
+<p>Customer applications are mostly on premises solution with no access from outside networks. EB introduced ways to enable collecting logs and debug and web page captures.</p>
+
+<p>EB&rsquo;s includes some powerful logging capabilities that can be enabled and configured inside EB&rsquo;s <code>Config.xml</code>, <a href="https://techdocs.zebra.com/enterprise-browser/1-8/guide/logging/">take a look at the documentation for a full list of the options</a>:</p>
+
+<pre><code>&lt;Logger&gt;
+    &lt;LogProtocol   value=&quot;FILE&quot;/&gt;
+    &lt;LogPort       value=&quot;80&quot;/&gt;
+    &lt;LogURI        value=&quot;file://%INSTALLDIR%/Log.txt&quot;/&gt;
+    &lt;LogError      value=&quot;1&quot;/&gt;
+    &lt;LogWarning    value=&quot;1&quot;/&gt;
+    &lt;LogInfo       value=&quot;1&quot;/&gt;
+    &lt;LogTrace      value=&quot;0&quot;/&gt;
+    &lt;LogUser       value=&quot;0&quot;/&gt;
+    &lt;LogMemory     value=&quot;0&quot;/&gt;
+    &lt;LogMemPeriod  value=&quot;5000&quot;/&gt;
+    &lt;LogMaxSize    value=&quot;1000&quot;/&gt;
+&lt;/Logger&gt;
+</code></pre>
+
+<p>Another powerfull option for debugging remote application is to enable <a href="https://techdocs.zebra.com/enterprise-browser/1-8/guide/capture/">WebPage Capture</a>. In this case EB&rsquo;s is going to save a copy of the visited web pages and a screenshot on the devide for later analysis:</p>
+
+<pre><code>&lt;Diagnostic&gt;
+    &lt;WebPageCapture value=&quot;1&quot;/&gt;
+&lt;/Diagnostic&gt; 
+</code></pre>
+
+<p>With this option enabled you can find screenshots and webpages source under the Diagnostic folder:</p>
+
+<p><img src="/images/20180321_eb_modernization/webpage_capture.png" alt="WebPAge Capture" title="WebPage Capture" /></p>
+
+<h5 id="on-device-debugging">On Device debugging</h5>
+
+<p>Using Chrome Dev Tools, it is possible to debug application running on mobile device. For Android, the only requirement is to run Android v4.4.x or newer and to enable the debug capabilities in EB&rsquo;s <code>Config.xml</code>:</p>
+
+<pre><code>&lt;DebugSetting&gt;
+    &lt;DebugModeEnable value=&quot;1&quot;/&gt;
+&lt;/DebugSetting&gt; 
+</code></pre>
+
+<p>You can find more information on this feature and how to use it for legacy windows devices on <a href="https://techdocs.zebra.com/enterprise-browser/1-8/guide/debuggingjs/">EB&rsquo;s documentation</a></p>
+
+<h4 id="chrome-dev-tools">Chrome Dev Tools</h4>
+
+<p><a href="https://developers.google.com/web/tools/chrome-devtools/remote-debugging/">Chrome DevTools allows to debug remote devices connected through the ADB protocol</a>.</p>
+
+<p>Once you&rsquo;ve youre device connected to your computer with a working ADB connection, you can launch the remote debug tools from inside a Chrome webpage:</p>
+
+<p><img src="/images/20180321_eb_modernization/ChromeDevTools_1.png" alt="Chrome Dev Tools - Inspect a page" title="Chrome Dev Tools - Inspect a page" /></p>
+
+<p>Then, from the <code>More Tools</code> menu, you can select ~Remote Devices~:</p>
+
+<p><img src="/images/20180321_eb_modernization/ChromeDevTools_2.png" alt="Chrome Dev Tools - More Tools" title="Chrome Dev Tools - More Tools" /></p>
+
+<p>In the <code>Remote Devices</code> panel, you should be able to see your device (connected to the computer through <code>adb</code>) and select which webpage you want to inspect:</p>
+
+<p><img src="/images/20180321_eb_modernization/ChromeDevTools_3.png" alt="Chrome Dev Tools - Inspect remote device" title="Chrome Dev Tools - Inspect remote device" /></p>
+
+<p>Once you select the remote page that you want to inspect, ChromeDev Tools will show you a rendering of the remote display.<br />
+<em>Note:</em> Chrome only shows the elements inside the DOM. Other elements like a Custom ButtonBar or an on screen Keyboard is not going to be shown.</p>
+
+<p><img src="/images/20180321_eb_modernization/ChromeDevTools_4.png" alt="Chrome Dev Tools - Debug from device" title="Chrome Dev Tools - Debug from device" /></p>
+
+<p>That&rsquo;s all for now.<br />
+Zebra&rsquo;s Enterprise Browser team ahs put a lot of resources on <a href="https://developer.zebra.com/community/welcome">Launchpad</a> and on <a href="https://techdocs.zebra.com/enterprise-browser/">Techdocs</a>. If you have any question, you can use <a href="https://developer.zebra.com/community/home/discussions/enterprise-browser">EB&rsquo;s discussion forum on Launchpad</a>.</p>
+
+</div>
+
+
+  <footer class="container">
+  <div class="container navigation no-print">
+  <h2>Navigation</h2>
+  
+  
+
+    
+    <a class="prev" href="http://pietromaggi.com/2017/10/31/android-auto-testing/" title="Android Auto testing">
+      Previous
+    </a>
+    
+
+    
+
+  
+
+
+</div>
+
+  <div class="container comments">
+  <h2>Comments</h2>
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  (function() {
+    
+    
+    if (window.location.hostname == "localhost")
+      return;
+
+    var dsq = document.createElement('script'); dsq.async = true; dsq.type = 'text/javascript';
+    dsq.src = '//pietrofmaggi.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+</div>
+
+</footer>
+
+</article>
+      <footer id="main-footer" class="container main_footer">
+  
+
+  <div class="container nav foot no-print">
+  
+<a href="http://pietromaggi.com/license">license</a>
+
+
+  <a class="toplink" href="#">back to top</a>
+
+</div>
+
+  <div class="container credits">
+  
+<div class="container footline">
+  
+  code with <i class='fa fa-heart'></i>
+
+
+</div>
+
+
+  
+<div class="container copyright">
+  
+  &copy; 2013-2017 Pietro F. Maggi
+
+
+</div>
+
+
+</div>
+
+</footer>
+
+    </main>
+    
+<script type="text/javascript">
+  (function() {
+    
+    
+    if (window.location.hostname == "localhost")
+      return;
+
+    var dsq = document.createElement('script'); dsq.async = true; dsq.type = 'text/javascript';
+    dsq.src = '//pietrofmaggi.disqus.com/count.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+
+<script src="http://pietromaggi.com/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+    
+  </body>
+</html>
+
