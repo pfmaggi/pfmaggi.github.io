@@ -9,10 +9,20 @@
     <managingEditor>pfm@pietromaggi.com (Pietro F. Maggi)</managingEditor>
     <webMaster>pfm@pietromaggi.com (Pietro F. Maggi)</webMaster>
     <copyright>(c) 2013-2017 Pietro F. Maggi</copyright>
-    <lastBuildDate>Wed, 21 Mar 2018 21:30:48 +0100</lastBuildDate>
+    <lastBuildDate>Sat, 14 Apr 2018 21:30:48 +0100</lastBuildDate>
     
 	<atom:link href="http://pietromaggi.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Here be Dragons - The Enterprise Mobile Security Journey</title>
+      <link>http://pietromaggi.com/2018/04/14/here-be-dragons---the-enterprise-mobile-security-journey/</link>
+      <pubDate>Sat, 14 Apr 2018 21:30:48 +0100</pubDate>
+      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <guid>http://pietromaggi.com/2018/04/14/here-be-dragons---the-enterprise-mobile-security-journey/</guid>
+      <description>Note:
+This blog started out as a series of notes for a talk I&#39;ve presented in April 2018 at a couple of events (Droidcon Dubai and Droidcon Turin) with my Zebra Technologies hat. Feel free to provide comments and feedback.  Looking at what is trendy at technology conferences, you can find a lot of talks about JavaScript frameworks or [functional|concatenative|multi-paradigm] programming languages, so when I started to work on my new talk I felt that I had to explain the title a little bit.</description>
+    </item>
     
     <item>
       <title>Enterprise Browser - Modernizing web applications</title>
@@ -32,7 +42,7 @@ I know that fancy tag line remembers those cats&amp;rsquo; posters: but it&amp;r
       <pubDate>Mon, 19 Mar 2018 21:53:35 +0100</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>http://pietromaggi.com/speaking/</guid>
-      <description>May 2018  14-May-18 - Tel-Aviv - Ingram Israel - Mobile Developer event  April 2018  13-Apr-18 - Droidcon Dubai - &amp;laquo;Here be Dragons - The Enterprise Mobile Security Journey&amp;raquo; 19-Apr-18 - Droidcon Turin - &amp;laquo;Here be Dragons - The Enterprise Mobile Security Journey&amp;raquo;   ARCHIVE AND TALK LINKS  04-Sep-17 - Droidcon Berlin- Android Security, an Enterprise Perspective.  14-16 June - Zebra&amp;rsquo;s AppForum EMEA in Prague  With Darryn Campbell: What&amp;rsquo;s The Difference in Android L,M,N,and O Migrating from Win Mobile to Android Create Scanning Applications Across Multiple Android Devices  07-Apr-17 - droidcon Turin 2017 - Android Security, an Enterprise perspective.</description>
+      <description>ARCHIVE AND TALK LINKS  20-Apr-18 - Droidcon Turin - Here be Dragons - The Enterprise Mobile Security Journey.  13-Apr-18 - Droidcon Dubai - Here be Dragons - The Enterprise Mobile Security Journey. 04-Sep-17 - Droidcon Berlin- Android Security, an Enterprise Perspective.  14-16 June - Zebra&amp;rsquo;s AppForum EMEA in Prague  With Darryn Campbell: What&amp;rsquo;s The Difference in Android L,M,N,and O Migrating from Win Mobile to Android Create Scanning Applications Across Multiple Android Devices  07-Apr-17 - droidcon Turin 2017 - Android Security, an Enterprise perspective.</description>
     </item>
     
     <item>
