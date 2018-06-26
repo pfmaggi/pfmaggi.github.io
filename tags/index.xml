@@ -9,7 +9,7 @@
     <managingEditor>pfm@pietromaggi.com (Pietro F. Maggi)</managingEditor>
     <webMaster>pfm@pietromaggi.com (Pietro F. Maggi)</webMaster>
     <copyright>(c) 2013-2017 Pietro F. Maggi</copyright>
-    <lastBuildDate>Tue, 31 Oct 2017 21:00:00 +0100</lastBuildDate>
+    <lastBuildDate>Tue, 26 Jun 2018 09:00:00 +0200</lastBuildDate>
     
 	<atom:link href="http://pietromaggi.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -17,7 +17,7 @@
     <item>
       <title>Android</title>
       <link>http://pietromaggi.com/tags/android/</link>
-      <pubDate>Tue, 31 Oct 2017 21:00:00 +0100</pubDate>
+      <pubDate>Tue, 26 Jun 2018 09:00:00 +0200</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>http://pietromaggi.com/tags/android/</guid>
       <description></description>
@@ -62,7 +62,7 @@
     <item>
       <title>Emdk</title>
       <link>http://pietromaggi.com/tags/emdk/</link>
-      <pubDate>Wed, 25 Nov 2015 09:54:55 +0100</pubDate>
+      <pubDate>Tue, 26 Jun 2018 09:00:00 +0200</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>http://pietromaggi.com/tags/emdk/</guid>
       <description></description>
@@ -164,6 +164,15 @@
       <pubDate>Sat, 09 Jan 2016 20:50:14 +0100</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>http://pietromaggi.com/tags/personal/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Profile Manager</title>
+      <link>http://pietromaggi.com/tags/profile-manager/</link>
+      <pubDate>Tue, 26 Jun 2018 09:00:00 +0200</pubDate>
+      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <guid>http://pietromaggi.com/tags/profile-manager/</guid>
       <description></description>
     </item>
     
@@ -290,6 +299,15 @@
       <pubDate>Sat, 09 Jan 2016 20:50:14 +0100</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>http://pietromaggi.com/tags/writing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Zebra</title>
+      <link>http://pietromaggi.com/tags/zebra/</link>
+      <pubDate>Tue, 26 Jun 2018 09:00:00 +0200</pubDate>
+      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <guid>http://pietromaggi.com/tags/zebra/</guid>
       <description></description>
     </item>
     

@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>Zebra&#39;s EMDK Async Profile Manager APIs  &middot; Pietro F. Maggi</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<meta name="description" content="An step-by-step introduction to the Async version of the Zebra&#39;s EMDK for Android APIs to process Mx profiles." />
+
+<meta name="keywords" content="Android, Zebra, EMDK, Profile Manager, ">
+
+
+<meta property="og:title" content="Zebra&#39;s EMDK Async Profile Manager APIs  &middot; Pietro F. Maggi ">
+<meta property="og:site_name" content="Pietro F. Maggi"/>
+<meta property="og:url" content="http://pietromaggi.com/2018/06/26/zebras-emdk-async-profile-manager-apis/" />
+<meta property="og:locale" content="en-EN">
+
+
+<meta property="og:type" content="article" />
+<meta property="og:description" content="An step-by-step introduction to the Async version of the Zebra&#39;s EMDK for Android APIs to process Mx profiles."/>
+<meta property="og:article:published_time" content="2018-06-26T09:00:00&#43;02:00" />
+<meta property="og:article:modified_time" content="2018-06-26T09:00:00&#43;02:00" />
+
+  
+    
+<meta property="og:article:tag" content="Android">
+    
+<meta property="og:article:tag" content="Zebra">
+    
+<meta property="og:article:tag" content="EMDK">
+    
+<meta property="og:article:tag" content="Profile Manager">
+    
+  
+
+  
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@pfmaggi" />
+<meta name="twitter:creator" content="@pfmaggi" />
+<meta name="twitter:title" content="Zebra&#39;s EMDK Async Profile Manager APIs" />
+<meta name="twitter:description" content="An step-by-step introduction to the Async version of the Zebra&#39;s EMDK for Android APIs to process Mx profiles." />
+<meta name="twitter:url" content="http://pietromaggi.com/2018/06/26/zebras-emdk-async-profile-manager-apis/" />
+<meta name="twitter:domain" content="http://pietromaggi.com/">
+  
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "headline": "Zebra&#39;s EMDK Async Profile Manager APIs",
+    "author": {
+      "@type": "Person",
+      "name": "http://profiles.google.com/+?rel=author"
+    },
+    "datePublished": "2018-06-26",
+    "description": "An step-by-step introduction to the Async version of the Zebra&#39;s EMDK for Android APIs to process Mx profiles.",
+    "wordCount": 1224
+  }
+</script>
+
+
+
+<link rel="canonical" href="http://pietromaggi.com/2018/06/26/zebras-emdk-async-profile-manager-apis/" />
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://pietromaggi.com/touch-icon-144-precomposed.png">
+<link href="http://pietromaggi.com/favicon.png" rel="icon">
+
+<meta name="generator" content="Hugo 0.42.1" />
+
+  
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link href='https://fonts.googleapis.com/css?family=Merriweather:300%7CRaleway%7COpen+Sans' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="http://pietromaggi.com/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://pietromaggi.com/css/style.css">
+<link rel="stylesheet" href="http://pietromaggi.com/css/highlight/docco.css">
+
+  
+  
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-78928627-1', 'auto');
+	  ga('send', 'pageview');
+
+	</script>
+
+</head>
+<body>
+  <main id="main-wrapper" class="container main_wrapper has-sidebar">
+    <header id="main-header" class="container main_header">
+  <div class="container brand">
+  <div class="container title h1-like">
+  <a class="baselink" href="http://pietromaggi.com/">
+  Garbage Collector
+
+</a>
+
+</div>
+
+  
+<div class="container topline">
+  
+  Tales from an old nibble
+
+
+</div>
+
+
+</div>
+
+  <nav class="container nav primary no-print">
+  
+
+<a class="homelink" href="http://pietromaggi.com/">Home</a>
+
+
+  
+<a href="http://pietromaggi.com/about">About</a>
+
+<a href="http://pietromaggi.com/post" title="Show list of posts">Posts</a>
+
+<a href="http://pietromaggi.com/speaking">Speaking Appointments</a>
+
+<a href="http://pietromaggi.com/decks">Slide Decks</a>
+
+<a href="http://pietromaggi.com/tags" title="Show list of tags">Tags</a>
+
+
+</nav>
+
+<div class="container nav secondary no-print">
+  
+<a id="contact-link-email" class="contact_link" href="mailto:pfm@pietromaggi.com">
+  <span class="fa fa-envelope-square"></span><span>email</span></a>
+
+
+
+<a id="contact-link-github" class="contact_link" href="https://github.com/pfmaggi">
+  <span class="fa fa-github-square"></span><span>github</span></a>
+
+
+
+<a id="contact-link-bitbucket" class="contact_link" href="https://bitbucket.org/pfmaggi">
+  <span class="fa fa-bitbucket-square"></span><span>bitbucket</span></a>
+
+
+
+<a id="contact-link-linkedin" class="contact_link" href="https://www.linkedin.com/in/pietromaggi">
+  <span class="fa fa-linkedin-square"></span><span>linkedin</span></a>
+
+
+
+
+
+
+
+<a id="contact-link-twitter" class="contact_link" href="https://twitter.com/pfmaggi">
+  <span class="fa fa-twitter-square"></span><span>twitter</span></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+  
+
+</header>
+
+
+<article id="main-content" class="container main_content single">
+  <header class="container hat">
+  <h1>Zebra&#39;s EMDK Async Profile Manager APIs
+</h1>
+
+  <div class="metas">
+<time datetime="2018-06-26">26 Jun, 2018</time>
+
+
+  
+    &middot; by Pietro F. Maggi
+  
+  &middot; Read in about 6 min
+  &middot; (1224 Words)
+  <br>
+  
+<a class="label" href="http://pietromaggi.com/tags/android">Android</a>
+
+<a class="label" href="http://pietromaggi.com/tags/zebra">Zebra</a>
+
+<a class="label" href="http://pietromaggi.com/tags/emdk">EMDK</a>
+
+<a class="label" href="http://pietromaggi.com/tags/profile-manager">Profile Manager</a>
+
+
+
+</div>
+
+</header>
+
+  <div class="container content">
+  
+
+<p><em>Note: <a href="https://github.com/pfmaggi/EMDKProfileAsync">the accompanying code is available on github</a>.</em></p>
+
+<p>Summer is the perfect time for some cleanup, and I&rsquo;ve some older content laying around my laptop that is about time I publish!</p>
+
+<p>I&rsquo;m planning to cover some long-standing argument that I&rsquo;ve touched over the last few years as Zebra&rsquo;s EMEA Software Consultant.</p>
+
+<p><a href="https://developer.zebra.com/message/88398#88398">Years ago we had some posts on the EMDK discussion forum about some instability seen if an application tries to apply a profile just after device boot.</a></p>
+
+<p>This blog wants to be an in deep discussion about what is going on in these cases and what is the best approach to adopt in these cases.</p>
+
+<h1 id="emdk-s-profile-manager-api">EMDK&rsquo;s Profile Manager API</h1>
+
+<p>This was the first API introduced in the EMDK v2.0 back in 2014. A little-known fact is that Zebra introduced an Async version of this API to cover a couple of use cases:</p>
+
+<ul>
+<li>Complex profiles that can lock take few seconds to be applied by Mx locking the calling task</li>
+<li>Need to apply the profile immediately after booting the device</li>
+</ul>
+
+<p>Fast forwarding to 2016, Zebra released EMDK v4.0 where we can find as a new feature the Async version of the <code>getInstance()</code> method:</p>
+
+<blockquote>
+<p>Added new method <code>getInstanceAsync()</code> to EMDKManager. The EMDK Feature Manager object returned by this method is guaranteed to be usable immediately. The feature manager object returned by the existing method <code>getInstance()</code>, may not be ready to be used immediately, especially after a device reboot.</p>
+</blockquote>
+
+<p>This, together with the <code>ProcessProfileAsync()</code> method allows building an application that process a profile asynchronously as soon as the Mx framework is available.</p>
+
+<p><span style="display:block;text-align:center">
+<img src="/images/20180628_async/async_all_the_things.png" alt="Async All the things" title="Async" />
+</span></p>
+
+<h2 id="setting-the-stage-for-the-problem">Setting the stage for the problem</h2>
+
+<p>As of today, the latest available <a href="https://www.zebra.com/us/en/support-downloads/software/developer-tools/emdk-for-android.html">Zebra&rsquo;s EMDK for Android is v6.9</a> I&rsquo;m going to use this version for this tutorial, together with AndroidStudio v3.1.3 on a Nougat TC56 with BSP 01.01.49 and LifeGuard patch 7.</p>
+
+<p>The first step is to create a working application using the Synchronous version of the Profile Manager API to apply a simple profile, in this case, we can use the Clock profile.</p>
+
+<p>You can find the demo at this stage of the <a href="https://github.com/pfmaggi/EMDKProfileAsync/releases/tag/sync">github project looking for the <code>sync</code> tag</a>.</p>
+
+<p>This version of the application works as expected, you launch it, and it changes the date and time of the device.</p>
+
+<p><span style="display:block;text-align:center">
+<img src="/images/20180628_async/sync_success.png" alt="Sync Success" title="sync Success" />
+</span></p>
+
+<p><strong>BUT</strong></p>
+
+<p>If you run this application just after the device finish to boot you can get some strange errors:</p>
+
+<p><span style="display:block;text-align:center">
+<img src="/images/20180628_async/sync_error.png" alt="Sync Error" title="Sync Error" />
+</span></p>
+
+<p>Because the error is time-dependent you can be lucky and see a message that provides a bit more insight into what is going on here:</p>
+
+<p><span style="display:block;text-align:center">
+<img src="/images/20180628_async/sync_initializing.png" alt="Sync Initializing" title="Sync Initializing" />
+</span></p>
+
+<p>That&rsquo;s exactly the point, the Mx framework is not immediately ready after boot!</p>
+
+<p><span style="display:block;text-align:center">
+<img src="/images/20180628_async/keep_calm_notready.png" alt="I'm not ready!" title="I'm not ready!" />
+</span></p>
+
+<h2 id="enter-the-async-version-of-the-apis">Enter the Async version of the APIs</h2>
+
+<p>As we wrote, there&rsquo;s a version of these API that works asynchronously providing two huge benefits:</p>
+
+<ol>
+<li>The profile is processed on a different thread than the main (UI) thread. This avoid to freeze the app UI</li>
+<li>It is executed as soon as the Mx framework is available</li>
+</ol>
+
+<p>The first benefit can be achieved even with the synchronous APIs as shown in the <a href="https://github.com/Zebra/samples-emdkforandroid-6_9/tree/master/ProfileClockSample1">EMDK sample ProfileClockSample1</a> running the ProcessProfile method on a thread different than the UI one. Note that the synchronous version of the sample implemented for this blog instead runs this method on the UI thread, potentially freezing the UI.</p>
+
+<p>The second benefit is quite unique and, if you need to process a profile as soon as the device has booted, it could be a deal breaker.</p>
+
+<h3 id="which-are-the-async-apis">Which are the async APIs?</h3>
+
+<p>Let&rsquo;s see which are the APis we&rsquo;re talking about:</p>
+
+<ul>
+<li><a href="https://techdocs.zebra.com/emdk-for-android/6-9/api/reference/com/symbol/emdk/EMDKManager.html#getInstanceAsync-com.symbol.emdk.EMDKManager.FEATURE_TYPE-com.symbol.emdk.EMDKManager.StatusListener-"><code>void getInstanceAsync(EMDKManager.FEATURE_TYPE featureType, EMDKManager.StatusListener statusListener)</code></a>
+<br>
+<em>This method is an asynchronous call and requests object instance for the specified feature type and object is returned through the status listener callback when the feature is initialized and ready to use.</em></li>
+<li><a href="https://techdocs.zebra.com/emdk-for-android/6-9/api/reference/com/symbol/emdk/ProfileManager.html#processProfileAsync-java.lang.String-com.symbol.emdk.ProfileManager.PROFILE_FLAG-java.lang.String:A-"><code>EMDKResults processProfileAsync(String profileName, ProfileManager.PROFILE_FLAG profileFlag, String[] extraData)</code></a>
+<br>
+<em>Processes the given profile based on the data provided and the flag and return status of the request. This is an asynchronous method and result will be returned through the registered callback.</em></li>
+</ul>
+
+<p>To use the <code>getInstanceAsync</code> we need to implement the <code>EMDKManager.StatusListener</code> interface, with an <code>onStatus</code> method.</p>
+
+<p>the <code>onStatus</code> method is called when the EMDK is able to provide an instance of the object requested. In our case, a ProfileManager object. So, the first thing we can do is to check that we got the right object:</p>
+
+<pre><code>if ((EMDKResults.STATUS_CODE.SUCCESS != statusData.getResult()) ||
+    (EMDKManager.FEATURE_TYPE.PROFILE != statusData.getFeatureType()) ||
+    (EMDKManager.FEATURE_TYPE.PROFILE != emdkBase.getType())){
+
+    runOnUiThread(new Runnable() {
+        @Override
+        public void run() {
+            statusTextView.setText(&quot;Error: The Profile has not been sent for processing...&quot;);
+        }
+    });
+
+    return;
+}
+</code></pre>
+
+<p><em>Keep in mind that this code is not run on the UI Thread, this is why to change an element of the UI, we need to create a runnable on the right thread.</em></p>
+
+<p>After having checked that everything is OK, we can start to use our <code>ProfileManager</code> object:</p>
+
+<pre><code>ProfileManager profileManager = (ProfileManager) emdkBase;
+</code></pre>
+
+<p>Now, before actually being able to process a profile asynchronously, we have to register a DataListener that is going to evaluate the result of the <code>ProcessProfileAsync</code> call:</p>
+
+<pre><code>profileManager.addDataListener(new ProfileManager.DataListener() {
+    @Override
+    public void onData(ProfileManager.ResultData resultData) {
+        String resultString = &quot;Error Applying profile&quot;;
+        EMDKResults results = resultData.getResult();
+
+        //Check the return status of processProfile
+        if (results.statusCode == EMDKResults.STATUS_CODE.SUCCESS) {
+            resultString = &quot;Profile Applied Successfully&quot;;
+        } else if (results.statusCode == EMDKResults.STATUS_CODE.CHECK_XML) {
+            resultString = parseXML(results.getStatusString());
+        }
+
+        final String finalResultString = resultString;
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                statusTextView.setText(finalResultString);
+            }
+        });
+    }
+});
+</code></pre>
+
+<p>Keep in mind that this is a <code>ProfileManager.DataListener</code>, different from the DataListener used in the barcode API.</p>
+
+<p>Once we have the DataListener in place, we can process the profile checking that the XML is going to be processed by Mx:</p>
+
+<pre><code>EMDKResults results = profileManager.processProfileAsync(profileName,
+        ProfileManager.PROFILE_FLAG.SET, modifyData);
+
+if (results.statusCode != EMDKResults.STATUS_CODE.PROCESSING) {
+    runOnUiThread(new Runnable() {
+        @Override
+        public void run() {
+            statusTextView.setText(&quot;Error: The Profile has not been sent for processing...&quot;);
+        }
+    });
+}
+</code></pre>
+
+<h2 id="putting-all-the-pieces-together">Putting all the pieces together</h2>
+
+<p>In the end, putting all the pieces together, this is the code for the onStatus callback:</p>
+
+<pre><code>@Override
+public void onStatus(EMDKManager.StatusData statusData, EMDKBase emdkBase) {
+    if ((EMDKResults.STATUS_CODE.SUCCESS != statusData.getResult()) ||
+            (EMDKManager.FEATURE_TYPE.PROFILE != statusData.getFeatureType()) ||
+            (EMDKManager.FEATURE_TYPE.PROFILE != emdkBase.getType())){
+
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                statusTextView.setText(&quot;Error: The Profile has not been sent for processing...&quot;);
+            }
+        });
+
+        return;
+    }
+
+    ProfileManager profileManager = (ProfileManager) emdkBase;
+
+    if (profileManager != null) {
+        String[] modifyData = new String[1];
+
+        profileManager.addDataListener(new ProfileManager.DataListener() {
+            @Override
+            public void onData(ProfileManager.ResultData resultData) {
+                String resultString = &quot;Error Applying profile&quot;;
+                EMDKResults results = resultData.getResult();
+
+                //Check the return status of processProfile
+                if (results.statusCode == EMDKResults.STATUS_CODE.SUCCESS) {
+                    resultString = &quot;Profile Applied Successfully&quot;;
+                } else if (results.statusCode == EMDKResults.STATUS_CODE.CHECK_XML) {
+                    resultString = parseXML(results.getStatusString());
+                }
+
+                final String finalResultString = resultString;
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        statusTextView.setText(finalResultString);
+                    }
+                });
+            }
+        });
+
+        EMDKResults results = profileManager.processProfileAsync(profileName,
+                ProfileManager.PROFILE_FLAG.SET, modifyData);
+
+        if (results.statusCode != EMDKResults.STATUS_CODE.PROCESSING) {
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    statusTextView.setText(&quot;Error: The Profile has not been sent for processing...&quot;);
+                }
+            });
+        }
+    }
+}
+</code></pre>
+
+<p>Now, if run this version of the application just after a device boot you&rsquo;ll see that the profile is correctly applied as soon as Mx is ready.</p>
+
+<p><strong>NOTE</strong></p>
+
+<blockquote>
+<p>This is a sample application that wants to show how to use these APIs with the minimum amount of ceremony, there&rsquo;s little or no error control and there&rsquo;s no management of configuration changes that could destroy and recreate the activity spawning a new call to process the profile!</p>
+</blockquote>
+
+<p>The sample project can be downloaded from github, <a href="https://github.com/pfmaggi/EMDKProfileAsync/releases/tag/async">this version is associated with the <code>async</code> tag</a></p>
+
+</div>
+
+
+  <footer class="container">
+  <div class="container navigation no-print">
+  <h2>Navigation</h2>
+  
+  
+
+    
+    <a class="prev" href="http://pietromaggi.com/2018/04/14/here-be-dragons---the-enterprise-mobile-security-journey/" title="Here be Dragons - The Enterprise Mobile Security Journey">
+      Previous
+    </a>
+    
+
+    
+
+  
+
+
+</div>
+
+  <div class="container comments">
+  <h2>Comments</h2>
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  (function() {
+    
+    
+    if (window.location.hostname == "localhost")
+      return;
+
+    var dsq = document.createElement('script'); dsq.async = true; dsq.type = 'text/javascript';
+    dsq.src = '//pietrofmaggi.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+</div>
+
+</footer>
+
+</article>
+      <footer id="main-footer" class="container main_footer">
+  
+
+  <div class="container nav foot no-print">
+  
+<a href="http://pietromaggi.com/license">license</a>
+
+
+  <a class="toplink" href="#">back to top</a>
+
+</div>
+
+  <div class="container credits">
+  
+<div class="container footline">
+  
+  code with <i class='fa fa-heart'></i>
+
+
+</div>
+
+
+  
+<div class="container copyright">
+  
+  &copy; 2013-2017 Pietro F. Maggi
+
+
+</div>
+
+
+</div>
+
+</footer>
+
+    </main>
+    
+<script type="text/javascript">
+  (function() {
+    
+    
+    if (window.location.hostname == "localhost")
+      return;
+
+    var dsq = document.createElement('script'); dsq.async = true; dsq.type = 'text/javascript';
+    dsq.src = '//pietrofmaggi.disqus.com/count.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+
+<script src="http://pietromaggi.com/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+    
+  </body>
+</html>
+
