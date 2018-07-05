@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Datawedge on Pietro F. Maggi</title>
-    <link>http://pietromaggi.com/tags/datawedge/</link>
-    <description>Recent content in Datawedge on Pietro F. Maggi</description>
+    <title>Freshmvvm on Pietro F. Maggi</title>
+    <link>http://pietromaggi.com/tags/freshmvvm/</link>
+    <description>Recent content in Freshmvvm on Pietro F. Maggi</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-EN</language>
     <managingEditor>pfm@pietromaggi.com (Pietro F. Maggi)</managingEditor>
@@ -11,7 +11,7 @@
     <copyright>(c) 2013-2018 Pietro F. Maggi</copyright>
     <lastBuildDate>Wed, 04 Jul 2018 09:00:00 +0200</lastBuildDate>
     
-	<atom:link href="http://pietromaggi.com/tags/datawedge/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://pietromaggi.com/tags/freshmvvm/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -24,16 +24,6 @@
 As I wrote in my previous post:
  Summer is the perfect time for some cleanup, and I&amp;rsquo;ve some older content laying around my laptop that is about time I publish! I&amp;rsquo;m planning to cover some long-standing argument that I&amp;rsquo;ve touched over the last few years as Zebra&amp;rsquo;s EMEA Software Consultant.
  I&amp;rsquo;ve been involved in multiple meetings and planning with Zebra&amp;rsquo;s partners and end-users explaining what was the best option to integrate barcode scanning functionality in a Xamarin Forms application.</description>
-    </item>
-    
-    <item>
-      <title>Enterprise Browser and DataWedge on Android - friends at the end</title>
-      <link>http://pietromaggi.com/2016/10/29/enterprise-browser-and-datawedge-on-android---friends-at-the-end/</link>
-      <pubDate>Sat, 29 Oct 2016 11:00:00 +0100</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
-      <guid>http://pietromaggi.com/2016/10/29/enterprise-browser-and-datawedge-on-android---friends-at-the-end/</guid>
-      <description>During Enterprise Browser hands-on lab, I got some enquiry about using other MobilityDNA utilities together with EB; in particular how to integrate SwipeAssist and Simulscan. These utilities can be integrated, with some heavy lifting, and accepting some constraints.
-Some background The current scanner framework implementation on our Android devices make available a single scanner object that provides full Scanner control. As always &amp;hellip;&amp;laquo;with great power comes great responsibility&amp;raquo;: an application using the scanner object from the Barcode API, is required to release it when it&amp;rsquo;s going in the background (usually you do this handling in the onPause() callback in your native application).</description>
     </item>
     
   </channel>

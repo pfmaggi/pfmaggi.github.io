@@ -9,10 +9,22 @@
     <managingEditor>pfm@pietromaggi.com (Pietro F. Maggi)</managingEditor>
     <webMaster>pfm@pietromaggi.com (Pietro F. Maggi)</webMaster>
     <copyright>(c) 2013-2018 Pietro F. Maggi</copyright>
-    <lastBuildDate>Tue, 26 Jun 2018 09:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 04 Jul 2018 09:00:00 +0200</lastBuildDate>
     
 	<atom:link href="http://pietromaggi.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Xamarin.Forms &#43; FreshMVVM for enterprise applications</title>
+      <link>http://pietromaggi.com/2018/07/04/xamarin.forms---freshmvvm-for-enterprise-applications/</link>
+      <pubDate>Wed, 04 Jul 2018 09:00:00 +0200</pubDate>
+      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <guid>http://pietromaggi.com/2018/07/04/xamarin.forms---freshmvvm-for-enterprise-applications/</guid>
+      <description>Note: the accompanying code is available on GitHub.
+As I wrote in my previous post:
+ Summer is the perfect time for some cleanup, and I&amp;rsquo;ve some older content laying around my laptop that is about time I publish! I&amp;rsquo;m planning to cover some long-standing argument that I&amp;rsquo;ve touched over the last few years as Zebra&amp;rsquo;s EMEA Software Consultant.
+ I&amp;rsquo;ve been involved in multiple meetings and planning with Zebra&amp;rsquo;s partners and end-users explaining what was the best option to integrate barcode scanning functionality in a Xamarin Forms application.</description>
+    </item>
     
     <item>
       <title>Zebra&#39;s EMDK Async Profile Manager APIs</title>
