@@ -9,10 +9,22 @@
     <managingEditor>pfm@pietromaggi.com (Pietro F. Maggi)</managingEditor>
     <webMaster>pfm@pietromaggi.com (Pietro F. Maggi)</webMaster>
     <copyright>(c) 2013-2018 Pietro F. Maggi</copyright>
-    <lastBuildDate>Tue, 26 Jun 2018 09:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Sat, 07 Jul 2018 09:00:00 +0200</lastBuildDate>
     
 	<atom:link href="http://pietromaggi.com/tags/zebra/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Xamarin.Forms &#43; FreshMVVM &#43; DataWedge = 💖</title>
+      <link>http://pietromaggi.com/2018/07/07/xamarin.forms---freshmvvm---datawedge--/</link>
+      <pubDate>Sat, 07 Jul 2018 09:00:00 +0200</pubDate>
+      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <guid>http://pietromaggi.com/2018/07/07/xamarin.forms---freshmvvm---datawedge--/</guid>
+      <description>Note: the accompanying code is available on GitHub.
+The topic for today is how to add barcode scanning functionalities to the &amp;laquo;Inventory&amp;raquo; sample application we built in the previous post about Xamarin.Forms and FreshMVVM.
+To integrate barcode scanning functionalities we&amp;rsquo;ve different options:
+ Do Nothing - Barcode scanning in enabled by default simulating keyboard entry: the application receives the data in the selected input field. Integrate Barcode scanning API from Zebra&amp;rsquo;s EMDK for Xamarin - This is time consuming and add a dependency to our project.</description>
+    </item>
     
     <item>
       <title>Zebra&#39;s EMDK Async Profile Manager APIs</title>
