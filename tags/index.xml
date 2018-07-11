@@ -9,7 +9,7 @@
     <managingEditor>pfm@pietromaggi.com (Pietro F. Maggi)</managingEditor>
     <webMaster>pfm@pietromaggi.com (Pietro F. Maggi)</webMaster>
     <copyright>(c) 2013-2018 Pietro F. Maggi</copyright>
-    <lastBuildDate>Sat, 07 Jul 2018 09:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 11 Jul 2018 09:00:00 +0200</lastBuildDate>
     
 	<atom:link href="http://pietromaggi.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -17,7 +17,7 @@
     <item>
       <title>Android</title>
       <link>http://pietromaggi.com/tags/android/</link>
-      <pubDate>Sat, 07 Jul 2018 09:00:00 +0200</pubDate>
+      <pubDate>Wed, 11 Jul 2018 09:00:00 +0200</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>http://pietromaggi.com/tags/android/</guid>
       <description></description>
@@ -44,7 +44,7 @@
     <item>
       <title>Datawedge</title>
       <link>http://pietromaggi.com/tags/datawedge/</link>
-      <pubDate>Sat, 07 Jul 2018 09:00:00 +0200</pubDate>
+      <pubDate>Wed, 11 Jul 2018 09:00:00 +0200</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>http://pietromaggi.com/tags/datawedge/</guid>
       <description></description>
@@ -89,7 +89,7 @@
     <item>
       <title>Freshmvvm</title>
       <link>http://pietromaggi.com/tags/freshmvvm/</link>
-      <pubDate>Sat, 07 Jul 2018 09:00:00 +0200</pubDate>
+      <pubDate>Wed, 11 Jul 2018 09:00:00 +0200</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>http://pietromaggi.com/tags/freshmvvm/</guid>
       <description></description>
@@ -314,7 +314,7 @@
     <item>
       <title>Xamarin</title>
       <link>http://pietromaggi.com/tags/xamarin/</link>
-      <pubDate>Sat, 07 Jul 2018 09:00:00 +0200</pubDate>
+      <pubDate>Wed, 11 Jul 2018 09:00:00 +0200</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>http://pietromaggi.com/tags/xamarin/</guid>
       <description></description>
@@ -323,7 +323,7 @@
     <item>
       <title>Xamarin.forms</title>
       <link>http://pietromaggi.com/tags/xamarin.forms/</link>
-      <pubDate>Sat, 07 Jul 2018 09:00:00 +0200</pubDate>
+      <pubDate>Wed, 11 Jul 2018 09:00:00 +0200</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>http://pietromaggi.com/tags/xamarin.forms/</guid>
       <description></description>
@@ -332,7 +332,7 @@
     <item>
       <title>Zebra</title>
       <link>http://pietromaggi.com/tags/zebra/</link>
-      <pubDate>Sat, 07 Jul 2018 09:00:00 +0200</pubDate>
+      <pubDate>Wed, 11 Jul 2018 09:00:00 +0200</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>http://pietromaggi.com/tags/zebra/</guid>
       <description></description>
