@@ -20,12 +20,8 @@
       <pubDate>Tue, 07 Jun 2016 20:00:00 +0100</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>http://pietromaggi.com/2016/06/07/managing-display-autorotation-from-stagenow/</guid>
-      <description>Another busy day with enquiry about our devices/tools.
-The funny thing is that, most of the time, answer to a question with another one is actually a good strategy :-)
-This one cames from my colleague Raymond:
- Can we launch an adb commands from Stagenow?
- The quick answer is no, the right answer is: what are you trying to achieve?
- I need a way to disable the Disaply AutoRotate setting, something that is possible to do using an adb shell command:</description>
+      <description>Edit: Changes in API level 23 and newer make impossible for normal application to modify the autorotate setting The application presented in this blog uses the android.permission.WRITE_SETTINGS that, starting from Android v6.0 Marshmallow (API level 23), requires the application to be system or signed to be able to run without user intervention.
+There&amp;rsquo;s a workaround that can be used targeting API level 22. In this way the application can still use the old permission model and it can write into the settings.</description>
     </item>
     
   </channel>

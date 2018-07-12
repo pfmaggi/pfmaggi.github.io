@@ -61,7 +61,7 @@
     },
     "datePublished": "2016-06-07",
     "description": "Zebra Technologies&#39; StageNow is a powerful tool that allows to easily stage a lot of the parameters required on COBO device. However we don&#39;t have a 100% coverage of all the Android Settings. Here I&#39;ll show how to build a minimal application that can be controlled from StageNow to set up the Display AutoRotation parameter. As this is not a reserved setting, any application can change this value.",
-    "wordCount": 647
+    "wordCount": 842
   }
 </script>
 
@@ -204,7 +204,7 @@
     &middot; by Pietro F. Maggi
   
   &middot; Read in about 4 min
-  &middot; (647 Words)
+  &middot; (842 Words)
   <br>
   
 <a class="label" href="http://pietromaggi.com/tags/android">Android</a>
@@ -223,6 +223,31 @@
 
   <div class="container content">
   
+
+<h1 id="edit-changes-in-api-level-23-and-newer-make-impossible-for-normal-application-to-modify-the-autorotate-setting">Edit: Changes in API level 23 and newer make impossible for normal application to modify the autorotate setting</h1>
+
+<p>The application presented in this blog uses the <code>android.permission.WRITE_SETTINGS</code> that, starting from Android v6.0 Marshmallow (API level 23), requires the application to be <em>system or signed</em> to be able to run without user intervention.</p>
+
+<p>There&rsquo;s a workaround that can be used targeting API level 22. In this way the application can still use the old permission model and it can write into the settings.</p>
+
+<p>However, <a href="https://android-developers.googleblog.com/2017/12/improving-app-security-and-performance.html">because Google already announced that from August 2018 new application will need to target API level 26 to be accepted into the Play Store</a>, this is a short lived solution. It&rsquo;s only a viable solution if your application is never going to be included in the play store.</p>
+
+<p>Anyway, <a href="https://github.com/pfmaggi/autorotate">I&rsquo;ve updated the code on github with this change</a> and uploaded <a href="https://github.com/pfmaggi/autorotate/releases/download/v1.0.1/autorotate.apk">a new apk here</a>.</p>
+
+<p><strong>To handle correctly this permission in a normal application, user intervention is required.</strong></p>
+
+<p>The application should use the <code>Settings.ACTION_MANAGE_WRITE_SETTINGS</code> intent with something like:</p>
+
+<pre><code>if (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.M) {
+    if (!Settings.System.canWrite(getApplicationContext())) {
+        Intent intent = new Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS, Uri.parse(&quot;package:&quot; + getPackageName()));
+        startActivity(intent);
+        bDoIt = false;
+    }
+}
+</code></pre>
+
+<h1 id="follows-original-post">Follows original post</h1>
 
 <p>Another busy day with enquiry about our devices/tools.<br />
 The funny thing is that, most of the time, answer to a question with another one is actually a good strategy :-)</p>
