@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>Enterprise Browser - Using the Android Headset as a Barcode Trigger  &middot; Pietro F. Maggi</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<meta name="description" content="What if... you want to use a Zebra&#39;s Android device mounted on an arm-wrist and you want to control the barcode scanner with a wired button? WT6000 is the obvious answer! But if your customer has already chosen the TC51 for other activities, we can help them using the headset connector." />
+
+<meta name="keywords" content="Android, Enterprise Browser, Zebra, ">
+
+
+<meta property="og:title" content="Enterprise Browser - Using the Android Headset as a Barcode Trigger  &middot; Pietro F. Maggi ">
+<meta property="og:site_name" content="Pietro F. Maggi"/>
+<meta property="og:url" content="http://pietromaggi.com/2018/07/12/enterprise-browser---using-the-android-headset-as-a-barcode-trigger/" />
+<meta property="og:locale" content="en-EN">
+
+
+<meta property="og:type" content="article" />
+<meta property="og:description" content="What if... you want to use a Zebra&#39;s Android device mounted on an arm-wrist and you want to control the barcode scanner with a wired button? WT6000 is the obvious answer! But if your customer has already chosen the TC51 for other activities, we can help them using the headset connector."/>
+<meta property="og:article:published_time" content="2018-07-12T18:00:48&#43;02:00" />
+<meta property="og:article:modified_time" content="2018-07-12T18:00:48&#43;02:00" />
+
+  
+    
+<meta property="og:article:tag" content="Android">
+    
+<meta property="og:article:tag" content="Enterprise Browser">
+    
+<meta property="og:article:tag" content="Zebra">
+    
+  
+
+  
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@pfmaggi" />
+<meta name="twitter:creator" content="@pfmaggi" />
+<meta name="twitter:title" content="Enterprise Browser - Using the Android Headset as a Barcode Trigger" />
+<meta name="twitter:description" content="What if... you want to use a Zebra&#39;s Android device mounted on an arm-wrist and you want to control the barcode scanner with a wired button? WT6000 is the obvious answer! But if your customer has already chosen the TC51 for other activities, we can help them using the headset connector." />
+<meta name="twitter:url" content="http://pietromaggi.com/2018/07/12/enterprise-browser---using-the-android-headset-as-a-barcode-trigger/" />
+<meta name="twitter:domain" content="http://pietromaggi.com/">
+  
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "headline": "Enterprise Browser - Using the Android Headset as a Barcode Trigger",
+    "author": {
+      "@type": "Person",
+      "name": "http://profiles.google.com/+?rel=author"
+    },
+    "datePublished": "2018-07-12",
+    "description": "What if... you want to use a Zebra&#39;s Android device mounted on an arm-wrist and you want to control the barcode scanner with a wired button? WT6000 is the obvious answer! But if your customer has already chosen the TC51 for other activities, we can help them using the headset connector.",
+    "wordCount": 1256
+  }
+</script>
+
+
+
+<link rel="canonical" href="http://pietromaggi.com/2018/07/12/enterprise-browser---using-the-android-headset-as-a-barcode-trigger/" />
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://pietromaggi.com/touch-icon-144-precomposed.png">
+<link href="http://pietromaggi.com/favicon.png" rel="icon">
+
+<meta name="generator" content="Hugo 0.43" />
+
+  
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link href='https://fonts.googleapis.com/css?family=Merriweather:300%7CRaleway%7COpen+Sans' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="http://pietromaggi.com/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://pietromaggi.com/css/style.css">
+<link rel="stylesheet" href="http://pietromaggi.com/css/highlight/docco.css">
+
+  
+  
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-78928627-1', 'auto');
+	  ga('send', 'pageview');
+
+	</script>
+
+</head>
+<body>
+  <main id="main-wrapper" class="container main_wrapper has-sidebar">
+    <header id="main-header" class="container main_header">
+  <div class="container brand">
+  <div class="container title h1-like">
+  <a class="baselink" href="http://pietromaggi.com/">
+  Garbage Collector
+
+</a>
+
+</div>
+
+  
+<div class="container topline">
+  
+  Tales from an old nibble
+
+
+</div>
+
+
+</div>
+
+  <nav class="container nav primary no-print">
+  
+
+<a class="homelink" href="http://pietromaggi.com/">Home</a>
+
+
+  
+<a href="http://pietromaggi.com/about">About</a>
+
+<a href="http://pietromaggi.com/post" title="Show list of posts">Posts</a>
+
+<a href="http://pietromaggi.com/speaking">Speaking Appointments</a>
+
+<a href="http://pietromaggi.com/decks">Slide Decks</a>
+
+<a href="http://pietromaggi.com/tags" title="Show list of tags">Tags</a>
+
+
+</nav>
+
+<div class="container nav secondary no-print">
+  
+<a id="contact-link-email" class="contact_link" href="mailto:pfm@pietromaggi.com">
+  <span class="fa fa-envelope-square"></span><span>email</span></a>
+
+
+
+<a id="contact-link-github" class="contact_link" href="https://github.com/pfmaggi">
+  <span class="fa fa-github-square"></span><span>github</span></a>
+
+
+
+<a id="contact-link-bitbucket" class="contact_link" href="https://bitbucket.org/pfmaggi">
+  <span class="fa fa-bitbucket-square"></span><span>bitbucket</span></a>
+
+
+
+<a id="contact-link-linkedin" class="contact_link" href="https://www.linkedin.com/in/pietromaggi">
+  <span class="fa fa-linkedin-square"></span><span>linkedin</span></a>
+
+
+
+
+
+
+
+<a id="contact-link-twitter" class="contact_link" href="https://twitter.com/pfmaggi">
+  <span class="fa fa-twitter-square"></span><span>twitter</span></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+  
+
+</header>
+
+
+<article id="main-content" class="container main_content single">
+  <header class="container hat">
+  <h1>Enterprise Browser - Using the Android Headset as a Barcode Trigger
+</h1>
+
+  <div class="metas">
+<time datetime="2018-07-12">12 Jul, 2018</time>
+
+
+  
+    &middot; by Pietro F. Maggi
+  
+  &middot; Read in about 6 min
+  &middot; (1256 Words)
+  <br>
+  
+<a class="label" href="http://pietromaggi.com/tags/android">Android</a>
+
+<a class="label" href="http://pietromaggi.com/tags/enterprise-browser">Enterprise Browser</a>
+
+<a class="label" href="http://pietromaggi.com/tags/zebra">Zebra</a>
+
+
+
+</div>
+
+</header>
+
+  <div class="container content">
+  
+
+<p>What if&hellip;</p>
+
+<p>you want to use a Zebra&rsquo;s Android device mounted on an arm-mount and you want to control the barcode scanner with a wired button?</p>
+
+<p>WT6000 is the obvious answer!</p>
+
+<p>But if your customer has already chosen the TC51 for other activities, we can help them using the headset connector.</p>
+
+<h1 id="the-android-headset-connectors">The Android headset connectors</h1>
+
+<p>Before Apple decided that we don&rsquo;t need anymore the 3.5mm headset connector on our phones, people started to look into it as a standard input interface for all the devices.</p>
+
+<p>Android, being more open than its alternatives, published all the specification of this interface, explaining what can be done with it:</p>
+
+<p><a href="https://source.android.com/devices/accessories/headset/plug-headset-spec">Android Headset documentation</a></p>
+
+<p><span style="display:block;text-align:center">
+<img src="/images/20180712_headset/android_spec.png" alt="Android specification for headset interface" title="Android specification for headset interface" />
+</span></p>
+
+<p>Here we&rsquo;re looking how we can intercept the <code>Button_A</code> in our application so that we can use it as a barcode trigger.</p>
+
+<p>Looking through <a href="https://source.android.com/devices/accessories/headset/jack-headset-spec">some other documentation on the Android website</a> we can see that the Android KeyCode we need to intercept is the <code>KEYCODE_MEDIA_PLAY_PAUSE</code>.</p>
+
+<p>About the hardware, there&rsquo;re online some alternatives but we ended up building our own prototype:</p>
+
+<p><span style="display:block;text-align:center">
+<img src="/images/20180712_headset/headset.png" alt="Headset finger trigger prototype" title="Headset finger trigger prototype" />
+</span></p>
+
+<h2 id="enterprise-browser-s-keycapture-api">Enterprise Browser&rsquo;s KeyCapture API</h2>
+
+<p>As we wrote at the beginning, this particular customer was using a web application, so we decided to use Zebra&rsquo;s Enterprise Browser to integrate this headset based trigger with the existing web application.</p>
+
+<p>Given that we&rsquo;ve seen that the headset keys generate an Android KeyCode we can use <a href="https://techdocs.zebra.com/enterprise-browser/1-8/api/keycapture/">EB&rsquo;s KeyCapture API to intercept</a> them.</p>
+
+<h3 id="building-a-poc-demo-with-enterprise-browser-s-keycapture-api">Building a POC demo with Enterprise Browser&rsquo;s KeyCapture API</h3>
+
+<p>First of all, we need to understand which KeyCode we get in EB to be able to intercept it. <a href="/2015/09/25/android-back-button-and-enterprise-browser/">As I wrote in a past post</a> we can use a very simple page to discover the right value we need.</p>
+
+<p>Just create a new index.html file with the following content, and copy it to your device.</p>
+
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;META HTTP-Equiv=&quot;KeyCapture&quot; Content=&quot;KeyValue:All; Dispatch:False; KeyEvent:url('JavaScript:console.log('Key Pressed: %s');')&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;title&gt;Display KeyCode&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;H1&gt;Press a key to see it's KeyCode&lt;/H1&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>We can then look into EB&rsquo;s logs or use Chrome&rsquo;s DevTools to see what our code is logging.
+In my case, testing this on a TC56 running Android v7.1 Nougat. I get two different KeyCode: 228 and 79. We want both!</p>
+
+<p><span style="display:block;text-align:center">
+<img src="/images/20180712_headset/keycapture.png" alt="KeyCodes" title="KeyCodes" />
+</span></p>
+
+<p>We can now build our PoC application, starting from the <code>index.html</code> page:</p>
+
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;title&gt;Barcode scanning test&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot; /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Barcode scanning test&lt;/h1&gt;
+
+    &lt;input type=&quot;checkbox&quot; id=&quot;scanner&quot;/&gt;
+    &lt;label for=&quot;scanner&quot; class=&quot;button&quot; id=&quot;scannerLabel&quot;&gt;Scanner Disabled&lt;/label&gt;
+
+    &lt;div id=&quot;barcode&quot;&gt;
+    Barcode Data: &lt;br&gt;
+    Time:
+    &lt;/div&gt;
+    &lt;br&gt;
+
+    &lt;button class=&quot;quit&quot;&gt;Exit&lt;/button&gt;
+    &lt;input type=&quot;text&quot; value=&quot;type here&quot;&gt;
+    &lt;footer&gt;&lt;/footer&gt;
+    &lt;script src=&quot;ebapi-modules.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;app.js&quot;&gt;&lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>The accompanying style sheet is <code>style.css</code>:</p>
+
+<pre><code>* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    text-align: center;
+    font-family: sans-serif;
+}
+
+h1 {
+    margin: .5em 0 1em;
+}
+
+#barcode {
+    margin: 1em auto 1em;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+button, .button {
+    padding: .8em 1.2em;
+    border: 1px solid rgba(0, 0, 0, .2);
+    border-radius: .3em;
+    box-shadow: 0 1px 0 hsla(0, 0%, 100%, .7) inset, 0 .15em .1em -.1em rgba(0, 0, 0, .3);
+    background: linear-gradient(hsla(0, 0%, 100%, .3), hsla(0, 0%, 100%, 0)) hsl(80, 80%, 35%);
+    color: white;
+    text-shadow: 0 -.05em .05em rgba(0, 0, 0, .3);
+    font: inherit;
+    font-weight: bold;
+    outline: none;
+    cursor: pointer;
+}
+
+button:enabled:active,
+.button:active,
+input[type=&quot;checkbox&quot;]:checked + label.button {
+    background-image: none;
+    box-shadow: 0 .1em .3em rgba(0, 0, 0, .5) inset;
+}
+
+button:disabled {
+    background-color: hsl(80, 20%, 40%);
+    cursor: not-allowed;
+}
+
+#scanner {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+}
+</code></pre>
+
+<p>And we can then focus on the JavaScript code in the <code>app.js</code> file:</p>
+
+<pre><code>function $$(selector, container) {
+    return (container || document).querySelector(selector);
+}
+
+function fnScanReceived(params) {
+    if (params['data'] == &quot;&quot; || params['time'] == &quot;&quot;) {
+        $$('#barcode').innerHTML = &quot;Failed!&quot;;
+        return;
+    }
+
+    var displayStr = &quot;Barcode Data: &quot; + params['data'] + &quot;&lt;br&gt;Time: &quot; + params['time'];
+    $$(&quot;#barcode&quot;).innerHTML = displayStr + &quot;&lt;br&gt;&quot; + JSON.stringify(params);;
+}
+
+function keyCallback(params) {
+    console.log(&quot;this key has just been pressed!: &quot; + params['keyValue']);
+    if (79 === params.keyValue) {
+        EB.Barcode.start();
+    }
+}
+
+(function() {
+    var buttons = {
+        quit: $$('button.quit'),
+    };
+
+    buttons.quit.addEventListener('click', function() {
+        EB.Application.quit();
+    });
+
+    EB.KeyCapture.captureKey(false, &quot;228&quot;, keyCallback);
+    EB.KeyCapture.captureKey(false, &quot;79&quot;, keyCallback);
+
+    $$('#scanner').addEventListener('change', function() {
+        if (this.checked) {
+            EB.Barcode.enable({ allDecoders: true }, fnScanReceived);
+            $$('#scannerLabel').innerHTML = &quot;Scanner Enabled&quot;;
+        } else {
+            EB.Barcode.disable();
+            $$('#scannerLabel').innerHTML = &quot;Scanner Disabled&quot;;
+        }
+    });
+})();
+</code></pre>
+
+<p>We can test this copying these files on the device. I usually prefer to work with EB&rsquo;s http server copying the files on the <code>/sdcard/www/</code> folder.</p>
+
+<p>In EB&rsquo;s <code>Config.xml</code> I then use:</p>
+
+<pre><code>&lt;WebServer&gt;  
+    &lt;Enabled VALUE=&quot;1&quot;/&gt;  
+    &lt;Port VALUE=&quot;8082&quot;/&gt;  
+    &lt;WebFolder VALUE=&quot;%PRIMARYDIR%/www/&quot;/&gt;  
+    &lt;Public VALUE=&quot;0&quot;/&gt;
+&lt;/WebServer&gt;
+
+&lt;General&gt;
+    &lt;Name value=&quot;HeadsetPoC&quot;/&gt;
+    &lt;StartPage value=&quot;http://0.0.0.0:8082/demo1/index.html&quot; name=&quot;HeadsetPoC&quot;/&gt;
+&lt;/General&gt;
+</code></pre>
+
+<p>You can modify the following option to be able to debug the application using Chrome&rsquo;s DevTools <a href="/2018/03/21/enterprise-browser---modernizing-web-applications/">as explained in a previous post</a></p>
+
+<pre><code>&lt;DebugSetting&gt;
+    &lt;DebugModeEnable value=&quot;1&quot;/&gt;
+&lt;/DebugSetting&gt; 
+</code></pre>
+
+<p><a href="/assets/HeadsetPoC.zip">The full sample project is available as a ZIP archive</a>.</p>
+
+<h2 id="working-on-an-existing-web-application">Working on an existing web application</h2>
+
+<p>As we wrote at the beginning, this customer wanted to have this headset trigger to work with an existing web application. Once we built the PoC and we knew that it was possible to use the headset connection as a barcode trigger we used <a href="https://techdocs.zebra.com/enterprise-browser/1-8/guide/DOMinjection/">EB&rsquo;s DOM Injection</a> functionality to add these capabilities to the existing application.</p>
+
+<p>This customization is really dependent on the existing application, what I can write here, is that you need to add to EB&rsquo;s <code>Config.xml</code> a <code>CustomDOMElements</code> element:</p>
+
+<pre><code>&lt;CustomDOMElements value=&quot;file://%INSTALLDIR%/mytags.txt&quot;/&gt;
+</code></pre>
+
+<p>In this case we&rsquo;ve the <code>mytags.txt</code> file in the same folder of the <code>Config.xml</code> file, usually <code>/sdcard/Android/data/com.symbol.enterprisebrowser/</code>, and we inject a single JavaScript in every page:</p>
+
+<pre><code>&lt;!--Sample tags file --&gt;
+&lt;!--FILENAME: 'mytags.txt' --&gt;
+&lt;!--DESC: 'tags' file for DOM Injection --&gt;
+
+&lt;!--JavaScript section--&gt;
+
+&lt;!--inject keycapture.js into all pages--&gt;
+&lt;script type='text/javascript' src='file:///storage/emulated/0/Android/data/com.symbol.enterprisebrowser/keycapture.js' pages='*'/&gt;
+</code></pre>
+
+<p>The content of the <code>keycapture.js</code> file is:</p>
+
+<pre><code>console.log('KeyCapture Configured');
+EB.KeyCapture.captureKey(false, &quot;228&quot;, keyCallback);
+EB.KeyCapture.captureKey(false, &quot;79&quot;, keyCallback);
+
+function keyCallback(params) {
+    console.log(&quot;this key has just been pressed!: &quot; + params['keyValue']);
+    if (79 === params.keyValue) {
+        i = {
+            'intentType': 'broadcast',
+            'action': 'com.symbol.datawedge.api.ACTION_SOFTSCANTRIGGER',
+            'data': {
+                'com.symbol.datawedge.api.EXTRA_PARAMETER': 'START_SCANNING',
+                }
+        };
+        EB.Intent.send(i);
+    }
+}
+</code></pre>
+
+<p>Yes, you&rsquo;re right, in this case we&rsquo;re not using EB&rsquo;s Barcode API, but we&rsquo;re using EB&rsquo;s Intent API to use DataWedge together with Enterprise Browser.</p>
+
+<p>There&rsquo;re some additional steps to be able to do this that you can find on <a href="https://techdocs.zebra.com/enterprise-browser/1-8/guide/datawedge/">EB&rsquo;s documentation website</a> and in <a href="https://developer.zebra.com/community/home/blog/2018/04/05/get-simulscan-data-using-datawedge-inside-enterprise-browser-as-javascript-callback">this useful blog post on Zebra&rsquo;s developer portal</a>.</p>
+
+<p>This is all for Enterprise Browser. I hope you enjoy this incredible tool!</p>
+
+<h2 id="one-last-thing">One last thing</h2>
+
+<p>If your customer want to use the same setup with a native application, one option is to have a small Android service that works with the Android media service to capture this particular event.</p>
+
+<p>A very simple implementation of such a service could be:</p>
+
+<pre><code>import android.app.Service;
+import android.content.Intent;
+import android.os.IBinder;
+import android.support.annotation.Nullable;
+import android.support.v4.media.session.MediaButtonReceiver;
+import android.support.v4.media.session.MediaSessionCompat;
+import android.util.Log;
+import android.widget.Toast;
+
+public class myService extends Service {
+    @Nullable
+
+    // DataWedge SoftTrigger intent's parameters
+    String softScanTrigger = &quot;com.symbol.datawedge.api.ACTION_SOFTSCANTRIGGER&quot;;
+    String extraData = &quot;com.symbol.datawedge.api.EXTRA_PARAMETER&quot;;
+
+    @Override
+    public IBinder onBind(Intent intent) {
+        return null;
+    }
+
+    private MediaSessionCompat.Callback mediaSessionCompatCallBack = new MediaSessionCompat.Callback()
+    {
+        @Override
+        public boolean onMediaButtonEvent(Intent mediaButtonEvent) {
+            Log.d(&quot;MEDIAKEY&quot;, &quot;Key Event&quot;);
+
+            return super.onMediaButtonEvent(mediaButtonEvent);
+        }
+    };
+
+    private MediaSessionCompat mediaSessionCompat;
+
+
+    @Override
+    public void onCreate() {
+        Toast.makeText(this, &quot;My Service Created&quot;, Toast.LENGTH_LONG).show();
+        Log.d(&quot;SERVICE&quot;, &quot;onCreate&quot;);
+
+        mediaSessionCompat = new MediaSessionCompat(this, &quot;MEDIA&quot;);
+
+
+    }
+
+    @Override
+    public void onDestroy() {
+        Toast.makeText(this, &quot;My Service Stopped&quot;, Toast.LENGTH_LONG).show();
+        Log.d(&quot;SERVICE&quot;, &quot;onDestroy&quot;);
+
+    }
+
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        Toast.makeText(this, &quot;My Service Started&quot;, Toast.LENGTH_LONG).show();
+        Log.d(&quot;SERVICE_STARTUP&quot;, &quot;onStart&quot;);
+
+        MediaButtonReceiver.handleIntent(mediaSessionCompat, intent);
+
+        mediaSessionCompat.setActive(true);
+
+        mediaSessionCompat.setFlags(MediaSessionCompat.FLAG_HANDLES_MEDIA_BUTTONS | MediaSessionCompat.FLAG_HANDLES_TRANSPORT_CONTROLS);
+
+        mediaSessionCompat.setCallback(new MediaSessionCompat.Callback() {
+            @Override
+            public boolean onMediaButtonEvent(Intent mediaButtonEvent) {
+                Log.d(&quot;MEDIA&quot;, &quot;event&quot;);
+
+                Intent i = new Intent();
+                i.setAction(softScanTrigger);
+                i.putExtra(extraData, &quot;START_SCANNING&quot;);
+                sendBroadcast(i);
+
+                return super.onMediaButtonEvent(mediaButtonEvent);
+            }
+        });
+
+        return START_STICKY;
+    }
+}
+</code></pre>
+
+<h2 id="final-note">Final note</h2>
+
+<p>Thanks to <a href="http://www.barware.it/">Maurizio Raimondi and his team in Barware</a> to work with me to build this solution and to put together in a very short time some samples of the headset trigger!</p>
+
+</div>
+
+
+  <footer class="container">
+  <div class="container navigation no-print">
+  <h2>Navigation</h2>
+  
+  
+
+    
+    <a class="prev" href="http://pietromaggi.com/2018/07/11/xamarin.forms---freshmvvm---datawedge-take-2/" title="(Xamarin.Forms &#43; FreshMVVM &#43; DataWedge) take 2">
+      Previous
+    </a>
+    
+
+    
+
+  
+
+
+</div>
+
+  <div class="container comments">
+  <h2>Comments</h2>
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  (function() {
+    
+    
+    if (window.location.hostname == "localhost")
+      return;
+
+    var dsq = document.createElement('script'); dsq.async = true; dsq.type = 'text/javascript';
+    dsq.src = '//pietrofmaggi.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+</div>
+
+</footer>
+
+</article>
+      <footer id="main-footer" class="container main_footer">
+  
+
+  <div class="container nav foot no-print">
+  
+<a href="http://pietromaggi.com/license">license</a>
+
+
+  <a class="toplink" href="#">back to top</a>
+
+</div>
+
+  <div class="container credits">
+  
+<div class="container footline">
+  
+  code with <i class='fa fa-heart'></i>
+
+
+</div>
+
+
+  
+<div class="container copyright">
+  
+  &copy; 2013-2018 Pietro F. Maggi
+
+
+</div>
+
+
+</div>
+
+</footer>
+
+    </main>
+    
+<script type="text/javascript">
+  (function() {
+    
+    
+    if (window.location.hostname == "localhost")
+      return;
+
+    var dsq = document.createElement('script'); dsq.async = true; dsq.type = 'text/javascript';
+    dsq.src = '//pietrofmaggi.disqus.com/count.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+
+<script src="http://pietromaggi.com/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+    
+  </body>
+</html>
+
