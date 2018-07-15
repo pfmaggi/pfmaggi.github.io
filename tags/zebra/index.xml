@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Zebra on Pietro F. Maggi</title>
-    <link>http://pietromaggi.com/tags/zebra/</link>
+    <link>https://pietromaggi.com/tags/zebra/</link>
     <description>Recent content in Zebra on Pietro F. Maggi</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-EN</language>
@@ -11,15 +11,15 @@
     <copyright>(c) 2013-2018 Pietro F. Maggi</copyright>
     <lastBuildDate>Thu, 12 Jul 2018 18:00:48 +0200</lastBuildDate>
     
-	<atom:link href="http://pietromaggi.com/tags/zebra/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://pietromaggi.com/tags/zebra/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Enterprise Browser - Using the Android Headset as a Barcode Trigger</title>
-      <link>http://pietromaggi.com/2018/07/12/enterprise-browser---using-the-android-headset-as-a-barcode-trigger/</link>
+      <link>https://pietromaggi.com/2018/07/12/enterprise-browser---using-the-android-headset-as-a-barcode-trigger/</link>
       <pubDate>Thu, 12 Jul 2018 18:00:48 +0200</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
-      <guid>http://pietromaggi.com/2018/07/12/enterprise-browser---using-the-android-headset-as-a-barcode-trigger/</guid>
+      <guid>https://pietromaggi.com/2018/07/12/enterprise-browser---using-the-android-headset-as-a-barcode-trigger/</guid>
       <description>What if&amp;hellip;
 you want to use a Zebra&amp;rsquo;s Android device mounted on an arm-mount and you want to control the barcode scanner with a wired button?
 WT6000 is the obvious answer!
@@ -29,10 +29,10 @@ The Android headset connectors Before Apple decided that we don&amp;rsquo;t need
     
     <item>
       <title>(Xamarin.Forms &#43; FreshMVVM &#43; DataWedge) take 2</title>
-      <link>http://pietromaggi.com/2018/07/11/xamarin.forms---freshmvvm---datawedge-take-2/</link>
+      <link>https://pietromaggi.com/2018/07/11/xamarin.forms---freshmvvm---datawedge-take-2/</link>
       <pubDate>Wed, 11 Jul 2018 09:00:00 +0200</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
-      <guid>http://pietromaggi.com/2018/07/11/xamarin.forms---freshmvvm---datawedge-take-2/</guid>
+      <guid>https://pietromaggi.com/2018/07/11/xamarin.forms---freshmvvm---datawedge-take-2/</guid>
       <description>Note: the accompanying code is available on GitHub.
 We saw in the last post how to add barcode scanning functionalities to the &amp;laquo;Inventory&amp;raquo; sample application, using DataWedge.
 Today we&amp;rsquo;re going to review that code and refactor it &amp;laquo;just a bit&amp;raquo;. The goal is to make it a bit more modular, adding some flexibility to how we manage the barcode. In particular we want to have these features in our app:</description>
@@ -40,10 +40,10 @@ Today we&amp;rsquo;re going to review that code and refactor it &amp;laquo;just 
     
     <item>
       <title>Xamarin.Forms &#43; FreshMVVM &#43; DataWedge = 💖</title>
-      <link>http://pietromaggi.com/2018/07/07/xamarin.forms---freshmvvm---datawedge--/</link>
+      <link>https://pietromaggi.com/2018/07/07/xamarin.forms---freshmvvm---datawedge--/</link>
       <pubDate>Sat, 07 Jul 2018 09:00:00 +0200</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
-      <guid>http://pietromaggi.com/2018/07/07/xamarin.forms---freshmvvm---datawedge--/</guid>
+      <guid>https://pietromaggi.com/2018/07/07/xamarin.forms---freshmvvm---datawedge--/</guid>
       <description>Note: the accompanying code is available on GitHub.
 The topic for today is how to add barcode scanning functionalities to the &amp;laquo;Inventory&amp;raquo; sample application we built in the previous post about Xamarin.Forms and FreshMVVM.
 To integrate barcode scanning functionalities we&amp;rsquo;ve different options:
@@ -52,10 +52,10 @@ To integrate barcode scanning functionalities we&amp;rsquo;ve different options:
     
     <item>
       <title>Zebra&#39;s EMDK Async Profile Manager APIs</title>
-      <link>http://pietromaggi.com/2018/06/26/zebras-emdk-async-profile-manager-apis/</link>
+      <link>https://pietromaggi.com/2018/06/26/zebras-emdk-async-profile-manager-apis/</link>
       <pubDate>Tue, 26 Jun 2018 09:00:00 +0200</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
-      <guid>http://pietromaggi.com/2018/06/26/zebras-emdk-async-profile-manager-apis/</guid>
+      <guid>https://pietromaggi.com/2018/06/26/zebras-emdk-async-profile-manager-apis/</guid>
       <description>Note: the accompanying code is available on github.
 Summer is the perfect time for some cleanup, and I&amp;rsquo;ve some older content laying around my laptop that is about time I publish!
 I&amp;rsquo;m planning to cover some long-standing argument that I&amp;rsquo;ve touched over the last few years as Zebra&amp;rsquo;s EMEA Software Consultant.

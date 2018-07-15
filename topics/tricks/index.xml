@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tricks on Pietro F. Maggi</title>
-    <link>http://pietromaggi.com/topics/tricks/</link>
+    <link>https://pietromaggi.com/topics/tricks/</link>
     <description>Recent content in Tricks on Pietro F. Maggi</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-EN</language>
@@ -11,15 +11,15 @@
     <copyright>(c) 2013-2018 Pietro F. Maggi</copyright>
     <lastBuildDate>Fri, 10 Jan 2014 19:37:45 +0100</lastBuildDate>
     
-	<atom:link href="http://pietromaggi.com/topics/tricks/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://pietromaggi.com/topics/tricks/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Little command line tricks</title>
-      <link>http://pietromaggi.com/2014/01/10/little-command-line-tricks/</link>
+      <link>https://pietromaggi.com/2014/01/10/little-command-line-tricks/</link>
       <pubDate>Fri, 10 Jan 2014 19:37:45 +0100</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
-      <guid>http://pietromaggi.com/2014/01/10/little-command-line-tricks/</guid>
+      <guid>https://pietromaggi.com/2014/01/10/little-command-line-tricks/</guid>
       <description>This is a different blog, more a remainder for me than anything else. Hope that someone else can find these useful&amp;hellip; they&amp;rsquo;re for me!
 Recover a failed download with curl: curl -C - -o partially_downloaded_file &#39;www.example.com/path/to/the/file&#39;  Burn a playable DVD from a VIDEO_TS folder After searching the forums and trying various things, I still couldn&amp;rsquo;t find a quick, reliable, free method of burning a VIDEO_TS folder to a pure UDF DVD, so that it would play in regular DVD players, as well trigger DVD Player to start up automatically.</description>
     </item>

@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Testing on Pietro F. Maggi</title>
-    <link>http://pietromaggi.com/tags/testing/</link>
+    <link>https://pietromaggi.com/tags/testing/</link>
     <description>Recent content in Testing on Pietro F. Maggi</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-EN</language>
@@ -11,15 +11,15 @@
     <copyright>(c) 2013-2018 Pietro F. Maggi</copyright>
     <lastBuildDate>Tue, 31 Oct 2017 21:00:00 +0100</lastBuildDate>
     
-	<atom:link href="http://pietromaggi.com/tags/testing/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://pietromaggi.com/tags/testing/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Android Auto testing</title>
-      <link>http://pietromaggi.com/2017/10/31/android-auto-testing/</link>
+      <link>https://pietromaggi.com/2017/10/31/android-auto-testing/</link>
       <pubDate>Tue, 31 Oct 2017 21:00:00 +0100</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
-      <guid>http://pietromaggi.com/2017/10/31/android-auto-testing/</guid>
+      <guid>https://pietromaggi.com/2017/10/31/android-auto-testing/</guid>
       <description>Android Auto? Why? This summer I bought a new car and it came with a nice 8&amp;rdquo; touch panel that supports Android Auto and Apple Car.
 It even came with seven seats and a nice engine, and that was way more important than having an additional screen&amp;hellip; but, it&amp;rsquo;s there, and I started to make good use of it.
 Playing with Android Auto is a bit of a hit and miss.</description>

@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Sdcard on Pietro F. Maggi</title>
-    <link>http://pietromaggi.com/tags/sdcard/</link>
+    <link>https://pietromaggi.com/tags/sdcard/</link>
     <description>Recent content in Sdcard on Pietro F. Maggi</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-EN</language>
@@ -11,15 +11,15 @@
     <copyright>(c) 2013-2018 Pietro F. Maggi</copyright>
     <lastBuildDate>Thu, 14 Jan 2016 23:00:00 +0100</lastBuildDate>
     
-	<atom:link href="http://pietromaggi.com/tags/sdcard/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://pietromaggi.com/tags/sdcard/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Secondary External Storage in Android KitKat - Part 1</title>
-      <link>http://pietromaggi.com/2016/01/14/secondary-external-storage-in-android-kitkat---part-1/</link>
+      <link>https://pietromaggi.com/2016/01/14/secondary-external-storage-in-android-kitkat---part-1/</link>
       <pubDate>Thu, 14 Jan 2016 23:00:00 +0100</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
-      <guid>http://pietromaggi.com/2016/01/14/secondary-external-storage-in-android-kitkat---part-1/</guid>
+      <guid>https://pietromaggi.com/2016/01/14/secondary-external-storage-in-android-kitkat---part-1/</guid>
       <description>First technical post for 2016. Finally!
 To kick-start 2016 I&amp;rsquo;ve chosen a topic that is more and more relevant in our market: The changes introduced by Google in Android v4.4 KitKat, regarding the secondary storage (the SDCard).
 I&amp;rsquo;ve already talked about this in my AppForum 2015 talk last October in London1, but I want to add some extra info and rationales here.
@@ -28,10 +28,10 @@ A bit of background Android&amp;rsquo;s purpose is to establish an open platform
     
     <item>
       <title>Finding the SDCard Path on Android devices</title>
-      <link>http://pietromaggi.com/2014/10/19/finding-the-sdcard-path-on-android-devices/</link>
+      <link>https://pietromaggi.com/2014/10/19/finding-the-sdcard-path-on-android-devices/</link>
       <pubDate>Sun, 19 Oct 2014 20:55:18 +0200</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
-      <guid>http://pietromaggi.com/2014/10/19/finding-the-sdcard-path-on-android-devices/</guid>
+      <guid>https://pietromaggi.com/2014/10/19/finding-the-sdcard-path-on-android-devices/</guid>
       <description>With Motorola Solutions we&amp;rsquo;re busy finishing the first round of Android Developer&amp;rsquo;s Kitchens around Europe. Just in time to prepare for the Enterprise App Forum in Brussels!.
 The nice things of these events is the interaction with our partners and theirs real live problem!
 Last week I got an interesting question regarding our TC55:

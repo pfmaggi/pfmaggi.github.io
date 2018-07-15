@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hacking on Pietro F. Maggi</title>
-    <link>http://pietromaggi.com/tags/hacking/</link>
+    <link>https://pietromaggi.com/tags/hacking/</link>
     <description>Recent content in Hacking on Pietro F. Maggi</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-EN</language>
@@ -11,15 +11,15 @@
     <copyright>(c) 2013-2018 Pietro F. Maggi</copyright>
     <lastBuildDate>Thu, 02 Jan 2014 14:34:27 +0100</lastBuildDate>
     
-	<atom:link href="http://pietromaggi.com/tags/hacking/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://pietromaggi.com/tags/hacking/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Diving into Android source code</title>
-      <link>http://pietromaggi.com/2014/01/02/diving-into-android-source-code/</link>
+      <link>https://pietromaggi.com/2014/01/02/diving-into-android-source-code/</link>
       <pubDate>Thu, 02 Jan 2014 14:34:27 +0100</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
-      <guid>http://pietromaggi.com/2014/01/02/diving-into-android-source-code/</guid>
+      <guid>https://pietromaggi.com/2014/01/02/diving-into-android-source-code/</guid>
       <description>Why dive into Android code? When you&amp;rsquo;ve to write applications for Android, you&amp;rsquo;re targeting a giant moving API surface, sometimes you can be surprised of some different behavior in different Android versions or with an API call that is not well documented, so having the option to delve into Android Source Code is a great opportunity.
 A lot of things can be written on how to do this, there&amp;rsquo;s some documentation available on AOSP website, however I think that the best starting point is a video tutorial by NewCircle&amp;rsquo;s Instructor Dave Smith on this very topic:</description>
     </item>

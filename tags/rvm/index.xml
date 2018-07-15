@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Rvm on Pietro F. Maggi</title>
-    <link>http://pietromaggi.com/tags/rvm/</link>
+    <link>https://pietromaggi.com/tags/rvm/</link>
     <description>Recent content in Rvm on Pietro F. Maggi</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-EN</language>
@@ -11,15 +11,15 @@
     <copyright>(c) 2013-2018 Pietro F. Maggi</copyright>
     <lastBuildDate>Sun, 29 Dec 2013 17:24:54 +0100</lastBuildDate>
     
-	<atom:link href="http://pietromaggi.com/tags/rvm/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://pietromaggi.com/tags/rvm/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Ruby Version Manager (aka RVM) the Swiss army knife of Ruby versions</title>
-      <link>http://pietromaggi.com/2013/12/29/ruby-version-manager-aka-rvm-the-swiss-army-knife-of-ruby-versions/</link>
+      <link>https://pietromaggi.com/2013/12/29/ruby-version-manager-aka-rvm-the-swiss-army-knife-of-ruby-versions/</link>
       <pubDate>Sun, 29 Dec 2013 17:24:54 +0100</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
-      <guid>http://pietromaggi.com/2013/12/29/ruby-version-manager-aka-rvm-the-swiss-army-knife-of-ruby-versions/</guid>
+      <guid>https://pietromaggi.com/2013/12/29/ruby-version-manager-aka-rvm-the-swiss-army-knife-of-ruby-versions/</guid>
       <description>How many versions of Ruby do you need on your machine? Even if OS X 10.9 Mavericks came with Ruby v2.0.0-p195, the previous OS X versions where released with Ruby v1.8.7. On top of this, most of the work I do with Rhodes is still based on Ruby v1.9.3. And Ruby v2.1.0 has just been released! with some nice changes. Particularly interesting in Ruby v2.1 is the new Garbage Collector</description>
     </item>
     

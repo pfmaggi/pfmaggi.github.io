@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Personal on Pietro F. Maggi</title>
-    <link>http://pietromaggi.com/tags/personal/</link>
+    <link>https://pietromaggi.com/tags/personal/</link>
     <description>Recent content in Personal on Pietro F. Maggi</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-EN</language>
@@ -11,15 +11,15 @@
     <copyright>(c) 2013-2018 Pietro F. Maggi</copyright>
     <lastBuildDate>Sat, 09 Jan 2016 20:50:14 +0100</lastBuildDate>
     
-	<atom:link href="http://pietromaggi.com/tags/personal/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://pietromaggi.com/tags/personal/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Welcome</title>
-      <link>http://pietromaggi.com/2016/01/09/welcome/</link>
+      <link>https://pietromaggi.com/2016/01/09/welcome/</link>
       <pubDate>Sat, 09 Jan 2016 20:50:14 +0100</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
-      <guid>http://pietromaggi.com/2016/01/09/welcome/</guid>
+      <guid>https://pietromaggi.com/2016/01/09/welcome/</guid>
       <description>Time for revamping a bit this blog.
 From a technical point of view, I struggled with octopress v2.x to keep this blog aligned across the multiple machine I use in my work/life. Octopress v3 is supposed to solve most of the issue that plagued me over these years but, I wanted to test something a bit different.
 New year new static blog generator. Given that I want to spend some time evaluating Go I decided to give Hugo a try.</description>
@@ -27,20 +27,20 @@ New year new static blog generator. Given that I want to spend some time evaluat
     
     <item>
       <title>2014 New Year resolutions</title>
-      <link>http://pietromaggi.com/2014/01/01/2014-new-year-resolutions/</link>
+      <link>https://pietromaggi.com/2014/01/01/2014-new-year-resolutions/</link>
       <pubDate>Wed, 01 Jan 2014 17:41:32 +0100</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
-      <guid>http://pietromaggi.com/2014/01/01/2014-new-year-resolutions/</guid>
+      <guid>https://pietromaggi.com/2014/01/01/2014-new-year-resolutions/</guid>
       <description>Blog a bit more That&amp;rsquo;s been one of my goal for a long time, and something that I always suggest to people to increase their &amp;laquo;Luck Surface Area&amp;raquo;.
 In my case I can add an additional goal: keep track of what I do, tricks that I find and document procedure, fixes and workarounds. That&amp;rsquo;s always a bit of a pain point for me: I manage to do something and then in six months (or six hours) I forgot how I&amp;rsquo;ve done it and I need to start from scratch&amp;hellip; Never More</description>
     </item>
     
     <item>
       <title>2013 in numbers</title>
-      <link>http://pietromaggi.com/2013/12/31/2013-in-numbers/</link>
+      <link>https://pietromaggi.com/2013/12/31/2013-in-numbers/</link>
       <pubDate>Tue, 31 Dec 2013 20:52:22 +0100</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
-      <guid>http://pietromaggi.com/2013/12/31/2013-in-numbers/</guid>
+      <guid>https://pietromaggi.com/2013/12/31/2013-in-numbers/</guid>
       <description>What an interesting year! This is the first year that I joined a regional team and this involved a lot of travel (12900 flight hours) across all EMEA. Has been a blast meeting a lot of end-users, partners and colleagues.
 I&amp;rsquo;ve started doing my &amp;laquo;RhoMobile Developer Roadshow&amp;raquo;, usually a one man show with up to three events a week for a total of 22 cities, from Lisbon to Dubai, and from Capetown to Helsinki.</description>
     </item>

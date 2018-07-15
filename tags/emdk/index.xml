@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Emdk on Pietro F. Maggi</title>
-    <link>http://pietromaggi.com/tags/emdk/</link>
+    <link>https://pietromaggi.com/tags/emdk/</link>
     <description>Recent content in Emdk on Pietro F. Maggi</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-EN</language>
@@ -11,15 +11,15 @@
     <copyright>(c) 2013-2018 Pietro F. Maggi</copyright>
     <lastBuildDate>Tue, 26 Jun 2018 09:00:00 +0200</lastBuildDate>
     
-	<atom:link href="http://pietromaggi.com/tags/emdk/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://pietromaggi.com/tags/emdk/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Zebra&#39;s EMDK Async Profile Manager APIs</title>
-      <link>http://pietromaggi.com/2018/06/26/zebras-emdk-async-profile-manager-apis/</link>
+      <link>https://pietromaggi.com/2018/06/26/zebras-emdk-async-profile-manager-apis/</link>
       <pubDate>Tue, 26 Jun 2018 09:00:00 +0200</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
-      <guid>http://pietromaggi.com/2018/06/26/zebras-emdk-async-profile-manager-apis/</guid>
+      <guid>https://pietromaggi.com/2018/06/26/zebras-emdk-async-profile-manager-apis/</guid>
       <description>Note: the accompanying code is available on github.
 Summer is the perfect time for some cleanup, and I&amp;rsquo;ve some older content laying around my laptop that is about time I publish!
 I&amp;rsquo;m planning to cover some long-standing argument that I&amp;rsquo;ve touched over the last few years as Zebra&amp;rsquo;s EMEA Software Consultant.
@@ -28,10 +28,10 @@ Years ago we had some posts on the EMDK discussion forum about some instability 
     
     <item>
       <title>Building Zebra&#39;s EMDK project using SDK Platform 23</title>
-      <link>http://pietromaggi.com/2015/11/25/building-zebras-emdk-project-using-sdk-platform-23/</link>
+      <link>https://pietromaggi.com/2015/11/25/building-zebras-emdk-project-using-sdk-platform-23/</link>
       <pubDate>Wed, 25 Nov 2015 09:54:55 +0100</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
-      <guid>http://pietromaggi.com/2015/11/25/building-zebras-emdk-project-using-sdk-platform-23/</guid>
+      <guid>https://pietromaggi.com/2015/11/25/building-zebras-emdk-project-using-sdk-platform-23/</guid>
       <description>Note: EMDK 4.0 is now documenting this method to add com.symbol.emdk.jar as a dependency There&amp;rsquo;s a recurring question coming to me and to Launchpad&amp;rsquo;s forums lately:
 How can I compile my Android app, using Zebra&amp;rsquo;s EMDK, if I need the latest support library?
 Some background With the Android tools moving super-fast (Android studio v1.0 launched at the beginning of 2015, the latest stable release is v1.4.1, we already have v1.</description>
