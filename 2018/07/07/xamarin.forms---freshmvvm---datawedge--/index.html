@@ -65,7 +65,7 @@
     },
     "datePublished": "2018-07-07",
     "description": "Xamarin Forms is getting traction with Zebra&#39;s Partners and End-Users and a light framework like FreshMVVM looks the perfect companion. But it&#39;s not an application for a Zebra device if it doesn&#39;t integrate Barcode scanning functionality. DataWedge APIs to the rescue!!! Let&#39;s add to the inventory application we built, barcode scanning functionalities.",
-    "wordCount": 1764
+    "wordCount": 1805
   }
 </script>
 
@@ -208,7 +208,7 @@
     &middot; by Pietro F. Maggi
   
   &middot; Read in about 9 min
-  &middot; (1764 Words)
+  &middot; (1805 Words)
   <br>
   
 <a class="label" href="https://pietromaggi.com/tags/android">Android</a>
@@ -299,7 +299,8 @@
     intentConfig.PutString(&quot;RESET_CONFIG&quot;, &quot;true&quot;);
     Bundle intentProps = new Bundle();
     intentProps.PutString(&quot;intent_output_enabled&quot;, &quot;true&quot;);
-    intentProps.PutString(&quot;intent_action&quot;, DataWedgeReceiver.IntentAction);
+    //  intentProps.PutString(&quot;intent_action&quot;, DataWedgeReceiver.IntentAction); // We can use this when we're going to define the DataWedgeReceiver class
+    intentProps.PutString(&quot;intent_action&quot;, &quot;barcodescanner.RECVR&quot;);
     intentProps.PutString(&quot;intent_delivery&quot;, &quot;2&quot;);
     intentConfig.PutBundle(&quot;PARAM_LIST&quot;, intentProps);
     profileConfig.PutBundle(&quot;PLUGIN_CONFIG&quot;, intentConfig);
@@ -572,6 +573,10 @@ protected override void OnPause()
 <p>As a plus, the application can still be compiled and used for other Android devices or for iOS without any issue, simply the barcode scanning functionalities are only available on Zebra devices.</p>
 
 <p>The full source code is available on the github project. <a href="https://github.com/Zebra/Inventory/releases/tag/datawedge">This version is saved with the tag <code>datawedge</code></a>.</p>
+
+<h3 id="edit">Edit</h3>
+
+<p>I&rsquo;ve modified the initial code to create the profile to avoid the reference to the DataWedgeReceiver that is not yet available <a href="#create-a-datawedge-profile">at that moment</a>.</p>
 
 </div>
 
