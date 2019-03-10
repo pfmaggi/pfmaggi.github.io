@@ -8,7 +8,7 @@
     <language>en-EN</language>
     <managingEditor>pfm@pietromaggi.com (Pietro F. Maggi)</managingEditor>
     <webMaster>pfm@pietromaggi.com (Pietro F. Maggi)</webMaster>
-    <copyright>(c) 2013-2018 Pietro F. Maggi</copyright>
+    <copyright>(c) 2013-2019 Pietro F. Maggi</copyright>
     <lastBuildDate>Sun, 10 Sep 2017 21:00:00 +0100</lastBuildDate>
     
 	<atom:link href="https://pietromaggi.com/tags/events/index.xml" rel="self" type="application/rss+xml" />
@@ -16,10 +16,10 @@
     
     <item>
       <title>droidcon Berlin 2017 Day 0 - the best Android community event!</title>
-      <link>https://pietromaggi.com/2017/09/10/droidcon-berlin-2017-day-0---the-best-android-community-event/</link>
+      <link>https://pietromaggi.com/2017/09/10/droidcon-berlin-2017-day-0-the-best-android-community-event/</link>
       <pubDate>Sun, 10 Sep 2017 21:00:00 +0100</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
-      <guid>https://pietromaggi.com/2017/09/10/droidcon-berlin-2017-day-0---the-best-android-community-event/</guid>
+      <guid>https://pietromaggi.com/2017/09/10/droidcon-berlin-2017-day-0-the-best-android-community-event/</guid>
       <description>Another year, another droidcon Berlin.
 This year I decided to took some detailed notes. This is the report for the first day, Sunday September 3rd, I&amp;rsquo;ll add a couple of other posts for the main conference days.
 Day 0 - Sunday September 3rd The event this year started on Sunday September 3rd with a barcamp, and a panel on data persistency.

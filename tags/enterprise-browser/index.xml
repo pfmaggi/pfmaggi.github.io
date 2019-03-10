@@ -8,7 +8,7 @@
     <language>en-EN</language>
     <managingEditor>pfm@pietromaggi.com (Pietro F. Maggi)</managingEditor>
     <webMaster>pfm@pietromaggi.com (Pietro F. Maggi)</webMaster>
-    <copyright>(c) 2013-2018 Pietro F. Maggi</copyright>
+    <copyright>(c) 2013-2019 Pietro F. Maggi</copyright>
     <lastBuildDate>Thu, 12 Jul 2018 18:00:48 +0200</lastBuildDate>
     
 	<atom:link href="https://pietromaggi.com/tags/enterprise-browser/index.xml" rel="self" type="application/rss+xml" />
@@ -16,10 +16,10 @@
     
     <item>
       <title>Enterprise Browser - Using the Android Headset as a Barcode Trigger</title>
-      <link>https://pietromaggi.com/2018/07/12/enterprise-browser---using-the-android-headset-as-a-barcode-trigger/</link>
+      <link>https://pietromaggi.com/2018/07/12/enterprise-browser-using-the-android-headset-as-a-barcode-trigger/</link>
       <pubDate>Thu, 12 Jul 2018 18:00:48 +0200</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
-      <guid>https://pietromaggi.com/2018/07/12/enterprise-browser---using-the-android-headset-as-a-barcode-trigger/</guid>
+      <guid>https://pietromaggi.com/2018/07/12/enterprise-browser-using-the-android-headset-as-a-barcode-trigger/</guid>
       <description>What if&amp;hellip;
 you want to use a Zebra&amp;rsquo;s Android device mounted on an arm-mount and you want to control the barcode scanner with a wired button?
 WT6000 is the obvious answer!
@@ -29,10 +29,10 @@ The Android headset connectors Before Apple decided that we don&amp;rsquo;t need
     
     <item>
       <title>Enterprise Browser and DataWedge on Android - friends at the end</title>
-      <link>https://pietromaggi.com/2016/10/29/enterprise-browser-and-datawedge-on-android---friends-at-the-end/</link>
+      <link>https://pietromaggi.com/2016/10/29/enterprise-browser-and-datawedge-on-android-friends-at-the-end/</link>
       <pubDate>Sat, 29 Oct 2016 11:00:00 +0100</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
-      <guid>https://pietromaggi.com/2016/10/29/enterprise-browser-and-datawedge-on-android---friends-at-the-end/</guid>
+      <guid>https://pietromaggi.com/2016/10/29/enterprise-browser-and-datawedge-on-android-friends-at-the-end/</guid>
       <description>During Enterprise Browser hands-on lab, I got some enquiry about using other MobilityDNA utilities together with EB; in particular how to integrate SwipeAssist and Simulscan. These utilities can be integrated, with some heavy lifting, and accepting some constraints.
 Some background The current scanner framework implementation on our Android devices make available a single scanner object that provides full Scanner control. As always &amp;hellip;&amp;laquo;with great power comes great responsibility&amp;raquo;: an application using the scanner object from the Barcode API, is required to release it when it&amp;rsquo;s going in the background (usually you do this handling in the onPause() callback in your native application).</description>
     </item>

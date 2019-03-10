@@ -8,7 +8,7 @@
     <language>en-EN</language>
     <managingEditor>pfm@pietromaggi.com (Pietro F. Maggi)</managingEditor>
     <webMaster>pfm@pietromaggi.com (Pietro F. Maggi)</webMaster>
-    <copyright>(c) 2013-2018 Pietro F. Maggi</copyright>
+    <copyright>(c) 2013-2019 Pietro F. Maggi</copyright>
     <lastBuildDate>Fri, 13 Oct 2017 17:20:00 +0100</lastBuildDate>
     
 	<atom:link href="https://pietromaggi.com/tags/zebra-technologies/index.xml" rel="self" type="application/rss+xml" />
@@ -27,10 +27,10 @@ it happens to me quite a lot and over time I built my little bag of tricks on ho
     
     <item>
       <title>droidcon Berlin 2017 Day 0 - the best Android community event!</title>
-      <link>https://pietromaggi.com/2017/09/10/droidcon-berlin-2017-day-0---the-best-android-community-event/</link>
+      <link>https://pietromaggi.com/2017/09/10/droidcon-berlin-2017-day-0-the-best-android-community-event/</link>
       <pubDate>Sun, 10 Sep 2017 21:00:00 +0100</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
-      <guid>https://pietromaggi.com/2017/09/10/droidcon-berlin-2017-day-0---the-best-android-community-event/</guid>
+      <guid>https://pietromaggi.com/2017/09/10/droidcon-berlin-2017-day-0-the-best-android-community-event/</guid>
       <description>Another year, another droidcon Berlin.
 This year I decided to took some detailed notes. This is the report for the first day, Sunday September 3rd, I&amp;rsquo;ll add a couple of other posts for the main conference days.
 Day 0 - Sunday September 3rd The event this year started on Sunday September 3rd with a barcamp, and a panel on data persistency.
@@ -60,10 +60,10 @@ The problem with the standard immersive mode is that swiping from the bottom or 
     
     <item>
       <title>Enterprise Browser and DataWedge on Android - friends at the end</title>
-      <link>https://pietromaggi.com/2016/10/29/enterprise-browser-and-datawedge-on-android---friends-at-the-end/</link>
+      <link>https://pietromaggi.com/2016/10/29/enterprise-browser-and-datawedge-on-android-friends-at-the-end/</link>
       <pubDate>Sat, 29 Oct 2016 11:00:00 +0100</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
-      <guid>https://pietromaggi.com/2016/10/29/enterprise-browser-and-datawedge-on-android---friends-at-the-end/</guid>
+      <guid>https://pietromaggi.com/2016/10/29/enterprise-browser-and-datawedge-on-android-friends-at-the-end/</guid>
       <description>During Enterprise Browser hands-on lab, I got some enquiry about using other MobilityDNA utilities together with EB; in particular how to integrate SwipeAssist and Simulscan. These utilities can be integrated, with some heavy lifting, and accepting some constraints.
 Some background The current scanner framework implementation on our Android devices make available a single scanner object that provides full Scanner control. As always &amp;hellip;&amp;laquo;with great power comes great responsibility&amp;raquo;: an application using the scanner object from the Barcode API, is required to release it when it&amp;rsquo;s going in the background (usually you do this handling in the onPause() callback in your native application).</description>
     </item>
@@ -93,17 +93,17 @@ There&amp;rsquo;s a workaround that can be used targeting API level 22. In this 
       <pubDate>Mon, 18 Jan 2016 09:00:00 +0100</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2016/01/18/disabling-mc40-home-button-with-a-custom-intent/</guid>
-      <description>Note: I&amp;rsquo;ve published another post that explain how to disable the Home Button on all the Zebra&amp;rsquo;s Android devices that are supported by Mx v4.3+.
+      <description>Note: _I&amp;rsquo;ve published another post that explain how to disable the Home Button on all the Zebra&amp;rsquo;s Android devices that are supported by Mx v4.3+._
 Intro Zebra Technologies&amp;rsquo; devices are purpose built to be single use devices. Having an OS like Android nowadays provides a lot of flexibility&amp;hellip; sometimes a bit too much.
 With this idea in mind, the Android version used on these devices sometimes provide some nice surprise, like an Intent to disable the omnipresent Android&amp;rsquo;s Home button.</description>
     </item>
     
     <item>
       <title>Secondary External Storage in Android KitKat - Part 1</title>
-      <link>https://pietromaggi.com/2016/01/14/secondary-external-storage-in-android-kitkat---part-1/</link>
+      <link>https://pietromaggi.com/2016/01/14/secondary-external-storage-in-android-kitkat-part-1/</link>
       <pubDate>Thu, 14 Jan 2016 23:00:00 +0100</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
-      <guid>https://pietromaggi.com/2016/01/14/secondary-external-storage-in-android-kitkat---part-1/</guid>
+      <guid>https://pietromaggi.com/2016/01/14/secondary-external-storage-in-android-kitkat-part-1/</guid>
       <description>First technical post for 2016. Finally!
 To kick-start 2016 I&amp;rsquo;ve chosen a topic that is more and more relevant in our market: The changes introduced by Google in Android v4.4 KitKat, regarding the secondary storage (the SDCard).
 I&amp;rsquo;ve already talked about this in my AppForum 2015 talk last October in London1, but I want to add some extra info and rationales here.

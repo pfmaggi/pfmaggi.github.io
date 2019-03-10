@@ -8,7 +8,7 @@
     <language>en-EN</language>
     <managingEditor>pfm@pietromaggi.com (Pietro F. Maggi)</managingEditor>
     <webMaster>pfm@pietromaggi.com (Pietro F. Maggi)</webMaster>
-    <copyright>(c) 2013-2018 Pietro F. Maggi</copyright>
+    <copyright>(c) 2013-2019 Pietro F. Maggi</copyright>
     <lastBuildDate>Mon, 18 Jan 2016 09:00:00 +0100</lastBuildDate>
     
 	<atom:link href="https://pietromaggi.com/tags/mc40/index.xml" rel="self" type="application/rss+xml" />
@@ -20,7 +20,7 @@
       <pubDate>Mon, 18 Jan 2016 09:00:00 +0100</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2016/01/18/disabling-mc40-home-button-with-a-custom-intent/</guid>
-      <description>Note: I&amp;rsquo;ve published another post that explain how to disable the Home Button on all the Zebra&amp;rsquo;s Android devices that are supported by Mx v4.3+.
+      <description>Note: _I&amp;rsquo;ve published another post that explain how to disable the Home Button on all the Zebra&amp;rsquo;s Android devices that are supported by Mx v4.3+._
 Intro Zebra Technologies&amp;rsquo; devices are purpose built to be single use devices. Having an OS like Android nowadays provides a lot of flexibility&amp;hellip; sometimes a bit too much.
 With this idea in mind, the Android version used on these devices sometimes provide some nice surprise, like an Intent to disable the omnipresent Android&amp;rsquo;s Home button.</description>
     </item>

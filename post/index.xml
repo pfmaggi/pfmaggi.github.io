@@ -8,7 +8,7 @@
     <language>en-EN</language>
     <managingEditor>pfm@pietromaggi.com (Pietro F. Maggi)</managingEditor>
     <webMaster>pfm@pietromaggi.com (Pietro F. Maggi)</webMaster>
-    <copyright>(c) 2013-2018 Pietro F. Maggi</copyright>
+    <copyright>(c) 2013-2019 Pietro F. Maggi</copyright>
     <lastBuildDate>Thu, 12 Jul 2018 18:00:48 +0200</lastBuildDate>
     
 	<atom:link href="https://pietromaggi.com/post/index.xml" rel="self" type="application/rss+xml" />
@@ -16,10 +16,10 @@
     
     <item>
       <title>Enterprise Browser - Using the Android Headset as a Barcode Trigger</title>
-      <link>https://pietromaggi.com/2018/07/12/enterprise-browser---using-the-android-headset-as-a-barcode-trigger/</link>
+      <link>https://pietromaggi.com/2018/07/12/enterprise-browser-using-the-android-headset-as-a-barcode-trigger/</link>
       <pubDate>Thu, 12 Jul 2018 18:00:48 +0200</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
-      <guid>https://pietromaggi.com/2018/07/12/enterprise-browser---using-the-android-headset-as-a-barcode-trigger/</guid>
+      <guid>https://pietromaggi.com/2018/07/12/enterprise-browser-using-the-android-headset-as-a-barcode-trigger/</guid>
       <description>What if&amp;hellip;
 you want to use a Zebra&amp;rsquo;s Android device mounted on an arm-mount and you want to control the barcode scanner with a wired button?
 WT6000 is the obvious answer!
@@ -29,10 +29,10 @@ The Android headset connectors Before Apple decided that we don&amp;rsquo;t need
     
     <item>
       <title>(Xamarin.Forms &#43; FreshMVVM &#43; DataWedge) take 2</title>
-      <link>https://pietromaggi.com/2018/07/11/xamarin.forms---freshmvvm---datawedge-take-2/</link>
+      <link>https://pietromaggi.com/2018/07/11/xamarin.forms-freshmvvm-datawedge-take-2/</link>
       <pubDate>Wed, 11 Jul 2018 09:00:00 +0200</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
-      <guid>https://pietromaggi.com/2018/07/11/xamarin.forms---freshmvvm---datawedge-take-2/</guid>
+      <guid>https://pietromaggi.com/2018/07/11/xamarin.forms-freshmvvm-datawedge-take-2/</guid>
       <description>Note: the accompanying code is available on GitHub.
 We saw in the last post how to add barcode scanning functionalities to the &amp;laquo;Inventory&amp;raquo; sample application, using DataWedge.
 Today we&amp;rsquo;re going to review that code and refactor it &amp;laquo;just a bit&amp;raquo;. The goal is to make it a bit more modular, adding some flexibility to how we manage the barcode. In particular we want to have these features in our app:</description>
@@ -40,10 +40,10 @@ Today we&amp;rsquo;re going to review that code and refactor it &amp;laquo;just 
     
     <item>
       <title>Xamarin.Forms &#43; FreshMVVM &#43; DataWedge = 💖</title>
-      <link>https://pietromaggi.com/2018/07/07/xamarin.forms---freshmvvm---datawedge--/</link>
+      <link>https://pietromaggi.com/2018/07/07/xamarin.forms-freshmvvm-datawedge/</link>
       <pubDate>Sat, 07 Jul 2018 09:00:00 +0200</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
-      <guid>https://pietromaggi.com/2018/07/07/xamarin.forms---freshmvvm---datawedge--/</guid>
+      <guid>https://pietromaggi.com/2018/07/07/xamarin.forms-freshmvvm-datawedge/</guid>
       <description>Note: the accompanying code is available on GitHub.
 The topic for today is how to add barcode scanning functionalities to the &amp;laquo;Inventory&amp;raquo; sample application we built in the previous post about Xamarin.Forms and FreshMVVM.
 To integrate barcode scanning functionalities we&amp;rsquo;ve different options:
@@ -52,10 +52,10 @@ To integrate barcode scanning functionalities we&amp;rsquo;ve different options:
     
     <item>
       <title>Xamarin.Forms &#43; FreshMVVM for enterprise applications</title>
-      <link>https://pietromaggi.com/2018/07/04/xamarin.forms---freshmvvm-for-enterprise-applications/</link>
+      <link>https://pietromaggi.com/2018/07/04/xamarin.forms-freshmvvm-for-enterprise-applications/</link>
       <pubDate>Wed, 04 Jul 2018 09:00:00 +0200</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
-      <guid>https://pietromaggi.com/2018/07/04/xamarin.forms---freshmvvm-for-enterprise-applications/</guid>
+      <guid>https://pietromaggi.com/2018/07/04/xamarin.forms-freshmvvm-for-enterprise-applications/</guid>
       <description>Note: the accompanying code is available on GitHub.
 As I wrote in my previous post:
  Summer is the perfect time for some cleanup, and I&amp;rsquo;ve some older content laying around my laptop that is about time I publish! I&amp;rsquo;m planning to cover some long-standing argument that I&amp;rsquo;ve touched over the last few years as Zebra&amp;rsquo;s EMEA Software Consultant.
@@ -76,20 +76,20 @@ Years ago we had some posts on the EMDK discussion forum about some instability 
     
     <item>
       <title>Here be Dragons - The Enterprise Mobile Security Journey</title>
-      <link>https://pietromaggi.com/2018/04/14/here-be-dragons---the-enterprise-mobile-security-journey/</link>
+      <link>https://pietromaggi.com/2018/04/14/here-be-dragons-the-enterprise-mobile-security-journey/</link>
       <pubDate>Sat, 14 Apr 2018 21:30:48 +0100</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
-      <guid>https://pietromaggi.com/2018/04/14/here-be-dragons---the-enterprise-mobile-security-journey/</guid>
+      <guid>https://pietromaggi.com/2018/04/14/here-be-dragons-the-enterprise-mobile-security-journey/</guid>
       <description>Note:
 This blog started out as a series of notes for a talk I&#39;ve presented in April 2018 at a couple of events (Droidcon Dubai and Droidcon Turin) with my Zebra Technologies hat. Feel free to provide comments and feedback.  Looking at what is trendy at technology conferences, you can find a lot of talks about JavaScript frameworks or [functional|concatenative|multi-paradigm] programming languages, so when I started to work on my new talk I felt that I had to explain the title a little bit.</description>
     </item>
     
     <item>
       <title>Enterprise Browser - Modernizing web applications</title>
-      <link>https://pietromaggi.com/2018/03/21/enterprise-browser---modernizing-web-applications/</link>
+      <link>https://pietromaggi.com/2018/03/21/enterprise-browser-modernizing-web-applications/</link>
       <pubDate>Wed, 21 Mar 2018 21:30:48 +0100</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
-      <guid>https://pietromaggi.com/2018/03/21/enterprise-browser---modernizing-web-applications/</guid>
+      <guid>https://pietromaggi.com/2018/03/21/enterprise-browser-modernizing-web-applications/</guid>
       <description>Note: This blog describe the content presented during Zebra Technologies&amp;rsquo; DEVTALK recorded March 21st 2018 about Enterprise Browser. You can find a recording of the presentation on Zebra&amp;rsquo;s Developer Portal.
 Modernize Web Application  Enterprise Browser is not just a browser, it&amp;rsquo;s a business enabler that Symbol, Motorola, Motorola Solutions and now Zebra has developed over the last 15 years.
  
@@ -120,10 +120,10 @@ it happens to me quite a lot and over time I built my little bag of tricks on ho
     
     <item>
       <title>droidcon Berlin 2017 Day 0 - the best Android community event!</title>
-      <link>https://pietromaggi.com/2017/09/10/droidcon-berlin-2017-day-0---the-best-android-community-event/</link>
+      <link>https://pietromaggi.com/2017/09/10/droidcon-berlin-2017-day-0-the-best-android-community-event/</link>
       <pubDate>Sun, 10 Sep 2017 21:00:00 +0100</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
-      <guid>https://pietromaggi.com/2017/09/10/droidcon-berlin-2017-day-0---the-best-android-community-event/</guid>
+      <guid>https://pietromaggi.com/2017/09/10/droidcon-berlin-2017-day-0-the-best-android-community-event/</guid>
       <description>Another year, another droidcon Berlin.
 This year I decided to took some detailed notes. This is the report for the first day, Sunday September 3rd, I&amp;rsquo;ll add a couple of other posts for the main conference days.
 Day 0 - Sunday September 3rd The event this year started on Sunday September 3rd with a barcamp, and a panel on data persistency.
@@ -153,10 +153,10 @@ The problem with the standard immersive mode is that swiping from the bottom or 
     
     <item>
       <title>Enterprise Browser and DataWedge on Android - friends at the end</title>
-      <link>https://pietromaggi.com/2016/10/29/enterprise-browser-and-datawedge-on-android---friends-at-the-end/</link>
+      <link>https://pietromaggi.com/2016/10/29/enterprise-browser-and-datawedge-on-android-friends-at-the-end/</link>
       <pubDate>Sat, 29 Oct 2016 11:00:00 +0100</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
-      <guid>https://pietromaggi.com/2016/10/29/enterprise-browser-and-datawedge-on-android---friends-at-the-end/</guid>
+      <guid>https://pietromaggi.com/2016/10/29/enterprise-browser-and-datawedge-on-android-friends-at-the-end/</guid>
       <description>During Enterprise Browser hands-on lab, I got some enquiry about using other MobilityDNA utilities together with EB; in particular how to integrate SwipeAssist and Simulscan. These utilities can be integrated, with some heavy lifting, and accepting some constraints.
 Some background The current scanner framework implementation on our Android devices make available a single scanner object that provides full Scanner control. As always &amp;hellip;&amp;laquo;with great power comes great responsibility&amp;raquo;: an application using the scanner object from the Barcode API, is required to release it when it&amp;rsquo;s going in the background (usually you do this handling in the onPause() callback in your native application).</description>
     </item>
@@ -186,17 +186,17 @@ There&amp;rsquo;s a workaround that can be used targeting API level 22. In this 
       <pubDate>Mon, 18 Jan 2016 09:00:00 +0100</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2016/01/18/disabling-mc40-home-button-with-a-custom-intent/</guid>
-      <description>Note: I&amp;rsquo;ve published another post that explain how to disable the Home Button on all the Zebra&amp;rsquo;s Android devices that are supported by Mx v4.3+.
+      <description>Note: _I&amp;rsquo;ve published another post that explain how to disable the Home Button on all the Zebra&amp;rsquo;s Android devices that are supported by Mx v4.3+._
 Intro Zebra Technologies&amp;rsquo; devices are purpose built to be single use devices. Having an OS like Android nowadays provides a lot of flexibility&amp;hellip; sometimes a bit too much.
 With this idea in mind, the Android version used on these devices sometimes provide some nice surprise, like an Intent to disable the omnipresent Android&amp;rsquo;s Home button.</description>
     </item>
     
     <item>
       <title>Secondary External Storage in Android KitKat - Part 1</title>
-      <link>https://pietromaggi.com/2016/01/14/secondary-external-storage-in-android-kitkat---part-1/</link>
+      <link>https://pietromaggi.com/2016/01/14/secondary-external-storage-in-android-kitkat-part-1/</link>
       <pubDate>Thu, 14 Jan 2016 23:00:00 +0100</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
-      <guid>https://pietromaggi.com/2016/01/14/secondary-external-storage-in-android-kitkat---part-1/</guid>
+      <guid>https://pietromaggi.com/2016/01/14/secondary-external-storage-in-android-kitkat-part-1/</guid>
       <description>First technical post for 2016. Finally!
 To kick-start 2016 I&amp;rsquo;ve chosen a topic that is more and more relevant in our market: The changes introduced by Google in Android v4.4 KitKat, regarding the secondary storage (the SDCard).
 I&amp;rsquo;ve already talked about this in my AppForum 2015 talk last October in London1, but I want to add some extra info and rationales here.
@@ -324,10 +324,10 @@ I&amp;rsquo;ve started doing my &amp;laquo;RhoMobile Developer Roadshow&amp;raqu
     
     <item>
       <title>Rhodes tips &amp; tricks</title>
-      <link>https://pietromaggi.com/2013/12/30/rhodes-tips--tricks/</link>
+      <link>https://pietromaggi.com/2013/12/30/rhodes-tips-tricks/</link>
       <pubDate>Mon, 30 Dec 2013 13:56:04 +0100</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
-      <guid>https://pietromaggi.com/2013/12/30/rhodes-tips--tricks/</guid>
+      <guid>https://pietromaggi.com/2013/12/30/rhodes-tips-tricks/</guid>
       <description>How to rebuild the rhodes gem git clone https://github.com/rhomobile/rhodes.git cd rhodes git checkout 3-5-stable  make and commit changes if needed, then:
 rm -rf * git reset --hard git pull  Otherwise directly
 rake gem  Copy files where you need it (on a different machine) gem install -l rhodes-3.5.1.13.2 (version given as an example)

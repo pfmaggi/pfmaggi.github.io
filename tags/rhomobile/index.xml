@@ -8,7 +8,7 @@
     <language>en-EN</language>
     <managingEditor>pfm@pietromaggi.com (Pietro F. Maggi)</managingEditor>
     <webMaster>pfm@pietromaggi.com (Pietro F. Maggi)</webMaster>
-    <copyright>(c) 2013-2018 Pietro F. Maggi</copyright>
+    <copyright>(c) 2013-2019 Pietro F. Maggi</copyright>
     <lastBuildDate>Fri, 22 Aug 2014 13:01:48 +0200</lastBuildDate>
     
 	<atom:link href="https://pietromaggi.com/tags/rhomobile/index.xml" rel="self" type="application/rss+xml" />
@@ -37,10 +37,10 @@ In this post I&amp;rsquo;d like to help you installing RMSv5.0 on a new OS X Mav
     
     <item>
       <title>Rhodes tips &amp; tricks</title>
-      <link>https://pietromaggi.com/2013/12/30/rhodes-tips--tricks/</link>
+      <link>https://pietromaggi.com/2013/12/30/rhodes-tips-tricks/</link>
       <pubDate>Mon, 30 Dec 2013 13:56:04 +0100</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
-      <guid>https://pietromaggi.com/2013/12/30/rhodes-tips--tricks/</guid>
+      <guid>https://pietromaggi.com/2013/12/30/rhodes-tips-tricks/</guid>
       <description>How to rebuild the rhodes gem git clone https://github.com/rhomobile/rhodes.git cd rhodes git checkout 3-5-stable  make and commit changes if needed, then:
 rm -rf * git reset --hard git pull  Otherwise directly
 rake gem  Copy files where you need it (on a different machine) gem install -l rhodes-3.5.1.13.2 (version given as an example)
