@@ -32,9 +32,10 @@ Years ago we had some posts on the EMDK discussion forum about some instability 
       <pubDate>Wed, 25 Nov 2015 09:54:55 +0100</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2015/11/25/building-zebras-emdk-project-using-sdk-platform-23/</guid>
-      <description>Note: EMDK 4.0 is now documenting this method to add com.symbol.emdk.jar as a dependency There&amp;rsquo;s a recurring question coming to me and to Launchpad&amp;rsquo;s forums lately:
+      <description>2019 Update This post is now obsolete. Please refer to Zebra&amp;rsquo;s EMDK documentation on best practices to use the EMDK.
+Note: EMDK 4.0 is now documenting this method to add com.symbol.emdk.jar as a dependency There&amp;rsquo;s a recurring question coming to me and to Launchpad&amp;rsquo;s forums lately:
 How can I compile my Android app, using Zebra&amp;rsquo;s EMDK, if I need the latest support library?
-Some background With the Android tools moving super-fast (Android studio v1.0 launched at the beginning of 2015, the latest stable release is v1.4.1, we already have v1.</description>
+Some background With the Android tools moving super-fast (Android studio v1.</description>
     </item>
     
   </channel>

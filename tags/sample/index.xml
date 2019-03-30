@@ -40,9 +40,10 @@ With this idea in mind, the Android version used on these devices sometimes prov
       <pubDate>Wed, 25 Nov 2015 09:54:55 +0100</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2015/11/25/building-zebras-emdk-project-using-sdk-platform-23/</guid>
-      <description>Note: EMDK 4.0 is now documenting this method to add com.symbol.emdk.jar as a dependency There&amp;rsquo;s a recurring question coming to me and to Launchpad&amp;rsquo;s forums lately:
+      <description>2019 Update This post is now obsolete. Please refer to Zebra&amp;rsquo;s EMDK documentation on best practices to use the EMDK.
+Note: EMDK 4.0 is now documenting this method to add com.symbol.emdk.jar as a dependency There&amp;rsquo;s a recurring question coming to me and to Launchpad&amp;rsquo;s forums lately:
 How can I compile my Android app, using Zebra&amp;rsquo;s EMDK, if I need the latest support library?
-Some background With the Android tools moving super-fast (Android studio v1.0 launched at the beginning of 2015, the latest stable release is v1.4.1, we already have v1.</description>
+Some background With the Android tools moving super-fast (Android studio v1.</description>
     </item>
     
     <item>
@@ -51,11 +52,10 @@ Some background With the Android tools moving super-fast (Android studio v1.0 la
       <pubDate>Sun, 19 Oct 2014 20:55:18 +0200</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2014/10/19/finding-the-sdcard-path-on-android-devices/</guid>
-      <description>With Motorola Solutions we&amp;rsquo;re busy finishing the first round of Android Developer&amp;rsquo;s Kitchens around Europe. Just in time to prepare for the Enterprise App Forum in Brussels!.
+      <description>2019 Update The information in this post are obsolete. Please refer to the Android documentation for updates on this topic.
+With Motorola Solutions we&amp;rsquo;re busy finishing the first round of Android Developer&amp;rsquo;s Kitchens around Europe. Just in time to prepare for the Enterprise App Forum in Brussels!.
 The nice things of these events is the interaction with our partners and theirs real live problem!
-Last week I got an interesting question regarding our TC55:
-How can I programmatically get the path for the SDCard on the TC55?
-That&amp;rsquo;s a good question; usually you don&amp;rsquo;t want to insert in your code the dependency to an hard coded path!</description>
+Last week I got an interesting question regarding our TC55:</description>
     </item>
     
     <item>
@@ -64,9 +64,9 @@ That&amp;rsquo;s a good question; usually you don&amp;rsquo;t want to insert in 
       <pubDate>Tue, 02 Sep 2014 11:56:38 +0200</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2014/09/02/getting-device-info-from-msi-android-devices/</guid>
-      <description>The good old ways! On Symbol/MSI Windows Mobile devices, we where providing some APIs in the EMDK to get additional information. Looking into the Resource Coordinator is possible to find APIs like:
- RCM_GetESN() - retrieves the device electronic serial number RCM_GetUniqueUnitId() - retrieves the unique unit identification number RCM_GetVersion() - retrieves version information etc&amp;hellip;  &amp;hellip;and we don&amp;rsquo;t have anything like this in the Android EMDK. WHY?
-Simply because the functionality is already included in the standard Android SDK.</description>
+      <description>2019 Update The information in this post are obsolete. Please refer to the Android documentation for updates on this topic.
+The good old ways! On Symbol/MSI Windows Mobile devices, we where providing some APIs in the EMDK to get additional information. Looking into the Resource Coordinator is possible to find APIs like:
+ RCM_GetESN() - retrieves the device electronic serial number RCM_GetUniqueUnitId() - retrieves the unique unit identification number RCM_GetVersion() - retrieves version information etc&amp;hellip;  &amp;hellip;and we don&amp;rsquo;t have anything like this in the Android EMDK.</description>
     </item>
     
   </channel>

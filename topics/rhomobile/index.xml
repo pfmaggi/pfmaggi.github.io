@@ -20,7 +20,8 @@
       <pubDate>Fri, 22 Aug 2014 13:01:48 +0200</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2014/08/22/rhodes-5.0.2-and-visual-studio-2008-localized-edition/</guid>
-      <description>Oh the joy of a new RhoMobile version!
+      <description>2019 Update The information in this post are obsolete. Please refer to the official RhoMobile documentation for best practices and setup guide.
+Oh the joy of a new RhoMobile version!
 Creating new virtual machines and finally deciding that is time to leave the old trusty Windows XP and jump on the new Windows 7 with 63+1 bits. Oh man! what a pleasant use of time :-)
 On top of this I wanted to spin the setup a bit and decided to use a localized version of Visual Studio 2008&amp;hellip; what can go wrong with it?</description>
     </item>
@@ -31,7 +32,8 @@ On top of this I wanted to spin the setup a bit and decided to use a localized v
       <pubDate>Mon, 11 Aug 2014 09:57:10 +0200</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2014/08/11/configuring-rhomobile-suite-v5.0-on-a-clean-os-x-mavericks-machine/</guid>
-      <description>RhoMobile Suite v5.0 The new main release of Rhodes, RhoElements and RhoConnect had just been released a couple of weeks ago during OSCON. It&amp;rsquo;s now time to install it and start building some mobile apps!
+      <description>2019 Update The information in this post are obsolete. Please refer to the official RhoMobile documentation for best practices and setup guide.
+RhoMobile Suite v5.0 The new main release of Rhodes, RhoElements and RhoConnect had just been released a couple of weeks ago during OSCON. It&amp;rsquo;s now time to install it and start building some mobile apps!
 In this post I&amp;rsquo;d like to help you installing RMSv5.0 on a new OS X Mavericks machine and install everything that is needed to build iOS and Android applications, the only pre-requisite is to have a valid OS X Mavericks license installed on a Mac or inside a virtual machine&amp;hellip; on a Mac :-).</description>
     </item>
     

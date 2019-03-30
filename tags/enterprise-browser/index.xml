@@ -43,10 +43,10 @@ Some background The current scanner framework implementation on our Android devi
       <pubDate>Fri, 25 Sep 2015 11:33:11 +0200</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2015/09/25/android-back-button-and-enterprise-browser/</guid>
-      <description>Edit Enteprise Browser v1.3 introduced a change that requires to enable FunctionKeysCapturable to be able to use the KeyCapture API.
+      <description>2019 Update This post is now obsolete. Enterprise Browser has new APIs to cover this use case, please refer to its documentation for updates.
+Edit Enteprise Browser v1.3 introduced a change that requires to enable FunctionKeysCapturable to be able to use the KeyCapture API.
 To do this you need to update your Config.xml with:
-&amp;lt;FunctionKeysCapturable value=&amp;quot;1&amp;quot;/&amp;gt;  Enterprise Browser Enterprise Browser is Zebra Technologies&amp;rsquo; Industrial Browser built for our Rugged Devices, we support most of our Windows Mobile/Windows CE devices and Android devices.
-This product is usually used with existing web application that cannot be updated/modified moving from one device to another.</description>
+&amp;lt;FunctionKeysCapturable value=&amp;quot;1&amp;quot;/&amp;gt;  Enterprise Browser Enterprise Browser is Zebra Technologies&amp;rsquo; Industrial Browser built for our Rugged Devices, we support most of our Windows Mobile/Windows CE devices and Android devices.</description>
     </item>
     
   </channel>

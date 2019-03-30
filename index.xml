@@ -145,9 +145,10 @@ Being there for setting up the booth in the morning I pitched a talk about &amp;
       <pubDate>Tue, 08 Aug 2017 17:20:00 +0100</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2017/08/08/using-android-sdk.dir-property-to-locate-emdks-jar-library./</guid>
-      <description>Note this post has been published on Zebra developer portal, if you&amp;rsquo;ve any comment, probably best to post them over there.
+      <description>2019 Update This post is now obsolete. Please refer to Zebra&amp;rsquo;s EMDK documentation for updated information.
+Note this post has been published on Zebra developer portal, if you&amp;rsquo;ve any comment, probably best to post them over there.
 Working in Android Studio you can notice that every project contains a local.properties file with at least a couple of properties containing the path for Android SDK and Android NDK.
-Android Studio populates this information when it creates the project based on the ANDROID_HOME environment variable. If this variable is not present in your system Android Studio will find the correct path in other ways, but having ANDROID_HOME setup correctly is a really good idea, see the note at the end of this short post.</description>
+Android Studio populates this information when it creates the project based on the ANDROID_HOME environment variable.</description>
     </item>
     
     <item>
@@ -185,7 +186,8 @@ Some background The current scanner framework implementation on our Android devi
       <pubDate>Tue, 07 Jun 2016 20:00:00 +0100</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2016/06/07/managing-display-autorotation-from-stagenow/</guid>
-      <description>Edit: Changes in API level 23 and newer make impossible for normal application to modify the autorotate setting The application presented in this blog uses the android.permission.WRITE_SETTINGS that, starting from Android v6.0 Marshmallow (API level 23), requires the application to be system or signed to be able to run without user intervention.
+      <description>Edit: Changes in API level 23 and newer make impossible for normal application to modify the autorotate setting.
+The application presented in this blog uses the android.permission.WRITE_SETTINGS that, starting from Android v6.0 Marshmallow (API level 23), requires the application to be system or signed to be able to run without user intervention.
 There&amp;rsquo;s a workaround that can be used targeting API level 22. In this way the application can still use the old permission model and it can write into the settings.</description>
     </item>
     
@@ -206,10 +208,10 @@ With this idea in mind, the Android version used on these devices sometimes prov
       <pubDate>Thu, 14 Jan 2016 23:00:00 +0100</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2016/01/14/secondary-external-storage-in-android-kitkat-part-1/</guid>
-      <description>First technical post for 2016. Finally!
+      <description>2019 Update The information in this post are obsolete. Please refer to the Android documentation for updates on this topic.
+First technical post for 2016. Finally!
 To kick-start 2016 I&amp;rsquo;ve chosen a topic that is more and more relevant in our market: The changes introduced by Google in Android v4.4 KitKat, regarding the secondary storage (the SDCard).
-I&amp;rsquo;ve already talked about this in my AppForum 2015 talk last October in London1, but I want to add some extra info and rationales here.
-A bit of background Android&amp;rsquo;s purpose is to establish an open platform for developers to build innovative apps.</description>
+I&amp;rsquo;ve already talked about this in my AppForum 2015 talk last October in London1, but I want to add some extra info and rationales here.</description>
     </item>
     
     <item>
@@ -242,9 +244,10 @@ New year new static blog generator. Given that I want to spend some time evaluat
       <pubDate>Wed, 25 Nov 2015 09:54:55 +0100</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2015/11/25/building-zebras-emdk-project-using-sdk-platform-23/</guid>
-      <description>Note: EMDK 4.0 is now documenting this method to add com.symbol.emdk.jar as a dependency There&amp;rsquo;s a recurring question coming to me and to Launchpad&amp;rsquo;s forums lately:
+      <description>2019 Update This post is now obsolete. Please refer to Zebra&amp;rsquo;s EMDK documentation on best practices to use the EMDK.
+Note: EMDK 4.0 is now documenting this method to add com.symbol.emdk.jar as a dependency There&amp;rsquo;s a recurring question coming to me and to Launchpad&amp;rsquo;s forums lately:
 How can I compile my Android app, using Zebra&amp;rsquo;s EMDK, if I need the latest support library?
-Some background With the Android tools moving super-fast (Android studio v1.0 launched at the beginning of 2015, the latest stable release is v1.4.1, we already have v1.</description>
+Some background With the Android tools moving super-fast (Android studio v1.</description>
     </item>
     
     <item>
@@ -263,10 +266,10 @@ Mobile Barcode Scanning API Status An analysis of barcode scanning API status on
       <pubDate>Fri, 25 Sep 2015 11:33:11 +0200</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2015/09/25/android-back-button-and-enterprise-browser/</guid>
-      <description>Edit Enteprise Browser v1.3 introduced a change that requires to enable FunctionKeysCapturable to be able to use the KeyCapture API.
+      <description>2019 Update This post is now obsolete. Enterprise Browser has new APIs to cover this use case, please refer to its documentation for updates.
+Edit Enteprise Browser v1.3 introduced a change that requires to enable FunctionKeysCapturable to be able to use the KeyCapture API.
 To do this you need to update your Config.xml with:
-&amp;lt;FunctionKeysCapturable value=&amp;quot;1&amp;quot;/&amp;gt;  Enterprise Browser Enterprise Browser is Zebra Technologies&amp;rsquo; Industrial Browser built for our Rugged Devices, we support most of our Windows Mobile/Windows CE devices and Android devices.
-This product is usually used with existing web application that cannot be updated/modified moving from one device to another.</description>
+&amp;lt;FunctionKeysCapturable value=&amp;quot;1&amp;quot;/&amp;gt;  Enterprise Browser Enterprise Browser is Zebra Technologies&amp;rsquo; Industrial Browser built for our Rugged Devices, we support most of our Windows Mobile/Windows CE devices and Android devices.</description>
     </item>
     
     <item>
@@ -275,11 +278,10 @@ This product is usually used with existing web application that cannot be update
       <pubDate>Sun, 19 Oct 2014 20:55:18 +0200</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2014/10/19/finding-the-sdcard-path-on-android-devices/</guid>
-      <description>With Motorola Solutions we&amp;rsquo;re busy finishing the first round of Android Developer&amp;rsquo;s Kitchens around Europe. Just in time to prepare for the Enterprise App Forum in Brussels!.
+      <description>2019 Update The information in this post are obsolete. Please refer to the Android documentation for updates on this topic.
+With Motorola Solutions we&amp;rsquo;re busy finishing the first round of Android Developer&amp;rsquo;s Kitchens around Europe. Just in time to prepare for the Enterprise App Forum in Brussels!.
 The nice things of these events is the interaction with our partners and theirs real live problem!
-Last week I got an interesting question regarding our TC55:
-How can I programmatically get the path for the SDCard on the TC55?
-That&amp;rsquo;s a good question; usually you don&amp;rsquo;t want to insert in your code the dependency to an hard coded path!</description>
+Last week I got an interesting question regarding our TC55:</description>
     </item>
     
     <item>
@@ -288,9 +290,9 @@ That&amp;rsquo;s a good question; usually you don&amp;rsquo;t want to insert in 
       <pubDate>Tue, 02 Sep 2014 11:56:38 +0200</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2014/09/02/getting-device-info-from-msi-android-devices/</guid>
-      <description>The good old ways! On Symbol/MSI Windows Mobile devices, we where providing some APIs in the EMDK to get additional information. Looking into the Resource Coordinator is possible to find APIs like:
- RCM_GetESN() - retrieves the device electronic serial number RCM_GetUniqueUnitId() - retrieves the unique unit identification number RCM_GetVersion() - retrieves version information etc&amp;hellip;  &amp;hellip;and we don&amp;rsquo;t have anything like this in the Android EMDK. WHY?
-Simply because the functionality is already included in the standard Android SDK.</description>
+      <description>2019 Update The information in this post are obsolete. Please refer to the Android documentation for updates on this topic.
+The good old ways! On Symbol/MSI Windows Mobile devices, we where providing some APIs in the EMDK to get additional information. Looking into the Resource Coordinator is possible to find APIs like:
+ RCM_GetESN() - retrieves the device electronic serial number RCM_GetUniqueUnitId() - retrieves the unique unit identification number RCM_GetVersion() - retrieves version information etc&amp;hellip;  &amp;hellip;and we don&amp;rsquo;t have anything like this in the Android EMDK.</description>
     </item>
     
     <item>
@@ -299,7 +301,8 @@ Simply because the functionality is already included in the standard Android SDK
       <pubDate>Fri, 22 Aug 2014 13:01:48 +0200</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2014/08/22/rhodes-5.0.2-and-visual-studio-2008-localized-edition/</guid>
-      <description>Oh the joy of a new RhoMobile version!
+      <description>2019 Update The information in this post are obsolete. Please refer to the official RhoMobile documentation for best practices and setup guide.
+Oh the joy of a new RhoMobile version!
 Creating new virtual machines and finally deciding that is time to leave the old trusty Windows XP and jump on the new Windows 7 with 63+1 bits. Oh man! what a pleasant use of time :-)
 On top of this I wanted to spin the setup a bit and decided to use a localized version of Visual Studio 2008&amp;hellip; what can go wrong with it?</description>
     </item>
@@ -310,7 +313,8 @@ On top of this I wanted to spin the setup a bit and decided to use a localized v
       <pubDate>Mon, 11 Aug 2014 09:57:10 +0200</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2014/08/11/configuring-rhomobile-suite-v5.0-on-a-clean-os-x-mavericks-machine/</guid>
-      <description>RhoMobile Suite v5.0 The new main release of Rhodes, RhoElements and RhoConnect had just been released a couple of weeks ago during OSCON. It&amp;rsquo;s now time to install it and start building some mobile apps!
+      <description>2019 Update The information in this post are obsolete. Please refer to the official RhoMobile documentation for best practices and setup guide.
+RhoMobile Suite v5.0 The new main release of Rhodes, RhoElements and RhoConnect had just been released a couple of weeks ago during OSCON. It&amp;rsquo;s now time to install it and start building some mobile apps!
 In this post I&amp;rsquo;d like to help you installing RMSv5.0 on a new OS X Mavericks machine and install everything that is needed to build iOS and Android applications, the only pre-requisite is to have a valid OS X Mavericks license installed on a Mac or inside a virtual machine&amp;hellip; on a Mac :-).</description>
     </item>
     
@@ -372,7 +376,8 @@ Rhodes Database encryption Rhodes uses SQLite as database engine on all the supp
       <pubDate>Sun, 29 Dec 2013 17:24:54 +0100</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2013/12/29/ruby-version-manager-aka-rvm-the-swiss-army-knife-of-ruby-versions/</guid>
-      <description>How many versions of Ruby do you need on your machine? Even if OS X 10.9 Mavericks came with Ruby v2.0.0-p195, the previous OS X versions where released with Ruby v1.8.7. On top of this, most of the work I do with Rhodes is still based on Ruby v1.9.3. And Ruby v2.1.0 has just been released! with some nice changes. Particularly interesting in Ruby v2.1 is the new Garbage Collector</description>
+      <description>2019 Update This information are obsolete. Please refer to RVM and Ruby&amp;rsquo;s documentation for modern best practices. This worked for me long time ago.
+How many versions of Ruby do you need on your machine? Even if OS X 10.9 Mavericks came with Ruby v2.0.0-p195, the previous OS X versions where released with Ruby v1.8.7. On top of this, most of the work I do with Rhodes is still based on Ruby v1.</description>
     </item>
     
     <item>

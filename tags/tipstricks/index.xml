@@ -31,9 +31,10 @@ it happens to me quite a lot and over time I built my little bag of tricks on ho
       <pubDate>Tue, 08 Aug 2017 17:20:00 +0100</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2017/08/08/using-android-sdk.dir-property-to-locate-emdks-jar-library./</guid>
-      <description>Note this post has been published on Zebra developer portal, if you&amp;rsquo;ve any comment, probably best to post them over there.
+      <description>2019 Update This post is now obsolete. Please refer to Zebra&amp;rsquo;s EMDK documentation for updated information.
+Note this post has been published on Zebra developer portal, if you&amp;rsquo;ve any comment, probably best to post them over there.
 Working in Android Studio you can notice that every project contains a local.properties file with at least a couple of properties containing the path for Android SDK and Android NDK.
-Android Studio populates this information when it creates the project based on the ANDROID_HOME environment variable. If this variable is not present in your system Android Studio will find the correct path in other ways, but having ANDROID_HOME setup correctly is a really good idea, see the note at the end of this short post.</description>
+Android Studio populates this information when it creates the project based on the ANDROID_HOME environment variable.</description>
     </item>
     
   </channel>

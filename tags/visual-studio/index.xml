@@ -20,7 +20,8 @@
       <pubDate>Fri, 22 Aug 2014 13:01:48 +0200</pubDate>
       <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2014/08/22/rhodes-5.0.2-and-visual-studio-2008-localized-edition/</guid>
-      <description>Oh the joy of a new RhoMobile version!
+      <description>2019 Update The information in this post are obsolete. Please refer to the official RhoMobile documentation for best practices and setup guide.
+Oh the joy of a new RhoMobile version!
 Creating new virtual machines and finally deciding that is time to leave the old trusty Windows XP and jump on the new Windows 7 with 63+1 bits. Oh man! what a pleasant use of time :-)
 On top of this I wanted to spin the setup a bit and decided to use a localized version of Visual Studio 2008&amp;hellip; what can go wrong with it?</description>
     </item>
