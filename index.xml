@@ -8,7 +8,16 @@
     <language>en-EN</language>
     <managingEditor>blog@pietromaggi.com (Pietro F. Maggi)</managingEditor>
     <webMaster>blog@pietromaggi.com (Pietro F. Maggi)</webMaster>
-    <lastBuildDate>Thu, 12 Jul 2018 18:00:48 +0200</lastBuildDate><atom:link href="https://pietromaggi.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 08 Nov 2020 19:00:00 +0100</lastBuildDate><atom:link href="https://pietromaggi.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Boox Max 3 as a Raspberry Pi monitor</title>
+      <link>https://pietromaggi.com/2020/11/08/boox-max-3-as-a-raspberry-pi-monitor/</link>
+      <pubDate>Sun, 08 Nov 2020 19:00:00 +0100</pubDate>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
+      <guid>https://pietromaggi.com/2020/11/08/boox-max-3-as-a-raspberry-pi-monitor/</guid>
+      <description>Boox Max 3 can be used as a HDMI monitor, let&amp;rsquo;s see how to configure RaspberryPiOS to use this eInk panel as a console monitor.</description>
+    </item>
+    
     <item>
       <title>Enterprise Browser - Using the Android Headset as a Barcode Trigger</title>
       <link>https://pietromaggi.com/2018/07/12/enterprise-browser-using-the-android-headset-as-a-barcode-trigger/</link>

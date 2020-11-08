@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Boox Max 3 as a Raspberry Pi monitor - </title>
+  <meta name="description" content="Boox Max 3 can be used as a HDMI monitor, let&rsquo;s see how to configure RaspberryPiOS to use this eInk panel as a console monitor.">
+  <meta name="author" content="Pietro F. Maggi"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "",
+    
+    "url": "https:\/\/pietromaggi.com\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/pietromaggi.com\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/pietromaggi.com\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/pietromaggi.com\/2020\/11\/08\/boox-max-3-as-a-raspberry-pi-monitor\/",
+          "name": "Boox max 3 as a raspberry pi monitor"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Pietro F. Maggi"
+  },
+  "headline": "Boox Max 3 as a Raspberry Pi monitor",
+  "description" : "Boox Max 3 can be used as a HDMI monitor, let\u0026rsquo;s see how to configure RaspberryPiOS to use this eInk panel as a console monitor.",
+  "inLanguage" : "en",
+  "wordCount":  905 ,
+  "datePublished" : "2020-11-08T19:00:00",
+  "dateModified" : "2020-11-08T19:00:00",
+  "image" : "https:\/\/pietromaggi.com\/images\/pfm.png",
+  "keywords" : [ "RaspberryPi, Boox, eInk, Linux" ],
+  "mainEntityOfPage" : "https:\/\/pietromaggi.com\/2020\/11\/08\/boox-max-3-as-a-raspberry-pi-monitor\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/pietromaggi.com\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/pietromaggi.com\/images\/pfm.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="Boox Max 3 as a Raspberry Pi monitor" />
+<meta property="og:description" content="Boox Max 3 can be used as a HDMI monitor, let&rsquo;s see how to configure RaspberryPiOS to use this eInk panel as a console monitor.">
+<meta property="og:image" content="https://pietromaggi.com/images/pfm.png" />
+<meta property="og:url" content="https://pietromaggi.com/2020/11/08/boox-max-3-as-a-raspberry-pi-monitor/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="" />
+
+  <meta name="twitter:title" content="Boox Max 3 as a Raspberry Pi monitor" />
+  <meta name="twitter:description" content="Boox Max 3 can be used as a HDMI monitor, let&rsquo;s see how to configure RaspberryPiOS to use this eInk panel as a console monitor.">
+  <meta name="twitter:image" content="https://pietromaggi.com/images/pfm.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@pfmaggi" />
+  <meta name="twitter:creator" content="@pfmaggi" />
+  <link href='https://pietromaggi.com/images/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.78.1" />
+  <link rel="alternate" href="https://pietromaggi.com/index.xml" type="application/rss+xml" title=""><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://pietromaggi.com/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" /><link rel="stylesheet" href="https://pietromaggi.com/css/syntax.css" /><link rel="stylesheet" href="https://pietromaggi.com/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://pietromaggi.com/"></a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Home" href="/">Home</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Decks" href="/page/decks">Decks</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="" href="https://pietromaggi.com/">
+            <img class="avatar-img" src="https://pietromaggi.com/images/pfm.png" alt="" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Boox Max 3 as a Raspberry Pi monitor</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on November 8, 2020
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;5&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;905&nbsp;words
+  
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h2 id="starting-from-scratch">Starting from scratch</h2>
+<p>I like reading books but it is not always convenient to travel with two or more technical books while commuting to the office or travelling to a remote conference (remember those times).</p>
+<p>For this reason I lately bought a <a href="https://www.boox.com/max3-3/">Boox Max 3</a>, a 13.3&quot; eInk reader that is my travel companion between by bedroom and my office. This is the kind of commuting I&rsquo;m doing in 2020.</p>
+<p>Anyway the Boox is an great machine, here is a review by <a href="https://twitter.com/mydeepguide">My Deep Guide</a> on <a href="https://www.youtube.com/watch?v=SEHFkqHtu_g">YouTube</a> that covers a lot of the capabilities.</p>
+<p>One of the interesting features of this device is that it has a HDMI input port to use it as a monitor. You can take a look at this other <a href="https://www.youtube.com/watch?v=Kdn7J_M5B4o">video</a>, again by My Deep Guide, that covers this feature and the possibility to use the Boox Max 3 with with a USB-C hub (spoiler alert, you cannot charge the Max 3 while using the USB-C port).</p>
+<h2 id="boox-max-3-as-a-monitor-for-the-raspberry-pi">Boox Max 3 as a monitor for the Raspberry Pi</h2>
+<p>I&rsquo;m not interested using an eInk as a monitor for a laptop. I had instead the idea to have a distraction-less device to write. Combining a Raspberry Pi, the Boox Max 3 and a mechanical keyboard.</p>
+<p>These seems a fancy setup, but having all the pieces laying around it was an easy test to put in place.</p>
+<h3 id="raspberryos-lite">RaspberryOS lite</h3>
+<p>My idea is to work from the command line, from the terminal, with an editor like vim or emacs. No mouse involved.
+Something similar to what described in <a href="https://www.reddit.com/r/linuxmasterrace/comments/5porwq/raspberry_pi_zero_distraction_free_word_processor/">this Reddit post</a>, but with a much larger screen.</p>
+<p>First test was to just put a recent image of the OS on a SDCard and test the result with a Raspberry Pi 2. A quick test just to check that I have to use some custom configuration for the screen setup.</p>
+<h3 id="boox-max-3-as-a-monitor">Boox Max 3 as a monitor</h3>
+<p>Connecting the Max 3 to a mac, I can use it as a monitor with the default resolution of 2200x1560 without having to do anything. Why the Raspberry can&rsquo;t see it in the same way?</p>
+<p>Probably some issue with the frequency (did I say that I couldn&rsquo;t find any spec on the vendor&rsquo;s website?).</p>
+<p>Some research on the Web returned a <a href="https://www.youtube.com/watch?v=LKtD3CJE9OU">video on youtube</a> with some parameters to use in the Raspberry&rsquo;s <code>config.txt</code>:</p>
+<pre><code>hdmi_cvt=2104 1560 30 3
+hdmi_group=2
+hdmi_mode=87
+hdmi_drive=2
+</code></pre>
+<p>It is a start!</p>
+<p><strong>Note</strong> I&rsquo;m not suggesting to try random parameters seen on the web in your devices. This was an hint that I should look in Raspberry&rsquo;s documentation to check what those parameters are and if they make sense!</p>
+<h3 id="configtxt">config.txt</h3>
+<p>Raspberry Pi&rsquo;s documentation has a <a href="https://www.raspberrypi.org/documentation/configuration/config-txt/video.md">video section</a> that is quite comprehensive on the options available in <code>config.txt</code> to configure the HDMI output of these boards.</p>
+<p>My suggestion is to start asking to the monitor if it can provide some additional information of what is does support.
+To do this we can use the <code>tvservice</code> command line utility to log the information of the connected monitor to a file:</p>
+<pre><code>$ tvservice -d edid.dat
+Written 256 bytes to edid.dat
+</code></pre>
+<p>We can then convert this file with <code>edidparser</code> to generate a readable text file:</p>
+<pre><code>$ edidparser edid.dat &gt; edid.txt
+</code></pre>
+<p><strong>Note</strong> These utilities are pre-installed in RaspberryOS, including the lite. I was as surprised as you reading about these utilities on <a href="https://opentechguides.com/how-to/article/raspberry-pi/28/raspi-display-setting.html">this article</a></p>
+<p>The interesting part, at least for me, are:</p>
+<pre><code>Enabling fuzzy format match...
+Parsing edit.dat...
+HDMI:EDID version 1.3, 1 extensions, unknown aspect ratio
+HDMI:EDID features - videodef 0x80 !standby !suspend !active off; colour encoding:RGB444|YCbCr422; sRGB is not default colourspace; preferred format is native; does not support GTF
+HDMI:EDID found monitor name descriptor tag 0xfc
+HDMI:EDID monitor name is Toshiba-UH2D
+HDMI:EDID found monitor range descriptor tag 0xfd
+HDMI:EDID monitor range offsets: V min=0, V max=0, H min=0, H max=0
+HDMI:EDID monitor range: vertical is 20-120 Hz, horizontal is 1-255 kHz, max pixel clock is 290 MHz
+HDMI:EDID monitor range does not support GTF
+HDMI:EDID failed to find a matching detail format for 2200x1650p hfp:140 hs:60 hbp:220 vfp:5 vs:5 vbp:20 pixel clock:120 MHz
+HDMI:EDID calculated refresh rate is 27 Hz
+</code></pre>
+<p>After trying some of the options reported in the <code>edid.txt</code> file I decided to try setting up my custom configuration with a custom mode:</p>
+<pre><code>hdmi_group=2
+hdmi_mode=87
+</code></pre>
+<p>As we saw in the previous section we can use the <code>hdmi_cvt</code> parameter to configure the screen. In my case I used the monitor resolution and a 25Hz refresh rate&hellip; a bit low for a normal monitor, but not if you are driving an eInk.</p>
+<p>So the final configuration that I used is:</p>
+<pre><code># Custom configuration: &lt;width&gt; &lt;height&gt; &lt;framerate&gt; &lt;aspect&gt; &lt;margins&gt; &lt;interlace&gt; &lt;rb&gt;
+# width        width in pixels
+# height       height in pixels
+# framerate    framerate in Hz
+# aspect       aspect ratio 1=4:3, 2=14:9, 3=16:9, 4=5:4, 5=16:10, 6=15:9
+# margins      0=margins disabled, 1=margins enabled
+# interlace    0=progressive, 1=interlaced
+# rb           0=normal, 1=reduced blanking
+hdmi_cvt=2200 1560 25 3
+hdmi_group=2
+hdmi_mode=87
+# Normal HDMI mode (sound will be sent if supported and enabled)
+hdmi_drive=2
+</code></pre>
+<p>I&rsquo;ve done some other customization on the font and the shell, but at the end, this is unlikely to be a setup that I want to use long term.</p>
+<p>I like the idea of a simple, single task, device to use to write with little or no distraction. But this is not it.
+I&rsquo;ll need to try something different. Let me know if you have any suggestion, DM are open on my <a href="https://twitter.com/pfmaggi">twitter account</a>.</p>
+
+
+        
+          <div class="blog-tags">
+            
+              <a href="https://pietromaggi.com//tags/raspberrypi/">RaspberryPi</a>&nbsp;
+            
+              <a href="https://pietromaggi.com//tags/boox/">Boox</a>&nbsp;
+            
+              <a href="https://pietromaggi.com//tags/eink/">eInk</a>&nbsp;
+            
+              <a href="https://pietromaggi.com//tags/linux/">Linux</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fpietromaggi.com%2f2020%2f11%2f08%2fboox-max-3-as-a-raspberry-pi-monitor%2f&amp;text=Boox%20Max%203%20as%20a%20Raspberry%20Pi%20monitor&amp;via=pfmaggi" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fpietromaggi.com%2f2020%2f11%2f08%2fboox-max-3-as-a-raspberry-pi-monitor%2f&amp;title=Boox%20Max%203%20as%20a%20Raspberry%20Pi%20monitor" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fpietromaggi.com%2f2020%2f11%2f08%2fboox-max-3-as-a-raspberry-pi-monitor%2f&amp;title=Boox%20Max%203%20as%20a%20Raspberry%20Pi%20monitor" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://pietromaggi.com/2018/07/12/enterprise-browser-using-the-android-headset-as-a-barcode-trigger/" data-toggle="tooltip" data-placement="top" title="Enterprise Browser - Using the Android Headset as a Barcode Trigger">&larr; Previous Post</a>
+            </li>
+          
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:blog@pietromaggi.com" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/pfmaggi" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/pfmaggi" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/pietromaggi" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              Pietro F. Maggi
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2013 - 2020
+          
+
+          
+        </p><p class="credits theme-by text-muted">
+          <a href="/privacy_policy">Privacy Policy</a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.78.1</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://pietromaggi.com/js/main.js"></script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://pietromaggi.com/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

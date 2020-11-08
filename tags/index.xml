@@ -8,7 +8,43 @@
     <language>en-EN</language>
     <managingEditor>blog@pietromaggi.com (Pietro F. Maggi)</managingEditor>
     <webMaster>blog@pietromaggi.com (Pietro F. Maggi)</webMaster>
-    <lastBuildDate>Thu, 12 Jul 2018 18:00:48 +0200</lastBuildDate><atom:link href="https://pietromaggi.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 08 Nov 2020 19:00:00 +0100</lastBuildDate><atom:link href="https://pietromaggi.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Boox</title>
+      <link>https://pietromaggi.com/tags/boox/</link>
+      <pubDate>Sun, 08 Nov 2020 19:00:00 +0100</pubDate>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
+      <guid>https://pietromaggi.com/tags/boox/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>eInk</title>
+      <link>https://pietromaggi.com/tags/eink/</link>
+      <pubDate>Sun, 08 Nov 2020 19:00:00 +0100</pubDate>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
+      <guid>https://pietromaggi.com/tags/eink/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>https://pietromaggi.com/tags/linux/</link>
+      <pubDate>Sun, 08 Nov 2020 19:00:00 +0100</pubDate>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
+      <guid>https://pietromaggi.com/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>RaspberryPi</title>
+      <link>https://pietromaggi.com/tags/raspberrypi/</link>
+      <pubDate>Sun, 08 Nov 2020 19:00:00 +0100</pubDate>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
+      <guid>https://pietromaggi.com/tags/raspberrypi/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Android</title>
       <link>https://pietromaggi.com/tags/android/</link>
