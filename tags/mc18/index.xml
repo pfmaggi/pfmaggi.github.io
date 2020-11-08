@@ -1,27 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Mc18 on Pietro F. Maggi</title>
+    <title>MC18 on </title>
     <link>https://pietromaggi.com/tags/mc18/</link>
-    <description>Recent content in Mc18 on Pietro F. Maggi</description>
+    <description>Recent content in MC18 on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-EN</language>
-    <managingEditor>pfm@pietromaggi.com (Pietro F. Maggi)</managingEditor>
-    <webMaster>pfm@pietromaggi.com (Pietro F. Maggi)</webMaster>
-    <copyright>(c) 2013-2019 Pietro F. Maggi</copyright>
-    <lastBuildDate>Sun, 30 Oct 2016 11:00:00 +0100</lastBuildDate>
-    
-	<atom:link href="https://pietromaggi.com/tags/mc18/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <managingEditor>blog@pietromaggi.com (Pietro F. Maggi)</managingEditor>
+    <webMaster>blog@pietromaggi.com (Pietro F. Maggi)</webMaster>
+    <lastBuildDate>Sun, 30 Oct 2016 11:00:00 +0100</lastBuildDate><atom:link href="https://pietromaggi.com/tags/mc18/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Toggling MC18 Navigation (and Status) Bar visible state</title>
       <link>https://pietromaggi.com/2016/10/30/toggling-mc18-navigation-and-status-bar-visible-state/</link>
       <pubDate>Sun, 30 Oct 2016 11:00:00 +0100</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2016/10/30/toggling-mc18-navigation-and-status-bar-visible-state/</guid>
-      <description>MC18 is the only Zebra Android mobile computer (at least till now) that uses a Navigation bar instead of phisycal buttons for the back and home. This is the first device where it makes sense to use Android immersive mode!
-The problem with the standard immersive mode is that swiping from the bottom or the top of the screen re-enable both Navigation and Status bar. It&amp;rsquo;s not really intended to be a kiosk mode&amp;hellip; is just to have a full screen capability.</description>
+      <description>On Zebra MC18 with Android, it&amp;rsquo;s possible to toggle the NavBar visible status with a XML configuration file&amp;hellip;</description>
     </item>
     
   </channel>

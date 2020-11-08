@@ -1,29 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Profile Manager on Pietro F. Maggi</title>
+    <title>Profile Manager on </title>
     <link>https://pietromaggi.com/tags/profile-manager/</link>
-    <description>Recent content in Profile Manager on Pietro F. Maggi</description>
+    <description>Recent content in Profile Manager on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-EN</language>
-    <managingEditor>pfm@pietromaggi.com (Pietro F. Maggi)</managingEditor>
-    <webMaster>pfm@pietromaggi.com (Pietro F. Maggi)</webMaster>
-    <copyright>(c) 2013-2019 Pietro F. Maggi</copyright>
-    <lastBuildDate>Tue, 26 Jun 2018 09:00:00 +0200</lastBuildDate>
-    
-	<atom:link href="https://pietromaggi.com/tags/profile-manager/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <managingEditor>blog@pietromaggi.com (Pietro F. Maggi)</managingEditor>
+    <webMaster>blog@pietromaggi.com (Pietro F. Maggi)</webMaster>
+    <lastBuildDate>Tue, 26 Jun 2018 09:00:00 +0200</lastBuildDate><atom:link href="https://pietromaggi.com/tags/profile-manager/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Zebra&#39;s EMDK Async Profile Manager APIs</title>
       <link>https://pietromaggi.com/2018/06/26/zebras-emdk-async-profile-manager-apis/</link>
       <pubDate>Tue, 26 Jun 2018 09:00:00 +0200</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2018/06/26/zebras-emdk-async-profile-manager-apis/</guid>
-      <description>Note: the accompanying code is available on github.
-Summer is the perfect time for some cleanup, and I&amp;rsquo;ve some older content laying around my laptop that is about time I publish!
-I&amp;rsquo;m planning to cover some long-standing argument that I&amp;rsquo;ve touched over the last few years as Zebra&amp;rsquo;s EMEA Software Consultant.
-Years ago we had some posts on the EMDK discussion forum about some instability seen if an application tries to apply a profile just after device boot.</description>
+      <description>A step-by-step introduction to the Async version of the Zebra&amp;rsquo;s EMDK for Android APIs to process Mx profiles.</description>
     </item>
     
   </channel>

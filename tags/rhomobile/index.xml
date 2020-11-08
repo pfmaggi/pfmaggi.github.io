@@ -1,63 +1,48 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Rhomobile on Pietro F. Maggi</title>
+    <title>RhoMobile on </title>
     <link>https://pietromaggi.com/tags/rhomobile/</link>
-    <description>Recent content in Rhomobile on Pietro F. Maggi</description>
+    <description>Recent content in RhoMobile on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-EN</language>
-    <managingEditor>pfm@pietromaggi.com (Pietro F. Maggi)</managingEditor>
-    <webMaster>pfm@pietromaggi.com (Pietro F. Maggi)</webMaster>
-    <copyright>(c) 2013-2019 Pietro F. Maggi</copyright>
-    <lastBuildDate>Fri, 22 Aug 2014 13:01:48 +0200</lastBuildDate>
-    
-	<atom:link href="https://pietromaggi.com/tags/rhomobile/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <managingEditor>blog@pietromaggi.com (Pietro F. Maggi)</managingEditor>
+    <webMaster>blog@pietromaggi.com (Pietro F. Maggi)</webMaster>
+    <lastBuildDate>Fri, 22 Aug 2014 13:01:48 +0200</lastBuildDate><atom:link href="https://pietromaggi.com/tags/rhomobile/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Rhodes 5.0.2 and Visual Studio 2008 Localized edition</title>
       <link>https://pietromaggi.com/2014/08/22/rhodes-5.0.2-and-visual-studio-2008-localized-edition/</link>
       <pubDate>Fri, 22 Aug 2014 13:01:48 +0200</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2014/08/22/rhodes-5.0.2-and-visual-studio-2008-localized-edition/</guid>
-      <description>2019 Update The information in this post are obsolete. Please refer to the official RhoMobile documentation for best practices and setup guide.
-Oh the joy of a new RhoMobile version!
-Creating new virtual machines and finally deciding that is time to leave the old trusty Windows XP and jump on the new Windows 7 with 63+1 bits. Oh man! what a pleasant use of time :-)
-On top of this I wanted to spin the setup a bit and decided to use a localized version of Visual Studio 2008&amp;hellip; what can go wrong with it?</description>
+      <description>Obsolete - Quick post on the Joy of localized Visual Studio.</description>
     </item>
     
     <item>
       <title>Configuring RhoMobile Suite v5.0 on a clean OS X Mavericks machine</title>
       <link>https://pietromaggi.com/2014/08/11/configuring-rhomobile-suite-v5.0-on-a-clean-os-x-mavericks-machine/</link>
       <pubDate>Mon, 11 Aug 2014 09:57:10 +0200</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2014/08/11/configuring-rhomobile-suite-v5.0-on-a-clean-os-x-mavericks-machine/</guid>
-      <description>2019 Update The information in this post are obsolete. Please refer to the official RhoMobile documentation for best practices and setup guide.
-RhoMobile Suite v5.0 The new main release of Rhodes, RhoElements and RhoConnect had just been released a couple of weeks ago during OSCON. It&amp;rsquo;s now time to install it and start building some mobile apps!
-In this post I&amp;rsquo;d like to help you installing RMSv5.0 on a new OS X Mavericks machine and install everything that is needed to build iOS and Android applications, the only pre-requisite is to have a valid OS X Mavericks license installed on a Mac or inside a virtual machine&amp;hellip; on a Mac :-).</description>
+      <description>Obsolete - Step by step guide on how to install RhoMobile Studio v5.0 on a clean OS X Mavericks machine</description>
     </item>
     
     <item>
       <title>Rhodes tips &amp; tricks</title>
       <link>https://pietromaggi.com/2013/12/30/rhodes-tips-tricks/</link>
       <pubDate>Mon, 30 Dec 2013 13:56:04 +0100</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2013/12/30/rhodes-tips-tricks/</guid>
-      <description>How to rebuild the rhodes gem git clone https://github.com/rhomobile/rhodes.git cd rhodes git checkout 3-5-stable  make and commit changes if needed, then:
-rm -rf * git reset --hard git pull  Otherwise directly
-rake gem  Copy files where you need it (on a different machine) gem install -l rhodes-3.5.1.13.2 (version given as an example)
-Rhodes Database encryption Rhodes uses SQLite as database engine on all the supported platforms and, to provide encryption support we use different solutions depending by the target platform.</description>
+      <description>Collection of rhodes tips and tricks. More for the people that manage rhodes than who&amp;rsquo;s only looking for info on how to write rhodes apps.</description>
     </item>
     
     <item>
       <title>Why I like to talk about open source projects</title>
       <link>https://pietromaggi.com/2013/12/28/why-i-like-to-talk-about-open-source-projects/</link>
       <pubDate>Sat, 28 Dec 2013 21:33:25 +0100</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2013/12/28/why-i-like-to-talk-about-open-source-projects/</guid>
-      <description>Since I joined the RhoMobile group of Motorola Solutions as EIA pre-sale Technical Architect, I started to get disparate question regarding features of the Suite.
-Something on the line:
- How is possible to launch an external application from a Rhodes one? I tried different APIs and nothing seems to work&amp;hellip; Looking on the support matrix of the APIs for different OSes, it seems that X is supported on platform Y but I&amp;rsquo;m not able to make it working&amp;hellip;  Usually I try to figure out the answer for these question by myself, it&amp;rsquo;s always useful getting a better understanding of the tool I usually talk about (and it&amp;rsquo;s probably the part of my job that I like the most: finding solutions to problems).</description>
+      <description>About the beauty of open source and the superiority of source code vs (bad) documentation.</description>
     </item>
     
   </channel>

@@ -1,41 +1,30 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Emdk on Pietro F. Maggi</title>
+    <title>EMDK on </title>
     <link>https://pietromaggi.com/tags/emdk/</link>
-    <description>Recent content in Emdk on Pietro F. Maggi</description>
+    <description>Recent content in EMDK on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-EN</language>
-    <managingEditor>pfm@pietromaggi.com (Pietro F. Maggi)</managingEditor>
-    <webMaster>pfm@pietromaggi.com (Pietro F. Maggi)</webMaster>
-    <copyright>(c) 2013-2019 Pietro F. Maggi</copyright>
-    <lastBuildDate>Tue, 26 Jun 2018 09:00:00 +0200</lastBuildDate>
-    
-	<atom:link href="https://pietromaggi.com/tags/emdk/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <managingEditor>blog@pietromaggi.com (Pietro F. Maggi)</managingEditor>
+    <webMaster>blog@pietromaggi.com (Pietro F. Maggi)</webMaster>
+    <lastBuildDate>Tue, 26 Jun 2018 09:00:00 +0200</lastBuildDate><atom:link href="https://pietromaggi.com/tags/emdk/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Zebra&#39;s EMDK Async Profile Manager APIs</title>
       <link>https://pietromaggi.com/2018/06/26/zebras-emdk-async-profile-manager-apis/</link>
       <pubDate>Tue, 26 Jun 2018 09:00:00 +0200</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2018/06/26/zebras-emdk-async-profile-manager-apis/</guid>
-      <description>Note: the accompanying code is available on github.
-Summer is the perfect time for some cleanup, and I&amp;rsquo;ve some older content laying around my laptop that is about time I publish!
-I&amp;rsquo;m planning to cover some long-standing argument that I&amp;rsquo;ve touched over the last few years as Zebra&amp;rsquo;s EMEA Software Consultant.
-Years ago we had some posts on the EMDK discussion forum about some instability seen if an application tries to apply a profile just after device boot.</description>
+      <description>A step-by-step introduction to the Async version of the Zebra&amp;rsquo;s EMDK for Android APIs to process Mx profiles.</description>
     </item>
     
     <item>
       <title>Building Zebra&#39;s EMDK project using SDK Platform 23</title>
       <link>https://pietromaggi.com/2015/11/25/building-zebras-emdk-project-using-sdk-platform-23/</link>
       <pubDate>Wed, 25 Nov 2015 09:54:55 +0100</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2015/11/25/building-zebras-emdk-project-using-sdk-platform-23/</guid>
-      <description>2019 Update This post is now obsolete. Please refer to Zebra&amp;rsquo;s EMDK documentation on best practices to use the EMDK.
-Note: EMDK 4.0 is now documenting this method to add com.symbol.emdk.jar as a dependency There&amp;rsquo;s a recurring question coming to me and to Launchpad&amp;rsquo;s forums lately:
-How can I compile my Android app, using Zebra&amp;rsquo;s EMDK, if I need the latest support library?
-Some background With the Android tools moving super-fast (Android studio v1.</description>
+      <description>Obsolete - How-To guide on how to build an Android application using the latest SDK Platform and Zebra Technologies&#39; EMDK.</description>
     </item>
     
   </channel>

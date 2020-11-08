@@ -1,29 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Events on Pietro F. Maggi</title>
+    <title>Events on </title>
     <link>https://pietromaggi.com/tags/events/</link>
-    <description>Recent content in Events on Pietro F. Maggi</description>
+    <description>Recent content in Events on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-EN</language>
-    <managingEditor>pfm@pietromaggi.com (Pietro F. Maggi)</managingEditor>
-    <webMaster>pfm@pietromaggi.com (Pietro F. Maggi)</webMaster>
-    <copyright>(c) 2013-2019 Pietro F. Maggi</copyright>
-    <lastBuildDate>Sun, 10 Sep 2017 21:00:00 +0100</lastBuildDate>
-    
-	<atom:link href="https://pietromaggi.com/tags/events/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <managingEditor>blog@pietromaggi.com (Pietro F. Maggi)</managingEditor>
+    <webMaster>blog@pietromaggi.com (Pietro F. Maggi)</webMaster>
+    <lastBuildDate>Sun, 10 Sep 2017 21:00:00 +0100</lastBuildDate><atom:link href="https://pietromaggi.com/tags/events/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>droidcon Berlin 2017 Day 0 - the best Android community event!</title>
       <link>https://pietromaggi.com/2017/09/10/droidcon-berlin-2017-day-0-the-best-android-community-event/</link>
       <pubDate>Sun, 10 Sep 2017 21:00:00 +0100</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2017/09/10/droidcon-berlin-2017-day-0-the-best-android-community-event/</guid>
-      <description>Another year, another droidcon Berlin.
-This year I decided to took some detailed notes. This is the report for the first day, Sunday September 3rd, I&amp;rsquo;ll add a couple of other posts for the main conference days.
-Day 0 - Sunday September 3rd The event this year started on Sunday September 3rd with a barcamp, and a panel on data persistency.
-Being there for setting up the booth in the morning I pitched a talk about &amp;laquo;Barcode Scanning on Android&amp;raquo; in Android and got accepted straight away&amp;hellip; it&amp;rsquo;s incredible the interest in this technology that was invented the same year I was born, 1970&amp;hellip; is this a coincidence?</description>
+      <description>3rd-6th September, droidcon Berlin 2017 took place at Berline Messe. This is the center of the droidcon community and having the event colocated with IFA made it one of the largest Android developer event if not the largest.</description>
     </item>
     
   </channel>

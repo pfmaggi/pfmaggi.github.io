@@ -1,28 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Go on Pietro F. Maggi</title>
+    <title>Go on </title>
     <link>https://pietromaggi.com/tags/go/</link>
-    <description>Recent content in Go on Pietro F. Maggi</description>
+    <description>Recent content in Go on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-EN</language>
-    <managingEditor>pfm@pietromaggi.com (Pietro F. Maggi)</managingEditor>
-    <webMaster>pfm@pietromaggi.com (Pietro F. Maggi)</webMaster>
-    <copyright>(c) 2013-2019 Pietro F. Maggi</copyright>
-    <lastBuildDate>Sat, 09 Jan 2016 20:50:14 +0100</lastBuildDate>
-    
-	<atom:link href="https://pietromaggi.com/tags/go/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <managingEditor>blog@pietromaggi.com (Pietro F. Maggi)</managingEditor>
+    <webMaster>blog@pietromaggi.com (Pietro F. Maggi)</webMaster>
+    <lastBuildDate>Sat, 09 Jan 2016 20:50:14 +0100</lastBuildDate><atom:link href="https://pietromaggi.com/tags/go/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Welcome</title>
       <link>https://pietromaggi.com/2016/01/09/welcome/</link>
       <pubDate>Sat, 09 Jan 2016 20:50:14 +0100</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2016/01/09/welcome/</guid>
-      <description>Time for revamping a bit this blog.
-From a technical point of view, I struggled with octopress v2.x to keep this blog aligned across the multiple machine I use in my work/life. Octopress v3 is supposed to solve most of the issue that plagued me over these years but, I wanted to test something a bit different.
-New year new static blog generator. Given that I want to spend some time evaluating Go I decided to give Hugo a try.</description>
+      <description>A quick, uninformative, post on the new platform I&amp;rsquo;m going to use in 2016 to write content on this site.</description>
     </item>
     
   </channel>

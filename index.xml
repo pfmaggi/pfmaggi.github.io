@@ -1,225 +1,182 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Pietro F. Maggi</title>
+    <title></title>
     <link>https://pietromaggi.com/</link>
-    <description>Recent content on Pietro F. Maggi</description>
+    <description>Recent content on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-EN</language>
-    <managingEditor>pfm@pietromaggi.com (Pietro F. Maggi)</managingEditor>
-    <webMaster>pfm@pietromaggi.com (Pietro F. Maggi)</webMaster>
-    <copyright>(c) 2013-2019 Pietro F. Maggi</copyright>
-    <lastBuildDate>Thu, 12 Jul 2018 18:00:48 +0200</lastBuildDate>
-    
-	<atom:link href="https://pietromaggi.com/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <managingEditor>blog@pietromaggi.com (Pietro F. Maggi)</managingEditor>
+    <webMaster>blog@pietromaggi.com (Pietro F. Maggi)</webMaster>
+    <lastBuildDate>Thu, 12 Jul 2018 18:00:48 +0200</lastBuildDate><atom:link href="https://pietromaggi.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Enterprise Browser - Using the Android Headset as a Barcode Trigger</title>
       <link>https://pietromaggi.com/2018/07/12/enterprise-browser-using-the-android-headset-as-a-barcode-trigger/</link>
       <pubDate>Thu, 12 Jul 2018 18:00:48 +0200</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2018/07/12/enterprise-browser-using-the-android-headset-as-a-barcode-trigger/</guid>
-      <description>What if&amp;hellip;
-you want to use a Zebra&amp;rsquo;s Android device mounted on an arm-mount and you want to control the barcode scanner with a wired button?
-WT6000 is the obvious answer!
-But if your customer has already chosen the TC51 for other activities, we can help them using the headset connector.
-The Android headset connectors Before Apple decided that we don&amp;rsquo;t need anymore the 3.5mm headset connector on our phones, people started to look into it as a standard input interface for all the devices.</description>
+      <description>What if&amp;hellip; you want to use a Zebra&amp;rsquo;s Android device mounted on an arm-wrist and you want to control the barcode scanner with a wired button? WT6000 is the obvious answer! But if your customer has already chosen the TC51 for other activities, we can help them using the headset connector.</description>
     </item>
     
     <item>
       <title>(Xamarin.Forms &#43; FreshMVVM &#43; DataWedge) take 2</title>
       <link>https://pietromaggi.com/2018/07/11/xamarin.forms-freshmvvm-datawedge-take-2/</link>
       <pubDate>Wed, 11 Jul 2018 09:00:00 +0200</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2018/07/11/xamarin.forms-freshmvvm-datawedge-take-2/</guid>
-      <description>Note: the accompanying code is available on GitHub.
-We saw in the last post how to add barcode scanning functionalities to the &amp;laquo;Inventory&amp;raquo; sample application, using DataWedge.
-Today we&amp;rsquo;re going to review that code and refactor it &amp;laquo;just a bit&amp;raquo;. The goal is to make it a bit more modular, adding some flexibility to how we manage the barcode. In particular we want to have these features in our app:</description>
+      <description>We&amp;rsquo;re going to review the code presented in the last post to add some more functionalities and make it a bit more modular.</description>
     </item>
     
     <item>
       <title>Xamarin.Forms &#43; FreshMVVM &#43; DataWedge = 💖</title>
       <link>https://pietromaggi.com/2018/07/07/xamarin.forms-freshmvvm-datawedge/</link>
       <pubDate>Sat, 07 Jul 2018 09:00:00 +0200</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2018/07/07/xamarin.forms-freshmvvm-datawedge/</guid>
-      <description>Note: the accompanying code is available on GitHub.
-The topic for today is how to add barcode scanning functionalities to the &amp;laquo;Inventory&amp;raquo; sample application we built in the previous post about Xamarin.Forms and FreshMVVM.
-To integrate barcode scanning functionalities we&amp;rsquo;ve different options:
- Do Nothing - Barcode scanning in enabled by default simulating keyboard entry: the application receives the data in the selected input field. Integrate Barcode scanning API from Zebra&amp;rsquo;s EMDK for Xamarin - This is time consuming and add a dependency to our project.</description>
+      <description>Xamarin Forms is getting traction with Zebra&amp;rsquo;s Partners and End-Users and a light framework like FreshMVVM looks the perfect companion. But it&amp;rsquo;s not an application for a Zebra device if it doesn&amp;rsquo;t integrate Barcode scanning functionality. DataWedge APIs to the rescue!!! Let&amp;rsquo;s add to the inventory application we built, barcode scanning functionalities.</description>
     </item>
     
     <item>
       <title>Xamarin.Forms &#43; FreshMVVM for enterprise applications</title>
       <link>https://pietromaggi.com/2018/07/04/xamarin.forms-freshmvvm-for-enterprise-applications/</link>
       <pubDate>Wed, 04 Jul 2018 09:00:00 +0200</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2018/07/04/xamarin.forms-freshmvvm-for-enterprise-applications/</guid>
-      <description>Note: the accompanying code is available on GitHub.
-As I wrote in my previous post:
- Summer is the perfect time for some cleanup, and I&amp;rsquo;ve some older content laying around my laptop that is about time I publish! I&amp;rsquo;m planning to cover some long-standing argument that I&amp;rsquo;ve touched over the last few years as Zebra&amp;rsquo;s EMEA Software Consultant.
- I&amp;rsquo;ve been involved in multiple meetings and planning with Zebra&amp;rsquo;s partners and end-users explaining what was the best option to integrate barcode scanning functionality in a Xamarin Forms application.</description>
+      <description>Xamarin Forms is getting traction with Zebra&amp;rsquo;s Partners and End-Users and a light framework like FreshMVVM looks the perfect companion. Let&amp;rsquo;s look how to start a new project using these technologies and implement a cross-platform inventory application.</description>
     </item>
     
     <item>
       <title>Zebra&#39;s EMDK Async Profile Manager APIs</title>
       <link>https://pietromaggi.com/2018/06/26/zebras-emdk-async-profile-manager-apis/</link>
       <pubDate>Tue, 26 Jun 2018 09:00:00 +0200</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2018/06/26/zebras-emdk-async-profile-manager-apis/</guid>
-      <description>Note: the accompanying code is available on github.
-Summer is the perfect time for some cleanup, and I&amp;rsquo;ve some older content laying around my laptop that is about time I publish!
-I&amp;rsquo;m planning to cover some long-standing argument that I&amp;rsquo;ve touched over the last few years as Zebra&amp;rsquo;s EMEA Software Consultant.
-Years ago we had some posts on the EMDK discussion forum about some instability seen if an application tries to apply a profile just after device boot.</description>
+      <description>A step-by-step introduction to the Async version of the Zebra&amp;rsquo;s EMDK for Android APIs to process Mx profiles.</description>
     </item>
     
     <item>
       <title>Here be Dragons - The Enterprise Mobile Security Journey</title>
       <link>https://pietromaggi.com/2018/04/14/here-be-dragons-the-enterprise-mobile-security-journey/</link>
       <pubDate>Sat, 14 Apr 2018 21:30:48 +0100</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2018/04/14/here-be-dragons-the-enterprise-mobile-security-journey/</guid>
-      <description>Note:
-This blog started out as a series of notes for a talk I&#39;ve presented in April 2018 at a couple of events (Droidcon Dubai and Droidcon Turin) with my Zebra Technologies hat. Feel free to provide comments and feedback.  Looking at what is trendy at technology conferences, you can find a lot of talks about JavaScript frameworks or [functional|concatenative|multi-paradigm] programming languages, so when I started to work on my new talk I felt that I had to explain the title a little bit.</description>
+      <description>This blog started out as a series of notes for a talk I&amp;rsquo;ve presented in April 2018 at a couple of events (Droidcon Dubai and Droidcon Turin) with my Zebra Technologies hat. Feel free to provide comments and feedback.</description>
     </item>
     
     <item>
       <title>Enterprise Browser - Modernizing web applications</title>
       <link>https://pietromaggi.com/2018/03/21/enterprise-browser-modernizing-web-applications/</link>
       <pubDate>Wed, 21 Mar 2018 21:30:48 +0100</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2018/03/21/enterprise-browser-modernizing-web-applications/</guid>
-      <description>Note: This blog describe the content presented during Zebra Technologies&amp;rsquo; DEVTALK recorded March 21st 2018 about Enterprise Browser. You can find a recording of the presentation on Zebra&amp;rsquo;s Developer Portal.
-Modernize Web Application  Enterprise Browser is not just a browser, it&amp;rsquo;s a business enabler that Symbol, Motorola, Motorola Solutions and now Zebra has developed over the last 15 years.
- 
-I know that fancy tag line remembers those cats&amp;rsquo; posters: but it&amp;rsquo;s true!</description>
+      <description>Enterprise Browser allows to create shortcuts to different &lt;code&gt;Config.xml&lt;/code&gt; so the user can access them using a different icon on your Android Launcher screen. This is a step-by-step guide on how to create, test and distribute them.</description>
     </item>
     
     <item>
       <title>Speaking Appointments</title>
-      <link>https://pietromaggi.com/speaking/</link>
+      <link>https://pietromaggi.com/page/speaking/</link>
       <pubDate>Mon, 19 Mar 2018 21:53:35 +0100</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
-      <guid>https://pietromaggi.com/speaking/</guid>
-      <description>ARCHIVE AND TALK LINKS  20-Apr-18 - Droidcon Turin - Here be Dragons - The Enterprise Mobile Security Journey.  13-Apr-18 - Droidcon Dubai - Here be Dragons - The Enterprise Mobile Security Journey. 04-Sep-17 - Droidcon Berlin- Android Security, an Enterprise Perspective.  14-16 June - Zebra&amp;rsquo;s AppForum EMEA in Prague  With Darryn Campbell: What&amp;rsquo;s The Difference in Android L,M,N,and O Migrating from Win Mobile to Android Create Scanning Applications Across Multiple Android Devices  07-Apr-17 - droidcon Turin 2017 - Android Security, an Enterprise perspective.</description>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
+      <guid>https://pietromaggi.com/page/speaking/</guid>
+      <description>ARCHIVE AND TALK LINKS </description>
     </item>
     
     <item>
       <title>Android Auto testing</title>
       <link>https://pietromaggi.com/2017/10/31/android-auto-testing/</link>
       <pubDate>Tue, 31 Oct 2017 21:00:00 +0100</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2017/10/31/android-auto-testing/</guid>
-      <description>Android Auto? Why? This summer I bought a new car and it came with a nice 8&amp;rdquo; touch panel that supports Android Auto and Apple Car.
-It even came with seven seats and a nice engine, and that was way more important than having an additional screen&amp;hellip; but, it&amp;rsquo;s there, and I started to make good use of it.
-Playing with Android Auto is a bit of a hit and miss.</description>
+      <description>I got a new car this summer that supports Android Auto, some apps I use on my phone works out of the box, others required some work. I remembered a couple of years ago Google presenting a tool to test AndroidAuto apps&amp;hellip; it ends up that there&amp;rsquo;s &amp;ldquo;space for improvements&amp;rdquo; in the  available documentation.</description>
     </item>
     
     <item>
       <title>Tips on how to demo Android devices</title>
       <link>https://pietromaggi.com/2017/10/13/tips-on-how-to-demo-android-devices/</link>
       <pubDate>Fri, 13 Oct 2017 17:20:00 +0100</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2017/10/13/tips-on-how-to-demo-android-devices/</guid>
-      <description>Have you ever presented a new Android device to a tech crowd trying to explain some feature?
-it happens to me quite a lot and over time I built my little bag of tricks on how to do it.
-1. Use Vysor to show my device on the screen Vysor is my go-to solution for showing my device screen on the PC during demo. The only requirement in this case is to have adb enabled on your device and having a working adb on your PC/mac.</description>
+      <description>My work requires to demo a feature or a particular application on a mobile device while showing the actual device screen on a big screen. These are some of the tools I use and some of the tricks I like to use.</description>
     </item>
     
     <item>
       <title>droidcon Berlin 2017 Day 0 - the best Android community event!</title>
       <link>https://pietromaggi.com/2017/09/10/droidcon-berlin-2017-day-0-the-best-android-community-event/</link>
       <pubDate>Sun, 10 Sep 2017 21:00:00 +0100</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2017/09/10/droidcon-berlin-2017-day-0-the-best-android-community-event/</guid>
-      <description>Another year, another droidcon Berlin.
-This year I decided to took some detailed notes. This is the report for the first day, Sunday September 3rd, I&amp;rsquo;ll add a couple of other posts for the main conference days.
-Day 0 - Sunday September 3rd The event this year started on Sunday September 3rd with a barcamp, and a panel on data persistency.
-Being there for setting up the booth in the morning I pitched a talk about &amp;laquo;Barcode Scanning on Android&amp;raquo; in Android and got accepted straight away&amp;hellip; it&amp;rsquo;s incredible the interest in this technology that was invented the same year I was born, 1970&amp;hellip; is this a coincidence?</description>
+      <description>3rd-6th September, droidcon Berlin 2017 took place at Berline Messe. This is the center of the droidcon community and having the event colocated with IFA made it one of the largest Android developer event if not the largest.</description>
     </item>
     
     <item>
       <title>Using Android `sdk.dir` property to locate EMDK&#39;s jar Library.</title>
       <link>https://pietromaggi.com/2017/08/08/using-android-sdk.dir-property-to-locate-emdks-jar-library./</link>
       <pubDate>Tue, 08 Aug 2017 17:20:00 +0100</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2017/08/08/using-android-sdk.dir-property-to-locate-emdks-jar-library./</guid>
-      <description>2019 Update This post is now obsolete. Please refer to Zebra&amp;rsquo;s EMDK documentation for updated information.
-Note this post has been published on Zebra developer portal, if you&amp;rsquo;ve any comment, probably best to post them over there.
-Working in Android Studio you can notice that every project contains a local.properties file with at least a couple of properties containing the path for Android SDK and Android NDK.
-Android Studio populates this information when it creates the project based on the ANDROID_HOME environment variable.</description>
+      <description>Obsolete - My personal preference is to reference Zebra&amp;rsquo;s EMDK jar library in gradle&amp;rsquo;s dependencies, and this requires to indicate the correct path to the library. So far so good if you&amp;rsquo;re working on a single machine. This short post shows a better way to indicate EMDK library path independently from the machine where you&amp;rsquo;re building your app.</description>
     </item>
     
     <item>
       <title>Toggling MC18 Navigation (and Status) Bar visible state</title>
       <link>https://pietromaggi.com/2016/10/30/toggling-mc18-navigation-and-status-bar-visible-state/</link>
       <pubDate>Sun, 30 Oct 2016 11:00:00 +0100</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2016/10/30/toggling-mc18-navigation-and-status-bar-visible-state/</guid>
-      <description>MC18 is the only Zebra Android mobile computer (at least till now) that uses a Navigation bar instead of phisycal buttons for the back and home. This is the first device where it makes sense to use Android immersive mode!
-The problem with the standard immersive mode is that swiping from the bottom or the top of the screen re-enable both Navigation and Status bar. It&amp;rsquo;s not really intended to be a kiosk mode&amp;hellip; is just to have a full screen capability.</description>
+      <description>On Zebra MC18 with Android, it&amp;rsquo;s possible to toggle the NavBar visible status with a XML configuration file&amp;hellip;</description>
     </item>
     
     <item>
       <title>Enterprise Browser and DataWedge on Android - friends at the end</title>
       <link>https://pietromaggi.com/2016/10/29/enterprise-browser-and-datawedge-on-android-friends-at-the-end/</link>
       <pubDate>Sat, 29 Oct 2016 11:00:00 +0100</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2016/10/29/enterprise-browser-and-datawedge-on-android-friends-at-the-end/</guid>
-      <description>During Enterprise Browser hands-on lab, I got some enquiry about using other MobilityDNA utilities together with EB; in particular how to integrate SwipeAssist and Simulscan. These utilities can be integrated, with some heavy lifting, and accepting some constraints.
-Some background The current scanner framework implementation on our Android devices make available a single scanner object that provides full Scanner control. As always &amp;hellip;&amp;laquo;with great power comes great responsibility&amp;raquo;: an application using the scanner object from the Barcode API, is required to release it when it&amp;rsquo;s going in the background (usually you do this handling in the onPause() callback in your native application).</description>
+      <description>Enterprise Browser 1.4, out of the box, disable DataWedge on Android to be able to fully control the barcode scanner. Here you can find a step-by-step guide on how to integrate this two Mobility DNA&amp;rsquo;s component to enjoy features like SimulScan and SwipeAssist inside Enterprise Browser.</description>
     </item>
     
     <item>
       <title>Disabling Home Button on Zebra Android devices</title>
       <link>https://pietromaggi.com/2016/08/01/disabling-home-button-on-zebra-android-devices/</link>
       <pubDate>Mon, 01 Aug 2016 17:00:00 +0200</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2016/08/01/disabling-home-button-on-zebra-android-devices/</guid>
-      <description>Intro I presented in the past a method to disable the Home Button on Zebra&amp;rsquo;s MC40 Android device, using a custom intent1. After having published it, I got some enquiries, about having the same behaviour on other Zebra&amp;rsquo;s devices. Well, it turns out that there&amp;rsquo;s now a &amp;laquo;standard&amp;raquo; way to do this in Zebra&amp;rsquo;s Mx extension using the UI Manager profile. This post is going to show how to implement a simple application that can disable the Home Button on all Zebra&amp;rsquo;s devices that have Mx v4.</description>
+      <description>Mx v4.3 introduce includes a feature in the OS that allows to disable the Home Button using Mx through the EMDK or StageNow.</description>
     </item>
     
     <item>
       <title>Managing Display AutoRotation from StageNow</title>
       <link>https://pietromaggi.com/2016/06/07/managing-display-autorotation-from-stagenow/</link>
       <pubDate>Tue, 07 Jun 2016 20:00:00 +0100</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2016/06/07/managing-display-autorotation-from-stagenow/</guid>
-      <description>Edit: Changes in API level 23 and newer make impossible for normal application to modify the autorotate setting.
-The application presented in this blog uses the android.permission.WRITE_SETTINGS that, starting from Android v6.0 Marshmallow (API level 23), requires the application to be system or signed to be able to run without user intervention.
-There&amp;rsquo;s a workaround that can be used targeting API level 22. In this way the application can still use the old permission model and it can write into the settings.</description>
+      <description>Obsolete - Zebra Technologies&#39; StageNow is a powerful tool that allows to easily stage a lot of the parameters required on COBO device. However we don&amp;rsquo;t have a 100% coverage of all the Android Settings. Here I&amp;rsquo;ll show how to build a minimal application that can be controlled from StageNow to set up the Display AutoRotation parameter. As this is not a reserved setting, any application can change this value.</description>
     </item>
     
     <item>
       <title>Disabling MC40 Home Button with a custom intent</title>
       <link>https://pietromaggi.com/2016/01/18/disabling-mc40-home-button-with-a-custom-intent/</link>
       <pubDate>Mon, 18 Jan 2016 09:00:00 +0100</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2016/01/18/disabling-mc40-home-button-with-a-custom-intent/</guid>
-      <description>Note: _I&amp;rsquo;ve published another post that explain how to disable the Home Button on all the Zebra&amp;rsquo;s Android devices that are supported by Mx v4.3+._
-Intro Zebra Technologies&amp;rsquo; devices are purpose built to be single use devices. Having an OS like Android nowadays provides a lot of flexibility&amp;hellip; sometimes a bit too much.
-With this idea in mind, the Android version used on these devices sometimes provide some nice surprise, like an Intent to disable the omnipresent Android&amp;rsquo;s Home button.</description>
+      <description>MC40 with Android v4.1 and v4.4 includes a feature in the OS that allows to disable the Home Button through an Intent.</description>
     </item>
     
     <item>
       <title>Secondary External Storage in Android KitKat - Part 1</title>
       <link>https://pietromaggi.com/2016/01/14/secondary-external-storage-in-android-kitkat-part-1/</link>
       <pubDate>Thu, 14 Jan 2016 23:00:00 +0100</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2016/01/14/secondary-external-storage-in-android-kitkat-part-1/</guid>
-      <description>2019 Update The information in this post are obsolete. Please refer to the Android documentation for updates on this topic.
-First technical post for 2016. Finally!
-To kick-start 2016 I&amp;rsquo;ve chosen a topic that is more and more relevant in our market: The changes introduced by Google in Android v4.4 KitKat, regarding the secondary storage (the SDCard).
-I&amp;rsquo;ve already talked about this in my AppForum 2015 talk last October in London1, but I want to add some extra info and rationales here.</description>
+      <description>Obsolete - New rules control Android v4.4 Secondary External Storage, here&amp;rsquo;s what you need to know.</description>
     </item>
     
     <item>
       <title>About</title>
-      <link>https://pietromaggi.com/about/</link>
+      <link>https://pietromaggi.com/page/about/</link>
       <pubDate>Sat, 09 Jan 2016 20:50:38 +0100</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
-      <guid>https://pietromaggi.com/about/</guid>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
+      <guid>https://pietromaggi.com/page/about/</guid>
       <description>Hi!
 My name is Pietro F. Maggi.
 I&amp;rsquo;m a Father an Husband and occasionally I find the time to write some code.
@@ -231,31 +188,26 @@ I&amp;rsquo;ve more than fifteen years designing and developing software solutio
       <title>Welcome</title>
       <link>https://pietromaggi.com/2016/01/09/welcome/</link>
       <pubDate>Sat, 09 Jan 2016 20:50:14 +0100</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2016/01/09/welcome/</guid>
-      <description>Time for revamping a bit this blog.
-From a technical point of view, I struggled with octopress v2.x to keep this blog aligned across the multiple machine I use in my work/life. Octopress v3 is supposed to solve most of the issue that plagued me over these years but, I wanted to test something a bit different.
-New year new static blog generator. Given that I want to spend some time evaluating Go I decided to give Hugo a try.</description>
+      <description>A quick, uninformative, post on the new platform I&amp;rsquo;m going to use in 2016 to write content on this site.</description>
     </item>
     
     <item>
       <title>Building Zebra&#39;s EMDK project using SDK Platform 23</title>
       <link>https://pietromaggi.com/2015/11/25/building-zebras-emdk-project-using-sdk-platform-23/</link>
       <pubDate>Wed, 25 Nov 2015 09:54:55 +0100</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2015/11/25/building-zebras-emdk-project-using-sdk-platform-23/</guid>
-      <description>2019 Update This post is now obsolete. Please refer to Zebra&amp;rsquo;s EMDK documentation on best practices to use the EMDK.
-Note: EMDK 4.0 is now documenting this method to add com.symbol.emdk.jar as a dependency There&amp;rsquo;s a recurring question coming to me and to Launchpad&amp;rsquo;s forums lately:
-How can I compile my Android app, using Zebra&amp;rsquo;s EMDK, if I need the latest support library?
-Some background With the Android tools moving super-fast (Android studio v1.</description>
+      <description>Obsolete - How-To guide on how to build an Android application using the latest SDK Platform and Zebra Technologies&#39; EMDK.</description>
     </item>
     
     <item>
       <title>Slide Decks</title>
-      <link>https://pietromaggi.com/decks/</link>
+      <link>https://pietromaggi.com/page/decks/</link>
       <pubDate>Sun, 25 Oct 2015 19:31:46 +0100</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
-      <guid>https://pietromaggi.com/decks/</guid>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
+      <guid>https://pietromaggi.com/page/decks/</guid>
       <description>Android Wireless DeepDive Exploring how to build a RhoMobile native extension for an Android undocumented feature.
 Mobile Barcode Scanning API Status An analysis of barcode scanning API status on mobile devices.</description>
     </item>
@@ -264,147 +216,115 @@ Mobile Barcode Scanning API Status An analysis of barcode scanning API status on
       <title>Android Back Button and Enterprise Browser</title>
       <link>https://pietromaggi.com/2015/09/25/android-back-button-and-enterprise-browser/</link>
       <pubDate>Fri, 25 Sep 2015 11:33:11 +0200</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2015/09/25/android-back-button-and-enterprise-browser/</guid>
-      <description>2019 Update This post is now obsolete. Enterprise Browser has new APIs to cover this use case, please refer to its documentation for updates.
-Edit Enteprise Browser v1.3 introduced a change that requires to enable FunctionKeysCapturable to be able to use the KeyCapture API.
-To do this you need to update your Config.xml with:
-&amp;lt;FunctionKeysCapturable value=&amp;quot;1&amp;quot;/&amp;gt;  Enterprise Browser Enterprise Browser is Zebra Technologies&amp;rsquo; Industrial Browser built for our Rugged Devices, we support most of our Windows Mobile/Windows CE devices and Android devices.</description>
+      <description>Obsolete - How to intercept the Back Button when using Zebra&amp;rsquo;s Enterprise Browser on Android devices.</description>
     </item>
     
     <item>
       <title>Finding the SDCard Path on Android devices</title>
       <link>https://pietromaggi.com/2014/10/19/finding-the-sdcard-path-on-android-devices/</link>
       <pubDate>Sun, 19 Oct 2014 20:55:18 +0200</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2014/10/19/finding-the-sdcard-path-on-android-devices/</guid>
-      <description>2019 Update The information in this post are obsolete. Please refer to the Android documentation for updates on this topic.
-With Motorola Solutions we&amp;rsquo;re busy finishing the first round of Android Developer&amp;rsquo;s Kitchens around Europe. Just in time to prepare for the Enterprise App Forum in Brussels!.
-The nice things of these events is the interaction with our partners and theirs real live problem!
-Last week I got an interesting question regarding our TC55:</description>
+      <description>Obsolete - Finding the real SDCard path in Android v4.1 JellyBean can be tricky. Let see how we can do it on a TC55.</description>
     </item>
     
     <item>
       <title>Getting device info from MSI Android devices</title>
       <link>https://pietromaggi.com/2014/09/02/getting-device-info-from-msi-android-devices/</link>
       <pubDate>Tue, 02 Sep 2014 11:56:38 +0200</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2014/09/02/getting-device-info-from-msi-android-devices/</guid>
-      <description>2019 Update The information in this post are obsolete. Please refer to the Android documentation for updates on this topic.
-The good old ways! On Symbol/MSI Windows Mobile devices, we where providing some APIs in the EMDK to get additional information. Looking into the Resource Coordinator is possible to find APIs like:
- RCM_GetESN() - retrieves the device electronic serial number RCM_GetUniqueUnitId() - retrieves the unique unit identification number RCM_GetVersion() - retrieves version information etc&amp;hellip;  &amp;hellip;and we don&amp;rsquo;t have anything like this in the Android EMDK.</description>
+      <description>Obsolete - How to use the standard Android SDK to retrieve information about the device the app is running on.</description>
     </item>
     
     <item>
       <title>Rhodes 5.0.2 and Visual Studio 2008 Localized edition</title>
       <link>https://pietromaggi.com/2014/08/22/rhodes-5.0.2-and-visual-studio-2008-localized-edition/</link>
       <pubDate>Fri, 22 Aug 2014 13:01:48 +0200</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2014/08/22/rhodes-5.0.2-and-visual-studio-2008-localized-edition/</guid>
-      <description>2019 Update The information in this post are obsolete. Please refer to the official RhoMobile documentation for best practices and setup guide.
-Oh the joy of a new RhoMobile version!
-Creating new virtual machines and finally deciding that is time to leave the old trusty Windows XP and jump on the new Windows 7 with 63+1 bits. Oh man! what a pleasant use of time :-)
-On top of this I wanted to spin the setup a bit and decided to use a localized version of Visual Studio 2008&amp;hellip; what can go wrong with it?</description>
+      <description>Obsolete - Quick post on the Joy of localized Visual Studio.</description>
     </item>
     
     <item>
       <title>Configuring RhoMobile Suite v5.0 on a clean OS X Mavericks machine</title>
       <link>https://pietromaggi.com/2014/08/11/configuring-rhomobile-suite-v5.0-on-a-clean-os-x-mavericks-machine/</link>
       <pubDate>Mon, 11 Aug 2014 09:57:10 +0200</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2014/08/11/configuring-rhomobile-suite-v5.0-on-a-clean-os-x-mavericks-machine/</guid>
-      <description>2019 Update The information in this post are obsolete. Please refer to the official RhoMobile documentation for best practices and setup guide.
-RhoMobile Suite v5.0 The new main release of Rhodes, RhoElements and RhoConnect had just been released a couple of weeks ago during OSCON. It&amp;rsquo;s now time to install it and start building some mobile apps!
-In this post I&amp;rsquo;d like to help you installing RMSv5.0 on a new OS X Mavericks machine and install everything that is needed to build iOS and Android applications, the only pre-requisite is to have a valid OS X Mavericks license installed on a Mac or inside a virtual machine&amp;hellip; on a Mac :-).</description>
+      <description>Obsolete - Step by step guide on how to install RhoMobile Studio v5.0 on a clean OS X Mavericks machine</description>
     </item>
     
     <item>
       <title>Little command line tricks</title>
       <link>https://pietromaggi.com/2014/01/10/little-command-line-tricks/</link>
       <pubDate>Fri, 10 Jan 2014 19:37:45 +0100</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2014/01/10/little-command-line-tricks/</guid>
-      <description>This is a different blog, more a remainder for me than anything else. Hope that someone else can find these useful&amp;hellip; they&amp;rsquo;re for me!
-Recover a failed download with curl: curl -C - -o partially_downloaded_file &#39;www.example.com/path/to/the/file&#39;  Burn a playable DVD from a VIDEO_TS folder After searching the forums and trying various things, I still couldn&amp;rsquo;t find a quick, reliable, free method of burning a VIDEO_TS folder to a pure UDF DVD, so that it would play in regular DVD players, as well trigger DVD Player to start up automatically.</description>
+      <description>More than a blog this is a note to self. Don&amp;rsquo;t forget this little tricks!</description>
     </item>
     
     <item>
       <title>Diving into Android source code</title>
       <link>https://pietromaggi.com/2014/01/02/diving-into-android-source-code/</link>
       <pubDate>Thu, 02 Jan 2014 14:34:27 +0100</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2014/01/02/diving-into-android-source-code/</guid>
-      <description>Why dive into Android code? When you&amp;rsquo;ve to write applications for Android, you&amp;rsquo;re targeting a giant moving API surface, sometimes you can be surprised of some different behavior in different Android versions or with an API call that is not well documented, so having the option to delve into Android Source Code is a great opportunity.
-A lot of things can be written on how to do this, there&amp;rsquo;s some documentation available on AOSP website, however I think that the best starting point is a video tutorial by NewCircle&amp;rsquo;s Instructor Dave Smith on this very topic:</description>
+      <description>Why Not? One of the beauty working on an open source OS is to be able to look into the source code to understand how it works. Don&amp;rsquo;t trust the documentation (or the comments in the source code). Trust only the code itself!</description>
     </item>
     
     <item>
       <title>2014 New Year resolutions</title>
       <link>https://pietromaggi.com/2014/01/01/2014-new-year-resolutions/</link>
       <pubDate>Wed, 01 Jan 2014 17:41:32 +0100</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2014/01/01/2014-new-year-resolutions/</guid>
-      <description>Blog a bit more That&amp;rsquo;s been one of my goal for a long time, and something that I always suggest to people to increase their &amp;laquo;Luck Surface Area&amp;raquo;.
-In my case I can add an additional goal: keep track of what I do, tricks that I find and document procedure, fixes and workarounds. That&amp;rsquo;s always a bit of a pain point for me: I manage to do something and then in six months (or six hours) I forgot how I&amp;rsquo;ve done it and I need to start from scratch&amp;hellip; Never More</description>
+      <description>Looking forwards to what I&amp;rsquo;d like to build in 2014.</description>
     </item>
     
     <item>
       <title>2013 in numbers</title>
       <link>https://pietromaggi.com/2013/12/31/2013-in-numbers/</link>
       <pubDate>Tue, 31 Dec 2013 20:52:22 +0100</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2013/12/31/2013-in-numbers/</guid>
-      <description>What an interesting year! This is the first year that I joined a regional team and this involved a lot of travel (12900 flight hours) across all EMEA. Has been a blast meeting a lot of end-users, partners and colleagues.
-I&amp;rsquo;ve started doing my &amp;laquo;RhoMobile Developer Roadshow&amp;raquo;, usually a one man show with up to three events a week for a total of 22 cities, from Lisbon to Dubai, and from Capetown to Helsinki.</description>
+      <description>Looking back at what happened in 2013.</description>
     </item>
     
     <item>
       <title>Rhodes tips &amp; tricks</title>
       <link>https://pietromaggi.com/2013/12/30/rhodes-tips-tricks/</link>
       <pubDate>Mon, 30 Dec 2013 13:56:04 +0100</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2013/12/30/rhodes-tips-tricks/</guid>
-      <description>How to rebuild the rhodes gem git clone https://github.com/rhomobile/rhodes.git cd rhodes git checkout 3-5-stable  make and commit changes if needed, then:
-rm -rf * git reset --hard git pull  Otherwise directly
-rake gem  Copy files where you need it (on a different machine) gem install -l rhodes-3.5.1.13.2 (version given as an example)
-Rhodes Database encryption Rhodes uses SQLite as database engine on all the supported platforms and, to provide encryption support we use different solutions depending by the target platform.</description>
+      <description>Collection of rhodes tips and tricks. More for the people that manage rhodes than who&amp;rsquo;s only looking for info on how to write rhodes apps.</description>
     </item>
     
     <item>
       <title>Ruby Version Manager (aka RVM) the Swiss army knife of Ruby versions</title>
       <link>https://pietromaggi.com/2013/12/29/ruby-version-manager-aka-rvm-the-swiss-army-knife-of-ruby-versions/</link>
       <pubDate>Sun, 29 Dec 2013 17:24:54 +0100</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2013/12/29/ruby-version-manager-aka-rvm-the-swiss-army-knife-of-ruby-versions/</guid>
-      <description>2019 Update This information are obsolete. Please refer to RVM and Ruby&amp;rsquo;s documentation for modern best practices. This worked for me long time ago.
-How many versions of Ruby do you need on your machine? Even if OS X 10.9 Mavericks came with Ruby v2.0.0-p195, the previous OS X versions where released with Ruby v1.8.7. On top of this, most of the work I do with Rhodes is still based on Ruby v1.</description>
+      <description>Obsolete - Ruby is such a nice language that having a single version on you computer is not enough!</description>
     </item>
     
     <item>
       <title>Why I like to talk about open source projects</title>
       <link>https://pietromaggi.com/2013/12/28/why-i-like-to-talk-about-open-source-projects/</link>
       <pubDate>Sat, 28 Dec 2013 21:33:25 +0100</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2013/12/28/why-i-like-to-talk-about-open-source-projects/</guid>
-      <description>Since I joined the RhoMobile group of Motorola Solutions as EIA pre-sale Technical Architect, I started to get disparate question regarding features of the Suite.
-Something on the line:
- How is possible to launch an external application from a Rhodes one? I tried different APIs and nothing seems to work&amp;hellip; Looking on the support matrix of the APIs for different OSes, it seems that X is supported on platform Y but I&amp;rsquo;m not able to make it working&amp;hellip;  Usually I try to figure out the answer for these question by myself, it&amp;rsquo;s always useful getting a better understanding of the tool I usually talk about (and it&amp;rsquo;s probably the part of my job that I like the most: finding solutions to problems).</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://pietromaggi.com/license/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
-      <guid>https://pietromaggi.com/license/</guid>
-      <description>This work is licensed under a Creative Commons Attribution 4.0 International License.</description>
+      <description>About the beauty of open source and the superiority of source code vs (bad) documentation.</description>
     </item>
     
     <item>
       <title></title>
       <link>https://pietromaggi.com/privacy_policy/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/privacy_policy/</guid>
       <description>Privacy Privacy matters but it can be confusing. This page explains our approach to privacy on all our websites and how it affects you.
 Short version We collect anonymous statistics about your visit, like which of our pages you viewed. Some 3rd parties like Facebook and Twitter may know you visited this website, if you use their services. We can’t control them but we don’t believe this knowledge poses any threat to you.</description>

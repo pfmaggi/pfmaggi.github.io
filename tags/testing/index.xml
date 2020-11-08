@@ -1,28 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Testing on Pietro F. Maggi</title>
+    <title>Testing on </title>
     <link>https://pietromaggi.com/tags/testing/</link>
-    <description>Recent content in Testing on Pietro F. Maggi</description>
+    <description>Recent content in Testing on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-EN</language>
-    <managingEditor>pfm@pietromaggi.com (Pietro F. Maggi)</managingEditor>
-    <webMaster>pfm@pietromaggi.com (Pietro F. Maggi)</webMaster>
-    <copyright>(c) 2013-2019 Pietro F. Maggi</copyright>
-    <lastBuildDate>Tue, 31 Oct 2017 21:00:00 +0100</lastBuildDate>
-    
-	<atom:link href="https://pietromaggi.com/tags/testing/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <managingEditor>blog@pietromaggi.com (Pietro F. Maggi)</managingEditor>
+    <webMaster>blog@pietromaggi.com (Pietro F. Maggi)</webMaster>
+    <lastBuildDate>Tue, 31 Oct 2017 21:00:00 +0100</lastBuildDate><atom:link href="https://pietromaggi.com/tags/testing/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Android Auto testing</title>
       <link>https://pietromaggi.com/2017/10/31/android-auto-testing/</link>
       <pubDate>Tue, 31 Oct 2017 21:00:00 +0100</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2017/10/31/android-auto-testing/</guid>
-      <description>Android Auto? Why? This summer I bought a new car and it came with a nice 8&amp;rdquo; touch panel that supports Android Auto and Apple Car.
-It even came with seven seats and a nice engine, and that was way more important than having an additional screen&amp;hellip; but, it&amp;rsquo;s there, and I started to make good use of it.
-Playing with Android Auto is a bit of a hit and miss.</description>
+      <description>I got a new car this summer that supports Android Auto, some apps I use on my phone works out of the box, others required some work. I remembered a couple of years ago Google presenting a tool to test AndroidAuto apps&amp;hellip; it ends up that there&amp;rsquo;s &amp;ldquo;space for improvements&amp;rdquo; in the  available documentation.</description>
     </item>
     
   </channel>

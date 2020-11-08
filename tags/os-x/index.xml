@@ -1,48 +1,39 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Os X on Pietro F. Maggi</title>
+    <title>OS X on </title>
     <link>https://pietromaggi.com/tags/os-x/</link>
-    <description>Recent content in Os X on Pietro F. Maggi</description>
+    <description>Recent content in OS X on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-EN</language>
-    <managingEditor>pfm@pietromaggi.com (Pietro F. Maggi)</managingEditor>
-    <webMaster>pfm@pietromaggi.com (Pietro F. Maggi)</webMaster>
-    <copyright>(c) 2013-2019 Pietro F. Maggi</copyright>
-    <lastBuildDate>Mon, 11 Aug 2014 09:57:10 +0200</lastBuildDate>
-    
-	<atom:link href="https://pietromaggi.com/tags/os-x/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <managingEditor>blog@pietromaggi.com (Pietro F. Maggi)</managingEditor>
+    <webMaster>blog@pietromaggi.com (Pietro F. Maggi)</webMaster>
+    <lastBuildDate>Mon, 11 Aug 2014 09:57:10 +0200</lastBuildDate><atom:link href="https://pietromaggi.com/tags/os-x/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Configuring RhoMobile Suite v5.0 on a clean OS X Mavericks machine</title>
       <link>https://pietromaggi.com/2014/08/11/configuring-rhomobile-suite-v5.0-on-a-clean-os-x-mavericks-machine/</link>
       <pubDate>Mon, 11 Aug 2014 09:57:10 +0200</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2014/08/11/configuring-rhomobile-suite-v5.0-on-a-clean-os-x-mavericks-machine/</guid>
-      <description>2019 Update The information in this post are obsolete. Please refer to the official RhoMobile documentation for best practices and setup guide.
-RhoMobile Suite v5.0 The new main release of Rhodes, RhoElements and RhoConnect had just been released a couple of weeks ago during OSCON. It&amp;rsquo;s now time to install it and start building some mobile apps!
-In this post I&amp;rsquo;d like to help you installing RMSv5.0 on a new OS X Mavericks machine and install everything that is needed to build iOS and Android applications, the only pre-requisite is to have a valid OS X Mavericks license installed on a Mac or inside a virtual machine&amp;hellip; on a Mac :-).</description>
+      <description>Obsolete - Step by step guide on how to install RhoMobile Studio v5.0 on a clean OS X Mavericks machine</description>
     </item>
     
     <item>
       <title>Little command line tricks</title>
       <link>https://pietromaggi.com/2014/01/10/little-command-line-tricks/</link>
       <pubDate>Fri, 10 Jan 2014 19:37:45 +0100</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2014/01/10/little-command-line-tricks/</guid>
-      <description>This is a different blog, more a remainder for me than anything else. Hope that someone else can find these useful&amp;hellip; they&amp;rsquo;re for me!
-Recover a failed download with curl: curl -C - -o partially_downloaded_file &#39;www.example.com/path/to/the/file&#39;  Burn a playable DVD from a VIDEO_TS folder After searching the forums and trying various things, I still couldn&amp;rsquo;t find a quick, reliable, free method of burning a VIDEO_TS folder to a pure UDF DVD, so that it would play in regular DVD players, as well trigger DVD Player to start up automatically.</description>
+      <description>More than a blog this is a note to self. Don&amp;rsquo;t forget this little tricks!</description>
     </item>
     
     <item>
       <title>Ruby Version Manager (aka RVM) the Swiss army knife of Ruby versions</title>
       <link>https://pietromaggi.com/2013/12/29/ruby-version-manager-aka-rvm-the-swiss-army-knife-of-ruby-versions/</link>
       <pubDate>Sun, 29 Dec 2013 17:24:54 +0100</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2013/12/29/ruby-version-manager-aka-rvm-the-swiss-army-knife-of-ruby-versions/</guid>
-      <description>2019 Update This information are obsolete. Please refer to RVM and Ruby&amp;rsquo;s documentation for modern best practices. This worked for me long time ago.
-How many versions of Ruby do you need on your machine? Even if OS X 10.9 Mavericks came with Ruby v2.0.0-p195, the previous OS X versions where released with Ruby v1.8.7. On top of this, most of the work I do with Rhodes is still based on Ruby v1.</description>
+      <description>Obsolete - Ruby is such a nice language that having a single version on you computer is not enough!</description>
     </item>
     
   </channel>

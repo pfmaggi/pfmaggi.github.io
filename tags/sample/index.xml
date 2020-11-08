@@ -1,72 +1,57 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Sample on Pietro F. Maggi</title>
+    <title>Sample on </title>
     <link>https://pietromaggi.com/tags/sample/</link>
-    <description>Recent content in Sample on Pietro F. Maggi</description>
+    <description>Recent content in Sample on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-EN</language>
-    <managingEditor>pfm@pietromaggi.com (Pietro F. Maggi)</managingEditor>
-    <webMaster>pfm@pietromaggi.com (Pietro F. Maggi)</webMaster>
-    <copyright>(c) 2013-2019 Pietro F. Maggi</copyright>
-    <lastBuildDate>Mon, 01 Aug 2016 17:00:00 +0200</lastBuildDate>
-    
-	<atom:link href="https://pietromaggi.com/tags/sample/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <managingEditor>blog@pietromaggi.com (Pietro F. Maggi)</managingEditor>
+    <webMaster>blog@pietromaggi.com (Pietro F. Maggi)</webMaster>
+    <lastBuildDate>Mon, 01 Aug 2016 17:00:00 +0200</lastBuildDate><atom:link href="https://pietromaggi.com/tags/sample/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Disabling Home Button on Zebra Android devices</title>
       <link>https://pietromaggi.com/2016/08/01/disabling-home-button-on-zebra-android-devices/</link>
       <pubDate>Mon, 01 Aug 2016 17:00:00 +0200</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2016/08/01/disabling-home-button-on-zebra-android-devices/</guid>
-      <description>Intro I presented in the past a method to disable the Home Button on Zebra&amp;rsquo;s MC40 Android device, using a custom intent1. After having published it, I got some enquiries, about having the same behaviour on other Zebra&amp;rsquo;s devices. Well, it turns out that there&amp;rsquo;s now a &amp;laquo;standard&amp;raquo; way to do this in Zebra&amp;rsquo;s Mx extension using the UI Manager profile. This post is going to show how to implement a simple application that can disable the Home Button on all Zebra&amp;rsquo;s devices that have Mx v4.</description>
+      <description>Mx v4.3 introduce includes a feature in the OS that allows to disable the Home Button using Mx through the EMDK or StageNow.</description>
     </item>
     
     <item>
       <title>Disabling MC40 Home Button with a custom intent</title>
       <link>https://pietromaggi.com/2016/01/18/disabling-mc40-home-button-with-a-custom-intent/</link>
       <pubDate>Mon, 18 Jan 2016 09:00:00 +0100</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2016/01/18/disabling-mc40-home-button-with-a-custom-intent/</guid>
-      <description>Note: _I&amp;rsquo;ve published another post that explain how to disable the Home Button on all the Zebra&amp;rsquo;s Android devices that are supported by Mx v4.3+._
-Intro Zebra Technologies&amp;rsquo; devices are purpose built to be single use devices. Having an OS like Android nowadays provides a lot of flexibility&amp;hellip; sometimes a bit too much.
-With this idea in mind, the Android version used on these devices sometimes provide some nice surprise, like an Intent to disable the omnipresent Android&amp;rsquo;s Home button.</description>
+      <description>MC40 with Android v4.1 and v4.4 includes a feature in the OS that allows to disable the Home Button through an Intent.</description>
     </item>
     
     <item>
       <title>Building Zebra&#39;s EMDK project using SDK Platform 23</title>
       <link>https://pietromaggi.com/2015/11/25/building-zebras-emdk-project-using-sdk-platform-23/</link>
       <pubDate>Wed, 25 Nov 2015 09:54:55 +0100</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2015/11/25/building-zebras-emdk-project-using-sdk-platform-23/</guid>
-      <description>2019 Update This post is now obsolete. Please refer to Zebra&amp;rsquo;s EMDK documentation on best practices to use the EMDK.
-Note: EMDK 4.0 is now documenting this method to add com.symbol.emdk.jar as a dependency There&amp;rsquo;s a recurring question coming to me and to Launchpad&amp;rsquo;s forums lately:
-How can I compile my Android app, using Zebra&amp;rsquo;s EMDK, if I need the latest support library?
-Some background With the Android tools moving super-fast (Android studio v1.</description>
+      <description>Obsolete - How-To guide on how to build an Android application using the latest SDK Platform and Zebra Technologies&#39; EMDK.</description>
     </item>
     
     <item>
       <title>Finding the SDCard Path on Android devices</title>
       <link>https://pietromaggi.com/2014/10/19/finding-the-sdcard-path-on-android-devices/</link>
       <pubDate>Sun, 19 Oct 2014 20:55:18 +0200</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2014/10/19/finding-the-sdcard-path-on-android-devices/</guid>
-      <description>2019 Update The information in this post are obsolete. Please refer to the Android documentation for updates on this topic.
-With Motorola Solutions we&amp;rsquo;re busy finishing the first round of Android Developer&amp;rsquo;s Kitchens around Europe. Just in time to prepare for the Enterprise App Forum in Brussels!.
-The nice things of these events is the interaction with our partners and theirs real live problem!
-Last week I got an interesting question regarding our TC55:</description>
+      <description>Obsolete - Finding the real SDCard path in Android v4.1 JellyBean can be tricky. Let see how we can do it on a TC55.</description>
     </item>
     
     <item>
       <title>Getting device info from MSI Android devices</title>
       <link>https://pietromaggi.com/2014/09/02/getting-device-info-from-msi-android-devices/</link>
       <pubDate>Tue, 02 Sep 2014 11:56:38 +0200</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2014/09/02/getting-device-info-from-msi-android-devices/</guid>
-      <description>2019 Update The information in this post are obsolete. Please refer to the Android documentation for updates on this topic.
-The good old ways! On Symbol/MSI Windows Mobile devices, we where providing some APIs in the EMDK to get additional information. Looking into the Resource Coordinator is possible to find APIs like:
- RCM_GetESN() - retrieves the device electronic serial number RCM_GetUniqueUnitId() - retrieves the unique unit identification number RCM_GetVersion() - retrieves version information etc&amp;hellip;  &amp;hellip;and we don&amp;rsquo;t have anything like this in the Android EMDK.</description>
+      <description>Obsolete - How to use the standard Android SDK to retrieve information about the device the app is running on.</description>
     </item>
     
   </channel>

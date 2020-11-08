@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pages on </title>
+    <link>https://pietromaggi.com/page/</link>
+    <description>Recent content in Pages on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-EN</language>
+    <managingEditor>blog@pietromaggi.com (Pietro F. Maggi)</managingEditor>
+    <webMaster>blog@pietromaggi.com (Pietro F. Maggi)</webMaster>
+    <lastBuildDate>Mon, 19 Mar 2018 21:53:35 +0100</lastBuildDate><atom:link href="https://pietromaggi.com/page/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Speaking Appointments</title>
+      <link>https://pietromaggi.com/page/speaking/</link>
+      <pubDate>Mon, 19 Mar 2018 21:53:35 +0100</pubDate>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
+      <guid>https://pietromaggi.com/page/speaking/</guid>
+      <description>ARCHIVE AND TALK LINKS </description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://pietromaggi.com/page/about/</link>
+      <pubDate>Sat, 09 Jan 2016 20:50:38 +0100</pubDate>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
+      <guid>https://pietromaggi.com/page/about/</guid>
+      <description>Hi!
+My name is Pietro F. Maggi.
+I&amp;rsquo;m a Father an Husband and occasionally I find the time to write some code.
+I really believe that the best way to learn how something works is to take it apart (I know, I can&amp;rsquo;t really blame my kids when they do the same).
+I&amp;rsquo;ve more than fifteen years designing and developing software solutions with a deep mobile experience. I sometimes speak at conferences to talk about the Android ecosystem and developer tools with a particular attention to enterprise mobility.</description>
+    </item>
+    
+    <item>
+      <title>Slide Decks</title>
+      <link>https://pietromaggi.com/page/decks/</link>
+      <pubDate>Sun, 25 Oct 2015 19:31:46 +0100</pubDate>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
+      <guid>https://pietromaggi.com/page/decks/</guid>
+      <description>Android Wireless DeepDive Exploring how to build a RhoMobile native extension for an Android undocumented feature.
+Mobile Barcode Scanning API Status An analysis of barcode scanning API status on mobile devices.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,52 +1,39 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Enterprise Browser on Pietro F. Maggi</title>
+    <title>Enterprise Browser on </title>
     <link>https://pietromaggi.com/tags/enterprise-browser/</link>
-    <description>Recent content in Enterprise Browser on Pietro F. Maggi</description>
+    <description>Recent content in Enterprise Browser on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-EN</language>
-    <managingEditor>pfm@pietromaggi.com (Pietro F. Maggi)</managingEditor>
-    <webMaster>pfm@pietromaggi.com (Pietro F. Maggi)</webMaster>
-    <copyright>(c) 2013-2019 Pietro F. Maggi</copyright>
-    <lastBuildDate>Thu, 12 Jul 2018 18:00:48 +0200</lastBuildDate>
-    
-	<atom:link href="https://pietromaggi.com/tags/enterprise-browser/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <managingEditor>blog@pietromaggi.com (Pietro F. Maggi)</managingEditor>
+    <webMaster>blog@pietromaggi.com (Pietro F. Maggi)</webMaster>
+    <lastBuildDate>Thu, 12 Jul 2018 18:00:48 +0200</lastBuildDate><atom:link href="https://pietromaggi.com/tags/enterprise-browser/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Enterprise Browser - Using the Android Headset as a Barcode Trigger</title>
       <link>https://pietromaggi.com/2018/07/12/enterprise-browser-using-the-android-headset-as-a-barcode-trigger/</link>
       <pubDate>Thu, 12 Jul 2018 18:00:48 +0200</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2018/07/12/enterprise-browser-using-the-android-headset-as-a-barcode-trigger/</guid>
-      <description>What if&amp;hellip;
-you want to use a Zebra&amp;rsquo;s Android device mounted on an arm-mount and you want to control the barcode scanner with a wired button?
-WT6000 is the obvious answer!
-But if your customer has already chosen the TC51 for other activities, we can help them using the headset connector.
-The Android headset connectors Before Apple decided that we don&amp;rsquo;t need anymore the 3.5mm headset connector on our phones, people started to look into it as a standard input interface for all the devices.</description>
+      <description>What if&amp;hellip; you want to use a Zebra&amp;rsquo;s Android device mounted on an arm-wrist and you want to control the barcode scanner with a wired button? WT6000 is the obvious answer! But if your customer has already chosen the TC51 for other activities, we can help them using the headset connector.</description>
     </item>
     
     <item>
       <title>Enterprise Browser and DataWedge on Android - friends at the end</title>
       <link>https://pietromaggi.com/2016/10/29/enterprise-browser-and-datawedge-on-android-friends-at-the-end/</link>
       <pubDate>Sat, 29 Oct 2016 11:00:00 +0100</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2016/10/29/enterprise-browser-and-datawedge-on-android-friends-at-the-end/</guid>
-      <description>During Enterprise Browser hands-on lab, I got some enquiry about using other MobilityDNA utilities together with EB; in particular how to integrate SwipeAssist and Simulscan. These utilities can be integrated, with some heavy lifting, and accepting some constraints.
-Some background The current scanner framework implementation on our Android devices make available a single scanner object that provides full Scanner control. As always &amp;hellip;&amp;laquo;with great power comes great responsibility&amp;raquo;: an application using the scanner object from the Barcode API, is required to release it when it&amp;rsquo;s going in the background (usually you do this handling in the onPause() callback in your native application).</description>
+      <description>Enterprise Browser 1.4, out of the box, disable DataWedge on Android to be able to fully control the barcode scanner. Here you can find a step-by-step guide on how to integrate this two Mobility DNA&amp;rsquo;s component to enjoy features like SimulScan and SwipeAssist inside Enterprise Browser.</description>
     </item>
     
     <item>
       <title>Android Back Button and Enterprise Browser</title>
       <link>https://pietromaggi.com/2015/09/25/android-back-button-and-enterprise-browser/</link>
       <pubDate>Fri, 25 Sep 2015 11:33:11 +0200</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2015/09/25/android-back-button-and-enterprise-browser/</guid>
-      <description>2019 Update This post is now obsolete. Enterprise Browser has new APIs to cover this use case, please refer to its documentation for updates.
-Edit Enteprise Browser v1.3 introduced a change that requires to enable FunctionKeysCapturable to be able to use the KeyCapture API.
-To do this you need to update your Config.xml with:
-&amp;lt;FunctionKeysCapturable value=&amp;quot;1&amp;quot;/&amp;gt;  Enterprise Browser Enterprise Browser is Zebra Technologies&amp;rsquo; Industrial Browser built for our Rugged Devices, we support most of our Windows Mobile/Windows CE devices and Android devices.</description>
+      <description>Obsolete - How to intercept the Back Button when using Zebra&amp;rsquo;s Enterprise Browser on Android devices.</description>
     </item>
     
   </channel>

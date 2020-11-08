@@ -1,254 +1,277 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]> <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-<head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <title>(Xamarin.Forms &#43; FreshMVVM &#43; DataWedge) take 2  &middot; Pietro F. Maggi</title>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="HandheldFriendly" content="True">
-<meta name="MobileOptimized" content="320">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-
-<meta name="description" content="We&#39;re going to review the code presented in the last post to add some more functionalities and make it a bit more modular." />
-
-<meta name="keywords" content="Android, Zebra, Xamarin, Xamarin.Forms, FreshMVVM, DataWedge, ">
-
-
-<meta property="og:title" content="(Xamarin.Forms &#43; FreshMVVM &#43; DataWedge) take 2  &middot; Pietro F. Maggi ">
-<meta property="og:site_name" content="Pietro F. Maggi"/>
-<meta property="og:url" content="https://pietromaggi.com/2018/07/11/xamarin.forms-freshmvvm-datawedge-take-2/" />
-<meta property="og:locale" content="en-EN">
-
-
-<meta property="og:type" content="article" />
-<meta property="og:description" content="We&#39;re going to review the code presented in the last post to add some more functionalities and make it a bit more modular."/>
-<meta property="og:article:published_time" content="2018-07-11T09:00:00&#43;02:00" />
-<meta property="og:article:modified_time" content="2018-07-11T09:00:00&#43;02:00" />
-
-  
-    
-<meta property="og:article:tag" content="Android">
-    
-<meta property="og:article:tag" content="Zebra">
-    
-<meta property="og:article:tag" content="Xamarin">
-    
-<meta property="og:article:tag" content="Xamarin.Forms">
-    
-<meta property="og:article:tag" content="FreshMVVM">
-    
-<meta property="og:article:tag" content="DataWedge">
-    
-  
-
-  
-<meta name="twitter:card" content="summary" />
-<meta name="twitter:site" content="@pfmaggi" />
-<meta name="twitter:creator" content="@pfmaggi" />
-<meta name="twitter:title" content="(Xamarin.Forms &#43; FreshMVVM &#43; DataWedge) take 2" />
-<meta name="twitter:description" content="We&#39;re going to review the code presented in the last post to add some more functionalities and make it a bit more modular." />
-<meta name="twitter:url" content="https://pietromaggi.com/2018/07/11/xamarin.forms-freshmvvm-datawedge-take-2/" />
-<meta name="twitter:domain" content="https://pietromaggi.com/">
-  
-
-<script type="application/ld+json">
-  {
+  <title>(Xamarin.Forms &#43; FreshMVVM &#43; DataWedge) take 2 - </title>
+  <meta name="description" content="We&rsquo;re going to review the code presented in the last post to add some more functionalities and make it a bit more modular.">
+  <meta name="author" content="Pietro F. Maggi"/><script type="application/ld+json">
+{
     "@context": "http://schema.org",
-    "@type": "Article",
-    "headline": "(Xamarin.Forms &#43; FreshMVVM &#43; DataWedge) take 2",
-    "author": {
-      "@type": "Person",
-      "name": "http://profiles.google.com/+?rel=author"
-    },
-    "datePublished": "2018-07-11",
-    "description": "We&#39;re going to review the code presented in the last post to add some more functionalities and make it a bit more modular.",
-    "wordCount": 2917
+    "@type": "WebSite",
+    "name": "",
+    
+    "url": "https:\/\/pietromaggi.com\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/pietromaggi.com\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/pietromaggi.com\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/pietromaggi.com\/2018\/07\/11\/xamarin.forms-freshmvvm-datawedge-take-2\/",
+          "name": "( xamarin. forms \u002b fresh m v v m \u002b data wedge) take 2"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Pietro F. Maggi"
+  },
+  "headline": "(Xamarin.Forms \u002b FreshMVVM \u002b DataWedge) take 2",
+  "description" : "We\u0026rsquo;re going to review the code presented in the last post to add some more functionalities and make it a bit more modular.",
+  "inLanguage" : "en",
+  "wordCount":  2931 ,
+  "datePublished" : "2018-07-11T09:00:00",
+  "dateModified" : "2018-07-11T09:00:00",
+  "image" : "https:\/\/pietromaggi.com\/images\/pfm.png",
+  "keywords" : [ "Android, Zebra, Xamarin, Xamarin.Forms, FreshMVVM, DataWedge" ],
+  "mainEntityOfPage" : "https:\/\/pietromaggi.com\/2018\/07\/11\/xamarin.forms-freshmvvm-datawedge-take-2\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/pietromaggi.com\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/pietromaggi.com\/images\/pfm.png",
+        "height" :  60 ,
+        "width" :  60
+    }
   }
+}
 </script>
 
+<meta property="og:title" content="(Xamarin.Forms &#43; FreshMVVM &#43; DataWedge) take 2" />
+<meta property="og:description" content="We&rsquo;re going to review the code presented in the last post to add some more functionalities and make it a bit more modular.">
+<meta property="og:image" content="https://pietromaggi.com/images/pfm.png" />
+<meta property="og:url" content="https://pietromaggi.com/2018/07/11/xamarin.forms-freshmvvm-datawedge-take-2/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="" />
+
+  <meta name="twitter:title" content="(Xamarin.Forms &#43; FreshMVVM &#43; DataWedge) take 2" />
+  <meta name="twitter:description" content="We&rsquo;re going to review the code presented in the last post to add some more functionalities and make it a bit more modular.">
+  <meta name="twitter:image" content="https://pietromaggi.com/images/pfm.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@pfmaggi" />
+  <meta name="twitter:creator" content="@pfmaggi" />
+  <link href='https://pietromaggi.com/images/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.78.1" />
+  <link rel="alternate" href="https://pietromaggi.com/index.xml" type="application/rss+xml" title=""><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://pietromaggi.com/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" /><link rel="stylesheet" href="https://pietromaggi.com/css/syntax.css" /><link rel="stylesheet" href="https://pietromaggi.com/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
 
 
-<link rel="canonical" href="https://pietromaggi.com/2018/07/11/xamarin.forms-freshmvvm-datawedge-take-2/" />
 
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://pietromaggi.com/touch-icon-144-precomposed.png">
-<link href="https://pietromaggi.com/favicon.png" rel="icon">
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://pietromaggi.com/"></a>
+    </div>
 
-<meta name="generator" content="Hugo 0.54.0" />
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Home" href="/">Home</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Decks" href="/page/decks">Decks</a>
+            </li>
+          
+        
 
-  <!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
+        
 
-<link href='https://fonts.googleapis.com/css?family=Merriweather:300%7CRaleway%7COpen+Sans' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="/css/font-awesome.min.css">
-<link rel="stylesheet" href="/css/style.css">
-<link rel="stylesheet" href="/css/highlight/docco.css">
+        
+      </ul>
+    </div>
 
-  
-  
-	<script>
-	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="" href="https://pietromaggi.com/">
+            <img class="avatar-img" src="https://pietromaggi.com/images/pfm.png" alt="" />
+          </a>
+        </div>
+      </div>
+    
 
-	  ga('create', 'UA-78928627-1', 'auto');
-	  ga('send', 'pageview');
-
-	</script>
-
-</head>
-<body>
-  <main id="main-wrapper" class="container main_wrapper">
-    <header id="main-header" class="container main_header">
-  <div class="container brand">
-  <div class="container title h1-like">
-  <a class="baselink" href="https://pietromaggi.com/">
-  Garbage Collector
-
-</a>
-
-</div>
-
-  
-<div class="container topline">
-  
-  Tales from an old nibble
-
-
-</div>
-
-
-</div>
-
-  <nav class="container nav primary no-print">
-  
-
-<a class="homelink" href="https://pietromaggi.com/">Home</a>
-
-
-  
-<a href="https://pietromaggi.com/about">About</a>
-
-<a href="https://pietromaggi.com/post" title="Show list of posts">Posts</a>
-
-<a href="https://pietromaggi.com/speaking">Speaking Appointments</a>
-
-<a href="https://pietromaggi.com/decks">Slide Decks</a>
-
-<a href="https://pietromaggi.com/tags" title="Show list of tags">Tags</a>
-
-
+  </div>
 </nav>
 
-<div class="container nav secondary no-print">
-  
-<a id="contact-link-email" class="contact_link" aria-label="Email" href="mailto:pfm@pietromaggi.com">
-  <span class="fa fa-envelope-square"></span></a>
 
 
 
-<a id="contact-link-github" class="contact_link" aria-label="Github" href="https://github.com/pfmaggi">
-  <span class="fa fa-github-square"></span></a>
+    
 
 
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
 
-<a id="contact-link-bitbucket" class="contact_link" aria-label="Bitbucket" href="https://bitbucket.org/pfmaggi">
-  <span class="fa fa-bitbucket-square"></span></a>
+<div class="pswp__bg"></div>
 
-
- 
-<a id="contact-link-linkedin" class="contact_link" aria-label="LinkedIn" href="https://www.linkedin.com/in/pietromaggi">
-  <span class="fa fa-linkedin-square"></span></a>
-
-
-
-
-
-
-
-<a id="contact-link-twitter" class="contact_link" aria-label="Twitter" href="https://twitter.com/pfmaggi">
-  <span class="fa fa-twitter-square"></span></a>
-
-
-
-
-
-
-
-
-
-
-
-
-
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
 </div>
 
 
   
+  
+  
 
-</header>
 
 
-<article id="main-content" class="container main_content single">
-  <header class="container hat">
-  <h1>(Xamarin.Forms &#43; FreshMVVM &#43; DataWedge) take 2
-</h1>
 
-  <div class="metas">
-<time datetime="2018-07-11">11 Jul, 2018</time>
 
 
   
-    &middot; by Pietro F. Maggi
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>(Xamarin.Forms &#43; FreshMVVM &#43; DataWedge) take 2</h1>
+              
+              
+              
+              
+                <span class="post-meta">
   
-  &middot; Read in about 14 min
-  &middot; (2917 Words)
-  <br>
   
-<a class="label" href="https://pietromaggi.com/tags/android">Android</a>
-
-<a class="label" href="https://pietromaggi.com/tags/zebra">Zebra</a>
-
-<a class="label" href="https://pietromaggi.com/tags/xamarin">Xamarin</a>
-
-<a class="label" href="https://pietromaggi.com/tags/xamarin.forms">Xamarin.Forms</a>
-
-<a class="label" href="https://pietromaggi.com/tags/freshmvvm">FreshMVVM</a>
-
-<a class="label" href="https://pietromaggi.com/tags/datawedge">DataWedge</a>
-
-
-
-</div>
-
-</header>
-
-  <div class="container content">
+  <i class="fas fa-calendar"></i>&nbsp;Posted on July 11, 2018
   
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;14&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;2931&nbsp;words
+  
+  
+  
+</span>
 
-<p><em>Note: <a href="https://github.com/Zebra/Inventory/releases/tag/datawedge2">the accompanying code is available on GitHub</a>.</em></p>
 
-<p>We saw in the <a href="{{ relref . &quot;xamarin_forms_dw_2.md&quot; }}">last post</a> how to add barcode scanning functionalities to the &laquo;Inventory&raquo; sample application, using DataWedge.</p>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
 
-<p>Today we&rsquo;re going to review that code and refactor it &laquo;just a bit&raquo;. The goal is to make it a bit more modular, adding some flexibility to how we manage the barcode. In particular we want to have these features in our app:</p>
 
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p><em>Note: <a href="https://github.com/Zebra/Inventory/releases/tag/datawedge2">the accompanying code is available on GitHub</a>.</em></p>
+<p>We saw in the [last post]({{ relref . &ldquo;xamarin_forms_dw_2.md&rdquo; }}) how to add barcode scanning functionalities to the &ldquo;Inventory&rdquo; sample application, using DataWedge.</p>
+<p>Today we&rsquo;re going to review that code and refactor it &ldquo;just a bit&rdquo;. The goal is to make it a bit more modular, adding some flexibility to how we manage the barcode. In particular we want to have these features in our app:</p>
 <ul>
 <li>Be able to enable/disable the barcode scanner (we don&rsquo;t want the barcode to be always active).</li>
 <li>Be able to configure the barcode scanner decoders and parameters in general.</li>
 <li>Get the data in the Xamarin Forms application using an event handler directly instead of using the Messaging Center.</li>
 </ul>
-
 <h2 id="an-interface-to-the-scanner">An interface to the scanner</h2>
-
 <p>The first step to modularize the application is to create an interface to abstract the barcode scanning functionality. In the portable library project create an <code>Interfaces</code> folder and create a new interface inside it with the name <code>IScanner</code>:</p>
-
 <p>The code for this interface is:</p>
-
 <pre><code>using System;
 namespace Inventory
 {
@@ -276,9 +299,7 @@ namespace Inventory
     }
 }
 </code></pre>
-
 <p>We&rsquo;re going to create a second interface, with the name <code>IScannerConfig</code> to abstract the configuration of the barcode scanner. The code of this interface is going to be:</p>
-
 <pre><code>using System;
 
 namespace Inventory
@@ -288,13 +309,9 @@ namespace Inventory
     }
 }
 </code></pre>
-
 <p>We&rsquo;re going to add few models to support this new integration of the barcode scanning functionalities.</p>
-
 <h2 id="some-new-models-for-the-barcode-data-and-events">Some new models for the barcode data and events</h2>
-
 <p>We&rsquo;re still working at the portable project level, the Xamarin Forms application. Inside the <code>Models</code> folder, create a new <code>Barcode</code> class:</p>
-
 <pre><code>using System;
 namespace Inventory
 {
@@ -330,9 +347,7 @@ namespace Inventory
     }
 }
 </code></pre>
-
 <p>Then we need another class, again in the <code>Models</code> folder, for the Events. Create a new class with the name <code>StatusEventArgs</code>:</p>
-
 <pre><code>using System;
 namespace Inventory
 {
@@ -357,11 +372,8 @@ namespace Inventory
     }
 }
 </code></pre>
-
 <p>The last model class we need to create is the one that bring some knowledge of Zebra&rsquo;s DataWedge functionality in the portable project. In reality, this doesn&rsquo;t stops the application to work on other device or to have the application built for iOS. Simply we want to control DataWedge from the Xamarin.Forms code and, if we want to be able to run the application on other Android devices or on iOS, we simply need to take in account that some of these features are not going to be available on those devices.</p>
-
 <p>Inside the <code>Models</code> folder create a <code>ZebraScannerConfig</code> class:</p>
-
 <pre><code>using System;
 
 namespace Inventory
@@ -411,13 +423,9 @@ namespace Inventory
     }
 }
 </code></pre>
-
-<h2 id="implementing-the-iscanner-interface-with-datawedge-s-intent-apis">Implementing the IScanner interface with DataWedge&rsquo;s Intent APIs</h2>
-
+<h2 id="implementing-the-iscanner-interface-with-datawedges-intent-apis">Implementing the IScanner interface with DataWedge&rsquo;s Intent APIs</h2>
 <p>It&rsquo;s now the moment to implement the <code>IScanner</code> interface on top of DataWedge&rsquo;s Intent APIs. These changes are done to the Android project inside our solution, in the <code>Inventory.Droid</code> namespace.</p>
-
 <p>Create a new class with the name <code>Scanner_Android</code>. This is going to contain the bulk of (all) the logic to control DataWedge:</p>
-
 <pre><code>using System;
 using Android.App;
 using Android.Content;
@@ -599,11 +607,8 @@ namespace Inventory.Droid
     }
 }
 </code></pre>
-
 <p>Part of the code that we&rsquo;ve here was inside the Main Activity class before. I never liked the idea to have logic talking to DataWedge inside that class!</p>
-
 <p>Now <code>Main_Activity</code> is cleaner:</p>
-
 <pre><code>using System;
 using Android.App;
 using Android.Content.PM;
@@ -638,12 +643,9 @@ namespace Inventory.Droid
     }
 }
 </code></pre>
-
 <p>As you can see we&rsquo;re now creating an instance of the <code>Scanner_Android</code> class and register it with FreshMVVM IOC. An alternative can be to use <a href="https://docs.microsoft.com/en-us/xamarin/xamarin-forms/app-fundamentals/dependency-service/introduction">Xamarin.Forms dependency service</a>, but I liked the idea to use this IOC.
 Swapping to the dependency service should be trivial (and is left as an exercise to the reader&hellip;).</p>
-
 <p>Another required change, to the previous version of the application, is in the Broadcast receiver. We need to update it to send the barcode data using the <code>Barcode</code> class, instead than sending a string:</p>
-
 <pre><code>using System;
 using Android.Content;
 
@@ -720,15 +722,10 @@ namespace Inventory.Droid
     }
 }
 </code></pre>
-
 <p>We&rsquo;ve now done all the plumbing necessary to handle the barcode scanner in our application. Let&rsquo;s move back at the Xamarin.Forms level to see how we can now control the barcode scanner from there.</p>
-
-<h2 id="handle-the-barcode-scanner-in-the-xamarin-forms-application">Handle the barcode scanner in the Xamarin.Forms application</h2>
-
-<p>What we want to implement is to have the barcode scanner enabled only in the <code>ItemListPage</code> and disabled when we&rsquo;re in the <code>ItemPage</code>. In the previous version of the application (<a href="{{ relref . &quot;xamarin_forms_dw_2.md&quot; }}">presented in the previous post</a>), the barcode scanner was always enabled and there was some strange behavior sometimes.</p>
-
+<h2 id="handle-the-barcode-scanner-in-the-xamarinforms-application">Handle the barcode scanner in the Xamarin.Forms application</h2>
+<p>What we want to implement is to have the barcode scanner enabled only in the <code>ItemListPage</code> and disabled when we&rsquo;re in the <code>ItemPage</code>. In the previous version of the application ([presented in the previous post]({{ relref . &ldquo;xamarin_forms_dw_2.md&rdquo; }})), the barcode scanner was always enabled and there was some strange behavior sometimes.</p>
 <p>We&rsquo;re going to modify the <code>ItemListPageModel</code> class implementing the two methods <code>ViewIsAppearing</code> and <code>ViewIsDisappearing</code> to enable and disable the barcode scanner:</p>
-
 <pre><code>protected override void ViewIsAppearing(object sender, EventArgs e)
 {
     base.ViewIsAppearing(sender, e);
@@ -758,13 +755,9 @@ protected override void ViewIsDisappearing(object sender, EventArgs e)
     base.ViewIsDisappearing(sender, e);
 }
 </code></pre>
-
 <p>We can see that here, we&rsquo;re not only enabling/disabling the barcode scanner so that is only active when this view is in the foreground. We&rsquo;re configuring the enabled decoders of the barcode and we&rsquo;re registering the event handler to call when we receive the data. Most of what we need to control the barcode scanner is here.</p>
-
 <p>As we wrote before, we&rsquo;re using FreshMVVM&rsquo;s IOC to retrieve a reference to the active <code>IScanner</code> instance. Given that there&rsquo;s no implementation for iOS done at this moment, this application now works only on Android.</p>
-
 <p>The complete <code>ItemListPageModel</code> class became:</p>
-
 <pre><code>using FreshMvvm;
 using System;
 using System.Collections.Generic;
@@ -971,125 +964,206 @@ namespace Inventory
     }
 }
 </code></pre>
-
 <p>This is the last change made to the application.
 The full project is now:</p>
-
-<p><span style="display:block;text-align:center">
-<img src="/images/20180711_xamarin/final_solution.png" alt="Final Inventory solution" title="Final Inventory solution" />
-</span></p>
-
+<span style="display:block;text-align:center">
+![Final Inventory solution](/images/20180711_xamarin/final_solution.png "Final Inventory solution")
+</span>
 <p>Thanks to <code>git</code>, you can see with a green dot the new files we created in this post, and with a yellow dot the files that we&rsquo;ve modified.</p>
-
 <p>We can now run it and enjoy having a much better control of the barcode scanner on a Zebra&rsquo;s Android device.</p>
-
 <h1 id="note"><strong>NOTE</strong></h1>
-
 <p><strong>I tried my best to present this topic in a clear way, I&rsquo;m not a Xamarin expert, the code I&rsquo;m presenting here works for me, on my computer with my TC56. Use this application as a reference, but don&rsquo;t assume that everything I wrote here is the definitive truth! Especially for mobile application developments; OS, tools and practices evolve very rapidly. What could be a good solution today, can be a terrible idea tomorrow.</strong></p>
 
+
+        
+          <div class="blog-tags">
+            
+              <a href="https://pietromaggi.com//tags/android/">Android</a>&nbsp;
+            
+              <a href="https://pietromaggi.com//tags/zebra/">Zebra</a>&nbsp;
+            
+              <a href="https://pietromaggi.com//tags/xamarin/">Xamarin</a>&nbsp;
+            
+              <a href="https://pietromaggi.com//tags/xamarin.forms/">Xamarin.Forms</a>&nbsp;
+            
+              <a href="https://pietromaggi.com//tags/freshmvvm/">FreshMVVM</a>&nbsp;
+            
+              <a href="https://pietromaggi.com//tags/datawedge/">DataWedge</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fpietromaggi.com%2f2018%2f07%2f11%2fxamarin.forms-freshmvvm-datawedge-take-2%2f&amp;text=%28Xamarin.Forms%20%2b%20FreshMVVM%20%2b%20DataWedge%29%20take%202&amp;via=pfmaggi" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fpietromaggi.com%2f2018%2f07%2f11%2fxamarin.forms-freshmvvm-datawedge-take-2%2f&amp;title=%28Xamarin.Forms%20%2b%20FreshMVVM%20%2b%20DataWedge%29%20take%202" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fpietromaggi.com%2f2018%2f07%2f11%2fxamarin.forms-freshmvvm-datawedge-take-2%2f&amp;title=%28Xamarin.Forms%20%2b%20FreshMVVM%20%2b%20DataWedge%29%20take%202" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">See also</h4>
+                  <ul>
+                
+                
+                    <li><a href="/2018/07/12/enterprise-browser-using-the-android-headset-as-a-barcode-trigger/">Enterprise Browser - Using the Android Headset as a Barcode Trigger</a></li>
+                
+                    <li><a href="/2018/07/07/xamarin.forms-freshmvvm-datawedge/">Xamarin.Forms &#43; FreshMVVM &#43; DataWedge = 💖</a></li>
+                
+                    <li><a href="/2018/07/04/xamarin.forms-freshmvvm-for-enterprise-applications/">Xamarin.Forms &#43; FreshMVVM for enterprise applications</a></li>
+                
+                    <li><a href="/2018/06/26/zebras-emdk-async-profile-manager-apis/">Zebra&#39;s EMDK Async Profile Manager APIs</a></li>
+                
+                    <li><a href="/2017/10/31/android-auto-testing/">Android Auto testing</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://pietromaggi.com/2018/07/07/xamarin.forms-freshmvvm-datawedge/" data-toggle="tooltip" data-placement="top" title="Xamarin.Forms &#43; FreshMVVM &#43; DataWedge = 💖">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://pietromaggi.com/2018/07/12/enterprise-browser-using-the-android-headset-as-a-barcode-trigger/" data-toggle="tooltip" data-placement="top" title="Enterprise Browser - Using the Android Headset as a Barcode Trigger">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
 </div>
 
+      
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:blog@pietromaggi.com" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/pfmaggi" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/pfmaggi" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/pietromaggi" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              Pietro F. Maggi
+            
+          
 
-  <footer class="container">
-  <div class="container navigation no-print">
-  <h2>Navigation</h2>
-  
-  
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2013 - 2018
+          
 
-    
-    <a class="prev" href="https://pietromaggi.com/2018/07/07/xamarin.forms-freshmvvm-datawedge/" title="Xamarin.Forms &#43; FreshMVVM &#43; DataWedge = 💖">
-      Previous
-    </a>
-    
+          
+        </p><p class="credits theme-by text-muted">
+          <a href="/privacy_policy">Privacy Policy</a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.78.1</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-    
-    <a class="next" href="https://pietromaggi.com/2018/07/12/enterprise-browser-using-the-android-headset-as-a-barcode-trigger/" title="Enterprise Browser - Using the Android Headset as a Barcode Trigger">
-      Next
-    </a>
-    
-
-  
-
-
-</div>
-
-  <div class="container comments">
-  <h2>Comments</h2>
-  
-<div id="disqus_thread"></div>
-<script type="text/javascript">
-  (function() {
-    
-    
-    if (window.location.hostname == "localhost")
-      return;
-
-    var dsq = document.createElement('script'); dsq.async = true; dsq.type = 'text/javascript';
-    dsq.src = '//pietrofmaggi.disqus.com/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-  })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-
-</div>
-
-</footer>
-
-</article>
-      <footer id="main-footer" class="container main_footer">
-  
-
-  <div class="container nav foot no-print">
-  
-<a href="https://pietromaggi.com/license">license</a>
-
-
-  <a class="toplink" href="#">back to top</a>
-
-</div>
-
-  <div class="container credits">
-  
-<div class="container footline">
-  
-  code with <i class='fa fa-heart'></i>
-
-
-</div>
-
-
-  
-<div class="container copyright">
-  
-  &copy; 2013-2019 Pietro F. Maggi
-
-
-</div>
-
-
-</div>
-
-</footer>
-
-    </main>
-    
-<script type="text/javascript">
-  (function() {
-    
-    
-    if (window.location.hostname == "localhost")
-      return;
-    var dsq = document.createElement('script'); dsq.async = true; dsq.type = 'text/javascript';
-    dsq.src = '//pietrofmaggi.disqus.com/count.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-  })();
-</script>
+<script src="https://pietromaggi.com/js/main.js"></script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://pietromaggi.com/js/load-photoswipe.js"></script>
 
 
 
-<script src="/js/highlight.pack.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
+
+
+
 
 
 

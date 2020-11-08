@@ -1,26 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Mx on Pietro F. Maggi</title>
+    <title>Mx on </title>
     <link>https://pietromaggi.com/tags/mx/</link>
-    <description>Recent content in Mx on Pietro F. Maggi</description>
+    <description>Recent content in Mx on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-EN</language>
-    <managingEditor>pfm@pietromaggi.com (Pietro F. Maggi)</managingEditor>
-    <webMaster>pfm@pietromaggi.com (Pietro F. Maggi)</webMaster>
-    <copyright>(c) 2013-2019 Pietro F. Maggi</copyright>
-    <lastBuildDate>Mon, 01 Aug 2016 17:00:00 +0200</lastBuildDate>
-    
-	<atom:link href="https://pietromaggi.com/tags/mx/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <managingEditor>blog@pietromaggi.com (Pietro F. Maggi)</managingEditor>
+    <webMaster>blog@pietromaggi.com (Pietro F. Maggi)</webMaster>
+    <lastBuildDate>Mon, 01 Aug 2016 17:00:00 +0200</lastBuildDate><atom:link href="https://pietromaggi.com/tags/mx/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Disabling Home Button on Zebra Android devices</title>
       <link>https://pietromaggi.com/2016/08/01/disabling-home-button-on-zebra-android-devices/</link>
       <pubDate>Mon, 01 Aug 2016 17:00:00 +0200</pubDate>
-      <author>pfm@pietromaggi.com (Pietro F. Maggi)</author>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2016/08/01/disabling-home-button-on-zebra-android-devices/</guid>
-      <description>Intro I presented in the past a method to disable the Home Button on Zebra&amp;rsquo;s MC40 Android device, using a custom intent1. After having published it, I got some enquiries, about having the same behaviour on other Zebra&amp;rsquo;s devices. Well, it turns out that there&amp;rsquo;s now a &amp;laquo;standard&amp;raquo; way to do this in Zebra&amp;rsquo;s Mx extension using the UI Manager profile. This post is going to show how to implement a simple application that can disable the Home Button on all Zebra&amp;rsquo;s devices that have Mx v4.</description>
+      <description>Mx v4.3 introduce includes a feature in the OS that allows to disable the Home Button using Mx through the EMDK or StageNow.</description>
     </item>
     
   </channel>
