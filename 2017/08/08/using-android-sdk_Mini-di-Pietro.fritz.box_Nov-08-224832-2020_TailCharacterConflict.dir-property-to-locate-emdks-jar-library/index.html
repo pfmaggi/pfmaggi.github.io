@@ -7,8 +7,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Welcome - </title>
-  <meta name="description" content="A quick, uninformative, post on the new platform I&rsquo;m going to use in 2016 to write content on this site.">
+  <title>Using Android `sdk.dir` property to locate EMDK&#39;s jar Library. - </title>
+  <meta name="description" content="Obsolete - My personal preference is to reference Zebra&rsquo;s EMDK jar library in gradle&rsquo;s dependencies, and this requires to indicate the correct path to the library. So far so good if you&rsquo;re working on a single machine. This short post shows a better way to indicate EMDK library path independently from the machine where you&rsquo;re building your app.">
   <meta name="author" content="Pietro F. Maggi"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -44,8 +44,8 @@
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/pietromaggi.com\/2016\/01\/09\/welcome\/",
-          "name": "Welcome"
+          "@id": "https:\/\/pietromaggi.com\/2017\/08\/08\/using-android-sdk.dir-property-to-locate-emdks-jar-library.\/",
+          "name": "Using android `sdk.dir` property to locate e m d k\u0027s jar library."
         }
     }]
 }
@@ -56,15 +56,15 @@
   "author": {
     "name" : "Pietro F. Maggi"
   },
-  "headline": "Welcome",
-  "description" : "A quick, uninformative, post on the new platform I\u0026rsquo;m going to use in 2016 to write content on this site.",
+  "headline": "Using Android `sdk.dir` property to locate EMDK\u0027s jar Library.",
+  "description" : "Obsolete - My personal preference is to reference Zebra\u0026rsquo;s EMDK jar library in gradle\u0026rsquo;s dependencies, and this requires to indicate the correct path to the library. So far so good if you\u0026rsquo;re working on a single machine. This short post shows a better way to indicate EMDK library path independently from the machine where you\u0026rsquo;re building your app.",
   "inLanguage" : "en",
-  "wordCount":  234 ,
-  "datePublished" : "2016-01-09T20:50:14",
-  "dateModified" : "2016-01-09T20:50:14",
+  "wordCount":  422 ,
+  "datePublished" : "2017-08-08T17:20:00",
+  "dateModified" : "2017-08-08T17:20:00",
   "image" : "https:\/\/pietromaggi.com\/images\/pfm.png",
-  "keywords" : [ "Personal, Writing, Go, Hugo" ],
-  "mainEntityOfPage" : "https:\/\/pietromaggi.com\/2016\/01\/09\/welcome\/",
+  "keywords" : [ "Android, Tips\u0026Tricks, Zebra Technologies" ],
+  "mainEntityOfPage" : "https:\/\/pietromaggi.com\/2017\/08\/08\/using-android-sdk.dir-property-to-locate-emdks-jar-library.\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/pietromaggi.com\/",
@@ -78,15 +78,15 @@
 }
 </script>
 
-<meta property="og:title" content="Welcome" />
-<meta property="og:description" content="A quick, uninformative, post on the new platform I&rsquo;m going to use in 2016 to write content on this site.">
+<meta property="og:title" content="Using Android `sdk.dir` property to locate EMDK&#39;s jar Library." />
+<meta property="og:description" content="Obsolete - My personal preference is to reference Zebra&rsquo;s EMDK jar library in gradle&rsquo;s dependencies, and this requires to indicate the correct path to the library. So far so good if you&rsquo;re working on a single machine. This short post shows a better way to indicate EMDK library path independently from the machine where you&rsquo;re building your app.">
 <meta property="og:image" content="https://pietromaggi.com/images/pfm.png" />
-<meta property="og:url" content="https://pietromaggi.com/2016/01/09/welcome/" />
+<meta property="og:url" content="https://pietromaggi.com/2017/08/08/using-android-sdk.dir-property-to-locate-emdks-jar-library./" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="" />
 
-  <meta name="twitter:title" content="Welcome" />
-  <meta name="twitter:description" content="A quick, uninformative, post on the new platform I&rsquo;m going to use in 2016 to write content on this site.">
+  <meta name="twitter:title" content="Using Android `sdk.dir` property to locate EMDK&#39;s jar Library." />
+  <meta name="twitter:description" content="Obsolete - My personal preference is to reference Zebra&rsquo;s EMDK jar library in gradle&rsquo;s dependencies, and this requires to indicate the correct path to the library. So far so good if …">
   <meta name="twitter:image" content="https://pietromaggi.com/images/pfm.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@pfmaggi" />
@@ -132,7 +132,7 @@
         
           
             <li>
-              <a title="Talks" href="/page/talks">Talks</a>
+              <a title="Decks" href="/page/decks">Decks</a>
             </li>
           
         
@@ -226,7 +226,7 @@
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="post-heading">
               
-                <h1>Welcome</h1>
+                <h1>Using Android `sdk.dir` property to locate EMDK&#39;s jar Library.</h1>
               
               
               
@@ -234,13 +234,13 @@
                 <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;Posted on January 9, 2016
+  <i class="fas fa-calendar"></i>&nbsp;Posted on August 8, 2017
   
   
     &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;minutes
   
   
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;234&nbsp;words
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;422&nbsp;words
   
   
   
@@ -261,27 +261,80 @@
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>Time for revamping a bit this blog.<br>
-From a technical point of view, I struggled with octopress v2.x to keep this blog aligned across the multiple machine I use in my work/life. Octopress v3 is supposed to solve most of the issue that plagued me over these years but, I wanted to test something a bit different.</p>
-<p>New year new static blog generator. Given that I want to spend some time evaluating <a href="http://golang.org">Go</a> I decided to give <a href="http://gohugo.io">Hugo</a> a try.</p>
-<p>As always, I don&rsquo;t want to spend much time on the layout and the style of this site. My main concern is to be able to post content regularly, something that is not so easy, given the rate I had releasing new content.</p>
-<p>So, back on track for 2016, I want to release new content on this site, and I hope that this new platform will support me well.
-At this moment I&rsquo;ve moved all the previous content, correcting few typos in the process, using one of the vanilla themes available.
-I&rsquo;ll will probably spend some time in the future to refine the layout, but this is more or less it.</p>
-<p>Another change is the comment section, that will go life with one of the free discussion platform available, still have to decide which one.</p>
-<p>Let me know if you enjoy the change and, more important, which topics you&rsquo;ll like that I cover here.</p>
+        <h1 id="2019-update"><strong>2019 Update</strong></h1>
+<p><strong>This post is now obsolete. Please refer to Zebra&rsquo;s EMDK documentation for updated information.</strong></p>
+<p><em>Note this post has been published on <a href="https://developer.zebra.com/community/android/android-forums/android-blogs/blog/2017/08/08/using-android-sdkdir-property-to-locate-emdks-jar-library">Zebra developer portal</a>, if you&rsquo;ve any comment, probably best to post them over there.</em></p>
+<hr>
+<p>Working in Android Studio you can notice that every project contains a <code>local.properties</code> file with at least a couple of properties containing the path for Android SDK and Android NDK.</p>
+<p>Android Studio populates this information when it creates the project based on the <code>ANDROID_HOME</code> environment variable. If this variable is not present in your system Android Studio will find the correct path in other ways, but having <code>ANDROID_HOME</code> setup correctly is a really good idea, see the note at the end of this short post.</p>
+<p>Given that I usually have in my <code>build.gradle</code> file a reference to Zebra&rsquo;s EMDK, look like a good idea to use <code>sdk.dir</code> instead than hardcoding the path (like I&rsquo;ve done for a too much long time) given that the EMDK resides in Android SDK&rsquo;s add-ons folder.</p>
+<p>So, my gradle files now includes:</p>
+<pre><code>Properties properties = new Properties() properties.load(project.rootProject.file('local.properties').newDataInputStream())
+def sdkDir = properties.getProperty('sdk.dir')
+</code></pre>
+<p>so that I can the use the sdkDir variable like:</p>
+<pre><code>provided fileTree(include: ['com.symbol.emdk.jar'], dir: sdkDir+'/add-ons/addon-symbol_emdk-symbol-23/libs/')
+</code></pre>
+<p>Much cleaner and nice :-)</p>
+<h2 id="a-note-on-android_home">A note on <code>ANDROID_HOME</code></h2>
+<p>It&rsquo;s not usually a good idea to include in your revision system the <code>local.properties</code> file because this contains information&hellip; &ldquo;local&rdquo;&hellip; to your machine.
+Imagine that you&rsquo;re sharing a project with a colleague or with a remote CI build server. In this case everybody will have the Android SDK (and the Zebra&rsquo;s EMDK that resides in the SDK add-ons) in a different folder.</p>
+<p>The best option in this case is to avoid to share the <code>local.properties</code> file and have the <code>ANDROID_HOME</code> environment variable correctly setup so that the build works correctly on every machine.</p>
+<ul>
+<li>If <code>local.properties</code> is not available, Gradle will use <code>ANDROID_HOME</code> automatically.</li>
+<li>If <code>local.properties</code> is available, Gradle will use this file having a wrong <code>sdk.dir</code> set and fail.</li>
+</ul>
+<h2 id="update">Update</h2>
+<p>I got some enquiry to provide a complete gradle file to understand where to do the pasting.
+Here&rsquo;s one sample file:</p>
+<pre><code>    apply plugin: 'com.android.application'
+
+    Properties properties = new Properties()
+    properties.load(project.rootProject.file('local.properties').newDataInputStream())
+    def sdkDir = properties.getProperty('sdk.dir')
+
+    android {
+        compileSdkVersion 26
+        buildToolsVersion &quot;26.0.1&quot;
+        defaultConfig {
+            applicationId &quot;com.pietromaggi.sample.barcode&quot;
+            minSdkVersion 19
+            targetSdkVersion 22
+            versionCode 1
+            versionName &quot;1.0&quot;
+            testInstrumentationRunner &quot;android.support.test.runner.AndroidJUnitRunner&quot;
+        }
+        buildTypes {
+            release {
+                minifyEnabled false
+                proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            }
+        }
+    }
+
+    dependencies {
+        compile fileTree(dir: 'libs', include: ['*.jar'])
+
+        provided fileTree(include: ['com.symbol.emdk.jar'], dir: sdkDir+'/add-ons/addon-symbol_emdk-symbol-23/libs/')
+
+        androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+            exclude group: 'com.android.support', module: 'support-annotations'
+        })
+        compile 'com.android.support:appcompat-v7:26.+'
+        compile 'com.android.support.constraint:constraint-layout:1.0.2'
+        testCompile 'junit:junit:4.12'
+    }
+</code></pre>
 
 
         
           <div class="blog-tags">
             
-              <a href="https://pietromaggi.com//tags/personal/">Personal</a>&nbsp;
+              <a href="https://pietromaggi.com//tags/android/">Android</a>&nbsp;
             
-              <a href="https://pietromaggi.com//tags/writing/">Writing</a>&nbsp;
+              <a href="https://pietromaggi.com//tags/tipstricks/">Tips&amp;Tricks</a>&nbsp;
             
-              <a href="https://pietromaggi.com//tags/go/">Go</a>&nbsp;
-            
-              <a href="https://pietromaggi.com//tags/hugo/">Hugo</a>&nbsp;
+              <a href="https://pietromaggi.com//tags/zebra-technologies/">Zebra Technologies</a>&nbsp;
             
           </div>
         
@@ -296,21 +349,21 @@ I&rsquo;ll will probably spend some time in the future to refine the layout, but
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fpietromaggi.com%2f2016%2f01%2f09%2fwelcome%2f&amp;text=Welcome&amp;via=pfmaggi" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fpietromaggi.com%2f2017%2f08%2f08%2fusing-android-sdk.dir-property-to-locate-emdks-jar-library.%2f&amp;text=Using%20Android%20%60sdk.dir%60%20property%20to%20locate%20EMDK%27s%20jar%20Library.&amp;via=pfmaggi" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
 
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fpietromaggi.com%2f2016%2f01%2f09%2fwelcome%2f&amp;title=Welcome" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fpietromaggi.com%2f2017%2f08%2f08%2fusing-android-sdk.dir-property-to-locate-emdks-jar-library.%2f&amp;title=Using%20Android%20%60sdk.dir%60%20property%20to%20locate%20EMDK%27s%20jar%20Library." target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fpietromaggi.com%2f2016%2f01%2f09%2fwelcome%2f&amp;title=Welcome" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fpietromaggi.com%2f2017%2f08%2f08%2fusing-android-sdk.dir-property-to-locate-emdks-jar-library.%2f&amp;title=Using%20Android%20%60sdk.dir%60%20property%20to%20locate%20EMDK%27s%20jar%20Library." target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
@@ -332,9 +385,15 @@ I&rsquo;ll will probably spend some time in the future to refine the layout, but
                   <ul>
                 
                 
-                    <li><a href="/2014/01/01/2014-new-year-resolutions/">2014 New Year resolutions</a></li>
+                    <li><a href="/2018/07/12/enterprise-browser-using-the-android-headset-as-a-barcode-trigger/">Enterprise Browser - Using the Android Headset as a Barcode Trigger</a></li>
                 
-                    <li><a href="/2013/12/31/2013-in-numbers/">2013 in numbers</a></li>
+                    <li><a href="/2018/07/11/xamarin.forms-freshmvvm-datawedge-take-2/">(Xamarin.Forms &#43; FreshMVVM &#43; DataWedge) take 2</a></li>
+                
+                    <li><a href="/2018/07/07/xamarin.forms-freshmvvm-datawedge/">Xamarin.Forms &#43; FreshMVVM &#43; DataWedge = 💖</a></li>
+                
+                    <li><a href="/2018/07/04/xamarin.forms-freshmvvm-for-enterprise-applications/">Xamarin.Forms &#43; FreshMVVM for enterprise applications</a></li>
+                
+                    <li><a href="/2018/06/26/zebras-emdk-async-profile-manager-apis/">Zebra&#39;s EMDK Async Profile Manager APIs</a></li>
                 
               </ul>
 
@@ -346,12 +405,12 @@ I&rsquo;ll will probably spend some time in the future to refine the layout, but
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://pietromaggi.com/2015/11/25/building-zebras-emdk-project-using-sdk-platform-23/" data-toggle="tooltip" data-placement="top" title="Building Zebra&#39;s EMDK project using SDK Platform 23">&larr; Previous Post</a>
+              <a href="https://pietromaggi.com/2016/10/30/toggling-mc18-navigation-and-status-bar-visible-state/" data-toggle="tooltip" data-placement="top" title="Toggling MC18 Navigation (and Status) Bar visible state">&larr; Previous Post</a>
             </li>
           
           
             <li class="next">
-              <a href="https://pietromaggi.com/2016/01/14/secondary-external-storage-in-android-kitkat-part-1/" data-toggle="tooltip" data-placement="top" title="Secondary External Storage in Android KitKat - Part 1">Next Post &rarr;</a>
+              <a href="https://pietromaggi.com/2017/09/10/droidcon-berlin-2017-day-0-the-best-android-community-event/" data-toggle="tooltip" data-placement="top" title="droidcon Berlin 2017 Day 0 - the best Android community event!">Next Post &rarr;</a>
             </li>
           
         </ul>

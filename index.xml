@@ -82,15 +82,6 @@
     </item>
     
     <item>
-      <title>Speaking Appointments</title>
-      <link>https://pietromaggi.com/page/speaking/</link>
-      <pubDate>Mon, 19 Mar 2018 21:53:35 +0100</pubDate>
-      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
-      <guid>https://pietromaggi.com/page/speaking/</guid>
-      <description>ARCHIVE AND TALK LINKS </description>
-    </item>
-    
-    <item>
       <title>Android Auto testing</title>
       <link>https://pietromaggi.com/2017/10/31/android-auto-testing/</link>
       <pubDate>Tue, 31 Oct 2017 21:00:00 +0100</pubDate>
@@ -212,13 +203,12 @@ I&amp;rsquo;ve more than fifteen years designing and developing software solutio
     </item>
     
     <item>
-      <title>Slide Decks</title>
-      <link>https://pietromaggi.com/page/decks/</link>
+      <title>Public talks</title>
+      <link>https://pietromaggi.com/page/talks/</link>
       <pubDate>Sun, 25 Oct 2015 19:31:46 +0100</pubDate>
       <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
-      <guid>https://pietromaggi.com/page/decks/</guid>
-      <description>Android Wireless DeepDive Exploring how to build a RhoMobile native extension for an Android undocumented feature.
-Mobile Barcode Scanning API Status An analysis of barcode scanning API status on mobile devices.</description>
+      <guid>https://pietromaggi.com/page/talks/</guid>
+      <description>Android at Large - video from Android Developer Summit 2019 With Android making its way to new form factors, and OEM’s pushing the boundaries with new technology, it’s time to take a look at what these environments bring to you and your users. It’s crucial that your developer workflow accounts for resizability, new display sizes and aspect ratios, multi display, and app continuity to provide your users the best experience no matter where they are.</description>
     </item>
     
     <item>

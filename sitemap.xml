@@ -123,16 +123,6 @@
   </url>
   
   <url>
-    <loc>https://pietromaggi.com/page/</loc>
-    <lastmod>2018-03-19T21:53:35+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://pietromaggi.com/page/speaking/</loc>
-    <lastmod>2018-03-19T21:53:35+01:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://pietromaggi.com/2017/10/31/android-auto-testing/</loc>
     <lastmod>2017-10-31T21:00:00+01:00</lastmod>
   </url>
@@ -253,6 +243,11 @@
   </url>
   
   <url>
+    <loc>https://pietromaggi.com/page/</loc>
+    <lastmod>2016-01-09T20:50:38+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://pietromaggi.com/tags/go/</loc>
     <lastmod>2016-01-09T20:50:14+01:00</lastmod>
   </url>
@@ -283,7 +278,7 @@
   </url>
   
   <url>
-    <loc>https://pietromaggi.com/page/decks/</loc>
+    <loc>https://pietromaggi.com/page/talks/</loc>
     <lastmod>2015-10-25T19:31:46+01:00</lastmod>
   </url>
   
