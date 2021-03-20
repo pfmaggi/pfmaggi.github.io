@@ -7,8 +7,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Why I like to talk about open source projects - </title>
-  <meta name="description" content="About the beauty of open source and the superiority of source code vs (bad) documentation.">
+  <title>Using Android `sdk.dir` property to locate EMDK&#39;s jar Library. - </title>
+  <meta name="description" content="Obsolete - My personal preference is to reference Zebra&rsquo;s EMDK jar library in gradle&rsquo;s dependencies, and this requires to indicate the correct path to the library. So far so good if you&rsquo;re working on a single machine. This short post shows a better way to indicate EMDK library path independently from the machine where you&rsquo;re building your app.">
   <meta name="author" content="Pietro F. Maggi"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -44,8 +44,8 @@
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/pietromaggi.com\/2013\/12\/28\/why-i-like-to-talk-about-open-source-projects\/",
-          "name": "Why i like to talk about open source projects"
+          "@id": "https:\/\/pietromaggi.com\/2017\/08\/08\/using-android-sdk.dir-property-to-locate-emdks-jar-library.\/",
+          "name": "Using android `sdk.dir` property to locate e m d k\u0027s jar library."
         }
     }]
 }
@@ -56,15 +56,15 @@
   "author": {
     "name" : "Pietro F. Maggi"
   },
-  "headline": "Why I like to talk about open source projects",
-  "description" : "About the beauty of open source and the superiority of source code vs (bad) documentation.",
+  "headline": "Using Android `sdk.dir` property to locate EMDK\u0027s jar Library.",
+  "description" : "Obsolete - My personal preference is to reference Zebra\u0026rsquo;s EMDK jar library in gradle\u0026rsquo;s dependencies, and this requires to indicate the correct path to the library. So far so good if you\u0026rsquo;re working on a single machine. This short post shows a better way to indicate EMDK library path independently from the machine where you\u0026rsquo;re building your app.",
   "inLanguage" : "en",
-  "wordCount":  395 ,
-  "datePublished" : "2013-12-28T21:33:25",
-  "dateModified" : "2013-12-28T21:33:25",
+  "wordCount":  422 ,
+  "datePublished" : "2017-08-08T17:20:00",
+  "dateModified" : "2017-08-08T17:20:00",
   "image" : "https:\/\/pietromaggi.com\/images\/pfm.png",
-  "keywords" : [ "Open Source, Rhodes, RhoMobile" ],
-  "mainEntityOfPage" : "https:\/\/pietromaggi.com\/2013\/12\/28\/why-i-like-to-talk-about-open-source-projects\/",
+  "keywords" : [ "Android, Tips\u0026Tricks, Zebra Technologies" ],
+  "mainEntityOfPage" : "https:\/\/pietromaggi.com\/2017\/08\/08\/using-android-sdk.dir-property-to-locate-emdks-jar-library.\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/pietromaggi.com\/",
@@ -78,21 +78,21 @@
 }
 </script>
 
-<meta property="og:title" content="Why I like to talk about open source projects" />
-<meta property="og:description" content="About the beauty of open source and the superiority of source code vs (bad) documentation.">
+<meta property="og:title" content="Using Android `sdk.dir` property to locate EMDK&#39;s jar Library." />
+<meta property="og:description" content="Obsolete - My personal preference is to reference Zebra&rsquo;s EMDK jar library in gradle&rsquo;s dependencies, and this requires to indicate the correct path to the library. So far so good if you&rsquo;re working on a single machine. This short post shows a better way to indicate EMDK library path independently from the machine where you&rsquo;re building your app.">
 <meta property="og:image" content="https://pietromaggi.com/images/pfm.png" />
-<meta property="og:url" content="https://pietromaggi.com/2013/12/28/why-i-like-to-talk-about-open-source-projects/" />
+<meta property="og:url" content="https://pietromaggi.com/2017/08/08/using-android-sdk.dir-property-to-locate-emdks-jar-library./" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="" />
 
-  <meta name="twitter:title" content="Why I like to talk about open source projects" />
-  <meta name="twitter:description" content="About the beauty of open source and the superiority of source code vs (bad) documentation.">
+  <meta name="twitter:title" content="Using Android `sdk.dir` property to locate EMDK&#39;s jar Library." />
+  <meta name="twitter:description" content="Obsolete - My personal preference is to reference Zebra&rsquo;s EMDK jar library in gradle&rsquo;s dependencies, and this requires to indicate the correct path to the library. So far so good if …">
   <meta name="twitter:image" content="https://pietromaggi.com/images/pfm.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@pfmaggi" />
   <meta name="twitter:creator" content="@pfmaggi" />
   <link href='https://pietromaggi.com/images/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.81.0" />
+  <meta name="generator" content="Hugo 0.78.1" />
   <link rel="alternate" href="https://pietromaggi.com/index.xml" type="application/rss+xml" title=""><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://pietromaggi.com/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -226,7 +226,7 @@
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="post-heading">
               
-                <h1>Why I like to talk about open source projects</h1>
+                <h1>Using Android `sdk.dir` property to locate EMDK&#39;s jar Library.</h1>
               
               
               
@@ -234,13 +234,13 @@
                 <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;Posted on December 28, 2013
+  <i class="fas fa-calendar"></i>&nbsp;Posted on August 8, 2017
   
   
     &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;minutes
   
   
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;395&nbsp;words
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;422&nbsp;words
   
   
   
@@ -261,44 +261,80 @@
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>Since I joined the RhoMobile group of Motorola Solutions as EIA pre-sale Technical Architect, I started to get disparate question regarding features of the Suite.</p>
-<p>Something on the line:</p>
+        <h1 id="2019-update"><strong>2019 Update</strong></h1>
+<p><strong>This post is now obsolete. Please refer to Zebra&rsquo;s EMDK documentation for updated information.</strong></p>
+<p><em>Note this post has been published on <a href="https://developer.zebra.com/community/android/android-forums/android-blogs/blog/2017/08/08/using-android-sdkdir-property-to-locate-emdks-jar-library">Zebra developer portal</a>, if you&rsquo;ve any comment, probably best to post them over there.</em></p>
+<hr>
+<p>Working in Android Studio you can notice that every project contains a <code>local.properties</code> file with at least a couple of properties containing the path for Android SDK and Android NDK.</p>
+<p>Android Studio populates this information when it creates the project based on the <code>ANDROID_HOME</code> environment variable. If this variable is not present in your system Android Studio will find the correct path in other ways, but having <code>ANDROID_HOME</code> setup correctly is a really good idea, see the note at the end of this short post.</p>
+<p>Given that I usually have in my <code>build.gradle</code> file a reference to Zebra&rsquo;s EMDK, look like a good idea to use <code>sdk.dir</code> instead than hardcoding the path (like I&rsquo;ve done for a too much long time) given that the EMDK resides in Android SDK&rsquo;s add-ons folder.</p>
+<p>So, my gradle files now includes:</p>
+<pre><code>Properties properties = new Properties() properties.load(project.rootProject.file('local.properties').newDataInputStream())
+def sdkDir = properties.getProperty('sdk.dir')
+</code></pre>
+<p>so that I can the use the sdkDir variable like:</p>
+<pre><code>provided fileTree(include: ['com.symbol.emdk.jar'], dir: sdkDir+'/add-ons/addon-symbol_emdk-symbol-23/libs/')
+</code></pre>
+<p>Much cleaner and nice :-)</p>
+<h2 id="a-note-on-android_home">A note on <code>ANDROID_HOME</code></h2>
+<p>It&rsquo;s not usually a good idea to include in your revision system the <code>local.properties</code> file because this contains information&hellip; &ldquo;local&rdquo;&hellip; to your machine.
+Imagine that you&rsquo;re sharing a project with a colleague or with a remote CI build server. In this case everybody will have the Android SDK (and the Zebra&rsquo;s EMDK that resides in the SDK add-ons) in a different folder.</p>
+<p>The best option in this case is to avoid to share the <code>local.properties</code> file and have the <code>ANDROID_HOME</code> environment variable correctly setup so that the build works correctly on every machine.</p>
 <ul>
-<li>How is possible to launch an external application from a Rhodes one? <em>I tried different APIs and nothing seems to work&hellip;</em></li>
-<li>Looking on the support matrix of the APIs for different OSes, it seems that <em>X</em> is supported on platform <em>Y</em> but <em>I&rsquo;m not able to make it working&hellip;</em></li>
+<li>If <code>local.properties</code> is not available, Gradle will use <code>ANDROID_HOME</code> automatically.</li>
+<li>If <code>local.properties</code> is available, Gradle will use this file having a wrong <code>sdk.dir</code> set and fail.</li>
 </ul>
-<p>Usually I try to figure out the answer for these question by myself, it&rsquo;s always useful getting a better understanding of the tool I usually talk about (and it&rsquo;s probably the part of my job that I like the most: finding solutions to problems).</p>
-<p>Let&rsquo;s see why this is much easier having to understand how an Open Source project works.</p>
-<p>First Question: How is possible to launch an external application from a Rhodes one? I tried different APIs and nothing works&hellip;
-In this case I start my inspection from the docs pages, some usefully tips from the v2.2 API:</p>
-<p>Run an application.</p>
-<p>System.run_app(appname, params)
-appname	The name of the application on the device to run, such as com.android.music.
-params	String. List of parameters for the application; nil if no parameters.</p>
-<p>Windows Mobile, Windows CE: appname is path in registry:<br>
-<code>&lt;vendor&gt; &lt;app_name&gt;/&lt;app_name&gt;.exe</code><br>
-This is usually recorded in the Key:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">HKLM\Security\AppInstall\[App Name]
-</code></pre></div><p>like:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">HKLM\Security\AppInstall\rhomobile store
-</code></pre></div><p>So, to launch this application from your RhoMobile app, you can use the following code:</p>
-<div class="highlight"><pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="no">System</span><span class="o">.</span><span class="n">run_app</span><span class="p">(</span><span class="s1">&#39;rhomobile store/store.exe&#39;</span><span class="p">,</span> <span class="s1">&#39;someparams&#39;</span><span class="p">)</span>
-</code></pre></div><p>OK, the syntax is not exactly what I was expecting&hellip; this may be the cause of the issue.
-Documentation of the same API in v4.0 is not so helpful, no explanation of the differences between OSes and what the parameters are&hellip;
-Let&rsquo;s see what we&rsquo;ve on github rhomobile account.</p>
-<p>In the Kitchen Sink demo, there&rsquo;s some code linked to the System API, but no sample executing the run_app method&hellip; but the others methods seems to use the same, unfamiliar, syntax to reference a Windows Mobile app like: <em>&ldquo;rhomobile simple_app/simple_app.exe&rdquo;</em></p>
-<p>Let&rsquo;s see what we&rsquo;ve in  <a href="https://github.com/rhomobile/rhodes/blob/master/platform/wm/rhodes/rho/rubyext/SystemImpl.cpp">Rhodes source code for Windows Mobile</a> and the implementation seems to indicates that these are the right parameters.</p>
-<p>So, it took us a bit more than necessary and the documentation is a bit missing on this topic, however, having the source code available gave us the necessary insight to reach our goal.</p>
+<h2 id="update">Update</h2>
+<p>I got some enquiry to provide a complete gradle file to understand where to do the pasting.
+Here&rsquo;s one sample file:</p>
+<pre><code>    apply plugin: 'com.android.application'
+
+    Properties properties = new Properties()
+    properties.load(project.rootProject.file('local.properties').newDataInputStream())
+    def sdkDir = properties.getProperty('sdk.dir')
+
+    android {
+        compileSdkVersion 26
+        buildToolsVersion &quot;26.0.1&quot;
+        defaultConfig {
+            applicationId &quot;com.pietromaggi.sample.barcode&quot;
+            minSdkVersion 19
+            targetSdkVersion 22
+            versionCode 1
+            versionName &quot;1.0&quot;
+            testInstrumentationRunner &quot;android.support.test.runner.AndroidJUnitRunner&quot;
+        }
+        buildTypes {
+            release {
+                minifyEnabled false
+                proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            }
+        }
+    }
+
+    dependencies {
+        compile fileTree(dir: 'libs', include: ['*.jar'])
+
+        provided fileTree(include: ['com.symbol.emdk.jar'], dir: sdkDir+'/add-ons/addon-symbol_emdk-symbol-23/libs/')
+
+        androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+            exclude group: 'com.android.support', module: 'support-annotations'
+        })
+        compile 'com.android.support:appcompat-v7:26.+'
+        compile 'com.android.support.constraint:constraint-layout:1.0.2'
+        testCompile 'junit:junit:4.12'
+    }
+</code></pre>
 
 
         
           <div class="blog-tags">
             
-              <a href="https://pietromaggi.com//tags/open-source/">Open Source</a>&nbsp;
+              <a href="https://pietromaggi.com//tags/android/">Android</a>&nbsp;
             
-              <a href="https://pietromaggi.com//tags/rhodes/">Rhodes</a>&nbsp;
+              <a href="https://pietromaggi.com//tags/tipstricks/">Tips&amp;Tricks</a>&nbsp;
             
-              <a href="https://pietromaggi.com//tags/rhomobile/">RhoMobile</a>&nbsp;
+              <a href="https://pietromaggi.com//tags/zebra-technologies/">Zebra Technologies</a>&nbsp;
             
           </div>
         
@@ -313,21 +349,21 @@ Let&rsquo;s see what we&rsquo;ve on github rhomobile account.</p>
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fpietromaggi.com%2f2013%2f12%2f28%2fwhy-i-like-to-talk-about-open-source-projects%2f&amp;text=Why%20I%20like%20to%20talk%20about%20open%20source%20projects&amp;via=pfmaggi" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fpietromaggi.com%2f2017%2f08%2f08%2fusing-android-sdk.dir-property-to-locate-emdks-jar-library.%2f&amp;text=Using%20Android%20%60sdk.dir%60%20property%20to%20locate%20EMDK%27s%20jar%20Library.&amp;via=pfmaggi" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
 
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fpietromaggi.com%2f2013%2f12%2f28%2fwhy-i-like-to-talk-about-open-source-projects%2f&amp;title=Why%20I%20like%20to%20talk%20about%20open%20source%20projects" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fpietromaggi.com%2f2017%2f08%2f08%2fusing-android-sdk.dir-property-to-locate-emdks-jar-library.%2f&amp;title=Using%20Android%20%60sdk.dir%60%20property%20to%20locate%20EMDK%27s%20jar%20Library." target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fpietromaggi.com%2f2013%2f12%2f28%2fwhy-i-like-to-talk-about-open-source-projects%2f&amp;title=Why%20I%20like%20to%20talk%20about%20open%20source%20projects" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fpietromaggi.com%2f2017%2f08%2f08%2fusing-android-sdk.dir-property-to-locate-emdks-jar-library.%2f&amp;title=Using%20Android%20%60sdk.dir%60%20property%20to%20locate%20EMDK%27s%20jar%20Library." target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
@@ -349,13 +385,15 @@ Let&rsquo;s see what we&rsquo;ve on github rhomobile account.</p>
                   <ul>
                 
                 
-                    <li><a href="/2014/08/22/rhodes-5.0.2-and-visual-studio-2008-localized-edition/">Rhodes 5.0.2 and Visual Studio 2008 Localized edition</a></li>
+                    <li><a href="/2018/07/12/enterprise-browser-using-the-android-headset-as-a-barcode-trigger/">Enterprise Browser - Using the Android Headset as a Barcode Trigger</a></li>
                 
-                    <li><a href="/2014/08/11/configuring-rhomobile-suite-v5.0-on-a-clean-os-x-mavericks-machine/">Configuring RhoMobile Suite v5.0 on a clean OS X Mavericks machine</a></li>
+                    <li><a href="/2018/07/11/xamarin.forms-freshmvvm-datawedge-take-2/">(Xamarin.Forms &#43; FreshMVVM &#43; DataWedge) take 2</a></li>
                 
-                    <li><a href="/2014/01/02/diving-into-android-source-code/">Diving into Android source code</a></li>
+                    <li><a href="/2018/07/07/xamarin.forms-freshmvvm-datawedge/">Xamarin.Forms &#43; FreshMVVM &#43; DataWedge = 💖</a></li>
                 
-                    <li><a href="/2013/12/30/rhodes-tips-tricks/">Rhodes tips &amp; tricks</a></li>
+                    <li><a href="/2018/07/04/xamarin.forms-freshmvvm-for-enterprise-applications/">Xamarin.Forms &#43; FreshMVVM for enterprise applications</a></li>
+                
+                    <li><a href="/2018/06/26/zebras-emdk-async-profile-manager-apis/">Zebra&#39;s EMDK Async Profile Manager APIs</a></li>
                 
               </ul>
 
@@ -366,9 +404,13 @@ Let&rsquo;s see what we&rsquo;ve on github rhomobile account.</p>
       
         <ul class="pager blog-pager">
           
+            <li class="previous">
+              <a href="https://pietromaggi.com/2016/10/30/toggling-mc18-navigation-and-status-bar-visible-state/" data-toggle="tooltip" data-placement="top" title="Toggling MC18 Navigation (and Status) Bar visible state">&larr; Previous Post</a>
+            </li>
+          
           
             <li class="next">
-              <a href="https://pietromaggi.com/2013/12/29/ruby-version-manager-aka-rvm-the-swiss-army-knife-of-ruby-versions/" data-toggle="tooltip" data-placement="top" title="Ruby Version Manager (aka RVM) the Swiss army knife of Ruby versions">Next Post &rarr;</a>
+              <a href="https://pietromaggi.com/2017/09/10/droidcon-berlin-2017-day-0-the-best-android-community-event/" data-toggle="tooltip" data-placement="top" title="droidcon Berlin 2017 Day 0 - the best Android community event!">Next Post &rarr;</a>
             </li>
           
         </ul>
@@ -449,7 +491,7 @@ Let&rsquo;s see what we&rsquo;ve on github rhomobile account.</p>
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.78.1</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

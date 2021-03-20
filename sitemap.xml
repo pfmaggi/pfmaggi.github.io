@@ -1,413 +1,249 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>https://pietromaggi.com/</loc>
     <lastmod>2020-11-08T19:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/tags/boox/</loc>
     <lastmod>2020-11-08T19:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/2020/11/08/boox-max-3-as-a-raspberry-pi-monitor/</loc>
     <lastmod>2020-11-08T19:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/tags/eink/</loc>
     <lastmod>2020-11-08T19:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/tags/linux/</loc>
     <lastmod>2020-11-08T19:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/post/</loc>
     <lastmod>2020-11-08T19:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/tags/raspberrypi/</loc>
     <lastmod>2020-11-08T19:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/tags/</loc>
     <lastmod>2020-11-08T19:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/tags/android/</loc>
     <lastmod>2018-07-12T18:00:48+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/tags/enterprise-browser/</loc>
     <lastmod>2018-07-12T18:00:48+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/2018/07/12/enterprise-browser-using-the-android-headset-as-a-barcode-trigger/</loc>
     <lastmod>2018-07-12T18:00:48+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/tags/zebra/</loc>
     <lastmod>2018-07-12T18:00:48+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/2018/07/11/xamarin.forms-freshmvvm-datawedge-take-2/</loc>
     <lastmod>2018-07-11T09:00:00+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/tags/datawedge/</loc>
     <lastmod>2018-07-11T09:00:00+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/tags/freshmvvm/</loc>
     <lastmod>2018-07-11T09:00:00+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/tags/xamarin/</loc>
     <lastmod>2018-07-11T09:00:00+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/tags/xamarin.forms/</loc>
     <lastmod>2018-07-11T09:00:00+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/2018/07/07/xamarin.forms-freshmvvm-datawedge/</loc>
     <lastmod>2018-07-07T09:00:00+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/2018/07/04/xamarin.forms-freshmvvm-for-enterprise-applications/</loc>
     <lastmod>2018-07-04T09:00:00+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/tags/emdk/</loc>
     <lastmod>2018-06-26T09:00:00+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/tags/profile-manager/</loc>
     <lastmod>2018-06-26T09:00:00+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/2018/06/26/zebras-emdk-async-profile-manager-apis/</loc>
     <lastmod>2018-06-26T09:00:00+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/2018/04/14/here-be-dragons-the-enterprise-mobile-security-journey/</loc>
     <lastmod>2018-04-14T21:30:48+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/2018/03/21/enterprise-browser-modernizing-web-applications/</loc>
     <lastmod>2018-03-21T21:30:48+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/2017/10/31/android-auto-testing/</loc>
     <lastmod>2017-10-31T21:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/tags/androidauto/</loc>
     <lastmod>2017-10-31T21:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/tags/testing/</loc>
     <lastmod>2017-10-31T21:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/2017/10/13/tips-on-how-to-demo-android-devices/</loc>
     <lastmod>2017-10-13T17:20:00+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/tags/tipstricks/</loc>
     <lastmod>2017-10-13T17:20:00+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/tags/zebra-technologies/</loc>
     <lastmod>2017-10-13T17:20:00+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/2017/09/10/droidcon-berlin-2017-day-0-the-best-android-community-event/</loc>
     <lastmod>2017-09-10T21:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/tags/events/</loc>
     <lastmod>2017-09-10T21:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/2017/08/08/using-android-sdk.dir-property-to-locate-emdks-jar-library./</loc>
     <lastmod>2017-08-08T17:20:00+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/tags/mc18/</loc>
     <lastmod>2016-10-30T11:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/2016/10/30/toggling-mc18-navigation-and-status-bar-visible-state/</loc>
     <lastmod>2016-10-30T11:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/2016/10/29/enterprise-browser-and-datawedge-on-android-friends-at-the-end/</loc>
     <lastmod>2016-10-29T11:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/2016/08/01/disabling-home-button-on-zebra-android-devices/</loc>
     <lastmod>2016-08-01T17:00:00+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/tags/mx/</loc>
     <lastmod>2016-08-01T17:00:00+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/tags/sample/</loc>
     <lastmod>2016-08-01T17:00:00+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/tags/tricks/</loc>
     <lastmod>2016-08-01T17:00:00+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/2016/06/07/managing-display-autorotation-from-stagenow/</loc>
     <lastmod>2016-06-07T20:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/tags/settings/</loc>
     <lastmod>2016-06-07T20:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/tags/stagenow/</loc>
     <lastmod>2016-06-07T20:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/2016/01/18/disabling-mc40-home-button-with-a-custom-intent/</loc>
     <lastmod>2016-01-18T09:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/tags/mc40/</loc>
     <lastmod>2016-01-18T09:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/tags/sdcard/</loc>
     <lastmod>2016-01-14T23:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/2016/01/14/secondary-external-storage-in-android-kitkat-part-1/</loc>
     <lastmod>2016-01-14T23:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/page/about/</loc>
     <lastmod>2016-01-09T20:50:38+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/page/</loc>
     <lastmod>2016-01-09T20:50:38+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/tags/go/</loc>
     <lastmod>2016-01-09T20:50:14+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/tags/hugo/</loc>
     <lastmod>2016-01-09T20:50:14+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/tags/personal/</loc>
     <lastmod>2016-01-09T20:50:14+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/2016/01/09/welcome/</loc>
     <lastmod>2016-01-09T20:50:14+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/tags/writing/</loc>
     <lastmod>2016-01-09T20:50:14+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/2015/11/25/building-zebras-emdk-project-using-sdk-platform-23/</loc>
     <lastmod>2015-11-25T09:54:55+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/page/talks/</loc>
     <lastmod>2015-10-25T19:31:46+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/2015/09/25/android-back-button-and-enterprise-browser/</loc>
     <lastmod>2015-09-25T11:33:11+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/2014/10/19/finding-the-sdcard-path-on-android-devices/</loc>
     <lastmod>2014-10-19T20:55:18+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/2014/09/02/getting-device-info-from-msi-android-devices/</loc>
     <lastmod>2014-09-02T11:56:38+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/2014/08/22/rhodes-5.0.2-and-visual-studio-2008-localized-edition/</loc>
     <lastmod>2014-08-22T13:01:48+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/tags/rhomobile/</loc>
     <lastmod>2014-08-22T13:01:48+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/tags/visual-studio/</loc>
     <lastmod>2014-08-22T13:01:48+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/2014/08/11/configuring-rhomobile-suite-v5.0-on-a-clean-os-x-mavericks-machine/</loc>
     <lastmod>2014-08-11T09:57:10+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/tags/os-x/</loc>
     <lastmod>2014-08-11T09:57:10+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/tags/command-line/</loc>
     <lastmod>2014-01-10T19:37:45+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/2014/01/10/little-command-line-tricks/</loc>
     <lastmod>2014-01-10T19:37:45+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/2014/01/02/diving-into-android-source-code/</loc>
     <lastmod>2014-01-02T14:34:27+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/tags/hacking/</loc>
     <lastmod>2014-01-02T14:34:27+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/tags/open-source/</loc>
     <lastmod>2014-01-02T14:34:27+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/2014/01/01/2014-new-year-resolutions/</loc>
     <lastmod>2014-01-01T17:41:32+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/tags/diary/</loc>
     <lastmod>2014-01-01T17:41:32+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/2013/12/31/2013-in-numbers/</loc>
     <lastmod>2013-12-31T20:52:22+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/tags/rhoconnect/</loc>
     <lastmod>2013-12-30T13:56:04+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/tags/rhodes/</loc>
     <lastmod>2013-12-30T13:56:04+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/2013/12/30/rhodes-tips-tricks/</loc>
     <lastmod>2013-12-30T13:56:04+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/tags/ruby/</loc>
     <lastmod>2013-12-29T17:24:54+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/2013/12/29/ruby-version-manager-aka-rvm-the-swiss-army-knife-of-ruby-versions/</loc>
     <lastmod>2013-12-29T17:24:54+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/tags/rvm/</loc>
     <lastmod>2013-12-29T17:24:54+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/2013/12/28/why-i-like-to-talk-about-open-source-projects/</loc>
     <lastmod>2013-12-28T21:33:25+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/privacy_policy/</loc>
     <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/categories/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://pietromaggi.com/series/</loc>
   </url>
-  
 </urlset>
