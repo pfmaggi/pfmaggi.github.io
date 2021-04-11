@@ -7,8 +7,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Android Back Button and Enterprise Browser - </title>
-  <meta name="description" content="Obsolete - How to intercept the Back Button when using Zebra&rsquo;s Enterprise Browser on Android devices.">
+  <title>Reading Notes - CorkScrew Solutions - </title>
+  <meta name="description" content="CorkScrew Solutions - Problem Solving With a TWIST - by Clarke Ching.An opinionated note-taking session with an interesting book.">
   <meta name="author" content="Pietro F. Maggi"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -44,8 +44,8 @@
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/pietromaggi.com\/2015\/09\/25\/android-back-button-and-enterprise-browser\/",
-          "name": "Android back button and enterprise browser"
+          "@id": "https:\/\/pietromaggi.com\/2021\/04\/11\/reading-notes-corkscrew-solutions\/",
+          "name": "Reading notes cork screw solutions"
         }
     }]
 }
@@ -56,15 +56,15 @@
   "author": {
     "name" : "Pietro F. Maggi"
   },
-  "headline": "Android Back Button and Enterprise Browser",
-  "description" : "Obsolete - How to intercept the Back Button when using Zebra\u0026rsquo;s Enterprise Browser on Android devices.",
+  "headline": "Reading Notes - CorkScrew Solutions",
+  "description" : "CorkScrew Solutions - Problem Solving With a TWIST - by Clarke Ching.An opinionated note-taking session with an interesting book.",
   "inLanguage" : "en",
-  "wordCount":  484 ,
-  "datePublished" : "2015-09-25T11:33:11",
-  "dateModified" : "2015-09-25T11:33:11",
+  "wordCount":  693 ,
+  "datePublished" : "2021-04-11T13:00:00",
+  "dateModified" : "2021-04-11T13:00:00",
   "image" : "https:\/\/pietromaggi.com\/images\/pfm.png",
-  "keywords" : [ "Android, Enterprise Browser, Tricks, Zebra Technologies" ],
-  "mainEntityOfPage" : "https:\/\/pietromaggi.com\/2015\/09\/25\/android-back-button-and-enterprise-browser\/",
+  "keywords" : [ "Book Review, Personal Improvement, Notes" ],
+  "mainEntityOfPage" : "https:\/\/pietromaggi.com\/2021\/04\/11\/reading-notes-corkscrew-solutions\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/pietromaggi.com\/",
@@ -78,15 +78,15 @@
 }
 </script>
 
-<meta property="og:title" content="Android Back Button and Enterprise Browser" />
-<meta property="og:description" content="Obsolete - How to intercept the Back Button when using Zebra&rsquo;s Enterprise Browser on Android devices.">
+<meta property="og:title" content="Reading Notes - CorkScrew Solutions" />
+<meta property="og:description" content="CorkScrew Solutions - Problem Solving With a TWIST - by Clarke Ching.An opinionated note-taking session with an interesting book.">
 <meta property="og:image" content="https://pietromaggi.com/images/pfm.png" />
-<meta property="og:url" content="https://pietromaggi.com/2015/09/25/android-back-button-and-enterprise-browser/" />
+<meta property="og:url" content="https://pietromaggi.com/2021/04/11/reading-notes-corkscrew-solutions/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="" />
 
-  <meta name="twitter:title" content="Android Back Button and Enterprise Browser" />
-  <meta name="twitter:description" content="Obsolete - How to intercept the Back Button when using Zebra&rsquo;s Enterprise Browser on Android devices.">
+  <meta name="twitter:title" content="Reading Notes - CorkScrew Solutions" />
+  <meta name="twitter:description" content="CorkScrew Solutions - Problem Solving With a TWIST - by Clarke Ching.An opinionated note-taking session with an interesting book.">
   <meta name="twitter:image" content="https://pietromaggi.com/images/pfm.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@pfmaggi" />
@@ -226,7 +226,7 @@
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="post-heading">
               
-                <h1>Android Back Button and Enterprise Browser</h1>
+                <h1>Reading Notes - CorkScrew Solutions</h1>
               
               
               
@@ -234,13 +234,13 @@
                 <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;Posted on September 25, 2015
+  <i class="fas fa-calendar"></i>&nbsp;Posted on April 11, 2021
   
   
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;4&nbsp;minutes
   
   
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;484&nbsp;words
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;693&nbsp;words
   
   
   
@@ -261,61 +261,79 @@
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <h1 id="2019-update"><strong>2019 Update</strong></h1>
-<p><strong>This post is now obsolete. Enterprise Browser has new APIs to cover this use case, please refer to its documentation for updates.</strong></p>
-<h2 id="edit">Edit</h2>
-<p>Enteprise Browser v1.3 introduced a change that requires to enable <code>FunctionKeysCapturable</code> to be able to use the KeyCapture API.<br>
-To do this you need to update your <code>Config.xml</code> with:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;FunctionKeysCapturable                 value=&#34;1&#34;/&gt;
-</code></pre></div><h2 id="enterprise-browser">Enterprise Browser</h2>
-<p>Enterprise Browser is Zebra Technologies' Industrial Browser built for our Rugged Devices, we support most of our Windows Mobile/Windows CE devices and Android devices.</p>
-<p>This product is usually used with existing web application that cannot be updated/modified moving from one device to another.
-This help us winning some opportunities but sometimes present some unique challenges like, as an example, disabling the Android back button default behavior.</p>
-<h2 id="back-button-on-android">Back Button on Android?</h2>
-<p>Given that this is a cross-platform product (built on top of our RhoMobile Suite) we don&rsquo;t have a custom settings to disable the back button in the Config.xml configuration file, however it is still possible to add a default Metatags in the configuration so that no changes in the existing pages are needed.</p>
-<p>So, do we&rsquo;ve an API to intercept the Back Button?</p>
-<p>Of course! the <a href="https://developer.motorolasolutions.com/docs/DOC-2520">KeyCapture API</a> can be used to intercept and disable it.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">EB.KeyCapture.captureKey(BOOLEAN dispatch, STRING keyValue)
-</code></pre></div><p>Setting the <code>dispatch</code> value to <code>false</code>,  We just need to get the correct KeyCode.</p>
-<p>This can a bit tricky and can be different from device to device, the best solution I&rsquo;ve is to ask directly to the device with a simple HTML page that display the keycode off all the keys that are pressed:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;!DOCTYPE html&gt;
-&lt;html lang=&#34;en&#34;&gt;
-&lt;META HTTP-Equiv=&#34;KeyCapture&#34; Content=&#34;KeyValue:All; Dispatch:False; KeyEvent:url(&#39;JavaScript:alert(&#39;Key Pressed: %s&#39;);&#39;)&#34;&gt;
-  &lt;head&gt;
-    &lt;meta charset=&#34;utf-8&#34;&gt;
-	&lt;title&gt;Display KeyCode&lt;/title&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-    &lt;H1&gt;Press a key to see it&#39;s KeyCode&lt;/H1&gt;
-  &lt;/body&gt;
-&lt;/html&gt;
-</code></pre></div><p>Once we&rsquo;ve the correct KeyCode, we just need to call this API in every page that is loaded in the browser&hellip; Sometimes that is not easy to do sometimes, especially when the application cannot be modified.</p>
-<p>We&rsquo;ve a solution for this issue: having a <code>DefaultMetaTags</code> in Enterprise Browser&rsquo;s configuration.</p>
-<h2 id="whats-a-defaultmetatags">What&rsquo;s a DefaultMetaTags</h2>
-<p>We can start from the <a href="https://developer.motorolasolutions.com/docs/DOC-2571#defaultmetatags">documentation</a>, what does it means?</p>
-<p>A <code>DefaultMetaTags</code> is a way to call an Enterprise Browser API on top of every HTML page that is loaded in the browser. This can be used, as an example to enable on screen UI elements like the battery or WiFi icon.</p>
-<p>So, putting the different things together, we can put this in the &lsquo;&lsquo;Config.xml&rsquo;:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;DefaultMetaTags&gt;
-    &lt;MetaTag value=&#34;KeyCapture~KeyValue:0xA6;Dispatch:False&#34;/&gt;
- &lt;/DefaultMetaTags&gt;
-</code></pre></div><p>BTW: <code>0xA6</code> is the correct value for the Back Button on a TC55 running Android v4.4 KitKat.</p>
-<h2 id="closing-comments">Closing comments</h2>
-<p>Enterprise Browser&rsquo;s <code>DefaultMetaTags</code> is a very flexible way to &ldquo;patch&rdquo; an existing Web application without touching its source code.</p>
-<p>As a closing comment here&rsquo;s a sample configuration that zoom the current web page pressing a button:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;MetaTag VALUE=&#34;KeyCapture~KeyValue:0x79;Dispatch:False;KeyEvent:url(&#39;JavaScript:eval(&#39;zoom.page=\&#39;1.3\&#39;;&#39;);&#39;)&#34;/&gt;
-</code></pre></div><p><em>If you&rsquo;re interested in Enterprise Browser, you can visit us at <a href="http://bit.ly/EMEAAppForum2015">EMEA AppForum in London, Oct. 12th-14th</a>.</em></p>
+        <blockquote>
+<p><strong>CorkScrew Solutions</strong>: Problem Solving With a TWIST<br>
+by Clarke Ching</p>
+</blockquote>
+<p>The Theory of Constraints is not a topic I usually read about, who have I to thank for this mind-expanding choice?</p>
+<p>My good friend (and also my first real manager 20+ years ago) <a href="https://www.linkedin.com/in/cdesanctis/">Corrado De Sanctis</a> organizes a few agile community between London and Milan and I try to follow his suggestions closely<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>. This book, and in general Clarke Ching&rsquo;s work, comes from one of his suggestion/event. If you are interested in agile and digital transformation, I encourage you to join one of these communities:</p>
+<ul>
+<li><a href="https://www.meetup.com/digital-transformation-in-london/">Digital Transformation in London</a></li>
+<li><a href="https://www.meetup.com/Lean-Agile-Coaching-Meetup/">Lean Agile Delivery and Coaching</a></li>
+<li><a href="https://www.meetup.com/Scrum-Agilist-Milano-SAM/">Scrum Agile Milano - SAM</a></li>
+</ul>
+<p>Back to the book.
+This is a book about how to solve (seemingly) impossible dilemmas and it uses for this a couple of concepts:</p>
+<ul>
+<li>a simplified, user-friendly, version of Eli Goldratt&rsquo;s Evaporating Cloud</li>
+<li>EveryDay Integrative Thinking (EDIT)</li>
+</ul>
+<p>I&rsquo;ve never encountered before the <a href="https://en.wikipedia.org/wiki/Evaporating_Cloud">Evaporating Cloud</a> concept, but Clark Ching&rsquo;s &ldquo;user-friendly&rdquo; version really resonates with me.</p>
+<p>At the core of Ching&rsquo;s version is <strong>CorkScrew BoB</strong>, where BoB stands for <em>Best of Both</em>.</p>
+<p>First thing, I want to explain what the book means with dilemma:</p>
+<blockquote>
+<p><strong>DILEMMA</strong> a seemingly impossible choice between two good (or bad) alternatives</p>
+</blockquote>
+<p>The book has multiple dilemmas used as example, a few are used as a trail over the whole narrative. The one I&rsquo;m covering here is about W. Churchill decision during World War I about the need to modernize Britain&rsquo;s navy from coal to oil-powered engines. If you want to know more about this particular topic, there&rsquo;s a really nice article on Naval War College Review: <a href="https://www.jstor.org/stable/44641546">&ldquo;WINSTON S. CHURCHILL&rsquo;S LEGACY TO THE ROYAL NAVY, 1911-1915&rdquo;</a>.</p>
+<p>The book uses evaporating clouds and CorkScrew BoB to analyze this dilemma and then present Churchill&rsquo;s choice.</p>
+<p>This is not a book about history, but a book that uses history (and stories) to explain strategies to overcome dilemmas and achieve <strong>Best of Both</strong> options.</p>
+<p>Another important topic covered is the EDIT framework:</p>
+<blockquote>
+<p><strong>EDIT</strong> Every Day Integrative Thinking</p>
+</blockquote>
+<p>English is not my first language (not even the second given that it was common at home to speak in the local dialect when I was a kid), so I&rsquo;m going to start clarifying, to my future self, what is meant here with &ldquo;Integrative Thinking&rdquo;.</p>
+<blockquote>
+<p><strong>INTEGRATIVE THINKING</strong> holding two diametrically opposing ideas in your head (without panicking) and produce a synthesis that is superior to either opposing ideas.</p>
+</blockquote>
+<p>So, the <strong>IT</strong> part in EDIT stands for Integrative Thinking. <strong>ED</strong> stands for Every Day and it is as important as the other half. Personally I&rsquo;m a believer in the importance of consistency over time and this really resonates with me.<br>
+Here the author also managed to overlap on this acronym the concept of editing; citing the book:</p>
+<blockquote>
+<p>With each cloud, you &rsquo;re editing your present and rewriting yourself into a new future.</p>
+</blockquote>
+<p>The book also introduces a few characters:</p>
+<ul>
+<li>the Librarian</li>
+<li>the Pattern Maker</li>
+<li>the Editor</li>
+<li>the Why Finder</li>
+</ul>
+<p>These are used to frame our thinking process on how to &ldquo;solve&rdquo; an evaporating cloud.</p>
+<p>A key concept to solve a cloud is the UpThinking process. A concept tied to Ching&rsquo;s &ldquo;user-friendly&rdquo; version of the cloud that goes bottom up from the two conflicting alternatives.</p>
+<blockquote>
+<p><strong>UpThinking</strong> the process to define, starting from one of the alternative, what benefit we&rsquo;re going to get out of it.</p>
+</blockquote>
+<p>In other words, starting from one of the alternatives, we &ldquo;look up&rdquo; to decide what are we putting in the box above it:</p>
+<p><img src="/images/20210411_evaporating_cloud.svg" alt="Vertical Evaporating Cloud" title="Vertical Evaporating Cloud"></p>
+<p>Maybe because most of the presented concepts were new to me, but I found this 150-pages book, jam-packed with useful information.</p>
+<p>Overall this was a great investment of my time!</p>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>Knowing Corrado he would argue that it is much better to talk to people and try things first-hand instead of reading a book. But we don&rsquo;t all learn in the same way. You should pick your option based on how you learn best. I&rsquo;ve to ruminate on topics, having the time to look at things from different angle to appreciate them before getting the benefit from talking with someone about an idea. At least, this is how I feel confident learning new things. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
 
 
         
           <div class="blog-tags">
             
-              <a href="https://pietromaggi.com//tags/android/">Android</a>&nbsp;
+              <a href="https://pietromaggi.com//tags/book-review/">Book Review</a>&nbsp;
             
-              <a href="https://pietromaggi.com//tags/enterprise-browser/">Enterprise Browser</a>&nbsp;
+              <a href="https://pietromaggi.com//tags/personal-improvement/">Personal Improvement</a>&nbsp;
             
-              <a href="https://pietromaggi.com//tags/tricks/">Tricks</a>&nbsp;
-            
-              <a href="https://pietromaggi.com//tags/zebra-technologies/">Zebra Technologies</a>&nbsp;
+              <a href="https://pietromaggi.com//tags/notes/">Notes</a>&nbsp;
             
           </div>
         
@@ -330,21 +348,21 @@ This help us winning some opportunities but sometimes present some unique challe
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fpietromaggi.com%2f2015%2f09%2f25%2fandroid-back-button-and-enterprise-browser%2f&amp;text=Android%20Back%20Button%20and%20Enterprise%20Browser&amp;via=pfmaggi" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fpietromaggi.com%2f2021%2f04%2f11%2freading-notes-corkscrew-solutions%2f&amp;text=Reading%20Notes%20-%20CorkScrew%20Solutions&amp;via=pfmaggi" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
 
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fpietromaggi.com%2f2015%2f09%2f25%2fandroid-back-button-and-enterprise-browser%2f&amp;title=Android%20Back%20Button%20and%20Enterprise%20Browser" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fpietromaggi.com%2f2021%2f04%2f11%2freading-notes-corkscrew-solutions%2f&amp;title=Reading%20Notes%20-%20CorkScrew%20Solutions" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fpietromaggi.com%2f2015%2f09%2f25%2fandroid-back-button-and-enterprise-browser%2f&amp;title=Android%20Back%20Button%20and%20Enterprise%20Browser" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fpietromaggi.com%2f2021%2f04%2f11%2freading-notes-corkscrew-solutions%2f&amp;title=Reading%20Notes%20-%20CorkScrew%20Solutions" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
@@ -366,15 +384,7 @@ This help us winning some opportunities but sometimes present some unique challe
                   <ul>
                 
                 
-                    <li><a href="/2018/07/12/enterprise-browser-using-the-android-headset-as-a-barcode-trigger/">Enterprise Browser - Using the Android Headset as a Barcode Trigger</a></li>
-                
-                    <li><a href="/2018/07/11/xamarin.forms-freshmvvm-datawedge-take-2/">(Xamarin.Forms &#43; FreshMVVM &#43; DataWedge) take 2</a></li>
-                
-                    <li><a href="/2018/07/07/xamarin.forms-freshmvvm-datawedge/">Xamarin.Forms &#43; FreshMVVM &#43; DataWedge = 💖</a></li>
-                
-                    <li><a href="/2018/07/04/xamarin.forms-freshmvvm-for-enterprise-applications/">Xamarin.Forms &#43; FreshMVVM for enterprise applications</a></li>
-                
-                    <li><a href="/2018/06/26/zebras-emdk-async-profile-manager-apis/">Zebra&#39;s EMDK Async Profile Manager APIs</a></li>
+                    <li><a href="/2021/03/20/reading-notes-think-again/">Reading Notes - Think Again</a></li>
                 
               </ul>
 
@@ -386,13 +396,9 @@ This help us winning some opportunities but sometimes present some unique challe
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://pietromaggi.com/2014/10/19/finding-the-sdcard-path-on-android-devices/" data-toggle="tooltip" data-placement="top" title="Finding the SDCard Path on Android devices">&larr; Previous Post</a>
+              <a href="https://pietromaggi.com/2021/03/20/reading-notes-think-again/" data-toggle="tooltip" data-placement="top" title="Reading Notes - Think Again">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://pietromaggi.com/2015/11/25/building-zebras-emdk-project-using-sdk-platform-23/" data-toggle="tooltip" data-placement="top" title="Building Zebra&#39;s EMDK project using SDK Platform 23">Next Post &rarr;</a>
-            </li>
           
         </ul>
       

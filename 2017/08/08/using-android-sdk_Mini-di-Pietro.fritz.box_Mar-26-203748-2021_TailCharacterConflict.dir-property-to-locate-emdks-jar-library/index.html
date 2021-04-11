@@ -7,8 +7,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Android Back Button and Enterprise Browser - </title>
-  <meta name="description" content="Obsolete - How to intercept the Back Button when using Zebra&rsquo;s Enterprise Browser on Android devices.">
+  <title>Using Android `sdk.dir` property to locate EMDK&#39;s jar Library. - </title>
+  <meta name="description" content="Obsolete - My personal preference is to reference Zebra&rsquo;s EMDK jar library in gradle&rsquo;s dependencies, and this requires to indicate the correct path to the library. So far so good if you&rsquo;re working on a single machine. This short post shows a better way to indicate EMDK library path independently from the machine where you&rsquo;re building your app.">
   <meta name="author" content="Pietro F. Maggi"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -44,8 +44,8 @@
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/pietromaggi.com\/2015\/09\/25\/android-back-button-and-enterprise-browser\/",
-          "name": "Android back button and enterprise browser"
+          "@id": "https:\/\/pietromaggi.com\/2017\/08\/08\/using-android-sdk.dir-property-to-locate-emdks-jar-library.\/",
+          "name": "Using android `sdk.dir` property to locate emdk\u0027s jar library."
         }
     }]
 }
@@ -56,15 +56,15 @@
   "author": {
     "name" : "Pietro F. Maggi"
   },
-  "headline": "Android Back Button and Enterprise Browser",
-  "description" : "Obsolete - How to intercept the Back Button when using Zebra\u0026rsquo;s Enterprise Browser on Android devices.",
+  "headline": "Using Android `sdk.dir` property to locate EMDK\u0027s jar Library.",
+  "description" : "Obsolete - My personal preference is to reference Zebra\u0026rsquo;s EMDK jar library in gradle\u0026rsquo;s dependencies, and this requires to indicate the correct path to the library. So far so good if you\u0026rsquo;re working on a single machine. This short post shows a better way to indicate EMDK library path independently from the machine where you\u0026rsquo;re building your app.",
   "inLanguage" : "en",
-  "wordCount":  484 ,
-  "datePublished" : "2015-09-25T11:33:11",
-  "dateModified" : "2015-09-25T11:33:11",
+  "wordCount":  422 ,
+  "datePublished" : "2017-08-08T17:20:00",
+  "dateModified" : "2017-08-08T17:20:00",
   "image" : "https:\/\/pietromaggi.com\/images\/pfm.png",
-  "keywords" : [ "Android, Enterprise Browser, Tricks, Zebra Technologies" ],
-  "mainEntityOfPage" : "https:\/\/pietromaggi.com\/2015\/09\/25\/android-back-button-and-enterprise-browser\/",
+  "keywords" : [ "Android, Tips\u0026Tricks, Zebra Technologies" ],
+  "mainEntityOfPage" : "https:\/\/pietromaggi.com\/2017\/08\/08\/using-android-sdk.dir-property-to-locate-emdks-jar-library.\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/pietromaggi.com\/",
@@ -78,21 +78,21 @@
 }
 </script>
 
-<meta property="og:title" content="Android Back Button and Enterprise Browser" />
-<meta property="og:description" content="Obsolete - How to intercept the Back Button when using Zebra&rsquo;s Enterprise Browser on Android devices.">
+<meta property="og:title" content="Using Android `sdk.dir` property to locate EMDK&#39;s jar Library." />
+<meta property="og:description" content="Obsolete - My personal preference is to reference Zebra&rsquo;s EMDK jar library in gradle&rsquo;s dependencies, and this requires to indicate the correct path to the library. So far so good if you&rsquo;re working on a single machine. This short post shows a better way to indicate EMDK library path independently from the machine where you&rsquo;re building your app.">
 <meta property="og:image" content="https://pietromaggi.com/images/pfm.png" />
-<meta property="og:url" content="https://pietromaggi.com/2015/09/25/android-back-button-and-enterprise-browser/" />
+<meta property="og:url" content="https://pietromaggi.com/2017/08/08/using-android-sdk.dir-property-to-locate-emdks-jar-library./" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="" />
 
-  <meta name="twitter:title" content="Android Back Button and Enterprise Browser" />
-  <meta name="twitter:description" content="Obsolete - How to intercept the Back Button when using Zebra&rsquo;s Enterprise Browser on Android devices.">
+  <meta name="twitter:title" content="Using Android `sdk.dir` property to locate EMDK&#39;s jar Library." />
+  <meta name="twitter:description" content="Obsolete - My personal preference is to reference Zebra&rsquo;s EMDK jar library in gradle&rsquo;s dependencies, and this requires to indicate the correct path to the library. So far so good if …">
   <meta name="twitter:image" content="https://pietromaggi.com/images/pfm.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@pfmaggi" />
   <meta name="twitter:creator" content="@pfmaggi" />
   <link href='https://pietromaggi.com/images/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.82.0" />
+  <meta name="generator" content="Hugo 0.81.0" />
   <link rel="alternate" href="https://pietromaggi.com/index.xml" type="application/rss+xml" title=""><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://pietromaggi.com/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -226,7 +226,7 @@
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="post-heading">
               
-                <h1>Android Back Button and Enterprise Browser</h1>
+                <h1>Using Android `sdk.dir` property to locate EMDK&#39;s jar Library.</h1>
               
               
               
@@ -234,13 +234,13 @@
                 <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;Posted on September 25, 2015
+  <i class="fas fa-calendar"></i>&nbsp;Posted on August 8, 2017
   
   
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;minutes
   
   
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;484&nbsp;words
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;422&nbsp;words
   
   
   
@@ -262,48 +262,69 @@
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
         <h1 id="2019-update"><strong>2019 Update</strong></h1>
-<p><strong>This post is now obsolete. Enterprise Browser has new APIs to cover this use case, please refer to its documentation for updates.</strong></p>
-<h2 id="edit">Edit</h2>
-<p>Enteprise Browser v1.3 introduced a change that requires to enable <code>FunctionKeysCapturable</code> to be able to use the KeyCapture API.<br>
-To do this you need to update your <code>Config.xml</code> with:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;FunctionKeysCapturable                 value=&#34;1&#34;/&gt;
-</code></pre></div><h2 id="enterprise-browser">Enterprise Browser</h2>
-<p>Enterprise Browser is Zebra Technologies' Industrial Browser built for our Rugged Devices, we support most of our Windows Mobile/Windows CE devices and Android devices.</p>
-<p>This product is usually used with existing web application that cannot be updated/modified moving from one device to another.
-This help us winning some opportunities but sometimes present some unique challenges like, as an example, disabling the Android back button default behavior.</p>
-<h2 id="back-button-on-android">Back Button on Android?</h2>
-<p>Given that this is a cross-platform product (built on top of our RhoMobile Suite) we don&rsquo;t have a custom settings to disable the back button in the Config.xml configuration file, however it is still possible to add a default Metatags in the configuration so that no changes in the existing pages are needed.</p>
-<p>So, do we&rsquo;ve an API to intercept the Back Button?</p>
-<p>Of course! the <a href="https://developer.motorolasolutions.com/docs/DOC-2520">KeyCapture API</a> can be used to intercept and disable it.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">EB.KeyCapture.captureKey(BOOLEAN dispatch, STRING keyValue)
-</code></pre></div><p>Setting the <code>dispatch</code> value to <code>false</code>,  We just need to get the correct KeyCode.</p>
-<p>This can a bit tricky and can be different from device to device, the best solution I&rsquo;ve is to ask directly to the device with a simple HTML page that display the keycode off all the keys that are pressed:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;!DOCTYPE html&gt;
-&lt;html lang=&#34;en&#34;&gt;
-&lt;META HTTP-Equiv=&#34;KeyCapture&#34; Content=&#34;KeyValue:All; Dispatch:False; KeyEvent:url(&#39;JavaScript:alert(&#39;Key Pressed: %s&#39;);&#39;)&#34;&gt;
-  &lt;head&gt;
-    &lt;meta charset=&#34;utf-8&#34;&gt;
-	&lt;title&gt;Display KeyCode&lt;/title&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-    &lt;H1&gt;Press a key to see it&#39;s KeyCode&lt;/H1&gt;
-  &lt;/body&gt;
-&lt;/html&gt;
-</code></pre></div><p>Once we&rsquo;ve the correct KeyCode, we just need to call this API in every page that is loaded in the browser&hellip; Sometimes that is not easy to do sometimes, especially when the application cannot be modified.</p>
-<p>We&rsquo;ve a solution for this issue: having a <code>DefaultMetaTags</code> in Enterprise Browser&rsquo;s configuration.</p>
-<h2 id="whats-a-defaultmetatags">What&rsquo;s a DefaultMetaTags</h2>
-<p>We can start from the <a href="https://developer.motorolasolutions.com/docs/DOC-2571#defaultmetatags">documentation</a>, what does it means?</p>
-<p>A <code>DefaultMetaTags</code> is a way to call an Enterprise Browser API on top of every HTML page that is loaded in the browser. This can be used, as an example to enable on screen UI elements like the battery or WiFi icon.</p>
-<p>So, putting the different things together, we can put this in the &lsquo;&lsquo;Config.xml&rsquo;:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;DefaultMetaTags&gt;
-    &lt;MetaTag value=&#34;KeyCapture~KeyValue:0xA6;Dispatch:False&#34;/&gt;
- &lt;/DefaultMetaTags&gt;
-</code></pre></div><p>BTW: <code>0xA6</code> is the correct value for the Back Button on a TC55 running Android v4.4 KitKat.</p>
-<h2 id="closing-comments">Closing comments</h2>
-<p>Enterprise Browser&rsquo;s <code>DefaultMetaTags</code> is a very flexible way to &ldquo;patch&rdquo; an existing Web application without touching its source code.</p>
-<p>As a closing comment here&rsquo;s a sample configuration that zoom the current web page pressing a button:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;MetaTag VALUE=&#34;KeyCapture~KeyValue:0x79;Dispatch:False;KeyEvent:url(&#39;JavaScript:eval(&#39;zoom.page=\&#39;1.3\&#39;;&#39;);&#39;)&#34;/&gt;
-</code></pre></div><p><em>If you&rsquo;re interested in Enterprise Browser, you can visit us at <a href="http://bit.ly/EMEAAppForum2015">EMEA AppForum in London, Oct. 12th-14th</a>.</em></p>
+<p><strong>This post is now obsolete. Please refer to Zebra&rsquo;s EMDK documentation for updated information.</strong></p>
+<p><em>Note this post has been published on <a href="https://developer.zebra.com/community/android/android-forums/android-blogs/blog/2017/08/08/using-android-sdkdir-property-to-locate-emdks-jar-library">Zebra developer portal</a>, if you&rsquo;ve any comment, probably best to post them over there.</em></p>
+<hr>
+<p>Working in Android Studio you can notice that every project contains a <code>local.properties</code> file with at least a couple of properties containing the path for Android SDK and Android NDK.</p>
+<p>Android Studio populates this information when it creates the project based on the <code>ANDROID_HOME</code> environment variable. If this variable is not present in your system Android Studio will find the correct path in other ways, but having <code>ANDROID_HOME</code> setup correctly is a really good idea, see the note at the end of this short post.</p>
+<p>Given that I usually have in my <code>build.gradle</code> file a reference to Zebra&rsquo;s EMDK, look like a good idea to use <code>sdk.dir</code> instead than hardcoding the path (like I&rsquo;ve done for a too much long time) given that the EMDK resides in Android SDK&rsquo;s add-ons folder.</p>
+<p>So, my gradle files now includes:</p>
+<pre><code>Properties properties = new Properties() properties.load(project.rootProject.file('local.properties').newDataInputStream())
+def sdkDir = properties.getProperty('sdk.dir')
+</code></pre>
+<p>so that I can the use the sdkDir variable like:</p>
+<pre><code>provided fileTree(include: ['com.symbol.emdk.jar'], dir: sdkDir+'/add-ons/addon-symbol_emdk-symbol-23/libs/')
+</code></pre>
+<p>Much cleaner and nice :-)</p>
+<h2 id="a-note-on-android_home">A note on <code>ANDROID_HOME</code></h2>
+<p>It&rsquo;s not usually a good idea to include in your revision system the <code>local.properties</code> file because this contains information&hellip; &ldquo;local&rdquo;&hellip; to your machine.
+Imagine that you&rsquo;re sharing a project with a colleague or with a remote CI build server. In this case everybody will have the Android SDK (and the Zebra&rsquo;s EMDK that resides in the SDK add-ons) in a different folder.</p>
+<p>The best option in this case is to avoid to share the <code>local.properties</code> file and have the <code>ANDROID_HOME</code> environment variable correctly setup so that the build works correctly on every machine.</p>
+<ul>
+<li>If <code>local.properties</code> is not available, Gradle will use <code>ANDROID_HOME</code> automatically.</li>
+<li>If <code>local.properties</code> is available, Gradle will use this file having a wrong <code>sdk.dir</code> set and fail.</li>
+</ul>
+<h2 id="update">Update</h2>
+<p>I got some enquiry to provide a complete gradle file to understand where to do the pasting.
+Here&rsquo;s one sample file:</p>
+<pre><code>    apply plugin: 'com.android.application'
+
+    Properties properties = new Properties()
+    properties.load(project.rootProject.file('local.properties').newDataInputStream())
+    def sdkDir = properties.getProperty('sdk.dir')
+
+    android {
+        compileSdkVersion 26
+        buildToolsVersion &quot;26.0.1&quot;
+        defaultConfig {
+            applicationId &quot;com.pietromaggi.sample.barcode&quot;
+            minSdkVersion 19
+            targetSdkVersion 22
+            versionCode 1
+            versionName &quot;1.0&quot;
+            testInstrumentationRunner &quot;android.support.test.runner.AndroidJUnitRunner&quot;
+        }
+        buildTypes {
+            release {
+                minifyEnabled false
+                proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            }
+        }
+    }
+
+    dependencies {
+        compile fileTree(dir: 'libs', include: ['*.jar'])
+
+        provided fileTree(include: ['com.symbol.emdk.jar'], dir: sdkDir+'/add-ons/addon-symbol_emdk-symbol-23/libs/')
+
+        androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+            exclude group: 'com.android.support', module: 'support-annotations'
+        })
+        compile 'com.android.support:appcompat-v7:26.+'
+        compile 'com.android.support.constraint:constraint-layout:1.0.2'
+        testCompile 'junit:junit:4.12'
+    }
+</code></pre>
 
 
         
@@ -311,9 +332,7 @@ This help us winning some opportunities but sometimes present some unique challe
             
               <a href="https://pietromaggi.com//tags/android/">Android</a>&nbsp;
             
-              <a href="https://pietromaggi.com//tags/enterprise-browser/">Enterprise Browser</a>&nbsp;
-            
-              <a href="https://pietromaggi.com//tags/tricks/">Tricks</a>&nbsp;
+              <a href="https://pietromaggi.com//tags/tipstricks/">Tips&amp;Tricks</a>&nbsp;
             
               <a href="https://pietromaggi.com//tags/zebra-technologies/">Zebra Technologies</a>&nbsp;
             
@@ -330,21 +349,21 @@ This help us winning some opportunities but sometimes present some unique challe
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fpietromaggi.com%2f2015%2f09%2f25%2fandroid-back-button-and-enterprise-browser%2f&amp;text=Android%20Back%20Button%20and%20Enterprise%20Browser&amp;via=pfmaggi" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fpietromaggi.com%2f2017%2f08%2f08%2fusing-android-sdk.dir-property-to-locate-emdks-jar-library.%2f&amp;text=Using%20Android%20%60sdk.dir%60%20property%20to%20locate%20EMDK%27s%20jar%20Library.&amp;via=pfmaggi" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
 
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fpietromaggi.com%2f2015%2f09%2f25%2fandroid-back-button-and-enterprise-browser%2f&amp;title=Android%20Back%20Button%20and%20Enterprise%20Browser" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fpietromaggi.com%2f2017%2f08%2f08%2fusing-android-sdk.dir-property-to-locate-emdks-jar-library.%2f&amp;title=Using%20Android%20%60sdk.dir%60%20property%20to%20locate%20EMDK%27s%20jar%20Library." target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fpietromaggi.com%2f2015%2f09%2f25%2fandroid-back-button-and-enterprise-browser%2f&amp;title=Android%20Back%20Button%20and%20Enterprise%20Browser" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fpietromaggi.com%2f2017%2f08%2f08%2fusing-android-sdk.dir-property-to-locate-emdks-jar-library.%2f&amp;title=Using%20Android%20%60sdk.dir%60%20property%20to%20locate%20EMDK%27s%20jar%20Library." target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
@@ -386,12 +405,12 @@ This help us winning some opportunities but sometimes present some unique challe
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://pietromaggi.com/2014/10/19/finding-the-sdcard-path-on-android-devices/" data-toggle="tooltip" data-placement="top" title="Finding the SDCard Path on Android devices">&larr; Previous Post</a>
+              <a href="https://pietromaggi.com/2016/10/30/toggling-mc18-navigation-and-status-bar-visible-state/" data-toggle="tooltip" data-placement="top" title="Toggling MC18 Navigation (and Status) Bar visible state">&larr; Previous Post</a>
             </li>
           
           
             <li class="next">
-              <a href="https://pietromaggi.com/2015/11/25/building-zebras-emdk-project-using-sdk-platform-23/" data-toggle="tooltip" data-placement="top" title="Building Zebra&#39;s EMDK project using SDK Platform 23">Next Post &rarr;</a>
+              <a href="https://pietromaggi.com/2017/09/10/droidcon-berlin-2017-day-0-the-best-android-community-event/" data-toggle="tooltip" data-placement="top" title="droidcon Berlin 2017 Day 0 - the best Android community event!">Next Post &rarr;</a>
             </li>
           
         </ul>
@@ -472,7 +491,7 @@ This help us winning some opportunities but sometimes present some unique challe
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.82.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>
