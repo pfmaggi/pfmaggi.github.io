@@ -8,22 +8,31 @@
     <language>en-EN</language>
     <managingEditor>blog@pietromaggi.com (Pietro F. Maggi)</managingEditor>
     <webMaster>blog@pietromaggi.com (Pietro F. Maggi)</webMaster>
-    <lastBuildDate>Sun, 11 Apr 2021 13:00:00 +0200</lastBuildDate><atom:link href="https://pietromaggi.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 02 May 2021 17:00:00 +0100</lastBuildDate><atom:link href="https://pietromaggi.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Notes</title>
+      <link>https://pietromaggi.com/tags/notes/</link>
+      <pubDate>Sun, 02 May 2021 17:00:00 +0100</pubDate>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
+      <guid>https://pietromaggi.com/tags/notes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Programming</title>
+      <link>https://pietromaggi.com/tags/programming/</link>
+      <pubDate>Sun, 02 May 2021 17:00:00 +0100</pubDate>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
+      <guid>https://pietromaggi.com/tags/programming/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Book Review</title>
       <link>https://pietromaggi.com/tags/book-review/</link>
       <pubDate>Sun, 11 Apr 2021 13:00:00 +0200</pubDate>
       <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/tags/book-review/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Notes</title>
-      <link>https://pietromaggi.com/tags/notes/</link>
-      <pubDate>Sun, 11 Apr 2021 13:00:00 +0200</pubDate>
-      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
-      <guid>https://pietromaggi.com/tags/notes/</guid>
       <description></description>
     </item>
     
