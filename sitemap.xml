@@ -3,7 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://pietromaggi.com/</loc>
-    <lastmod>2021-05-02T17:00:00+01:00</lastmod>
+    <lastmod>2021-07-04T17:20:00+01:00</lastmod>
+  </url><url>
+    <loc>https://pietromaggi.com/tags/android/</loc>
+    <lastmod>2021-07-04T17:20:00+01:00</lastmod>
+  </url><url>
+    <loc>https://pietromaggi.com/2021/07/04/android-screen-capture-for-dual-screen-devices/</loc>
+    <lastmod>2021-07-04T17:20:00+01:00</lastmod>
+  </url><url>
+    <loc>https://pietromaggi.com/post/</loc>
+    <lastmod>2021-07-04T17:20:00+01:00</lastmod>
+  </url><url>
+    <loc>https://pietromaggi.com/tags/</loc>
+    <lastmod>2021-07-04T17:20:00+01:00</lastmod>
+  </url><url>
+    <loc>https://pietromaggi.com/tags/tipstricks/</loc>
+    <lastmod>2021-07-04T17:20:00+01:00</lastmod>
   </url><url>
     <loc>https://pietromaggi.com/2021/05/02/april-2021-programming-notes/</loc>
     <lastmod>2021-05-02T17:00:00+01:00</lastmod>
@@ -11,13 +26,7 @@
     <loc>https://pietromaggi.com/tags/notes/</loc>
     <lastmod>2021-05-02T17:00:00+01:00</lastmod>
   </url><url>
-    <loc>https://pietromaggi.com/post/</loc>
-    <lastmod>2021-05-02T17:00:00+01:00</lastmod>
-  </url><url>
     <loc>https://pietromaggi.com/tags/programming/</loc>
-    <lastmod>2021-05-02T17:00:00+01:00</lastmod>
-  </url><url>
-    <loc>https://pietromaggi.com/tags/</loc>
     <lastmod>2021-05-02T17:00:00+01:00</lastmod>
   </url><url>
     <loc>https://pietromaggi.com/tags/book-review/</loc>
@@ -46,9 +55,6 @@
   </url><url>
     <loc>https://pietromaggi.com/tags/raspberrypi/</loc>
     <lastmod>2020-11-08T19:00:00+01:00</lastmod>
-  </url><url>
-    <loc>https://pietromaggi.com/tags/android/</loc>
-    <lastmod>2018-07-12T18:00:48+02:00</lastmod>
   </url><url>
     <loc>https://pietromaggi.com/tags/enterprise-browser/</loc>
     <lastmod>2018-07-12T18:00:48+02:00</lastmod>
@@ -105,9 +111,6 @@
     <lastmod>2017-10-31T21:00:00+01:00</lastmod>
   </url><url>
     <loc>https://pietromaggi.com/2017/10/13/tips-on-how-to-demo-android-devices/</loc>
-    <lastmod>2017-10-13T17:20:00+01:00</lastmod>
-  </url><url>
-    <loc>https://pietromaggi.com/tags/tipstricks/</loc>
     <lastmod>2017-10-13T17:20:00+01:00</lastmod>
   </url><url>
     <loc>https://pietromaggi.com/tags/zebra-technologies/</loc>

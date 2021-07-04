@@ -8,7 +8,16 @@
     <language>en-EN</language>
     <managingEditor>blog@pietromaggi.com (Pietro F. Maggi)</managingEditor>
     <webMaster>blog@pietromaggi.com (Pietro F. Maggi)</webMaster>
-    <lastBuildDate>Thu, 12 Jul 2018 18:00:48 +0200</lastBuildDate><atom:link href="https://pietromaggi.com/tags/android/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 04 Jul 2021 17:20:00 +0100</lastBuildDate><atom:link href="https://pietromaggi.com/tags/android/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Android Screen Capture for dual screen devices</title>
+      <link>https://pietromaggi.com/2021/07/04/android-screen-capture-for-dual-screen-devices/</link>
+      <pubDate>Sun, 04 Jul 2021 17:20:00 +0100</pubDate>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
+      <guid>https://pietromaggi.com/2021/07/04/android-screen-capture-for-dual-screen-devices/</guid>
+      <description>From problem to solution and to lazy automation, how to easily capture screenshots on a dual screen device.</description>
+    </item>
+    
     <item>
       <title>Enterprise Browser - Using the Android Headset as a Barcode Trigger</title>
       <link>https://pietromaggi.com/2018/07/12/enterprise-browser-using-the-android-headset-as-a-barcode-trigger/</link>

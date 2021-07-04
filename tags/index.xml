@@ -8,7 +8,25 @@
     <language>en-EN</language>
     <managingEditor>blog@pietromaggi.com (Pietro F. Maggi)</managingEditor>
     <webMaster>blog@pietromaggi.com (Pietro F. Maggi)</webMaster>
-    <lastBuildDate>Sun, 02 May 2021 17:00:00 +0100</lastBuildDate><atom:link href="https://pietromaggi.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 04 Jul 2021 17:20:00 +0100</lastBuildDate><atom:link href="https://pietromaggi.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Android</title>
+      <link>https://pietromaggi.com/tags/android/</link>
+      <pubDate>Sun, 04 Jul 2021 17:20:00 +0100</pubDate>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
+      <guid>https://pietromaggi.com/tags/android/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tips&amp;Tricks</title>
+      <link>https://pietromaggi.com/tags/tipstricks/</link>
+      <pubDate>Sun, 04 Jul 2021 17:20:00 +0100</pubDate>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
+      <guid>https://pietromaggi.com/tags/tipstricks/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Notes</title>
       <link>https://pietromaggi.com/tags/notes/</link>
@@ -78,15 +96,6 @@
       <pubDate>Sun, 08 Nov 2020 19:00:00 +0100</pubDate>
       <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/tags/raspberrypi/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Android</title>
-      <link>https://pietromaggi.com/tags/android/</link>
-      <pubDate>Thu, 12 Jul 2018 18:00:48 +0200</pubDate>
-      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
-      <guid>https://pietromaggi.com/tags/android/</guid>
       <description></description>
     </item>
     
@@ -177,15 +186,6 @@
       <pubDate>Tue, 31 Oct 2017 21:00:00 +0100</pubDate>
       <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/tags/testing/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Tips&amp;Tricks</title>
-      <link>https://pietromaggi.com/tags/tipstricks/</link>
-      <pubDate>Fri, 13 Oct 2017 17:20:00 +0100</pubDate>
-      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
-      <guid>https://pietromaggi.com/tags/tipstricks/</guid>
       <description></description>
     </item>
     
