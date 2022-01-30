@@ -92,7 +92,7 @@
   <meta name="twitter:site" content="@pfmaggi" />
   <meta name="twitter:creator" content="@pfmaggi" />
   <link href='https://pietromaggi.com/images/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.84.4" />
+  <meta name="generator" content="Hugo 0.92.1" />
   <link rel="alternate" href="https://pietromaggi.com/index.xml" type="application/rss+xml" title=""><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://pietromaggi.com/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -294,7 +294,7 @@ The you can proceeds copying it to your PC to apply some changes.</p>
 <ol>
 <li><a name="Config_1"></a>Enable the internal EB webserver and specify the folder how we plan to have the local files (as an example on the internal sdcard of the TC55 KK):</li>
 </ol>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">    &lt;WebServer&gt;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">    &lt;WebServer&gt;
       &lt;Enabled VALUE=&#34;1&#34;/&gt;
       &lt;Port VALUE=&#34;8082&#34;/&gt;
       &lt;WebFolder VALUE=&#34;/storage/sdcard0/www/&#34;/&gt;
@@ -303,7 +303,7 @@ The you can proceeds copying it to your PC to apply some changes.</p>
 </code></pre></div><ol start="2">
 <li>Modify the startpage value:</li>
 </ol>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">    &lt;General&gt;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">    &lt;General&gt;
       &lt;Name value=&#34;Menu&#34;/&gt;
       &lt;StartPage value=&#34;http://127.0.0.1:8082/index.html&#34; name=&#34;Lab&#34;/&gt;
       &lt;UseRegularExpressions value=&#34;0&#34;/&gt;
@@ -311,9 +311,9 @@ The you can proceeds copying it to your PC to apply some changes.</p>
 </code></pre></div><ol start="3">
 <li>Enable the use of DataWedge for barcode scanning inside Enteprise Browser</li>
 </ol>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">    &lt;usedwforscanning  value=&#34;1&#34;/&gt;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">    &lt;usedwforscanning  value=&#34;1&#34;/&gt;
 </code></pre></div><p>Now we can try with a simple HTML page to see if it works:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">    &lt;html&gt;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">    &lt;html&gt;
       &lt;head&gt;
       &lt;/head&gt;
       &lt;body&gt;
@@ -331,7 +331,7 @@ Opening Enterprise Browser we see that we can:</p>
 <h3 id="automate-this-step-a-bit">Automate this step a bit</h3>
 <p>Next thing that would be nice to have is to avoid to touch the display to be able to scan, in this case a little JavaScript can help.
 With this version of the sample we can immediately scan a barcode getting the data in the input field. Note that no Keyboard is shown as I&rsquo;ve not touched the input field here:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;html&gt;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">&lt;html&gt;
   &lt;head&gt;
     &lt;script&gt;
       function domReadyEvent() {
@@ -357,7 +357,7 @@ It&rsquo;s simply a matter of enabling the <code>Show</code> option in the Data 
 <p><img src="/images/eb_dw/eb_swipeassist.png" alt="SwipeAssist active in EB" title="SwipeAssist active in EB"></p>
 <h2 id="eb-and-simulscan">EB and SimulScan</h2>
 <p>Next, and final, goal is to use SimulScan to read two barcodes and have the data filled in two different input field, with the minimum JavaScript necessary to select the first input field:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;html&gt;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">&lt;html&gt;
   &lt;head&gt;
     &lt;script&gt;
       function domReadyEvent() {
@@ -425,40 +425,6 @@ Personally I think that if you want to customize your web app to have a better i
           </div>
         
 
-        
-            <hr/>
-            <section id="social-share">
-              <div class="list-inline footer-links">
-                
-
-<div class="share-box" aria-hidden="true">
-    <ul class="share">
-      
-      <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fpietromaggi.com%2f2016%2f10%2f29%2fenterprise-browser-and-datawedge-on-android-friends-at-the-end%2f&amp;text=Enterprise%20Browser%20and%20DataWedge%20on%20Android%20-%20friends%20at%20the%20end&amp;via=pfmaggi" target="_blank" title="Share on Twitter">
-          <i class="fab fa-twitter"></i>
-        </a>
-      </li>
-
-      
-      <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fpietromaggi.com%2f2016%2f10%2f29%2fenterprise-browser-and-datawedge-on-android-friends-at-the-end%2f&amp;title=Enterprise%20Browser%20and%20DataWedge%20on%20Android%20-%20friends%20at%20the%20end" target="_blank" title="Share on Reddit">
-          <i class="fab fa-reddit"></i>
-        </a>
-      </li>
-  
-      
-      <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fpietromaggi.com%2f2016%2f10%2f29%2fenterprise-browser-and-datawedge-on-android-friends-at-the-end%2f&amp;title=Enterprise%20Browser%20and%20DataWedge%20on%20Android%20-%20friends%20at%20the%20end" target="_blank" title="Share on LinkedIn">
-          <i class="fab fa-linkedin"></i>
-        </a>
-      </li>
-    </ul>
-  </div>
-  
-
-              </div>
-            </section>
         
 
         
@@ -577,7 +543,7 @@ Personally I think that if you want to customize your web app to have a better i
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.84.4</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.92.1</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

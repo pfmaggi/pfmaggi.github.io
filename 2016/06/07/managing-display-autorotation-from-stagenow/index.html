@@ -92,7 +92,7 @@
   <meta name="twitter:site" content="@pfmaggi" />
   <meta name="twitter:creator" content="@pfmaggi" />
   <link href='https://pietromaggi.com/images/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.84.4" />
+  <meta name="generator" content="Hugo 0.92.1" />
   <link rel="alternate" href="https://pietromaggi.com/index.xml" type="application/rss+xml" title=""><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://pietromaggi.com/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -288,7 +288,7 @@ The funny thing is that, most of the time, answer to a question with another one
 <blockquote>
 <p>I need a way to disable the Disaply AutoRotate setting, something that is possible to do using an <code>adb shell</code> command:</p>
 </blockquote>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">adb shell content insert --uri content://settings/system --bind name:s:accelerometer_rotation 
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">adb shell content insert --uri content://settings/system --bind name:s:accelerometer_rotation 
 </code></pre></div><p>Ok, so the real question is:</p>
 <blockquote>
 <p>Can I disable Display AutoRotation using StageNow?</p>
@@ -307,7 +307,7 @@ Instead of having an application that blindly disable this setting, we can build
 </ol>
 <h3 id="writing-to-the-settings">Writing to the settings</h3>
 <p>An Android application can update the settings if it has the permission:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">android.permission.WRITE_SETTINGS
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">android.permission.WRITE_SETTINGS
 </code></pre></div><p>Just keep in mind that <a href="https://developer.android.com/reference/android/Manifest.permission.html#WRITE_SETTINGS">this does not allow full access to the settings</a>, since Android v4.2.2, Google moved some of the settings under the <em>Secure Settings</em> that requires a different permission that can be granted only to application that resides in the system folder or are signed with the platform keys. For additional information take a look at <a href="https://developer.android.com/reference/android/Manifest.permission.html#WRITE_SECURE_SETTINGS"><code>android.permission.WRITE_SECURE_SETTINGS</code></a>.</p>
 <p>Given that you application has the permission to write to the settings you can use the following code to write a new value to the AutoRotate setting:</p>
 <pre><code>android.provider.Settings.System.putInt(getContentResolver(), Settings.System.ACCELEROMETER_ROTATION, value);
@@ -360,40 +360,6 @@ The StageNow client on the device will start downloading the apk, installing it,
           </div>
         
 
-        
-            <hr/>
-            <section id="social-share">
-              <div class="list-inline footer-links">
-                
-
-<div class="share-box" aria-hidden="true">
-    <ul class="share">
-      
-      <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fpietromaggi.com%2f2016%2f06%2f07%2fmanaging-display-autorotation-from-stagenow%2f&amp;text=Managing%20Display%20AutoRotation%20from%20StageNow&amp;via=pfmaggi" target="_blank" title="Share on Twitter">
-          <i class="fab fa-twitter"></i>
-        </a>
-      </li>
-
-      
-      <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fpietromaggi.com%2f2016%2f06%2f07%2fmanaging-display-autorotation-from-stagenow%2f&amp;title=Managing%20Display%20AutoRotation%20from%20StageNow" target="_blank" title="Share on Reddit">
-          <i class="fab fa-reddit"></i>
-        </a>
-      </li>
-  
-      
-      <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fpietromaggi.com%2f2016%2f06%2f07%2fmanaging-display-autorotation-from-stagenow%2f&amp;title=Managing%20Display%20AutoRotation%20from%20StageNow" target="_blank" title="Share on LinkedIn">
-          <i class="fab fa-linkedin"></i>
-        </a>
-      </li>
-    </ul>
-  </div>
-  
-
-              </div>
-            </section>
         
 
         
@@ -512,7 +478,7 @@ The StageNow client on the device will start downloading the apk, installing it,
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.84.4</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.92.1</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

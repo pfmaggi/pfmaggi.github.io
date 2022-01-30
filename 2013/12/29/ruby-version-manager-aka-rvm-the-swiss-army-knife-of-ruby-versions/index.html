@@ -92,7 +92,7 @@
   <meta name="twitter:site" content="@pfmaggi" />
   <meta name="twitter:creator" content="@pfmaggi" />
   <link href='https://pietromaggi.com/images/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.84.4" />
+  <meta name="generator" content="Hugo 0.92.1" />
   <link rel="alternate" href="https://pietromaggi.com/index.xml" type="application/rss+xml" title=""><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://pietromaggi.com/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -278,28 +278,28 @@ If I&rsquo;ve to work on a project with other developers having different enviro
 So, first step is to install RVM on OS X and this requires a package manager to work more easily, this means <a href="http://brew.sh/"><strong>HomeBrew</strong></a>.</p>
 <h3 id="first-step-install-homebrew">First Step: Install HomeBrew</h3>
 <p>Installing HomeBrew is very easy:</p>
-<div class="highlight"><pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">ruby</span> <span class="o">-</span><span class="n">e</span> <span class="s2">&#34;$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)&#34;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">ruby</span> <span class="o">-</span><span class="n">e</span> <span class="s2">&#34;$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)&#34;</span>
 </code></pre></div><p>You need to have XCode installed and the command line tools, <a href="https://github.com/Homebrew/homebrew/wiki/Installation">HomeBrew website makes a good description of these steps</a>.</p>
 <h3 id="second-step-install-rvm">Second Step: Install RVM</h3>
 <p>We need to install some prerequisite using HomeBrew:</p>
-<div class="highlight"><pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">brew</span> <span class="n">tap</span> <span class="n">homebrew</span><span class="o">/</span><span class="n">versions</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">brew</span> <span class="n">tap</span> <span class="n">homebrew</span><span class="o">/</span><span class="n">versions</span>
 <span class="n">brew</span> <span class="n">install</span> <span class="n">gcc46</span>
 </code></pre></div><p>then install RVM itself together with ruby 1.9.3:</p>
-<div class="highlight"><pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="p">\</span><span class="n">curl</span> <span class="o">-</span><span class="n">sSL</span> <span class="ss">https</span><span class="p">:</span><span class="sr">//</span><span class="n">get</span><span class="o">.</span><span class="n">rvm</span><span class="o">.</span><span class="n">io</span> <span class="o">|</span> <span class="n">bash</span> <span class="o">-</span><span class="n">s</span> <span class="n">stable</span> <span class="o">--</span><span class="n">ruby</span><span class="o">=</span><span class="mi">1</span><span class="o">.</span><span class="mi">9</span><span class="o">.</span><span class="mi">3</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="p">\</span><span class="n">curl</span> <span class="o">-</span><span class="n">sSL</span> <span class="ss">https</span><span class="p">:</span><span class="sr">//</span><span class="n">get</span><span class="o">.</span><span class="n">rvm</span><span class="o">.</span><span class="n">io</span> <span class="o">|</span> <span class="n">bash</span> <span class="o">-</span><span class="n">s</span> <span class="n">stable</span> <span class="o">--</span><span class="n">ruby</span><span class="o">=</span><span class="mi">1</span><span class="o">.</span><span class="mi">9</span><span class="o">.</span><span class="mi">3</span>
 </code></pre></div><p>and set it up as default</p>
-<div class="highlight"><pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">rvm</span> <span class="k">alias</span> <span class="n">create</span> <span class="n">default</span> <span class="mi">1</span><span class="o">.</span><span class="mi">9</span><span class="o">.</span><span class="mi">3</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">rvm</span> <span class="k">alias</span> <span class="n">create</span> <span class="n">default</span> <span class="mi">1</span><span class="o">.</span><span class="mi">9</span><span class="o">.</span><span class="mi">3</span>
 </code></pre></div><p>Install others ruby to play with them</p>
-<div class="highlight"><pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">rvm</span> <span class="n">get</span> <span class="n">stable</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">rvm</span> <span class="n">get</span> <span class="n">stable</span>
 <span class="n">rvm</span> <span class="n">list</span> <span class="n">known</span>
 </code></pre></div><h2 id="upgrade-a-ruby-to-the-latest-patch-available">Upgrade a ruby to the latest patch available</h2>
 <p>Nowadays ruby 1.9.3-patch484 seems pretty solid, but a lot of activities is on ruby 2.0.
 If you want keep your ruby up-to-date, RVM can help you keeping it aligned to the latest available patch with the command:</p>
-<div class="highlight"><pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">rvm</span> <span class="n">get</span> <span class="n">stable</span> <span class="c1"># always check that you&#39;ve the latest rvm available before starting</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">rvm</span> <span class="n">get</span> <span class="n">stable</span> <span class="c1"># always check that you&#39;ve the latest rvm available before starting</span>
 <span class="n">rvm</span> <span class="n">list</span>
 <span class="n">rvm</span> <span class="n">list</span> <span class="n">known</span>
 <span class="n">rvm</span> <span class="n">upgrade</span> <span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span>
 </code></pre></div><p>This will be followed by some questions:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">XHF648-04M:~ pietro$ rvm upgrade 2.0.0
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">XHF648-04M:~ pietro$ rvm upgrade 2.0.0
 Are you sure you wish to upgrade from ruby-2.0.0-p247 to ruby-2.0.0-p353? (Y/n): Y
 Installing new ruby ruby-2.0.0-p353
 Searching for binary rubies, this might take some time.
@@ -349,14 +349,14 @@ Successfully migrated ruby-2.0.0-p247 to ruby-2.0.0-p353
 Upgrade complete!
 </code></pre></div><h2 id="what-you-can-do-to-restart-an-rvm-setup-from-scratch">What you can do to restart an RVM setup from scratch</h2>
 <p>Having an RVM environment growing over time can bring a bit of cruft into the system. If you&rsquo;re starting to encounter more and more errors working on the setup, you can think to cleanup your setup and restart from scratch:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ rvm get stable
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ rvm get stable
 $ rvm cleanup
 </code></pre></div><h3 id="usage">Usage:</h3>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">    rvm cleanup <span class="o">{</span>all,archives,repos,sources,logs,gemsets,links<span class="o">}</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">    rvm cleanup <span class="o">{</span>all,archives,repos,sources,logs,gemsets,links<span class="o">}</span>
 </code></pre></div><h3 id="description">Description:</h3>
 <p>Cleans up the directory tree for the specified item.
 For gemsets removes remove only those without matching ruby.</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ rvm cleanup all
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ rvm cleanup all
 Cleaning up rvm archives
 Cleaning up rvm repos
 Cleaning up rvm src
@@ -379,40 +379,6 @@ Cleanup <span class="k">done</span>.
           </div>
         
 
-        
-            <hr/>
-            <section id="social-share">
-              <div class="list-inline footer-links">
-                
-
-<div class="share-box" aria-hidden="true">
-    <ul class="share">
-      
-      <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fpietromaggi.com%2f2013%2f12%2f29%2fruby-version-manager-aka-rvm-the-swiss-army-knife-of-ruby-versions%2f&amp;text=Ruby%20Version%20Manager%20%28aka%20RVM%29%20the%20Swiss%20army%20knife%20of%20Ruby%20versions&amp;via=pfmaggi" target="_blank" title="Share on Twitter">
-          <i class="fab fa-twitter"></i>
-        </a>
-      </li>
-
-      
-      <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fpietromaggi.com%2f2013%2f12%2f29%2fruby-version-manager-aka-rvm-the-swiss-army-knife-of-ruby-versions%2f&amp;title=Ruby%20Version%20Manager%20%28aka%20RVM%29%20the%20Swiss%20army%20knife%20of%20Ruby%20versions" target="_blank" title="Share on Reddit">
-          <i class="fab fa-reddit"></i>
-        </a>
-      </li>
-  
-      
-      <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fpietromaggi.com%2f2013%2f12%2f29%2fruby-version-manager-aka-rvm-the-swiss-army-knife-of-ruby-versions%2f&amp;title=Ruby%20Version%20Manager%20%28aka%20RVM%29%20the%20Swiss%20army%20knife%20of%20Ruby%20versions" target="_blank" title="Share on LinkedIn">
-          <i class="fab fa-linkedin"></i>
-        </a>
-      </li>
-    </ul>
-  </div>
-  
-
-              </div>
-            </section>
         
 
         
@@ -525,7 +491,7 @@ Cleanup <span class="k">done</span>.
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.84.4</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.92.1</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

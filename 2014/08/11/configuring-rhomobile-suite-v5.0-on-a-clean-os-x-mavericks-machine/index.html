@@ -92,7 +92,7 @@
   <meta name="twitter:site" content="@pfmaggi" />
   <meta name="twitter:creator" content="@pfmaggi" />
   <link href='https://pietromaggi.com/images/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.84.4" />
+  <meta name="generator" content="Hugo 0.92.1" />
   <link rel="alternate" href="https://pietromaggi.com/index.xml" type="application/rss+xml" title=""><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://pietromaggi.com/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -298,7 +298,7 @@ The Terminal is already available on OS X, and you can find it inside the Utilit
 <p><img src="/images/OSX_RMS5/KeepInDock.png" alt="Keep Terminal in the dock" title="Keep Terminal in the dock"></p>
 <h3 id="a-namejdk7ainstall-java-jdk7"><a name="JDK7"></a>Install Java JDK7</h3>
 <p>OS X Mavericks comes without any Java environment installed, &ldquo;the easiest way&rdquo; to install it, is to open the terminal and type:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">java -version
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">java -version
 </code></pre></div><p>This will pop up a windows asking if you want to install Java, the answer is a resounding YES!</p>
 <p><img src="/images/OSX_RMS5/NoJava.png" alt="No Java environment" title="No Java Environment"></p>
 <p>Selecting <strong>More Info&hellip;</strong> will open the Safari browser on the Oracle website, you can select the most up-to-date JDK v7 for OS X to download</p>
@@ -309,10 +309,10 @@ The Terminal is already available on OS X, and you can find it inside the Utilit
 <p><img src="/images/OSX_RMS5/JavaIsInstalled.png" alt="Java is installed" title="Java is installed"></p>
 <h3 id="a-namehomebrewainstall-homebrew"><a name="HomeBrew"></a>Install HomeBrew</h3>
 <p><a href="http://brew.sh/">HomeBrew</a> is an open source package manager, working from the command line, that help setting up open source application on OS X.</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">ruby -e <span class="s2">&#34;</span><span class="k">$(</span>curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install<span class="k">)</span><span class="s2">&#34;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">ruby -e <span class="s2">&#34;</span><span class="k">$(</span>curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install<span class="k">)</span><span class="s2">&#34;</span>
 </code></pre></div><p>Paste that at the terminal prompt, execute it and follow the on-screen instruction accepting all the defaults.
 Next step is to check that HomeBrew is setup correctly:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">brew doctor
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">brew doctor
 </code></pre></div><p>If everything is setup correctly you get the message: <em>Your system is ready to brew</em>:</p>
 <p><img src="/images/OSX_RMS5/ReadyToBrew.png" alt="Your System is ready to Brew" title="Your System is ready to Brew"></p>
 <p>If you get a different message with some missing or misconfigured software you can follow the on-screen-instruction or you can find further information on the <a href="https://github.com/Homebrew/homebrew/wiki">HomeBrew Wiki</a>.</p>
@@ -320,17 +320,17 @@ Next step is to check that HomeBrew is setup correctly:</p>
 <p>OS X Mavericks comes with Ruby v2.0 installed by default, however RMSv5 requires Ruby v1.9.3. Overall working with Ruby can require to switch ruby environment often and to release this pain [some utilities has been created]({{ relref . &ldquo;post/rvm.md&rdquo; }}).</p>
 <p>In this case we&rsquo;re going to install RVM and use it to install Ruby v1.9.3.
 First we need to install some prerequisite using HomeBrew:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">brew tap homebrew/versions
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">brew tap homebrew/versions
 brew install gcc46
 brew cleanup
 brew doctor
 </code></pre></div><p>then install RVM itself together with ruby 1.9.3:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="se">\c</span>url -sSL https://get.rvm.io <span class="p">|</span> bash -s stable --ruby<span class="o">=</span>1.9.3
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="se">\c</span>url -sSL https://get.rvm.io <span class="p">|</span> bash -s stable --ruby<span class="o">=</span>1.9.3
 </code></pre></div><p>Then you need to close the terminal and relaunch it to ave the <strong>RVM</strong> environment available in the command line.</p>
 <p>To check that everything is setup correctly you can do:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">rvm list
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">rvm list
 </code></pre></div><p>and you should get the reply:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">rhomobile$ rvm list
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">rhomobile$ rvm list
 
 rvm <span class="nv">rubies</span>
 
@@ -341,18 +341,18 @@ rvm <span class="nv">rubies</span>
 <span class="c1">#  * - default</span>
 
 </code></pre></div><p>In this case Ruby v1.9.3 is the current and default ruby environment. If this is not the case, you can set it up as the default ruby using the command:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">rvm <span class="nb">alias</span> create default 1.9.3
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">rvm <span class="nb">alias</span> create default 1.9.3
 </code></pre></div><p>To get more information on RVM you can check the documentation available on <a href="https://rvm.io/">its website</a>.</p>
 <h3 id="a-nameutilitiesainstall-git-node-and-other-little-utilities"><a name="utilities"></a>Install git, node and other little utilities</h3>
 <p>RMS uses git <em>a lot</em>, to sync projects with RhoHub, and is overall a nice tool. It&rsquo;s already installed on Mavericks, but is version 1.8.5.2, better to keep an up-to-date version using HomeBrew:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">brew install git
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">brew install git
 git --version
 </code></pre></div><p>This will install git v2.0.4 (at the moment of writing this).</p>
 <p>If asking to the system for the installed git version still report 1.8.5.2:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">git --version
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">git --version
 git version 1.8.5.2 <span class="o">(</span>Apple Git-48<span class="o">)</span>
 </code></pre></div><p>Then you need to modify the PATH environment as suggested using the command:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">rhomobile$ brew doctor
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">rhomobile$ brew doctor
 Please note that these warnings are just used to <span class="nb">help</span> the Homebrew maintainers
 with debugging <span class="k">if</span> you file an issue. If everything you use Homebrew <span class="k">for</span> is
 working fine: please don<span class="s1">&#39;t worry and just ignore them. Thanks!
@@ -372,14 +372,14 @@ working fine: please don<span class="s1">&#39;t worry and just ignore them. Than
 </span><span class="s1">occurs before /usr/bin. Here is a one-liner:
 </span><span class="s1">    echo export PATH=&#39;</span>/usr/local/bin:<span class="nv">$PATH</span><span class="err">&#39;</span> &gt;&gt; ~/.bash_profile
 </code></pre></div><p>So, using the command:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nb">echo</span> <span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s1">&#39;/usr/local/bin:$PATH&#39;</span> &gt;&gt; ~/.bash_profile
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="nb">echo</span> <span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s1">&#39;/usr/local/bin:$PATH&#39;</span> &gt;&gt; ~/.bash_profile
 </code></pre></div><p>Solve the issue (after closing and restarting the <strong>Terminal</strong>).</p>
 <p>The second application that we need to install is NodeJS, this is needed by RhoConnect Push and to support RhoConnect Source Adapters in JavaScript. Again, we use HomeBrew for this:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">brew install node
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">brew install node
 </code></pre></div><p>The Latest application we need to support RhoConnect is <a href="http://redis.io">Redis</a>, again we can use HomeBrew to install it:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">brew install redis
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">brew install redis
 </code></pre></div><p>Then we can install at least one command line utility that can be very handy looking for &ldquo;stuffs&rdquo; inside source codes: <em>The Silver Searcher</em>:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">brew install the_silver_searcher
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">brew install the_silver_searcher
 man ag
 </code></pre></div><p>As always, using <strong>man</strong> in the command line will open the documentation for the command, in the case of the silver searcher, the command is <strong>ag</strong> (like the Silver symbol).</p>
 <h3 id="a-nameandroidainstall-android-sdk-and-ndk"><a name="Android"></a>Install Android SDK and NDK</h3>
@@ -387,30 +387,30 @@ man ag
 <p>Navigate to the <a href="http://developer.android.com/sdk/index.html">Android developer tools page</a> and download the stand-alone Android SDK tools for Mac:</p>
 <p><img src="/images/OSX_RMS5/AndroidSDK.png" alt="Android SDK Tools for Mac" title="Android SDK Tools for Mac"></p>
 <p>When the download is complete you can install the SDK in the <strong>Development</strong> folder, again from the command line:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nb">cd</span> ~/Downloads/
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="nb">cd</span> ~/Downloads/
 mkdir ~/Development
 unzip android-sdk_r23.0.2-macosx.zip -d ~/Development/
 </code></pre></div><p>This will create <strong>android-sdk-macosx</strong> under your home folder. To add the sdk to your PATH, use the command:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nb">echo</span> <span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s1">&#39;$PATH:~/Development/android-sdk-macosx/tools&#39;</span> &gt;&gt; ~/.bash_profile
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="nb">echo</span> <span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s1">&#39;$PATH:~/Development/android-sdk-macosx/tools&#39;</span> &gt;&gt; ~/.bash_profile
 </code></pre></div><p>closing and relaunching the Terminal will make this new PATH available. You can now launch the Android SDK manager using the command:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">android
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">android
 </code></pre></div><p>And install the latest platform tools and the Platform SDK (not shown in the image is the Android Support Library that is always nice to have installed):</p>
 <p><img src="/images/OSX_RMS5/UpdateAndroidSDK.png" alt="Update Android SDK" title="Update Android SDK"></p>
 <p>Once you&rsquo;ve installed these packages, you can close the Android SDK Manager and add the now available platform tools folder to your PATH:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nb">echo</span> <span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s1">&#39;$PATH:~/Development/android-sdk-macosx/platform-tools&#39;</span> &gt;&gt; ~/.bash_profile
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="nb">echo</span> <span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s1">&#39;$PATH:~/Development/android-sdk-macosx/platform-tools&#39;</span> &gt;&gt; ~/.bash_profile
 </code></pre></div><p>closing and relaunching the Terminal will make this new PATH available. You can now launch the Android Debug Bridge using the command:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">adb devices
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">adb devices
 </code></pre></div><p>If you plan to develop using Motorola Solutions (or Symbol) Android devices, you need to modify an Android configuration file:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">rhomobile$ android update adb
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">rhomobile$ android update adb
 adb has been updated. You must restart adb with the following commands
 	adb kill-server
 	adb start-server
 <span class="nb">echo</span> -e <span class="s2">&#34;0x05e0\n0x0414&#34;</span> &gt;&gt; ~/.android/adb_usb.ini
 </code></pre></div><p>Now attaching your device you can see it with:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">adb kill-server
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">adb kill-server
 adb devices
 </code></pre></div><p>Next step is to install the Android NDK, containing the C/C++ compiler for Android, <a href="http://developer.android.com/tools/sdk/ndk/index.html">download and install the Mac OS 64-bit release</a>, following Google <a href="http://developer.android.com/tools/sdk/ndk/index.html#Installing">instructions</a>. Again, from the command line:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nb">cd</span> ~/Development/
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="nb">cd</span> ~/Development/
 tar xzvf ~/Downloads/android-ndk32-r10-darwin-x86_64.tar.bz2
 </code></pre></div><h3 id="a-namerms5ainstall-rms-v50"><a name="RMS5"></a>Install RMS v5.0</h3>
 <p>For this step we can take the info from the <a href="http://docs.rhomobile.com/en/5.0.0/guide/rhomobile-install#mac-os">RhoMobile official documentation</a>.</p>
@@ -418,7 +418,7 @@ tar xzvf ~/Downloads/android-ndk32-r10-darwin-x86_64.tar.bz2
 <p><img src="/images/OSX_RMS5/RMS5_Package.png" alt="RMS5 image file content" title="RMS5 Image file content"></p>
 <p>Then we&rsquo;ve some additional steps to do from the Terminal&hellip; yes, again from the command line :-)</p>
 <p><strong>NOTE</strong> I previously used <strong>sudo</strong> at this step and this produce a series of side effects. Just be sure to run the &ldquo;Install gems&rdquo; script with your user!</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nb">cd</span> /Volumes/Motorola<span class="se">\ </span>RhoMobile<span class="se">\ </span>Suite<span class="se">\ </span>Installer/
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="nb">cd</span> /Volumes/Motorola<span class="se">\ </span>RhoMobile<span class="se">\ </span>Suite<span class="se">\ </span>Installer/
 ./Install<span class="se">\ </span>gems 
 
 Select Ruby version to install gems:
@@ -432,7 +432,7 @@ ruby 1.9.3p547 <span class="o">(</span>2014-05-14 revision 45962<span class="o">
 Do you want to install gems with <span class="s1">&#39;sudo&#39;</span> <span class="nb">command</span> prefix? <span class="o">[</span>yN<span class="o">]</span>  N
 
 </code></pre></div><p>When the gems setup is complete, you can install the support for RhoConnect Push server:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nb">cd</span> /Volumes/Motorola<span class="se">\ </span>RhoMobile<span class="se">\ </span>Suite<span class="se">\ </span>Installer/
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="nb">cd</span> /Volumes/Motorola<span class="se">\ </span>RhoMobile<span class="se">\ </span>Suite<span class="se">\ </span>Installer/
 sudo ./Install<span class="se">\ </span>rhoconnect-push
 Password:
 
@@ -460,7 +460,7 @@ Do you want to install rhoconnect-push with <span class="s1">&#39;sudo&#39;</spa
 <p><img src="/images/OSX_RMS5/RhoStudioParam_1.png" alt="JDK Path" title="JDK Path"></p>
 <p><img src="/images/OSX_RMS5/RhoStudioParam_2.png" alt="Android SDK and NDK path" title="Android SDK and NDK path"></p>
 <p>Another (easier?) way to configure Rhodes is doing it from the command line:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">rhodes-setup
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">rhodes-setup
 We will ask you a few questions below about your dev environment.
 
 JDK path <span class="o">(</span>required<span class="o">)</span> <span class="o">(</span>/Library/Java/Home<span class="o">)</span>:
@@ -487,40 +487,6 @@ If you want to build with other BlackBerry SDK versions edit: /Users/rhomobile/.
           </div>
         
 
-        
-            <hr/>
-            <section id="social-share">
-              <div class="list-inline footer-links">
-                
-
-<div class="share-box" aria-hidden="true">
-    <ul class="share">
-      
-      <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fpietromaggi.com%2f2014%2f08%2f11%2fconfiguring-rhomobile-suite-v5.0-on-a-clean-os-x-mavericks-machine%2f&amp;text=Configuring%20RhoMobile%20Suite%20v5.0%20on%20a%20clean%20OS%20X%20Mavericks%20machine&amp;via=pfmaggi" target="_blank" title="Share on Twitter">
-          <i class="fab fa-twitter"></i>
-        </a>
-      </li>
-
-      
-      <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fpietromaggi.com%2f2014%2f08%2f11%2fconfiguring-rhomobile-suite-v5.0-on-a-clean-os-x-mavericks-machine%2f&amp;title=Configuring%20RhoMobile%20Suite%20v5.0%20on%20a%20clean%20OS%20X%20Mavericks%20machine" target="_blank" title="Share on Reddit">
-          <i class="fab fa-reddit"></i>
-        </a>
-      </li>
-  
-      
-      <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fpietromaggi.com%2f2014%2f08%2f11%2fconfiguring-rhomobile-suite-v5.0-on-a-clean-os-x-mavericks-machine%2f&amp;title=Configuring%20RhoMobile%20Suite%20v5.0%20on%20a%20clean%20OS%20X%20Mavericks%20machine" target="_blank" title="Share on LinkedIn">
-          <i class="fab fa-linkedin"></i>
-        </a>
-      </li>
-    </ul>
-  </div>
-  
-
-              </div>
-            </section>
         
 
         
@@ -639,7 +605,7 @@ If you want to build with other BlackBerry SDK versions edit: /Users/rhomobile/.
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.84.4</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.92.1</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

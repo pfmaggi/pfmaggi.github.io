@@ -92,7 +92,7 @@
   <meta name="twitter:site" content="@pfmaggi" />
   <meta name="twitter:creator" content="@pfmaggi" />
   <link href='https://pietromaggi.com/images/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.84.4" />
+  <meta name="generator" content="Hugo 0.92.1" />
   <link rel="alternate" href="https://pietromaggi.com/index.xml" type="application/rss+xml" title=""><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://pietromaggi.com/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -286,7 +286,7 @@
 <p>Just create a new index.html file with the following content, and copy it to your device.
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -299,7 +299,7 @@
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&#34;en&#34;</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">META</span> <span class="na">HTTP-Equiv</span><span class="o">=</span><span class="s">&#34;KeyCapture&#34;</span> <span class="na">Content</span><span class="o">=</span><span class="s">&#34;KeyValue:All; Dispatch:False; KeyEvent:url(&#39;JavaScript:console.log(&#39;Key Pressed: %s&#39;);&#39;)&#34;</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
@@ -320,7 +320,7 @@ In my case, testing this on a TC56 running Android v7.1 Nougat. I get two differ
 <p>We can now build our PoC application, starting from the <code>index.html</code> page:
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -348,7 +348,7 @@ In my case, testing this on a TC56 running Android v7.1 Nougat. I get two differ
 </span><span class="lnt">26
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&#34;en&#34;</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&#34;utf-8&#34;</span> <span class="p">/&gt;</span>
@@ -379,7 +379,7 @@ In my case, testing this on a TC56 running Android v7.1 Nougat. I get two differ
 The accompanying style sheet is <code>style.css</code>:
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -431,7 +431,7 @@ The accompanying style sheet is <code>style.css</code>:
 </span><span class="lnt">50
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-css" data-lang="css"><span class="o">*</span> <span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="o">*</span> <span class="p">{</span>
     <span class="k">padding</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
     <span class="k">margin</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
@@ -486,7 +486,7 @@ The accompanying style sheet is <code>style.css</code>:
 And we can then focus on the JavaScript code in the <code>app.js</code> file:
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -531,7 +531,7 @@ And we can then focus on the JavaScript code in the <code>app.js</code> file:
 </span><span class="lnt">43
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">$$</span><span class="p">(</span><span class="nx">selector</span><span class="p">,</span> <span class="nx">container</span><span class="p">)</span> <span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">$$</span><span class="p">(</span><span class="nx">selector</span><span class="p">,</span> <span class="nx">container</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="p">(</span><span class="nx">container</span> <span class="o">||</span> <span class="nb">document</span><span class="p">).</span><span class="nx">querySelector</span><span class="p">(</span><span class="nx">selector</span><span class="p">);</span>
 <span class="p">}</span>
 
@@ -580,7 +580,7 @@ We can test this copying these files on the device. I usually prefer to work wit
 <p>In EB&rsquo;s <code>Config.xml</code> I then use:
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -593,7 +593,7 @@ We can test this copying these files on the device. I usually prefer to work wit
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;WebServer&gt;</span>  
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;WebServer&gt;</span>  
     <span class="nt">&lt;Enabled</span> <span class="na">VALUE=</span><span class="s">&#34;1&#34;</span><span class="nt">/&gt;</span>  
     <span class="nt">&lt;Port</span> <span class="na">VALUE=</span><span class="s">&#34;8082&#34;</span><span class="nt">/&gt;</span>  
     <span class="nt">&lt;WebFolder</span> <span class="na">VALUE=</span><span class="s">&#34;%PRIMARYDIR%/www/&#34;</span><span class="nt">/&gt;</span>  
@@ -609,12 +609,12 @@ We can test this copying these files on the device. I usually prefer to work wit
 You can modify the following option to be able to debug the application using Chrome&rsquo;s DevTools [as explained in a previous post]({{ relref . &ldquo;eb_modernization.md&rdquo; }}).
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;DebugSetting&gt;</span>
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;DebugSetting&gt;</span>
     <span class="nt">&lt;DebugModeEnable</span> <span class="na">value=</span><span class="s">&#34;1&#34;</span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/DebugSetting&gt;</span></code></pre></td></tr></table>
 </div>
@@ -625,16 +625,16 @@ You can modify the following option to be able to debug the application using Ch
 <p>This customization is really dependent on the existing application, what I can write here, is that you need to add to EB&rsquo;s <code>Config.xml</code> a <code>CustomDOMElements</code> element:
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;CustomDOMElements</span> <span class="na">value=</span><span class="s">&#34;file://%INSTALLDIR%/mytags.txt&#34;</span><span class="nt">/&gt;</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;CustomDOMElements</span> <span class="na">value=</span><span class="s">&#34;file://%INSTALLDIR%/mytags.txt&#34;</span><span class="nt">/&gt;</span></code></pre></td></tr></table>
 </div>
 </div>
 In this case we&rsquo;ve the <code>mytags.txt</code> file in the same folder of the <code>Config.xml</code> file, usually <code>/sdcard/Android/data/com.symbol.enterprisebrowser/</code>, and we inject a single JavaScript in every page:
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -644,7 +644,7 @@ In this case we&rsquo;ve the <code>mytags.txt</code> file in the same folder of 
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="c">&lt;!--Sample tags file --&gt;</span>
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="c">&lt;!--Sample tags file --&gt;</span>
 <span class="c">&lt;!--FILENAME: &#39;mytags.txt&#39; --&gt;</span>
 <span class="c">&lt;!--DESC: &#39;tags&#39; file for DOM Injection --&gt;</span>
 
@@ -657,7 +657,7 @@ In this case we&rsquo;ve the <code>mytags.txt</code> file in the same folder of 
 The content of the <code>keycapture.js</code> file is:
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -676,7 +676,7 @@ The content of the <code>keycapture.js</code> file is:
 </span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;KeyCapture Configured&#39;</span><span class="p">);</span>
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;KeyCapture Configured&#39;</span><span class="p">);</span>
 <span class="nx">EB</span><span class="p">.</span><span class="nx">KeyCapture</span><span class="p">.</span><span class="nx">captureKey</span><span class="p">(</span><span class="kc">false</span><span class="p">,</span> <span class="s2">&#34;228&#34;</span><span class="p">,</span> <span class="nx">keyCallback</span><span class="p">);</span>
 <span class="nx">EB</span><span class="p">.</span><span class="nx">KeyCapture</span><span class="p">.</span><span class="nx">captureKey</span><span class="p">(</span><span class="kc">false</span><span class="p">,</span> <span class="s2">&#34;79&#34;</span><span class="p">,</span> <span class="nx">keyCallback</span><span class="p">);</span>
 
@@ -703,7 +703,7 @@ Yes, you&rsquo;re right, in this case we&rsquo;re not using EB&rsquo;s Barcode A
 <p>A very simple implementation of such a service could be:
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -786,7 +786,7 @@ Yes, you&rsquo;re right, in this case we&rsquo;re not using EB&rsquo;s Barcode A
 </span><span class="lnt">81
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">import</span> <span class="nn">android.app.Service</span><span class="o">;</span>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kn">import</span> <span class="nn">android.app.Service</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">android.content.Intent</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">android.os.IBinder</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">android.support.annotation.Nullable</span><span class="o">;</span>
@@ -885,40 +885,6 @@ Yes, you&rsquo;re right, in this case we&rsquo;re not using EB&rsquo;s Barcode A
           </div>
         
 
-        
-            <hr/>
-            <section id="social-share">
-              <div class="list-inline footer-links">
-                
-
-<div class="share-box" aria-hidden="true">
-    <ul class="share">
-      
-      <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fpietromaggi.com%2f2018%2f07%2f12%2fenterprise-browser-using-the-android-headset-as-a-barcode-trigger%2f&amp;text=Enterprise%20Browser%20-%20Using%20the%20Android%20Headset%20as%20a%20Barcode%20Trigger&amp;via=pfmaggi" target="_blank" title="Share on Twitter">
-          <i class="fab fa-twitter"></i>
-        </a>
-      </li>
-
-      
-      <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fpietromaggi.com%2f2018%2f07%2f12%2fenterprise-browser-using-the-android-headset-as-a-barcode-trigger%2f&amp;title=Enterprise%20Browser%20-%20Using%20the%20Android%20Headset%20as%20a%20Barcode%20Trigger" target="_blank" title="Share on Reddit">
-          <i class="fab fa-reddit"></i>
-        </a>
-      </li>
-  
-      
-      <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fpietromaggi.com%2f2018%2f07%2f12%2fenterprise-browser-using-the-android-headset-as-a-barcode-trigger%2f&amp;title=Enterprise%20Browser%20-%20Using%20the%20Android%20Headset%20as%20a%20Barcode%20Trigger" target="_blank" title="Share on LinkedIn">
-          <i class="fab fa-linkedin"></i>
-        </a>
-      </li>
-    </ul>
-  </div>
-  
-
-              </div>
-            </section>
         
 
         
@@ -1037,7 +1003,7 @@ Yes, you&rsquo;re right, in this case we&rsquo;re not using EB&rsquo;s Barcode A
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.84.4</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.92.1</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

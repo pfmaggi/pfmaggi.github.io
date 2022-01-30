@@ -92,7 +92,7 @@
   <meta name="twitter:site" content="@pfmaggi" />
   <meta name="twitter:creator" content="@pfmaggi" />
   <link href='https://pietromaggi.com/images/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.84.4" />
+  <meta name="generator" content="Hugo 0.92.1" />
   <link rel="alternate" href="https://pietromaggi.com/index.xml" type="application/rss+xml" title=""><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://pietromaggi.com/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -278,11 +278,11 @@ params	String. List of parameters for the application; nil if no parameters.</p>
 <p>Windows Mobile, Windows CE: appname is path in registry:<br>
 <code>&lt;vendor&gt; &lt;app_name&gt;/&lt;app_name&gt;.exe</code><br>
 This is usually recorded in the Key:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">HKLM\Security\AppInstall\[App Name]
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">HKLM\Security\AppInstall\[App Name]
 </code></pre></div><p>like:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">HKLM\Security\AppInstall\rhomobile store
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">HKLM\Security\AppInstall\rhomobile store
 </code></pre></div><p>So, to launch this application from your RhoMobile app, you can use the following code:</p>
-<div class="highlight"><pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="no">System</span><span class="o">.</span><span class="n">run_app</span><span class="p">(</span><span class="s1">&#39;rhomobile store/store.exe&#39;</span><span class="p">,</span> <span class="s1">&#39;someparams&#39;</span><span class="p">)</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="no">System</span><span class="o">.</span><span class="n">run_app</span><span class="p">(</span><span class="s1">&#39;rhomobile store/store.exe&#39;</span><span class="p">,</span> <span class="s1">&#39;someparams&#39;</span><span class="p">)</span>
 </code></pre></div><p>OK, the syntax is not exactly what I was expecting&hellip; this may be the cause of the issue.
 Documentation of the same API in v4.0 is not so helpful, no explanation of the differences between OSes and what the parameters are&hellip;
 Let&rsquo;s see what we&rsquo;ve on github rhomobile account.</p>
@@ -303,40 +303,6 @@ Let&rsquo;s see what we&rsquo;ve on github rhomobile account.</p>
           </div>
         
 
-        
-            <hr/>
-            <section id="social-share">
-              <div class="list-inline footer-links">
-                
-
-<div class="share-box" aria-hidden="true">
-    <ul class="share">
-      
-      <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fpietromaggi.com%2f2013%2f12%2f28%2fwhy-i-like-to-talk-about-open-source-projects%2f&amp;text=Why%20I%20like%20to%20talk%20about%20open%20source%20projects&amp;via=pfmaggi" target="_blank" title="Share on Twitter">
-          <i class="fab fa-twitter"></i>
-        </a>
-      </li>
-
-      
-      <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fpietromaggi.com%2f2013%2f12%2f28%2fwhy-i-like-to-talk-about-open-source-projects%2f&amp;title=Why%20I%20like%20to%20talk%20about%20open%20source%20projects" target="_blank" title="Share on Reddit">
-          <i class="fab fa-reddit"></i>
-        </a>
-      </li>
-  
-      
-      <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fpietromaggi.com%2f2013%2f12%2f28%2fwhy-i-like-to-talk-about-open-source-projects%2f&amp;title=Why%20I%20like%20to%20talk%20about%20open%20source%20projects" target="_blank" title="Share on LinkedIn">
-          <i class="fab fa-linkedin"></i>
-        </a>
-      </li>
-    </ul>
-  </div>
-  
-
-              </div>
-            </section>
         
 
         
@@ -449,7 +415,7 @@ Let&rsquo;s see what we&rsquo;ve on github rhomobile account.</p>
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.84.4</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.92.1</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

@@ -92,7 +92,7 @@
   <meta name="twitter:site" content="@pfmaggi" />
   <meta name="twitter:creator" content="@pfmaggi" />
   <link href='https://pietromaggi.com/images/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.84.4" />
+  <meta name="generator" content="Hugo 0.92.1" />
   <link rel="alternate" href="https://pietromaggi.com/index.xml" type="application/rss+xml" title=""><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://pietromaggi.com/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -271,11 +271,11 @@ On a dual screen device, there&rsquo;s a 50% chance that they will capture the i
 <strong>You will get a black image</strong>.</p>
 <h2 id="look-for-a-solution">Look for a solution</h2>
 <p>There&rsquo;s nothing wrong in Android and its low level tools, they perfectly know that there&rsquo;s more than one screen. You can ask it yourself to the surface flinger. On a device like the Samsung Z Fold 2 you will get two distinct displays:</p>
-<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">$ adb shell dumpsys SurfaceFlinger --display-id
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text">$ adb shell dumpsys SurfaceFlinger --display-id
 Display 19261213734341250 (HWC display 3): port=130 pnpId=QCM displayName=&#34;&#34;
 Display 19261213734341249 (HWC display 0): port=129 pnpId=QCM displayName=&#34;&#34;
 </code></pre></div><p>What about <code>screencap</code>? Can it be used to capture both screens?</p>
-<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">$ adb shell screencap -h
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text">$ adb shell screencap -h
 usage: screencap [-hp] [-d display-id] [FILENAME]
    -h: this message
    -p: save the file as a png.
@@ -284,13 +284,13 @@ usage: screencap [-hp] [-d display-id] [FILENAME]
 If FILENAME ends with .png it will be saved as a png.
 If FILENAME is not given, the results will be printed to stdout.
 </code></pre></div><p>It looks like that the <code>-d</code> parameter is what we need. We can then run:</p>
-<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">adb exec-out screencap -p -d 19261213734341250&gt; screen_19261213734341250.png
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text">adb exec-out screencap -p -d 19261213734341250&gt; screen_19261213734341250.png
 adb exec-out screencap -p -d 19261213734341249&gt; screen_19261213734341249.png
 </code></pre></div><p>To capture an image from each screen.</p>
 <h2 id="automate">Automate</h2>
 <p>So far, so good. My problem is that lately I&rsquo;m finding myself capturing a lot of screenshot, so I finally decided to automate this process modifying a script by my friend <a href="https://twitter.com/danybony_">Daniele</a>.</p>
 <p>Here is the end result:</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
 </span><span class="cp"></span>
 <span class="nv">DEVICES</span><span class="o">=</span><span class="sb">`</span>adb devices <span class="p">|</span> grep -v devices <span class="p">|</span> grep device <span class="p">|</span> cut -f 1<span class="sb">`</span>
 <span class="k">for</span> device in <span class="nv">$DEVICES</span><span class="p">;</span> <span class="k">do</span>
@@ -316,40 +316,6 @@ adb exec-out screencap -p -d 19261213734341249&gt; screen_19261213734341249.png
           </div>
         
 
-        
-            <hr/>
-            <section id="social-share">
-              <div class="list-inline footer-links">
-                
-
-<div class="share-box" aria-hidden="true">
-    <ul class="share">
-      
-      <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fpietromaggi.com%2f2021%2f07%2f04%2fandroid-screen-capture-for-dual-screen-devices%2f&amp;text=Android%20Screen%20Capture%20for%20dual%20screen%20devices&amp;via=pfmaggi" target="_blank" title="Share on Twitter">
-          <i class="fab fa-twitter"></i>
-        </a>
-      </li>
-
-      
-      <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fpietromaggi.com%2f2021%2f07%2f04%2fandroid-screen-capture-for-dual-screen-devices%2f&amp;title=Android%20Screen%20Capture%20for%20dual%20screen%20devices" target="_blank" title="Share on Reddit">
-          <i class="fab fa-reddit"></i>
-        </a>
-      </li>
-  
-      
-      <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fpietromaggi.com%2f2021%2f07%2f04%2fandroid-screen-capture-for-dual-screen-devices%2f&amp;title=Android%20Screen%20Capture%20for%20dual%20screen%20devices" target="_blank" title="Share on LinkedIn">
-          <i class="fab fa-linkedin"></i>
-        </a>
-      </li>
-    </ul>
-  </div>
-  
-
-              </div>
-            </section>
         
 
         
@@ -385,6 +351,10 @@ adb exec-out screencap -p -d 19261213734341249&gt; screen_19261213734341249.png
               <a href="https://pietromaggi.com/2021/05/02/april-2021-programming-notes/" data-toggle="tooltip" data-placement="top" title="April 2021 Programming notes">&larr; Previous Post</a>
             </li>
           
+          
+            <li class="next">
+              <a href="https://pietromaggi.com/2021/08/06/updated-trackpad-firmware-for-pinebook-pro/" data-toggle="tooltip" data-placement="top" title="Updated Trackpad firmware for Pinebook Pro">Next Post &rarr;</a>
+            </li>
           
         </ul>
       
@@ -464,7 +434,7 @@ adb exec-out screencap -p -d 19261213734341249&gt; screen_19261213734341249.png
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.84.4</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.92.1</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

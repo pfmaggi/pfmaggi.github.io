@@ -92,7 +92,7 @@
   <meta name="twitter:site" content="@pfmaggi" />
   <meta name="twitter:creator" content="@pfmaggi" />
   <link href='https://pietromaggi.com/images/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.84.4" />
+  <meta name="generator" content="Hugo 0.92.1" />
   <link rel="alternate" href="https://pietromaggi.com/index.xml" type="application/rss+xml" title=""><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://pietromaggi.com/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -279,7 +279,7 @@ Here I want to present a simple sample that show how to use this intent, coverin
 <img src="/images/samples/mc40_home_btn/AndroidNewPrj_04.jpg" alt="Creating a new Android Application, step 4" title="Creating a new Android Application, step 4"></p>
 <p>Once we&rsquo;ve the app framework setup by Android Studio, we can simplify the interface down to a Status message and a button.<br>
 First step: remove <code>content_main.xml</code> and <code>menu_main</code> then replace the content of <code>activity_main.xml</code> with:</p>
-<div class="highlight"><pre class="chroma"><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt;</span>
 <span class="nt">&lt;LinearLayout</span> <span class="na">xmlns:android=</span><span class="s">&#34;http://schemas.android.com/apk/res/android&#34;</span>
     <span class="na">android:layout_width=</span><span class="s">&#34;match_parent&#34;</span>
     <span class="na">android:layout_height=</span><span class="s">&#34;match_parent&#34;</span>
@@ -300,7 +300,7 @@ First step: remove <code>content_main.xml</code> and <code>menu_main</code> then
         <span class="na">android:text=</span><span class="s">&#34;@string/toggle&#34;</span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/LinearLayout&gt;</span>
 </code></pre></div><p>This layout requires the following <code>string.xml</code> inside the <code>res/values</code> folder:</p>
-<div class="highlight"><pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;resources&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;resources&gt;</span>
     <span class="nt">&lt;string</span> <span class="na">name=</span><span class="s">&#34;app_name&#34;</span><span class="nt">&gt;</span>MC40HomeButton<span class="nt">&lt;/string&gt;</span>
     <span class="nt">&lt;string</span> <span class="na">name=</span><span class="s">&#34;home_btn_status_on&#34;</span><span class="nt">&gt;</span>Home Button Enabled<span class="nt">&lt;/string&gt;</span>
     <span class="nt">&lt;string</span> <span class="na">name=</span><span class="s">&#34;home_btn_status_off&#34;</span><span class="nt">&gt;</span>Home Button Disabled<span class="nt">&lt;/string&gt;</span>
@@ -308,7 +308,7 @@ First step: remove <code>content_main.xml</code> and <code>menu_main</code> then
 <span class="nt">&lt;/resources&gt;</span>
 </code></pre></div><p><img src="/images/samples/mc40_home_btn/Strings.jpg" alt="Our Strings.xml at this point" title="Our Strings.xml at this point"></p>
 <p>We can now remove a lot of the generated template code in <code>MainActivity.java</code> trimming down the code to:</p>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">com.pietromaggi.sample.mc40homebutton</span><span class="o">;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">com.pietromaggi.sample.mc40homebutton</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">android.os.Bundle</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">android.support.v7.app.AppCompatActivity</span><span class="o">;</span>
@@ -333,7 +333,7 @@ First step: remove <code>content_main.xml</code> and <code>menu_main</code> then
 </ul>
 <p>The catch is that MC40, running Jelly Bean, report &ldquo;Motorola Solution&rdquo; as <code>MANUFACTURER</code>, we need to address this difference and, as reported in <a href="https://developer.zebra.com/community/android/android-forums/android-blogs/blog/2014/12/19/disabling-home-button-via-intent-mc40">Pavel&rsquo;s notes</a>, the broadcast intent action is different for Motorola Solution or Zebra&rsquo;s MC40.</p>
 <p>Once we&rsquo;ve seen if the device the app is running on is supported, we can send a first Intent, to disable the home button, and configure the toggle button, so that is really toggle the Home Button status from disable to enabled and vice versa.</p>
-<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">com</span><span class="p">.</span><span class="nx">pietromaggi</span><span class="p">.</span><span class="nx">sample</span><span class="p">.</span><span class="nx">mc40homebutton</span><span class="p">;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">com</span><span class="p">.</span><span class="nx">pietromaggi</span><span class="p">.</span><span class="nx">sample</span><span class="p">.</span><span class="nx">mc40homebutton</span><span class="p">;</span>
 
 <span class="kn">import</span> <span class="nx">android</span><span class="p">.</span><span class="nx">content</span><span class="p">.</span><span class="nx">Intent</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nx">android</span><span class="p">.</span><span class="nx">os</span><span class="p">.</span><span class="nx">Build</span><span class="p">;</span>
@@ -419,7 +419,7 @@ First step: remove <code>content_main.xml</code> and <code>menu_main</code> then
 <h2 id="managing-state">Managing state</h2>
 <p>The application now works as expected, but with an issue linked to not managing the state. As an example, simply rotating the device, the Activity is destroyed to create a new one with the standard behavior to disable the Home Button, even if we just re-enabled it using the <code>toggle</code> button.<br>
 An easy solution is to add some code to manage the Application status overriding the <code>onSaveInstanceState(Bundle)</code> method:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">@Override
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">@Override
 public void onSaveInstanceState(Bundle savedInstanceState) {
   super.onSaveInstanceState(savedInstanceState);
   savedInstanceState.putInt(KEY_STATE, mState);
@@ -455,40 +455,6 @@ The final version of the application, managing the state, can be find on github 
           </div>
         
 
-        
-            <hr/>
-            <section id="social-share">
-              <div class="list-inline footer-links">
-                
-
-<div class="share-box" aria-hidden="true">
-    <ul class="share">
-      
-      <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fpietromaggi.com%2f2016%2f01%2f18%2fdisabling-mc40-home-button-with-a-custom-intent%2f&amp;text=Disabling%20MC40%20Home%20Button%20with%20a%20custom%20intent&amp;via=pfmaggi" target="_blank" title="Share on Twitter">
-          <i class="fab fa-twitter"></i>
-        </a>
-      </li>
-
-      
-      <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fpietromaggi.com%2f2016%2f01%2f18%2fdisabling-mc40-home-button-with-a-custom-intent%2f&amp;title=Disabling%20MC40%20Home%20Button%20with%20a%20custom%20intent" target="_blank" title="Share on Reddit">
-          <i class="fab fa-reddit"></i>
-        </a>
-      </li>
-  
-      
-      <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fpietromaggi.com%2f2016%2f01%2f18%2fdisabling-mc40-home-button-with-a-custom-intent%2f&amp;title=Disabling%20MC40%20Home%20Button%20with%20a%20custom%20intent" target="_blank" title="Share on LinkedIn">
-          <i class="fab fa-linkedin"></i>
-        </a>
-      </li>
-    </ul>
-  </div>
-  
-
-              </div>
-            </section>
         
 
         
@@ -607,7 +573,7 @@ The final version of the application, managing the state, can be find on github 
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.84.4</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.92.1</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

@@ -8,7 +8,34 @@
     <language>en-EN</language>
     <managingEditor>blog@pietromaggi.com (Pietro F. Maggi)</managingEditor>
     <webMaster>blog@pietromaggi.com (Pietro F. Maggi)</webMaster>
-    <lastBuildDate>Sun, 04 Jul 2021 17:20:00 +0100</lastBuildDate><atom:link href="https://pietromaggi.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 06 Aug 2021 20:00:00 +0200</lastBuildDate><atom:link href="https://pietromaggi.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>firmware</title>
+      <link>https://pietromaggi.com/tags/firmware/</link>
+      <pubDate>Fri, 06 Aug 2021 20:00:00 +0200</pubDate>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
+      <guid>https://pietromaggi.com/tags/firmware/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>https://pietromaggi.com/tags/linux/</link>
+      <pubDate>Fri, 06 Aug 2021 20:00:00 +0200</pubDate>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
+      <guid>https://pietromaggi.com/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PinebookPro</title>
+      <link>https://pietromaggi.com/tags/pinebookpro/</link>
+      <pubDate>Fri, 06 Aug 2021 20:00:00 +0200</pubDate>
+      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
+      <guid>https://pietromaggi.com/tags/pinebookpro/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Android</title>
       <link>https://pietromaggi.com/tags/android/</link>
@@ -78,15 +105,6 @@
       <pubDate>Sun, 08 Nov 2020 19:00:00 +0100</pubDate>
       <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/tags/eink/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Linux</title>
-      <link>https://pietromaggi.com/tags/linux/</link>
-      <pubDate>Sun, 08 Nov 2020 19:00:00 +0100</pubDate>
-      <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
-      <guid>https://pietromaggi.com/tags/linux/</guid>
       <description></description>
     </item>
     
