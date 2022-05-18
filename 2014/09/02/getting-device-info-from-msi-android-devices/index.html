@@ -92,7 +92,7 @@
   <meta name="twitter:site" content="@pfmaggi" />
   <meta name="twitter:creator" content="@pfmaggi" />
   <link href='https://pietromaggi.com/images/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.92.1" />
+  <meta name="generator" content="Hugo 0.98.0" />
   <link rel="alternate" href="https://pietromaggi.com/index.xml" type="application/rss+xml" title=""><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://pietromaggi.com/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -294,96 +294,96 @@ You can follow these images as a guideline. Your interface may vary as Google up
 </ul>
 <p><img src="/images/samples/device-info/activity_layout.jpg" alt="Main Activity Layout" title="Main Activity Layout"></p>
 <p>Here&rsquo;s the code:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt;</span>
-
-<span class="nt">&lt;LinearLayout</span> <span class="na">xmlns:android=</span><span class="s">&#34;http://schemas.android.com/apk/res/android&#34;</span>
-              <span class="na">android:layout_width=</span><span class="s">&#34;match_parent&#34;</span>
-              <span class="na">android:layout_height=</span><span class="s">&#34;match_parent&#34;</span>
-              <span class="na">android:orientation=</span><span class="s">&#34;vertical&#34;</span>
-    <span class="nt">&gt;</span>
-    <span class="nt">&lt;TextView</span>
-        <span class="na">android:layout_width=</span><span class="s">&#34;match_parent&#34;</span>
-        <span class="na">android:layout_height=</span><span class="s">&#34;wrap_content&#34;</span>
-        <span class="na">android:text=</span><span class="s">&#34;@string/device_name&#34;</span>
-        <span class="nt">/&gt;</span>
-    <span class="nt">&lt;TextView</span>
-        <span class="na">android:id=</span><span class="s">&#34;@+id/device_type&#34;</span>
-        <span class="na">android:layout_width=</span><span class="s">&#34;match_parent&#34;</span>
-        <span class="na">android:layout_height=</span><span class="s">&#34;wrap_content&#34;</span>
-        <span class="na">android:layout_marginLeft=</span><span class="s">&#34;16dp&#34;</span>
-        <span class="na">android:layout_marginRight=</span><span class="s">&#34;16dp&#34;</span>
-        <span class="na">android:textSize=</span><span class="s">&#34;18sp&#34;</span>
-        <span class="na">style=</span><span class="s">&#34;?android:listSeparatorTextViewStyle&#34;</span>
-        <span class="nt">/&gt;</span>
-    <span class="nt">&lt;TextView</span>
-        <span class="na">android:layout_width=</span><span class="s">&#34;match_parent&#34;</span>
-        <span class="na">android:layout_height=</span><span class="s">&#34;wrap_content&#34;</span>
-        <span class="na">android:text=</span><span class="s">&#34;@string/electronic_serial_number&#34;</span>
-        <span class="nt">/&gt;</span>
-    <span class="nt">&lt;TextView</span>
-        <span class="na">android:id=</span><span class="s">&#34;@+id/device_esn&#34;</span>
-        <span class="na">android:layout_width=</span><span class="s">&#34;match_parent&#34;</span>
-        <span class="na">android:layout_height=</span><span class="s">&#34;wrap_content&#34;</span>
-        <span class="na">android:layout_marginLeft=</span><span class="s">&#34;16dp&#34;</span>
-        <span class="na">android:layout_marginRight=</span><span class="s">&#34;16dp&#34;</span>
-        <span class="na">android:textSize=</span><span class="s">&#34;18sp&#34;</span>
-        <span class="na">style=</span><span class="s">&#34;?android:listSeparatorTextViewStyle&#34;</span>
-        <span class="nt">/&gt;</span>
-    <span class="nt">&lt;TextView</span>
-        <span class="na">android:layout_width=</span><span class="s">&#34;match_parent&#34;</span>
-        <span class="na">android:layout_height=</span><span class="s">&#34;wrap_content&#34;</span>
-        <span class="na">android:text=</span><span class="s">&#34;@string/build_number&#34;</span>
-        <span class="nt">/&gt;</span>
-    <span class="nt">&lt;TextView</span>
-        <span class="na">android:id=</span><span class="s">&#34;@+id/build_number&#34;</span>
-        <span class="na">android:layout_width=</span><span class="s">&#34;match_parent&#34;</span>
-        <span class="na">android:layout_height=</span><span class="s">&#34;wrap_content&#34;</span>
-        <span class="na">android:layout_marginLeft=</span><span class="s">&#34;16dp&#34;</span>
-        <span class="na">android:layout_marginRight=</span><span class="s">&#34;16dp&#34;</span>
-        <span class="na">android:textSize=</span><span class="s">&#34;18sp&#34;</span>
-        <span class="na">style=</span><span class="s">&#34;?android:listSeparatorTextViewStyle&#34;</span>
-        <span class="nt">/&gt;</span>
-<span class="nt">&lt;/LinearLayout&gt;</span>
-</code></pre></div><p>This together with the string.xml containing the referenced string:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt;</span>
-<span class="nt">&lt;resources&gt;</span>
-
-    <span class="nt">&lt;string</span> <span class="na">name=</span><span class="s">&#34;app_name&#34;</span><span class="nt">&gt;</span>Get Device Info<span class="nt">&lt;/string&gt;</span>
-    <span class="nt">&lt;string</span> <span class="na">name=</span><span class="s">&#34;electronic_serial_number&#34;</span><span class="nt">&gt;</span>Device ESN:<span class="nt">&lt;/string&gt;</span>
-    <span class="nt">&lt;string</span> <span class="na">name=</span><span class="s">&#34;build_number&#34;</span><span class="nt">&gt;</span>Build Number:<span class="nt">&lt;/string&gt;</span>
-    <span class="nt">&lt;string</span> <span class="na">name=</span><span class="s">&#34;device_name&#34;</span><span class="nt">&gt;</span>Device:<span class="nt">&lt;/string&gt;</span>
-
-<span class="nt">&lt;/resources&gt;</span>
-</code></pre></div><p>Then the simple Activity java code to collect the information is:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">com.pietromaggi.sample.getdeviceinfo</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">android.os.Build</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">android.support.v7.app.ActionBarActivity</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">android.os.Bundle</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">android.widget.TextView</span><span class="o">;</span>
-
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MainActivity</span> <span class="kd">extends</span> <span class="n">ActionBarActivity</span> <span class="o">{</span>
-    <span class="n">TextView</span> <span class="n">DeviceNameTextView</span><span class="o">;</span>
-    <span class="n">TextView</span> <span class="n">ESNTextView</span><span class="o">;</span>
-    <span class="n">TextView</span> <span class="n">BuildNumberTextView</span><span class="o">;</span>
-
-    <span class="nd">@Override</span>
-    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
-        <span class="n">setContentView</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">activity_main</span><span class="o">);</span>
-
-        <span class="n">DeviceNameTextView</span> <span class="o">=</span> <span class="o">(</span><span class="n">TextView</span><span class="o">)</span><span class="n">findViewById</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">device_type</span><span class="o">);</span>
-        <span class="n">DeviceNameTextView</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="n">Build</span><span class="o">.</span><span class="na">DEVICE</span><span class="o">);</span>
-
-        <span class="n">ESNTextView</span> <span class="o">=</span> <span class="o">(</span><span class="n">TextView</span><span class="o">)</span><span class="n">findViewById</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">device_esn</span><span class="o">);</span>
-        <span class="n">ESNTextView</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="n">Build</span><span class="o">.</span><span class="na">SERIAL</span><span class="o">);</span>
-
-        <span class="n">BuildNumberTextView</span> <span class="o">=</span> <span class="o">(</span><span class="n">TextView</span><span class="o">)</span><span class="n">findViewById</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">build_number</span><span class="o">);</span>
-        <span class="n">BuildNumberTextView</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="n">Build</span><span class="o">.</span><span class="na">ID</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div><h1 id="wheres-the-tricks">Where&rsquo;s the tricks?</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;LinearLayout</span> <span class="na">xmlns:android=</span><span class="s">&#34;http://schemas.android.com/apk/res/android&#34;</span>
+</span></span><span class="line"><span class="cl">              <span class="na">android:layout_width=</span><span class="s">&#34;match_parent&#34;</span>
+</span></span><span class="line"><span class="cl">              <span class="na">android:layout_height=</span><span class="s">&#34;match_parent&#34;</span>
+</span></span><span class="line"><span class="cl">              <span class="na">android:orientation=</span><span class="s">&#34;vertical&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;TextView</span>
+</span></span><span class="line"><span class="cl">        <span class="na">android:layout_width=</span><span class="s">&#34;match_parent&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="na">android:layout_height=</span><span class="s">&#34;wrap_content&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="na">android:text=</span><span class="s">&#34;@string/device_name&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;TextView</span>
+</span></span><span class="line"><span class="cl">        <span class="na">android:id=</span><span class="s">&#34;@+id/device_type&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="na">android:layout_width=</span><span class="s">&#34;match_parent&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="na">android:layout_height=</span><span class="s">&#34;wrap_content&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="na">android:layout_marginLeft=</span><span class="s">&#34;16dp&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="na">android:layout_marginRight=</span><span class="s">&#34;16dp&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="na">android:textSize=</span><span class="s">&#34;18sp&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="na">style=</span><span class="s">&#34;?android:listSeparatorTextViewStyle&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;TextView</span>
+</span></span><span class="line"><span class="cl">        <span class="na">android:layout_width=</span><span class="s">&#34;match_parent&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="na">android:layout_height=</span><span class="s">&#34;wrap_content&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="na">android:text=</span><span class="s">&#34;@string/electronic_serial_number&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;TextView</span>
+</span></span><span class="line"><span class="cl">        <span class="na">android:id=</span><span class="s">&#34;@+id/device_esn&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="na">android:layout_width=</span><span class="s">&#34;match_parent&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="na">android:layout_height=</span><span class="s">&#34;wrap_content&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="na">android:layout_marginLeft=</span><span class="s">&#34;16dp&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="na">android:layout_marginRight=</span><span class="s">&#34;16dp&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="na">android:textSize=</span><span class="s">&#34;18sp&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="na">style=</span><span class="s">&#34;?android:listSeparatorTextViewStyle&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;TextView</span>
+</span></span><span class="line"><span class="cl">        <span class="na">android:layout_width=</span><span class="s">&#34;match_parent&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="na">android:layout_height=</span><span class="s">&#34;wrap_content&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="na">android:text=</span><span class="s">&#34;@string/build_number&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;TextView</span>
+</span></span><span class="line"><span class="cl">        <span class="na">android:id=</span><span class="s">&#34;@+id/build_number&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="na">android:layout_width=</span><span class="s">&#34;match_parent&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="na">android:layout_height=</span><span class="s">&#34;wrap_content&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="na">android:layout_marginLeft=</span><span class="s">&#34;16dp&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="na">android:layout_marginRight=</span><span class="s">&#34;16dp&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="na">android:textSize=</span><span class="s">&#34;18sp&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="na">style=</span><span class="s">&#34;?android:listSeparatorTextViewStyle&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/LinearLayout&gt;</span>
+</span></span></code></pre></div><p>This together with the string.xml containing the referenced string:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;resources&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;string</span> <span class="na">name=</span><span class="s">&#34;app_name&#34;</span><span class="nt">&gt;</span>Get Device Info<span class="nt">&lt;/string&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;string</span> <span class="na">name=</span><span class="s">&#34;electronic_serial_number&#34;</span><span class="nt">&gt;</span>Device ESN:<span class="nt">&lt;/string&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;string</span> <span class="na">name=</span><span class="s">&#34;build_number&#34;</span><span class="nt">&gt;</span>Build Number:<span class="nt">&lt;/string&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;string</span> <span class="na">name=</span><span class="s">&#34;device_name&#34;</span><span class="nt">&gt;</span>Device:<span class="nt">&lt;/string&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/resources&gt;</span>
+</span></span></code></pre></div><p>Then the simple Activity java code to collect the information is:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nn">com.pietromaggi.sample.getdeviceinfo</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">android.os.Build</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">android.support.v7.app.ActionBarActivity</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">android.os.Bundle</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">android.widget.TextView</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MainActivity</span> <span class="kd">extends</span> <span class="n">ActionBarActivity</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TextView</span> <span class="n">DeviceNameTextView</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TextView</span> <span class="n">ESNTextView</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TextView</span> <span class="n">BuildNumberTextView</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">setContentView</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">activity_main</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">DeviceNameTextView</span> <span class="o">=</span> <span class="o">(</span><span class="n">TextView</span><span class="o">)</span><span class="n">findViewById</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">device_type</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">DeviceNameTextView</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="n">Build</span><span class="o">.</span><span class="na">DEVICE</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">ESNTextView</span> <span class="o">=</span> <span class="o">(</span><span class="n">TextView</span><span class="o">)</span><span class="n">findViewById</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">device_esn</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ESNTextView</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="n">Build</span><span class="o">.</span><span class="na">SERIAL</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">BuildNumberTextView</span> <span class="o">=</span> <span class="o">(</span><span class="n">TextView</span><span class="o">)</span><span class="n">findViewById</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">build_number</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">BuildNumberTextView</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="n">Build</span><span class="o">.</span><span class="na">ID</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div><h1 id="wheres-the-tricks">Where&rsquo;s the tricks?</h1>
 <p>There&rsquo;s really no trick, Android SDK provide this information, and more using these constants:</p>
 <ul>
 <li><a href="http://developer.android.com/reference/android/os/Build.html#DEVICE">Build.DEVICE = The name of the industrial design</a></li>
@@ -428,11 +428,11 @@ You can follow these images as a guideline. Your interface may vary as Google up
                 
                     <li><a href="/2018/07/12/enterprise-browser-using-the-android-headset-as-a-barcode-trigger/">Enterprise Browser - Using the Android Headset as a Barcode Trigger</a></li>
                 
-                    <li><a href="/2018/07/11/xamarin.forms-freshmvvm-datawedge-take-2/">(Xamarin.Forms &#43; FreshMVVM &#43; DataWedge) take 2</a></li>
+                    <li><a href="/2018/07/11/xamarin.forms--freshmvvm--datawedge-take-2/">(Xamarin.Forms &#43; FreshMVVM &#43; DataWedge) take 2</a></li>
                 
-                    <li><a href="/2018/07/07/xamarin.forms-freshmvvm-datawedge/">Xamarin.Forms &#43; FreshMVVM &#43; DataWedge = 💖</a></li>
+                    <li><a href="/2018/07/07/xamarin.forms--freshmvvm--datawedge/">Xamarin.Forms &#43; FreshMVVM &#43; DataWedge = 💖</a></li>
                 
-                    <li><a href="/2018/07/04/xamarin.forms-freshmvvm-for-enterprise-applications/">Xamarin.Forms &#43; FreshMVVM for enterprise applications</a></li>
+                    <li><a href="/2018/07/04/xamarin.forms--freshmvvm-for-enterprise-applications/">Xamarin.Forms &#43; FreshMVVM for enterprise applications</a></li>
                 
               </ul>
 
@@ -530,7 +530,7 @@ You can follow these images as a guideline. Your interface may vary as Google up
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.92.1</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.98.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

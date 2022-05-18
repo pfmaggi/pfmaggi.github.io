@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>(Xamarin.Forms &#43; FreshMVVM &#43; DataWedge) take 2 - </title>
+  <meta name="description" content="We&rsquo;re going to review the code presented in the last post to add some more functionalities and make it a bit more modular.">
+  <meta name="author" content="Pietro F. Maggi"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "",
+    
+    "url": "https:\/\/pietromaggi.com\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/pietromaggi.com\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/pietromaggi.com\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/pietromaggi.com\/2018\/07\/11\/xamarin.forms--freshmvvm--datawedge-take-2\/",
+          "name": "( xamarin. forms fresh mvvm data wedge) take 2"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Pietro F. Maggi"
+  },
+  "headline": "(Xamarin.Forms \u002b FreshMVVM \u002b DataWedge) take 2",
+  "description" : "We\u0026rsquo;re going to review the code presented in the last post to add some more functionalities and make it a bit more modular.",
+  "inLanguage" : "en",
+  "wordCount":  2931 ,
+  "datePublished" : "2018-07-11T09:00:00",
+  "dateModified" : "2018-07-11T09:00:00",
+  "image" : "https:\/\/pietromaggi.com\/images\/pfm.png",
+  "keywords" : [ "Android, Zebra, Xamarin, Xamarin.Forms, FreshMVVM, DataWedge" ],
+  "mainEntityOfPage" : "https:\/\/pietromaggi.com\/2018\/07\/11\/xamarin.forms--freshmvvm--datawedge-take-2\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/pietromaggi.com\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/pietromaggi.com\/images\/pfm.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="(Xamarin.Forms &#43; FreshMVVM &#43; DataWedge) take 2" />
+<meta property="og:description" content="We&rsquo;re going to review the code presented in the last post to add some more functionalities and make it a bit more modular.">
+<meta property="og:image" content="https://pietromaggi.com/images/pfm.png" />
+<meta property="og:url" content="https://pietromaggi.com/2018/07/11/xamarin.forms--freshmvvm--datawedge-take-2/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="" />
+
+  <meta name="twitter:title" content="(Xamarin.Forms &#43; FreshMVVM &#43; DataWedge) take 2" />
+  <meta name="twitter:description" content="We&rsquo;re going to review the code presented in the last post to add some more functionalities and make it a bit more modular.">
+  <meta name="twitter:image" content="https://pietromaggi.com/images/pfm.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@pfmaggi" />
+  <meta name="twitter:creator" content="@pfmaggi" />
+  <link href='https://pietromaggi.com/images/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.98.0" />
+  <link rel="alternate" href="https://pietromaggi.com/index.xml" type="application/rss+xml" title=""><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://pietromaggi.com/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" /><link rel="stylesheet" href="https://pietromaggi.com/css/syntax.css" /><link rel="stylesheet" href="https://pietromaggi.com/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://pietromaggi.com/"></a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Home" href="/">Home</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Talks" href="/page/talks">Talks</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="" href="https://pietromaggi.com/">
+            <img class="avatar-img" src="https://pietromaggi.com/images/pfm.png" alt="" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>(Xamarin.Forms &#43; FreshMVVM &#43; DataWedge) take 2</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on July 11, 2018
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;14&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;2931&nbsp;words
+  
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p><em>Note: <a href="https://github.com/Zebra/Inventory/releases/tag/datawedge2">the accompanying code is available on GitHub</a>.</em></p>
+<p>We saw in the [last post]({{ relref . &ldquo;xamarin_forms_dw_2.md&rdquo; }}) how to add barcode scanning functionalities to the &ldquo;Inventory&rdquo; sample application, using DataWedge.</p>
+<p>Today we&rsquo;re going to review that code and refactor it &ldquo;just a bit&rdquo;. The goal is to make it a bit more modular, adding some flexibility to how we manage the barcode. In particular we want to have these features in our app:</p>
+<ul>
+<li>Be able to enable/disable the barcode scanner (we don&rsquo;t want the barcode to be always active).</li>
+<li>Be able to configure the barcode scanner decoders and parameters in general.</li>
+<li>Get the data in the Xamarin Forms application using an event handler directly instead of using the Messaging Center.</li>
+</ul>
+<h2 id="an-interface-to-the-scanner">An interface to the scanner</h2>
+<p>The first step to modularize the application is to create an interface to abstract the barcode scanning functionality. In the portable library project create an <code>Interfaces</code> folder and create a new interface inside it with the name <code>IScanner</code>:</p>
+<p>The code for this interface is:</p>
+<pre><code>using System;
+namespace Inventory
+{
+    /// &lt;summary&gt;
+    /// This is the interface for the Scanner code.
+    /// This interface defines how we use the Scanner, a matching class needs to be implemented
+    /// on each platform as well.
+    /// &lt;/summary&gt;
+    public interface IScanner
+    {
+        event EventHandler&lt;StatusEventArgs&gt; OnScanDataCollected;
+        event EventHandler&lt;string&gt; OnStatusChanged;
+
+        void Read();
+
+        void Enable();
+
+        void Disable();
+
+        void OnScan(StatusEventArgs a_args);
+
+        void OnStatus(String a_message);
+
+        void SetConfig(IScannerConfig a_config);
+    }
+}
+</code></pre>
+<p>We&rsquo;re going to create a second interface, with the name <code>IScannerConfig</code> to abstract the configuration of the barcode scanner. The code of this interface is going to be:</p>
+<pre><code>using System;
+
+namespace Inventory
+{
+    public interface IScannerConfig
+    {
+    }
+}
+</code></pre>
+<p>We&rsquo;re going to add few models to support this new integration of the barcode scanning functionalities.</p>
+<h2 id="some-new-models-for-the-barcode-data-and-events">Some new models for the barcode data and events</h2>
+<p>We&rsquo;re still working at the portable project level, the Xamarin Forms application. Inside the <code>Models</code> folder, create a new <code>Barcode</code> class:</p>
+<pre><code>using System;
+namespace Inventory
+{
+    public class Barcode
+    {
+        private string data;
+        public string Data
+        {
+            get { return data; }
+            set { data = value; }
+        }
+
+        private string type;
+        public string Type
+        {
+            get { return type; }
+            set { type = value; }
+        }
+
+        private string info;
+        public string Info
+        {
+            get { return $&quot;{data} / {type}&quot;; }
+        }
+
+        public Barcode() { }
+
+        public Barcode(string a_data, string a_type)
+        {
+            data = a_data;
+            type = a_type;
+        }
+    }
+}
+</code></pre>
+<p>Then we need another class, again in the <code>Models</code> folder, for the Events. Create a new class with the name <code>StatusEventArgs</code>:</p>
+<pre><code>using System;
+namespace Inventory
+{
+    /// &lt;summary&gt;
+    /// Custom event args for use by the scanner
+    /// &lt;/summary&gt;
+    public class StatusEventArgs : EventArgs
+    {
+        private string barcodeData;
+
+        public StatusEventArgs(string dataIn, string barcodeTypeIn)
+        {
+            barcodeData = dataIn;
+            barcodeType = barcodeTypeIn;
+        }
+
+        public string Data { get { return barcodeData; } }
+
+        private string barcodeType;
+        public string BarcodeType { get { return barcodeType; } }
+
+    }
+}
+</code></pre>
+<p>The last model class we need to create is the one that bring some knowledge of Zebra&rsquo;s DataWedge functionality in the portable project. In reality, this doesn&rsquo;t stops the application to work on other device or to have the application built for iOS. Simply we want to control DataWedge from the Xamarin.Forms code and, if we want to be able to run the application on other Android devices or on iOS, we simply need to take in account that some of these features are not going to be available on those devices.</p>
+<p>Inside the <code>Models</code> folder create a <code>ZebraScannerConfig</code> class:</p>
+<pre><code>using System;
+
+namespace Inventory
+{
+    public class ZebraScannerConfig : IScannerConfig
+    {
+        public TriggerType TriggerType { get; set; }
+
+        public bool IsEAN8 { get; set; }
+        public bool IsEAN13 { get; set; }
+        public bool IsCode39 { get; set; }
+        public bool IsCode128 { get; set; }
+        public bool IsContinuous { get; set; }
+        public bool IsUPCA { get; set; }
+        public bool IsUPCE0 { get; set; }
+        public bool IsUPCE1 { get; set; }
+        public bool IsD2of5 { get; set; }
+        public bool IsI2of5 { get; set; }
+        public bool IsAztec { get; set; }
+        public bool IsPDF417 { get; set; }
+        public bool IsQRCode { get; set; }
+
+        public ZebraScannerConfig()
+        {
+            IsEAN8 = true;
+            IsEAN13 = true;
+            IsCode39 = true;
+            IsCode128 = true;
+            IsUPCA = true;
+            IsUPCE0 = true;
+            IsUPCE1 = true;
+            IsD2of5 = false;
+            IsI2of5 = true;
+            IsAztec = false;
+            IsPDF417 = true;
+            IsQRCode = true;
+
+            IsContinuous = true;
+            TriggerType = TriggerType.HARD;
+        }
+    }
+
+    public enum TriggerType
+    {
+        HARD,
+        SOFT
+    }
+}
+</code></pre>
+<h2 id="implementing-the-iscanner-interface-with-datawedges-intent-apis">Implementing the IScanner interface with DataWedge&rsquo;s Intent APIs</h2>
+<p>It&rsquo;s now the moment to implement the <code>IScanner</code> interface on top of DataWedge&rsquo;s Intent APIs. These changes are done to the Android project inside our solution, in the <code>Inventory.Droid</code> namespace.</p>
+<p>Create a new class with the name <code>Scanner_Android</code>. This is going to contain the bulk of (all) the logic to control DataWedge:</p>
+<pre><code>using System;
+using Android.App;
+using Android.Content;
+using Android.OS;
+
+namespace Inventory.Droid
+{
+    public class Scanner_Android : IScanner
+    {
+        private Context _context = null;
+        private bool _bRegistered = false;
+        private DataWedgeReceiver _broadcastReceiver = null;
+        private static string ACTION_DATAWEDGE_FROM_6_2 = &quot;com.symbol.datawedge.api.ACTION&quot;;
+        private static string EXTRA_CREATE_PROFILE = &quot;com.symbol.datawedge.api.CREATE_PROFILE&quot;;
+        private static string EXTRA_SET_CONFIG = &quot;com.symbol.datawedge.api.SET_CONFIG&quot;;
+        private static string EXTRA_PROFILE_NAME = &quot;Inventory DEMO&quot;;
+
+        public Scanner_Android()
+        {
+            _context = Application.Context;
+
+            _broadcastReceiver = new DataWedgeReceiver();
+
+            _broadcastReceiver.scanDataReceived += (s, scanData) =&gt;
+            {
+                OnScanDataCollected?.Invoke(this, scanData);
+            };
+
+            CreateProfile();
+        }
+
+        public event EventHandler&lt;StatusEventArgs&gt; OnScanDataCollected;
+        public event EventHandler&lt;string&gt; OnStatusChanged;
+
+
+        public void Disable()
+        {
+            if ((null != _broadcastReceiver) &amp;&amp; (null != _context) &amp;&amp; _bRegistered)
+            {
+                // Unregister the broadcast receiver
+                _context.UnregisterReceiver(_broadcastReceiver);
+                _bRegistered = false;
+            }
+
+            DisableProfile();
+        }
+
+        public void Enable()
+        {
+            _context = Application.Context;
+
+            if ((null != _broadcastReceiver) &amp;&amp; (null != _context))
+            {
+                // Register the broadcast receiver
+                IntentFilter filter = new IntentFilter(DataWedgeReceiver.IntentAction);
+                filter.AddCategory(DataWedgeReceiver.IntentCategory);
+                _context.RegisterReceiver(_broadcastReceiver, filter);
+                _bRegistered = true;
+            }
+
+            EnableProfile();
+        }
+
+        public void Read()
+        {
+            // We can use this to activate a Soft triggered barcode scanning decoding
+            throw new NotImplementedException();
+        }
+
+        public void SetConfig(IScannerConfig a_config)
+        {
+
+            ZebraScannerConfig config = (ZebraScannerConfig)a_config;
+
+            Bundle profileConfig = new Bundle();
+            profileConfig.PutString(&quot;PROFILE_NAME&quot;, EXTRA_PROFILE_NAME);
+            profileConfig.PutString(&quot;PROFILE_ENABLED&quot;, _bRegistered ? &quot;true&quot; : &quot;false&quot;); //  Seems these are all strings
+            profileConfig.PutString(&quot;CONFIG_MODE&quot;, &quot;UPDATE&quot;);
+            Bundle barcodeConfig = new Bundle();
+            barcodeConfig.PutString(&quot;PLUGIN_NAME&quot;, &quot;BARCODE&quot;);
+            barcodeConfig.PutString(&quot;RESET_CONFIG&quot;, &quot;false&quot;); //  This is the default but never hurts to specify
+            Bundle barcodeProps = new Bundle();
+            barcodeProps.PutString(&quot;scanner_input_enabled&quot;, &quot;true&quot;);
+            barcodeProps.PutString(&quot;scanner_selection&quot;, &quot;auto&quot;); //  Could also specify a number here, the id returned from ENUMERATE_SCANNERS.
+                                                                //  Do NOT use &quot;Auto&quot; here (with a capital 'A'), it must be lower case.
+            barcodeProps.PutString(&quot;decoder_ean8&quot;, config.IsEAN8 ? &quot;true&quot; : &quot;false&quot;);
+            barcodeProps.PutString(&quot;decoder_ean13&quot;, config.IsEAN13 ? &quot;true&quot; : &quot;false&quot;);
+            barcodeProps.PutString(&quot;decoder_code39&quot;, config.IsCode39 ? &quot;true&quot; : &quot;false&quot;);
+            barcodeProps.PutString(&quot;decoder_code128&quot;, config.IsCode128 ? &quot;true&quot; : &quot;false&quot;);
+            barcodeProps.PutString(&quot;decoder_upca&quot;, config.IsUPCA ? &quot;true&quot; : &quot;false&quot;);
+            barcodeProps.PutString(&quot;decoder_upce0&quot;, config.IsUPCE0 ? &quot;true&quot; : &quot;false&quot;);
+            barcodeProps.PutString(&quot;decoder_upce1&quot;, config.IsUPCE1 ? &quot;true&quot; : &quot;false&quot;);
+            barcodeProps.PutString(&quot;decoder_d2of5&quot;, config.IsD2of5 ? &quot;true&quot; : &quot;false&quot;);
+            barcodeProps.PutString(&quot;decoder_i2of5&quot;, config.IsI2of5 ? &quot;true&quot; : &quot;false&quot;);
+            barcodeProps.PutString(&quot;decoder_aztec&quot;, config.IsAztec ? &quot;true&quot; : &quot;false&quot;);
+            barcodeProps.PutString(&quot;decoder_pdf417&quot;, config.IsPDF417 ? &quot;true&quot; : &quot;false&quot;);
+            barcodeProps.PutString(&quot;decoder_qrcode&quot;, config.IsQRCode ? &quot;true&quot; : &quot;false&quot;);
+
+            barcodeConfig.PutBundle(&quot;PARAM_LIST&quot;, barcodeProps);
+            profileConfig.PutBundle(&quot;PLUGIN_CONFIG&quot;, barcodeConfig);
+            Bundle appConfig = new Bundle();
+            appConfig.PutString(&quot;PACKAGE_NAME&quot;, Android.App.Application.Context.PackageName);      //  Associate the profile with this app
+            appConfig.PutStringArray(&quot;ACTIVITY_LIST&quot;, new String[] { &quot;*&quot; });
+            profileConfig.PutParcelableArray(&quot;APP_LIST&quot;, new Bundle[] { appConfig });
+            SendDataWedgeIntentWithExtra(ACTION_DATAWEDGE_FROM_6_2, EXTRA_SET_CONFIG, profileConfig);
+
+        }
+
+        private void EnableProfile()
+        {
+            //  Now configure that created profile to apply to our application
+            Bundle profileConfig = new Bundle();
+            profileConfig.PutString(&quot;PROFILE_NAME&quot;, EXTRA_PROFILE_NAME);
+            profileConfig.PutString(&quot;PROFILE_ENABLED&quot;, &quot;true&quot;); //  Seems these are all strings
+            profileConfig.PutString(&quot;CONFIG_MODE&quot;, &quot;UPDATE&quot;);
+            SendDataWedgeIntentWithExtra(ACTION_DATAWEDGE_FROM_6_2, EXTRA_SET_CONFIG, profileConfig);
+        }
+
+        private void DisableProfile()
+        {
+            //  Now configure that created profile to apply to our application
+            Bundle profileConfig = new Bundle();
+            profileConfig.PutString(&quot;PROFILE_NAME&quot;, EXTRA_PROFILE_NAME);
+            profileConfig.PutString(&quot;PROFILE_ENABLED&quot;, &quot;false&quot;); //  Seems these are all strings
+            profileConfig.PutString(&quot;CONFIG_MODE&quot;, &quot;UPDATE&quot;);
+            SendDataWedgeIntentWithExtra(ACTION_DATAWEDGE_FROM_6_2, EXTRA_SET_CONFIG, profileConfig);
+        }
+
+        private void CreateProfile()
+        {
+            String profileName = EXTRA_PROFILE_NAME;
+            SendDataWedgeIntentWithExtra(ACTION_DATAWEDGE_FROM_6_2, EXTRA_CREATE_PROFILE, profileName);
+
+            //  Now configure that created profile to apply to our application
+            Bundle profileConfig = new Bundle();
+            profileConfig.PutString(&quot;PROFILE_NAME&quot;, EXTRA_PROFILE_NAME);
+            profileConfig.PutString(&quot;PROFILE_ENABLED&quot;, &quot;true&quot;); //  Seems these are all strings
+            profileConfig.PutString(&quot;CONFIG_MODE&quot;, &quot;UPDATE&quot;);
+            Bundle barcodeConfig = new Bundle();
+            barcodeConfig.PutString(&quot;PLUGIN_NAME&quot;, &quot;BARCODE&quot;);
+            barcodeConfig.PutString(&quot;RESET_CONFIG&quot;, &quot;true&quot;); //  This is the default but never hurts to specify
+            Bundle barcodeProps = new Bundle();
+            barcodeConfig.PutBundle(&quot;PARAM_LIST&quot;, barcodeProps);
+            profileConfig.PutBundle(&quot;PLUGIN_CONFIG&quot;, barcodeConfig);
+            Bundle appConfig = new Bundle();
+            appConfig.PutString(&quot;PACKAGE_NAME&quot;, Android.App.Application.Context.PackageName);      //  Associate the profile with this app
+            appConfig.PutStringArray(&quot;ACTIVITY_LIST&quot;, new String[] { &quot;*&quot; });
+            profileConfig.PutParcelableArray(&quot;APP_LIST&quot;, new Bundle[] { appConfig });
+            SendDataWedgeIntentWithExtra(ACTION_DATAWEDGE_FROM_6_2, EXTRA_SET_CONFIG, profileConfig);
+            //  You can only configure one plugin at a time, we have done the barcode input, now do the intent output
+            profileConfig.Remove(&quot;PLUGIN_CONFIG&quot;);
+            Bundle intentConfig = new Bundle();
+            intentConfig.PutString(&quot;PLUGIN_NAME&quot;, &quot;INTENT&quot;);
+            intentConfig.PutString(&quot;RESET_CONFIG&quot;, &quot;true&quot;);
+            Bundle intentProps = new Bundle();
+            intentProps.PutString(&quot;intent_output_enabled&quot;, &quot;true&quot;);
+            intentProps.PutString(&quot;intent_action&quot;, DataWedgeReceiver.IntentAction);
+            intentProps.PutString(&quot;intent_delivery&quot;, &quot;2&quot;);
+            intentConfig.PutBundle(&quot;PARAM_LIST&quot;, intentProps);
+            profileConfig.PutBundle(&quot;PLUGIN_CONFIG&quot;, intentConfig);
+            SendDataWedgeIntentWithExtra(ACTION_DATAWEDGE_FROM_6_2, EXTRA_SET_CONFIG, profileConfig);
+        }
+
+        private void SendDataWedgeIntentWithExtra(String action, String extraKey, Bundle extras)
+        {
+            Intent dwIntent = new Intent();
+            dwIntent.SetAction(action);
+            dwIntent.PutExtra(extraKey, extras);
+            _context.SendBroadcast(dwIntent);
+        }
+
+        private void SendDataWedgeIntentWithExtra(String action, String extraKey, String extraValue)
+        {
+            Intent dwIntent = new Intent();
+            dwIntent.SetAction(action);
+            dwIntent.PutExtra(extraKey, extraValue);
+            _context.SendBroadcast(dwIntent);
+        }
+    }
+}
+</code></pre>
+<p>Part of the code that we&rsquo;ve here was inside the Main Activity class before. I never liked the idea to have logic talking to DataWedge inside that class!</p>
+<p>Now <code>Main_Activity</code> is cleaner:</p>
+<pre><code>using System;
+using Android.App;
+using Android.Content.PM;
+using Android.OS;
+using FreshMvvm;
+
+namespace Inventory.Droid
+{
+    [Activity(Label = &quot;Inventory&quot;, Icon = &quot;@mipmap/icon&quot;, Theme = &quot;@style/MainTheme&quot;, MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
+    {
+        private IScanner _scanner = null;
+
+        protected override void OnCreate(Bundle bundle)
+        {
+            TabLayoutResource = Resource.Layout.Tabbar;
+            ToolbarResource = Resource.Layout.Toolbar;
+
+            base.OnCreate(bundle);
+
+            global::Xamarin.Forms.Forms.Init(this, bundle);
+
+            var repository = new Repository(FileAccessHelper.GetLocalFilePath(&quot;items.db3&quot;));
+            FreshIOC.Container.Register(repository);
+
+            _scanner = new Scanner_Android();
+            FreshIOC.Container.Register(_scanner);
+
+            LoadApplication(new App());
+        }
+
+    }
+}
+</code></pre>
+<p>As you can see we&rsquo;re now creating an instance of the <code>Scanner_Android</code> class and register it with FreshMVVM IOC. An alternative can be to use <a href="https://docs.microsoft.com/en-us/xamarin/xamarin-forms/app-fundamentals/dependency-service/introduction">Xamarin.Forms dependency service</a>, but I liked the idea to use this IOC.
+Swapping to the dependency service should be trivial (and is left as an exercise to the reader&hellip;).</p>
+<p>Another required change, to the previous version of the application, is in the Broadcast receiver. We need to update it to send the barcode data using the <code>Barcode</code> class, instead than sending a string:</p>
+<pre><code>using System;
+using Android.Content;
+
+namespace Inventory.Droid
+{
+    [BroadcastReceiver]
+    public class DataWedgeReceiver : BroadcastReceiver
+    {
+        // This intent string contains the source of the data as a string
+        private static string SOURCE_TAG = &quot;com.motorolasolutions.emdk.datawedge.source&quot;;
+        // This intent string contains the barcode symbology as a string
+        private static string LABEL_TYPE_TAG = &quot;com.motorolasolutions.emdk.datawedge.label_type&quot;;
+        // This intent string contains the captured data as a string
+        // (in the case of MSR this data string contains a concatenation of the track data)
+        private static string DATA_STRING_TAG = &quot;com.motorolasolutions.emdk.datawedge.data_string&quot;;
+        // Intent Action for our operation
+        public static string IntentAction = &quot;barcodescanner.RECVR&quot;;
+        public static string IntentCategory = &quot;android.intent.category.DEFAULT&quot;;
+
+        public event EventHandler&lt;StatusEventArgs&gt; scanDataReceived;
+
+        public override void OnReceive(Context context, Intent i)
+        {
+            // check the intent action is for us
+            if (i.Action.Equals(IntentAction))
+            {
+                // define a string that will hold our output
+                String Out = &quot;&quot;;
+                String sLabelType = &quot;&quot;;
+                // get the source of the data
+                String source = i.GetStringExtra(SOURCE_TAG);
+                // save it to use later
+                if (source == null)
+                    source = &quot;scanner&quot;;
+                // get the data from the intent
+                String data = i.GetStringExtra(DATA_STRING_TAG);
+                // let's define a variable for the data length
+                int data_len = 0;
+                // and set it to the length of the data
+                if (data != null)
+                    data_len = data.Length;
+                // check if the data has come from the barcode scanner
+                if (source.Equals(&quot;scanner&quot;))
+                {
+                    // check if there is anything in the data
+                    if (data != null &amp;&amp; data.Length &gt; 0)
+                    {
+                        // we have some data, so let's get it's symbology
+                        sLabelType = i.GetStringExtra(LABEL_TYPE_TAG);
+                        // check if the string is empty
+                        if (sLabelType != null &amp;&amp; sLabelType.Length &gt; 0)
+                        {
+                            // format of the label type string is LABEL-TYPE-SYMBOLOGY
+                            // so let's skip the LABEL-TYPE- portion to get just the symbology
+                            sLabelType = sLabelType.Substring(11);
+                        }
+                        else
+                        {
+                            // the string was empty so let's set it to &quot;Unknown&quot;
+                            sLabelType = &quot;Unknown&quot;;
+                        }
+
+                        // let's construct the beginning of our output string
+                        Out = data.ToString() + &quot;\r\n&quot;;
+                    }
+                }
+
+                if (scanDataReceived != null)
+                {
+                    scanDataReceived(this, new StatusEventArgs(Out, sLabelType));
+                }
+            }
+        }
+    }
+}
+</code></pre>
+<p>We&rsquo;ve now done all the plumbing necessary to handle the barcode scanner in our application. Let&rsquo;s move back at the Xamarin.Forms level to see how we can now control the barcode scanner from there.</p>
+<h2 id="handle-the-barcode-scanner-in-the-xamarinforms-application">Handle the barcode scanner in the Xamarin.Forms application</h2>
+<p>What we want to implement is to have the barcode scanner enabled only in the <code>ItemListPage</code> and disabled when we&rsquo;re in the <code>ItemPage</code>. In the previous version of the application ([presented in the previous post]({{ relref . &ldquo;xamarin_forms_dw_2.md&rdquo; }})), the barcode scanner was always enabled and there was some strange behavior sometimes.</p>
+<p>We&rsquo;re going to modify the <code>ItemListPageModel</code> class implementing the two methods <code>ViewIsAppearing</code> and <code>ViewIsDisappearing</code> to enable and disable the barcode scanner:</p>
+<pre><code>protected override void ViewIsAppearing(object sender, EventArgs e)
+{
+    base.ViewIsAppearing(sender, e);
+    var scanner = FreshIOC.Container.Resolve&lt;IScanner&gt;();
+
+    scanner.Enable();
+    scanner.OnScanDataCollected += ScannedDataCollected;
+    scanner.OnStatusChanged += ScannedStatusChanged;
+
+    var config = new ZebraScannerConfig();
+    config.IsUPCE0 = false;
+    config.IsUPCE1 = false;
+
+    scanner.SetConfig(config);
+} 
+
+protected override void ViewIsDisappearing(object sender, EventArgs e)
+{
+    var scanner = FreshIOC.Container.Resolve&lt;IScanner&gt;();
+
+    if (null != scanner)
+    {
+        scanner.Disable();
+        scanner.OnScanDataCollected -= ScannedDataCollected;
+        scanner.OnStatusChanged -= ScannedStatusChanged;
+    }
+    base.ViewIsDisappearing(sender, e);
+}
+</code></pre>
+<p>We can see that here, we&rsquo;re not only enabling/disabling the barcode scanner so that is only active when this view is in the foreground. We&rsquo;re configuring the enabled decoders of the barcode and we&rsquo;re registering the event handler to call when we receive the data. Most of what we need to control the barcode scanner is here.</p>
+<p>As we wrote before, we&rsquo;re using FreshMVVM&rsquo;s IOC to retrieve a reference to the active <code>IScanner</code> instance. Given that there&rsquo;s no implementation for iOS done at this moment, this application now works only on Android.</p>
+<p>The complete <code>ItemListPageModel</code> class became:</p>
+<pre><code>using FreshMvvm;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Windows.Input;
+using Xamarin.Forms;
+
+namespace Inventory
+{
+    public class ItemListPageModel : FreshBasePageModel
+    {
+        private Repository _repository = FreshIOC.Container.Resolve&lt;Repository&gt;();
+        private Item _selectedItem = null;
+
+        /// &lt;summary&gt;
+        /// Collection used for binding to the Page's item list view.
+        /// &lt;/summary&gt;
+        public ObservableCollection&lt;Item&gt; Items { get; private set; }
+
+        /// &lt;summary&gt;
+        /// Used to bind with the list view's SelectedItem property.
+        /// Calls the EditItemCommand to start the editing.
+        /// &lt;/summary&gt;
+        public Item SelectedItem
+        {
+            get { return _selectedItem; }
+            set
+            {
+                _selectedItem = value;
+                if (value != null) EditItemCommand.Execute(value);
+            }
+        }
+
+        public ItemListPageModel()
+        {
+            Items = new ObservableCollection&lt;Item&gt;();
+        }
+
+        /// &lt;summary&gt;
+        /// Called whenever the page is navigated to.
+        /// Here we are ignoring the init data and just loading the items.
+        /// &lt;/summary&gt;
+        public override void Init(object initData)
+        {
+            LoadItems();
+            if (Items.Count() &lt; 1)
+            {
+                CreateSampleData();
+            }
+
+        }
+
+        protected override void ViewIsAppearing(object sender, EventArgs e)
+        {
+            base.ViewIsAppearing(sender, e);
+            var scanner = FreshIOC.Container.Resolve&lt;IScanner&gt;();
+
+            scanner.Enable();
+            scanner.OnScanDataCollected += ScannedDataCollected;
+            scanner.OnStatusChanged += ScannedStatusChanged;
+
+            var config = new ZebraScannerConfig();
+            config.IsUPCE0 = false;
+            config.IsUPCE1 = false;
+
+            scanner.SetConfig(config);
+        } 
+
+        protected override void ViewIsDisappearing(object sender, EventArgs e)
+        {
+            var scanner = FreshIOC.Container.Resolve&lt;IScanner&gt;();
+
+            if (null != scanner)
+            {
+                scanner.Disable();
+                scanner.OnScanDataCollected -= ScannedDataCollected;
+                scanner.OnStatusChanged -= ScannedStatusChanged;
+            }
+            base.ViewIsDisappearing(sender, e);
+        }
+
+        /// &lt;summary&gt;
+        /// Called whenever the page is navigated to, but from a pop action.
+        /// Here we are just updating the item list with most recent data.
+        /// &lt;/summary&gt;
+        /// &lt;param name=&quot;returnedData&quot;&gt;&lt;/param&gt;
+        public override void ReverseInit(object returnedData)
+        {
+            LoadItems();
+            base.ReverseInit(returnedData);
+        }
+
+        /// &lt;summary&gt;
+        /// Command associated with the add item action.
+        /// Navigates to the ItemPageModel with no Init object.
+        /// &lt;/summary&gt;
+        public ICommand AddItemCommand
+        {
+            get
+            {
+                return new Command(async () =&gt; {
+                    await CoreMethods.PushPageModel&lt;ItemPageModel&gt;();
+                });
+            }
+        }
+
+        /// &lt;summary&gt;
+        /// Command associated with the edit item action.
+        /// Navigates to the ItemPageModel with the selected item as the Init object.
+        /// &lt;/summary&gt;
+        public ICommand EditItemCommand
+        {
+            get
+            {
+                return new Command(async (item) =&gt; {
+                    await CoreMethods.PushPageModel&lt;ItemPageModel&gt;(item);
+                });
+            }
+        }
+
+        /// &lt;summary&gt;
+        /// Repopulate the collection with updated items data.
+        /// Note: For simplicity, we wait for the async db call to complete,
+        /// recommend making better use of the async potential.
+        /// &lt;/summary&gt;
+        private void LoadItems()
+        {
+            Items.Clear();
+            Task&lt;List&lt;Item&gt;&gt; getItemTask = _repository.GetAllItems();
+            getItemTask.Wait();
+            foreach (var item in getItemTask.Result)
+            {
+                Items.Add(item);
+            }
+        }
+
+        /// &lt;summary&gt;
+        /// Uses the SQLite Async capability to insert sample data on multiple threads.
+        /// &lt;/summary&gt;
+        private void CreateSampleData()
+        {
+            var item1 = new Item
+            {
+                Name = &quot;Milk&quot;,
+                Barcode = &quot;8001234567890&quot;,
+                Quantity = 10
+            };
+
+            var item2 = new Item
+            {
+                Name = &quot;Soup&quot;,
+                Barcode = &quot;8002345678901&quot;,
+                Quantity = 5
+            };
+
+            var item3 = new Item
+            {
+                Name = &quot;Water&quot;,
+                Barcode = &quot;8003456789012&quot;,
+                Quantity = 20
+            };
+
+            var task1 = _repository.CreateItem(item1);
+            var task2 = _repository.CreateItem(item2);
+            var task3 = _repository.CreateItem(item3);
+
+            // Don't proceed until all the async inserts are complete.
+            var allTasks = Task.WhenAll(task1, task2, task3);
+            allTasks.Wait();
+
+            LoadItems();
+        }
+
+        private void ScannedDataCollected(object sender, StatusEventArgs a_status)
+        {
+            Barcode barcode = new Barcode();
+            barcode.Data = a_status.Data;
+            barcode.Type = a_status.BarcodeType;
+
+            Item item;
+
+            Task&lt;List&lt;Item&gt;&gt; getItemTask = _repository.GetItem(barcode.Data);
+            getItemTask.Wait();
+            if (getItemTask.Result.Count() &lt; 1)
+            {
+                item = new Item { Name = &quot;&quot;, Barcode = barcode.Data };
+            }
+            else
+            {
+                item = getItemTask.Result.First&lt;Item&gt;();
+            }
+
+
+            CoreMethods.PushPageModel&lt;ItemPageModel&gt;(item);
+
+        }
+
+        private void ScannedStatusChanged(object sender, string a_message)
+        {
+            string status = a_message;
+        }
+    }
+}
+</code></pre>
+<p>This is the last change made to the application.
+The full project is now:</p>
+<span style="display:block;text-align:center">
+![Final Inventory solution](/images/20180711_xamarin/final_solution.png "Final Inventory solution")
+</span>
+<p>Thanks to <code>git</code>, you can see with a green dot the new files we created in this post, and with a yellow dot the files that we&rsquo;ve modified.</p>
+<p>We can now run it and enjoy having a much better control of the barcode scanner on a Zebra&rsquo;s Android device.</p>
+<h1 id="note"><strong>NOTE</strong></h1>
+<p><strong>I tried my best to present this topic in a clear way, I&rsquo;m not a Xamarin expert, the code I&rsquo;m presenting here works for me, on my computer with my TC56. Use this application as a reference, but don&rsquo;t assume that everything I wrote here is the definitive truth! Especially for mobile application developments; OS, tools and practices evolve very rapidly. What could be a good solution today, can be a terrible idea tomorrow.</strong></p>
+
+
+        
+          <div class="blog-tags">
+            
+              <a href="https://pietromaggi.com//tags/android/">Android</a>&nbsp;
+            
+              <a href="https://pietromaggi.com//tags/zebra/">Zebra</a>&nbsp;
+            
+              <a href="https://pietromaggi.com//tags/xamarin/">Xamarin</a>&nbsp;
+            
+              <a href="https://pietromaggi.com//tags/xamarin.forms/">Xamarin.Forms</a>&nbsp;
+            
+              <a href="https://pietromaggi.com//tags/freshmvvm/">FreshMVVM</a>&nbsp;
+            
+              <a href="https://pietromaggi.com//tags/datawedge/">DataWedge</a>&nbsp;
+            
+          </div>
+        
+
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">See also</h4>
+                  <ul>
+                
+                
+                    <li><a href="/2021/07/04/android-screen-capture-for-dual-screen-devices/">Android Screen Capture for dual screen devices</a></li>
+                
+                    <li><a href="/2018/07/12/enterprise-browser-using-the-android-headset-as-a-barcode-trigger/">Enterprise Browser - Using the Android Headset as a Barcode Trigger</a></li>
+                
+                    <li><a href="/2018/07/07/xamarin.forms--freshmvvm--datawedge/">Xamarin.Forms &#43; FreshMVVM &#43; DataWedge = 💖</a></li>
+                
+                    <li><a href="/2018/07/04/xamarin.forms--freshmvvm-for-enterprise-applications/">Xamarin.Forms &#43; FreshMVVM for enterprise applications</a></li>
+                
+                    <li><a href="/2018/06/26/zebras-emdk-async-profile-manager-apis/">Zebra&#39;s EMDK Async Profile Manager APIs</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://pietromaggi.com/2018/07/07/xamarin.forms--freshmvvm--datawedge/" data-toggle="tooltip" data-placement="top" title="Xamarin.Forms &#43; FreshMVVM &#43; DataWedge = 💖">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://pietromaggi.com/2018/07/12/enterprise-browser-using-the-android-headset-as-a-barcode-trigger/" data-toggle="tooltip" data-placement="top" title="Enterprise Browser - Using the Android Headset as a Barcode Trigger">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:blog@pietromaggi.com" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/pfmaggi" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/pfmaggi" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/pietromaggi" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              Pietro F. Maggi
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2013 - 2021
+          
+
+          
+        </p><p class="credits theme-by text-muted">
+          <a href="/privacy_policy">Privacy Policy</a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.98.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://pietromaggi.com/js/main.js"></script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://pietromaggi.com/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

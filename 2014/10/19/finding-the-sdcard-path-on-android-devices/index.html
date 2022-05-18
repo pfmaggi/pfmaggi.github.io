@@ -92,7 +92,7 @@
   <meta name="twitter:site" content="@pfmaggi" />
   <meta name="twitter:creator" content="@pfmaggi" />
   <link href='https://pietromaggi.com/images/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.92.1" />
+  <meta name="generator" content="Hugo 0.98.0" />
   <link rel="alternate" href="https://pietromaggi.com/index.xml" type="application/rss+xml" title=""><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://pietromaggi.com/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -285,44 +285,44 @@ This is not a problem unique to the TC55, it&rsquo;s a common problem on Android
 </ul>
 <p>Let&rsquo;s see what we can achieve with the environment variables!</p>
 <p>We can log into a TC55 and use the <code>printenv</code> command:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">adb shell
-printenv
-
-<span class="nv">_</span><span class="o">=</span>/system/bin/printenv
-<span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>/vendor/lib:/system/lib
-<span class="nv">HOSTNAME</span><span class="o">=</span>android
-<span class="nv">BOOTCLASSPATH</span><span class="o">=</span>/system/framework/core.jar:/system/framework/core-junit.jar:/system/framework/bouncycastle.jar:/system/framework/ext.jar:/system/framework/framework.jar:/system/framework/framework_ext.jar:/system/framework/android.policy.jar:/system/framework/services.jar:/system/framework/apache-xml.jar
-<span class="nv">PATH</span><span class="o">=</span>/sbin:/vendor/bin:/system/sbin:/system/bin:/system/xbin
-<span class="nv">LOOP_MOUNTPOINT</span><span class="o">=</span>/mnt/obb
-<span class="nv">ANDROID_DATA</span><span class="o">=</span>/data
-<span class="nv">ANDROID_ROOT</span><span class="o">=</span>/system
-<span class="nv">SHELL</span><span class="o">=</span>/system/bin/sh
-<span class="nv">MKSH</span><span class="o">=</span>/system/bin/sh
-<span class="nv">USER</span><span class="o">=</span>shell
-<span class="nv">EXTERNAL_SDCARD_STORAGE</span><span class="o">=</span>/storage/sdcard0
-<span class="nv">ANDROID_PROPERTY_WORKSPACE</span><span class="o">=</span>8,49152
-<span class="nv">EXTERNAL_STORAGE</span><span class="o">=</span>/storage/sdcard1
-<span class="nv">ANDROID_ASSETS</span><span class="o">=</span>/system/app
-<span class="nv">TERM</span><span class="o">=</span>vt100
-<span class="nv">RANDOM</span><span class="o">=</span><span class="m">16913</span>
-<span class="nv">ASEC_MOUNTPOINT</span><span class="o">=</span>/mnt/asec
-<span class="nv">SECURE_STORAGE_SDCARD</span><span class="o">=</span>/storage/sdcard0
-<span class="nv">HOME</span><span class="o">=</span>/data
-<span class="nv">ANDROID_BOOTLOGO</span><span class="o">=</span><span class="m">1</span>
-<span class="nv">MASS_STORAGE</span><span class="o">=</span>/mnt/udisk
-<span class="nv">PS1</span><span class="o">=</span><span class="k">$(</span>precmd<span class="k">)</span><span class="nv">$USER</span>@<span class="nv">$HOSTNAME</span>:<span class="si">${</span><span class="nv">PWD</span><span class="k">:-</span><span class="p">?</span><span class="si">}</span> $
-</code></pre></div><p>From this is easy to see that the way to get the SDCard path is to use a couple of environment variables:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">adb shell
+</span></span><span class="line"><span class="cl">printenv
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">_</span><span class="o">=</span>/system/bin/printenv
+</span></span><span class="line"><span class="cl"><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>/vendor/lib:/system/lib
+</span></span><span class="line"><span class="cl"><span class="nv">HOSTNAME</span><span class="o">=</span>android
+</span></span><span class="line"><span class="cl"><span class="nv">BOOTCLASSPATH</span><span class="o">=</span>/system/framework/core.jar:/system/framework/core-junit.jar:/system/framework/bouncycastle.jar:/system/framework/ext.jar:/system/framework/framework.jar:/system/framework/framework_ext.jar:/system/framework/android.policy.jar:/system/framework/services.jar:/system/framework/apache-xml.jar
+</span></span><span class="line"><span class="cl"><span class="nv">PATH</span><span class="o">=</span>/sbin:/vendor/bin:/system/sbin:/system/bin:/system/xbin
+</span></span><span class="line"><span class="cl"><span class="nv">LOOP_MOUNTPOINT</span><span class="o">=</span>/mnt/obb
+</span></span><span class="line"><span class="cl"><span class="nv">ANDROID_DATA</span><span class="o">=</span>/data
+</span></span><span class="line"><span class="cl"><span class="nv">ANDROID_ROOT</span><span class="o">=</span>/system
+</span></span><span class="line"><span class="cl"><span class="nv">SHELL</span><span class="o">=</span>/system/bin/sh
+</span></span><span class="line"><span class="cl"><span class="nv">MKSH</span><span class="o">=</span>/system/bin/sh
+</span></span><span class="line"><span class="cl"><span class="nv">USER</span><span class="o">=</span>shell
+</span></span><span class="line"><span class="cl"><span class="nv">EXTERNAL_SDCARD_STORAGE</span><span class="o">=</span>/storage/sdcard0
+</span></span><span class="line"><span class="cl"><span class="nv">ANDROID_PROPERTY_WORKSPACE</span><span class="o">=</span>8,49152
+</span></span><span class="line"><span class="cl"><span class="nv">EXTERNAL_STORAGE</span><span class="o">=</span>/storage/sdcard1
+</span></span><span class="line"><span class="cl"><span class="nv">ANDROID_ASSETS</span><span class="o">=</span>/system/app
+</span></span><span class="line"><span class="cl"><span class="nv">TERM</span><span class="o">=</span>vt100
+</span></span><span class="line"><span class="cl"><span class="nv">RANDOM</span><span class="o">=</span><span class="m">16913</span>
+</span></span><span class="line"><span class="cl"><span class="nv">ASEC_MOUNTPOINT</span><span class="o">=</span>/mnt/asec
+</span></span><span class="line"><span class="cl"><span class="nv">SECURE_STORAGE_SDCARD</span><span class="o">=</span>/storage/sdcard0
+</span></span><span class="line"><span class="cl"><span class="nv">HOME</span><span class="o">=</span>/data
+</span></span><span class="line"><span class="cl"><span class="nv">ANDROID_BOOTLOGO</span><span class="o">=</span><span class="m">1</span>
+</span></span><span class="line"><span class="cl"><span class="nv">MASS_STORAGE</span><span class="o">=</span>/mnt/udisk
+</span></span><span class="line"><span class="cl"><span class="nv">PS1</span><span class="o">=</span><span class="k">$(</span>precmd<span class="k">)</span><span class="nv">$USER</span>@<span class="nv">$HOSTNAME</span>:<span class="si">${</span><span class="nv">PWD</span><span class="k">:-</span><span class="p">?</span><span class="si">}</span> $
+</span></span></code></pre></div><p>From this is easy to see that the way to get the SDCard path is to use a couple of environment variables:</p>
 <ul>
 <li><code>System.getenv(&ldquo;EXTERNAL_STORAGE&rdquo;)</code> —&gt; Internal SDCard <code>/STORAGE/SDCARD1</code></li>
 <li><code>System.getenv(&ldquo;EXTERNAL_SDCARD_STORAGE&rdquo;)</code> —&gt; True SDCard <code>/STORAGE/SDCARD0</code></li>
 </ul>
 <p>This solutions is still depending on two specific environment variables, is much better than hardcoding the path strings in the application but is probably only acceptable if you&rsquo;re targeting just few devices.
 Another point is that, on other devices, you get the true SDCard path linked to the <code>SECONDARY_STORAGE</code> environment variable. So a better solution could be to check for both variables with something like:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="n">String</span> <span class="n">strSDCardPath</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="na">getenv</span><span class="o">(</span><span class="s">&#34;SECONDARY_STORAGE&#34;</span><span class="o">);</span>
-<span class="k">if</span> <span class="o">((</span><span class="kc">null</span> <span class="o">==</span> <span class="n">strSDCardPath</span><span class="o">)</span> <span class="o">||</span> <span class="o">(</span><span class="n">strSDCardPath</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">==</span> <span class="n">0</span><span class="o">))</span> <span class="o">{</span>
-    <span class="n">strSDCardPath</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="na">getenv</span><span class="o">(</span><span class="s">&#34;EXTERNAL_SDCARD_STORAGE&#34;</span><span class="o">);</span>
-<span class="o">}</span>
-</code></pre></div><p>When we will start to release KitKat based devices it will be even more important taking a look at the right path for these volumes :-)</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">String</span> <span class="n">strSDCardPath</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="na">getenv</span><span class="o">(</span><span class="s">&#34;SECONDARY_STORAGE&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">((</span><span class="kc">null</span> <span class="o">==</span> <span class="n">strSDCardPath</span><span class="o">)</span> <span class="o">||</span> <span class="o">(</span><span class="n">strSDCardPath</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">==</span> <span class="n">0</span><span class="o">))</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">strSDCardPath</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="na">getenv</span><span class="o">(</span><span class="s">&#34;EXTERNAL_SDCARD_STORAGE&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div><p>When we will start to release KitKat based devices it will be even more important taking a look at the right path for these volumes :-)</p>
 <p><em>EDIT:</em> I&rsquo;ve a new [blog post]({{ relref . &ldquo;post/android_secondary_storage_1.md&rdquo; }}) with additional information for Zebra Technologies KitKat devices.</p>
 <p>You can find in my github account a <a href="https://github.com/pfmaggi/GetDeviceInfo">sample application</a> that retrieves these data.</p>
 <p>Let me know if you find this information useful via <a href="http://twitter.com/pfmaggi">twitter @pfmaggi</a> or <a href="mailto:pfm@pietromaggi.com">email</a> or <a href="http://www.motorolasolutionsevents.com/enterprise_appforum_2014/">joining me and the EMEA Software Enablement Team in Brussels for the Enterprise AppForum, our annual developer events</a>.</p>
@@ -358,11 +358,11 @@ Another point is that, on other devices, you get the true SDCard path linked to 
                 
                     <li><a href="/2018/07/12/enterprise-browser-using-the-android-headset-as-a-barcode-trigger/">Enterprise Browser - Using the Android Headset as a Barcode Trigger</a></li>
                 
-                    <li><a href="/2018/07/11/xamarin.forms-freshmvvm-datawedge-take-2/">(Xamarin.Forms &#43; FreshMVVM &#43; DataWedge) take 2</a></li>
+                    <li><a href="/2018/07/11/xamarin.forms--freshmvvm--datawedge-take-2/">(Xamarin.Forms &#43; FreshMVVM &#43; DataWedge) take 2</a></li>
                 
-                    <li><a href="/2018/07/07/xamarin.forms-freshmvvm-datawedge/">Xamarin.Forms &#43; FreshMVVM &#43; DataWedge = 💖</a></li>
+                    <li><a href="/2018/07/07/xamarin.forms--freshmvvm--datawedge/">Xamarin.Forms &#43; FreshMVVM &#43; DataWedge = 💖</a></li>
                 
-                    <li><a href="/2018/07/04/xamarin.forms-freshmvvm-for-enterprise-applications/">Xamarin.Forms &#43; FreshMVVM for enterprise applications</a></li>
+                    <li><a href="/2018/07/04/xamarin.forms--freshmvvm-for-enterprise-applications/">Xamarin.Forms &#43; FreshMVVM for enterprise applications</a></li>
                 
               </ul>
 
@@ -460,7 +460,7 @@ Another point is that, on other devices, you get the true SDCard path linked to 
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.92.1</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.98.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

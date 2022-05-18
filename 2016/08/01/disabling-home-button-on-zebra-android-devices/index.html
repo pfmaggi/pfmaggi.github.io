@@ -92,7 +92,7 @@
   <meta name="twitter:site" content="@pfmaggi" />
   <meta name="twitter:creator" content="@pfmaggi" />
   <link href='https://pietromaggi.com/images/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.92.1" />
+  <meta name="generator" content="Hugo 0.98.0" />
   <link rel="alternate" href="https://pietromaggi.com/index.xml" type="application/rss+xml" title=""><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://pietromaggi.com/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -268,7 +268,7 @@ After having published it, I got some enquiries, about having the same behaviour
 <p>Mx v4.3 introduced the support in the <a href="http://techdocs.zebra.com/emdk-for-android/4-2/mx/uimgr/#homekey-enabledisable">UI Manager to disable the Home Button</a> to disable the normal Home button behavior: <em>You can disable it and there&rsquo;s no way to exit from the foreground application</em>.</p>
 <h2 id="project-setup">Project setup</h2>
 <p>We start creating a new Android application in Android Studio. I&rsquo;m using Android Studio v2.1.2 with Build tools 23.0.3, and the EMDK v4.2. Your mileage can vary if you&rsquo;re using a different setup.</p>
-<p><em>Note:</em> I prefer to integrate Zebra Technologies' EMDK as a library in the gradle module file. You can find more information about this in the <a href="http://techdocs.zebra.com/emdk-for-android/4-2/tutorial/tutCreateProjectAndroidStudio/#emdkasadependencyingradlebuild">EMDK documentation</a> and in [this blog]({{ relref . &ldquo;emdk_and_android_sdk.md&rdquo; }}).</p>
+<p><em>Note:</em> I prefer to integrate Zebra Technologies&rsquo; EMDK as a library in the gradle module file. You can find more information about this in the <a href="http://techdocs.zebra.com/emdk-for-android/4-2/tutorial/tutCreateProjectAndroidStudio/#emdkasadependencyingradlebuild">EMDK documentation</a> and in [this blog]({{ relref . &ldquo;emdk_and_android_sdk.md&rdquo; }}).</p>
 <h3 id="create-a-new-android-project">Create a new Android project</h3>
 <p><img src="/images/samples/mx_home_btn/AndroidNewPrj_01.png" alt="Creating a new Android Application, step 1" title="Creating a new Android Application, step 1">
 <img src="/images/samples/mx_home_btn/AndroidNewPrj_02.png" alt="Creating a new Android Application, step 2" title="Creating a new Android Application, step 2">
@@ -576,17 +576,17 @@ protected void onCreate(Bundle savedInstanceState) {
 I hope that this small blog has made this clear and you can find more interesting suggestion on EMDK official documentation.</p>
 <p>For now I leave you with a video of the app working and the complete source code of the project available on <a href="https://github.com/pfmaggi/MxHomeButton">github</a>.</p>
 <p><img src="/images/samples/mx_home_btn/AppUI.gif" alt="Sample UI with Toggle Button" title="Sample UI with Toggle Button"></p>
-<section class="footnotes" role="doc-endnotes">
+<div class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn:1" role="doc-endnote">
+<li id="fn:1">
 <p>[Disabling MC40 Home Button with a custom intent]({{ relref . &ldquo;mc40_home_button.md&rdquo; }})&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
-<li id="fn:2" role="doc-endnote">
+<li id="fn:2">
 <p><a href="http://techdocs.zebra.com/emdk-for-android/4-2/mx/uimgr/#homekey-enabledisable">UI Manager documentation</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
-</section>
+</div>
 
 
         
@@ -621,11 +621,11 @@ I hope that this small blog has made this clear and you can find more interestin
                 
                     <li><a href="/2018/07/12/enterprise-browser-using-the-android-headset-as-a-barcode-trigger/">Enterprise Browser - Using the Android Headset as a Barcode Trigger</a></li>
                 
-                    <li><a href="/2018/07/11/xamarin.forms-freshmvvm-datawedge-take-2/">(Xamarin.Forms &#43; FreshMVVM &#43; DataWedge) take 2</a></li>
+                    <li><a href="/2018/07/11/xamarin.forms--freshmvvm--datawedge-take-2/">(Xamarin.Forms &#43; FreshMVVM &#43; DataWedge) take 2</a></li>
                 
-                    <li><a href="/2018/07/07/xamarin.forms-freshmvvm-datawedge/">Xamarin.Forms &#43; FreshMVVM &#43; DataWedge = 💖</a></li>
+                    <li><a href="/2018/07/07/xamarin.forms--freshmvvm--datawedge/">Xamarin.Forms &#43; FreshMVVM &#43; DataWedge = 💖</a></li>
                 
-                    <li><a href="/2018/07/04/xamarin.forms-freshmvvm-for-enterprise-applications/">Xamarin.Forms &#43; FreshMVVM for enterprise applications</a></li>
+                    <li><a href="/2018/07/04/xamarin.forms--freshmvvm-for-enterprise-applications/">Xamarin.Forms &#43; FreshMVVM for enterprise applications</a></li>
                 
               </ul>
 
@@ -723,7 +723,7 @@ I hope that this small blog has made this clear and you can find more interestin
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.92.1</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.98.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

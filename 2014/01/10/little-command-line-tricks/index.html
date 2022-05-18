@@ -92,7 +92,7 @@
   <meta name="twitter:site" content="@pfmaggi" />
   <meta name="twitter:creator" content="@pfmaggi" />
   <link href='https://pietromaggi.com/images/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.92.1" />
+  <meta name="generator" content="Hugo 0.98.0" />
   <link rel="alternate" href="https://pietromaggi.com/index.xml" type="application/rss+xml" title=""><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://pietromaggi.com/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -263,22 +263,22 @@
       <article role="main" class="blog-post">
         <p>This is a different blog, more a remainder for me than anything else. Hope that someone else can find these useful&hellip; they&rsquo;re for me!</p>
 <h3 id="recover-a-failed-download-with-curl">Recover a failed download with curl:</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">curl -C - -o partially_downloaded_file <span class="s1">&#39;www.example.com/path/to/the/file&#39;</span>
-</code></pre></div><h3 id="burn-a-playable-dvd-from-a-video_ts-folderhttphintsmacworldcomarticlephpstory20070612161317338"><a href="http://hints.macworld.com/article.php?story=20070612161317338">Burn a playable DVD from a VIDEO_TS folder</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">curl -C - -o partially_downloaded_file <span class="s1">&#39;www.example.com/path/to/the/file&#39;</span>
+</span></span></code></pre></div><h3 id="burn-a-playable-dvd-from-a-video_ts-folderhttphintsmacworldcomarticlephpstory20070612161317338"><a href="http://hints.macworld.com/article.php?story=20070612161317338">Burn a playable DVD from a VIDEO_TS folder</a></h3>
 <p>After searching the forums and trying various things, I still couldn&rsquo;t find a quick, reliable, free method of burning a VIDEO_TS folder to a pure UDF DVD,
 so that it would play in regular DVD players, as well trigger DVD Player to start up automatically. Anyway, as often is the case, Terminal had the answers.
 Just type in this command and change the paths to suit:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">hdiutil makehybrid -udf -udf-volume-name DVD_NAME -o MY_DVD.iso /path/to/VIDEO_TS/parent/folder
-</code></pre></div><p>Make sure that /path/to/VIDEO_TS/parent/folder is the path to the folder containing the VIDEO_TS folder, not the VIDEO_TS folder itself.
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">hdiutil makehybrid -udf -udf-volume-name DVD_NAME -o MY_DVD.iso /path/to/VIDEO_TS/parent/folder
+</span></span></code></pre></div><p>Make sure that /path/to/VIDEO_TS/parent/folder is the path to the folder containing the VIDEO_TS folder, not the VIDEO_TS folder itself.
 Once the .iso file has been created, drag this to Disk Utility and hit the Burn button.</p>
 <h3 id="generate-a-pdf-from-a-markdown-file">Generate a pdf from a markdown file</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">markdown &lt;File.md&gt; <span class="p">|</span> htmldoc --cont --headfootsize 8.0 --linkcolor blue --linkstyle plain --format pdf14 - &gt; FileFormat.pdf
-</code></pre></div><h1 id="android-related-commands">Android related Commands</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">markdown &lt;File.md&gt; <span class="p">|</span> htmldoc --cont --headfootsize 8.0 --linkcolor blue --linkstyle plain --format pdf14 - &gt; FileFormat.pdf
+</span></span></code></pre></div><h1 id="android-related-commands">Android related Commands</h1>
 <h3 id="taking-screenshot-of-an-android-device">Taking screenshot of an Android device</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">adb shell screencap -p | perl -pe &#39;s/\x0D\x0A/\x0A/g&#39; &gt; screen.png
-</code></pre></div><h3 id="launch-browser-and-navigate-to-url-on-android-devices">Launch browser and navigate to URL on android devices</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">adb shell am start -a android.intent.action.VIEW -d URL
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">adb shell screencap -p | perl -pe &#39;s/\x0D\x0A/\x0A/g&#39; &gt; screen.png
+</span></span></code></pre></div><h3 id="launch-browser-and-navigate-to-url-on-android-devices">Launch browser and navigate to URL on android devices</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">adb shell am start -a android.intent.action.VIEW -d URL
+</span></span></code></pre></div>
 
         
           <div class="blog-tags">
@@ -410,7 +410,7 @@ Once the .iso file has been created, drag this to Disk Utility and hit the Burn 
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.92.1</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.98.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

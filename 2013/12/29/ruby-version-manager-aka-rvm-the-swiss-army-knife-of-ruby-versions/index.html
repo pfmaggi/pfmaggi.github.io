@@ -92,7 +92,7 @@
   <meta name="twitter:site" content="@pfmaggi" />
   <meta name="twitter:creator" content="@pfmaggi" />
   <link href='https://pietromaggi.com/images/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.92.1" />
+  <meta name="generator" content="Hugo 0.98.0" />
   <link rel="alternate" href="https://pietromaggi.com/index.xml" type="application/rss+xml" title=""><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://pietromaggi.com/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -269,8 +269,8 @@ On top of this, most of the work I do with <a href="http://github.com/rhomobile/
 <strong>And</strong> <a href="http://www.ruby-lang.org/en/news/2013/12/25/ruby-2-1-0-is-released/">Ruby v2.1.0 has just been released!</a> with some nice <a href="https://github.com/ruby/ruby/blob/v2_1_0/NEWS">changes</a>. Particularly interesting in Ruby v2.1 is the <a href="http://tmm1.net/ruby21-rgengc/">new Garbage Collector</a></p>
 <p>So, <strong>you&rsquo;ve to install on your machine more than one Ruby environment!</strong>, that means installing a Ruby Version Manager and then installing the different Ruby engine you want to test/use.</p>
 <h2 id="choosing-a-ruby-version-manager">Choosing a Ruby Version Manager</h2>
-<p><em>&ldquo;Hey, what do you mean sir, there&rsquo;s more than one?&quot;</em><br>
-<em>&ldquo;Yes, of course!&quot;</em></p>
+<p><em>&ldquo;Hey, what do you mean sir, there&rsquo;s more than one?&rdquo;</em><br>
+<em>&ldquo;Yes, of course!&rdquo;</em></p>
 <p>most common ruby version managers: <a href="https://github.com/sstephenson/rbenv">Rbenv</a>, <a href="http://rvm.io">RVM</a> and <a href="https://github.com/postmodern/chruby">ChRuby</a>. RVM is the oldest solution and the easiest to have an environment up and running on a single machine to make some tests.
 If I&rsquo;ve to work on a project with other developers having different environment (dev, test and deployment) I&rsquo;ll probably give a good look to rbenv that integrates with bundler avoiding the RVM gemsets concept and having the gem necessary to a project in the project folder.</p>
 <h2 id="go-with-rvm">Go with RVM</h2>
@@ -278,94 +278,94 @@ If I&rsquo;ve to work on a project with other developers having different enviro
 So, first step is to install RVM on OS X and this requires a package manager to work more easily, this means <a href="http://brew.sh/"><strong>HomeBrew</strong></a>.</p>
 <h3 id="first-step-install-homebrew">First Step: Install HomeBrew</h3>
 <p>Installing HomeBrew is very easy:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">ruby</span> <span class="o">-</span><span class="n">e</span> <span class="s2">&#34;$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)&#34;</span>
-</code></pre></div><p>You need to have XCode installed and the command line tools, <a href="https://github.com/Homebrew/homebrew/wiki/Installation">HomeBrew website makes a good description of these steps</a>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">ruby</span> <span class="o">-</span><span class="n">e</span> <span class="s2">&#34;$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)&#34;</span>
+</span></span></code></pre></div><p>You need to have XCode installed and the command line tools, <a href="https://github.com/Homebrew/homebrew/wiki/Installation">HomeBrew website makes a good description of these steps</a>.</p>
 <h3 id="second-step-install-rvm">Second Step: Install RVM</h3>
 <p>We need to install some prerequisite using HomeBrew:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">brew</span> <span class="n">tap</span> <span class="n">homebrew</span><span class="o">/</span><span class="n">versions</span>
-<span class="n">brew</span> <span class="n">install</span> <span class="n">gcc46</span>
-</code></pre></div><p>then install RVM itself together with ruby 1.9.3:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="p">\</span><span class="n">curl</span> <span class="o">-</span><span class="n">sSL</span> <span class="ss">https</span><span class="p">:</span><span class="sr">//</span><span class="n">get</span><span class="o">.</span><span class="n">rvm</span><span class="o">.</span><span class="n">io</span> <span class="o">|</span> <span class="n">bash</span> <span class="o">-</span><span class="n">s</span> <span class="n">stable</span> <span class="o">--</span><span class="n">ruby</span><span class="o">=</span><span class="mi">1</span><span class="o">.</span><span class="mi">9</span><span class="o">.</span><span class="mi">3</span>
-</code></pre></div><p>and set it up as default</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">rvm</span> <span class="k">alias</span> <span class="n">create</span> <span class="n">default</span> <span class="mi">1</span><span class="o">.</span><span class="mi">9</span><span class="o">.</span><span class="mi">3</span>
-</code></pre></div><p>Install others ruby to play with them</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">rvm</span> <span class="n">get</span> <span class="n">stable</span>
-<span class="n">rvm</span> <span class="n">list</span> <span class="n">known</span>
-</code></pre></div><h2 id="upgrade-a-ruby-to-the-latest-patch-available">Upgrade a ruby to the latest patch available</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">brew</span> <span class="n">tap</span> <span class="n">homebrew</span><span class="o">/</span><span class="n">versions</span>
+</span></span><span class="line"><span class="cl"><span class="n">brew</span> <span class="n">install</span> <span class="n">gcc46</span>
+</span></span></code></pre></div><p>then install RVM itself together with ruby 1.9.3:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="p">\</span><span class="n">curl</span> <span class="o">-</span><span class="n">sSL</span> <span class="ss">https</span><span class="p">:</span><span class="sr">//</span><span class="n">get</span><span class="o">.</span><span class="n">rvm</span><span class="o">.</span><span class="n">io</span> <span class="o">|</span> <span class="n">bash</span> <span class="o">-</span><span class="n">s</span> <span class="n">stable</span> <span class="o">--</span><span class="n">ruby</span><span class="o">=</span><span class="mi">1</span><span class="o">.</span><span class="mi">9</span><span class="o">.</span><span class="mi">3</span>
+</span></span></code></pre></div><p>and set it up as default</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">rvm</span> <span class="k">alias</span> <span class="n">create</span> <span class="n">default</span> <span class="mi">1</span><span class="o">.</span><span class="mi">9</span><span class="o">.</span><span class="mi">3</span>
+</span></span></code></pre></div><p>Install others ruby to play with them</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">rvm</span> <span class="n">get</span> <span class="n">stable</span>
+</span></span><span class="line"><span class="cl"><span class="n">rvm</span> <span class="n">list</span> <span class="n">known</span>
+</span></span></code></pre></div><h2 id="upgrade-a-ruby-to-the-latest-patch-available">Upgrade a ruby to the latest patch available</h2>
 <p>Nowadays ruby 1.9.3-patch484 seems pretty solid, but a lot of activities is on ruby 2.0.
 If you want keep your ruby up-to-date, RVM can help you keeping it aligned to the latest available patch with the command:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">rvm</span> <span class="n">get</span> <span class="n">stable</span> <span class="c1"># always check that you&#39;ve the latest rvm available before starting</span>
-<span class="n">rvm</span> <span class="n">list</span>
-<span class="n">rvm</span> <span class="n">list</span> <span class="n">known</span>
-<span class="n">rvm</span> <span class="n">upgrade</span> <span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span>
-</code></pre></div><p>This will be followed by some questions:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">XHF648-04M:~ pietro$ rvm upgrade 2.0.0
-Are you sure you wish to upgrade from ruby-2.0.0-p247 to ruby-2.0.0-p353? (Y/n): Y
-Installing new ruby ruby-2.0.0-p353
-Searching for binary rubies, this might take some time.
-Found remote file https://rvm.io/binaries/osx/10.8/x86_64/ruby-2.0.0-p353.tar.bz2
-Checking requirements for osx.
-Updating certificates in &#39;/usr/local/etc/openssl/cert.pem&#39;.
-Requirements installation successful.
-ruby-2.0.0-p353 - #configure
-ruby-2.0.0-p353 - #download
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-100 8892k  100 8892k    0     0   601k      0  0:00:14  0:00:14 --:--:--  652k
-ruby-2.0.0-p353 - #validate archive
-ruby-2.0.0-p353 - #extract
-ruby-2.0.0-p353 - #validate binary
-ruby-2.0.0-p353 - #setup
-ruby-2.0.0-p353 - #making binaries executable.
-ruby-2.0.0-p353 - #downloading rubygems-2.2.0
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-100  400k  100  400k    0     0   373k      0  0:00:01  0:00:01 --:--:--  624k
-ruby-2.0.0-p353 - #extracting rubygems-2.2.0.
-ruby-2.0.0-p353 - #removing old rubygems.
-ruby-2.0.0-p353 - #installing rubygems-2.2.0...
-ruby-2.0.0-p353 - #gemset created /Users/pietro/.rvm/gems/ruby-2.0.0-p353@global
-ruby-2.0.0-p353 - #importing gemset /Users/pietro/.rvm/gemsets/global.gems..
-ruby-2.0.0-p353 - #generating global wrappers.
-ruby-2.0.0-p353 - #gemset created /Users/pietro/.rvm/gems/ruby-2.0.0-p353
-ruby-2.0.0-p353 - #importing gemsetfile /Users/pietro/.rvm/gemsets/default.gems evaluated to empty gem list
-ruby-2.0.0-p353 - #generating default wrappers.
-Updating certificates in &#39;/etc/openssl/cert.pem&#39;.
-mkdir: /etc/openssl: Permission denied
-pietro password required for &#39;mkdir -p /etc/openssl&#39;:
-Can not create directory &#39;/etc/openssl&#39; for certificates.
-Migrating gems from ruby-2.0.0-p247 to ruby-2.0.0-p353
-Free disk space 50566MB, required 6MB.
-Are you sure you wish to MOVE gems from ruby-2.0.0-p247 to ruby-2.0.0-p353?
-This will overwrite existing gems in ruby-2.0.0-p353 and remove them from ruby-2.0.0-p247 (Y/n): Y
-Moving ruby-2.0.0-p247@global to ruby-2.0.0-p353@global...............................................................................|
-Making gemset ruby-2.0.0-p353@global pristine.
-Moving ruby-2.0.0-p247 to ruby-2.0.0-p353.............................................................................................|
-Making gemset ruby-2.0.0-p353 pristine.
-Do you wish to move over wrappers? (Y/n): Y
-Do you also wish to completely remove ruby-2.0.0-p247 (inc. archive)? (Y/n): Y
-Removing ruby-2.0.0-p247.
-Successfully migrated ruby-2.0.0-p247 to ruby-2.0.0-p353
-Upgrade complete!
-</code></pre></div><h2 id="what-you-can-do-to-restart-an-rvm-setup-from-scratch">What you can do to restart an RVM setup from scratch</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">rvm</span> <span class="n">get</span> <span class="n">stable</span> <span class="c1"># always check that you&#39;ve the latest rvm available before starting</span>
+</span></span><span class="line"><span class="cl"><span class="n">rvm</span> <span class="n">list</span>
+</span></span><span class="line"><span class="cl"><span class="n">rvm</span> <span class="n">list</span> <span class="n">known</span>
+</span></span><span class="line"><span class="cl"><span class="n">rvm</span> <span class="n">upgrade</span> <span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span>
+</span></span></code></pre></div><p>This will be followed by some questions:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">XHF648-04M:~ pietro$ rvm upgrade 2.0.0
+</span></span><span class="line"><span class="cl">Are you sure you wish to upgrade from ruby-2.0.0-p247 to ruby-2.0.0-p353? (Y/n): Y
+</span></span><span class="line"><span class="cl">Installing new ruby ruby-2.0.0-p353
+</span></span><span class="line"><span class="cl">Searching for binary rubies, this might take some time.
+</span></span><span class="line"><span class="cl">Found remote file https://rvm.io/binaries/osx/10.8/x86_64/ruby-2.0.0-p353.tar.bz2
+</span></span><span class="line"><span class="cl">Checking requirements for osx.
+</span></span><span class="line"><span class="cl">Updating certificates in &#39;/usr/local/etc/openssl/cert.pem&#39;.
+</span></span><span class="line"><span class="cl">Requirements installation successful.
+</span></span><span class="line"><span class="cl">ruby-2.0.0-p353 - #configure
+</span></span><span class="line"><span class="cl">ruby-2.0.0-p353 - #download
+</span></span><span class="line"><span class="cl">  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+</span></span><span class="line"><span class="cl">                                 Dload  Upload   Total   Spent    Left  Speed
+</span></span><span class="line"><span class="cl">100 8892k  100 8892k    0     0   601k      0  0:00:14  0:00:14 --:--:--  652k
+</span></span><span class="line"><span class="cl">ruby-2.0.0-p353 - #validate archive
+</span></span><span class="line"><span class="cl">ruby-2.0.0-p353 - #extract
+</span></span><span class="line"><span class="cl">ruby-2.0.0-p353 - #validate binary
+</span></span><span class="line"><span class="cl">ruby-2.0.0-p353 - #setup
+</span></span><span class="line"><span class="cl">ruby-2.0.0-p353 - #making binaries executable.
+</span></span><span class="line"><span class="cl">ruby-2.0.0-p353 - #downloading rubygems-2.2.0
+</span></span><span class="line"><span class="cl">  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+</span></span><span class="line"><span class="cl">                                 Dload  Upload   Total   Spent    Left  Speed
+</span></span><span class="line"><span class="cl">100  400k  100  400k    0     0   373k      0  0:00:01  0:00:01 --:--:--  624k
+</span></span><span class="line"><span class="cl">ruby-2.0.0-p353 - #extracting rubygems-2.2.0.
+</span></span><span class="line"><span class="cl">ruby-2.0.0-p353 - #removing old rubygems.
+</span></span><span class="line"><span class="cl">ruby-2.0.0-p353 - #installing rubygems-2.2.0...
+</span></span><span class="line"><span class="cl">ruby-2.0.0-p353 - #gemset created /Users/pietro/.rvm/gems/ruby-2.0.0-p353@global
+</span></span><span class="line"><span class="cl">ruby-2.0.0-p353 - #importing gemset /Users/pietro/.rvm/gemsets/global.gems..
+</span></span><span class="line"><span class="cl">ruby-2.0.0-p353 - #generating global wrappers.
+</span></span><span class="line"><span class="cl">ruby-2.0.0-p353 - #gemset created /Users/pietro/.rvm/gems/ruby-2.0.0-p353
+</span></span><span class="line"><span class="cl">ruby-2.0.0-p353 - #importing gemsetfile /Users/pietro/.rvm/gemsets/default.gems evaluated to empty gem list
+</span></span><span class="line"><span class="cl">ruby-2.0.0-p353 - #generating default wrappers.
+</span></span><span class="line"><span class="cl">Updating certificates in &#39;/etc/openssl/cert.pem&#39;.
+</span></span><span class="line"><span class="cl">mkdir: /etc/openssl: Permission denied
+</span></span><span class="line"><span class="cl">pietro password required for &#39;mkdir -p /etc/openssl&#39;:
+</span></span><span class="line"><span class="cl">Can not create directory &#39;/etc/openssl&#39; for certificates.
+</span></span><span class="line"><span class="cl">Migrating gems from ruby-2.0.0-p247 to ruby-2.0.0-p353
+</span></span><span class="line"><span class="cl">Free disk space 50566MB, required 6MB.
+</span></span><span class="line"><span class="cl">Are you sure you wish to MOVE gems from ruby-2.0.0-p247 to ruby-2.0.0-p353?
+</span></span><span class="line"><span class="cl">This will overwrite existing gems in ruby-2.0.0-p353 and remove them from ruby-2.0.0-p247 (Y/n): Y
+</span></span><span class="line"><span class="cl">Moving ruby-2.0.0-p247@global to ruby-2.0.0-p353@global...............................................................................|
+</span></span><span class="line"><span class="cl">Making gemset ruby-2.0.0-p353@global pristine.
+</span></span><span class="line"><span class="cl">Moving ruby-2.0.0-p247 to ruby-2.0.0-p353.............................................................................................|
+</span></span><span class="line"><span class="cl">Making gemset ruby-2.0.0-p353 pristine.
+</span></span><span class="line"><span class="cl">Do you wish to move over wrappers? (Y/n): Y
+</span></span><span class="line"><span class="cl">Do you also wish to completely remove ruby-2.0.0-p247 (inc. archive)? (Y/n): Y
+</span></span><span class="line"><span class="cl">Removing ruby-2.0.0-p247.
+</span></span><span class="line"><span class="cl">Successfully migrated ruby-2.0.0-p247 to ruby-2.0.0-p353
+</span></span><span class="line"><span class="cl">Upgrade complete!
+</span></span></code></pre></div><h2 id="what-you-can-do-to-restart-an-rvm-setup-from-scratch">What you can do to restart an RVM setup from scratch</h2>
 <p>Having an RVM environment growing over time can bring a bit of cruft into the system. If you&rsquo;re starting to encounter more and more errors working on the setup, you can think to cleanup your setup and restart from scratch:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ rvm get stable
-$ rvm cleanup
-</code></pre></div><h3 id="usage">Usage:</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">    rvm cleanup <span class="o">{</span>all,archives,repos,sources,logs,gemsets,links<span class="o">}</span>
-</code></pre></div><h3 id="description">Description:</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ rvm get stable
+</span></span><span class="line"><span class="cl">$ rvm cleanup
+</span></span></code></pre></div><h3 id="usage">Usage:</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">    rvm cleanup <span class="o">{</span>all,archives,repos,sources,logs,gemsets,links<span class="o">}</span>
+</span></span></code></pre></div><h3 id="description">Description:</h3>
 <p>Cleans up the directory tree for the specified item.
 For gemsets removes remove only those without matching ruby.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ rvm cleanup all
-Cleaning up rvm archives
-Cleaning up rvm repos
-Cleaning up rvm src
-Cleaning up rvm log
-Cleaning up rvm tmp
-Cleaning up rvm gemsets
-Cleaning up rvm links
-Cleanup <span class="k">done</span>.
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ rvm cleanup all
+</span></span><span class="line"><span class="cl">Cleaning up rvm archives
+</span></span><span class="line"><span class="cl">Cleaning up rvm repos
+</span></span><span class="line"><span class="cl">Cleaning up rvm src
+</span></span><span class="line"><span class="cl">Cleaning up rvm log
+</span></span><span class="line"><span class="cl">Cleaning up rvm tmp
+</span></span><span class="line"><span class="cl">Cleaning up rvm gemsets
+</span></span><span class="line"><span class="cl">Cleaning up rvm links
+</span></span><span class="line"><span class="cl">Cleanup <span class="k">done</span>.
+</span></span></code></pre></div>
 
         
           <div class="blog-tags">
@@ -491,7 +491,7 @@ Cleanup <span class="k">done</span>.
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.92.1</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.98.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

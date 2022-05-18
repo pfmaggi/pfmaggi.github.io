@@ -92,7 +92,7 @@
   <meta name="twitter:site" content="@pfmaggi" />
   <meta name="twitter:creator" content="@pfmaggi" />
   <link href='https://pietromaggi.com/images/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.92.1" />
+  <meta name="generator" content="Hugo 0.98.0" />
   <link rel="alternate" href="https://pietromaggi.com/index.xml" type="application/rss+xml" title=""><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://pietromaggi.com/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -271,37 +271,37 @@ On a dual screen device, there&rsquo;s a 50% chance that they will capture the i
 <strong>You will get a black image</strong>.</p>
 <h2 id="look-for-a-solution">Look for a solution</h2>
 <p>There&rsquo;s nothing wrong in Android and its low level tools, they perfectly know that there&rsquo;s more than one screen. You can ask it yourself to the surface flinger. On a device like the Samsung Z Fold 2 you will get two distinct displays:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text">$ adb shell dumpsys SurfaceFlinger --display-id
-Display 19261213734341250 (HWC display 3): port=130 pnpId=QCM displayName=&#34;&#34;
-Display 19261213734341249 (HWC display 0): port=129 pnpId=QCM displayName=&#34;&#34;
-</code></pre></div><p>What about <code>screencap</code>? Can it be used to capture both screens?</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text">$ adb shell screencap -h
-usage: screencap [-hp] [-d display-id] [FILENAME]
-   -h: this message
-   -p: save the file as a png.
-   -d: specify the physical display ID to capture (default: 19261213734341249)
-       see &#34;dumpsys SurfaceFlinger --display-id&#34; for valid display IDs.
-If FILENAME ends with .png it will be saved as a png.
-If FILENAME is not given, the results will be printed to stdout.
-</code></pre></div><p>It looks like that the <code>-d</code> parameter is what we need. We can then run:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text">adb exec-out screencap -p -d 19261213734341250&gt; screen_19261213734341250.png
-adb exec-out screencap -p -d 19261213734341249&gt; screen_19261213734341249.png
-</code></pre></div><p>To capture an image from each screen.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">$ adb shell dumpsys SurfaceFlinger --display-id
+</span></span><span class="line"><span class="cl">Display 19261213734341250 (HWC display 3): port=130 pnpId=QCM displayName=&#34;&#34;
+</span></span><span class="line"><span class="cl">Display 19261213734341249 (HWC display 0): port=129 pnpId=QCM displayName=&#34;&#34;
+</span></span></code></pre></div><p>What about <code>screencap</code>? Can it be used to capture both screens?</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">$ adb shell screencap -h
+</span></span><span class="line"><span class="cl">usage: screencap [-hp] [-d display-id] [FILENAME]
+</span></span><span class="line"><span class="cl">   -h: this message
+</span></span><span class="line"><span class="cl">   -p: save the file as a png.
+</span></span><span class="line"><span class="cl">   -d: specify the physical display ID to capture (default: 19261213734341249)
+</span></span><span class="line"><span class="cl">       see &#34;dumpsys SurfaceFlinger --display-id&#34; for valid display IDs.
+</span></span><span class="line"><span class="cl">If FILENAME ends with .png it will be saved as a png.
+</span></span><span class="line"><span class="cl">If FILENAME is not given, the results will be printed to stdout.
+</span></span></code></pre></div><p>It looks like that the <code>-d</code> parameter is what we need. We can then run:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">adb exec-out screencap -p -d 19261213734341250&gt; screen_19261213734341250.png
+</span></span><span class="line"><span class="cl">adb exec-out screencap -p -d 19261213734341249&gt; screen_19261213734341249.png
+</span></span></code></pre></div><p>To capture an image from each screen.</p>
 <h2 id="automate">Automate</h2>
 <p>So far, so good. My problem is that lately I&rsquo;m finding myself capturing a lot of screenshot, so I finally decided to automate this process modifying a script by my friend <a href="https://twitter.com/danybony_">Daniele</a>.</p>
 <p>Here is the end result:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
-</span><span class="cp"></span>
-<span class="nv">DEVICES</span><span class="o">=</span><span class="sb">`</span>adb devices <span class="p">|</span> grep -v devices <span class="p">|</span> grep device <span class="p">|</span> cut -f 1<span class="sb">`</span>
-<span class="k">for</span> device in <span class="nv">$DEVICES</span><span class="p">;</span> <span class="k">do</span>
-    <span class="nv">DISPLAYS</span><span class="o">=</span><span class="sb">`</span>adb -s <span class="nv">$device</span> shell dumpsys SurfaceFlinger --display-id <span class="p">|</span> cut -d<span class="s2">&#34; &#34;</span> -f 2<span class="sb">`</span>
-    <span class="k">for</span> display in <span class="nv">$DISPLAYS</span><span class="p">;</span> <span class="k">do</span>
-        <span class="nb">echo</span> <span class="s2">&#34;Capturing from </span><span class="nv">$display</span><span class="s2"> on </span><span class="nv">$device</span><span class="s2">&#34;</span>
-        <span class="nv">output</span><span class="o">=</span><span class="s2">&#34;screen_</span><span class="k">$(</span><span class="nb">echo</span> <span class="nv">$device</span><span class="k">)</span><span class="s2">_</span><span class="k">$(</span><span class="nb">echo</span> <span class="nv">$display</span><span class="k">)</span><span class="s2">_</span><span class="k">$(</span>date +%Y%m%d_%H%M%S<span class="k">)</span><span class="s2">.png&#34;</span>
-        adb -s <span class="nv">$device</span> exec-out screencap -p -d <span class="nv">$display</span> &gt; <span class="nv">$output</span>
-    <span class="k">done</span>
-<span class="k">done</span>
-</code></pre></div><p>This script capture a screenshot for the displays of all the devices connected to your computer.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="nv">DEVICES</span><span class="o">=</span><span class="sb">`</span>adb devices <span class="p">|</span> grep -v devices <span class="p">|</span> grep device <span class="p">|</span> cut -f 1<span class="sb">`</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> device in <span class="nv">$DEVICES</span><span class="p">;</span> <span class="k">do</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">DISPLAYS</span><span class="o">=</span><span class="sb">`</span>adb -s <span class="nv">$device</span> shell dumpsys SurfaceFlinger --display-id <span class="p">|</span> cut -d<span class="s2">&#34; &#34;</span> -f 2<span class="sb">`</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> display in <span class="nv">$DISPLAYS</span><span class="p">;</span> <span class="k">do</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">echo</span> <span class="s2">&#34;Capturing from </span><span class="nv">$display</span><span class="s2"> on </span><span class="nv">$device</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">output</span><span class="o">=</span><span class="s2">&#34;screen_</span><span class="k">$(</span><span class="nb">echo</span> <span class="nv">$device</span><span class="k">)</span><span class="s2">_</span><span class="k">$(</span><span class="nb">echo</span> <span class="nv">$display</span><span class="k">)</span><span class="s2">_</span><span class="k">$(</span>date +%Y%m%d_%H%M%S<span class="k">)</span><span class="s2">.png&#34;</span>
+</span></span><span class="line"><span class="cl">        adb -s <span class="nv">$device</span> exec-out screencap -p -d <span class="nv">$display</span> &gt; <span class="nv">$output</span>
+</span></span><span class="line"><span class="cl">    <span class="k">done</span>
+</span></span><span class="line"><span class="cl"><span class="k">done</span>
+</span></span></code></pre></div><p>This script capture a screenshot for the displays of all the devices connected to your computer.</p>
 <p>I&rsquo;ve this script in my personal <code>~/bin</code> folder set as executable and I&rsquo;m running it when needed. I though to write this short notes in case you are also doing some experiments with dual screen devices.</p>
 <p>As usual&hellip; <strong>it works on my machine™</strong></p>
 
@@ -330,11 +330,11 @@ adb exec-out screencap -p -d 19261213734341249&gt; screen_19261213734341249.png
                 
                     <li><a href="/2018/07/12/enterprise-browser-using-the-android-headset-as-a-barcode-trigger/">Enterprise Browser - Using the Android Headset as a Barcode Trigger</a></li>
                 
-                    <li><a href="/2018/07/11/xamarin.forms-freshmvvm-datawedge-take-2/">(Xamarin.Forms &#43; FreshMVVM &#43; DataWedge) take 2</a></li>
+                    <li><a href="/2018/07/11/xamarin.forms--freshmvvm--datawedge-take-2/">(Xamarin.Forms &#43; FreshMVVM &#43; DataWedge) take 2</a></li>
                 
-                    <li><a href="/2018/07/07/xamarin.forms-freshmvvm-datawedge/">Xamarin.Forms &#43; FreshMVVM &#43; DataWedge = 💖</a></li>
+                    <li><a href="/2018/07/07/xamarin.forms--freshmvvm--datawedge/">Xamarin.Forms &#43; FreshMVVM &#43; DataWedge = 💖</a></li>
                 
-                    <li><a href="/2018/07/04/xamarin.forms-freshmvvm-for-enterprise-applications/">Xamarin.Forms &#43; FreshMVVM for enterprise applications</a></li>
+                    <li><a href="/2018/07/04/xamarin.forms--freshmvvm-for-enterprise-applications/">Xamarin.Forms &#43; FreshMVVM for enterprise applications</a></li>
                 
                     <li><a href="/2018/06/26/zebras-emdk-async-profile-manager-apis/">Zebra&#39;s EMDK Async Profile Manager APIs</a></li>
                 
@@ -434,7 +434,7 @@ adb exec-out screencap -p -d 19261213734341249&gt; screen_19261213734341249.png
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.92.1</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.98.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

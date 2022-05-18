@@ -92,7 +92,7 @@
   <meta name="twitter:site" content="@pfmaggi" />
   <meta name="twitter:creator" content="@pfmaggi" />
   <link href='https://pietromaggi.com/images/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.92.1" />
+  <meta name="generator" content="Hugo 0.98.0" />
   <link rel="alternate" href="https://pietromaggi.com/index.xml" type="application/rss+xml" title=""><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://pietromaggi.com/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -262,7 +262,7 @@
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
         <h2 id="note"><em>Note:</em></h2>
-<p>This blog describe the content presented during Zebra Technologies' DEVTALK recorded March 21st 2018 about Enterprise Browser. <a href="https://developer.zebra.com/community/home/blog/2018/03/28/devtalk-l-wednesday-march-21-2018-l-1000-am-cdt-l-enterprise-browser-enable-your-web-application">You can find a recording of the presentation on Zebra&rsquo;s Developer Portal</a>.</p>
+<p>This blog describe the content presented during Zebra Technologies&rsquo; DEVTALK recorded March 21st 2018 about Enterprise Browser. <a href="https://developer.zebra.com/community/home/blog/2018/03/28/devtalk-l-wednesday-march-21-2018-l-1000-am-cdt-l-enterprise-browser-enable-your-web-application">You can find a recording of the presentation on Zebra&rsquo;s Developer Portal</a>.</p>
 <h2 id="modernize-web-application">Modernize Web Application</h2>
 <blockquote>
 <p>Enterprise Browser is not just a browser, it&rsquo;s a business enabler that Symbol, Motorola, Motorola Solutions and now Zebra has developed over the last 15 years.</p>
@@ -270,9 +270,9 @@
 <span style="display:block;text-align:center">
 ![Believe!](/images/20180321_eb_modernization/cat_believe.png "Believe!")
 </span>
-<p>I know that fancy tag line remembers those cats' posters: but it&rsquo;s true!</p>
+<p>I know that fancy tag line remembers those cats&rsquo; posters: but it&rsquo;s true!</p>
 <h2 id="what-is-enterprise-browser">What is Enterprise Browser?</h2>
-<p><a href="https://www.zebra.com/it/it/products/software/mobile-computers/mobile-app-utilities/enterprise-browser.html">Stealing from the official website</a>, Enterprise Browser (EB from now on) allows to use standard web technologies (HTML5, CSS and JavaScript) to build application that can fully exploit the hardware features of Zebra Technologies' devices, across multiple operative systems:</p>
+<p><a href="https://www.zebra.com/it/it/products/software/mobile-computers/mobile-app-utilities/enterprise-browser.html">Stealing from the official website</a>, Enterprise Browser (EB from now on) allows to use standard web technologies (HTML5, CSS and JavaScript) to build application that can fully exploit the hardware features of Zebra Technologies&rsquo; devices, across multiple operative systems:</p>
 <ul>
 <li>Android</li>
 <li>Windows CE</li>
@@ -421,7 +421,7 @@ To scan a barcode, the syntax now became:</p>
 <p>Sets the zoom factor of the page.<br>
 Default zoom value is 1.0 (if unspecified). On Android, zero and negative values are not supported. On Windows, zoom value less than 1.0 reverts to 1.0 since lower values would not be readable. Page zoom settings will sometimes be reflected a few milliseconds after navigating from one page to another. A one-second delay should be anticipated. Not Supported when using Internet Explorer as the rendering engine.</p>
 </blockquote>
-<p>Wait, what do you mean that <em>&ldquo;On Windows, zoom value less than 1.0 reverts to 1.0.&quot;</em>?</p>
+<p>Wait, what do you mean that <em>&ldquo;On Windows, zoom value less than 1.0 reverts to 1.0.&rdquo;</em>?</p>
 <p>Well, it means that if you&rsquo;re trying to use a web application built for a larger desktop screen, you cannot scale it down with this configuration!<br>
 Are we out of luck?<br>
 of course not! we can digg up the <code>Zoom</code> metatag that allows to scale up and down a webpage.
@@ -479,12 +479,12 @@ console.log('Landscape Configured');
 <p>This guarantee that the web application is always using the correct screen orientation.</p>
 <p><strong>Note:</strong> It may seems silly to include a <code>console.log</code> in such a simple JavaScript code, but it is useful for two reasons:</p>
 <ol>
-<li>It allows to see on the DevChrome Tools' console that the code has been injected</li>
+<li>It allows to see on the DevChrome Tools&rsquo; console that the code has been injected</li>
 <li>It provides an easy way to retrieve the code (Chrome devTools put a link to the console statement close to the logged text)</li>
 </ol>
 <h3 id="a-final-sample-adding-barcode-scanning-capabilities-to-an-application">A final sample: adding barcode scanning capabilities to an application</h3>
 <p>As a final sample for DOM Injection I&rsquo;m going to present one of the main use case for DOM Injection: adding barcode scanning capabilities to an existing application.<br>
-We&rsquo;re going to focus on Android as the target operative system, and we know that, on this operative system, Zebra Technologies' devices can use DataWedge to scan barcodes. But with EB&rsquo;s DOM Injection we can achieve a much better integration!</p>
+We&rsquo;re going to focus on Android as the target operative system, and we know that, on this operative system, Zebra Technologies&rsquo; devices can use DataWedge to scan barcodes. But with EB&rsquo;s DOM Injection we can achieve a much better integration!</p>
 <p>Again, we start with some plumbing in <code>config.xml</code> enabling EB&rsquo;s JavaScript libraries injection to have the libraries available:</p>
 <pre><code>&lt;InjectEBLibraries&gt;
     &lt;JSLibraries value=&quot;1&quot;/&gt;
@@ -934,7 +934,7 @@ Zebra&rsquo;s Enterprise Browser team ahs put a lot of resources on <a href="htt
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.92.1</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.98.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

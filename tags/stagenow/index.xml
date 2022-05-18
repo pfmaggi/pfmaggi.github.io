@@ -15,7 +15,7 @@
       <pubDate>Tue, 07 Jun 2016 20:00:00 +0100</pubDate>
       <author>blog@pietromaggi.com (Pietro F. Maggi)</author>
       <guid>https://pietromaggi.com/2016/06/07/managing-display-autorotation-from-stagenow/</guid>
-      <description>Obsolete - Zebra Technologies&#39; StageNow is a powerful tool that allows to easily stage a lot of the parameters required on COBO device. However we don&amp;rsquo;t have a 100% coverage of all the Android Settings. Here I&amp;rsquo;ll show how to build a minimal application that can be controlled from StageNow to set up the Display AutoRotation parameter. As this is not a reserved setting, any application can change this value.</description>
+      <description>Obsolete - Zebra Technologies&amp;rsquo; StageNow is a powerful tool that allows to easily stage a lot of the parameters required on COBO device. However we don&amp;rsquo;t have a 100% coverage of all the Android Settings. Here I&amp;rsquo;ll show how to build a minimal application that can be controlled from StageNow to set up the Display AutoRotation parameter. As this is not a reserved setting, any application can change this value.</description>
     </item>
     
   </channel>

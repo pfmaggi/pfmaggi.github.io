@@ -92,7 +92,7 @@
   <meta name="twitter:site" content="@pfmaggi" />
   <meta name="twitter:creator" content="@pfmaggi" />
   <link href='https://pietromaggi.com/images/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.92.1" />
+  <meta name="generator" content="Hugo 0.98.0" />
   <link rel="alternate" href="https://pietromaggi.com/index.xml" type="application/rss+xml" title=""><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://pietromaggi.com/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -264,7 +264,7 @@
         <h1 id="note">Note:</h1>
 <p><em>[I&rsquo;ve published another post that explain how to disable the Home Button on all the Zebra&rsquo;s Android devices that are supported by Mx v4.3+.]({{ relref . &ldquo;post/mx_home_button.md&rdquo; }})</em></p>
 <h2 id="intro">Intro</h2>
-<p>Zebra Technologies' devices are purpose built to be single use devices. Having an OS like Android nowadays provides a lot of flexibility&hellip;  sometimes a bit too much.<br>
+<p>Zebra Technologies&rsquo; devices are purpose built to be single use devices. Having an OS like Android nowadays provides a lot of flexibility&hellip;  sometimes a bit too much.<br>
 With this idea in mind, the Android version used on these devices sometimes provide some nice surprise, like an Intent to disable the omnipresent Android&rsquo;s Home button.</p>
 <h2 id="the-basic-idea">The basic idea</h2>
 <p>MC40 support an <a href="http://developer.android.com/reference/android/content/Intent.html">Android intent</a> to disable the normal Home button behavior: <em>You can disable it and there&rsquo;s no way to exit from the foreground application</em> <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>.</p>
@@ -272,59 +272,59 @@ With this idea in mind, the Android version used on these devices sometimes prov
 Here I want to present a simple sample that show how to use this intent, covering the only issue that is: <em>handling re-branded devices</em></p>
 <h2 id="project-setup">Project setup</h2>
 <p>We start creating a new Android application in Android Studio (I&rsquo;m using Android Studio v1.5.1 with Build tools 23.0.1, you&rsquo;re mileage can vary if you&rsquo;re using a different setup).</p>
-<p><em>Note:</em> is not required to build this application using Zebra Technologies' EMDK. A normal Android application can use this intent.</p>
+<p><em>Note:</em> is not required to build this application using Zebra Technologies&rsquo; EMDK. A normal Android application can use this intent.</p>
 <p><img src="/images/samples/mc40_home_btn/AndroidNewPrj_01.jpg" alt="Creating a new Android Application, step 1" title="Creating a new Android Application, step 1">
 <img src="/images/samples/mc40_home_btn/AndroidNewPrj_02.jpg" alt="Creating a new Android Application, step 2" title="Creating a new Android Application, step 2">
 <img src="/images/samples/mc40_home_btn/AndroidNewPrj_03.jpg" alt="Creating a new Android Application, step 3" title="Creating a new Android Application, step 3">
 <img src="/images/samples/mc40_home_btn/AndroidNewPrj_04.jpg" alt="Creating a new Android Application, step 4" title="Creating a new Android Application, step 4"></p>
 <p>Once we&rsquo;ve the app framework setup by Android Studio, we can simplify the interface down to a Status message and a button.<br>
 First step: remove <code>content_main.xml</code> and <code>menu_main</code> then replace the content of <code>activity_main.xml</code> with:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt;</span>
-<span class="nt">&lt;LinearLayout</span> <span class="na">xmlns:android=</span><span class="s">&#34;http://schemas.android.com/apk/res/android&#34;</span>
-    <span class="na">android:layout_width=</span><span class="s">&#34;match_parent&#34;</span>
-    <span class="na">android:layout_height=</span><span class="s">&#34;match_parent&#34;</span>
-    <span class="na">android:gravity=</span><span class="s">&#34;center&#34;</span>
-    <span class="na">android:orientation=</span><span class="s">&#34;vertical&#34;</span><span class="nt">&gt;</span>
-                    
-    <span class="nt">&lt;TextView</span>
-        <span class="na">android:id=</span><span class="s">&#34;@+id/tvwHomeBtnStatus&#34;</span>
-        <span class="na">android:layout_width=</span><span class="s">&#34;wrap_content&#34;</span>
-        <span class="na">android:layout_height=</span><span class="s">&#34;wrap_content&#34;</span> 
-        <span class="na">android:padding=</span><span class="s">&#34;24dp&#34;</span>
-        <span class="na">android:text=</span><span class="s">&#34;@string/home_btn_status_on&#34;</span><span class="nt">/&gt;</span>
-
-    <span class="nt">&lt;Button</span>
-        <span class="na">android:id=</span><span class="s">&#34;@+id/btnToggleStatus&#34;</span>
-        <span class="na">android:layout_width=</span><span class="s">&#34;wrap_content&#34;</span>
-        <span class="na">android:layout_height=</span><span class="s">&#34;wrap_content&#34;</span> 
-        <span class="na">android:text=</span><span class="s">&#34;@string/toggle&#34;</span><span class="nt">/&gt;</span>
-<span class="nt">&lt;/LinearLayout&gt;</span>
-</code></pre></div><p>This layout requires the following <code>string.xml</code> inside the <code>res/values</code> folder:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;resources&gt;</span>
-    <span class="nt">&lt;string</span> <span class="na">name=</span><span class="s">&#34;app_name&#34;</span><span class="nt">&gt;</span>MC40HomeButton<span class="nt">&lt;/string&gt;</span>
-    <span class="nt">&lt;string</span> <span class="na">name=</span><span class="s">&#34;home_btn_status_on&#34;</span><span class="nt">&gt;</span>Home Button Enabled<span class="nt">&lt;/string&gt;</span>
-    <span class="nt">&lt;string</span> <span class="na">name=</span><span class="s">&#34;home_btn_status_off&#34;</span><span class="nt">&gt;</span>Home Button Disabled<span class="nt">&lt;/string&gt;</span>
-    <span class="nt">&lt;string</span> <span class="na">name=</span><span class="s">&#34;toggle&#34;</span><span class="nt">&gt;</span>Toggle current device setting<span class="nt">&lt;/string&gt;</span>
-<span class="nt">&lt;/resources&gt;</span>
-</code></pre></div><p><img src="/images/samples/mc40_home_btn/Strings.jpg" alt="Our Strings.xml at this point" title="Our Strings.xml at this point"></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;LinearLayout</span> <span class="na">xmlns:android=</span><span class="s">&#34;http://schemas.android.com/apk/res/android&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">android:layout_width=</span><span class="s">&#34;match_parent&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">android:layout_height=</span><span class="s">&#34;match_parent&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">android:gravity=</span><span class="s">&#34;center&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">android:orientation=</span><span class="s">&#34;vertical&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">                    
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;TextView</span>
+</span></span><span class="line"><span class="cl">        <span class="na">android:id=</span><span class="s">&#34;@+id/tvwHomeBtnStatus&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="na">android:layout_width=</span><span class="s">&#34;wrap_content&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="na">android:layout_height=</span><span class="s">&#34;wrap_content&#34;</span> 
+</span></span><span class="line"><span class="cl">        <span class="na">android:padding=</span><span class="s">&#34;24dp&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="na">android:text=</span><span class="s">&#34;@string/home_btn_status_on&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;Button</span>
+</span></span><span class="line"><span class="cl">        <span class="na">android:id=</span><span class="s">&#34;@+id/btnToggleStatus&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="na">android:layout_width=</span><span class="s">&#34;wrap_content&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="na">android:layout_height=</span><span class="s">&#34;wrap_content&#34;</span> 
+</span></span><span class="line"><span class="cl">        <span class="na">android:text=</span><span class="s">&#34;@string/toggle&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/LinearLayout&gt;</span>
+</span></span></code></pre></div><p>This layout requires the following <code>string.xml</code> inside the <code>res/values</code> folder:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;resources&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;string</span> <span class="na">name=</span><span class="s">&#34;app_name&#34;</span><span class="nt">&gt;</span>MC40HomeButton<span class="nt">&lt;/string&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;string</span> <span class="na">name=</span><span class="s">&#34;home_btn_status_on&#34;</span><span class="nt">&gt;</span>Home Button Enabled<span class="nt">&lt;/string&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;string</span> <span class="na">name=</span><span class="s">&#34;home_btn_status_off&#34;</span><span class="nt">&gt;</span>Home Button Disabled<span class="nt">&lt;/string&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;string</span> <span class="na">name=</span><span class="s">&#34;toggle&#34;</span><span class="nt">&gt;</span>Toggle current device setting<span class="nt">&lt;/string&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/resources&gt;</span>
+</span></span></code></pre></div><p><img src="/images/samples/mc40_home_btn/Strings.jpg" alt="Our Strings.xml at this point" title="Our Strings.xml at this point"></p>
 <p>We can now remove a lot of the generated template code in <code>MainActivity.java</code> trimming down the code to:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">com.pietromaggi.sample.mc40homebutton</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">android.os.Bundle</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">android.support.v7.app.AppCompatActivity</span><span class="o">;</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MainActivity</span> <span class="kd">extends</span> <span class="n">AppCompatActivity</span> <span class="o">{</span>
-    
-    <span class="nd">@Override</span>
-    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
-        <span class="n">setContentView</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">activity_main</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>                                
-</code></pre></div><p>If we run the application at this moment, it&rsquo;s not doing a lot :-)</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nn">com.pietromaggi.sample.mc40homebutton</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">android.os.Bundle</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">android.support.v7.app.AppCompatActivity</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MainActivity</span> <span class="kd">extends</span> <span class="n">AppCompatActivity</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">setContentView</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">activity_main</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>                                
+</span></span></code></pre></div><p>If we run the application at this moment, it&rsquo;s not doing a lot :-)</p>
 <p><img src="/images/samples/mc40_home_btn/Screenshot_tag1.png" alt="MC40 Screenshot of the app as recorded at tag1" title="MC40 Screenshot of the app as recorded at tag1"></p>
 <p>You can find the app at this stage <a href="https://github.com/pfmaggi/mc40_homebutton/tree/tag1">on the github repository under the <code>tag1</code> tag</a>.</p>
-<p>Next step would be to check that we&rsquo;re really running on a Zebra Technologies' MC40, and then adding some logic to the app.</p>
+<p>Next step would be to check that we&rsquo;re really running on a Zebra Technologies&rsquo; MC40, and then adding some logic to the app.</p>
 <h2 id="dealing-with-multiple-os-versions-and-re-branding">Dealing with multiple OS versions and re-branding</h2>
 <p>First we check that we&rsquo;re running on a Zebra&rsquo;s MC40 using a couple of Android constant:</p>
 <ul>
@@ -333,110 +333,110 @@ First step: remove <code>content_main.xml</code> and <code>menu_main</code> then
 </ul>
 <p>The catch is that MC40, running Jelly Bean, report &ldquo;Motorola Solution&rdquo; as <code>MANUFACTURER</code>, we need to address this difference and, as reported in <a href="https://developer.zebra.com/community/android/android-forums/android-blogs/blog/2014/12/19/disabling-home-button-via-intent-mc40">Pavel&rsquo;s notes</a>, the broadcast intent action is different for Motorola Solution or Zebra&rsquo;s MC40.</p>
 <p>Once we&rsquo;ve seen if the device the app is running on is supported, we can send a first Intent, to disable the home button, and configure the toggle button, so that is really toggle the Home Button status from disable to enabled and vice versa.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">com</span><span class="p">.</span><span class="nx">pietromaggi</span><span class="p">.</span><span class="nx">sample</span><span class="p">.</span><span class="nx">mc40homebutton</span><span class="p">;</span>
-
-<span class="kn">import</span> <span class="nx">android</span><span class="p">.</span><span class="nx">content</span><span class="p">.</span><span class="nx">Intent</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nx">android</span><span class="p">.</span><span class="nx">os</span><span class="p">.</span><span class="nx">Build</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nx">android</span><span class="p">.</span><span class="nx">os</span><span class="p">.</span><span class="nx">Bundle</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nx">android</span><span class="p">.</span><span class="nx">support</span><span class="p">.</span><span class="nx">v7</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">AppCompatActivity</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nx">android</span><span class="p">.</span><span class="nx">view</span><span class="p">.</span><span class="nx">View</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nx">android</span><span class="p">.</span><span class="nx">widget</span><span class="p">.</span><span class="nx">Button</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nx">android</span><span class="p">.</span><span class="nx">widget</span><span class="p">.</span><span class="nx">TextView</span><span class="p">;</span>
-
-<span class="nx">public</span> <span class="nx">class</span> <span class="nx">MainActivity</span> <span class="nx">extends</span> <span class="nx">AppCompatActivity</span> <span class="p">{</span>
-  <span class="nx">private</span> <span class="nx">static</span> <span class="nx">final</span> <span class="nx">String</span> <span class="nx">MANUFACTURER_ZEBRA</span> <span class="p">=</span> <span class="s">&#34;Zebra Technologies&#34;</span><span class="p">;</span>
-  <span class="nx">private</span> <span class="nx">static</span> <span class="nx">final</span> <span class="nx">String</span> <span class="nx">MANUFACTURER_MSI</span> <span class="p">=</span> <span class="s">&#34;Motorola Solutions&#34;</span><span class="p">;</span>
-  <span class="nx">private</span> <span class="nx">static</span> <span class="nx">final</span> <span class="nx">String</span> <span class="nx">MODEL_MC40</span> <span class="p">=</span> <span class="s">&#34;MC40N0&#34;</span><span class="p">;</span>
-  <span class="nx">private</span> <span class="nx">static</span> <span class="nx">final</span> <span class="nx">String</span> <span class="nx">INTENT_ZEBRA</span> <span class="p">=</span> <span class="s">&#34;com.symbol.intent.action.HOMEKEY_MODE&#34;</span><span class="p">;</span>
-  <span class="nx">private</span> <span class="nx">static</span> <span class="nx">final</span> <span class="nx">String</span> <span class="nx">INTENT_MSI</span> <span class="p">=</span> <span class="s">&#34;com.motorolasolutions.intent.action.HOMEKEY_MODE&#34;</span><span class="p">;</span>
-  <span class="nx">private</span> <span class="nx">static</span> <span class="nx">final</span> <span class="nx">String</span> <span class="nx">INTENT_EXTRA</span> <span class="p">=</span> <span class="s">&#34;state&#34;</span><span class="p">;</span>
-  <span class="nx">private</span> <span class="nx">String</span> <span class="nx">mStrIntent</span><span class="p">;</span>
-  <span class="nx">private</span> <span class="nx">TextView</span> <span class="nx">mTvwStatus</span><span class="p">;</span>
-  <span class="nx">private</span> <span class="kt">int</span> <span class="nx">mStatus</span><span class="p">;</span>
-
-  <span class="err">@</span><span class="nx">Override</span>
-  <span class="nx">protected</span> <span class="nx">void</span> <span class="nf">onCreate</span><span class="p">(</span><span class="nx">Bundle</span> <span class="nx">savedInstanceState</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">String</span> <span class="nx">StrManufacturer</span> <span class="p">=</span> <span class="nx">Build</span><span class="p">.</span><span class="nx">MANUFACTURER</span><span class="p">;</span>
-    <span class="nx">String</span> <span class="nx">strModel</span> <span class="p">=</span> <span class="nx">Build</span><span class="p">.</span><span class="nx">MODEL</span><span class="p">;</span>
-    <span class="nx">boolean</span> <span class="nx">bSupported</span> <span class="p">=</span> <span class="kc">true</span><span class="p">;</span>
-
-    <span class="nx">super</span><span class="p">.</span><span class="nf">onCreate</span><span class="p">(</span><span class="nx">savedInstanceState</span><span class="p">);</span>
-    <span class="nf">setContentView</span><span class="p">(</span><span class="nx">R</span><span class="p">.</span><span class="nx">layout</span><span class="p">.</span><span class="nx">activity_main</span><span class="p">);</span>
-
-    <span class="nx">mTvwStatus</span> <span class="p">=</span> <span class="p">(</span><span class="nx">TextView</span><span class="p">)</span> <span class="nf">findViewById</span><span class="p">(</span><span class="nx">R</span><span class="p">.</span><span class="nx">id</span><span class="p">.</span><span class="nx">tvwHomeBtnStatus</span><span class="p">);</span>
-
-    <span class="k">if</span> <span class="p">(</span><span class="nx">strModel</span><span class="p">.</span><span class="nf">equalsIgnoreCase</span><span class="p">(</span><span class="nx">MODEL_MC40</span><span class="p">))</span> <span class="p">{</span>
-      <span class="c1">// We&#39;re running on an MC40
-</span><span class="c1"></span>      <span class="k">if</span> <span class="p">(</span><span class="nx">StrManufacturer</span><span class="p">.</span><span class="nf">equalsIgnoreCase</span><span class="p">(</span><span class="nx">MANUFACTURER_ZEBRA</span><span class="p">))</span> <span class="p">{</span>
-        <span class="c1">// This is a Zebra Device
-</span><span class="c1"></span>        <span class="nx">mStrIntent</span> <span class="p">=</span> <span class="nx">INTENT_ZEBRA</span><span class="p">;</span>
-      <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">StrManufacturer</span><span class="p">.</span><span class="nf">equalsIgnoreCase</span><span class="p">(</span><span class="nx">MANUFACTURER_MSI</span><span class="p">))</span> <span class="p">{</span>
-        <span class="c1">// This is a Motorola Solution Device
-</span><span class="c1"></span>        <span class="c1">// just double OS version, only Jelly Bean is supported
-</span><span class="c1"></span>        <span class="nx">mStrIntent</span> <span class="p">=</span> <span class="nx">INTENT_MSI</span><span class="p">;</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nx">Build</span><span class="p">.</span><span class="nx">VERSION_CODES</span><span class="p">.</span><span class="nx">JELLY_BEAN</span> <span class="o">!=</span> <span class="nx">Build</span><span class="p">.</span><span class="nx">VERSION</span><span class="p">.</span><span class="nx">SDK_INT</span><span class="p">)</span> <span class="p">{</span>
-          <span class="nx">bSupported</span> <span class="p">=</span> <span class="kc">false</span><span class="p">;</span>
-        <span class="p">}</span>
-
-      <span class="p">}</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-      <span class="c1">// This is something else, not supported
-</span><span class="c1"></span>      <span class="nx">bSupported</span> <span class="p">=</span> <span class="kc">false</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="nx">Button</span> <span class="nx">btnToggle</span> <span class="p">=</span> <span class="p">(</span><span class="nx">Button</span><span class="p">)</span><span class="nf">findViewById</span><span class="p">(</span><span class="nx">R</span><span class="p">.</span><span class="nx">id</span><span class="p">.</span><span class="nx">btnToggleStatus</span><span class="p">);</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">bSupported</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nx">mTvwStatus</span><span class="p">.</span><span class="nf">setText</span><span class="p">(</span><span class="nx">R</span><span class="p">.</span><span class="kt">string</span><span class="p">.</span><span class="nx">home_btn_status_off</span><span class="p">);</span>
-      <span class="nx">mStatus</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
-      <span class="nx">Intent</span> <span class="nx">i</span> <span class="p">=</span> <span class="nx">new</span> <span class="nf">Intent</span><span class="p">(</span><span class="nx">mStrIntent</span><span class="p">);</span>
-      <span class="nx">i</span><span class="p">.</span><span class="nf">putExtra</span><span class="p">(</span><span class="nx">INTENT_EXTRA</span><span class="p">,</span> <span class="nx">mStatus</span><span class="p">);</span>
-      <span class="nf">sendBroadcast</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
-
-      <span class="nx">btnToggle</span><span class="p">.</span><span class="nf">setOnClickListener</span><span class="p">(</span><span class="nx">new</span> <span class="nx">View</span><span class="p">.</span><span class="nf">OnClickListener</span><span class="p">()</span> <span class="p">{</span>
-          <span class="err">@</span><span class="nx">Override</span>
-          <span class="nx">public</span> <span class="nx">void</span> <span class="nf">onClick</span><span class="p">(</span><span class="nx">View</span> <span class="nx">v</span><span class="p">)</span> <span class="p">{</span>
-          <span class="c1">//Toggle Current Status
-</span><span class="c1"></span>          <span class="k">if</span> <span class="p">(</span><span class="mi">0</span> <span class="o">==</span> <span class="nx">mStatus</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nx">mStatus</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
-            <span class="nx">mTvwStatus</span><span class="p">.</span><span class="nf">setText</span><span class="p">(</span><span class="nx">R</span><span class="p">.</span><span class="kt">string</span><span class="p">.</span><span class="nx">home_btn_status_on</span><span class="p">);</span>
-          <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-            <span class="nx">mStatus</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
-            <span class="nx">mTvwStatus</span><span class="p">.</span><span class="nf">setText</span><span class="p">(</span><span class="nx">R</span><span class="p">.</span><span class="kt">string</span><span class="p">.</span><span class="nx">home_btn_status_off</span><span class="p">);</span>
-          <span class="p">}</span>
-          <span class="nx">Intent</span> <span class="nx">i</span> <span class="p">=</span> <span class="nx">new</span> <span class="nf">Intent</span><span class="p">(</span><span class="nx">mStrIntent</span><span class="p">);</span>
-          <span class="nx">i</span><span class="p">.</span><span class="nf">putExtra</span><span class="p">(</span><span class="nx">INTENT_EXTRA</span><span class="p">,</span> <span class="nx">mStatus</span><span class="p">);</span>
-          <span class="nf">sendBroadcast</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
-        <span class="p">}</span>
-      <span class="p">});</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-      <span class="nx">mTvwStatus</span><span class="p">.</span><span class="nf">setText</span><span class="p">(</span><span class="nx">R</span><span class="p">.</span><span class="kt">string</span><span class="p">.</span><span class="nx">device_not_supported</span><span class="p">);</span>
-      <span class="nx">btnToggle</span><span class="p">.</span><span class="nf">setEnabled</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div><p>If we run the application on a supported device, we get the expected behavior:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">com</span><span class="p">.</span><span class="nx">pietromaggi</span><span class="p">.</span><span class="nx">sample</span><span class="p">.</span><span class="nx">mc40homebutton</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nx">android</span><span class="p">.</span><span class="nx">content</span><span class="p">.</span><span class="nx">Intent</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nx">android</span><span class="p">.</span><span class="nx">os</span><span class="p">.</span><span class="nx">Build</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nx">android</span><span class="p">.</span><span class="nx">os</span><span class="p">.</span><span class="nx">Bundle</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nx">android</span><span class="p">.</span><span class="nx">support</span><span class="p">.</span><span class="nx">v7</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">AppCompatActivity</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nx">android</span><span class="p">.</span><span class="nx">view</span><span class="p">.</span><span class="nx">View</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nx">android</span><span class="p">.</span><span class="nx">widget</span><span class="p">.</span><span class="nx">Button</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nx">android</span><span class="p">.</span><span class="nx">widget</span><span class="p">.</span><span class="nx">TextView</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">public</span> <span class="nx">class</span> <span class="nx">MainActivity</span> <span class="nx">extends</span> <span class="nx">AppCompatActivity</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">private</span> <span class="nx">static</span> <span class="nx">final</span> <span class="nx">String</span> <span class="nx">MANUFACTURER_ZEBRA</span> <span class="p">=</span> <span class="s">&#34;Zebra Technologies&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">private</span> <span class="nx">static</span> <span class="nx">final</span> <span class="nx">String</span> <span class="nx">MANUFACTURER_MSI</span> <span class="p">=</span> <span class="s">&#34;Motorola Solutions&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">private</span> <span class="nx">static</span> <span class="nx">final</span> <span class="nx">String</span> <span class="nx">MODEL_MC40</span> <span class="p">=</span> <span class="s">&#34;MC40N0&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">private</span> <span class="nx">static</span> <span class="nx">final</span> <span class="nx">String</span> <span class="nx">INTENT_ZEBRA</span> <span class="p">=</span> <span class="s">&#34;com.symbol.intent.action.HOMEKEY_MODE&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">private</span> <span class="nx">static</span> <span class="nx">final</span> <span class="nx">String</span> <span class="nx">INTENT_MSI</span> <span class="p">=</span> <span class="s">&#34;com.motorolasolutions.intent.action.HOMEKEY_MODE&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">private</span> <span class="nx">static</span> <span class="nx">final</span> <span class="nx">String</span> <span class="nx">INTENT_EXTRA</span> <span class="p">=</span> <span class="s">&#34;state&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">private</span> <span class="nx">String</span> <span class="nx">mStrIntent</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">private</span> <span class="nx">TextView</span> <span class="nx">mTvwStatus</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">private</span> <span class="kt">int</span> <span class="nx">mStatus</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="err">@</span><span class="nx">Override</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">protected</span> <span class="nx">void</span> <span class="nf">onCreate</span><span class="p">(</span><span class="nx">Bundle</span> <span class="nx">savedInstanceState</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">String</span> <span class="nx">StrManufacturer</span> <span class="p">=</span> <span class="nx">Build</span><span class="p">.</span><span class="nx">MANUFACTURER</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">String</span> <span class="nx">strModel</span> <span class="p">=</span> <span class="nx">Build</span><span class="p">.</span><span class="nx">MODEL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">boolean</span> <span class="nx">bSupported</span> <span class="p">=</span> <span class="kc">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">super</span><span class="p">.</span><span class="nf">onCreate</span><span class="p">(</span><span class="nx">savedInstanceState</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">setContentView</span><span class="p">(</span><span class="nx">R</span><span class="p">.</span><span class="nx">layout</span><span class="p">.</span><span class="nx">activity_main</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">mTvwStatus</span> <span class="p">=</span> <span class="p">(</span><span class="nx">TextView</span><span class="p">)</span> <span class="nf">findViewById</span><span class="p">(</span><span class="nx">R</span><span class="p">.</span><span class="nx">id</span><span class="p">.</span><span class="nx">tvwHomeBtnStatus</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">strModel</span><span class="p">.</span><span class="nf">equalsIgnoreCase</span><span class="p">(</span><span class="nx">MODEL_MC40</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">// We&#39;re running on an MC40
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="k">if</span> <span class="p">(</span><span class="nx">StrManufacturer</span><span class="p">.</span><span class="nf">equalsIgnoreCase</span><span class="p">(</span><span class="nx">MANUFACTURER_ZEBRA</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// This is a Zebra Device
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">mStrIntent</span> <span class="p">=</span> <span class="nx">INTENT_ZEBRA</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">StrManufacturer</span><span class="p">.</span><span class="nf">equalsIgnoreCase</span><span class="p">(</span><span class="nx">MANUFACTURER_MSI</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// This is a Motorola Solution Device
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// just double OS version, only Jelly Bean is supported
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">mStrIntent</span> <span class="p">=</span> <span class="nx">INTENT_MSI</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="nx">Build</span><span class="p">.</span><span class="nx">VERSION_CODES</span><span class="p">.</span><span class="nx">JELLY_BEAN</span> <span class="o">!=</span> <span class="nx">Build</span><span class="p">.</span><span class="nx">VERSION</span><span class="p">.</span><span class="nx">SDK_INT</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">bSupported</span> <span class="p">=</span> <span class="kc">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">// This is something else, not supported
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="nx">bSupported</span> <span class="p">=</span> <span class="kc">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">Button</span> <span class="nx">btnToggle</span> <span class="p">=</span> <span class="p">(</span><span class="nx">Button</span><span class="p">)</span><span class="nf">findViewById</span><span class="p">(</span><span class="nx">R</span><span class="p">.</span><span class="nx">id</span><span class="p">.</span><span class="nx">btnToggleStatus</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">bSupported</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">mTvwStatus</span><span class="p">.</span><span class="nf">setText</span><span class="p">(</span><span class="nx">R</span><span class="p">.</span><span class="kt">string</span><span class="p">.</span><span class="nx">home_btn_status_off</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">mStatus</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Intent</span> <span class="nx">i</span> <span class="p">=</span> <span class="nx">new</span> <span class="nf">Intent</span><span class="p">(</span><span class="nx">mStrIntent</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">i</span><span class="p">.</span><span class="nf">putExtra</span><span class="p">(</span><span class="nx">INTENT_EXTRA</span><span class="p">,</span> <span class="nx">mStatus</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="nf">sendBroadcast</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="nx">btnToggle</span><span class="p">.</span><span class="nf">setOnClickListener</span><span class="p">(</span><span class="nx">new</span> <span class="nx">View</span><span class="p">.</span><span class="nf">OnClickListener</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="err">@</span><span class="nx">Override</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">public</span> <span class="nx">void</span> <span class="nf">onClick</span><span class="p">(</span><span class="nx">View</span> <span class="nx">v</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="c1">//Toggle Current Status
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>          <span class="k">if</span> <span class="p">(</span><span class="mi">0</span> <span class="o">==</span> <span class="nx">mStatus</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">mStatus</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">mTvwStatus</span><span class="p">.</span><span class="nf">setText</span><span class="p">(</span><span class="nx">R</span><span class="p">.</span><span class="kt">string</span><span class="p">.</span><span class="nx">home_btn_status_on</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">          <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">mStatus</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">mTvwStatus</span><span class="p">.</span><span class="nf">setText</span><span class="p">(</span><span class="nx">R</span><span class="p">.</span><span class="kt">string</span><span class="p">.</span><span class="nx">home_btn_status_off</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">          <span class="p">}</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">Intent</span> <span class="nx">i</span> <span class="p">=</span> <span class="nx">new</span> <span class="nf">Intent</span><span class="p">(</span><span class="nx">mStrIntent</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">i</span><span class="p">.</span><span class="nf">putExtra</span><span class="p">(</span><span class="nx">INTENT_EXTRA</span><span class="p">,</span> <span class="nx">mStatus</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">          <span class="nf">sendBroadcast</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">});</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">mTvwStatus</span><span class="p">.</span><span class="nf">setText</span><span class="p">(</span><span class="nx">R</span><span class="p">.</span><span class="kt">string</span><span class="p">.</span><span class="nx">device_not_supported</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">btnToggle</span><span class="p">.</span><span class="nf">setEnabled</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>If we run the application on a supported device, we get the expected behavior:</p>
 <p><img src="/images/samples/mc40_home_btn/Screenshot_tag2.png" alt="MC40 Screenshot of the app as recorded at tag2" title="MC40 Screenshot of the app as recorded at tag2"></p>
 <h2 id="managing-state">Managing state</h2>
 <p>The application now works as expected, but with an issue linked to not managing the state. As an example, simply rotating the device, the Activity is destroyed to create a new one with the standard behavior to disable the Home Button, even if we just re-enabled it using the <code>toggle</code> button.<br>
 An easy solution is to add some code to manage the Application status overriding the <code>onSaveInstanceState(Bundle)</code> method:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">@Override
-public void onSaveInstanceState(Bundle savedInstanceState) {
-  super.onSaveInstanceState(savedInstanceState);
-  savedInstanceState.putInt(KEY_STATE, mState);
-}
-</code></pre></div><p>And update the <a href="https://github.com/pfmaggi/mc40_homebutton/blob/tag3/app/src/main/java/com/pietromaggi/sample/mc40homebutton/MainActivity.java#L55"><code>onCreate</code> method to check the bundle to see if it&rsquo;s defined and behave accordingly</a>.<br>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">@Override
+</span></span><span class="line"><span class="cl">public void onSaveInstanceState(Bundle savedInstanceState) {
+</span></span><span class="line"><span class="cl">  super.onSaveInstanceState(savedInstanceState);
+</span></span><span class="line"><span class="cl">  savedInstanceState.putInt(KEY_STATE, mState);
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><p>And update the <a href="https://github.com/pfmaggi/mc40_homebutton/blob/tag3/app/src/main/java/com/pietromaggi/sample/mc40homebutton/MainActivity.java#L55"><code>onCreate</code> method to check the bundle to see if it&rsquo;s defined and behave accordingly</a>.<br>
 The final version of the application, managing the state, can be find on github associated to <a href="https://github.com/pfmaggi/mc40_homebutton/tree/tag3">tag3</a>.</p>
 <p>Let me know if you&rsquo;ve found this article useful.</p>
 <hr>
 <h5 id="notes">Notes</h5>
-<section class="footnotes" role="doc-endnotes">
+<div class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn:1" role="doc-endnote">
+<li id="fn:1">
 <p>If your app locks down a few other things or you&rsquo;re using something like Zebra&rsquo;s <a href="https://www.zebra.com/us/en/products/software/mobile-computers/mobile-app-utilities/enterprise-home-screen.html">Enterprise Home Screen</a>.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
-</section>
+</div>
 
 
         
@@ -471,11 +471,11 @@ The final version of the application, managing the state, can be find on github 
                 
                     <li><a href="/2018/07/12/enterprise-browser-using-the-android-headset-as-a-barcode-trigger/">Enterprise Browser - Using the Android Headset as a Barcode Trigger</a></li>
                 
-                    <li><a href="/2018/07/11/xamarin.forms-freshmvvm-datawedge-take-2/">(Xamarin.Forms &#43; FreshMVVM &#43; DataWedge) take 2</a></li>
+                    <li><a href="/2018/07/11/xamarin.forms--freshmvvm--datawedge-take-2/">(Xamarin.Forms &#43; FreshMVVM &#43; DataWedge) take 2</a></li>
                 
-                    <li><a href="/2018/07/07/xamarin.forms-freshmvvm-datawedge/">Xamarin.Forms &#43; FreshMVVM &#43; DataWedge = 💖</a></li>
+                    <li><a href="/2018/07/07/xamarin.forms--freshmvvm--datawedge/">Xamarin.Forms &#43; FreshMVVM &#43; DataWedge = 💖</a></li>
                 
-                    <li><a href="/2018/07/04/xamarin.forms-freshmvvm-for-enterprise-applications/">Xamarin.Forms &#43; FreshMVVM for enterprise applications</a></li>
+                    <li><a href="/2018/07/04/xamarin.forms--freshmvvm-for-enterprise-applications/">Xamarin.Forms &#43; FreshMVVM for enterprise applications</a></li>
                 
               </ul>
 
@@ -573,7 +573,7 @@ The final version of the application, managing the state, can be find on github 
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.92.1</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.98.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>
