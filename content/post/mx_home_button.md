@@ -348,5 +348,5 @@ For now I leave you with a video of the app working and the complete source code
 ![Sample UI with Toggle Button](/images/samples/mx_home_btn/AppUI.gif "Sample UI with Toggle Button")
 
 
-[^1]: [Disabling MC40 Home Button with a custom intent]({{ relref . "mc40_home_button.md" }})
+[^1]: [Disabling MC40 Home Button with a custom intent]({{< relref "mc40_home_button.md" >}})
 [^2]: [UI Manager documentation](http://techdocs.zebra.com/emdk-for-android/4-2/mx/uimgr/#homekey-enabledisable)

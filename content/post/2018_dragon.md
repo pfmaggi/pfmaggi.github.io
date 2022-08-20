@@ -23,9 +23,7 @@ Strange to believe, this talk is not about [`dragon.js`, a backbone inspired ES6
 
 "Here be dragons" means dangerous or unexplored territories, in imitation of a medieval practice of putting illustrations of dragons, sea monsters and other mythological creatures on uncharted areas of maps.
 
-<span style="display:block;text-align:center">
 [![Dragons](/images/2018_here_be_dragons/Dragons.png "Dragons")](https://www.livescience.com/39465-sea-monsters-on-medieval-maps.html)
-</span>
 
 The dangerous and unexplored territories that I'm going to cover in this talk are the new scenarios that are appearing in the enterprise mobility space, for dedicated devices.  
 Devices that are rolled out in the field to run Line of Business application.
@@ -37,9 +35,7 @@ I call this:
 ## Who is Zebra Technologies
 Zebra makes businesses as smart and connected as the world we live in.
 
-<span style="display:block;text-align:center">
 ![Zebra Technologies](/images/2018_here_be_dragons/zebra_technologies.png "Zebra Technologies")
-</span>
 
 To learn more about Zebra Technologies, you can take a look at the [company website](https://www.zebra.com).
 
@@ -54,9 +50,7 @@ This was not uncommon; this was the norm... The standard way to implement an ent
 
 However, *"We've always done it this way"* is the most dangerous answer in ICT, especially when we look into the security of a solution.
 
-<span style="display:block;text-align:center">
 ![We've always done it this way](/images/2018_here_be_dragons/We-have-always-done-it-this-way.png "We've always done it this way")
-</span>
 
 Let's break down the elements of the solutions we used in the past.
 
@@ -64,14 +58,14 @@ Let's break down the elements of the solutions we used in the past.
 Enterprise mobility is not new. At least is not new for the companies that adopted "mobile devices" to improve business processes over the last 40 years.  
 We've seen devices evolving during these decades from a custom operative system, based on top of DOS (Digital Research DOS, to be precise) moving over these years to PalmOS, Pocket PC, Windows Mobile and lately Android.
 
-<span style="display:block;text-align:center">
 ![Symbol's PDT3100](/images/2018_here_be_dragons/pdt3100.png "Symbol's PDT3100")
-</span>
 
 The increased size of the mobile market has increased the specialization of these operative systems. Moving away from the concept of a small PC in your pocket (I'm talking about you, PocketPC) to an OS designed for internet-enabled mobile devices. An OS with a new release every year and more than 2 Billion active users in the world.
 
 <span style="display:block;text-align:center">
+
 **THIS CHANGES EVERYTHING!**
+
 </span>
 
 What was once a nice market, with only a few players, is experiencing in the last few years an acceleration that needs to be addressed by the IT organization inside the companies that are deploying enterprise mobility solutions for Line of Business (LoB) application.  
@@ -85,12 +79,10 @@ We (WE) need to act as the matching network for two very different worlds:
 
 How can we combine these two worlds?
 
-<span style="display:block;text-align:center">
 ![Impedance Matching](/images/2018_here_be_dragons/impedence_matching.png "Impedance Matching")
-</span>
-
 
 ## Ok, this is really about security!
+
 Hey Pietro, I was thinking that this was a talk on security, not on history!
 
 [Let's take a look at what Wikipedia says about security](https://en.wikipedia.org/wiki/Computer_security):
@@ -101,27 +93,25 @@ Hey Pietro, I was thinking that this was a talk on security, not on history!
 The most important topic here is the prevention of theft of data and preventing services disruptions.
 
 Talking about Line Of Business application, this means that we need to guarantee the security of a solution during all of its lifecycles.
+
 ### So... This is all about security!
+
 How can we guarantee the lifecycle that an enterprise company requires (working with the same device for 5+ years) keeping the device secure?
 
 It's simple, providing security updates for at least five years...
 
 ### LifeGuard for Android
+
 In 2017 Zebra Technologies introduced [LifeGuard for Android](https://www.zebra.com/lifeguard).
 
-<span style="display:block;text-align:center">
 ![LifeGuard for Android](/images/2018_here_be_dragons/lifeguard_0.png "LifeGuard for Android")
-</span>
 
 LifeGuard™ for Android™ is Zebra’s software security solution that extends the lifecycle of Zebra Android enterprise mobile computers.  
 LifeGuard adds years of OS security support after consumer support stops to match the enterprise hardware lifecycle, helping your business significantly lower total cost of ownership.
 
 With LifeGuard, you will receive extended security support, predictable periodic security updates and legacy OS security support when transitioning to a newer OS. Frequent updates will enhance your security and LifeGuard makes them easy to install at your discretion, either locally, or remotely via Enterprise Mobility Management (EMM).
 
-<span style="display:block;text-align:center">
 ![LifeGuard for Android](/images/2018_here_be_dragons/lifeguard_1.png "LifeGuard for Android")
-</span>
-
 
 ### Problem solved?
 > *"In theory, there is no difference between theory and practice. But, in practice, there is."*
@@ -133,13 +123,12 @@ Here's is where the impedance mismatch reveals its effect.
 
 Zebra Technologies has released more than 250 security patches for its devices in less than one year, but some customers are still using the same Operative System that they deployed initially on their devices more than two years ago...
 
-<span style="display:block;text-align:center">
 ![WAT](/images/2018_here_be_dragons/wat.png "WAT")
-</span>
 
 Making available the security updates doesn't mean that these customers are going to install them on the devices!
 
 ## Why is this happening?
+
 Pushing updates to enterprise devices is not an option:
   
   - Updates need to be controlled by the IT organization to happens only in particular time windows
@@ -159,6 +148,7 @@ We (WE) need to find and promote a solution.
 ## Solution? A work in progress
 
 ### 1. Measuring what is installed on the devices
+
 First, we need to know what is installed on the device, having a clear picture is key in this cases:
 
   - Which OS version is installed (the build number)
@@ -166,27 +156,24 @@ First, we need to know what is installed on the device, having a clear picture i
   - other relevant SW releases that we need to collect
   - Any HW information that may be relevant
 
-<span style="display:block;text-align:center">
 ![Measure twice, cut once](/images/2018_here_be_dragons/measure2cut1.png "Measure twice, cut once")
-</span>
 
 <span style="display:block;text-align:center">
+
 **VISIBILITY IS AN ASSET**
+
 </span>
 
 During the last couple of years, Zebra has introduced on the market a couple of visibility solution following the market demands.
 
-<span style="display:block;text-align:center">
 ![Visibility that's visionary](/images/2018_here_be_dragons/visibility.jpg "Visibility that's visionary")
-</span>
 
 ### 2. Simplify deployment
+
 When you have a device and you are in charge to decide if you need an OS update or not. It's easy!  
 Stuff starts to be complicated when your Android device is far-far away.
 
-<span style="display:block;text-align:center">
 ![Far Far Away Android](/images/2018_here_be_dragons/far-far-away_android.png "Far Far Away Android")
-</span>
 
 ... and you have 1000 devices connected to a closed network, with limited bandwidth.
 
@@ -200,6 +187,7 @@ One solution is to adopt some relay servers for the EMM software you choose to d
 We're investigating the possibility to have the update download on a single device and then having this device to behaves as a server for the other devices in the same location. This will allow reducing the overall bandwidth requirement but creates other concern regarding the stability of the solution.
 
 ### 3. Simplify testing
+
 There's a big elephant in the room that we've not yet touched: a lot of enterprise companies are not equipped to automate their tests.
 
 And is not just about installing a new security update with the idea that it doesn't change much.
@@ -211,22 +199,20 @@ For some companies, doing a complete test takes weeks. To be fair, it's not just
 
 This is the most critical challenge that now Zebra Technologies is targeting to allows companies to move from a "Golden Image" mentality to a "Rolling Release".
 
-<span style="display:block;text-align:center">
 ![Testing as a service](/images/2018_here_be_dragons/testing_services.jpg "Testing as a service")
-</span>
 
 ## Call to action
+
 These are dangerous AND unexplored territories. 
 
-<span style="display:block;text-align:center">
 [![Dragons](/images/2018_here_be_dragons/Sea_Monster_Chet_Van_Duzer.jpg "Dragons")](https://www.livescience.com/39465-sea-monsters-on-medieval-maps.html)
-</span>
 
 I know that these are real pain points for our customers.
 
 It's a great opportunity for software developers and entrepreneurs... There're enterprises looking for a solution in this space!
 
 ## Media References in the presentation
+
 * [Drakon](https://en.wikipedia.org/wiki/DRAKON)
 * [dragonJS](https://github.com/chrisabrams/dragon)
 * [Sea Dragon](https://www.livescience.com/39465-sea-monsters-on-medieval-maps.html)

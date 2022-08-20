@@ -31,9 +31,7 @@ Fast forwarding to 2016, Zebra released EMDK v4.0 where we can find as a new fea
 
 This, together with the `ProcessProfileAsync()` method allows building an application that process a profile asynchronously as soon as the Mx framework is available.
 
-<span style="display:block;text-align:center">
 ![Async All the things](/images/20180628_async/async_all_the_things.png "Async")
-</span>
 
 ## Setting the stage for the problem
 
@@ -41,7 +39,10 @@ As of today, the latest available [Zebra's EMDK for Android is v6.9](https://www
 
 The first step is to create a working application using the Synchronous version of the Profile Manager API to apply a simple profile, in this case, we can use the Clock profile, with this sample EMDKConfig.xml:
 
-    <?xml version="1.0" encoding="UTF-8"?><!--This is an auto generated document. Changes to this document may cause incorrect behavior.--><wap-provisioningdoc>
+{{< highlight xml "linenos=table" >}}
+<?xml version="1.0" encoding="UTF-8"?>
+<!--This is an auto generated document. Changes to this document may cause incorrect behavior.-->
+<wap-provisioningdoc>
     <characteristic type="ProfileInfo">
         <parm name="created_wizard_version" value="6.8.1"/>
     </characteristic>
@@ -57,35 +58,28 @@ The first step is to create a working application using the Synchronous version 
         <parm name="Time" value="09:00:00"/>
         </characteristic>
     </characteristic>
-    </wap-provisioningdoc>
+</wap-provisioningdoc>
+{{< / highlight >}}
 
 You can find the demo at this stage of the [github project looking for the `sync` tag](https://github.com/Zebra/EMDKProfileAsync/releases/tag/sync).
 
 This version of the application works as expected, you launch it, and it changes the date and time of the device.
 
-<span style="display:block;text-align:center">
 ![Sync Success](/images/20180628_async/sync_success.png "sync Success")
-</span>
 
 **BUT**
 
 If you run this application just after the device finish to boot you can get some strange errors:
 
-<span style="display:block;text-align:center">
 ![Sync Error](/images/20180628_async/sync_error.png "Sync Error")
-</span>
 
 Because the error is time-dependent you can be lucky and see a message that provides a bit more insight into what is going on here:
 
-<span style="display:block;text-align:center">
 ![Sync Initializing](/images/20180628_async/sync_initializing.png "Sync Initializing")
-</span>
 
 That's exactly the point, the Mx framework is not immediately ready after boot!
 
-<span style="display:block;text-align:center">
 [![I'm not ready!](/images/20180628_async/keep_calm_notready.png "I'm not ready!")](https://www.keepcalm-o-matic.co.uk/n/keep-calm-mx-is-not-ready-yet/)
-</span>
 
 ## Enter the Async version of the APIs
 
@@ -113,9 +107,85 @@ To use the `getInstanceAsync` we need to implement the `EMDKManager.StatusListen
 
 the `onStatus` method is called when the EMDK is able to provide an instance of the object requested. In our case, a ProfileManager object. So, the first thing we can do is to check that we got the right object:
 
+{{< highlight java "linenos=table" >}}
+if ((EMDKResults.STATUS_CODE.SUCCESS != statusData.getResult()) ||
+    (EMDKManager.FEATURE_TYPE.PROFILE != statusData.getFeatureType()) ||
+    (EMDKManager.FEATURE_TYPE.PROFILE != emdkBase.getType())){
+
+    runOnUiThread(new Runnable() {
+        @Override
+        public void run() {
+            statusTextView.setText("Error: The Profile has not been sent for processing...");
+        }
+    });
+
+    return;
+}
+{{< / highlight >}}
+
+*Keep in mind that this code is not run on the UI Thread, this is why to change an element of the UI, we need to create a runnable on the right thread.*
+
+After having checked that everything is OK, we can start to use our `ProfileManager` object:
+
+{{< highlight java "linenos=table" >}}
+ProfileManager profileManager = (ProfileManager) emdkBase;
+{{< / highlight >}}
+
+Now, before actually being able to process a profile asynchronously, we have to register a DataListener that is going to evaluate the result of the `ProcessProfileAsync` call:
+
+{{< highlight java "linenos=table" >}}
+profileManager.addDataListener(new ProfileManager.DataListener() {
+    @Override
+    public void onData(ProfileManager.ResultData resultData) {
+        String resultString = "Error Applying profile";
+        EMDKResults results = resultData.getResult();
+
+        //Check the return status of processProfile
+        if (results.statusCode == EMDKResults.STATUS_CODE.SUCCESS) {
+            resultString = "Profile Applied Successfully";
+        } else if (results.statusCode == EMDKResults.STATUS_CODE.CHECK_XML) {
+            resultString = parseXML(results.getStatusString());
+        }
+
+        final String finalResultString = resultString;
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                statusTextView.setText(finalResultString);
+            }
+        });
+    }
+});
+{{< / highlight >}}
+
+Keep in mind that this is a `ProfileManager.DataListener`, different from the DataListener used in the barcode API.
+
+Once we have the DataListener in place, we can process the profile checking that the XML is going to be processed by Mx:
+
+{{< highlight java "linenos=table" >}}
+EMDKResults results = profileManager.processProfileAsync(profileName,
+        ProfileManager.PROFILE_FLAG.SET, modifyData);
+
+if (results.statusCode != EMDKResults.STATUS_CODE.PROCESSING) {
+    runOnUiThread(new Runnable() {
+        @Override
+        public void run() {
+            statusTextView.setText("Error: The Profile has not been sent for processing...");
+        }
+    });
+}
+{{< / highlight >}}
+
+## Putting all the pieces together
+
+In the end, putting all the pieces together, this is the code for the onStatus callback:
+
+{{< highlight java "linenos=table" >}}
+@Override
+public void onStatus(EMDKManager.StatusData statusData, EMDKBase emdkBase) {
     if ((EMDKResults.STATUS_CODE.SUCCESS != statusData.getResult()) ||
-        (EMDKManager.FEATURE_TYPE.PROFILE != statusData.getFeatureType()) ||
-        (EMDKManager.FEATURE_TYPE.PROFILE != emdkBase.getType())){
+            (EMDKManager.FEATURE_TYPE.PROFILE != statusData.getFeatureType()) ||
+            (EMDKManager.FEATURE_TYPE.PROFILE != emdkBase.getType())){
 
         runOnUiThread(new Runnable() {
             @Override
@@ -127,114 +197,48 @@ the `onStatus` method is called when the EMDK is able to provide an instance of 
         return;
     }
 
-*Keep in mind that this code is not run on the UI Thread, this is why to change an element of the UI, we need to create a runnable on the right thread.*
-
-After having checked that everything is OK, we can start to use our `ProfileManager` object:
-
     ProfileManager profileManager = (ProfileManager) emdkBase;
 
-Now, before actually being able to process a profile asynchronously, we have to register a DataListener that is going to evaluate the result of the `ProcessProfileAsync` call:
+    if (profileManager != null) {
+        String[] modifyData = new String[1];
 
-    profileManager.addDataListener(new ProfileManager.DataListener() {
-        @Override
-        public void onData(ProfileManager.ResultData resultData) {
-            String resultString = "Error Applying profile";
-            EMDKResults results = resultData.getResult();
-
-            //Check the return status of processProfile
-            if (results.statusCode == EMDKResults.STATUS_CODE.SUCCESS) {
-                resultString = "Profile Applied Successfully";
-            } else if (results.statusCode == EMDKResults.STATUS_CODE.CHECK_XML) {
-                resultString = parseXML(results.getStatusString());
-            }
-
-            final String finalResultString = resultString;
-            runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    statusTextView.setText(finalResultString);
-                }
-            });
-        }
-    });
-
-Keep in mind that this is a `ProfileManager.DataListener`, different from the DataListener used in the barcode API.
-
-Once we have the DataListener in place, we can process the profile checking that the XML is going to be processed by Mx:
-
-    EMDKResults results = profileManager.processProfileAsync(profileName,
-            ProfileManager.PROFILE_FLAG.SET, modifyData);
-
-    if (results.statusCode != EMDKResults.STATUS_CODE.PROCESSING) {
-        runOnUiThread(new Runnable() {
+        profileManager.addDataListener(new ProfileManager.DataListener() {
             @Override
-            public void run() {
-                statusTextView.setText("Error: The Profile has not been sent for processing...");
+            public void onData(ProfileManager.ResultData resultData) {
+                String resultString = "Error Applying profile";
+                EMDKResults results = resultData.getResult();
+
+                //Check the return status of processProfile
+                if (results.statusCode == EMDKResults.STATUS_CODE.SUCCESS) {
+                    resultString = "Profile Applied Successfully";
+                } else if (results.statusCode == EMDKResults.STATUS_CODE.CHECK_XML) {
+                    resultString = parseXML(results.getStatusString());
+                }
+
+                final String finalResultString = resultString;
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        statusTextView.setText(finalResultString);
+                    }
+                });
             }
         });
-    }
 
-## Putting all the pieces together
+        EMDKResults results = profileManager.processProfileAsync(profileName,
+                ProfileManager.PROFILE_FLAG.SET, modifyData);
 
-In the end, putting all the pieces together, this is the code for the onStatus callback:
-
-    @Override
-    public void onStatus(EMDKManager.StatusData statusData, EMDKBase emdkBase) {
-        if ((EMDKResults.STATUS_CODE.SUCCESS != statusData.getResult()) ||
-                (EMDKManager.FEATURE_TYPE.PROFILE != statusData.getFeatureType()) ||
-                (EMDKManager.FEATURE_TYPE.PROFILE != emdkBase.getType())){
-
+        if (results.statusCode != EMDKResults.STATUS_CODE.PROCESSING) {
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
                     statusTextView.setText("Error: The Profile has not been sent for processing...");
                 }
             });
-
-            return;
-        }
-
-        ProfileManager profileManager = (ProfileManager) emdkBase;
-
-        if (profileManager != null) {
-            String[] modifyData = new String[1];
-
-            profileManager.addDataListener(new ProfileManager.DataListener() {
-                @Override
-                public void onData(ProfileManager.ResultData resultData) {
-                    String resultString = "Error Applying profile";
-                    EMDKResults results = resultData.getResult();
-
-                    //Check the return status of processProfile
-                    if (results.statusCode == EMDKResults.STATUS_CODE.SUCCESS) {
-                        resultString = "Profile Applied Successfully";
-                    } else if (results.statusCode == EMDKResults.STATUS_CODE.CHECK_XML) {
-                        resultString = parseXML(results.getStatusString());
-                    }
-
-                    final String finalResultString = resultString;
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            statusTextView.setText(finalResultString);
-                        }
-                    });
-                }
-            });
-
-            EMDKResults results = profileManager.processProfileAsync(profileName,
-                    ProfileManager.PROFILE_FLAG.SET, modifyData);
-
-            if (results.statusCode != EMDKResults.STATUS_CODE.PROCESSING) {
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        statusTextView.setText("Error: The Profile has not been sent for processing...");
-                    }
-                });
-            }
         }
     }
+}
+{{< / highlight >}}
 
 Now, if run this version of the application just after a device boot you'll see that the profile is correctly applied as soon as Mx is ready.
 

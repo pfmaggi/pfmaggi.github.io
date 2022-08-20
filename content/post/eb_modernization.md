@@ -13,9 +13,7 @@ This blog describe the content presented during Zebra Technologies' DEVTALK reco
 
 > Enterprise Browser is not just a browser, it's a business enabler that Symbol, Motorola, Motorola Solutions and now Zebra has developed over the last 15 years.
 
-<span style="display:block;text-align:center">
 ![Believe!](/images/20180321_eb_modernization/cat_believe.png "Believe!")
-</span>
 
 I know that fancy tag line remembers those cats' posters: but it's true!
 
