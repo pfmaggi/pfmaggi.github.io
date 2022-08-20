@@ -38,10 +38,12 @@ Probably some issue with the frequency (did I say that I couldn't find any spec 
 
 Some research on the Web returned a [video on youtube](https://www.youtube.com/watch?v=LKtD3CJE9OU) with some parameters to use in the Raspberry's `config.txt`:
 
-    hdmi_cvt=2104 1560 30 3
-    hdmi_group=2
-    hdmi_mode=87
-    hdmi_drive=2
+{{< highlight ini "linenos=table" >}}
+hdmi_cvt=2104 1560 30 3
+hdmi_group=2
+hdmi_mode=87
+hdmi_drive=2
+{{< / highlight >}}
 
 It is a start!
 
@@ -54,53 +56,63 @@ Raspberry Pi's documentation has a [video section](https://www.raspberrypi.org/d
 My suggestion is to start asking to the monitor if it can provide some additional information of what is does support.
 To do this we can use the `tvservice` command line utility to log the information of the connected monitor to a file:
 
-    $ tvservice -d edid.dat
-    Written 256 bytes to edid.dat
+{{< highlight ini "linenos=table" >}}
+$ tvservice -d edid.dat
+Written 256 bytes to edid.dat
+{{< / highlight >}}
 
 We can then convert this file with `edidparser` to generate a readable text file:
 
-    $ edidparser edid.dat > edid.txt
+{{< highlight ini "linenos=table" >}}
+$ edidparser edid.dat > edid.txt
+{{< / highlight >}}
 
 **Note** These utilities are pre-installed in RaspberryOS, including the lite. I was as surprised as you reading about these utilities on [this article](https://opentechguides.com/how-to/article/raspberry-pi/28/raspi-display-setting.html)
 
 The interesting part, at least for me, are:
 
-    Enabling fuzzy format match...
-    Parsing edit.dat...
-    HDMI:EDID version 1.3, 1 extensions, unknown aspect ratio
-    HDMI:EDID features - videodef 0x80 !standby !suspend !active off; colour encoding:RGB444|YCbCr422; sRGB is not default colourspace; preferred format is native; does not support GTF
-    HDMI:EDID found monitor name descriptor tag 0xfc
-    HDMI:EDID monitor name is Toshiba-UH2D
-    HDMI:EDID found monitor range descriptor tag 0xfd
-    HDMI:EDID monitor range offsets: V min=0, V max=0, H min=0, H max=0
-    HDMI:EDID monitor range: vertical is 20-120 Hz, horizontal is 1-255 kHz, max pixel clock is 290 MHz
-    HDMI:EDID monitor range does not support GTF
-    HDMI:EDID failed to find a matching detail format for 2200x1650p hfp:140 hs:60 hbp:220 vfp:5 vs:5 vbp:20 pixel clock:120 MHz
-    HDMI:EDID calculated refresh rate is 27 Hz
+{{< highlight ini "linenos=table" >}}
+Enabling fuzzy format match...
+Parsing edit.dat...
+HDMI:EDID version 1.3, 1 extensions, unknown aspect ratio
+HDMI:EDID features - videodef 0x80 !standby !suspend !active off; colour encoding:RGB444|YCbCr422; sRGB is not default colourspace; preferred format is native; does not support GTF
+HDMI:EDID found monitor name descriptor tag 0xfc
+HDMI:EDID monitor name is Toshiba-UH2D
+HDMI:EDID found monitor range descriptor tag 0xfd
+HDMI:EDID monitor range offsets: V min=0, V max=0, H min=0, H max=0
+HDMI:EDID monitor range: vertical is 20-120 Hz, horizontal is 1-255 kHz, max pixel clock is 290 MHz
+HDMI:EDID monitor range does not support GTF
+HDMI:EDID failed to find a matching detail format for 2200x1650p hfp:140 hs:60 hbp:220 vfp:5 vs:5 vbp:20 pixel clock:120 MHz
+HDMI:EDID calculated refresh rate is 27 Hz
+{{< / highlight >}}
 
 
 After trying some of the options reported in the `edid.txt` file I decided to try setting up my custom configuration with a custom mode:
 
-    hdmi_group=2
-    hdmi_mode=87
+{{< highlight ini "linenos=table" >}}
+hdmi_group=2
+hdmi_mode=87
+{{< / highlight >}}
 
 As we saw in the previous section we can use the `hdmi_cvt` parameter to configure the screen. In my case I used the monitor resolution and a 25Hz refresh rate... a bit low for a normal monitor, but not if you are driving an eInk.
 
 So the final configuration that I used is:
 
-    # Custom configuration: <width> <height> <framerate> <aspect> <margins> <interlace> <rb>
-    # width        width in pixels
-    # height       height in pixels
-    # framerate    framerate in Hz
-    # aspect       aspect ratio 1=4:3, 2=14:9, 3=16:9, 4=5:4, 5=16:10, 6=15:9
-    # margins      0=margins disabled, 1=margins enabled
-    # interlace    0=progressive, 1=interlaced
-    # rb           0=normal, 1=reduced blanking
-    hdmi_cvt=2200 1560 25 3
-    hdmi_group=2
-    hdmi_mode=87
-    # Normal HDMI mode (sound will be sent if supported and enabled)
-    hdmi_drive=2
+{{< highlight ini "linenos=table" >}}
+# Custom configuration: <width> <height> <framerate> <aspect> <margins> <interlace> <rb>
+# width        width in pixels
+# height       height in pixels
+# framerate    framerate in Hz
+# aspect       aspect ratio 1=4:3, 2=14:9, 3=16:9, 4=5:4, 5=16:10, 6=15:9
+# margins      0=margins disabled, 1=margins enabled
+# interlace    0=progressive, 1=interlaced
+# rb           0=normal, 1=reduced blanking
+hdmi_cvt=2200 1560 25 3
+hdmi_group=2
+hdmi_mode=87
+# Normal HDMI mode (sound will be sent if supported and enabled)
+hdmi_drive=2
+{{< / highlight >}}
 
 I've done some other customization on the font and the shell, but at the end, this is unlikely to be a setup that I want to use long term.
 
@@ -111,20 +123,8 @@ I'll need to try something different. Let me know if you have any suggestion, DM
 
 I forgot to post images of the result, as I wrote, I was hoping for something better.
 
-<span style="display:block;text-align:center">
-
 ![Raspberry Pi booting](/images/20201109_raspberry_eink/boot.png "Raspberry Pi booting")
-
-</span>
-
-<span style="display:block;text-align:center">
 
 ![vimtutor - Black on White](/images/20201109_raspberry_eink/vimtutor.png "vimtutor - Black on White")
 
-</span>
-
-<span style="display:block;text-align:center">
-
 ![Cow Say!](/images/20201109_raspberry_eink/cow_say.png "Cow Say!")
-
-</span>

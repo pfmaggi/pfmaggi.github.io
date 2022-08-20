@@ -131,19 +131,11 @@ Let's try to run this application on a Zebra device and see if the profile it's 
 
 This is the initial situation inside DataWedge:
 
-<span style="display:block;text-align:center">
-
 ![Initial DataWedge situation](/images/20180707_xamarin/datawedge_1.png "Initial DataWedge situation")
-
-</span>
 
 After we run the application, we can see that there's now a profile with the name **Inventory DEMO**:
 
-<span style="display:block;text-align:center">
-
 ![Final DataWedge situation](/images/20180707_xamarin/datawedge_2.png "Final DataWedge situation")
-
-</span>
 
 This is the name we have chosen in our application:
 
@@ -153,11 +145,7 @@ private static string EXTRA_PROFILE_NAME = "Inventory DEMO";
 
 If we look into this profile, we can see that it's associated with our application:
 
-<span style="display:block;text-align:center">
-
 ![DataWedge's profile association](/images/20180707_xamarin/datawedge_3.png "DataWedge's profile association")
-
-</span>
 
 This is because we have set the Package name to `this.PackageName`:
 
@@ -231,11 +219,7 @@ We just need something that send this message!
 
 The DataWedge profile that we're creating with the code we have introduced earlier is sending the data with a broadcast intent using the action `DataWedgeReceiver.IntentAction`. As you may have already guess, we need to create a broadcast receiver in the `Inventory.Droid` project using the Broadcast Receiver template and call it `DataWedgeReceiver`:
 
-<span style="display:block;text-align:center">
-
 ![Broadcast Receiver](/images/20180707_xamarin/broadcast_receiver.png "Broadcast Receiver")
-
-</span>
 
 ### Broadcast receiver
 

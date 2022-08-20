@@ -763,11 +763,7 @@ namespace Inventory
 This is the last change made to the application.
 The full project is now:
 
-<span style="display:block;text-align:center">
-
 ![Final Inventory solution](/images/20180711_xamarin/final_solution.png "Final Inventory solution")
-
-</span>
 
 Thanks to `git`, you can see with a green dot the new files we created in this post, and with a yellow dot the files that we've modified.
 

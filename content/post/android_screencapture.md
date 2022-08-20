@@ -24,15 +24,15 @@ As an example, for a device like the Samsung Z Fold 2, the default/primary scree
 
 There's nothing wrong in Android and its low level tools, they perfectly know that there's more than one screen. You can ask it yourself to the surface flinger. On a device like the Samsung Z Fold 2 you will get two distinct displays:
 
-```text
+{{< highlight shell "linenos=table" >}}
 $ adb shell dumpsys SurfaceFlinger --display-id
 Display 19261213734341250 (HWC display 3): port=130 pnpId=QCM displayName=""
 Display 19261213734341249 (HWC display 0): port=129 pnpId=QCM displayName=""
-```
+{{< / highlight >}}
 
 What about `screencap`? Can it be used to capture both screens?
 
-```text
+{{< highlight shell "linenos=table" >}}
 $ adb shell screencap -h
 usage: screencap [-hp] [-d display-id] [FILENAME]
    -h: this message
@@ -41,14 +41,14 @@ usage: screencap [-hp] [-d display-id] [FILENAME]
        see "dumpsys SurfaceFlinger --display-id" for valid display IDs.
 If FILENAME ends with .png it will be saved as a png.
 If FILENAME is not given, the results will be printed to stdout.
-```
+{{< / highlight >}}
 
 It looks like that the `-d` parameter is what we need. We can then run:
 
-```text
+{{< highlight shell "linenos=table" >}}
 adb exec-out screencap -p -d 19261213734341250> screen_19261213734341250.png
 adb exec-out screencap -p -d 19261213734341249> screen_19261213734341249.png
-```
+{{< / highlight >}}
 
 To capture an image from each screen.
 
@@ -58,7 +58,7 @@ So far, so good. My problem is that lately I'm finding myself capturing a lot of
 
 Here is the end result:
 
-```bash
+{{< highlight shell "linenos=table" >}}
 #!/bin/bash
 
 DEVICES=`adb devices | grep -v devices | grep device | cut -f 1`
@@ -70,7 +70,7 @@ for device in $DEVICES; do
         adb -s $device exec-out screencap -p -d $display > $output
     done
 done
-```
+{{< / highlight >}}
 
 This script capture a screenshot for the displays of all the devices connected to your computer.
 

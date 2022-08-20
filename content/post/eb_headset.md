@@ -25,11 +25,7 @@ Android, being more open than its alternatives, published all the specification 
 
 [Android Headset documentation](https://source.android.com/devices/accessories/headset/plug-headset-spec)
 
-<span style="display:block;text-align:center">
-
 ![Android specification for headset interface](/images/20180712_headset/android_spec.png "Android specification for headset interface")
-
-</span>
 
 Here we're looking how we can intercept the `Button_A` in our application so that we can use it as a barcode trigger.
 
@@ -37,11 +33,7 @@ Looking through [some other documentation on the Android website](https://source
 
 About the hardware, there're online some alternatives but we ended up building our own prototype:
 
-<span style="display:block;text-align:center">
-
 ![Headset finger trigger prototype](/images/20180712_headset/headset.png "Headset finger trigger prototype")
-
-</span>
 
 ## Enterprise Browser's KeyCapture API
 
@@ -71,11 +63,7 @@ Just create a new index.html file with the following content, and copy it to you
 We can then look into EB's logs or use Chrome's DevTools to see what our code is logging.
 In my case, testing this on a TC56 running Android v7.1 Nougat. I get two different KeyCode: 228 and 79. We want both!
 
-<span style="display:block;text-align:center">
-
 ![KeyCodes](/images/20180712_headset/keycapture.png "KeyCodes")
-
-</span>
 
 We can now build our PoC application, starting from the `index.html` page:
 {{< highlight html "linenos=table" >}}
