@@ -10,7 +10,7 @@ tags: ["Android", "Xamarin", "Xamarin.Forms", "FreshMVVM"]
 
 *Note: [the accompanying code is available on GitHub](https://github.com/Zebra/Inventory/releases/tag/NoDWyet).*
 
-As I wrote in [my previous post]({{ relref . "async_profiles.md" }}):
+As I wrote in [my previous post]({{< relref "async_profiles.md" >}}):
 
 > Summer is the perfect time for some cleanup, and I've some older content laying around my laptop that is about time I publish! <br>I'm planning to cover some long-standing argument that I've touched over the last few years as Zebra's EMEA Software Consultant.
 
@@ -30,9 +30,9 @@ The final goal is to have a self-standing application that can configure the bar
 
 The complete series of posts is:
 
-* [Xamarin.Forms + FreshMVVM for enterprise applications]({{ relref . "xamarin_forms_dw.md" }})
-* [Xamarin.Forms + FreshMVVM + DataWedge = 💖]({{ relref . "xamarin_forms_dw_2.md" }})
-* [(Xamarin.Forms + FreshMVVM + DataWedge) take 2]({{ relref . "xamarin_forms_dw_3.md" }})
+* [Xamarin.Forms + FreshMVVM for enterprise applications]({{< relref "xamarin_forms_dw.md" >}})
+* [Xamarin.Forms + FreshMVVM + DataWedge = 💖]({{< relref "xamarin_forms_dw_2.md" >}})
+* [(Xamarin.Forms + FreshMVVM + DataWedge) take 2]({{< relref "xamarin_forms_dw_3.md" >}})
 
 ## Setup
 
@@ -65,31 +65,41 @@ Let's start!
 Using Visual Studio for Mac create a new Project using the template: Multiplatform app -> Blank Forms App (sorry Ugo, we pick C# for this demo):
 
 <span style="display:block;text-align:center">
+
 ![Visual Studio for Mac - create Project Template - step 1](/images/20180704_xamarin/vs_mac_1.png "Visual Studio for Mac - create Project Template - step 1")
+
 </span>
 
 Under Visual Studio for Windows, the template is slightly different:
 
 <span style="display:block;text-align:center">
+
 ![Visual Studio for Windows - create Project Template - step 1](/images/20180704_xamarin/vs_win_1.png "Visual Studio for Windows - create Project Template - step 1")
+
 </span>
 
 Following the template wizard, we can then chose the name of the application and its package
 
 <span style="display:block;text-align:center">
+
 ![Visual Studio for Mac - create Project Template - step 2](/images/20180704_xamarin/vs_mac_2.png "Visual Studio for Mac - create Project Template - step 2")
+
 </span>
 
 and where to save the project, plus some additional choice around the source control management system (git in this case):
 
 <span style="display:block;text-align:center">
+
 ![Visual Studio for Mac - create Project Template - step 3](/images/20180704_xamarin/vs_mac_3.png "Visual Studio for Mac - create Project Template - step 3")
+
 </span>
 
 The options on Visual Studio for Windows are slightly different:
 
 <span style="display:block;text-align:center">
+
 ![Visual Studio for Windows - create Project Template - step 2](/images/20180704_xamarin/vs_win_2.png "Visual Studio for Windows - create Project Template - step 2")
+
 </span>
 
 ## Update NuGet
@@ -97,25 +107,33 @@ The options on Visual Studio for Windows are slightly different:
 The project created by the template already includes Xamarin Forms package
 
 <span style="display:block;text-align:center">
+
 ![Nuget starting scenario](/images/20180704_xamarin/nuget_1.png "Nuget starting scenario")
+
 </span>
 
 But it's always a good idea to check if there's an update available:
 
 <span style="display:block;text-align:center">
+
 ![Nuget Update](/images/20180704_xamarin/nuget_2.png "Nuget Update")
+
 </span>
 
 And, as it usually happens, there's a new Xamarin Forms version, we can accept the license agreement and move on
 
 <span style="display:block;text-align:center">
+
 ![Xamarin Forms license](/images/20180704_xamarin/nuget_3.png "Xamarin Forms license")
+
 </span>
 
 We've now the latest Xamarin Forms version available in our project
 
 <span style="display:block;text-align:center">
+
 ![Nuget final scenario](/images/20180704_xamarin/nuget_4.png "Nuget final scenario")
+
 </span>
 
 ## Install FreshMVVM and SQlite.Net.PCL
@@ -125,19 +143,25 @@ We've then a couple of packages that we're going to add to the project: FreshMvv
 For FreshMvvm the current version is: 2.2.4
 
 <span style="display:block;text-align:center">
+
 ![FreshMvvm Nuget](/images/20180704_xamarin/freshmvvm.png "FreshMvvm Nuget")
+
 </span>
 
 While [SQlite.Net.PCL is at version 1.4.118 (the package we're looking for is the one  by Frank A. Krueger)](https://github.com/praeclarum/sqlite-net)
 
 <span style="display:block;text-align:center">
+
 ![SQLite Nuget](/images/20180704_xamarin/sqlite.png "SQLite Nuget")
+
 </span>
 
 At the end, we've our three NuGet packages added to the project
 
 <span style="display:block;text-align:center">
+
 ![Nuget final scenario](/images/20180704_xamarin/nuget_5.png "Nuget final scenario")
+
 </span>
 
 ## Some cleanup of the project
@@ -145,7 +169,9 @@ At the end, we've our three NuGet packages added to the project
 The template generates for us a `MainPage` in the `Inventory`  project that we don't need, we can delete it and then start to work on our application.
 
 <span style="display:block;text-align:center">
+
 ![Project cleanup](/images/20180704_xamarin/cleanup_1.png "Project Cleanup")
+
 </span>
 
 ## That moment when we talk about the goal of the application
@@ -169,53 +195,61 @@ First of all, create a `Models` folder inside the `Inventory` project.
 Then we can create an `Item` class inside this folder, this will be our first model for the application:
 
 <span style="display:block;text-align:center">
+
 ![Create the Item Model - Step 1](/images/20180704_xamarin/models_1.png "Create the Item Model - Step 1")
+
 </span>
 
 Here's the code generated by the template:
 
 <span style="display:block;text-align:center">
+
 ![Create the Item Model - Step 2](/images/20180704_xamarin/models_2.png "Create the Item Model - Step 2")
+
 </span>
 
 As we wrote initially, the class is created in the `Inventory.Models` namespace, we want to have all of our classes included in a project, in the same namespace. in this case in the `Inventory` namespace.
 
 We can modify the code to become:
 
-    using System;
-    using SQLite;
+{{< highlight csharp "linenos=table" >}}
+using System;
+using SQLite;
 
-    namespace Inventory
+namespace Inventory
+{
+    /// <summary>
+    /// This class uses attributes that SQLite.Net can recognize
+    /// and use to create the table schema.
+    /// </summary>
+    [Table(nameof(Item))]
+    public class Item
     {
-        /// <summary>
-        /// This class uses attributes that SQLite.Net can recognize
-        /// and use to create the table schema.
-        /// </summary>
-        [Table(nameof(Item))]
-        public class Item
+        [PrimaryKey, AutoIncrement]
+        public int? Id { get; set; }
+
+        [NotNull, MaxLength(250)]
+        public string Name { get; set; }
+
+        [NotNull, Indexed, MaxLength(15)]
+        public string Barcode { get; set; }
+
+        public int Quantity { get; set; }
+
+        public bool IsValid()
         {
-            [PrimaryKey, AutoIncrement]
-            public int? Id { get; set; }
-
-            [NotNull, MaxLength(250)]
-            public string Name { get; set; }
-
-            [NotNull, Indexed, MaxLength(15)]
-            public string Barcode { get; set; }
-
-            public int Quantity { get; set; }
-
-            public bool IsValid()
-            {
-                return (!String.IsNullOrWhiteSpace(Name));
-            }
+            return (!String.IsNullOrWhiteSpace(Name));
         }
     }
+}
+{{< / highlight >}}
 
 The final result is:
 
 <span style="display:block;text-align:center">
+
 ![Create the Item Model - Step 3](/images/20180704_xamarin/models_3.png "Create the Item Model - Step 3")
+
 </span>
 
 ## Manage the database communication
@@ -231,55 +265,59 @@ For this we're creating a repository class in the Inventory portable project tha
 Create a `Repository` class in the portable project `Inventory`
 
 <span style="display:block;text-align:center">
+
 ![Create the Repository class - Step 1](/images/20180704_xamarin/repository_1.png "Create the Repository class - Step 1")
+
 </span>
 
 And then copy this code into the newly created file. As you can see we're going to use `async/await` C# functionality to avoid to freeze the application when working on the database.
 
-    using System;
-    using System.Collections.Generic;
-    using System.Threading.Tasks;
-    using SQLite;
+{{< highlight csharp "linenos=table" >}}
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using SQLite;
 
-    namespace Inventory
+namespace Inventory
+{
+    public class Repository
     {
-        public class Repository
+        private readonly SQLiteAsyncConnection conn;
+
+        public string StatusMessage { get; set; }
+
+        public Repository(string dbPath)
         {
-            private readonly SQLiteAsyncConnection conn;
+            conn = new SQLiteAsyncConnection(dbPath);
+            conn.CreateTableAsync<Item>().Wait();
+        }
 
-            public string StatusMessage { get; set; }
-
-            public Repository(string dbPath)
+        public async Task CreateItem(Item item)
+        {
+            try
             {
-                conn = new SQLiteAsyncConnection(dbPath);
-                conn.CreateTableAsync<Item>().Wait();
+                // Basic validation to ensure we have an item name.
+                if (string.IsNullOrWhiteSpace(item.Name))
+                    throw new Exception("Name is required");
+
+                // Insert/update items.
+                var result = await conn.InsertOrReplaceAsync(item).ConfigureAwait(continueOnCapturedContext: false);
+                StatusMessage = $"{result} record(s) added [Item Name: {item.Name}])";
             }
-
-            public async Task CreateItem(Item item)
+            catch (Exception ex)
             {
-                try
-                {
-                    // Basic validation to ensure we have an item name.
-                    if (string.IsNullOrWhiteSpace(item.Name))
-                        throw new Exception("Name is required");
-
-                    // Insert/update items.
-                    var result = await conn.InsertOrReplaceAsync(item).ConfigureAwait(continueOnCapturedContext: false);
-                    StatusMessage = $"{result} record(s) added [Item Name: {item.Name}])";
-                }
-                catch (Exception ex)
-                {
-                    StatusMessage = $"Failed to create item: {item.Name}. Error: {ex.Message}";
-                }
-            }
-
-            public Task<List<Item>> GetAllItems()
-            {
-                // Return a list of items saved to the Item table in the database.
-                return conn.Table<Item>().ToListAsync();
+                StatusMessage = $"Failed to create item: {item.Name}. Error: {ex.Message}";
             }
         }
+
+        public Task<List<Item>> GetAllItems()
+        {
+            // Return a list of items saved to the Item table in the database.
+            return conn.Table<Item>().ToListAsync();
+        }
     }
+}
+{{< / highlight >}}
 
 The constructor of the `Repository` class accepts a string for the path of the database. This is going to be platform dependent, so we want to create a FileAccessHelper class for Android and one for iOS to customize the behaviour of the application for the two platforms.
 
@@ -287,47 +325,51 @@ The constructor of the `Repository` class accepts a string for the path of the d
 
 Create Android `FileAccessHelper` inside the `Inventory.Droid` project so that we return the path to a common repository for documents, [as described on .NET documentation](https://docs.microsoft.com/en-us/dotnet/api/system.environment.specialfolder?view=netframework-4.7.1#System_Environment_SpecialFolder_Personal).
 
-    using System;
-    namespace Inventory.Droid
+{{< highlight csharp "linenos=table" >}}
+using System;
+namespace Inventory.Droid
+{
+    public class FileAccessHelper
     {
-        public class FileAccessHelper
+        public static string GetLocalFilePath(string filename)
         {
-            public static string GetLocalFilePath(string filename)
-            {
-                // Use the SpecialFolder enum to get the Personal folder on the Android file system.
-                // Storing the database here is a best practice.
-                string path = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
-                return System.IO.Path.Combine(path, filename);
-            }
+            // Use the SpecialFolder enum to get the Personal folder on the Android file system.
+            // Storing the database here is a best practice.
+            string path = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+            return System.IO.Path.Combine(path, filename);
         }
     }
+}
+{{< / highlight >}}
 
 ### iOS database location
 
 In a similar way, we can create the `FileAccessHelper` class inside the `Inventory.iOS` project to retrieve the right path where we can create the SQLite database:
 
-    using System;
-    namespace Inventory.iOS
+{{< highlight csharp "linenos=table" >}}
+using System;
+namespace Inventory.iOS
+{
+    public class FileAccessHelper
     {
-        public class FileAccessHelper
+        public static string GetLocalFilePath(string filename)
         {
-            public static string GetLocalFilePath(string filename)
+            // Use the SpecialFolder enum to get the Personal folder on the iOS file system.
+            // Then get or create the Library folder within this personal folder.
+            // Storing the database here is a best practice.
+            var docFolder = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+            var libFolder = System.IO.Path.Combine(docFolder, "..", "Library");
+
+            if (!System.IO.Directory.Exists(libFolder))
             {
-                // Use the SpecialFolder enum to get the Personal folder on the iOS file system.
-                // Then get or create the Library folder within this personal folder.
-                // Storing the database here is a best practice.
-                var docFolder = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-                var libFolder = System.IO.Path.Combine(docFolder, "..", "Library");
-
-                if (!System.IO.Directory.Exists(libFolder))
-                {
-                    System.IO.Directory.CreateDirectory(libFolder);
-                }
-
-                return System.IO.Path.Combine(libFolder, filename);
+                System.IO.Directory.CreateDirectory(libFolder);
             }
+
+            return System.IO.Path.Combine(libFolder, filename);
         }
     }
+}
+{{< / highlight >}}
 
 Now we can create a repository instance on the Android and the iOS side using the FreshMvvm's IoC Container functionality to inject the repository instance in the portable project.
 
@@ -335,23 +377,31 @@ Now we can create a repository instance on the Android and the iOS side using th
 
 Open the `MainActivity.cs` file in the `Inventory.Droid` and add to the `OnCreate` method, just before `LoadApplication(new App())`, to create the repository using the Android's `FileAccessHelper` class:
 
-    var repository = new Repository(FileAccessHelper.GetLocalFilePath("items.db3"));
-    FreshIOC.Container.Register(repository);
+{{< highlight csharp "linenos=table" >}}
+var repository = new Repository(FileAccessHelper.GetLocalFilePath("items.db3"));
+FreshIOC.Container.Register(repository);
+{{< / highlight >}}
 
 Adding the reference
 
-    using FreshMvvm;
+{{< highlight csharp "linenos=table" >}}
+using FreshMvvm;
+{{< / highlight >}}
 
 ### Inject the repository instance on iOS
 
 Open the `AppDelegate.cs` file in the `Inventory.iOS` and add to the `FinishedLaunching` method, just before `LoadApplication(new App())`, to create the repository using the iOS's `FileAccessHelper` class:
 
-    var repository = new Repository(FileAccessHelper.GetLocalFilePath("items.db3"));
-    FreshIOC.Container.Register(repository);
+{{< highlight csharp "linenos=table" >}}
+var repository = new Repository(FileAccessHelper.GetLocalFilePath("items.db3"));
+FreshIOC.Container.Register(repository);
+{{< / highlight >}}
 
 Adding the reference
 
-    using FreshMvvm;
+{{< highlight csharp "linenos=table" >}}
+using FreshMvvm;
+{{< / highlight >}}
 
 This is enough at this moment for the platform-specific code, let's get back to the portable project to finish up the first version of this application.
 
@@ -367,283 +417,295 @@ We want to create the page model and the actual xaml page for the Item detail pa
 
 Inside the `PageModels` folder of the portable project create an `ItemPageModel` class and cut and paste this code to connect the `Item` model to its View:
 
-    using System;
-    using System.Windows.Input;
-    using FreshMvvm;
-    using Xamarin.Forms;
+{{< highlight csharp "linenos=table" >}}
+using System;
+using System.Windows.Input;
+using FreshMvvm;
+using Xamarin.Forms;
 
-    namespace Inventory
+namespace Inventory
+{
+    public class ItemPageModel : FreshBasePageModel
     {
-        public class ItemPageModel : FreshBasePageModel
+        // Use IoC to get our repository.
+        private Repository _repository = FreshIOC.Container.Resolve<Repository>();
+
+        // Backing data model.
+        private Item _item;
+
+        /// <summary>
+        /// Public property exposing the item's name for Page binding.
+        /// </summary>
+        public string ItemName
         {
-            // Use IoC to get our repository.
-            private Repository _repository = FreshIOC.Container.Resolve<Repository>();
+            get { return _item.Name; }
+            set { _item.Name = value; RaisePropertyChanged(); }
+        }
 
-            // Backing data model.
-            private Item _item;
+        /// <summary>
+        /// Public property exposing the item's barcode for Page binding.
+        /// </summary>
+        public string ItemBarcode
+        {
+            get { return _item.Barcode; }
+            set { _item.Barcode = value; RaisePropertyChanged(); }
+        }
 
-            /// <summary>
-            /// Public property exposing the item's name for Page binding.
-            /// </summary>
-            public string ItemName
+        /// <summary>
+        /// Public property exposing the item's quantity for Page binding.
+        /// </summary>
+        public int ItemQuantity
+        {
+            get { return _item.Quantity; }
+            set { _item.Quantity = value; RaisePropertyChanged(); }
+        }
+
+        /// <summary>
+        /// Called whenever the page is navigated to.
+        /// Either use a supplied Item, or create a new one if not supplied.
+        /// FreshMVVM does not provide a RaiseAllPropertyChanged,
+        /// so we do this for each bound property, room for improvement.
+        /// </summary>
+        public override void Init(object initData)
+        {
+            _item = initData as Item;
+            if (_item == null) _item = new Item();
+            base.Init(initData);
+            RaisePropertyChanged(nameof(ItemName));
+            RaisePropertyChanged(nameof(ItemBarcode));
+        }
+
+        /// <summary>
+        /// Command associated with the save action.
+        /// Persists the item to the database if the item is valid.
+        /// </summary>
+        public ICommand SaveCommand
+        {
+            get
             {
-                get { return _item.Name; }
-                set { _item.Name = value; RaisePropertyChanged(); }
-            }
-
-            /// <summary>
-            /// Public property exposing the item's barcode for Page binding.
-            /// </summary>
-            public string ItemBarcode
-            {
-                get { return _item.Barcode; }
-                set { _item.Barcode = value; RaisePropertyChanged(); }
-            }
-
-            /// <summary>
-            /// Public property exposing the item's quantity for Page binding.
-            /// </summary>
-            public int ItemQuantity
-            {
-                get { return _item.Quantity; }
-                set { _item.Quantity = value; RaisePropertyChanged(); }
-            }
-
-            /// <summary>
-            /// Called whenever the page is navigated to.
-            /// Either use a supplied Item, or create a new one if not supplied.
-            /// FreshMVVM does not provide a RaiseAllPropertyChanged,
-            /// so we do this for each bound property, room for improvement.
-            /// </summary>
-            public override void Init(object initData)
-            {
-                _item = initData as Item;
-                if (_item == null) _item = new Item();
-                base.Init(initData);
-                RaisePropertyChanged(nameof(ItemName));
-                RaisePropertyChanged(nameof(ItemBarcode));
-            }
-
-            /// <summary>
-            /// Command associated with the save action.
-            /// Persists the item to the database if the item is valid.
-            /// </summary>
-            public ICommand SaveCommand
-            {
-                get
-                {
-                    return new Command(async () => {
-                        if (_item.IsValid())
-                        {
-                            await _repository.CreateItem(_item);
-                            await CoreMethods.PopPageModel(_item);
-                        }
-                    });
-                }
+                return new Command(async () => {
+                    if (_item.IsValid())
+                    {
+                        await _repository.CreateItem(_item);
+                        await CoreMethods.PopPageModel(_item);
+                    }
+                });
             }
         }
     }
+}
+{{< / highlight >}}
 
 ### Item detail Page
 
 Inside the Pages folder, create an ItemPage XAML form
 
 <span style="display:block;text-align:center">
+
 ![Create the ItemPage XAML](/images/20180704_xamarin/itempage_xaml.png "Create the ItemPage XAML")
+
 </span>
 
 This wizard creates the `ItemPage.xaml` file, plus the code-behind file `ItemPage.xaml.cs`.
 
 ### `ItemPage.xaml`
 
-    <?xml version="1.0" encoding="utf-8"?>
-    <!-- Add the xmlns:fresh line and use it to resolve the fresh:FreshBaseContentPage declaration -->
-    <fresh:FreshBaseContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Inventory.ItemPage" xmlns:fresh="clr-namespace:FreshMvvm;assembly=Inventory">
-        <ContentPage.Content>
-            <StackLayout Padding="15" Spacing="5">
-                <Label Text="Item Name" />
-                <Entry Text="{Binding ItemName}" />
-                <Label Text="Item Barcode" />
-                <Entry Text="{Binding ItemBarcode}" />
-                <Label Text="Item Quantity" />
-                <Entry Text="{Binding ItemQuantity}" />
-                <Button Text="Save" Command="{Binding SaveCommand}" />
-            </StackLayout>
-        </ContentPage.Content>
-    </fresh:FreshBaseContentPage>
+{{< highlight xml "linenos=table" >}}
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Add the xmlns:fresh line and use it to resolve the fresh:FreshBaseContentPage declaration -->
+<fresh:FreshBaseContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Inventory.ItemPage" xmlns:fresh="clr-namespace:FreshMvvm;assembly=Inventory">
+    <ContentPage.Content>
+        <StackLayout Padding="15" Spacing="5">
+            <Label Text="Item Name" />
+            <Entry Text="{Binding ItemName}" />
+            <Label Text="Item Barcode" />
+            <Entry Text="{Binding ItemBarcode}" />
+            <Label Text="Item Quantity" />
+            <Entry Text="{Binding ItemQuantity}" />
+            <Button Text="Save" Command="{Binding SaveCommand}" />
+        </StackLayout>
+    </ContentPage.Content>
+</fresh:FreshBaseContentPage>
+{{< / highlight >}}
 
 ### `ItemPage.xaml.cs`
 
 The code behind is just initializing the page using the xaml definition:
 
-    using FreshMvvm;
+{{< highlight csharp "linenos=table" >}}
+using FreshMvvm;
 
-    namespace Inventory
+namespace Inventory
+{
+    public partial class ItemPage : FreshBaseContentPage
     {
-        public partial class ItemPage : FreshBaseContentPage
+        public ItemPage()
         {
-            public ItemPage()
-            {
-                InitializeComponent();
-            }
+            InitializeComponent();
         }
     }
+}
+{{< / highlight >}}
 
 ## Item list PageModel and Page
 
 Inside the `PageModels` folder of the portable project create an `ItemListPageModel` class and cut and paste this code to connect it to the `Repository` class:
 
-    using FreshMvvm;
-    using System.Collections.Generic;
-    using System.Collections.ObjectModel;
-    using System.Linq;
-    using System.Threading.Tasks;
-    using System.Windows.Input;
-    using Xamarin.Forms;
+{{< highlight csharp "linenos=table" >}}
+using FreshMvvm;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Windows.Input;
+using Xamarin.Forms;
 
-    namespace Inventory
+namespace Inventory
+{
+    public class ItemListPageModel : FreshBasePageModel
     {
-        public class ItemListPageModel : FreshBasePageModel
+        private Repository _repository = FreshIOC.Container.Resolve<Repository>();
+        private Item _selectedItem = null;
+
+        /// <summary>
+        /// Collection used for binding to the Page's item list view.
+        /// </summary>
+        public ObservableCollection<Item> Items { get; private set; }
+
+        /// <summary>
+        /// Used to bind with the list view's SelectedItem property.
+        /// Calls the EditItemCommand to start the editing.
+        /// </summary>
+        public Item SelectedItem
         {
-            private Repository _repository = FreshIOC.Container.Resolve<Repository>();
-            private Item _selectedItem = null;
-
-            /// <summary>
-            /// Collection used for binding to the Page's item list view.
-            /// </summary>
-            public ObservableCollection<Item> Items { get; private set; }
-
-            /// <summary>
-            /// Used to bind with the list view's SelectedItem property.
-            /// Calls the EditItemCommand to start the editing.
-            /// </summary>
-            public Item SelectedItem
+            get { return _selectedItem; }
+            set
             {
-                get { return _selectedItem; }
-                set
-                {
-                    _selectedItem = value;
-                    if (value != null) EditItemCommand.Execute(value);
-                }
-            }
-
-            public ItemListPageModel()
-            {
-                Items = new ObservableCollection<Item>();
-            }
-
-            /// <summary>
-            /// Called whenever the page is navigated to.
-            /// Here we are ignoring the init data and just loading the items.
-            /// </summary>
-            public override void Init(object initData)
-            {
-                LoadItems();
-                if (Items.Count() < 1)
-                {
-                    CreateSampleData();
-                }
-            }
-
-            /// <summary>
-            /// Called whenever the page is navigated to, but from a pop action.
-            /// Here we are just updating the item list with most recent data.
-            /// </summary>
-            /// <param name="returnedData"></param>
-            public override void ReverseInit(object returnedData)
-            {
-                LoadItems();
-                base.ReverseInit(returnedData);
-            }
-
-            /// <summary>
-            /// Command associated with the add item action.
-            /// Navigates to the ItemPageModel with no Init object.
-            /// </summary>
-            public ICommand AddItemCommand
-            {
-                get
-                {
-                    return new Command(async () => {
-                        await CoreMethods.PushPageModel<ItemPageModel>();
-                    });
-                }
-            }
-
-            /// <summary>
-            /// Command associated with the edit item action.
-            /// Navigates to the ItemPageModel with the selected item as the Init object.
-            /// </summary>
-            public ICommand EditItemCommand
-            {
-                get
-                {
-                    return new Command(async (item) => {
-                        await CoreMethods.PushPageModel<ItemPageModel>(item);
-                    });
-                }
-            }
-
-            /// <summary>
-            /// Repopulate the collection with updated items data.
-            /// Note: For simplicity, we wait for the async db call to complete,
-            /// recommend making better use of the async potential.
-            /// </summary>
-            private void LoadItems()
-            {
-                Items.Clear();
-                Task<List<Item>> getItemTask = _repository.GetAllItems();
-                getItemTask.Wait();
-                foreach (var item in getItemTask.Result)
-                {
-                    Items.Add(item);
-                }
-            }
-
-            /// <summary>
-            /// Uses the SQLite Async capability to insert sample data on multiple threads.
-            /// </summary>
-            private void CreateSampleData()
-            {
-                var item1 = new Item
-                {
-                    Name = "Milk",
-                    Barcode = "8001234567890",
-                    Quantity = 10
-                };
-
-                var item2 = new Item
-                {
-                    Name = "Soup",
-                    Barcode = "8002345678901",
-                    Quantity = 5
-                };
-
-                var item3 = new Item
-                {
-                    Name = "Water",
-                    Barcode = "8003456789012",
-                    Quantity = 20
-                };
-
-                var task1 = _repository.CreateItem(item1);
-                var task2 = _repository.CreateItem(item2);
-                var task3 = _repository.CreateItem(item3);
-
-                // Don't proceed until all the async inserts are complete.
-                var allTasks = Task.WhenAll(task1, task2, task3);
-                allTasks.Wait();
-
-                LoadItems();
+                _selectedItem = value;
+                if (value != null) EditItemCommand.Execute(value);
             }
         }
+
+        public ItemListPageModel()
+        {
+            Items = new ObservableCollection<Item>();
+        }
+
+        /// <summary>
+        /// Called whenever the page is navigated to.
+        /// Here we are ignoring the init data and just loading the items.
+        /// </summary>
+        public override void Init(object initData)
+        {
+            LoadItems();
+            if (Items.Count() < 1)
+            {
+                CreateSampleData();
+            }
+        }
+
+        /// <summary>
+        /// Called whenever the page is navigated to, but from a pop action.
+        /// Here we are just updating the item list with most recent data.
+        /// </summary>
+        /// <param name="returnedData"></param>
+        public override void ReverseInit(object returnedData)
+        {
+            LoadItems();
+            base.ReverseInit(returnedData);
+        }
+
+        /// <summary>
+        /// Command associated with the add item action.
+        /// Navigates to the ItemPageModel with no Init object.
+        /// </summary>
+        public ICommand AddItemCommand
+        {
+            get
+            {
+                return new Command(async () => {
+                    await CoreMethods.PushPageModel<ItemPageModel>();
+                });
+            }
+        }
+
+        /// <summary>
+        /// Command associated with the edit item action.
+        /// Navigates to the ItemPageModel with the selected item as the Init object.
+        /// </summary>
+        public ICommand EditItemCommand
+        {
+            get
+            {
+                return new Command(async (item) => {
+                    await CoreMethods.PushPageModel<ItemPageModel>(item);
+                });
+            }
+        }
+
+        /// <summary>
+        /// Repopulate the collection with updated items data.
+        /// Note: For simplicity, we wait for the async db call to complete,
+        /// recommend making better use of the async potential.
+        /// </summary>
+        private void LoadItems()
+        {
+            Items.Clear();
+            Task<List<Item>> getItemTask = _repository.GetAllItems();
+            getItemTask.Wait();
+            foreach (var item in getItemTask.Result)
+            {
+                Items.Add(item);
+            }
+        }
+
+        /// <summary>
+        /// Uses the SQLite Async capability to insert sample data on multiple threads.
+        /// </summary>
+        private void CreateSampleData()
+        {
+            var item1 = new Item
+            {
+                Name = "Milk",
+                Barcode = "8001234567890",
+                Quantity = 10
+            };
+
+            var item2 = new Item
+            {
+                Name = "Soup",
+                Barcode = "8002345678901",
+                Quantity = 5
+            };
+
+            var item3 = new Item
+            {
+                Name = "Water",
+                Barcode = "8003456789012",
+                Quantity = 20
+            };
+
+            var task1 = _repository.CreateItem(item1);
+            var task2 = _repository.CreateItem(item2);
+            var task3 = _repository.CreateItem(item3);
+
+            // Don't proceed until all the async inserts are complete.
+            var allTasks = Task.WhenAll(task1, task2, task3);
+            allTasks.Wait();
+
+            LoadItems();
+        }
     }
+}
+{{< / highlight >}}
 
 ## Item List Page
 Inside the Pages folder, create an ItemListPage XAML form.
 
 <span style="display:block;text-align:center">
+
 ![Create the ItemListPage XAML](/images/20180704_xamarin/itemlistpage_xaml.png "Create the ItemListPage XAML")
+
 </span>
 
 This wizard creates the `ItemListPage.xaml` file, plus the code-behind file `ItemListPage.xaml.cs`.
@@ -652,108 +714,124 @@ This wizard creates the `ItemListPage.xaml` file, plus the code-behind file `Ite
 
 The xaml code that we're using here is going to add a toolbar with an `Add` action, linked to the `AddItemCommand` that we can find in the Item List PageModel. The data are then shown using a listview with the data coming from the Items collection in the Item List PageModel:
 
-    <?xml version="1.0" encoding="utf-8" ?>
-    <!-- Add the xmlns:fresh line and use it to resolve the fresh:FreshBaseContentPage declaration -->
-    <fresh:FreshBaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-                                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                                x:Class="Inventory.ItemListPage"
-                                xmlns:fresh="clr-namespace:FreshMvvm;assembly=Inventory">
-    <fresh:FreshBaseContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Command="{Binding AddItemCommand}" />
-    </fresh:FreshBaseContentPage.ToolbarItems>
-    <ListView ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem}">
-        <ListView.ItemTemplate >
-        <DataTemplate>
-            <TextCell Text="{Binding Name}" Detail="{Binding Quantity}" />
-        </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
-    </fresh:FreshBaseContentPage>
+{{< highlight xml "linenos=table" >}}
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Add the xmlns:fresh line and use it to resolve the fresh:FreshBaseContentPage declaration -->
+<fresh:FreshBaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                            x:Class="Inventory.ItemListPage"
+                            xmlns:fresh="clr-namespace:FreshMvvm;assembly=Inventory">
+<fresh:FreshBaseContentPage.ToolbarItems>
+    <ToolbarItem Text="Add" Command="{Binding AddItemCommand}" />
+</fresh:FreshBaseContentPage.ToolbarItems>
+<ListView ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem}">
+    <ListView.ItemTemplate >
+    <DataTemplate>
+        <TextCell Text="{Binding Name}" Detail="{Binding Quantity}" />
+    </DataTemplate>
+    </ListView.ItemTemplate>
+</ListView>
+</fresh:FreshBaseContentPage>
+{{< / highlight >}}
 
 ### `ItemListPage.xaml.cs`
 
 The code behind is just initializing the page using the xaml definition:
 
-    using System;
-    using System.Collections.Generic;
-    using FreshMvvm;
-    using Xamarin.Forms;
+{{< highlight csharp "linenos=table" >}}
+using System;
+using System.Collections.Generic;
+using FreshMvvm;
+using Xamarin.Forms;
 
-    namespace Inventory
+namespace Inventory
+{
+    public partial class ItemListPage : FreshBaseContentPage
     {
-        public partial class ItemListPage : FreshBaseContentPage
+        public ItemListPage()
         {
-            public ItemListPage()
-            {
-                InitializeComponent();
-            }
+            InitializeComponent();
         }
     }
+}
+{{< / highlight >}}
 
 ## Connecting the Pages to the application
 
 We've now to connect the initial page (ItemList) with the application. We can do this adding this code to the `App.xaml.cs` constructor, after `InitializeComponent()`
 
-    var page = FreshPageModelResolver.ResolvePageModel<ItemListPageModel>();
-    var navContainer = new FreshNavigationContainer(page);
-    MainPage = navContainer;
+{{< highlight csharp "linenos=table" >}}
+var page = FreshPageModelResolver.ResolvePageModel<ItemListPageModel>();
+var navContainer = new FreshNavigationContainer(page);
+MainPage = navContainer;
+{{< / highlight >}}
 
 adding the reference:
 
-    using FreshMvvm;
+{{< highlight csharp "linenos=table" >}}
+using FreshMvvm;
+{{< / highlight >}}
 
 The complete file became:
 
-    using System;
-    using FreshMvvm;
-    using Xamarin.Forms;
-    using Xamarin.Forms.Xaml;
+{{< highlight csharp "linenos=table" >}}
+using System;
+using FreshMvvm;
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
-    [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
-    namespace Inventory
+[assembly: XamlCompilation(XamlCompilationOptions.Compile)]
+namespace Inventory
+{
+    public partial class App : Application
     {
-        public partial class App : Application
+        public App()
         {
-            public App()
-            {
-                InitializeComponent();
+            InitializeComponent();
 
-                var page = FreshPageModelResolver.ResolvePageModel<ItemListPageModel>();
-                var navContainer = new FreshNavigationContainer(page);
-                MainPage = navContainer;
-            }
+            var page = FreshPageModelResolver.ResolvePageModel<ItemListPageModel>();
+            var navContainer = new FreshNavigationContainer(page);
+            MainPage = navContainer;
+        }
 
-            protected override void OnStart()
-            {
-                // Handle when your app starts
-            }
+        protected override void OnStart()
+        {
+            // Handle when your app starts
+        }
 
-            protected override void OnSleep()
-            {
-                // Handle when your app sleeps
-            }
+        protected override void OnSleep()
+        {
+            // Handle when your app sleeps
+        }
 
-            protected override void OnResume()
-            {
-                // Handle when your app resumes
-            }
+        protected override void OnResume()
+        {
+            // Handle when your app resumes
         }
     }
+}
+{{< / highlight >}}
 
 These are all the files we expect to have in the portable project:
 
 <span style="display:block;text-align:center">
+
 ![Ready for the first run](/images/20180704_xamarin/first_run.png "Ready for the first run")
+
 </span>
 
 we can now run the iOS or the Android project to verify that the application works correctly:
 
 <span style="display:block;text-align:center">
+
 ![First run on iOS](/images/20180704_xamarin/first_run_ios.png "First run on iOS")
+
 </span>
 
 <span style="display:block;text-align:center">
+
 ![First run on Android](/images/20180704_xamarin/first_run_android.png "First run on Android")
+
 </span>
 
-In the next post we're going to see how we can integrate DataWedge's Intent API taking advantage of FreshMVVM IoC functionalities.
+In the [next post]({{< relref "xamarin_forms_dw_2.md" >}}) we're going to see how we can integrate DataWedge's Intent API taking advantage of FreshMVVM IoC functionalities.

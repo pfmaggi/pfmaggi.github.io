@@ -59,14 +59,14 @@ namespace Inventory
 We're going to create a second interface, with the name `IScannerConfig` to abstract the configuration of the barcode scanner. The code of this interface is going to be:
 
 {{< highlight csharp "linenos=table" >}}
-    using System;
+using System;
 
-    namespace Inventory
+namespace Inventory
+{
+    public interface IScannerConfig
     {
-        public interface IScannerConfig
-        {
-        }
     }
+}
 {{< / highlight >}}
 
 We're going to add few models to support this new integration of the barcode scanning functionalities.
@@ -76,68 +76,68 @@ We're going to add few models to support this new integration of the barcode sca
 We're still working at the portable project level, the Xamarin Forms application. Inside the `Models` folder, create a new `Barcode` class:
 
 {{< highlight csharp "linenos=table" >}}
-    using System;
-    namespace Inventory
+using System;
+namespace Inventory
+{
+    public class Barcode
     {
-        public class Barcode
+        private string data;
+        public string Data
         {
-            private string data;
-            public string Data
-            {
-                get { return data; }
-                set { data = value; }
-            }
+            get { return data; }
+            set { data = value; }
+        }
 
-            private string type;
-            public string Type
-            {
-                get { return type; }
-                set { type = value; }
-            }
+        private string type;
+        public string Type
+        {
+            get { return type; }
+            set { type = value; }
+        }
 
-            private string info;
-            public string Info
-            {
-                get { return $"{data} / {type}"; }
-            }
+        private string info;
+        public string Info
+        {
+            get { return $"{data} / {type}"; }
+        }
 
-            public Barcode() { }
+        public Barcode() { }
 
-            public Barcode(string a_data, string a_type)
-            {
-                data = a_data;
-                type = a_type;
-            }
+        public Barcode(string a_data, string a_type)
+        {
+            data = a_data;
+            type = a_type;
         }
     }
+}
 {{< / highlight >}}
 
 Then we need another class, again in the `Models` folder, for the Events. Create a new class with the name `StatusEventArgs`:
 
 {{< highlight csharp "linenos=table" >}}
-    using System;
-    namespace Inventory
+using System;
+namespace Inventory
+{
+    /// <summary>
+    /// Custom event args for use by the scanner
+    /// </summary>
+    public class StatusEventArgs : EventArgs
     {
-        /// <summary>
-        /// Custom event args for use by the scanner
-        /// </summary>
-        public class StatusEventArgs : EventArgs
+        private string barcodeData;
+
+        public StatusEventArgs(string dataIn, string barcodeTypeIn)
         {
-            private string barcodeData;
-
-            public StatusEventArgs(string dataIn, string barcodeTypeIn)
-            {
-                barcodeData = dataIn;
-                barcodeType = barcodeTypeIn;
-            }
-
-            public string Data { get { return barcodeData; } }
-
-            private string barcodeType;
-            public string BarcodeType { get { return barcodeType; } }
-
+            barcodeData = dataIn;
+            barcodeType = barcodeTypeIn;
         }
+
+        public string Data { get { return barcodeData; } }
+
+        private string barcodeType;
+        public string BarcodeType { get { return barcodeType; } }
+
     }
+}
 {{< / highlight >}}
 
 The last model class we need to create is the one that bring some knowledge of Zebra's DataWedge functionality in the portable project. In reality, this doesn't stops the application to work on other device or to have the application built for iOS. Simply we want to control DataWedge from the Xamarin.Forms code and, if we want to be able to run the application on other Android devices or on iOS, we simply need to take in account that some of these features are not going to be available on those devices.
@@ -145,54 +145,54 @@ The last model class we need to create is the one that bring some knowledge of Z
 Inside the `Models` folder create a `ZebraScannerConfig` class:
 
 {{< highlight csharp "linenos=table" >}}
-    using System;
+using System;
 
-    namespace Inventory
+namespace Inventory
+{
+    public class ZebraScannerConfig : IScannerConfig
     {
-        public class ZebraScannerConfig : IScannerConfig
+        public TriggerType TriggerType { get; set; }
+
+        public bool IsEAN8 { get; set; }
+        public bool IsEAN13 { get; set; }
+        public bool IsCode39 { get; set; }
+        public bool IsCode128 { get; set; }
+        public bool IsContinuous { get; set; }
+        public bool IsUPCA { get; set; }
+        public bool IsUPCE0 { get; set; }
+        public bool IsUPCE1 { get; set; }
+        public bool IsD2of5 { get; set; }
+        public bool IsI2of5 { get; set; }
+        public bool IsAztec { get; set; }
+        public bool IsPDF417 { get; set; }
+        public bool IsQRCode { get; set; }
+
+        public ZebraScannerConfig()
         {
-            public TriggerType TriggerType { get; set; }
+            IsEAN8 = true;
+            IsEAN13 = true;
+            IsCode39 = true;
+            IsCode128 = true;
+            IsUPCA = true;
+            IsUPCE0 = true;
+            IsUPCE1 = true;
+            IsD2of5 = false;
+            IsI2of5 = true;
+            IsAztec = false;
+            IsPDF417 = true;
+            IsQRCode = true;
 
-            public bool IsEAN8 { get; set; }
-            public bool IsEAN13 { get; set; }
-            public bool IsCode39 { get; set; }
-            public bool IsCode128 { get; set; }
-            public bool IsContinuous { get; set; }
-            public bool IsUPCA { get; set; }
-            public bool IsUPCE0 { get; set; }
-            public bool IsUPCE1 { get; set; }
-            public bool IsD2of5 { get; set; }
-            public bool IsI2of5 { get; set; }
-            public bool IsAztec { get; set; }
-            public bool IsPDF417 { get; set; }
-            public bool IsQRCode { get; set; }
-
-            public ZebraScannerConfig()
-            {
-                IsEAN8 = true;
-                IsEAN13 = true;
-                IsCode39 = true;
-                IsCode128 = true;
-                IsUPCA = true;
-                IsUPCE0 = true;
-                IsUPCE1 = true;
-                IsD2of5 = false;
-                IsI2of5 = true;
-                IsAztec = false;
-                IsPDF417 = true;
-                IsQRCode = true;
-
-                IsContinuous = true;
-                TriggerType = TriggerType.HARD;
-            }
-        }
-
-        public enum TriggerType
-        {
-            HARD,
-            SOFT
+            IsContinuous = true;
+            TriggerType = TriggerType.HARD;
         }
     }
+
+    public enum TriggerType
+    {
+        HARD,
+        SOFT
+    }
+}
 {{< / highlight >}}
 
 ## Implementing the IScanner interface with DataWedge's Intent APIs
@@ -202,186 +202,186 @@ It's now the moment to implement the `IScanner` interface on top of DataWedge's 
 Create a new class with the name `Scanner_Android`. This is going to contain the bulk of (all) the logic to control DataWedge:
 
 {{< highlight csharp "linenos=table" >}}
-    using System;
-    using Android.App;
-    using Android.Content;
-    using Android.OS;
+using System;
+using Android.App;
+using Android.Content;
+using Android.OS;
 
-    namespace Inventory.Droid
+namespace Inventory.Droid
+{
+    public class Scanner_Android : IScanner
     {
-        public class Scanner_Android : IScanner
+        private Context _context = null;
+        private bool _bRegistered = false;
+        private DataWedgeReceiver _broadcastReceiver = null;
+        private static string ACTION_DATAWEDGE_FROM_6_2 = "com.symbol.datawedge.api.ACTION";
+        private static string EXTRA_CREATE_PROFILE = "com.symbol.datawedge.api.CREATE_PROFILE";
+        private static string EXTRA_SET_CONFIG = "com.symbol.datawedge.api.SET_CONFIG";
+        private static string EXTRA_PROFILE_NAME = "Inventory DEMO";
+
+        public Scanner_Android()
         {
-            private Context _context = null;
-            private bool _bRegistered = false;
-            private DataWedgeReceiver _broadcastReceiver = null;
-            private static string ACTION_DATAWEDGE_FROM_6_2 = "com.symbol.datawedge.api.ACTION";
-            private static string EXTRA_CREATE_PROFILE = "com.symbol.datawedge.api.CREATE_PROFILE";
-            private static string EXTRA_SET_CONFIG = "com.symbol.datawedge.api.SET_CONFIG";
-            private static string EXTRA_PROFILE_NAME = "Inventory DEMO";
+            _context = Application.Context;
 
-            public Scanner_Android()
+            _broadcastReceiver = new DataWedgeReceiver();
+
+            _broadcastReceiver.scanDataReceived += (s, scanData) =>
             {
-                _context = Application.Context;
+                OnScanDataCollected?.Invoke(this, scanData);
+            };
 
-                _broadcastReceiver = new DataWedgeReceiver();
+            CreateProfile();
+        }
 
-                _broadcastReceiver.scanDataReceived += (s, scanData) =>
-                {
-                    OnScanDataCollected?.Invoke(this, scanData);
-                };
+        public event EventHandler<StatusEventArgs> OnScanDataCollected;
+        public event EventHandler<string> OnStatusChanged;
 
-                CreateProfile();
+
+        public void Disable()
+        {
+            if ((null != _broadcastReceiver) && (null != _context) && _bRegistered)
+            {
+                // Unregister the broadcast receiver
+                _context.UnregisterReceiver(_broadcastReceiver);
+                _bRegistered = false;
             }
 
-            public event EventHandler<StatusEventArgs> OnScanDataCollected;
-            public event EventHandler<string> OnStatusChanged;
+            DisableProfile();
+        }
 
+        public void Enable()
+        {
+            _context = Application.Context;
 
-            public void Disable()
+            if ((null != _broadcastReceiver) && (null != _context))
             {
-                if ((null != _broadcastReceiver) && (null != _context) && _bRegistered)
-                {
-                    // Unregister the broadcast receiver
-                    _context.UnregisterReceiver(_broadcastReceiver);
-                    _bRegistered = false;
-                }
-
-                DisableProfile();
+                // Register the broadcast receiver
+                IntentFilter filter = new IntentFilter(DataWedgeReceiver.IntentAction);
+                filter.AddCategory(DataWedgeReceiver.IntentCategory);
+                _context.RegisterReceiver(_broadcastReceiver, filter);
+                _bRegistered = true;
             }
 
-            public void Enable()
-            {
-                _context = Application.Context;
+            EnableProfile();
+        }
 
-                if ((null != _broadcastReceiver) && (null != _context))
-                {
-                    // Register the broadcast receiver
-                    IntentFilter filter = new IntentFilter(DataWedgeReceiver.IntentAction);
-                    filter.AddCategory(DataWedgeReceiver.IntentCategory);
-                    _context.RegisterReceiver(_broadcastReceiver, filter);
-                    _bRegistered = true;
-                }
+        public void Read()
+        {
+            // We can use this to activate a Soft triggered barcode scanning decoding
+            throw new NotImplementedException();
+        }
 
-                EnableProfile();
-            }
+        public void SetConfig(IScannerConfig a_config)
+        {
 
-            public void Read()
-            {
-                // We can use this to activate a Soft triggered barcode scanning decoding
-                throw new NotImplementedException();
-            }
+            ZebraScannerConfig config = (ZebraScannerConfig)a_config;
 
-            public void SetConfig(IScannerConfig a_config)
-            {
+            Bundle profileConfig = new Bundle();
+            profileConfig.PutString("PROFILE_NAME", EXTRA_PROFILE_NAME);
+            profileConfig.PutString("PROFILE_ENABLED", _bRegistered ? "true" : "false"); //  Seems these are all strings
+            profileConfig.PutString("CONFIG_MODE", "UPDATE");
+            Bundle barcodeConfig = new Bundle();
+            barcodeConfig.PutString("PLUGIN_NAME", "BARCODE");
+            barcodeConfig.PutString("RESET_CONFIG", "false"); //  This is the default but never hurts to specify
+            Bundle barcodeProps = new Bundle();
+            barcodeProps.PutString("scanner_input_enabled", "true");
+            barcodeProps.PutString("scanner_selection", "auto"); //  Could also specify a number here, the id returned from ENUMERATE_SCANNERS.
+                                                                //  Do NOT use "Auto" here (with a capital 'A'), it must be lower case.
+            barcodeProps.PutString("decoder_ean8", config.IsEAN8 ? "true" : "false");
+            barcodeProps.PutString("decoder_ean13", config.IsEAN13 ? "true" : "false");
+            barcodeProps.PutString("decoder_code39", config.IsCode39 ? "true" : "false");
+            barcodeProps.PutString("decoder_code128", config.IsCode128 ? "true" : "false");
+            barcodeProps.PutString("decoder_upca", config.IsUPCA ? "true" : "false");
+            barcodeProps.PutString("decoder_upce0", config.IsUPCE0 ? "true" : "false");
+            barcodeProps.PutString("decoder_upce1", config.IsUPCE1 ? "true" : "false");
+            barcodeProps.PutString("decoder_d2of5", config.IsD2of5 ? "true" : "false");
+            barcodeProps.PutString("decoder_i2of5", config.IsI2of5 ? "true" : "false");
+            barcodeProps.PutString("decoder_aztec", config.IsAztec ? "true" : "false");
+            barcodeProps.PutString("decoder_pdf417", config.IsPDF417 ? "true" : "false");
+            barcodeProps.PutString("decoder_qrcode", config.IsQRCode ? "true" : "false");
 
-                ZebraScannerConfig config = (ZebraScannerConfig)a_config;
+            barcodeConfig.PutBundle("PARAM_LIST", barcodeProps);
+            profileConfig.PutBundle("PLUGIN_CONFIG", barcodeConfig);
+            Bundle appConfig = new Bundle();
+            appConfig.PutString("PACKAGE_NAME", Android.App.Application.Context.PackageName);      //  Associate the profile with this app
+            appConfig.PutStringArray("ACTIVITY_LIST", new String[] { "*" });
+            profileConfig.PutParcelableArray("APP_LIST", new Bundle[] { appConfig });
+            SendDataWedgeIntentWithExtra(ACTION_DATAWEDGE_FROM_6_2, EXTRA_SET_CONFIG, profileConfig);
 
-                Bundle profileConfig = new Bundle();
-                profileConfig.PutString("PROFILE_NAME", EXTRA_PROFILE_NAME);
-                profileConfig.PutString("PROFILE_ENABLED", _bRegistered ? "true" : "false"); //  Seems these are all strings
-                profileConfig.PutString("CONFIG_MODE", "UPDATE");
-                Bundle barcodeConfig = new Bundle();
-                barcodeConfig.PutString("PLUGIN_NAME", "BARCODE");
-                barcodeConfig.PutString("RESET_CONFIG", "false"); //  This is the default but never hurts to specify
-                Bundle barcodeProps = new Bundle();
-                barcodeProps.PutString("scanner_input_enabled", "true");
-                barcodeProps.PutString("scanner_selection", "auto"); //  Could also specify a number here, the id returned from ENUMERATE_SCANNERS.
-                                                                    //  Do NOT use "Auto" here (with a capital 'A'), it must be lower case.
-                barcodeProps.PutString("decoder_ean8", config.IsEAN8 ? "true" : "false");
-                barcodeProps.PutString("decoder_ean13", config.IsEAN13 ? "true" : "false");
-                barcodeProps.PutString("decoder_code39", config.IsCode39 ? "true" : "false");
-                barcodeProps.PutString("decoder_code128", config.IsCode128 ? "true" : "false");
-                barcodeProps.PutString("decoder_upca", config.IsUPCA ? "true" : "false");
-                barcodeProps.PutString("decoder_upce0", config.IsUPCE0 ? "true" : "false");
-                barcodeProps.PutString("decoder_upce1", config.IsUPCE1 ? "true" : "false");
-                barcodeProps.PutString("decoder_d2of5", config.IsD2of5 ? "true" : "false");
-                barcodeProps.PutString("decoder_i2of5", config.IsI2of5 ? "true" : "false");
-                barcodeProps.PutString("decoder_aztec", config.IsAztec ? "true" : "false");
-                barcodeProps.PutString("decoder_pdf417", config.IsPDF417 ? "true" : "false");
-                barcodeProps.PutString("decoder_qrcode", config.IsQRCode ? "true" : "false");
+        }
 
-                barcodeConfig.PutBundle("PARAM_LIST", barcodeProps);
-                profileConfig.PutBundle("PLUGIN_CONFIG", barcodeConfig);
-                Bundle appConfig = new Bundle();
-                appConfig.PutString("PACKAGE_NAME", Android.App.Application.Context.PackageName);      //  Associate the profile with this app
-                appConfig.PutStringArray("ACTIVITY_LIST", new String[] { "*" });
-                profileConfig.PutParcelableArray("APP_LIST", new Bundle[] { appConfig });
-                SendDataWedgeIntentWithExtra(ACTION_DATAWEDGE_FROM_6_2, EXTRA_SET_CONFIG, profileConfig);
+        private void EnableProfile()
+        {
+            //  Now configure that created profile to apply to our application
+            Bundle profileConfig = new Bundle();
+            profileConfig.PutString("PROFILE_NAME", EXTRA_PROFILE_NAME);
+            profileConfig.PutString("PROFILE_ENABLED", "true"); //  Seems these are all strings
+            profileConfig.PutString("CONFIG_MODE", "UPDATE");
+            SendDataWedgeIntentWithExtra(ACTION_DATAWEDGE_FROM_6_2, EXTRA_SET_CONFIG, profileConfig);
+        }
 
-            }
+        private void DisableProfile()
+        {
+            //  Now configure that created profile to apply to our application
+            Bundle profileConfig = new Bundle();
+            profileConfig.PutString("PROFILE_NAME", EXTRA_PROFILE_NAME);
+            profileConfig.PutString("PROFILE_ENABLED", "false"); //  Seems these are all strings
+            profileConfig.PutString("CONFIG_MODE", "UPDATE");
+            SendDataWedgeIntentWithExtra(ACTION_DATAWEDGE_FROM_6_2, EXTRA_SET_CONFIG, profileConfig);
+        }
 
-            private void EnableProfile()
-            {
-                //  Now configure that created profile to apply to our application
-                Bundle profileConfig = new Bundle();
-                profileConfig.PutString("PROFILE_NAME", EXTRA_PROFILE_NAME);
-                profileConfig.PutString("PROFILE_ENABLED", "true"); //  Seems these are all strings
-                profileConfig.PutString("CONFIG_MODE", "UPDATE");
-                SendDataWedgeIntentWithExtra(ACTION_DATAWEDGE_FROM_6_2, EXTRA_SET_CONFIG, profileConfig);
-            }
+        private void CreateProfile()
+        {
+            String profileName = EXTRA_PROFILE_NAME;
+            SendDataWedgeIntentWithExtra(ACTION_DATAWEDGE_FROM_6_2, EXTRA_CREATE_PROFILE, profileName);
 
-            private void DisableProfile()
-            {
-                //  Now configure that created profile to apply to our application
-                Bundle profileConfig = new Bundle();
-                profileConfig.PutString("PROFILE_NAME", EXTRA_PROFILE_NAME);
-                profileConfig.PutString("PROFILE_ENABLED", "false"); //  Seems these are all strings
-                profileConfig.PutString("CONFIG_MODE", "UPDATE");
-                SendDataWedgeIntentWithExtra(ACTION_DATAWEDGE_FROM_6_2, EXTRA_SET_CONFIG, profileConfig);
-            }
+            //  Now configure that created profile to apply to our application
+            Bundle profileConfig = new Bundle();
+            profileConfig.PutString("PROFILE_NAME", EXTRA_PROFILE_NAME);
+            profileConfig.PutString("PROFILE_ENABLED", "true"); //  Seems these are all strings
+            profileConfig.PutString("CONFIG_MODE", "UPDATE");
+            Bundle barcodeConfig = new Bundle();
+            barcodeConfig.PutString("PLUGIN_NAME", "BARCODE");
+            barcodeConfig.PutString("RESET_CONFIG", "true"); //  This is the default but never hurts to specify
+            Bundle barcodeProps = new Bundle();
+            barcodeConfig.PutBundle("PARAM_LIST", barcodeProps);
+            profileConfig.PutBundle("PLUGIN_CONFIG", barcodeConfig);
+            Bundle appConfig = new Bundle();
+            appConfig.PutString("PACKAGE_NAME", Android.App.Application.Context.PackageName);      //  Associate the profile with this app
+            appConfig.PutStringArray("ACTIVITY_LIST", new String[] { "*" });
+            profileConfig.PutParcelableArray("APP_LIST", new Bundle[] { appConfig });
+            SendDataWedgeIntentWithExtra(ACTION_DATAWEDGE_FROM_6_2, EXTRA_SET_CONFIG, profileConfig);
+            //  You can only configure one plugin at a time, we have done the barcode input, now do the intent output
+            profileConfig.Remove("PLUGIN_CONFIG");
+            Bundle intentConfig = new Bundle();
+            intentConfig.PutString("PLUGIN_NAME", "INTENT");
+            intentConfig.PutString("RESET_CONFIG", "true");
+            Bundle intentProps = new Bundle();
+            intentProps.PutString("intent_output_enabled", "true");
+            intentProps.PutString("intent_action", DataWedgeReceiver.IntentAction);
+            intentProps.PutString("intent_delivery", "2");
+            intentConfig.PutBundle("PARAM_LIST", intentProps);
+            profileConfig.PutBundle("PLUGIN_CONFIG", intentConfig);
+            SendDataWedgeIntentWithExtra(ACTION_DATAWEDGE_FROM_6_2, EXTRA_SET_CONFIG, profileConfig);
+        }
 
-            private void CreateProfile()
-            {
-                String profileName = EXTRA_PROFILE_NAME;
-                SendDataWedgeIntentWithExtra(ACTION_DATAWEDGE_FROM_6_2, EXTRA_CREATE_PROFILE, profileName);
+        private void SendDataWedgeIntentWithExtra(String action, String extraKey, Bundle extras)
+        {
+            Intent dwIntent = new Intent();
+            dwIntent.SetAction(action);
+            dwIntent.PutExtra(extraKey, extras);
+            _context.SendBroadcast(dwIntent);
+        }
 
-                //  Now configure that created profile to apply to our application
-                Bundle profileConfig = new Bundle();
-                profileConfig.PutString("PROFILE_NAME", EXTRA_PROFILE_NAME);
-                profileConfig.PutString("PROFILE_ENABLED", "true"); //  Seems these are all strings
-                profileConfig.PutString("CONFIG_MODE", "UPDATE");
-                Bundle barcodeConfig = new Bundle();
-                barcodeConfig.PutString("PLUGIN_NAME", "BARCODE");
-                barcodeConfig.PutString("RESET_CONFIG", "true"); //  This is the default but never hurts to specify
-                Bundle barcodeProps = new Bundle();
-                barcodeConfig.PutBundle("PARAM_LIST", barcodeProps);
-                profileConfig.PutBundle("PLUGIN_CONFIG", barcodeConfig);
-                Bundle appConfig = new Bundle();
-                appConfig.PutString("PACKAGE_NAME", Android.App.Application.Context.PackageName);      //  Associate the profile with this app
-                appConfig.PutStringArray("ACTIVITY_LIST", new String[] { "*" });
-                profileConfig.PutParcelableArray("APP_LIST", new Bundle[] { appConfig });
-                SendDataWedgeIntentWithExtra(ACTION_DATAWEDGE_FROM_6_2, EXTRA_SET_CONFIG, profileConfig);
-                //  You can only configure one plugin at a time, we have done the barcode input, now do the intent output
-                profileConfig.Remove("PLUGIN_CONFIG");
-                Bundle intentConfig = new Bundle();
-                intentConfig.PutString("PLUGIN_NAME", "INTENT");
-                intentConfig.PutString("RESET_CONFIG", "true");
-                Bundle intentProps = new Bundle();
-                intentProps.PutString("intent_output_enabled", "true");
-                intentProps.PutString("intent_action", DataWedgeReceiver.IntentAction);
-                intentProps.PutString("intent_delivery", "2");
-                intentConfig.PutBundle("PARAM_LIST", intentProps);
-                profileConfig.PutBundle("PLUGIN_CONFIG", intentConfig);
-                SendDataWedgeIntentWithExtra(ACTION_DATAWEDGE_FROM_6_2, EXTRA_SET_CONFIG, profileConfig);
-            }
-
-            private void SendDataWedgeIntentWithExtra(String action, String extraKey, Bundle extras)
-            {
-                Intent dwIntent = new Intent();
-                dwIntent.SetAction(action);
-                dwIntent.PutExtra(extraKey, extras);
-                _context.SendBroadcast(dwIntent);
-            }
-
-            private void SendDataWedgeIntentWithExtra(String action, String extraKey, String extraValue)
-            {
-                Intent dwIntent = new Intent();
-                dwIntent.SetAction(action);
-                dwIntent.PutExtra(extraKey, extraValue);
-                _context.SendBroadcast(dwIntent);
-            }
+        private void SendDataWedgeIntentWithExtra(String action, String extraKey, String extraValue)
+        {
+            Intent dwIntent = new Intent();
+            dwIntent.SetAction(action);
+            dwIntent.PutExtra(extraKey, extraValue);
+            _context.SendBroadcast(dwIntent);
         }
     }
+}
 {{< / highlight >}}
 
 Part of the code that we've here was inside the Main Activity class before. I never liked the idea to have logic talking to DataWedge inside that class!
@@ -389,39 +389,39 @@ Part of the code that we've here was inside the Main Activity class before. I ne
 Now `Main_Activity` is cleaner:
 
 {{< highlight csharp "linenos=table" >}}
-    using System;
-    using Android.App;
-    using Android.Content.PM;
-    using Android.OS;
-    using FreshMvvm;
+using System;
+using Android.App;
+using Android.Content.PM;
+using Android.OS;
+using FreshMvvm;
 
-    namespace Inventory.Droid
+namespace Inventory.Droid
+{
+    [Activity(Label = "Inventory", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
-        [Activity(Label = "Inventory", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
-        public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
+        private IScanner _scanner = null;
+
+        protected override void OnCreate(Bundle bundle)
         {
-            private IScanner _scanner = null;
+            TabLayoutResource = Resource.Layout.Tabbar;
+            ToolbarResource = Resource.Layout.Toolbar;
 
-            protected override void OnCreate(Bundle bundle)
-            {
-                TabLayoutResource = Resource.Layout.Tabbar;
-                ToolbarResource = Resource.Layout.Toolbar;
+            base.OnCreate(bundle);
 
-                base.OnCreate(bundle);
+            global::Xamarin.Forms.Forms.Init(this, bundle);
 
-                global::Xamarin.Forms.Forms.Init(this, bundle);
+            var repository = new Repository(FileAccessHelper.GetLocalFilePath("items.db3"));
+            FreshIOC.Container.Register(repository);
 
-                var repository = new Repository(FileAccessHelper.GetLocalFilePath("items.db3"));
-                FreshIOC.Container.Register(repository);
+            _scanner = new Scanner_Android();
+            FreshIOC.Container.Register(_scanner);
 
-                _scanner = new Scanner_Android();
-                FreshIOC.Container.Register(_scanner);
-
-                LoadApplication(new App());
-            }
-
+            LoadApplication(new App());
         }
+
     }
+}
 {{< / highlight >}}
 
 As you can see we're now creating an instance of the `Scanner_Android` class and register it with FreshMVVM IOC. An alternative can be to use [Xamarin.Forms dependency service](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/app-fundamentals/dependency-service/introduction), but I liked the idea to use this IOC.
@@ -430,81 +430,81 @@ Swapping to the dependency service should be trivial (and is left as an exercise
 Another required change, to the previous version of the application, is in the Broadcast receiver. We need to update it to send the barcode data using the `Barcode` class, instead than sending a string:
 
 {{< highlight csharp "linenos=table" >}}
-    using System;
-    using Android.Content;
+using System;
+using Android.Content;
 
-    namespace Inventory.Droid
+namespace Inventory.Droid
+{
+    [BroadcastReceiver]
+    public class DataWedgeReceiver : BroadcastReceiver
     {
-        [BroadcastReceiver]
-        public class DataWedgeReceiver : BroadcastReceiver
+        // This intent string contains the source of the data as a string
+        private static string SOURCE_TAG = "com.motorolasolutions.emdk.datawedge.source";
+        // This intent string contains the barcode symbology as a string
+        private static string LABEL_TYPE_TAG = "com.motorolasolutions.emdk.datawedge.label_type";
+        // This intent string contains the captured data as a string
+        // (in the case of MSR this data string contains a concatenation of the track data)
+        private static string DATA_STRING_TAG = "com.motorolasolutions.emdk.datawedge.data_string";
+        // Intent Action for our operation
+        public static string IntentAction = "barcodescanner.RECVR";
+        public static string IntentCategory = "android.intent.category.DEFAULT";
+
+        public event EventHandler<StatusEventArgs> scanDataReceived;
+
+        public override void OnReceive(Context context, Intent i)
         {
-            // This intent string contains the source of the data as a string
-            private static string SOURCE_TAG = "com.motorolasolutions.emdk.datawedge.source";
-            // This intent string contains the barcode symbology as a string
-            private static string LABEL_TYPE_TAG = "com.motorolasolutions.emdk.datawedge.label_type";
-            // This intent string contains the captured data as a string
-            // (in the case of MSR this data string contains a concatenation of the track data)
-            private static string DATA_STRING_TAG = "com.motorolasolutions.emdk.datawedge.data_string";
-            // Intent Action for our operation
-            public static string IntentAction = "barcodescanner.RECVR";
-            public static string IntentCategory = "android.intent.category.DEFAULT";
-
-            public event EventHandler<StatusEventArgs> scanDataReceived;
-
-            public override void OnReceive(Context context, Intent i)
+            // check the intent action is for us
+            if (i.Action.Equals(IntentAction))
             {
-                // check the intent action is for us
-                if (i.Action.Equals(IntentAction))
+                // define a string that will hold our output
+                String Out = "";
+                String sLabelType = "";
+                // get the source of the data
+                String source = i.GetStringExtra(SOURCE_TAG);
+                // save it to use later
+                if (source == null)
+                    source = "scanner";
+                // get the data from the intent
+                String data = i.GetStringExtra(DATA_STRING_TAG);
+                // let's define a variable for the data length
+                int data_len = 0;
+                // and set it to the length of the data
+                if (data != null)
+                    data_len = data.Length;
+                // check if the data has come from the barcode scanner
+                if (source.Equals("scanner"))
                 {
-                    // define a string that will hold our output
-                    String Out = "";
-                    String sLabelType = "";
-                    // get the source of the data
-                    String source = i.GetStringExtra(SOURCE_TAG);
-                    // save it to use later
-                    if (source == null)
-                        source = "scanner";
-                    // get the data from the intent
-                    String data = i.GetStringExtra(DATA_STRING_TAG);
-                    // let's define a variable for the data length
-                    int data_len = 0;
-                    // and set it to the length of the data
-                    if (data != null)
-                        data_len = data.Length;
-                    // check if the data has come from the barcode scanner
-                    if (source.Equals("scanner"))
+                    // check if there is anything in the data
+                    if (data != null && data.Length > 0)
                     {
-                        // check if there is anything in the data
-                        if (data != null && data.Length > 0)
+                        // we have some data, so let's get it's symbology
+                        sLabelType = i.GetStringExtra(LABEL_TYPE_TAG);
+                        // check if the string is empty
+                        if (sLabelType != null && sLabelType.Length > 0)
                         {
-                            // we have some data, so let's get it's symbology
-                            sLabelType = i.GetStringExtra(LABEL_TYPE_TAG);
-                            // check if the string is empty
-                            if (sLabelType != null && sLabelType.Length > 0)
-                            {
-                                // format of the label type string is LABEL-TYPE-SYMBOLOGY
-                                // so let's skip the LABEL-TYPE- portion to get just the symbology
-                                sLabelType = sLabelType.Substring(11);
-                            }
-                            else
-                            {
-                                // the string was empty so let's set it to "Unknown"
-                                sLabelType = "Unknown";
-                            }
-
-                            // let's construct the beginning of our output string
-                            Out = data.ToString() + "\r\n";
+                            // format of the label type string is LABEL-TYPE-SYMBOLOGY
+                            // so let's skip the LABEL-TYPE- portion to get just the symbology
+                            sLabelType = sLabelType.Substring(11);
                         }
-                    }
+                        else
+                        {
+                            // the string was empty so let's set it to "Unknown"
+                            sLabelType = "Unknown";
+                        }
 
-                    if (scanDataReceived != null)
-                    {
-                        scanDataReceived(this, new StatusEventArgs(Out, sLabelType));
+                        // let's construct the beginning of our output string
+                        Out = data.ToString() + "\r\n";
                     }
+                }
+
+                if (scanDataReceived != null)
+                {
+                    scanDataReceived(this, new StatusEventArgs(Out, sLabelType));
                 }
             }
         }
     }
+}
 {{< / highlight >}}
 
 We've now done all the plumbing necessary to handle the barcode scanner in our application. Let's move back at the Xamarin.Forms level to see how we can now control the barcode scanner from there.
@@ -516,34 +516,34 @@ What we want to implement is to have the barcode scanner enabled only in the `It
 We're going to modify the `ItemListPageModel` class implementing the two methods `ViewIsAppearing` and `ViewIsDisappearing` to enable and disable the barcode scanner:
 
 {{< highlight csharp "linenos=table" >}}
-    protected override void ViewIsAppearing(object sender, EventArgs e)
+protected override void ViewIsAppearing(object sender, EventArgs e)
+{
+    base.ViewIsAppearing(sender, e);
+    var scanner = FreshIOC.Container.Resolve<IScanner>();
+
+    scanner.Enable();
+    scanner.OnScanDataCollected += ScannedDataCollected;
+    scanner.OnStatusChanged += ScannedStatusChanged;
+
+    var config = new ZebraScannerConfig();
+    config.IsUPCE0 = false;
+    config.IsUPCE1 = false;
+
+    scanner.SetConfig(config);
+} 
+
+protected override void ViewIsDisappearing(object sender, EventArgs e)
+{
+    var scanner = FreshIOC.Container.Resolve<IScanner>();
+
+    if (null != scanner)
     {
-        base.ViewIsAppearing(sender, e);
-        var scanner = FreshIOC.Container.Resolve<IScanner>();
-
-        scanner.Enable();
-        scanner.OnScanDataCollected += ScannedDataCollected;
-        scanner.OnStatusChanged += ScannedStatusChanged;
-
-        var config = new ZebraScannerConfig();
-        config.IsUPCE0 = false;
-        config.IsUPCE1 = false;
-
-        scanner.SetConfig(config);
-    } 
-
-    protected override void ViewIsDisappearing(object sender, EventArgs e)
-    {
-        var scanner = FreshIOC.Container.Resolve<IScanner>();
-
-        if (null != scanner)
-        {
-            scanner.Disable();
-            scanner.OnScanDataCollected -= ScannedDataCollected;
-            scanner.OnStatusChanged -= ScannedStatusChanged;
-        }
-        base.ViewIsDisappearing(sender, e);
+        scanner.Disable();
+        scanner.OnScanDataCollected -= ScannedDataCollected;
+        scanner.OnStatusChanged -= ScannedStatusChanged;
     }
+    base.ViewIsDisappearing(sender, e);
+}
 {{< / highlight >}}
 
 We can see that here, we're not only enabling/disabling the barcode scanner so that is only active when this view is in the foreground. We're configuring the enabled decoders of the barcode and we're registering the event handler to call when we receive the data. Most of what we need to control the barcode scanner is here.
@@ -553,211 +553,211 @@ As we wrote before, we're using FreshMVVM's IOC to retrieve a reference to the a
 The complete `ItemListPageModel` class became:
 
 {{< highlight csharp "linenos=table" >}}
-    using FreshMvvm;
-    using System;
-    using System.Collections.Generic;
-    using System.Collections.ObjectModel;
-    using System.Linq;
-    using System.Threading.Tasks;
-    using System.Windows.Input;
-    using Xamarin.Forms;
+using FreshMvvm;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Windows.Input;
+using Xamarin.Forms;
 
-    namespace Inventory
+namespace Inventory
+{
+    public class ItemListPageModel : FreshBasePageModel
     {
-        public class ItemListPageModel : FreshBasePageModel
+        private Repository _repository = FreshIOC.Container.Resolve<Repository>();
+        private Item _selectedItem = null;
+
+        /// <summary>
+        /// Collection used for binding to the Page's item list view.
+        /// </summary>
+        public ObservableCollection<Item> Items { get; private set; }
+
+        /// <summary>
+        /// Used to bind with the list view's SelectedItem property.
+        /// Calls the EditItemCommand to start the editing.
+        /// </summary>
+        public Item SelectedItem
         {
-            private Repository _repository = FreshIOC.Container.Resolve<Repository>();
-            private Item _selectedItem = null;
-
-            /// <summary>
-            /// Collection used for binding to the Page's item list view.
-            /// </summary>
-            public ObservableCollection<Item> Items { get; private set; }
-
-            /// <summary>
-            /// Used to bind with the list view's SelectedItem property.
-            /// Calls the EditItemCommand to start the editing.
-            /// </summary>
-            public Item SelectedItem
+            get { return _selectedItem; }
+            set
             {
-                get { return _selectedItem; }
-                set
-                {
-                    _selectedItem = value;
-                    if (value != null) EditItemCommand.Execute(value);
-                }
-            }
-
-            public ItemListPageModel()
-            {
-                Items = new ObservableCollection<Item>();
-            }
-
-            /// <summary>
-            /// Called whenever the page is navigated to.
-            /// Here we are ignoring the init data and just loading the items.
-            /// </summary>
-            public override void Init(object initData)
-            {
-                LoadItems();
-                if (Items.Count() < 1)
-                {
-                    CreateSampleData();
-                }
-
-            }
-
-            protected override void ViewIsAppearing(object sender, EventArgs e)
-            {
-                base.ViewIsAppearing(sender, e);
-                var scanner = FreshIOC.Container.Resolve<IScanner>();
-
-                scanner.Enable();
-                scanner.OnScanDataCollected += ScannedDataCollected;
-                scanner.OnStatusChanged += ScannedStatusChanged;
-
-                var config = new ZebraScannerConfig();
-                config.IsUPCE0 = false;
-                config.IsUPCE1 = false;
-
-                scanner.SetConfig(config);
-            } 
-
-            protected override void ViewIsDisappearing(object sender, EventArgs e)
-            {
-                var scanner = FreshIOC.Container.Resolve<IScanner>();
-
-                if (null != scanner)
-                {
-                    scanner.Disable();
-                    scanner.OnScanDataCollected -= ScannedDataCollected;
-                    scanner.OnStatusChanged -= ScannedStatusChanged;
-                }
-                base.ViewIsDisappearing(sender, e);
-            }
-
-            /// <summary>
-            /// Called whenever the page is navigated to, but from a pop action.
-            /// Here we are just updating the item list with most recent data.
-            /// </summary>
-            /// <param name="returnedData"></param>
-            public override void ReverseInit(object returnedData)
-            {
-                LoadItems();
-                base.ReverseInit(returnedData);
-            }
-
-            /// <summary>
-            /// Command associated with the add item action.
-            /// Navigates to the ItemPageModel with no Init object.
-            /// </summary>
-            public ICommand AddItemCommand
-            {
-                get
-                {
-                    return new Command(async () => {
-                        await CoreMethods.PushPageModel<ItemPageModel>();
-                    });
-                }
-            }
-
-            /// <summary>
-            /// Command associated with the edit item action.
-            /// Navigates to the ItemPageModel with the selected item as the Init object.
-            /// </summary>
-            public ICommand EditItemCommand
-            {
-                get
-                {
-                    return new Command(async (item) => {
-                        await CoreMethods.PushPageModel<ItemPageModel>(item);
-                    });
-                }
-            }
-
-            /// <summary>
-            /// Repopulate the collection with updated items data.
-            /// Note: For simplicity, we wait for the async db call to complete,
-            /// recommend making better use of the async potential.
-            /// </summary>
-            private void LoadItems()
-            {
-                Items.Clear();
-                Task<List<Item>> getItemTask = _repository.GetAllItems();
-                getItemTask.Wait();
-                foreach (var item in getItemTask.Result)
-                {
-                    Items.Add(item);
-                }
-            }
-
-            /// <summary>
-            /// Uses the SQLite Async capability to insert sample data on multiple threads.
-            /// </summary>
-            private void CreateSampleData()
-            {
-                var item1 = new Item
-                {
-                    Name = "Milk",
-                    Barcode = "8001234567890",
-                    Quantity = 10
-                };
-
-                var item2 = new Item
-                {
-                    Name = "Soup",
-                    Barcode = "8002345678901",
-                    Quantity = 5
-                };
-
-                var item3 = new Item
-                {
-                    Name = "Water",
-                    Barcode = "8003456789012",
-                    Quantity = 20
-                };
-
-                var task1 = _repository.CreateItem(item1);
-                var task2 = _repository.CreateItem(item2);
-                var task3 = _repository.CreateItem(item3);
-
-                // Don't proceed until all the async inserts are complete.
-                var allTasks = Task.WhenAll(task1, task2, task3);
-                allTasks.Wait();
-
-                LoadItems();
-            }
-
-            private void ScannedDataCollected(object sender, StatusEventArgs a_status)
-            {
-                Barcode barcode = new Barcode();
-                barcode.Data = a_status.Data;
-                barcode.Type = a_status.BarcodeType;
-
-                Item item;
-
-                Task<List<Item>> getItemTask = _repository.GetItem(barcode.Data);
-                getItemTask.Wait();
-                if (getItemTask.Result.Count() < 1)
-                {
-                    item = new Item { Name = "", Barcode = barcode.Data };
-                }
-                else
-                {
-                    item = getItemTask.Result.First<Item>();
-                }
-
-
-                CoreMethods.PushPageModel<ItemPageModel>(item);
-
-            }
-
-            private void ScannedStatusChanged(object sender, string a_message)
-            {
-                string status = a_message;
+                _selectedItem = value;
+                if (value != null) EditItemCommand.Execute(value);
             }
         }
+
+        public ItemListPageModel()
+        {
+            Items = new ObservableCollection<Item>();
+        }
+
+        /// <summary>
+        /// Called whenever the page is navigated to.
+        /// Here we are ignoring the init data and just loading the items.
+        /// </summary>
+        public override void Init(object initData)
+        {
+            LoadItems();
+            if (Items.Count() < 1)
+            {
+                CreateSampleData();
+            }
+
+        }
+
+        protected override void ViewIsAppearing(object sender, EventArgs e)
+        {
+            base.ViewIsAppearing(sender, e);
+            var scanner = FreshIOC.Container.Resolve<IScanner>();
+
+            scanner.Enable();
+            scanner.OnScanDataCollected += ScannedDataCollected;
+            scanner.OnStatusChanged += ScannedStatusChanged;
+
+            var config = new ZebraScannerConfig();
+            config.IsUPCE0 = false;
+            config.IsUPCE1 = false;
+
+            scanner.SetConfig(config);
+        } 
+
+        protected override void ViewIsDisappearing(object sender, EventArgs e)
+        {
+            var scanner = FreshIOC.Container.Resolve<IScanner>();
+
+            if (null != scanner)
+            {
+                scanner.Disable();
+                scanner.OnScanDataCollected -= ScannedDataCollected;
+                scanner.OnStatusChanged -= ScannedStatusChanged;
+            }
+            base.ViewIsDisappearing(sender, e);
+        }
+
+        /// <summary>
+        /// Called whenever the page is navigated to, but from a pop action.
+        /// Here we are just updating the item list with most recent data.
+        /// </summary>
+        /// <param name="returnedData"></param>
+        public override void ReverseInit(object returnedData)
+        {
+            LoadItems();
+            base.ReverseInit(returnedData);
+        }
+
+        /// <summary>
+        /// Command associated with the add item action.
+        /// Navigates to the ItemPageModel with no Init object.
+        /// </summary>
+        public ICommand AddItemCommand
+        {
+            get
+            {
+                return new Command(async () => {
+                    await CoreMethods.PushPageModel<ItemPageModel>();
+                });
+            }
+        }
+
+        /// <summary>
+        /// Command associated with the edit item action.
+        /// Navigates to the ItemPageModel with the selected item as the Init object.
+        /// </summary>
+        public ICommand EditItemCommand
+        {
+            get
+            {
+                return new Command(async (item) => {
+                    await CoreMethods.PushPageModel<ItemPageModel>(item);
+                });
+            }
+        }
+
+        /// <summary>
+        /// Repopulate the collection with updated items data.
+        /// Note: For simplicity, we wait for the async db call to complete,
+        /// recommend making better use of the async potential.
+        /// </summary>
+        private void LoadItems()
+        {
+            Items.Clear();
+            Task<List<Item>> getItemTask = _repository.GetAllItems();
+            getItemTask.Wait();
+            foreach (var item in getItemTask.Result)
+            {
+                Items.Add(item);
+            }
+        }
+
+        /// <summary>
+        /// Uses the SQLite Async capability to insert sample data on multiple threads.
+        /// </summary>
+        private void CreateSampleData()
+        {
+            var item1 = new Item
+            {
+                Name = "Milk",
+                Barcode = "8001234567890",
+                Quantity = 10
+            };
+
+            var item2 = new Item
+            {
+                Name = "Soup",
+                Barcode = "8002345678901",
+                Quantity = 5
+            };
+
+            var item3 = new Item
+            {
+                Name = "Water",
+                Barcode = "8003456789012",
+                Quantity = 20
+            };
+
+            var task1 = _repository.CreateItem(item1);
+            var task2 = _repository.CreateItem(item2);
+            var task3 = _repository.CreateItem(item3);
+
+            // Don't proceed until all the async inserts are complete.
+            var allTasks = Task.WhenAll(task1, task2, task3);
+            allTasks.Wait();
+
+            LoadItems();
+        }
+
+        private void ScannedDataCollected(object sender, StatusEventArgs a_status)
+        {
+            Barcode barcode = new Barcode();
+            barcode.Data = a_status.Data;
+            barcode.Type = a_status.BarcodeType;
+
+            Item item;
+
+            Task<List<Item>> getItemTask = _repository.GetItem(barcode.Data);
+            getItemTask.Wait();
+            if (getItemTask.Result.Count() < 1)
+            {
+                item = new Item { Name = "", Barcode = barcode.Data };
+            }
+            else
+            {
+                item = getItemTask.Result.First<Item>();
+            }
+
+
+            CoreMethods.PushPageModel<ItemPageModel>(item);
+
+        }
+
+        private void ScannedStatusChanged(object sender, string a_message)
+        {
+            string status = a_message;
+        }
     }
+}
 {{< / highlight >}}
 
 This is the last change made to the application.

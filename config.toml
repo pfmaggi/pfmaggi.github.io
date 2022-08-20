@@ -83,6 +83,7 @@ disqusShortname = ""
   wordCount = true
   socialShare = false
   showRelatedPosts = true
+  enableEmoji = true
 
 [markup]
   [markup.highlight]
