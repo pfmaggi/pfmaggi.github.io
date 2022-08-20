@@ -10,7 +10,7 @@ tags: ["Android", "Zebra", "Xamarin", "Xamarin.Forms", "FreshMVVM", "DataWedge"]
 
 *Note: [the accompanying code is available on GitHub](https://github.com/Zebra/Inventory/releases/tag/datawedge2).*
 
-We saw in the [last post]({{ relref . "xamarin_forms_dw_2.md" }}) how to add barcode scanning functionalities to the "Inventory" sample application, using DataWedge.
+We saw in the [last post]({{< relref "xamarin_forms_dw_2.md" >}}) how to add barcode scanning functionalities to the "Inventory" sample application, using DataWedge.
 
 Today we're going to review that code and refactor it "just a bit". The goal is to make it a bit more modular, adding some flexibility to how we manage the barcode. In particular we want to have these features in our app:
 
@@ -26,35 +26,39 @@ The first step to modularize the application is to create an interface to abstra
 
 The code for this interface is:
 
-    using System;
-    namespace Inventory
+{{< highlight csharp "linenos=table" >}}
+using System;
+namespace Inventory
+{
+    /// <summary>
+    /// This is the interface for the Scanner code.
+    /// This interface defines how we use the Scanner, 
+    /// a matching class needs to be implemented
+    /// on each platform as well.
+    /// </summary>
+    public interface IScanner
     {
-        /// <summary>
-        /// This is the interface for the Scanner code.
-        /// This interface defines how we use the Scanner, a matching class needs to be implemented
-        /// on each platform as well.
-        /// </summary>
-        public interface IScanner
-        {
-            event EventHandler<StatusEventArgs> OnScanDataCollected;
-            event EventHandler<string> OnStatusChanged;
+        event EventHandler<StatusEventArgs> OnScanDataCollected;
+        event EventHandler<string> OnStatusChanged;
 
-            void Read();
+        void Read();
 
-            void Enable();
+        void Enable();
 
-            void Disable();
+        void Disable();
 
-            void OnScan(StatusEventArgs a_args);
+        void OnScan(StatusEventArgs a_args);
 
-            void OnStatus(String a_message);
+        void OnStatus(String a_message);
 
-            void SetConfig(IScannerConfig a_config);
-        }
+        void SetConfig(IScannerConfig a_config);
     }
+}
+{{< / highlight >}}
 
 We're going to create a second interface, with the name `IScannerConfig` to abstract the configuration of the barcode scanner. The code of this interface is going to be:
 
+{{< highlight csharp "linenos=table" >}}
     using System;
 
     namespace Inventory
@@ -63,6 +67,7 @@ We're going to create a second interface, with the name `IScannerConfig` to abst
         {
         }
     }
+{{< / highlight >}}
 
 We're going to add few models to support this new integration of the barcode scanning functionalities.
 
@@ -70,6 +75,7 @@ We're going to add few models to support this new integration of the barcode sca
 
 We're still working at the portable project level, the Xamarin Forms application. Inside the `Models` folder, create a new `Barcode` class:
 
+{{< highlight csharp "linenos=table" >}}
     using System;
     namespace Inventory
     {
@@ -104,9 +110,11 @@ We're still working at the portable project level, the Xamarin Forms application
             }
         }
     }
+{{< / highlight >}}
 
 Then we need another class, again in the `Models` folder, for the Events. Create a new class with the name `StatusEventArgs`:
 
+{{< highlight csharp "linenos=table" >}}
     using System;
     namespace Inventory
     {
@@ -130,11 +138,13 @@ Then we need another class, again in the `Models` folder, for the Events. Create
 
         }
     }
+{{< / highlight >}}
 
 The last model class we need to create is the one that bring some knowledge of Zebra's DataWedge functionality in the portable project. In reality, this doesn't stops the application to work on other device or to have the application built for iOS. Simply we want to control DataWedge from the Xamarin.Forms code and, if we want to be able to run the application on other Android devices or on iOS, we simply need to take in account that some of these features are not going to be available on those devices.
 
 Inside the `Models` folder create a `ZebraScannerConfig` class:
 
+{{< highlight csharp "linenos=table" >}}
     using System;
 
     namespace Inventory
@@ -183,6 +193,7 @@ Inside the `Models` folder create a `ZebraScannerConfig` class:
             SOFT
         }
     }
+{{< / highlight >}}
 
 ## Implementing the IScanner interface with DataWedge's Intent APIs
 
@@ -190,6 +201,7 @@ It's now the moment to implement the `IScanner` interface on top of DataWedge's 
 
 Create a new class with the name `Scanner_Android`. This is going to contain the bulk of (all) the logic to control DataWedge:
 
+{{< highlight csharp "linenos=table" >}}
     using System;
     using Android.App;
     using Android.Content;
@@ -370,11 +382,13 @@ Create a new class with the name `Scanner_Android`. This is going to contain the
             }
         }
     }
+{{< / highlight >}}
 
 Part of the code that we've here was inside the Main Activity class before. I never liked the idea to have logic talking to DataWedge inside that class!
 
 Now `Main_Activity` is cleaner:
 
+{{< highlight csharp "linenos=table" >}}
     using System;
     using Android.App;
     using Android.Content.PM;
@@ -408,12 +422,14 @@ Now `Main_Activity` is cleaner:
 
         }
     }
+{{< / highlight >}}
 
 As you can see we're now creating an instance of the `Scanner_Android` class and register it with FreshMVVM IOC. An alternative can be to use [Xamarin.Forms dependency service](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/app-fundamentals/dependency-service/introduction), but I liked the idea to use this IOC.
 Swapping to the dependency service should be trivial (and is left as an exercise to the reader...).
 
 Another required change, to the previous version of the application, is in the Broadcast receiver. We need to update it to send the barcode data using the `Barcode` class, instead than sending a string:
 
+{{< highlight csharp "linenos=table" >}}
     using System;
     using Android.Content;
 
@@ -489,6 +505,7 @@ Another required change, to the previous version of the application, is in the B
             }
         }
     }
+{{< / highlight >}}
 
 We've now done all the plumbing necessary to handle the barcode scanner in our application. Let's move back at the Xamarin.Forms level to see how we can now control the barcode scanner from there.
 
@@ -498,6 +515,7 @@ What we want to implement is to have the barcode scanner enabled only in the `It
 
 We're going to modify the `ItemListPageModel` class implementing the two methods `ViewIsAppearing` and `ViewIsDisappearing` to enable and disable the barcode scanner:
 
+{{< highlight csharp "linenos=table" >}}
     protected override void ViewIsAppearing(object sender, EventArgs e)
     {
         base.ViewIsAppearing(sender, e);
@@ -526,6 +544,7 @@ We're going to modify the `ItemListPageModel` class implementing the two methods
         }
         base.ViewIsDisappearing(sender, e);
     }
+{{< / highlight >}}
 
 We can see that here, we're not only enabling/disabling the barcode scanner so that is only active when this view is in the foreground. We're configuring the enabled decoders of the barcode and we're registering the event handler to call when we receive the data. Most of what we need to control the barcode scanner is here.
 
@@ -533,6 +552,7 @@ As we wrote before, we're using FreshMVVM's IOC to retrieve a reference to the a
 
 The complete `ItemListPageModel` class became:
 
+{{< highlight csharp "linenos=table" >}}
     using FreshMvvm;
     using System;
     using System.Collections.Generic;
@@ -738,12 +758,15 @@ The complete `ItemListPageModel` class became:
             }
         }
     }
+{{< / highlight >}}
 
 This is the last change made to the application.
 The full project is now:
 
 <span style="display:block;text-align:center">
+
 ![Final Inventory solution](/images/20180711_xamarin/final_solution.png "Final Inventory solution")
+
 </span>
 
 Thanks to `git`, you can see with a green dot the new files we created in this post, and with a yellow dot the files that we've modified.
