@@ -51,54 +51,58 @@ EMML is the Enterprise MetaTags Markup Language used initially by Pocket Browser
 
 PB v2.x syntax to scan a barcode:
 
-    <HTML>
-        <HEAD>
-            <Meta http-equiv="scanner" content="AIM_TYPE_PRESENTATION">
-            <Meta http-equiv="scannernavigate" content="Javascript:doScan('%s');">
-            <Meta http-equiv="scanner" content="enabled">
-        </HEAD>
-        <BODY onLoad="doSoftScan();">
-            <SCRIPT LANGUAGE="JavaScript">
-                var Generic = new ActiveXObject("SymbolBrowser.Generic");
+{{< highlight html "linenos=table" >}}
+<HTML>
+    <HEAD>
+        <Meta http-equiv="scanner" content="AIM_TYPE_PRESENTATION">
+        <Meta http-equiv="scannernavigate" content="Javascript:doScan('%s');">
+        <Meta http-equiv="scanner" content="enabled">
+    </HEAD>
+    <BODY onLoad="doSoftScan();">
+        <SCRIPT LANGUAGE="JavaScript">
+            var Generic = new ActiveXObject("SymbolBrowser.Generic");
 
-                function doSoftScan()
-                {
-                    Generic.InvokeMetaFunction('scanner', 'start');
-                }
+            function doSoftScan()
+            {
+                Generic.InvokeMetaFunction('scanner', 'start');
+            }
 
-                function doScan(data)
-                {
-                    bcode.innerHTML = data;
-                    doSoftScan();
-                }
-            </SCRIPT>
-            <div id="bcode"></div>
-        </BODY>
-    </HTML>
+            function doScan(data)
+            {
+                bcode.innerHTML = data;
+                doSoftScan();
+            }
+        </SCRIPT>
+        <div id="bcode"></div>
+    </BODY>
+</HTML>
+{{< / highlight >}}
 
 If we look at the same functionality in RhoElements v2.x Shared runtime, the syntax to scan a barcode using MetaTags and the `Scanner` API is not so different:
 
-    <HTML>
-        <HEAD>
-            <Meta http-equiv="scanner" content="aimType:presentation">
-            <Meta http-equiv="scanner" content="DecodeEvent:url('Javascript:doScan('%s');')">
-            <Meta http-equiv="scanner" content="enable">
-        </HEAD>
-        <BODY onLoad="doSoftScan();">
-            <SCRIPT LANGUAGE="JavaScript">
+{{< highlight html "linenos=table" >}}
+<HTML>
+    <HEAD>
+        <Meta http-equiv="scanner" content="aimType:presentation">
+        <Meta http-equiv="scanner" content="DecodeEvent:url('Javascript:doScan('%s');')">
+        <Meta http-equiv="scanner" content="enable">
+    </HEAD>
+    <BODY onLoad="doSoftScan();">
+        <SCRIPT LANGUAGE="JavaScript">
 
-                function doSoftScan() {
-                    scanner.start();
-                }
+            function doSoftScan() {
+                scanner.start();
+            }
 
-                function doScan(jsonObject) {
-                    bcode.innerHTML = jsonObject.data;
-                    doSoftScan();
-                }
-            </SCRIPT>
-            <div id="bcode"></div>
-        </BODY>
-    </HTML>
+            function doScan(jsonObject) {
+                bcode.innerHTML = jsonObject.data;
+                doSoftScan();
+            }
+        </SCRIPT>
+        <div id="bcode"></div>
+    </BODY>
+</HTML>
+{{< / highlight >}}
 
 ### RhoElements v4.x and the Common API in JavaScript (and Ruby)
 
@@ -121,6 +125,7 @@ The CommonAPI architecture is much more JavaScript and DOM friendly, adding only
 So, nowadays, all the new CommonAPIs are available under the `EB` object.  
 To scan a barcode, the syntax now became:
 
+{{< highlight html "linenos=table" >}}
     <html>
     <head>
         <title>Barcode API Test</title>
@@ -159,6 +164,7 @@ To scan a barcode, the syntax now became:
             <button onclick="enableScanners()">Enable Barcode Scanners</button>
         </body>              
     </html>
+{{< / highlight >}}
 
 > *What does this means?*  
 > **There may be multiple ways to achieve the same result in EB!**
@@ -169,11 +175,13 @@ One common request when users/partners needs to use and existing web application
 
 A very easy way to customize this in Enterprise Browser is to configure the Zoom parameters in `Config.xml`:
 
+{{< highlight xml "linenos=table" >}}
     <Screen>
         <FullScreen value="1"/>
         <PageZoom value="1.0" />
         <EnableZoom value="1"/>
     </Screen>
+{{< / highlight >}}
 
 Looking at the [documentation for `PageZoom`](https://techdocs.zebra.com/enterprise-browser/1-8/guide/configreference/#pagezoom):
 
@@ -189,9 +197,11 @@ Are we out of luck?
 of course not! we can digg up the `Zoom` metatag that allows to scale up and down a webpage.
 To have this applied to all the pages, we can use the `DefaultMetaTags` portion in the `Config.xml`: 
 
+{{< highlight xml "linenos=table" >}}
     <DefaultMetaTags>
         <MetaTag VALUE=“zoom~page:0.5;text:1” />
     </DefaultMetaTags>
+{{< / highlight >}}
 
 So, you can not only zoom out the page, but you can keep the text at the default zoom.
 
@@ -208,18 +218,24 @@ Where this DOM Injection functionality can be very helpful is that it allows us 
 
 In this case we need to add a reference to our "tags file" that describe the elements that we want to add to the pages. This needs to reside on the device and is going to be referenced in EB's `Config.xml` by the [`CustomDomElements` tag](https://techdocs.zebra.com/enterprise-browser/1-8/guide/configreference/#dominjection):
 
+{{< highlight xml "linenos=table" >}}
     <CustomDOMElements value="file://%INSTALLDIR%\di_tags.txt"/>
+{{< / highlight >}}
 
 We can then specify that we want to have the `Zoom` tag injected on all the pages:
 
+{{< highlight xml "linenos=table" >}}
     <!-- Zoom in all pages-->
     <META HTTP-Equiv="zoom" Content="page:0.5" pages='*'/> 
+{{< / highlight >}}
 
 or just on a subset (in theory):
 
+{{< highlight xml "linenos=table" >}}
     <!-- Zoom in only the login page-->
     <META HTTP-Equiv="zoom" Content="page:1.0" pages='*'/> 
     <META HTTP-Equiv="zoom" Content="page:0.5" pages='/login.html'/> 
+{{< / highlight >}}
 
 But here's where we can start to see the limits of this technology: the tag is injected after that the DOM is rendered and this generate some strange behavior (you see that the zoom is taking effect only you navigate to the next page).
 
@@ -235,27 +251,35 @@ From [EB's documentation](https://techdocs.zebra.com/enterprise-browser/1-8/guid
 
 A better sample for DOM Injection could be the necessity to select a screen orientation for an existing Web Application. This can be useful when you want to use a device in a particular orientation (landscape, as an example, for a wearable device) and you discover that the available options in `Config.xml` only allows you to disable the rotation. So, whatever is the selected orientation when you launch EB, it became the orientation that you're going to use:
 
+{{< highlight xml "linenos=table" >}}
     <ScreenOrientation>
         <AutoRotate value="0" />
     </ScreenOrientation>
+{{< / highlight >}}
  
 A better solution can be enabled using DOM Injection and some easy JavaScript.
 
 First of all, we can inject EB's JavaScript libraries in our `Config.xml` this allows us to have the libraries available:
 
+{{< highlight xml "linenos=table" >}}
     <InjectEBLibraries>
 	    <JSLibraries value="1"/>
     </InjectEBLibraries>
+{{< / highlight >}}
 
 Now we can inject a JavaScript file in our application as we have seen before, but this time the tag file needs to reference a script:
 
+{{< highlight javascript "linenos=table" >}}
     <!-- Landscape all pages-->
     <script type="text/javascript" src="/landscape.js" pages="*" />
+{{< / highlight >}}
 
 And the `landscape.js` file itself:
 
+{{< highlight javascript "linenos=table" >}}
     EB.ScreenOrientation.rightHanded();
     console.log('Landscape Configured');
+{{< / highlight >}}
 
 This guarantee that the web application is always using the correct screen orientation.
 
@@ -271,21 +295,28 @@ We're going to focus on Android as the target operative system, and we know that
 
 Again, we start with some plumbing in `config.xml` enabling EB's JavaScript libraries injection to have the libraries available:
 
+{{< highlight xml "linenos=table" >}}
     <InjectEBLibraries>
         <JSLibraries value="1"/>
     </InjectEBLibraries>
+{{< / highlight >}}
 
 Next, we need to add a reference to the tag file:
 
+{{< highlight xml "linenos=table" >}}
     <CustomDOMElements value="file://%INSTALLDIR%\di_tags.txt"/>
+{{< / highlight >}}
 
 Now we can inject a JavaScript file in our application as we have seen before, but this time the tag file needs to reference a script:
 
+{{< highlight javascript "linenos=table" >}}
     <!-- Landscape all pages-->
     <script type="text/javascript" src="/scanning.js" pages="*" />
+{{< / highlight >}}
 
 And the `scanning.js` file itself:
 
+{{< highlight javascript "linenos=table" >}}
     function scanReceived(params){
         var barcodeStr = params['data'];
         
@@ -308,11 +339,14 @@ And the `scanning.js` file itself:
 
     enableScanners();
     console.log("file injected");
+{{< / highlight >}}
 
 This code is going to enable the barcode scanner with the default properties, then inserting the barcode data into the current element (the focused element).  
 As an alternative example, if you need to read Interleaved 2of5 barcodes, you can enable the barcode API with this parameters:
 
+{{< highlight javascript "linenos=table" >}}
     EB.Barcode.enable({i2of5:true, i2of5maxLength:30, i2of5minLength:4}, scanReceived);
+{{< / highlight >}}
 
 For a full list of the available properties take a look at [EB's Barcode API documentation](https://techdocs.zebra.com/enterprise-browser/1-8/api/barcode/).
 
@@ -334,6 +368,7 @@ ButtonBars can be shown and hidden programmatically as required by an app's page
 
 Starting from the `Button.xml` this can be a quite complex file, where we've all the description of the keyboard layout. It's still a manual process at this moment, but we are planning to have a tool to help in the process. Still just a plan!
 
+{{< highlight xml "linenos=table" >}}
     <?xml version = "1.0"?>
     <Buttonbargroup>
         
@@ -554,14 +589,17 @@ Starting from the `Button.xml` this can be a quite complex file, where we've all
         </ButtonBar10>
         
     </Buttonbargroup>
+{{< / highlight >}}
 
 This is a sample that I've implemented for Enterprise Browser v1.7. The current version 1.8 introduces some new features that allows to use relative Coordinates for ButtonBar positioning
 
+{{< highlight xml "linenos=table" >}}
     <barLeft value="0.25*devicewidth"/>    
     <barTop value="0.25*deviceheight"/>
     <barLeft value="0.5*devicewidth"/>
     <barheight value="deviceheight-100"/>
     <barwidth value="devicewidth/2"/>
+{{< / highlight >}}
 
 This allows to build button bars that can be used on multiple devices (maintaining a similar screen geometry), without having to create and maintain a different keyboard for every device.
 
@@ -578,6 +616,7 @@ One of the major cause of issues with Enterprise Browser is using an old `Config
 
 EB v1.8 now includes some information about the version that created the file and this information is displayed in EB's Log:
 
+{{< highlight xml "linenos=table" >}}
     <?xml version = "1.0"?>
     <!--
     EnterpriseBrowser_v1.8.0.0 Configuration file
@@ -588,6 +627,7 @@ EB v1.8 now includes some information about the version that created the file an
         :   :   :   :   :   :   :   :
 
     </Configuration>
+{{< / highlight >}}
 
 ##### Logging and WebPage Capture
 
@@ -595,6 +635,7 @@ Customer applications are mostly on premises solution with no access from outsid
 
 EB's includes some powerful logging capabilities that can be enabled and configured inside EB's `Config.xml`, [take a look at the documentation for a full list of the options](https://techdocs.zebra.com/enterprise-browser/1-8/guide/logging/):
 
+{{< highlight xml "linenos=table" >}}
     <Logger>
         <LogProtocol   value="FILE"/>
         <LogPort       value="80"/>
@@ -608,12 +649,15 @@ EB's includes some powerful logging capabilities that can be enabled and configu
         <LogMemPeriod  value="5000"/>
         <LogMaxSize    value="1000"/>
     </Logger>
+{{< / highlight >}}
 
 Another powerful option for debugging remote application is to enable [WebPage Capture](https://techdocs.zebra.com/enterprise-browser/1-8/guide/capture/). In this case EB's is going to save a copy of the visited web pages and a screenshot on the divide for later analysis:
 
+{{< highlight xml "linenos=table" >}}
     <Diagnostic>
         <WebPageCapture value="1"/>
     </Diagnostic> 
+{{< / highlight >}}
 
 With this option enabled you can find screenshots and webpages source under the Diagnostic folder:
 
@@ -623,9 +667,11 @@ With this option enabled you can find screenshots and webpages source under the 
 
 Using Chrome Dev Tools, it is possible to debug application running on mobile device. For Android, the only requirement is to run Android v4.4.x or newer and to enable the debug capabilities in EB's `Config.xml`:
 
+{{< highlight xml "linenos=table" >}}
     <DebugSetting>
         <DebugModeEnable value="1"/>
     </DebugSetting> 
+{{< / highlight >}}
 
 You can find more information on this feature and how to use it for legacy windows devices on [EB's documentation](https://techdocs.zebra.com/enterprise-browser/1-8/guide/debuggingjs/)
 
