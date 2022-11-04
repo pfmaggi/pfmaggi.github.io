@@ -697,4 +697,4 @@ Once you select the remote page that you want to inspect, ChromeDev Tools will s
 ![Chrome Dev Tools - Debug from device](/images/20180321_eb_modernization/ChromeDevTools_4.png "Chrome Dev Tools - Debug from device")
 
 That's all for now.  
-Zebra's Enterprise Browser team ahs put a lot of resources on [Launchpad](https://developer.zebra.com/community/welcome) and on [Techdocs](https://techdocs.zebra.com/enterprise-browser/). If you have any question, you can use [EB's discussion forum on Launchpad](https://developer.zebra.com/community/home/discussions/enterprise-browser).
+Zebra's Enterprise Browser team has put a lot of resources on [Launchpad](https://developer.zebra.com/community/welcome) and on [Techdocs](https://techdocs.zebra.com/enterprise-browser/). If you have any question, you can use [EB's discussion forum on Launchpad](https://developer.zebra.com/community/home/discussions/enterprise-browser).
