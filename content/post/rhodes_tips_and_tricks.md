@@ -1,17 +1,17 @@
 ---
 title: Rhodes tips & tricks
-date: 2013-12-30T13:56:04+01:00
+date: 2013-12-30
 author: Pietro F. Maggi
 summary: Collection of rhodes tips and tricks. More for the people that manage rhodes than who's only looking for info on how to write rhodes apps.
-keywords: [Rhodes, RhoConnect, RhoMobile]
-tags: [Rhodes, RhoConnect, RhoMobile]
-topics: [RhoMobile]
-type: post
+categories:
+    - "Rhodes"
+    - "RhoConnect"
+    - "RhoMobile"
 ---
 
 ## How to rebuild the rhodes gem
 
-```sh
+```bash
 git clone https://github.com/rhomobile/rhodes.git
 cd rhodes
 git checkout 3-5-stable
@@ -19,7 +19,7 @@ git checkout 3-5-stable
 
 make and commit changes if needed, then:
 
-```sh
+```bash
 rm -rf *
 git reset --hard
 git pull
@@ -27,11 +27,12 @@ git pull
 
 Otherwise directly
 
-```sh
+```bash
 rake gem
 ```
+
 Copy files where you need it (on a different machine)
-gem install -l rhodes-3.5.1.13.2 (version given as an example)
+`gem install -l rhodes-3.5.1.13.2` (version given as an example)
 
 
 ## Rhodes Database encryption

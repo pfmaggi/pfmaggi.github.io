@@ -1,18 +1,19 @@
 ---
 title: Finding the SDCard Path on Android devices
-date: 2014-10-19T20:55:18+02:00
+date: 2014-10-19
 author: Pietro F. Maggi
 summary: Obsolete - Finding the real SDCard path in Android v4.1 JellyBean can be tricky. Let see how we can do it on a TC55. 
-keywords: [Android, Zebra Technologies, Sample, SDCard]
-tags: [Android, Zebra Technologies, Sample, SDCard]
-topics: [Android]
-draft: false
-type: post
+categories:
+    - "Android"
+    - "Zebra Technologies"
+    - "Sample"
+    - "SDCard"
 ---
 
-## **2019 Update**
 
-**The information in this post are obsolete. Please refer to the Android documentation for updates on this topic.**
+{{< div class="danger pure-button" >}}
+> The information in this article is obsolete.<br>Please refer to the official RhoMobile for best practices and setup guide
+{{<div "end" >}}
 
 With Motorola Solutions we're busy finishing the first round of Android Developer's Kitchens around Europe. Just in time to prepare for the [Enterprise App Forum in Brussels!](http://www.motorolasolutionsevents.com/enterprise_appforum_2014/).
 
@@ -23,7 +24,7 @@ Last week I got an interesting question regarding our TC55:
 **How can I programmatically get the path for the SDCard on the TC55?**
 
 That's a good question; usually you don't want to insert in your code the dependency to an hard coded path!
-The usual answer is based around the function <code>Environment.getExternalStorageDirectory();</code>.
+The usual answer is based around the function `Environment.getExternalStorageDirectory();`.
 
 The problem is that this function report a different folder if the SDCard is inserted in the device or not.
 This is not a problem unique to the TC55, it's a common problem on Android and there are different ways to handle it:
@@ -37,14 +38,14 @@ Given that we've the luxury to target just a few devices, the Motorola Solutions
 ### Let's see what happens on the TC55
 On this device, using <code>Environment.getExternalStorageDirectory();</code> returns different results depending if you've installed or not an SDCard:
 
- - Without SDCard —> /<code>STORAGE/SDCARD1</code>
- - With SDCard —> <code>/STORAGE/SDCARD0</code>
+ - Without SDCard —> `/STORAGE/SDCARD1`
+ - With SDCard —> `/STORAGE/SDCARD0`
 
 Let's see what we can achieve with the environment variables!
 
 We can log into a TC55 and use the <code>printenv</code> command:
 
-```sh
+```bash
 adb shell
 printenv
 
@@ -75,11 +76,11 @@ PS1=$(precmd)$USER@$HOSTNAME:${PWD:-?} $
 
 From this is easy to see that the way to get the SDCard path is to use a couple of environment variables:
 
- - <code>System.getenv("EXTERNAL_STORAGE")</code> —> Internal SDCard <code>/STORAGE/SDCARD1</code>
- - <code>System.getenv("EXTERNAL\_SDCARD\_STORAGE")</code> —> True SDCard <code>/STORAGE/SDCARD0</code>
+ - `System.getenv("EXTERNAL_STORAGE")` —> Internal SDCard `/STORAGE/SDCARD1`
+ - `System.getenv("EXTERNAL\_SDCARD\_STORAGE")` —> True SDCard `/STORAGE/SDCARD0`
 
 This solutions is still depending on two specific environment variables, is much better than hardcoding the path strings in the application but is probably only acceptable if you're targeting just few devices.
-Another point is that, on other devices, you get the true SDCard path linked to the <code>SECONDARY_STORAGE</code> environment variable. So a better solution could be to check for both variables with something like:
+Another point is that, on other devices, you get the true SDCard path linked to the `SECONDARY_STORAGE` environment variable. So a better solution could be to check for both variables with something like:
 
 ```java
 String strSDCardPath = System.getenv("SECONDARY_STORAGE");
@@ -90,7 +91,9 @@ if ((null == strSDCardPath) || (strSDCardPath.length() == 0)) {
 
 When we will start to release KitKat based devices it will be even more important taking a look at the right path for these volumes :-)
 
-*EDIT:* I've a new [blog post]({{ relref . "post/android_secondary_storage_1.md" }}) with additional information for Zebra Technologies KitKat devices.
+{{< div class="pure-button" >}}
+> I've a new [blog post]({{% relref "post/android_secondary_storage_1.md" %}}) with additional information for Zebra Technologies KitKat devices.
+{{<div "end" >}}
 
 You can find in my github account a [sample application](https://github.com/pfmaggi/GetDeviceInfo) that retrieves these data.
 

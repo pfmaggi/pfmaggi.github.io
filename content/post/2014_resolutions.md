@@ -1,13 +1,12 @@
 ---
 title: 2014 New Year resolutions
-date: 2014-01-01T17:41:32+01:00
+date: 2014-01-01
 author: Pietro F. Maggi
 summary:  Looking forwards to what I'd like to build in 2014.
-keywords: [Personal, Diary]
-tags: [Personal, Diary]
-topics: [Personal]
-draft: false
-type: post
+categories:
+    - "Personal"
+    - "Diary"
+toc: true
 ---
 
 ## Blog a bit more
@@ -33,7 +32,7 @@ At the end I used godaddy.com to buy the domain pietromaggi.com for the next 10 
 Some additional information are available on stackoverflow and this [blog](http://learnaholic.me/2012/10/10/deploying-octopress-to-github-pages-and-setting-custom-subdomain-cname/).
 
 ### Documenting my writing process
-```sh
+```bash
 rake new_post["my new great post"]
 rake preview
 git status

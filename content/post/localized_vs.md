@@ -1,17 +1,16 @@
 ---
 title: Rhodes 5.0.2 and Visual Studio 2008 Localized edition
-date: 2014-08-22T13:01:48+02:00
+date: 2014-08-22
 author: Pietro F. Maggi
 summary: Obsolete - Quick post on the Joy of localized Visual Studio.
-keywords: [RhoMobile, Visual Studio]
-tags: [RhoMobile, Visual Studio]
-topics: [RhoMobile]
-type: post
+categories:
+    - "RhoMobile"
+    - "Visual Studio"
 ---
 
-# **2019 Update**
-
-**The information in this post are obsolete. Please refer to the official RhoMobile documentation for best practices and setup guide.**
+{{< div class="danger pure-button" >}}
+> The information in this article is obsolete.<br>Please refer to the official RhoMobile for best practices and setup guide
+{{<div "end" >}}
 
 Oh the joy of a new RhoMobile version!
 

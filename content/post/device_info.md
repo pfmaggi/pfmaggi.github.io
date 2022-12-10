@@ -1,27 +1,27 @@
 ---
 title: Getting device info from MSI Android devices
-date: 2014-09-02T11:56:38+02:00
+date: 2014-09-02
 author: Pietro F. Maggi
 summary: Obsolete - How to use the standard Android SDK to retrieve information about the device the app is running on.
-keywords: [Android, Zebra Technologies, Sample]
-tags: [Android, Zebra Technologies, Sample]
-topics: [Android]
-draft: false
-type: post
+categories:
+    - "Android"
+    - "Zebra Technologies"
+    - "Sample"
+toc: true
 ---
 
-# **2019 Update**
 
-**The information in this post are obsolete. Please refer to the Android documentation for updates on this topic.**
-
+{{< div class="danger pure-button" >}}
+> The information in this article is obsolete.<br>Please refer to the Android documentation for updates on this topic
+{{<div "end" >}}
 
 # The good old ways!
 On Symbol/MSI Windows Mobile devices, we where providing some APIs in the EMDK to get additional information.
 Looking into the Resource Coordinator is possible to find APIs like:
 
-  - RCM_GetESN() - retrieves the device electronic serial number
-  - RCM_GetUniqueUnitId() - retrieves the unique unit identification number
-  - RCM_GetVersion() - retrieves version information
+  - `RCM_GetESN()` - retrieves the device electronic serial number
+  - `RCM_GetUniqueUnitId()` - retrieves the unique unit identification number
+  - `RCM_GetVersion()` - retrieves version information
   - etc...
 
 ...and we don't have anything like this in the Android EMDK. WHY?
@@ -37,21 +37,75 @@ You can find the completed project in [this repository](https://github.com/pfmag
 Create a new Android project, nothing fancy here, it's just a standard app with a single Blank Activity.
 You can follow these images as a guideline. Your interface may vary as Google updates the Android wizard quite often.
 
- ![Create Project - step 1](/images/samples/device-info/create_project_01.jpg "Android New Project Wizard - page 1")
- ![Create Project - step 2](/images/samples/device-info/create_project_02.jpg "Android New Project Wizard - page 2")
- ![Create Project - step 3](/images/samples/device-info/create_project_03.jpg "Android New Project Wizard - page 3")
- ![Create Project - step 4](/images/samples/device-info/create_project_04.jpg "Android New Project Wizard - page 4")
- ![Create Project - step 5](/images/samples/device-info/create_project_05.jpg "Android New Project Wizard - page 5")
+
+{{< figure
+  src="/images/samples/device-info/create_project_01.jpg"
+  class="class param"
+  title="Android New Project Wizard - page 1"
+  label="mn-export-import"
+  alt="Android New Project Wizard - page 1"
+ >}}
+{{< section "end" >}}
+
+{{< figure
+  src="/images/samples/device-info/create_project_02.jpg"
+  class="class param"
+  title="Android New Project Wizard - page 2"
+  label="mn-export-import"
+  alt="Android New Project Wizard - page 2"
+ >}}
+{{< section "end" >}}
+
+{{< figure
+  src="/images/samples/device-info/create_project_03.jpg"
+  class="class param"
+  title="Android New Project Wizard - page 3"
+  label="mn-export-import"
+  alt="Android New Project Wizard - page 3"
+ >}}
+{{< section "end" >}}
+
+{{< figure
+  src="/images/samples/device-info/create_project_04.jpg"
+  class="class param"
+  title="Android New Project Wizard - page 4"
+  label="mn-export-import"
+  alt="Android New Project Wizard - page 4"
+ >}}
+{{< section "end" >}}
+
+{{< figure
+  src="/images/samples/device-info/create_project_05.jpg"
+  class="class param"
+  title="Android New Project Wizard - page 5"
+  label="mn-export-import"
+  alt="Android New Project Wizard - page 5"
+ >}}
+{{< section "end" >}}
 
 Then we can do some housekeeping deleting the unnecessary main.xml menu resource:
 
- ![Delete Menu resource](/images/samples/device-info/delete_menu.jpg "Delete unnecessary menu resource")
+{{< figure
+  src="/images/samples/device-info/delete_menu.jpg"
+  class="class param"
+  title="Delete unnecessary menu"
+  label="mn-export-import"
+  alt="Delete unnecessary menu"
+ >}}
+{{< section "end" >}}
 
 We can then start the two main changes:
   - Setting up the Activity Layout
   - Updating the Activity onCreate method to retrieve the device data
 
- ![Main Activity Layout](/images/samples/device-info/activity_layout.jpg "Main Activity Layout")
+{{< figure
+  src="/images/samples/device-info/activity_layout.jpg"
+  class="class param"
+  title="Main Activity Layout"
+  label="mn-export-import"
+  alt="Main Activity Layout"
+ >}}
+{{< section "end" >}}
 
 Here's the code:
 
@@ -156,25 +210,50 @@ public class MainActivity extends ActionBarActivity {
 }
 ```
 
-# Where's the tricks?
+## Where's the tricks?
 There's really no trick, Android SDK provide this information, and more using these constants:
 
-  - [Build.DEVICE = The name of the industrial design](http://developer.android.com/reference/android/os/Build.html#DEVICE)
-  - [Build.SERIAL = A hardware serial number, if available](http://developer.android.com/reference/android/os/Build.html#SERIAL)
-  - [Build.ID = changelist number](http://developer.android.com/reference/android/os/Build.html#ID)
+  - [`Build.DEVICE`][1] = The name of the industrial design
+  - [`Build.SERIAL`][2] = A hardware serial number, if available 
+  - [`Build.ID`][3] = changelist number
 
 Obviously, it's the OEM building the device that put together the plumbing to link the correct information. Your mileage may vary on different devices.
 
 Running this application on an ET1 with Jelly Bean you get:
 
-![ET1 Screenshot](/images/samples/device-info/screen_ET1.png "ET1 Screenshot")
+{{< figure
+  src="/images/samples/device-info/screen_ET1.png"
+  class="class param"
+  title="ET1 Screenshot"
+  label="mn-export-import"
+  alt="ET1 Screenshot"
+ >}}
+{{< section "end" >}}
 
 Running this application on an MC40 with Jelly Bean you get:
 
-![MC40 Screenshot](/images/samples/device-info/screen_MC40.png "MC40 Screenshot")
+{{< figure
+  src="/images/samples/device-info/screen_MC40.png"
+  class="class param"
+  title="MC40 Screenshot"
+  label="mn-export-import"
+  alt="MC40 Screenshot"
+ >}}
+{{< section "end" >}}
 
 While the TC55 is always a bit different :-)
 
-![TC55 Screenshot](/images/samples/device-info/screen_TC55JB.png "TC55 Screenshot")
+{{< figure
+  src="/images/samples/device-info/screen_TC55JB.png"
+  class="class param"
+  title="TC55 Screenshot"
+  label="mn-export-import"
+  alt="TC55 Screenshot"
+ >}}
+{{< section "end" >}}
 
 Hope you may find this useful. Send me an email if you'd like to see any particular topic on this blog.
+
+[1]: http://developer.android.com/reference/android/os/Build.html#DEVICE
+[2]: http://developer.android.com/reference/android/os/Build.html#SERIAL
+[3]: http://developer.android.com/reference/android/os/Build.html#ID

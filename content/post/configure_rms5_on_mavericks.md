@@ -1,18 +1,17 @@
 ---
 title: Configuring RhoMobile Suite v5.0 on a clean OS X Mavericks machine
 summary: Obsolete - Step by step guide on how to install RhoMobile Studio v5.0 on a clean OS X Mavericks machine
-date: 2014-08-11T09:57:10+02:00
+date: 2014-08-11
 author: Pietro F. Maggi
-keywords: [OS X, RhoMobile]
-tags: [OS X, RhoMobile]
-topics: [RhoMobile]
-draft: false
-type: post
+categories:
+    - "OS X"
+    - "RhoMobile"
 ---
 
-# **2019 Update**
 
-**The information in this post are obsolete. Please refer to the official RhoMobile documentation for best practices and setup guide.**
+{{< div class="danger pure-button" >}}
+> The information in this article is obsolete.<br>Please refer to the official RhoMobile for best practices and setup guide
+{{<div "end" >}}
 
 # RhoMobile Suite v5.0
 The new main release of Rhodes, RhoElements and RhoConnect had just been released a couple of weeks ago [during OSCON](http://newsroom.motorolasolutions.com/Feature/See-RhoMobile-in-Action-at-OSCON-2014-4a61.aspx). It's now time to install it and start building some mobile apps!

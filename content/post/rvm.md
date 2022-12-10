@@ -8,12 +8,13 @@ categories:
     - "Virtual environments"
     - "RVM"
     - "OS X"
+toc: true
 ---
 
 
-# **2019 Update**
-
-**This information are obsolete. Please refer to RVM and Ruby's documentation for modern best practices. This worked for me long time ago.**
+{{< div class="danger pure-button" >}}
+> The information in this article is obsolete.<br>Please refer to RVM and Ruby's documentation for modern best practices.<br>This worked for me long time ago.
+{{<div "end" >}}
 
 ## How many versions of Ruby do you need on your machine?
 Even if OS X 10.9 *Mavericks* came with Ruby v2.0.0-p195, the previous OS X versions where released with Ruby v1.8.7.
@@ -35,8 +36,8 @@ So, first step is to install RVM on OS X and this requires a package manager to 
 
 ### First Step: Install HomeBrew
 Installing HomeBrew is very easy:
-```ruby
-ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+```bash
+$ ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 ```
 
 You need to have XCode installed and the command line tools, [HomeBrew website makes a good description of these steps](https://github.com/Homebrew/homebrew/wiki/Installation).
@@ -45,45 +46,45 @@ You need to have XCode installed and the command line tools, [HomeBrew website m
 
 We need to install some prerequisite using HomeBrew:
 
-```ruby
-brew tap homebrew/versions
-brew install gcc46
+```bash
+$ brew tap homebrew/versions
+$ brew install gcc46
 ```
 
 then install RVM itself together with ruby 1.9.3:
 
-```ruby
-\curl -sSL https://get.rvm.io | bash -s stable --ruby=1.9.3
+```bash
+$ curl -sSL https://get.rvm.io | bash -s stable --ruby=1.9.3
 ```
 
 and set it up as default
 
-```ruby
-rvm alias create default 1.9.3
+```bash
+$ rvm alias create default 1.9.3
 ```
 
 Install others ruby to play with them
 
-```ruby
-rvm get stable
-rvm list known
+```bash
+$ rvm get stable
+$ rvm list known
 ```
 
 ## Upgrade a ruby to the latest patch available
 Nowadays ruby 1.9.3-patch484 seems pretty solid, but a lot of activities is on ruby 2.0.
 If you want keep your ruby up-to-date, RVM can help you keeping it aligned to the latest available patch with the command:
 
-```ruby
-rvm get stable # always check that you've the latest rvm available before starting
-rvm list
-rvm list known
-rvm upgrade 2.0.0
+```bash
+$ rvm get stable # always check that you've the latest rvm available before starting
+$ rvm list
+$ rvm list known
+$ rvm upgrade 2.0.0
 ```
 
 This will be followed by some questions:
 
-```
-XHF648-04M:~ pietro$ rvm upgrade 2.0.0
+```bash
+$ rvm upgrade 2.0.0
 Are you sure you wish to upgrade from ruby-2.0.0-p247 to ruby-2.0.0-p353? (Y/n): Y
 Installing new ruby ruby-2.0.0-p353
 Searching for binary rubies, this might take some time.
@@ -141,15 +142,15 @@ $ rvm get stable
 $ rvm cleanup
 ```
 ### Usage:
-```sh
-    rvm cleanup {all,archives,repos,sources,logs,gemsets,links}
+```bash
+$ rvm cleanup {all,archives,repos,sources,logs,gemsets,links}
 ```
     
 ### Description:
 Cleans up the directory tree for the specified item.
 For gemsets removes remove only those without matching ruby.
 
-```sh
+```bash
 $ rvm cleanup all
 Cleaning up rvm archives
 Cleaning up rvm repos
