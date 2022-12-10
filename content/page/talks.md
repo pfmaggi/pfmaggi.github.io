@@ -1,5 +1,4 @@
 ---
-date: 2015-10-25 19:31:46 +0100
 title: Public talks
 ---
 

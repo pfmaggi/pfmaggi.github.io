@@ -1,9 +1,11 @@
 ---
 title: Updated Trackpad firmware for Pinebook Pro
 summary: The beauty of the Pinebook Pro is that it is a tinkering machine. This article covers briefly an update made available by the community for the trackpad of this machine.
-date: 2021-08-06T20:00:00+02:00
-tags: [Linux, PinebookPro, firmware]
-draft: false
+date: 2021-08-06
+categories: 
+    - "Linux"
+    - "PinebookPro"
+    - "firmware"
 author: Pietro F. Maggi
 ---
 

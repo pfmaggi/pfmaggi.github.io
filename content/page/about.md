@@ -1,7 +1,6 @@
-+++
-date = "2016-01-09T20:50:38+01:00"
-title = "About"
-+++
+---
+title: About
+---
 
 <span style="display:inline; float: left; margin: 20px 20px 20px 20px;">
 

@@ -1,13 +1,11 @@
 ---
 title: 2013 in numbers
 summary: Looking back at what happened in 2013.
-date: 2013-12-31T20:52:22+01:00
+date: 2013-12-31
 author: Pietro F. Maggi
-keywords: [Personal, Diary]
-tags: [Personal, Diary]
-topics: [Personal]
-draft: false
-type: post
+categories:
+    - "Personal"
+    - "Diary"
 ---
 
 ## What an interesting year!

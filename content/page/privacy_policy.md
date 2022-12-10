@@ -1,6 +1,4 @@
----
-title: Privacy
----
+# Privacy
 
 Privacy matters but it can be confusing. This page explains our approach to privacy on all our websites and how it affects you.
 

@@ -1,7 +1,10 @@
 baseurl = "https://pietromaggi.com/"
-languageCode = "en-EN"
+languageCode = "en-us"
 metaDataFormat = "toml"
-theme = "beautifulhugo"
+# theme = "beautifulhugo"
+theme = "hugo-tufte"
+# title = "Pietro . Maggi"
+title = "Garbage Collector"
 paginate = 10
 enableRobotsTXT = true
 #
@@ -26,7 +29,22 @@ disqusShortname = ""
 	category = "categories"
 	series = "series"
 
-[author]
+[params]
+  # Add meta keywords in head part (Site Keywords or Tags of Page)
+  keywords = ["Pietro F. Maggi","android","jetpack","kotlin"]
+	# Add meta description in head part
+	description = "Pietro F. Maggi - Personal Website/Blog"
+	# Add a subtitle to your website
+	subtitle = "tales from an old nibble"
+	# Activate to show authors on pages if available
+	hideAuthor = true
+	# Add math typesetting with KaTeX (Global with this Param)
+	math = false
+
+  since = "2013"
+  showLicense = true
+  License = '<a href="/privacy_policy">Privacy Policy</a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>'
+
   name = "Pietro F. Maggi"
   email = "blog@pietromaggi.com"
   github = "pfmaggi"
@@ -54,24 +72,6 @@ disqusShortname = ""
   #weibo = "username"
   #slack = "username"
 
-[Params]
-  # Add meta keywords in head part (Site Keywords or Tags of Page)
-  keywords = ["Pietro F. Maggi","android","jetpack","kotlin"]
-	# Add meta description in head part
-	description = "Pietro F. Maggi - Personal Website/Blog"
-	# Add pagetitle to homepage <title> tag
-	hometitle = "Garbage Collector"
-	# Add a subtitle to your website
-	subtitle = "Tales from an old nibble"
-	# Activate to show authors on pages if available
-	hideAuthor = true
-	# Add math typesetting with KaTeX (Global with this Param)
-	math = false
-
-  since = "2013"
-  showLicense = true
-  License = '<a href="/privacy_policy">Privacy Policy</a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>'
-	
   # Optional 80x80 avatar image.
 	logo = "images/pfm.png"
   favicon = "images/favicon.ico"
@@ -84,6 +84,14 @@ disqusShortname = ""
   socialShare = false
   showRelatedPosts = true
   enableEmoji = true
+  # Your name or the name of you company
+  copyrightHolder = "Copyright Pietro F. Maggi"
+  # Show the "Powered by Hugo-Tufte and Hugo."
+  showPoweredBy = true
+  # Site wide kill switch
+  hidedate = false
+  # Uncomment for dark code blocks
+  # codeBlocksDark = true
 
 [markup]
   [markup.highlight]
@@ -114,9 +122,9 @@ disqusShortname = ""
       [markup.goldmark.parser.attribute]
         block = false
         title = true
-#     [markup.goldmark.renderer]
+    [markup.goldmark.renderer]
 #       hardWraps = false
-#       unsafe = false
+      unsafe = true
 #       xhtml = false
 
   [markup.tableOfContents]
@@ -124,26 +132,64 @@ disqusShortname = ""
     ordered = false
     startLevel = 2
 
+pygmentsUseClasses = true
+canonifyurls = true
 # Nav.
-[[menu.main]]
-name = "Home"
-url = "/"
-weight = 1
+# [[menu.main]]
+# name = "Home"
+# url = "/"
+# weight = 1
 
-[[menu.main]]
-name = "About"
-url = "/page/about"
-weight = 2
+# [[menu.main]]
+# name = "About"
+# url = "/page/about"
+# weight = 2
 
-[[menu.main]]
-name = "Talks"
-url = "/page/talks"
-weight = 3
+# [[menu.main]]
+# name = "Talks"
+# url = "/page/talks"
+# weight = 3
 
-[[params.social]]
-name = "Github"
-icon = "fab fa-github"
-url = "https://github.com/pfmaggi"
+[[menu.nav]]
+  name = "Home"
+  pre = "<i class='fas fa-home la-lg'></i>"
+  weight = -110
+  identifier = "home"
+  url = "/"
+[[menu.nav]]
+  name = "Posts"
+  pre = "<i class='fas fa-book fa-lg'></i> "
+  weight = -100
+  identifier = "posts"
+  url = "/post"
+[[menu.nav]]
+  name = "Categories"
+  pre = "<i class='fas fa-tags fa-lg'></i> "
+  weight = -90
+  identifier = "categories"
+  url = "/categories"
+[[menu.nav]]
+  name = "About"
+  pre = "<i class='fas fa-info-circle  fa-lg'></i> "
+  weight = -80
+  identifier = "about"
+  url = "/page/about"
+[[menu.nav]]
+  name = "Talks"
+  pre = "<i class='fab fa-github fa-lg'></i> "
+  weight = -70
+  identifier = "talks"
+  url = "/page/talks"
 
-[markup.goldmark.renderer]
-unsafe = true
+# -----------------------------------------------------------------------
+# FOOTER MENU
+# If you need to add custom links to you footer: put them here. Be aware that this theme is using fontawesome.
+# Please head to https://fontawesome.com/v4.7/icons/ to pick icons
+# -----------------------------------------------------------------------
+
+# [[menu.footer]]
+#   name = "Custom footer link"
+#   pre = "<i class='fab fa-google fa-lg'></i> "
+#   weight = -90
+#   identifier = "custom_link"
+#   url = "https://google.com"

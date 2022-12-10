@@ -1,14 +1,15 @@
 ---
 title: Ruby Version Manager (aka RVM) the Swiss army knife of Ruby versions
-date: 2013-12-29T17:24:54+01:00
+date: 2013-12-29
 author: Pietro F. Maggi
 summary: Obsolete - Ruby is such a nice language that having a single version on you computer is not enough! 
-keywords: [Ruby, RVM, OS X]
-tags: [Ruby, RVM, OS X]
-topics: [Ruby]
-draft: false
-type: post
+categories:
+    - "Ruby"
+    - "Virtual environments"
+    - "RVM"
+    - "OS X"
 ---
+
 
 # **2019 Update**
 

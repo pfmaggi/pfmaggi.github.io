@@ -1,3 +1,6 @@
 [submodule "themes/beautifulhugo"]
 	path = themes/beautifulhugo
 	url = git@github.com:pfmaggi/beautifulhugo.git
+[submodule "themes/hugo-tufte"]
+	path = themes/hugo-tufte
+	url = https://github.com/slashformotion/hugo-tufte.git

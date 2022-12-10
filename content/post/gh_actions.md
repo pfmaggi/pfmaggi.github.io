@@ -1,9 +1,11 @@
 ---
 title: Moving to github actions to publish the blog
 summary: This blog started locally on my machine a long time ago, when I was mainly using a single computer. Nowadays I work with multiple machines...
-date: 2022-08-20T16:00:00+02:00
-tags: [Personal, Writing, Automation]
-draft: false
+date: 2022-08-20
+categories: 
+    - "Personal"
+    - "Writing"
+    - "Automation"
 author: Pietro F. Maggi
 ---
 
@@ -24,7 +26,7 @@ I had to update a few thinks to fit this into my existing workflow.
 
 I'm using my own domain for this website, but the pages are hosted by github-pages. Githubs provides a documentation on how to setup your custom domain and it added over time support for the HTTPS protocol managing automatically the certificates with [Let's Encrypt][2]. This has evolved over time and I managed to keep my setup up-to-date. However I saw that I the site was missing a valid certificate when using the `www` subdomain: https://www.pietromaggi.com.
 
-I've looked around and, at the end, it was simply my (obsolete) configuration that needed to be updated as described in [GitHub's documentation][3]. Also [registering my domain helped!][4].
+I've looked around and, at the end, it was simply my (obsolete) configuration that needed to be updated su described in [GitHub's documentation][3]. Also [registering my domain helped!][4].
 
 ### Renaming the default branch
 

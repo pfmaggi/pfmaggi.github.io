@@ -1,13 +1,18 @@
 ---
 title: Build TestDPC with bazel 5.3
 summary: Some personal notes on how to build in 2022 TestDPC with Bazel 5.2
-date: 2022-11-20T14:00:00+01:00
-tags: [AndroidEnterprise, TestDPC, Bazel]
-draft: false
+date: 2022-11-20
 author: Pietro F. Maggi
+toc: true
+hasMath: false 
+categories:
+    - "Android Enterprise"
+    - "TestDPC"
+    - "Bazel"
 ---
 
 ## The why
+
 [TestDPC][0] is a fantastic tool for experimenting with Android enterprise's features. lately I wanted to play a bit with the [security logs][1] and TestDPC comes handy for this, but with a caviat: **the version included on the play store doesn't include some of the latest features**.
 
 One of the feature not included are the cli commands to enable and retrieve security logs:
@@ -25,7 +30,7 @@ $adb shell dumpsys activity service com.afwsamples.testdpc is-security-logging-e
 
 but these commands are not (yet) in the latest TestDPC release on the playstore (8.0.1 at this time).
 
-If you want to see the complete list of the available commands in the version you are using, you can use the following command: 
+If you want to see the complete list of the available commands in the version you are using, you can use the following command:
 
 ```bash
 $adb shell dumpsys activity service com.afwsamples.testdpc help
