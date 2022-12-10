@@ -8,6 +8,7 @@ categories:
     - "Android Enterprise"
     - "TestDPC"
     - "Logs"
+toc: true
 ---
 
 ## The why

@@ -74,7 +74,7 @@ disqusShortname = ""
 
   # Optional 80x80 avatar image.
 	logo = "images/pfm.png"
-  favicon = "images/favicon.ico"
+  favicon = "favicon/favicon.ico"
   dateFormat = "January 2, 2006"
   commit = false
   rss = true

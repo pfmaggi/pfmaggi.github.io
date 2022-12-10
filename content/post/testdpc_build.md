@@ -1,6 +1,6 @@
 ---
 title: Build TestDPC with bazel 5.3
-summary: Some personal notes on how to build in 2022 TestDPC with Bazel 5.2
+summary: Some personal notes on how to build in 2022 TestDPC with Bazel 5.3
 date: 2022-11-20
 author: Pietro F. Maggi
 toc: true
@@ -10,6 +10,7 @@ categories:
     - "TestDPC"
     - "Bazel"
 ---
+
 
 ## The why
 
