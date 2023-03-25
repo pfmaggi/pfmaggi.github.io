@@ -4,3 +4,4 @@
 [submodule "themes/hugo-tufte"]
 	path = themes/hugo-tufte
 	url = git@github.com:pfmaggi/hugo-tufte.git
+	branch = dark-mode
