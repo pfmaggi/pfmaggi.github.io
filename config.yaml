@@ -1,0 +1,107 @@
+theme: hugo-tufte
+languageCode: en-US
+hasCJKLanguage: false
+baseurl: "https://pietromaggi.com/"
+title: "Garbage Collector"
+canonifyurls: true
+paginate: 5
+
+# Only modify the following if you know what you are doing
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    noClasses: false
+    guessSyntax: true
+
+params:
+  subtitle: "Tales from an old nibble"
+  logo: "images/pfm.png"
+  favicon: "favicon/favicon.ico"
+  author: false
+  dateFormat: "January 2, 2006"
+  codeBlocksDark: true
+  showPrivacyPolicy: true
+  # rss: true
+  hidereadtime: false
+  # Dark code highlighting
+  # Customize the indicator for margin notes
+  # Some suggestions: ⊕, 💬, 💭, 📑, 🏷, ✍, 💡, 🧐, 📎, 📌
+  marginNoteInd: "⊕"
+  # Your name or the name of you company
+  copyright: Copyright 2013-23 Pietro F. Maggi
+  # Show the "Powered by Hugo-Tufte and Hugo."
+  showPoweredBy: true
+  # Site wide kill switch for date in pages
+  hidedate: false
+  hidereadtime: false
+  meta: true
+  # Site wide kill switch for post summary on home page
+  showSummary: true
+  # Site wide kill switch for LaTeX support
+  KaTeXVersion: 0.16.4
+  KaTeXCDN: "//cdn.jsdelivr.net/npm"
+  # #### Control style flavours of the website
+  # Use upright & sans-serif font for subtitles
+  sansSubtitle: true
+  # Make the page centred in screen
+  centerArticle: false
+  # ######## Common social website links, please comment the unused ones.
+  # (if your favorite one is not in the list, please head to the footer menu below and add an entry)
+  # Please note that some of the value below are only provided as an exemple, perhaps the computed isn't valid
+  github: pfmaggi
+  # gitlab: slashformotion
+  twitter: pfmaggi
+  # patreon: ''
+  # youtube: user/ChromeDevelopers # check the end of your youtube url https://www.youtube.com/<copy_this>
+  medium: pmaggi
+  # reddit: Slashformotion
+  linkedin: pietromaggi
+  stackoverflow: 118862/pfmaggi
+  mastodon: androiddev.social/@pfmaggi
+
+taxonomies:
+  category: categories
+  series: series
+  tag: tags
+
+# -----------------------------------------------------------------------
+# Navigation menu
+# -----------------------------------------------------------------------
+menu:
+  nav:
+    - name: Home
+      weight: -110
+      pre: "<i class='fas fa-home fa-lg'></i> "
+      identifier: home
+      url: /
+    - name: Posts
+      weight: -100
+      pre: "<i class='fas fa-book fa-lg'></i> "
+      identifier: posts
+      url: /posts/
+    - name: Categories
+      weight: -90
+      pre: "<i class='fas fa-tags fa-lg'></i> "
+      identifier: categories
+      url: /categories/
+    - name: About
+      weight: -80
+      pre: "<i class='fas fa-info-circle  fa-lg'></i> "
+      identifier: about
+      url: /pages/about/
+    - name: Talks
+      weight: -70
+      pre: "<i class='fas fa-video fa-lg'></i> "
+      identifier: talks
+      url: /pages/talks/
+# -----------------------------------------------------------------------
+# FOOTER MENU
+# If you need to add custom links to you footer: put them here.
+# -----------------------------------------------------------------------
+  # footer:
+  #   - name: Custom footer link
+  #     weight: -90
+  #     identifier: custom_link
+  #     url: 'https://example.com'

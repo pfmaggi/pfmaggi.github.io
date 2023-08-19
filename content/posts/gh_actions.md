@@ -2,11 +2,15 @@
 title: Moving to github actions to publish the blog
 summary: This blog started locally on my machine a long time ago, when I was mainly using a single computer. Nowadays I work with multiple machines...
 date: 2022-08-20
-categories: 
-    - "Personal"
-    - "Writing"
-    - "Automation"
 author: Pietro F. Maggi
+showAuthor: false
+draft: false
+categories: [ Personal, Writing, Automation ]
+meta: true
+math: false
+toc: true
+hideDate: false
+hideReadTime: false
 ---
 
 

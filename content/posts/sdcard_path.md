@@ -92,7 +92,7 @@ if ((null == strSDCardPath) || (strSDCardPath.length() == 0)) {
 When we will start to release KitKat based devices it will be even more important taking a look at the right path for these volumes :-)
 
 {{< div class="pure-button" >}}
-> I've a new [blog post]({{% relref "post/android_secondary_storage_1.md" %}}) with additional information for Zebra Technologies KitKat devices.
+> I've a new [blog post]({{% relref "posts/android_secondary_storage_1.md" %}}) with additional information for Zebra Technologies KitKat devices.
 {{<div "end" >}}
 
 You can find in my github account a [sample application](https://github.com/pfmaggi/GetDeviceInfo) that retrieves these data.

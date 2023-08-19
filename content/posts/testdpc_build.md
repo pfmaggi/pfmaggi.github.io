@@ -45,7 +45,7 @@ The easy solution to this problem is to recompile the project. This means using 
 
 Bazel v5.3 still uses `dx` for building TestDPC but this is no more in the latest Android's build tools, replaced by R8/D8. The easy solution? instruct Bazel to use an older build tools modifying the `WORKSPACE` file as:
 
-```diff
+```udiff
     android_sdk_repository(
         name = "androidsdk",
         api_level = 33,

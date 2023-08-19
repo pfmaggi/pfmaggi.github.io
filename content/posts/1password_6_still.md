@@ -4,6 +4,12 @@ description: I've been a long time 1Password user, since version 4, but I never 
 date: 2023-03-25
 author: Pietro F. Maggi
 draft: false
+meta: true
+math: false
+toc: false
+hideDate: false
+showAuthor: true
+hideReadTime: false
 categories:
     - "Software"
     - "Personal"

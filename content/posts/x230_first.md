@@ -1,13 +1,16 @@
 ---
-title: Thinkpad X230 - first linux setup
+title: Thinkpad X230 - First linux setup
 description: A first for me, finally having time to sit down for a few evenings and setup my Thinkpad X230 with linux. This is supposed to be my thinkering machine for the coming months.
-date: 2023-08-15
+date: '2023-08-15'
 author: Pietro F. Maggi
+showAuthor: false
 draft: false
-categories:
-    - "Linux"
-    - "Personal"
-    - "X230"
+categories: [ Linux, Personal, X230 ]
+meta: true
+math: false
+toc: false
+hideDate: false
+hideReadTime: false
 ---
 
 I bought this refurbished machine for me at the end of 2019 on ebay, then the pandemic hit and we needed to setup everybody with a computer for home schooling. It worked great with the preinstalled Windows 10 and my son loved it. Its main issue?
@@ -19,7 +22,7 @@ So, at the end of 2021, I bought a new AMD based Chromebook for him (amazing bat
 
 So I started with my plan, just a few weeks to have the machine setup!
 
-> *Narrator: he is not great at planning*
+> *Narrator: he was not great at planning*
 
 ## Upgrades
 

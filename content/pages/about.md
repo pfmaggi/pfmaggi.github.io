@@ -1,5 +1,7 @@
 ---
 title: About
+author: Pietro F. Maggi
+skipPostNav: true
 ---
 
 

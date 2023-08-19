@@ -1,7 +1,4 @@
-[submodule "themes/beautifulhugo"]
-	path = themes/beautifulhugo
-	url = git@github.com:pfmaggi/beautifulhugo.git
 [submodule "themes/hugo-tufte"]
 	path = themes/hugo-tufte
 	url = git@github.com:pfmaggi/hugo-tufte.git
-	branch = dark-mode
+	branch = main

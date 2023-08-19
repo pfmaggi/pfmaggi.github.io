@@ -1,18 +1,14 @@
-# Privacy
+---
+title: Privacy Policy
+author: Pietro F. Maggi
+skipPostNav: true
+---
 
 Privacy matters but it can be confusing. This page explains our approach to privacy on all our websites and how it affects you.
 
 ## Short version
 
-We do not collect any statistics about your visit.
-
-## Measuring our visitors
-
-In the past we were measuring visitors to our website using Google Analytics. 
-
-Given that we were not using those information anyway, we decided to switch them off.
-
-You can learn more about [Google Analytics](http://www.google.com/analytics/learn/privacy.html) or [opt out if you wish](https://tools.google.com/dlpage/gaoptout).
+I do not collect any statistics about your visit. As this blog is currently hosted on Github's Pages, some of your informations are going to be recorded on their servers but, as far as I know, I've to access to those information.
 
 ## Updates to this policy
 

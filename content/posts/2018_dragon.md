@@ -1,13 +1,21 @@
 ---
 title: "Here be Dragons - The Enterprise Mobile Security Journey"
-summary: "This blog started out as a series of notes for a talk I've presented in April 2018 at a couple of events (Droidcon Dubai and Droidcon Turin) with my Zebra Technologies hat. Feel free to provide comments and feedback."
-date: 2018-04-14T21:30:48+01:00
+description: "This blog started out as a series of notes for a talk I've presented in April 2018 at a couple of events (Droidcon Dubai and Droidcon Turin) with my Zebra Technologies hat. Feel free to provide comments and feedback."
+date: 2018-04-14
+author: Pietro F. Maggi
+showAuthor: false
 draft: false
+categories: [ Talks, Zebra ]
+meta: true
+math: false
+toc: false
+hideDate: false
+hideReadTime: false
 ---
 
 **Note:**
 
-    This blog started out as a series of notes for a talk I've presented in April 2018 at a couple of events (Droidcon Dubai and Droidcon Turin) with my Zebra Technologies hat. Feel free to provide comments and feedback.
+> This blog started out as a series of notes for a talk I've presented in April 2018 at a couple of events (Droidcon Dubai and Droidcon Turin) with my Zebra Technologies hat. Feel free to provide comments and feedback.
 
 Looking at what is trendy at technology conferences, you can find a lot of talks about JavaScript frameworks or [functional|concatenative|multi-paradigm] programming languages, so when I started to work on my new talk I felt that I had to explain the title a little bit.
 
