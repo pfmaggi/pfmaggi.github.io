@@ -5,7 +5,7 @@ date: 2022-10-03
 author: Pietro F. Maggi
 showAuthor: false
 draft: false
-categories: [ Talks, Android Enterprise, Droidcon ]
+tags: [ Talks, Android Enterprise, Android, Droidcon ]
 meta: true
 math: false
 toc: false

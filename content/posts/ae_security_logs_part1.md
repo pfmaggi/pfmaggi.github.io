@@ -4,11 +4,13 @@ description: Some investigation on which data are available through the Android 
 date: 2022-12-11
 author: Pietro F. Maggi
 draft: true
-categories:
-    - "Android Enterprise"
-    - "TestDPC"
-    - "Logs"
+tags: [Android Enterprise, Android, TestDPC, Security, Logs ]
 toc: true
+showAuthor: false
+meta: true
+math: false
+hideDate: false
+hideReadTime: false
 ---
 
 ## The why

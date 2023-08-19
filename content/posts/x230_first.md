@@ -5,7 +5,7 @@ date: '2023-08-15'
 author: Pietro F. Maggi
 showAuthor: false
 draft: false
-categories: [ Linux, Personal, X230 ]
+tags: [ Linux, Personal, X230 ]
 meta: true
 math: false
 toc: false

@@ -3,7 +3,7 @@ title: Little command line tricks
 date: 2014-01-10
 author: Pietro F. Maggi
 summary: More than a blog this is a note to self. Don't forget this little tricks!
-categories:
+tags:
     - "OS X"
     - "Command Line"
     - "Tricks"

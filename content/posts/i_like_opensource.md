@@ -3,7 +3,7 @@ title: Why I like to talk about open source projects
 date: 2013-12-28
 author: Pietro F. Maggi
 summary: About the beauty of open source and the superiority of source code vs (bad) documentation.
-categories:
+tags:
     - "Open Source"
     - "Rhodes"
     - "RhoMobile"

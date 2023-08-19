@@ -5,7 +5,7 @@ date: 2022-08-20
 author: Pietro F. Maggi
 showAuthor: false
 draft: false
-categories: [ Personal, Writing, Automation ]
+tags: [ Personal, Writing, Automation ]
 meta: true
 math: false
 toc: true

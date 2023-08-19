@@ -3,7 +3,7 @@ title: Configuring RhoMobile Suite v5.0 on a clean OS X Mavericks machine
 summary: Obsolete - Step by step guide on how to install RhoMobile Studio v5.0 on a clean OS X Mavericks machine
 date: 2014-08-11
 author: Pietro F. Maggi
-categories:
+tags:
     - "OS X"
     - "RhoMobile"
 ---

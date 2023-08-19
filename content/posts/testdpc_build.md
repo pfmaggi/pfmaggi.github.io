@@ -3,12 +3,14 @@ title: Build TestDPC with bazel 5.3
 summary: Some personal notes on how to build in 2022 TestDPC with Bazel 5.3
 date: 2022-11-20
 author: Pietro F. Maggi
+showAuthor: false
+meta: true
+math: false
+hideDate: false
+hideReadTime: false
 toc: true
 hasMath: false 
-categories:
-    - "Android Enterprise"
-    - "TestDPC"
-    - "Bazel"
+tags: [Android Enterprise, Android, TestDPC, Bazel ]
 ---
 
 

@@ -10,7 +10,7 @@ toc: false
 hideDate: false
 showAuthor: true
 hideReadTime: false
-categories:
+tags:
     - "Software"
     - "Personal"
 ---

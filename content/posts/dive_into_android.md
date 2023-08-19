@@ -3,10 +3,17 @@ title: Diving into Android source code
 summary: Why Not? One of the beauty working on an open source OS is to be able to look into the source code to understand how it works. Don't trust the documentation (or the comments in the source code). Trust only the code itself! 
 date: 2014-01-02
 author: Pietro F. Maggi
-categories:
+tags:
     - "Android"
     - "Open Source"
     - "Hacking"
+draft: false
+toc: false
+showAuthor: false
+meta: true
+math: false
+hideDate: false
+hideReadTime: false
 ---
 
 

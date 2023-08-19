@@ -5,7 +5,7 @@ date: 2019-10-23
 author: Pietro F. Maggi
 showAuthor: false
 draft: false
-categories: [ Talks, Google Play, ADS ]
+tags: [ Talks, Google Play, ADS ]
 meta: true
 math: false
 toc: false
@@ -13,7 +13,7 @@ hideDate: false
 hideReadTime: false
 ---
 
-## Android at Large - [video from Android Developer Summit 2019](https://www.youtube.com/watch?v=LEBg709_tp4)
+{{< youtube id="LEBg709_tp4" title="video from Android Developer Summit 2019" >}}
 
 With Android making its way to new form factors, and OEM’s pushing the boundaries with new technology, it’s time to take a look at what these environments bring to you and your users. It’s crucial that your developer workflow accounts for resizability, new display sizes and aspect ratios, multi display, and app continuity to provide your users the best experience no matter where they are. The days of taking the easy road with screenOrientation=""portrait"" are quickly coming to an end.
 

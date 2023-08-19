@@ -5,7 +5,7 @@ date: 2019-10-25
 author: Pietro F. Maggi
 showAuthor: false
 draft: false
-categories: [ Talks, Google Play, ADS ]
+tags: [ Talks, Google Play, ADS ]
 meta: true
 math: false
 toc: false

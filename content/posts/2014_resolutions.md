@@ -3,7 +3,7 @@ title: 2014 New Year resolutions
 date: 2014-01-01
 author: Pietro F. Maggi
 summary:  Looking forwards to what I'd like to build in 2014.
-categories:
+tags:
     - "Personal"
     - "Diary"
 toc: true

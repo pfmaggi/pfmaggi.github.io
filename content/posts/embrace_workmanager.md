@@ -5,7 +5,7 @@ date: 2019-07-03
 author: Pietro F. Maggi
 showAuthor: false
 draft: false
-categories: [ Talks, WorkManager, Droidcon ]
+tags: [ Talks, WorkManager, Droidcon ]
 meta: true
 math: false
 toc: false

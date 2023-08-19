@@ -3,7 +3,7 @@ title: Finding the SDCard Path on Android devices
 date: 2014-10-19
 author: Pietro F. Maggi
 summary: Obsolete - Finding the real SDCard path in Android v4.1 JellyBean can be tricky. Let see how we can do it on a TC55. 
-categories:
+tags:
     - "Android"
     - "Zebra Technologies"
     - "Sample"

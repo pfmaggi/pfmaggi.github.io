@@ -3,7 +3,7 @@ title: Getting device info from MSI Android devices
 date: 2014-09-02
 author: Pietro F. Maggi
 summary: Obsolete - How to use the standard Android SDK to retrieve information about the device the app is running on.
-categories:
+tags:
     - "Android"
     - "Zebra Technologies"
     - "Sample"

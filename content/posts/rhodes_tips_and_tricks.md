@@ -3,7 +3,7 @@ title: Rhodes tips & tricks
 date: 2013-12-30
 author: Pietro F. Maggi
 summary: Collection of rhodes tips and tricks. More for the people that manage rhodes than who's only looking for info on how to write rhodes apps.
-categories:
+tags:
     - "Rhodes"
     - "RhoConnect"
     - "RhoMobile"

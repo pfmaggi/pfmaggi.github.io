@@ -81,11 +81,11 @@ menu:
       pre: "<i class='fas fa-book fa-lg'></i> "
       identifier: posts
       url: /posts/
-    - name: Categories
+    - name: Tags
       weight: -90
       pre: "<i class='fas fa-tags fa-lg'></i> "
-      identifier: categories
-      url: /categories/
+      identifier: tags
+      url: /tags/
     - name: About
       weight: -80
       pre: "<i class='fas fa-info-circle  fa-lg'></i> "
@@ -96,6 +96,11 @@ menu:
       pre: "<i class='fas fa-video fa-lg'></i> "
       identifier: talks
       url: /pages/talks/
+    - name: RSS
+      weight: -50
+      pre: "<i class='fas fa-rss fa-lg'></i> "
+      identifier: rss
+      url: /posts/index.xml
 # -----------------------------------------------------------------------
 # FOOTER MENU
 # If you need to add custom links to you footer: put them here.

@@ -5,7 +5,7 @@ date: 2018-04-14
 author: Pietro F. Maggi
 showAuthor: false
 draft: false
-categories: [ Talks, Zebra ]
+tags: [ Talks, Zebra ]
 meta: true
 math: false
 toc: false

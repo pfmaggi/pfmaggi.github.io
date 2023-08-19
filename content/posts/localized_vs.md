@@ -3,7 +3,7 @@ title: Rhodes 5.0.2 and Visual Studio 2008 Localized edition
 date: 2014-08-22
 author: Pietro F. Maggi
 summary: Obsolete - Quick post on the Joy of localized Visual Studio.
-categories:
+tags:
     - "RhoMobile"
     - "Visual Studio"
 ---
