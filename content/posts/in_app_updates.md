@@ -13,7 +13,7 @@ hideDate: false
 hideReadTime: false
 ---
 
-## In-app Updates - [video from Android Developer Summit 2019](https://www.youtube.com/watch?v=_o_q6hatcIs)
+{{< youtube id="_o_q6hatcIs" title="video from Android Developer Summit 2019" >}}
 
 Play's In-app updates API lets you prompt users to update your app while they are using the app, launched at Google I/O 2019. In this talk we will review what's new since then and explore ways that in-app updates can be used by your app.
 

@@ -7,6 +7,13 @@ tags:
     - "PinebookPro"
     - "firmware"
 author: Pietro F. Maggi
+showAuthor: false
+draft: false
+meta: true
+math: false
+toc: true
+hideDate: false
+hideReadTime: false
 ---
 
 

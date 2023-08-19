@@ -15,4 +15,4 @@ hideReadTime: false
 
 I presented this talk at droidcon Turin in October 2022 and the video is now available
 
-[video from droidcon Turin 2022](https://www.youtube.com/watch?v=yxUBQXgjoKo)
+{{< youtube id="yxUBQXgjoKo" title="video from droidcon Turin 2022" >}}

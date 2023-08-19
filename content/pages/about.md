@@ -7,9 +7,15 @@ skipPostNav: true
 
 Hi!<br>
 My name is Pietro F. Maggi.<br>
-{{< marginnote >}}
-![Pietro F. Maggi](/images/pfm_round.png "Pietro F. Maggi")
-{{< /marginnote>}}
+{{< figure
+  src="/images/pfm_round.png"
+  type="margin"
+  label="Pietro F. Maggi"
+  title=""
+  caption=""
+  alt="alt"
+  link="#"
+>}}
 
 I'm a father an husband and occasionally I find the time to write some code.
 
