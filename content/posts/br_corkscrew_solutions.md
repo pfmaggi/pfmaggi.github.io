@@ -99,5 +99,6 @@ Overall this was a great investment of my time!
 
 ### Video recording
 
-Corrado pointed out that a recording of the session with [Clarke "the bottleneck guy" Ching](https://www.linkedin.com/in/clarkeching/) is available on YouTube: ["CorkScrew Solutions" UK book premiere](https://www.youtube.com/watch?v=gpKvghf5uHQ).
+Corrado pointed out that a recording of the session with [Clarke "the bottleneck guy" Ching](https://www.linkedin.com/in/clarkeching/) is available on YouTube: 
 
+{{< youtube id="gpKvghf5uHQ" title="'CorkScrew Solutions' UK book premiere" >}}
