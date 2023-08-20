@@ -1,10 +1,16 @@
 ---
 title: Reading Notes - Think Again
 summary: Think Again - the Power of Knowing What You Don't Know by Adam Grant.</BR>An opinionated note-taking session with an interesting book.
-date: 2021-03-20T13:00:00+02:00
+date: 2021-03-20
 tags: [Book Review, Personal Improvement, Notes]
 draft: false
 author: Pietro F. Maggi
+toc: true
+showAuthor: false
+meta: true
+math: false
+hideDate: false
+hideReadTime: false
 ---
 
 > **Think Again**: the Power of Knowing What You Don't Know  
