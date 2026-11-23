@@ -1,19 +1,5 @@
 /* Custom overrides for Garbage Collector on hugo-theme-monochrome */
 
-.home-intro {
-  margin-bottom: 1.5rem;
-}
-
-.home-intro h1 {
-  margin-bottom: 0.25rem;
-}
-
-.home-subtitle {
-  margin-top: 0;
-  color: var(--color-text-secondary);
-  font-size: 1.05rem;
-}
-
 .post-header {
   margin-bottom: 1.5rem;
   padding-bottom: 1rem;
