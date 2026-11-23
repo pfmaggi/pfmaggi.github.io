@@ -23,6 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       HUGO_VERSION: "0.170.1"
+      DART_SASS_VERSION: "1.108.2"
       HUGO_ENVIRONMENT: production
       SITE_BASE_URL: ${{ vars.SITE_BASE_URL || 'https://pietromaggi-blog.pfm.workers.dev/' }}
     steps:
@@ -39,6 +40,13 @@ jobs:
             | tar -xz -C "${RUNNER_TEMP}/hugo" hugo
           echo "${RUNNER_TEMP}/hugo" >> "${GITHUB_PATH}"
           "${RUNNER_TEMP}/hugo/hugo" version
+
+      - name: Install Dart Sass
+        run: |
+          curl -fsSL "https://github.com/sass/dart-sass/releases/download/${DART_SASS_VERSION}/dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz" \
+            | tar -xz -C "${RUNNER_TEMP}"
+          echo "${RUNNER_TEMP}/dart-sass" >> "${GITHUB_PATH}"
+          "${RUNNER_TEMP}/dart-sass/sass" --version
 
       - name: Build with Hugo
         run: |

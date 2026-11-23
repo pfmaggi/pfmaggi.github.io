@@ -508,7 +508,7 @@ We've now done all the plumbing necessary to handle the barcode scanner in our a
 
 ## Handle the barcode scanner in the Xamarin.Forms application
 
-What we want to implement is to have the barcode scanner enabled only in the `ItemListPage` and disabled when we're in the `ItemPage`. In the previous version of the application ([presented in the previous post]({{ relref . "xamarin_forms_dw_2.md" }})), the barcode scanner was always enabled and there was some strange behavior sometimes.
+What we want to implement is to have the barcode scanner enabled only in the `ItemListPage` and disabled when we're in the `ItemPage`. In the previous version of the application ([presented in the previous post]({{< relref "xamarin_forms_dw_2.md" >}})), the barcode scanner was always enabled and there was some strange behavior sometimes.
 
 We're going to modify the `ItemListPageModel` class implementing the two methods `ViewIsAppearing` and `ViewIsDisappearing` to enable and disable the barcode scanner:
 

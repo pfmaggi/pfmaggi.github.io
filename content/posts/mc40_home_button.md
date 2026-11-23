@@ -6,7 +6,7 @@ tags: [Android, MC40, Tricks, Sample, Zebra Technologies]
 draft: false
 ---
 # Note:
-_[I've published another post that explain how to disable the Home Button on all the Zebra's Android devices that are supported by Mx v4.3+.]({{ relref . "post/mx_home_button.md" }})_
+_[I've published another post that explain how to disable the Home Button on all the Zebra's Android devices that are supported by Mx v4.3+.]({{< relref "mx_home_button.md" >}})_
 
 ## Intro
 Zebra Technologies' devices are purpose built to be single use devices. Having an OS like Android nowadays provides a lot of flexibility...  sometimes a bit too much.  

@@ -39,7 +39,7 @@ To access an External Storage on Android v4.3 and previous versions, you have to
 - `WRITE_EXTERNAL_STORAGE`
 
 These will gave you read&write access to all the External Storage available[^3].  
-Given that there are ways to gently ask for the [SDCard true path]({{ relref . "post/sdcard_path.md" }}) this was more or less working.
+Given that there are ways to gently ask for the [SDCard true path]({{< relref "sdcard_path.md" >}}) this was more or less working.
 
 > But Android is now a multiuser OS! and an SDCard with a FAT file system, is not very good protecting the data between the different users...
   

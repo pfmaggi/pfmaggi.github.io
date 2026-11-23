@@ -100,7 +100,7 @@ If everything is setup correctly you get the message: _Your system is ready to b
 If you get a different message with some missing or misconfigured software you can follow the on-screen-instruction or you can find further information on the [HomeBrew Wiki](https://github.com/Homebrew/homebrew/wiki).
 
 ### Install RVM and Ruby 1.9.3 {#RVM}
-OS X Mavericks comes with Ruby v2.0 installed by default, however RMSv5 requires Ruby v1.9.3. Overall working with Ruby can require to switch ruby environment often and to release this pain [some utilities has been created]({{ relref . "post/rvm.md" }}).
+OS X Mavericks comes with Ruby v2.0 installed by default, however RMSv5 requires Ruby v1.9.3. Overall working with Ruby can require to switch ruby environment often and to release this pain [some utilities has been created]({{< relref "rvm.md" >}}).
 
 In this case we're going to install RVM and use it to install Ruby v1.9.3.
 First we need to install some prerequisite using HomeBrew:

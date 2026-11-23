@@ -39,7 +39,7 @@ Given that we've seen that the headset keys generate an Android KeyCode we can u
 
 ### Building a POC demo with Enterprise Browser's KeyCapture API
 
-First of all, we need to understand which KeyCode we get in EB to be able to intercept it. [As I wrote in a past post]({{ relref . "android_backbutton_and_eb.md" }}) we can use a very simple page to discover the right value we need.
+First of all, we need to understand which KeyCode we get in EB to be able to intercept it. [As I wrote in a past post]({{< relref "android_backbutton_and_eb.md" >}}) we can use a very simple page to discover the right value we need.
 
 Just create a new index.html file with the following content, and copy it to your device.
 {{< highlight html "linenos=table" >}}
@@ -205,7 +205,7 @@ In EB's `Config.xml` I then use:
     <StartPage value="http://0.0.0.0:8082/demo1/index.html" name="HeadsetPoC"/>
 </General>
 {{< / highlight >}}
-You can modify the following option to be able to debug the application using Chrome's DevTools [as explained in a previous post]({{ relref . "eb_modernization.md" }}).
+You can modify the following option to be able to debug the application using Chrome's DevTools [as explained in a previous post]({{< relref "eb_modernization.md" >}}).
 {{< highlight xml "linenos=table" >}}
 <DebugSetting>
     <DebugModeEnable value="1"/>

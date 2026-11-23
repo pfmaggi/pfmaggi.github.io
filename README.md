@@ -11,7 +11,7 @@ git clone --recurse-submodules https://github.com/pfmaggi/pfmaggi.github.io.git
 cd pfmaggi.github.io
 ```
 
-Run the local Hugo server (requires **Hugo Extended `>= 0.146.0`**, CI uses `0.170.1`):
+Run the local Hugo server (requires **Hugo Extended `>= 0.146.0`** and **Dart Sass** on `PATH`; CI uses Hugo `0.170.1` + Dart Sass `1.108.2`):
 
 ```sh
 hugo server -D

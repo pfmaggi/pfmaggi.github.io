@@ -15,7 +15,7 @@ Mx v4.3 introduced the support in the [UI Manager to disable the Home Button](ht
 ## Project setup
 We start creating a new Android application in Android Studio. I'm using Android Studio v2.1.2 with Build tools 23.0.3, and the EMDK v4.2. Your mileage can vary if you're using a different setup.
 
-*Note:* I prefer to integrate Zebra Technologies' EMDK as a library in the gradle module file. You can find more information about this in the [EMDK documentation](http://techdocs.zebra.com/emdk-for-android/4-2/tutorial/tutCreateProjectAndroidStudio/#emdkasadependencyingradlebuild) and in [this blog]({{ relref . "emdk_and_android_sdk.md" }}).
+*Note:* I prefer to integrate Zebra Technologies' EMDK as a library in the gradle module file. You can find more information about this in the [EMDK documentation](http://techdocs.zebra.com/emdk-for-android/4-2/tutorial/tutCreateProjectAndroidStudio/#emdkasadependencyingradlebuild) and in [this blog]({{< relref "emdk_and_android_sdk.md" >}}).
 
 ### Create a new Android project
 ![Creating a new Android Application, step 1](/images/samples/mx_home_btn/AndroidNewPrj_01.png "Creating a new Android Application, step 1")
