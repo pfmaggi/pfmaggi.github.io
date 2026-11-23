@@ -1,0 +1,63 @@
+{{- define "content" -}}
+
+<div class="content-margin post-header">
+    <h1 class="post-title">
+        {{- .Title -}}{{- if .Draft }} <span class="draft-badge">Draft</span>{{- end -}}
+    </h1>
+    {{- with .Params.subtitle }}
+        <p class="post-subtitle">{{ . }}</p>
+    {{- end }}
+
+    {{- if eq .Section "posts" }}
+        <div class="post-meta">
+            {{- if not .Date.IsZero }}
+                <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+            {{- end }}
+            <span class="meta-sep">&middot;</span>
+            <span>{{ .ReadingTime }} min read</span>
+            {{- with .Params.tags }}
+                <span class="meta-sep">&middot;</span>
+                <span class="post-tags">
+                    {{- range . }}
+                        <a class="post-tag" href="{{ printf "tags/%s/" (. | urlize) | relURL }}">#{{ . }}</a>
+                    {{- end }}
+                </span>
+            {{- end }}
+        </div>
+    {{- end }}
+</div>
+
+{{ if and (ne .TableOfContents "<nav id=\"TableOfContents\"></nav>") (.Store.Get "params").enable_toc }}
+    {{ $toc_position := (.Store.Get "params").toc_position }}
+    {{ if eq $toc_position "right" }}
+        {{ partial "fixed-toc.html" (dict "context" . "position" $toc_position) }}
+    {{ else if eq $toc_position "top" }}
+        {{ $enable_collapsible_toc := (.Store.Get "params").enable_collapsible_toc }}
+        {{ partial "collapsible-menu.html" (dict "type" "toc" "context" . "enable" $enable_collapsible_toc) }}
+    {{ end }}
+{{ end }}
+
+{{ if .Content }}
+    <div class="content-margin">
+        {{- partial "content.html" (dict "ctx" . "content" .Content) -}}
+    </div>
+{{ end }}
+
+{{- if and (eq .Section "posts") (not .Params.skipPostNav) }}
+    {{- if or .PrevInSection .NextInSection }}
+        <nav class="content-margin post-nav" aria-label="Post navigation">
+            <div class="post-nav-prev">
+                {{- with .PrevInSection }}
+                    <a href="{{ .RelPermalink }}">&laquo; {{ .Title }}</a>
+                {{- end }}
+            </div>
+            <div class="post-nav-next">
+                {{- with .NextInSection }}
+                    <a href="{{ .RelPermalink }}">{{ .Title }} &raquo;</a>
+                {{- end }}
+            </div>
+        </nav>
+    {{- end }}
+{{- end }}
+
+{{- end -}}

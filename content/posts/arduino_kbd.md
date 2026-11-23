@@ -1,20 +1,15 @@
 ---
 title: Arduino keyboard emulation
 subtitle: Automate keyboard for fun and cracking codes
-author: Pietro F. Maggi
 date: 2023-08-20
-meta: true
 math: false
 toc: false
 draft: true
-categories: 
+tags: 
   - "Personal"
   - "Arduino"
   - "Hacking"
-hideDate: false
-hideReadTime: false
 ---
-
 Over the years I setup many iPads for friends and family members, updating my "customers" from a device to a newer one.
 
 It is only natural that I ended up with a full set of obsolete, broken, and sometimes locked devices.
@@ -331,10 +326,7 @@ The standard firware on arduino boards setup the USB connection as a serial comm
 [This article][2] is the clearest explanation about what to do, but the linked firmware are not anymore available...
 
 Luckly I've found them on [on this other article][3].
-Once downloaded the two firmwares
-{{< sidenote >}}
-as you also want the standard one, to be able to revert your Arduino to the standard behaviour and be able to update the code on it.
-{{</ sidenote >}}
+Once downloaded the two firmwares[^1]
 you can test reprogram its atmega16u2 on the Arduino board to act as a keyboard.
 
 Depending on the OS you are using you may need to follow different steps. With my hacking OS of choice (GNU/Linux - Manjaro) I can rely on `pacman` to install the `dfu-programmer` application:
@@ -343,10 +335,7 @@ Depending on the OS you are using you may need to follow different steps. With m
 $> sudo pacman -S dfu-programmer
 {{</ highlight >}}
 
-And then test the standard firmware, just to be sure that everything is working correctly.
-{{< sidenote >}}
-First you may need to reset the ATmega16u2 shorting the topleft jumper.
-{{</ sidenote >}}
+And then test the standard firmware, just to be sure that everything is working correctly.[^2]
 
 {{< highlight shell "linenos=table" >}}
 $> sudo dfu-programmer at90mega16u2 erase
@@ -367,3 +356,6 @@ Now we just have to connect the Arduino board with the iPad using the camera kit
 [1]: https://github.com/ajw107/iPeeU
 [2]: https://mitchtech.net/arduino-usb-hid-keyboard/
 [3]: https://techtotinker.com/2020/07/tutorial-how-to-use-arduino-uno-as-hid-part-1-arduino-keyboard-emulation/
+
+[^1]: as you also want the standard one, to be able to revert your Arduino to the standard behaviour and be able to update the code on it.
+[^2]: First you may need to reset the ATmega16u2 shorting the topleft jumper.

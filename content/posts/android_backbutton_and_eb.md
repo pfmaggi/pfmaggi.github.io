@@ -1,13 +1,10 @@
 ---
 title: Android Back Button and Enterprise Browser
 summary: Obsolete - How to intercept the Back Button when using Zebra's Enterprise Browser on Android devices.
-date: 2015-09-25 11:33:11 +0200
+date: 2015-09-25T11:33:11+02:00
 tags: [Android, Enterprise Browser, Tricks, Zebra Technologies]
 draft: false
-author: Pietro F. Maggi
-type: post
 ---
-
 # **2019 Update**
 
 **This post is now obsolete. Enterprise Browser has new APIs to cover this use case, please refer to its documentation for updates.**

@@ -4,9 +4,7 @@ summary: I got a new car this summer that supports Android Auto, some apps I use
 date: 2017-10-31T21:00:00+01:00
 tags: [Android, AndroidAuto, Testing]
 draft: false
-author: Pietro F. Maggi
 ---
-
 ## Android Auto? Why?
 This summer I bought a new car and it came with a nice 8'' touch panel that supports Android Auto and Apple Car.
 

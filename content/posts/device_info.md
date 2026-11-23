@@ -1,7 +1,6 @@
 ---
 title: Getting device info from MSI Android devices
 date: 2014-09-02
-author: Pietro F. Maggi
 summary: Obsolete - How to use the standard Android SDK to retrieve information about the device the app is running on.
 tags:
     - "Android"
@@ -9,11 +8,9 @@ tags:
     - "Sample"
 toc: true
 ---
-
-
-{{< div class="danger pure-button" >}}
-> The information in this article is obsolete.<br>Please refer to the Android documentation for updates on this topic
-{{<div "end" >}}
+{{< color-block style="warning" >}}
+The information in this article is obsolete.<br>Please refer to the Android documentation for updates on this topic.
+{{< /color-block >}}
 
 # The good old ways!
 On Symbol/MSI Windows Mobile devices, we where providing some APIs in the EMDK to get additional information.
@@ -40,59 +37,41 @@ You can follow these images as a guideline. Your interface may vary as Google up
 
 {{< figure
   src="/images/samples/device-info/create_project_01.jpg"
-  class="class param"
   title="Android New Project Wizard - page 1"
-  label="mn-export-import"
   alt="Android New Project Wizard - page 1"
  >}}
-{{< section "end" >}}
 
 {{< figure
   src="/images/samples/device-info/create_project_02.jpg"
-  class="class param"
   title="Android New Project Wizard - page 2"
-  label="mn-export-import"
   alt="Android New Project Wizard - page 2"
  >}}
-{{< section "end" >}}
 
 {{< figure
   src="/images/samples/device-info/create_project_03.jpg"
-  class="class param"
   title="Android New Project Wizard - page 3"
-  label="mn-export-import"
   alt="Android New Project Wizard - page 3"
  >}}
-{{< section "end" >}}
 
 {{< figure
   src="/images/samples/device-info/create_project_04.jpg"
-  class="class param"
   title="Android New Project Wizard - page 4"
-  label="mn-export-import"
   alt="Android New Project Wizard - page 4"
  >}}
-{{< section "end" >}}
 
 {{< figure
   src="/images/samples/device-info/create_project_05.jpg"
-  class="class param"
   title="Android New Project Wizard - page 5"
-  label="mn-export-import"
   alt="Android New Project Wizard - page 5"
  >}}
-{{< section "end" >}}
 
 Then we can do some housekeeping deleting the unnecessary main.xml menu resource:
 
 {{< figure
   src="/images/samples/device-info/delete_menu.jpg"
-  class="class param"
   title="Delete unnecessary menu"
-  label="mn-export-import"
   alt="Delete unnecessary menu"
  >}}
-{{< section "end" >}}
 
 We can then start the two main changes:
   - Setting up the Activity Layout
@@ -100,12 +79,9 @@ We can then start the two main changes:
 
 {{< figure
   src="/images/samples/device-info/activity_layout.jpg"
-  class="class param"
   title="Main Activity Layout"
-  label="mn-export-import"
   alt="Main Activity Layout"
  >}}
-{{< section "end" >}}
 
 Here's the code:
 
@@ -223,34 +199,25 @@ Running this application on an ET1 with Jelly Bean you get:
 
 {{< figure
   src="/images/samples/device-info/screen_ET1.png"
-  class="class param"
   title="ET1 Screenshot"
-  label="mn-export-import"
   alt="ET1 Screenshot"
  >}}
-{{< section "end" >}}
 
 Running this application on an MC40 with Jelly Bean you get:
 
 {{< figure
   src="/images/samples/device-info/screen_MC40.png"
-  class="class param"
   title="MC40 Screenshot"
-  label="mn-export-import"
   alt="MC40 Screenshot"
  >}}
-{{< section "end" >}}
 
 While the TC55 is always a bit different :-)
 
 {{< figure
   src="/images/samples/device-info/screen_TC55JB.png"
-  class="class param"
   title="TC55 Screenshot"
-  label="mn-export-import"
   alt="TC55 Screenshot"
  >}}
-{{< section "end" >}}
 
 Hope you may find this useful. Send me an email if you'd like to see any particular topic on this blog.
 

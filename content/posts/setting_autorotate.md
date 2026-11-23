@@ -4,9 +4,7 @@ summary: Obsolete - Zebra Technologies' StageNow is a powerful tool that allows 
 date: 2016-06-07T20:00:00+01:00
 tags: [Android, Settings, StageNow, Zebra Technologies]
 draft: false
-author: Pietro F. Maggi
 ---
-
 # **Edit:**
 **Changes in API level 23 and newer make impossible for normal application to modify the autorotate setting.**
 

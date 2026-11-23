@@ -4,7 +4,6 @@ summary: "Enterprise Browser allows to create shortcuts to different `Config.xml
 date: 2018-03-21T21:30:48+01:00
 draft: false
 ---
-
 ## *Note:* 
 
 This blog describe the content presented during Zebra Technologies' DEVTALK recorded March 21st 2018 about Enterprise Browser. [You can find a recording of the presentation on Zebra's Developer Portal](https://developer.zebra.com/community/home/blog/2018/03/28/devtalk-l-wednesday-march-21-2018-l-1000-am-cdt-l-enterprise-browser-enable-your-web-application).

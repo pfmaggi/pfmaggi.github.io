@@ -1,15 +1,12 @@
 ---
 title: Why I like to talk about open source projects
 date: 2013-12-28
-author: Pietro F. Maggi
 summary: About the beauty of open source and the superiority of source code vs (bad) documentation.
 tags:
     - "Open Source"
     - "Rhodes"
     - "RhoMobile"
 ---
-
-
 Since I joined the RhoMobile group of Motorola Solutions as EIA pre-sale Technical Architect, I started to get disparate question regarding features of the Suite.
 
 Something on the line:

@@ -1,7 +1,6 @@
 ---
 title: Ruby Version Manager (aka RVM) the Swiss army knife of Ruby versions
 date: 2013-12-29
-author: Pietro F. Maggi
 summary: Obsolete - Ruby is such a nice language that having a single version on you computer is not enough! 
 tags:
     - "Ruby"
@@ -10,11 +9,9 @@ tags:
     - "OS X"
 toc: true
 ---
-
-
-{{< div class="danger pure-button" >}}
-> The information in this article is obsolete.<br>Please refer to RVM and Ruby's documentation for modern best practices.<br>This worked for me long time ago.
-{{<div "end" >}}
+{{< color-block style="warning" >}}
+The information in this article is obsolete.<br>Please refer to RVM and Ruby's documentation for modern best practices.<br>This worked for me a long time ago.
+{{< /color-block >}}
 
 ## How many versions of Ruby do you need on your machine?
 Even if OS X 10.9 *Mavericks* came with Ruby v2.0.0-p195, the previous OS X versions where released with Ruby v1.8.7.

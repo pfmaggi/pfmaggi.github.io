@@ -1,0 +1,132 @@
+baseURL: "https://pietromaggi.com/"
+title: "Garbage Collector"
+theme: "hugo-theme-monochrome"
+locale: "en-US"
+defaultContentLanguage: "en"
+hasCJKLanguage: false
+enableEmoji: true
+enableRobotsTXT: true
+
+pagination:
+  pagerSize: 5
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+taxonomies:
+  tag: tags
+  series: series
+  category: categories
+
+privacy:
+  youtube:
+    privacyEnhanced: true
+
+markup:
+  goldmark:
+    parser:
+      attribute:
+        block: true
+        title: true
+    renderer:
+      unsafe: false
+  highlight:
+    codeFences: true
+    guessSyntax: true
+    lineNumbersInTable: true
+    noClasses: true
+    style: "monokai"
+    tabWidth: 4
+
+params:
+  navbar_title: "Garbage Collector"
+  subtitle: "Tales from an old nibble"
+  mainSections:
+    - posts
+  author:
+    name: "Pietro F. Maggi"
+    email: "blog@pietromaggi.com"
+  description: "Tales from an old nibble — notes on Android, Linux, software engineering, and tinkering."
+  color_scheme: "light"
+  hide_navbar_on_scroll: true
+  navbar_width: "wide"
+  navbar_show_all_languages: false
+
+  # Features
+  enable_site_search: true
+  enable_toc: true
+  toc_position: "right"
+  enable_collapsible_toc: false
+  enable_header_anchor: true
+  enable_zooming_js: true
+  enable_math: false
+
+  # SEO
+  enable_open_graph: true
+  enable_twitter_cards: true
+
+  # List layout (/posts/ and /tags/<tag>/)
+  list_layout:
+    enable_group_by_year: true
+    enable_show_date: true
+    enable_pagination: false
+
+  # Syntax highlighting (Hugo built-in Chroma + Monochrome copy button)
+  syntax_highlight:
+    lib: "builtin"
+    builtin:
+      enable_code_copy: true
+
+  # Footer (supports HTML)
+  footer: |
+    <div class="site-footer">
+      <div class="footer-links">
+        <a href="https://github.com/pfmaggi" rel="me noopener" target="_blank">GitHub</a>
+        &middot;
+        <a href="https://androiddev.social/@pfmaggi" rel="me noopener" target="_blank">Mastodon</a>
+        &middot;
+        <a href="https://www.linkedin.com/in/pietromaggi" rel="me noopener" target="_blank">LinkedIn</a>
+        &middot;
+        <a href="https://medium.com/@pmaggi" rel="noopener" target="_blank">Medium</a>
+        &middot;
+        <a href="https://stackoverflow.com/users/118862/pfmaggi?tab=profile" rel="noopener" target="_blank">Stack Overflow</a>
+        &middot;
+        <a href="https://twitter.com/pfmaggi" rel="noopener" target="_blank">X</a>
+        &middot;
+        <a href="/posts/index.xml">RSS</a>
+      </div>
+      <div class="footer-meta">
+        Copyright &copy; 2013&ndash;2026 Pietro F. Maggi &middot;
+        <a href="/pages/privacy_policy/">Privacy Policy</a>
+      </div>
+    </div>
+
+menu:
+  navbar:
+    - identifier: posts
+      name: Posts
+      url: /posts/
+      weight: 10
+    - identifier: tags
+      name: Tags
+      url: /tags/
+      weight: 20
+    - identifier: projects
+      name: Projects
+      url: /projects/
+      weight: 30
+    - identifier: talks
+      name: Talks
+      url: /pages/talks/
+      weight: 40
+    - identifier: about
+      name: About
+      url: /pages/about/
+      weight: 50
+    - identifier: rss
+      name: RSS
+      url: /posts/index.xml
+      weight: 60

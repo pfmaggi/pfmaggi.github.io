@@ -2,12 +2,9 @@
 title: "Zebra's EMDK Async Profile Manager APIs"
 summary: "A step-by-step introduction to the Async version of the Zebra's EMDK for Android APIs to process Mx profiles."
 date: 2018-06-26T09:00:00+02:00
-type: "post"
 draft: false
-author: "Pietro F. Maggi"
 tags: ["Android", "Zebra", "EMDK", "Profile Manager"]
 ---
-
 *Note: [the accompanying code is available on github](https://github.com/Zebra/EMDKProfileAsync).*
 
 Summer is the perfect time for some cleanup, and I've some older content laying around my laptop that is about time I publish!

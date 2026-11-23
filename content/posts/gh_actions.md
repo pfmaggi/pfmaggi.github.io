@@ -2,18 +2,11 @@
 title: Moving to github actions to publish the blog
 summary: This blog started locally on my machine a long time ago, when I was mainly using a single computer. Nowadays I work with multiple machines...
 date: 2022-08-20
-author: Pietro F. Maggi
-showAuthor: false
 draft: false
 tags: [ Personal, Writing, Automation ]
-meta: true
 math: false
 toc: true
-hideDate: false
-hideReadTime: false
 ---
-
-
 ## What is this all about
 
 This blog started locally on my machine a long time ago, when I was mainly using a single computer. Nowadays I work with multiple machines and I wanted to move the actual creation of the blog and publishing to github actions to avoid having to keep in sync all my machines.

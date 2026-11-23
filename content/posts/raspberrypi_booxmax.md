@@ -4,9 +4,7 @@ summary: Boox Max 3 can be used as a HDMI monitor, let's see how to configure Ra
 date: 2020-11-08T19:00:00+01:00
 tags: [RaspberryPi, Boox, eInk, Linux]
 draft: false
-author: Pietro F. Maggi
 ---
-
 ## Starting from scratch
 
 I like reading books but it is not always convenient to travel with two or more technical books while commuting to the office or travelling to a remote conference (remember those times).

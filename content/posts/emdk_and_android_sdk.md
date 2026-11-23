@@ -1,13 +1,10 @@
 ---
 title: Building Zebra's EMDK project using SDK Platform 23
 summary: Obsolete - How-To guide on how to build an Android application using the latest SDK Platform and Zebra Technologies' EMDK.
-date: 2015-11-25 09:54:55 +0100
+date: 2015-11-25T09:54:55+01:00
 tags: [Android, EMDK, Sample, Zebra Technologies]
-author: Pietro F. Maggi
 draft: false
-type: post
 ---
-
 # **2019 Update**
 
 **This post is now obsolete. Please refer to Zebra's EMDK documentation on best practices to use the EMDK.**

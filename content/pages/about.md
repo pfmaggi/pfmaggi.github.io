@@ -1,21 +1,12 @@
 ---
 title: About
-author: Pietro F. Maggi
 skipPostNav: true
+toc: false
 ---
+{{< figure src="/images/pfm_round.png" class="about-avatar" alt="Pietro F. Maggi" >}}
 
-
-Hi!<br>
-My name is Pietro F. Maggi.<br>
-{{< figure
-  src="/images/pfm_round.png"
-  type="margin"
-  label="Pietro F. Maggi"
-  title=""
-  caption=""
-  alt="alt"
-  link="#"
->}}
+Hi!  
+My name is Pietro F. Maggi.
 
 I'm a father an husband and occasionally I find the time to write some code.
 
@@ -38,7 +29,7 @@ Public speaking, business development, and software development are my main stre
 
 If I've to define myself in a sentence, I'm an *Extrovert Developer*
 
-If you would like to get in touch with me for a technical question or a comment, you can send me an [email][0] or a message on [Mastodont][1]!
+If you would like to get in touch with me for a technical question or a comment, you can send me an [email][0] or a message on [Mastodon][1]!
 
 [0]: mailto:blog@pietromaggi.com
 [1]: https://androiddev.social/@pfmaggi

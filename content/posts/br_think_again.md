@@ -4,15 +4,9 @@ summary: Think Again - the Power of Knowing What You Don't Know by Adam Grant.</
 date: 2021-03-20
 tags: [Book Review, Personal Improvement, Notes]
 draft: false
-author: Pietro F. Maggi
 toc: true
-showAuthor: false
-meta: true
 math: false
-hideDate: false
-hideReadTime: false
 ---
-
 > **Think Again**: the Power of Knowing What You Don't Know  
 by Adam Grant
 

@@ -1,14 +1,12 @@
 ---
 title: Little command line tricks
 date: 2014-01-10
-author: Pietro F. Maggi
 summary: More than a blog this is a note to self. Don't forget this little tricks!
 tags:
     - "OS X"
     - "Command Line"
     - "Tricks"
 ---
-
 This is a different blog, more a remainder for me than anything else. Hope that someone else can find these useful... they're for me!
 
 ### Recover a failed download with curl:

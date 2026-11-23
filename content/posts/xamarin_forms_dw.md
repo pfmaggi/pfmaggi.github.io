@@ -2,17 +2,15 @@
 title: "Xamarin.Forms + FreshMVVM for enterprise applications"
 summary: "Xamarin Forms is getting traction with Zebra's Partners and End-Users and a light framework like FreshMVVM looks the perfect companion. Let's look how to start a new project using these technologies and implement a cross-platform inventory application."
 date: 2018-07-04T09:00:00+02:00
-type: "post"
 draft: false
-author: "Pietro F. Maggi"
 tags: ["Android", "Xamarin", "Xamarin.Forms", "FreshMVVM"]
 ---
-
 *Note: [the accompanying code is available on GitHub](https://github.com/Zebra/Inventory/releases/tag/NoDWyet).*
 
 As I wrote in [my previous post]({{< relref "async_profiles.md" >}}):
 
-> Summer is the perfect time for some cleanup, and I've some older content laying around my laptop that is about time I publish! <br>I'm planning to cover some long-standing argument that I've touched over the last few years as Zebra's EMEA Software Consultant.
+> Summer is the perfect time for some cleanup, and I've some older content laying around my laptop that is about time I publish!  
+> I'm planning to cover some long-standing argument that I've touched over the last few years as Zebra's EMEA Software Consultant.
 
 I've been involved in multiple meetings and planning with Zebra's partners and end-users explaining what was the best option to integrate barcode scanning functionality in a Xamarin Forms application.
 

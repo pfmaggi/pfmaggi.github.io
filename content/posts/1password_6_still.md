@@ -2,19 +2,13 @@
 title: Sticking to 1Password 6
 description: I've been a long time 1Password user, since version 4, but I never upgraded to AgileBits subscription model and version 6 is the last 1Password version I can use. Sometimes I made mistakes and I've to revert back to this version.
 date: 2023-03-25
-author: Pietro F. Maggi
 draft: false
-meta: true
 math: false
 toc: false
-hideDate: false
-showAuthor: true
-hideReadTime: false
 tags:
     - "Software"
     - "Personal"
 ---
-
 I loved 1Password since the first time I installed it many years ago. I probably got in some OSX Indy developer bundle and I found it liberating.
 
 Over the years, I kept paying for the new version as soon as it was released but around version 7, Agile Bits (the company behind 1Password) decided to transition to a subscription model.

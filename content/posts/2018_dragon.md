@@ -2,17 +2,11 @@
 title: "Here be Dragons - The Enterprise Mobile Security Journey"
 description: "This blog started out as a series of notes for a talk I've presented in April 2018 at a couple of events (Droidcon Dubai and Droidcon Turin) with my Zebra Technologies hat. Feel free to provide comments and feedback."
 date: 2018-04-14
-author: Pietro F. Maggi
-showAuthor: false
 draft: false
 tags: [ Talks, Zebra ]
-meta: true
 math: false
 toc: false
-hideDate: false
-hideReadTime: false
 ---
-
 **Note:**
 
 > This blog started out as a series of notes for a talk I've presented in April 2018 at a couple of events (Droidcon Dubai and Droidcon Turin) with my Zebra Technologies hat. Feel free to provide comments and feedback.
@@ -70,11 +64,8 @@ We've seen devices evolving during these decades from a custom operative system,
 
 The increased size of the mobile market has increased the specialization of these operative systems. Moving away from the concept of a small PC in your pocket (I'm talking about you, PocketPC) to an OS designed for internet-enabled mobile devices. An OS with a new release every year and more than 2 Billion active users in the world.
 
-<span style="display:block;text-align:center">
-
 **THIS CHANGES EVERYTHING!**
-
-</span>
+{.text-center}
 
 What was once a nice market, with only a few players, is experiencing in the last few years an acceleration that needs to be addressed by the IT organization inside the companies that are deploying enterprise mobility solutions for Line of Business (LoB) application.  
 What is a LoB application? It's a critical application for the business of an enterprise, like an inventory or a checkout system for a retailer or the proof of delivery application for a postal company.
@@ -166,11 +157,8 @@ First, we need to know what is installed on the device, having a clear picture i
 
 ![Measure twice, cut once](/images/2018_here_be_dragons/measure2cut1.png "Measure twice, cut once")
 
-<span style="display:block;text-align:center">
-
 **VISIBILITY IS AN ASSET**
-
-</span>
+{.text-center}
 
 During the last couple of years, Zebra has introduced on the market a couple of visibility solution following the market demands.
 

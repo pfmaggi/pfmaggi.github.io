@@ -4,15 +4,9 @@ summary: CorkScrew Solutions - Problem Solving With a **TWIST** - by Clarke Chin
 date: 2021-04-11T13:00:00+02:00
 tags: [Book Review, Personal Improvement, Notes]
 draft: false
-author: Pietro F. Maggi
 toc: true
-showAuthor: false
-meta: true
 math: false
-hideDate: false
-hideReadTime: false
 ---
-
 > **CorkScrew Solutions**: Problem Solving With a TWIST  
 by Clarke Ching
 
@@ -21,10 +15,7 @@ The Theory of Constraints is not a topic I usually read about, who have I to tha
 Corrado!
 My first real manager 20+ years ago, and a good friend since.  
 
-[Corrado De Sanctis](https://www.linkedin.com/in/cdesanctis/) organizes a few agile communities between London and Milan and I try to follow his suggestions closely.
-{{< marginnote >}}
-Knowing Corrado he would argue that it is much better to talk to people and try things first-hand instead of reading a book. But we don't all learn in the same way. You should pick your option based on how you learn best. I've to ruminate on topics, having the time to look at things from different angle to appreciate them before getting the benefit from talking with someone about an idea. At least, this is how I feel confident learning new things.
-{{</ marginnote >}}
+[Corrado De Sanctis](https://www.linkedin.com/in/cdesanctis/) organizes a few agile communities between London and Milan and I try to follow his suggestions closely.[^1]
 This book, and in general Clarke Ching’s work, comes from one of his suggestion/events.  
 If you are interested in agile and digital  transformation, I encourage you to join one of these communities:
 
@@ -102,3 +93,5 @@ Overall this was a great investment of my time!
 Corrado pointed out that a recording of the session with [Clarke "the bottleneck guy" Ching](https://www.linkedin.com/in/clarkeching/) is available on YouTube: 
 
 {{< youtube id="gpKvghf5uHQ" title="'CorkScrew Solutions' UK book premiere" >}}
+
+[^1]: Knowing Corrado he would argue that it is much better to talk to people and try things first-hand instead of reading a book. But we don't all learn in the same way. You should pick your option based on how you learn best. I've to ruminate on topics, having the time to look at things from different angle to appreciate them before getting the benefit from talking with someone about an idea. At least, this is how I feel confident learning new things.

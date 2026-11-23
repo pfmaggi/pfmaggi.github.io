@@ -1,14 +1,12 @@
 ---
 title: 2014 New Year resolutions
 date: 2014-01-01
-author: Pietro F. Maggi
 summary:  Looking forwards to what I'd like to build in 2014.
 tags:
     - "Personal"
     - "Diary"
 toc: true
 ---
-
 ## Blog a bit more
 That's been one of my goal for a long time, and something that I always suggest to people to increase their *["Luck Surface Area"](http://www.codusoperandi.com/posts/increasing-your-luck-surface-area)*.
 

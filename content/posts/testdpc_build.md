@@ -2,18 +2,10 @@
 title: Build TestDPC with bazel 5.3
 summary: Some personal notes on how to build in 2022 TestDPC with Bazel 5.3
 date: 2022-11-20
-author: Pietro F. Maggi
-showAuthor: false
-meta: true
 math: false
-hideDate: false
-hideReadTime: false
 toc: true
-hasMath: false 
 tags: [Android Enterprise, Android, TestDPC, Bazel ]
 ---
-
-
 ## The why
 
 [TestDPC][0] is a fantastic tool for experimenting with Android enterprise's features. lately I wanted to play a bit with the [security logs][1] and TestDPC comes handy for this, but with a caviat: **the version included on the play store doesn't include some of the latest features**.

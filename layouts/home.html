@@ -1,0 +1,17 @@
+{{ define "content" }}
+
+<div class="content-margin home-intro">
+    <h1>{{ .Site.Title }}</h1>
+    {{ with .Site.Params.subtitle }}
+        <p class="home-subtitle">{{ . }}</p>
+    {{ end }}
+    {{ if .Content }}
+        {{- partial "content.html" (dict "ctx" . "content" .Content) -}}
+    {{ end }}
+</div>
+
+{{ $posts := where .Site.RegularPages "Section" "posts" }}
+{{ $_ := .Paginate $posts }}
+{{ partial "postcard/layout.html" (dict "pages" $posts "ctx" .) }}
+
+{{ end }}

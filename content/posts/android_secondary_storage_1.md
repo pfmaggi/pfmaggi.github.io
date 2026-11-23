@@ -5,10 +5,7 @@ date: 2016-01-14T23:00:00+01:00
 tags: [Android, SDCard, Zebra Technologies]
 topics: [Android]
 draft: false
-author: Pietro F. Maggi
-type: post
 ---
-
 # **2019 Update**
 
 **The information in this post are obsolete. Please refer to the Android documentation for updates on this topic.**

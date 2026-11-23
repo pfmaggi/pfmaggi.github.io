@@ -4,9 +4,7 @@ summary: Obsolete - My personal preference is to reference Zebra's EMDK jar libr
 date: 2017-08-08T17:20:00+01:00
 tags: [Android, Tips&Tricks, Zebra Technologies]
 draft: false
-author: Pietro F. Maggi
 ---
-
 # **2019 Update**
 
 **This post is now obsolete. Please refer to Zebra's EMDK documentation for updated information.**

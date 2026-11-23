@@ -2,12 +2,9 @@
 title: "(Xamarin.Forms + FreshMVVM + DataWedge) take 2"
 summary: "We're going to review the code presented in the last post to add some more functionalities and make it a bit more modular."
 date: 2018-07-11T09:00:00+02:00
-type: "post"
 draft: false
-author: "Pietro F. Maggi"
 tags: ["Android", "Zebra", "Xamarin", "Xamarin.Forms", "FreshMVVM", "DataWedge"]
 ---
-
 *Note: [the accompanying code is available on GitHub](https://github.com/Zebra/Inventory/releases/tag/datawedge2).*
 
 We saw in the [last post]({{< relref "xamarin_forms_dw_2.md" >}}) how to add barcode scanning functionalities to the "Inventory" sample application, using DataWedge.

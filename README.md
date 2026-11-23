@@ -1,45 +1,41 @@
-# Personal blog
+# Garbage Collector — Personal Blog
 
-This repository contains the source for [my personal blog](http://pietromaggi.com).
+This repository contains the source for [Pietro F. Maggi's personal blog](https://pietromaggi.com), built with [Hugo](https://gohugo.io/) and the [Monochrome](https://github.com/kaiiiz/hugo-theme-monochrome) theme, and deployed to **Cloudflare Workers (Static Assets)** via GitHub Actions and Wrangler.
 
-## To publish a new post
+## Local Development
 
-Create a new article in the `./content/post/` folder and push it to github.
-
-A workflow monitors the pushes on the `main` branch and will take care of publishing the new version of the site.
-
-For more information use [Hugo's documentation](https://gohugo.io/hosting-and-deployment/hosting-on-github/).
-
-## To clone on a new PC
-
-Given that the public folder and the themes I'm using are [git submodules](http://www.git-scm.com/book/en/v2/Git-Tools-Submodules), you need to clone recursively to get both of them:
+Clone the repository with submodules (required for the theme):
 
 ```sh
-git clone git@github.com:pfmaggi/pfmaggi.github.io.git <blog_destination>
-cd <blog_destination>
-git submodule update --init --recursive
+git clone --recurse-submodules https://github.com/pfmaggi/pfmaggi.github.io.git
+cd pfmaggi.github.io
 ```
 
-## Updates to the themes
+Run the local Hugo server (requires **Hugo Extended `>= 0.146.0`**, CI uses `0.170.1`):
 
-The themes are included as git submodules, with their own origin. Currently I'm using [beautifulhugo][10], using my own [fork and branch][11].
+```sh
+hugo server -D
+```
 
-Whenever I update the theme, it is just another git repository, but I also need to update the main repository to update it's reference:
+## Publishing a New Post
 
-### Make changes inside a submodule
+1. Create a new Markdown file under `./content/posts/`.
+2. Set `draft: false` when ready to publish.
+3. Push to `main` — the [Cloudflare Workers workflow](.github/workflows/deploy-cloudflare.yml) builds the site with Hugo and deploys `./public` via Wrangler.
 
-- `cd` inside the submodule directory.
-- Make the desired changes.
-- `git commit` the new changes.
-- `git push` the new commit.
-- `cd` back to the main repository.
-- In `git status` you'll see that the submodule directory is modified.
-- In `git diff` you'll see the old and new commit pointers.
-- When you `git commit` in the main repository, it will update the
-  pointer.
+## Updating the Theme
 
-[Source of this information][12]
+The Monochrome theme is pinned as a git submodule at `themes/hugo-theme-monochrome`:
 
-[10]: https://github.com/halogenica/beautifulhugo
-[11]: https://github.com/pfmaggi/beautifulhugo
-[12]: https://gist.github.com/gitaarik/8735255#pushing-updates-in-the-submodule
+```sh
+git -C themes/hugo-theme-monochrome fetch --tags
+git -C themes/hugo-theme-monochrome checkout <tag>
+```
+
+## Deployment Secrets (GitHub Actions)
+
+Configure the following in **Settings → Secrets and variables → Actions**:
+
+- Secret `CLOUDFLARE_API_TOKEN` — Cloudflare API token with *Workers Scripts: Edit* permission.
+- Secret `CLOUDFLARE_ACCOUNT_ID` — Cloudflare account ID.
+- Optional Variable `SITE_BASE_URL` — Defaults to `https://pietromaggi-blog.pfm.workers.dev/` during staging; set to `https://pietromaggi.com/` when cutting over the custom domain.

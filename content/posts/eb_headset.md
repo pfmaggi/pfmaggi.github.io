@@ -3,12 +3,8 @@ title: "Enterprise Browser - Using the Android Headset as a Barcode Trigger"
 summary: "What if... you want to use a Zebra's Android device mounted on an arm-wrist and you want to control the barcode scanner with a wired button? WT6000 is the obvious answer! But if your customer has already chosen the TC51 for other activities, we can help them using the headset connector."
 date: 2018-07-12T18:00:48+02:00
 draft: false
-type: "post"
-author: "Pietro F. Maggi"
 tags: ["Android", "Enterprise Browser", "Zebra"]
-
 ---
-
 What if...
 
 you want to use a Zebra's Android device mounted on an arm-mount and you want to control the barcode scanner with a wired button?

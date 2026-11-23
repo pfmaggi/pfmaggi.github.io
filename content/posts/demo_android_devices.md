@@ -4,9 +4,7 @@ summary: My work requires to demo a feature or a particular application on a mob
 date: 2017-10-13T17:20:00+01:00
 tags: [Android, Tips&Tricks, Zebra Technologies]
 draft: false
-author: Pietro F. Maggi
 ---
-
 Have you ever presented a new Android device to a tech crowd trying to explain some feature?
 
 it happens to me quite a lot and over time I built my little bag of tricks on how to do it.

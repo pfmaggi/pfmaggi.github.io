@@ -4,15 +4,9 @@ summary: From problem to solution and to lazy automation, how to easily capture 
 date: 2021-07-04
 tags: [ Android, Tips&Tricks ]
 draft: false
-author: Pietro F. Maggi
 toc: false
-showAuthor: false
-meta: true
 math: false
-hideDate: false
-hideReadTime: false
 ---
-
 ## What's the problem?
 
 What is keeping me busy lately are dual screen and foldable devices.  

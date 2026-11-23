@@ -4,9 +4,7 @@ summary: Enterprise Browser 1.4, out of the box, disable DataWedge on Android to
 date: 2016-10-29T11:00:00+01:00
 tags: [Android, Enterprise Browser, DataWedge, Zebra Technologies]
 draft: false
-author: Pietro F. Maggi
 ---
-
 During Enterprise Browser hands-on lab, I got some enquiry about using other MobilityDNA utilities together with EB; in particular how to integrate _SwipeAssist_ and _Simulscan_.
 These utilities can be integrated, with some heavy lifting, and accepting some constraints.
 
@@ -47,8 +45,9 @@ The you can proceeds copying it to your PC to apply some changes.
 ![Copy Config.xml to your PC to Modify it](/images/eb_dw/eb_Config.xml.png "Copy Config.xml to your PC to modify it")
 
 You need to apply three changes to follow along the rest of this blog:
+{#Config_1}
 
-  1.	<a name="Config_1"></a>Enable the internal EB webserver and specify the folder how we plan to have the local files (as an example on the internal sdcard of the TC55 KK):
+  1.	Enable the internal EB webserver and specify the folder how we plan to have the local files (as an example on the internal sdcard of the TC55 KK):
 
 ```
     <WebServer>

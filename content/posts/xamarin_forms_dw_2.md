@@ -2,12 +2,9 @@
 title: "Xamarin.Forms + FreshMVVM + DataWedge = 💖"
 summary: "Xamarin Forms is getting traction with Zebra's Partners and End-Users and a light framework like FreshMVVM looks the perfect companion. But it's not an application for a Zebra device if it doesn't integrate Barcode scanning functionality. DataWedge APIs to the rescue!!! Let's add to the inventory application we built, barcode scanning functionalities."
 date: 2018-07-07T09:00:00+02:00
-type: "post"
 draft: false
-author: "Pietro F. Maggi"
 tags: ["Android", "Zebra", "Xamarin", "Xamarin.Forms", "FreshMVVM", "DataWedge"]
 ---
-
 *Note: [the accompanying code is available on GitHub](https://github.com/Zebra/Inventory/releases/tag/datawedge).*
 
 The topic for today is how to add barcode scanning functionalities to the "Inventory" sample application we built in the previous post about [Xamarin.Forms and FreshMVVM]({{< relref "xamarin_forms_dw.md" >}}).
@@ -353,4 +350,4 @@ In the [next post]({{< relref "xamarin_forms_dw_3.md" >}}) we're going to refact
 
 ### Edit
 
-I've modified the initial code to create the profile to avoid the reference to the DataWedgeReceiver that is not yet available [at that moment]({{< ref "#create-a-datawedge-profile" >}}).
+I've modified the initial code to create the profile to avoid the reference to the DataWedgeReceiver that is not yet available [at that moment](#create-a-datawedge-profile).

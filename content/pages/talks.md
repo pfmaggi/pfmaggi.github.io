@@ -1,9 +1,8 @@
 ---
 title: Public talks
-author: Pietro F. Maggi
 skipPostNav: true
+toc: false
 ---
-
 These are a few talks I presented over the years at public conferences:
 
 - [Android Enterprise - Developer's Missing Manual][4]

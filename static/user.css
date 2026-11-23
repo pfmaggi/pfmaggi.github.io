@@ -1,0 +1,146 @@
+/* Custom overrides for Garbage Collector on hugo-theme-monochrome */
+
+.home-intro {
+  margin-bottom: 1.5rem;
+}
+
+.home-intro h1 {
+  margin-bottom: 0.25rem;
+}
+
+.home-subtitle {
+  margin-top: 0;
+  color: var(--color-text-secondary);
+  font-size: 1.05rem;
+}
+
+.post-header {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-border-collapsible-menu);
+}
+
+.post-title {
+  margin-bottom: 0.35rem;
+}
+
+.post-subtitle {
+  margin: 0.25rem 0 0.75rem;
+  color: var(--color-text-secondary);
+  font-size: 1.05rem;
+}
+
+.draft-badge {
+  display: inline-block;
+  padding: 0.1rem 0.45rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  vertical-align: middle;
+  border-radius: 0.25rem;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+}
+
+.post-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+}
+
+.meta-sep {
+  opacity: 0.6;
+}
+
+.post-tags {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.post-tag {
+  display: inline-block;
+  padding: 0.08rem 0.45rem;
+  border-radius: 0.25rem;
+  background-color: var(--color-background-inline-code);
+  color: var(--color-text);
+  font-size: 0.82rem;
+}
+
+.post-tag:hover {
+  background-color: var(--color-background-hover);
+}
+
+.post-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--color-border-collapsible-menu);
+  font-size: 0.95rem;
+}
+
+.post-nav-prev {
+  flex: 1;
+}
+
+.post-nav-next {
+  flex: 1;
+  text-align: right;
+}
+
+.about-avatar {
+  float: right;
+  max-width: 150px;
+  margin: 0 0 1rem 1.5rem;
+}
+
+.about-avatar img {
+  border-radius: 50%;
+}
+
+@media (max-width: 35.5rem) {
+  .about-avatar {
+    float: none;
+    margin: 0 auto 1rem;
+    text-align: center;
+  }
+
+  .post-nav {
+    flex-direction: column;
+  }
+
+  .post-nav-next {
+    text-align: left;
+  }
+}
+
+.site-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  text-align: center;
+}
+
+.footer-links,
+.footer-meta {
+  font-size: 0.88rem;
+}
+
+.footer-links a,
+.footer-meta a {
+  color: var(--color-text-footer);
+}
+
+.footer-links a:hover,
+.footer-meta a:hover {
+  color: var(--color-link);
+}
+
+.text-center {
+  text-align: center;
+}

@@ -2,12 +2,10 @@
 title: 2013 in numbers
 summary: Looking back at what happened in 2013.
 date: 2013-12-31
-author: Pietro F. Maggi
 tags:
     - "Personal"
     - "Diary"
 ---
-
 ## What an interesting year!
 This is the first year that I joined a regional team and this involved a lot of travel (12900 flight hours) across all EMEA.
 Has been a blast meeting a lot of end-users, partners and colleagues.

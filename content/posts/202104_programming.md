@@ -4,9 +4,7 @@ summary: Summary of interesting topics and articles explored in April 2021.
 date: 2021-05-02T17:00:00+01:00
 tags: [Notes, Programming]
 draft: false
-author: Pietro F. Maggi
 ---
-
 ## Design By Contract
 
 I still remember the first time I read about this technic. I felt into a rabbit hole to learn about with Eiffel and object oriented programming. We're easily talking about 20+ years ago.

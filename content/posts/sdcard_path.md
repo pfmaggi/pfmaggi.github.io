@@ -1,7 +1,6 @@
 ---
 title: Finding the SDCard Path on Android devices
 date: 2014-10-19
-author: Pietro F. Maggi
 summary: Obsolete - Finding the real SDCard path in Android v4.1 JellyBean can be tricky. Let see how we can do it on a TC55. 
 tags:
     - "Android"
@@ -9,11 +8,9 @@ tags:
     - "Sample"
     - "SDCard"
 ---
-
-
-{{< div class="danger pure-button" >}}
-> The information in this article is obsolete.<br>Please refer to the official RhoMobile for best practices and setup guide
-{{<div "end" >}}
+{{< color-block style="warning" >}}
+The information in this article is obsolete.<br>Please refer to the official RhoMobile documentation for best practices and setup guide.
+{{< /color-block >}}
 
 With Motorola Solutions we're busy finishing the first round of Android Developer's Kitchens around Europe. Just in time to prepare for the [Enterprise App Forum in Brussels!](http://www.motorolasolutionsevents.com/enterprise_appforum_2014/).
 
@@ -29,21 +26,21 @@ The usual answer is based around the function `Environment.getExternalStorageDir
 The problem is that this function report a different folder if the SDCard is inserted in the device or not.
 This is not a problem unique to the TC55, it's a common problem on Android and there are different ways to handle it:
 
-  - [Reading the partition table from <code>/proc/mounts</code>](http://futurewithdreams.blogspot.it/2014/01/get-external-sdcard-location-in-android.html)
+  - [Reading the partition table from `/proc/mounts`](http://futurewithdreams.blogspot.it/2014/01/get-external-sdcard-location-in-android.html)
   - [Use some environment variables](http://stackoverflow.com/a/23949650/118862)
   - [Still use the getExternalStorageDirectory() function, together with the isExternalStorageRemovable() and getExternalStorageState() functions](http://stackoverflow.com/questions/22219312/android-open-external-storage-directorysdcard-for-storing-file)
 
 Given that we've the luxury to target just a few devices, the Motorola Solutions one :-), the best option is to use the environment variables.
 
 ### Let's see what happens on the TC55
-On this device, using <code>Environment.getExternalStorageDirectory();</code> returns different results depending if you've installed or not an SDCard:
+On this device, using `Environment.getExternalStorageDirectory();` returns different results depending if you've installed or not an SDCard:
 
  - Without SDCard —> `/STORAGE/SDCARD1`
  - With SDCard —> `/STORAGE/SDCARD0`
 
 Let's see what we can achieve with the environment variables!
 
-We can log into a TC55 and use the <code>printenv</code> command:
+We can log into a TC55 and use the `printenv` command:
 
 ```bash
 adb shell
@@ -91,9 +88,9 @@ if ((null == strSDCardPath) || (strSDCardPath.length() == 0)) {
 
 When we will start to release KitKat based devices it will be even more important taking a look at the right path for these volumes :-)
 
-{{< div class="pure-button" >}}
-> I've a new [blog post]({{% relref "posts/android_secondary_storage_1.md" %}}) with additional information for Zebra Technologies KitKat devices.
-{{<div "end" >}}
+{{< color-block style="info" >}}
+I've a new <a href="/posts/android_secondary_storage_1/">blog post</a> with additional information for Zebra Technologies KitKat devices.
+{{< /color-block >}}
 
 You can find in my github account a [sample application](https://github.com/pfmaggi/GetDeviceInfo) that retrieves these data.
 

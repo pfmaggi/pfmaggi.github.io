@@ -4,10 +4,7 @@ summary: On Zebra MC18 with Android, it's possible to toggle the NavBar visible 
 date: 2016-10-30T11:00:00+01:00
 tags: [Android, MC18, Zebra Technologies]
 draft: false
-author: Pietro F. Maggi
 ---
-
-
 MC18 is the only Zebra Android mobile computer (at least till now) that uses a Navigation bar instead of phisycal buttons for the back and home.
 This is the first device where it makes sense to use [Android immersive mode](https://developer.android.com/samples/ImmersiveMode/index.html)!
 

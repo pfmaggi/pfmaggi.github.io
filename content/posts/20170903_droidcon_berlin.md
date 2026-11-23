@@ -4,9 +4,7 @@ summary: 3rd-6th September, droidcon Berlin 2017 took place at Berline Messe. Th
 date: 2017-09-10T21:00:00+01:00
 tags: [Android, Events, Zebra Technologies]
 draft: false
-author: Pietro F. Maggi
 ---
-
 Another year, another droidcon Berlin.  
 
 This year I decided to took some detailed notes. This is the report for the first day, Sunday September 3rd, I'll add a couple of other posts for the main conference days.

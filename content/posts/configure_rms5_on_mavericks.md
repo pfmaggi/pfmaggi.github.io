@@ -2,16 +2,13 @@
 title: Configuring RhoMobile Suite v5.0 on a clean OS X Mavericks machine
 summary: Obsolete - Step by step guide on how to install RhoMobile Studio v5.0 on a clean OS X Mavericks machine
 date: 2014-08-11
-author: Pietro F. Maggi
 tags:
     - "OS X"
     - "RhoMobile"
 ---
-
-
-{{< div class="danger pure-button" >}}
-> The information in this article is obsolete.<br>Please refer to the official RhoMobile for best practices and setup guide
-{{<div "end" >}}
+{{< color-block style="warning" >}}
+The information in this article is obsolete.<br>Please refer to the official RhoMobile documentation for best practices and setup guide.
+{{< /color-block >}}
 
 # RhoMobile Suite v5.0
 The new main release of Rhodes, RhoElements and RhoConnect had just been released a couple of weeks ago [during OSCON](http://newsroom.motorolasolutions.com/Feature/See-RhoMobile-in-Action-at-OSCON-2014-4a61.aspx). It's now time to install it and start building some mobile apps!
@@ -34,12 +31,12 @@ These are the steps we will follow:
 * [Configure RhoStudio](#Setup)
 * [Build a sample app](#Build)
 
-### <a name="OSX_Update"></a>Update OS X to the latest version
+### Update OS X to the latest version {#OSX_Update}
 The first step is to check that the version of OS X on your machine is up-to-date, a quick stop in the Mac AppStore *Updates* tab can give you an idea of what is available.
 
 ![One Update waiting to be installed](/images/OSX_RMS5/updates.png "One Update Waiting to be installed")
 
-### <a name="XCode"></a>Install XCode
+### Install XCode {#XCode}
 The next step is to install the latest XCode on you OS. In this guide I'm using XCode 5 as version 6 is still in beta, and we like stable releases!
 
 ![XCode 5 available in the Mac AppStore](/images/OSX_RMS5/XCode5.png "XCode 5 available in the Mac AppStore")
@@ -48,7 +45,7 @@ Once you've installed XCode, you need to launch it to accept Apple EULA.
 
 ![XCode 5 EULA](/images/OSX_RMS5/XCode5_EULA.png "XCode 5 EULA")
 
-### <a name="Terminal"></a>Familiarize with the terminal
+### Familiarize with the terminal {#Terminal}
 During the initial RMS setup some of the steps require that you use the Terminal, also known as [command prompt or console](http://en.wikipedia.org/wiki/Command-line_interface).
 The Terminal is already available on OS X, and you can find it inside the Utility folder in your Applications.
 
@@ -58,7 +55,7 @@ Once you've launched the Terminal could be **very** useful to keep it into the d
 
 ![Keep Terminal in the dock](/images/OSX_RMS5/KeepInDock.png "Keep Terminal in the dock")
 
-### <a name="JDK7"></a>Install Java JDK7
+### Install Java JDK7 {#JDK7}
 OS X Mavericks comes without any Java environment installed, "the easiest way" to install it, is to open the terminal and type:
 
 ```sh
@@ -81,7 +78,7 @@ When the install is complete you can test that the java environment is now avail
 
 ![Java is installed](/images/OSX_RMS5/JavaIsInstalled.png "Java is installed")
 
-### <a name="HomeBrew"></a>Install HomeBrew
+### Install HomeBrew {#HomeBrew}
 [HomeBrew](http://brew.sh/) is an open source package manager, working from the command line, that help setting up open source application on OS X.
 
 
@@ -102,7 +99,7 @@ If everything is setup correctly you get the message: _Your system is ready to b
 
 If you get a different message with some missing or misconfigured software you can follow the on-screen-instruction or you can find further information on the [HomeBrew Wiki](https://github.com/Homebrew/homebrew/wiki).
 
-### <a name="RVM"></a>Install RVM and Ruby 1.9.3
+### Install RVM and Ruby 1.9.3 {#RVM}
 OS X Mavericks comes with Ruby v2.0 installed by default, however RMSv5 requires Ruby v1.9.3. Overall working with Ruby can require to switch ruby environment often and to release this pain [some utilities has been created]({{ relref . "post/rvm.md" }}).
 
 In this case we're going to install RVM and use it to install Ruby v1.9.3.
@@ -152,7 +149,7 @@ rvm alias create default 1.9.3
 
 To get more information on RVM you can check the documentation available on [its website](https://rvm.io/).
 
-### <a name="utilities"></a>Install git, node and other little utilities
+### Install git, node and other little utilities {#utilities}
 RMS uses git _a lot_, to sync projects with RhoHub, and is overall a nice tool. It's already installed on Mavericks, but is version 1.8.5.2, better to keep an up-to-date version using HomeBrew:
 
 ```sh
@@ -223,7 +220,7 @@ man ag
 
 As always, using **man** in the command line will open the documentation for the command, in the case of the silver searcher, the command is **ag** (like the Silver symbol).
 
-### <a name="Android"></a>Install Android SDK and NDK
+### Install Android SDK and NDK {#Android}
 Next step is to install what is needed to build RhoMobile Android Applications. You need to remember that to compile RhoMobile native applications you need to have the target OS tool chain. For Android this means the SDK and the NDK.
 
 Navigate to the [Android developer tools page](http://developer.android.com/sdk/index.html) and download the stand-alone Android SDK tools for Mac:
@@ -292,7 +289,7 @@ cd ~/Development/
 tar xzvf ~/Downloads/android-ndk32-r10-darwin-x86_64.tar.bz2
 ```
 
-### <a name="RMS5"></a>Install RMS v5.0
+### Install RMS v5.0 {#RMS5}
 For this step we can take the info from the [RhoMobile official documentation](http://docs.rhomobile.com/en/5.0.0/guide/rhomobile-install#mac-os).
 
 first of all we need to download the RMS5 image file from [RhoMobile website](). Opening the image will show it's content, first step is to copy the **Motorola RhoStudio** in the application folder:
@@ -329,12 +326,12 @@ Password:
 Do you want to install rhoconnect-push with 'sudo' command prefix? [Yn]  Y
 ```
 
-### <a name="Account"></a>Create a RhoMobile.com account
+### Create a RhoMobile.com account {#Account}
 Version 5 of the RhoMobile Suite has a [new licensing](http://rhomobile.com/rhopricing.html), that is a yearly subscription available in different levels, starting from a free one, up to an Enterprise grade.
 
 Whatever the level you choose, you need to create an account on the RhoMobile.com website to use the Suite, both from RhoStudio and from the command line tools.
 
-### <a name="Launching"></a>Launching RhoStudio
+### Launching RhoStudio {#Launching}
 RhoStudio and the whole RhoMobile Suite is now installed on your Mac, but you still need some steps to finish the configuration and start doing some coding. First of all launch RhoStudio from the Application folder (launch the 64-bit version) and select the second ruby environment for it.
 
 ![Launch RhoStudio](/images/OSX_RMS5/LaunchRhoStudio.png "Launch RhoStudio")
@@ -351,12 +348,12 @@ BTW: if the first launch ends with and error in RhoStudio console, simply close 
 
 ![RhoStudio first launch](/images/OSX_RMS5/FirstRhoStudio.png "First RhoStudio Launch")
 
-### <a name="Setup"></a>RhoStudio Setup
+### RhoStudio Setup {#Setup}
 There are some parameters to setup in RhoStudio before being able to build any project. Opening the settings windows using **Command-,** you can setup:
 
 * JDK Path = /Library/Java/JavaVirtualMachines/jdk1.7.0_67.jdk
-* Android SDK Path = <your user folder>/Development/android-sdk-macosx
-* Android NDK Path = <your user folder>/Development/android-ndk-r10
+* Android SDK Path = `<your user folder>/Development/android-sdk-macosx`
+* Android NDK Path = `<your user folder>/Development/android-ndk-r10`
 
 as shown in these images:
 
@@ -382,7 +379,7 @@ BlackBerry JDE 4.2 MDS (blank to skip) ():
 If you want to build with other BlackBerry SDK versions edit: /Users/rhomobile/.rvm/gems/ruby-1.9.3-p547@global/gems/rhodes-5.0.2/rhobuild.yml
 ```
 
-### <a name="Build"></a>Build your first RhoMobile application
+### Build your first RhoMobile application {#Build}
 I'll cut this short at this moment, you should have everything setup at this moment and you should be able to follow the instructions on [RhoMobile website](http://docs.rhomobile.com/en/5.0.0/guide/creating_a_project). You can reach out to me if you've any question and I plan to add another post with some "post-setup" optimization in the near future.
 
 

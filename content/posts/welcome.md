@@ -1,11 +1,9 @@
 ---
 title: Welcome
 summary: A quick, uninformative, post on the new platform I'm going to use in 2016 to write content on this site.
-date: 2016-01-09 20:50:14 +0100
+date: 2016-01-09T20:50:14+01:00
 tags: [Personal, Writing, Go, Hugo]
-author: Pietro F. Maggi
 ---
-
 Time for revamping a bit this blog.  
 From a technical point of view, I struggled with octopress v2.x to keep this blog aligned across the multiple machine I use in my work/life. Octopress v3 is supposed to solve most of the issue that plagued me over these years but, I wanted to test something a bit different.
 
