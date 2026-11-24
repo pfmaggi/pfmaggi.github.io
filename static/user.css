@@ -199,3 +199,20 @@
   transform: translateX(-50%) translateY(0);
 }
 
+.project-hero {
+  margin-top: 0;
+  margin-bottom: 1.75rem;
+}
+
+.project-hero img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+}
+
+html[data-theme="light"] .project-hero-dark,
+html[data-theme="dark"] .project-hero-light {
+  display: none;
+}
+

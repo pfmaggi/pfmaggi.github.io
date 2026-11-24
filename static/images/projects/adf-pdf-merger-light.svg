@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" fill="none" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <rect width="240" height="240" rx="16" fill="#f5f5f5"/>
+
+  <!-- Top-left card: Front scan (1, 3, 5) -->
+  <path d="M22 34 C22 29.6 25.6 26 30 26 L86 26 L100 40 L100 102 C100 106.4 96.4 110 92 110 L30 110 C25.6 110 22 106.4 22 102 Z" fill="#ffffff" stroke="#404040" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M86 26 L86 40 L100 40" stroke="#404040" stroke-width="2" stroke-linejoin="round"/>
+  <text x="31" y="43" font-size="9" font-weight="700" letter-spacing="0.6" fill="#525252">FRONT</text>
+
+  <rect x="31" y="51" width="60" height="14" rx="3" fill="#ffffff" stroke="#a3a3a3" stroke-width="1.5"/>
+  <text x="38" y="61" font-size="9.5" font-weight="700" fill="#171717">1</text>
+  <line x1="50" y1="58" x2="84" y2="58" stroke="#a3a3a3" stroke-width="2" stroke-linecap="round"/>
+
+  <rect x="31" y="70" width="60" height="14" rx="3" fill="#ffffff" stroke="#a3a3a3" stroke-width="1.5"/>
+  <text x="38" y="80" font-size="9.5" font-weight="700" fill="#171717">3</text>
+  <line x1="50" y1="77" x2="84" y2="77" stroke="#a3a3a3" stroke-width="2" stroke-linecap="round"/>
+
+  <rect x="31" y="89" width="60" height="14" rx="3" fill="#ffffff" stroke="#a3a3a3" stroke-width="1.5"/>
+  <text x="38" y="99" font-size="9.5" font-weight="700" fill="#171717">5</text>
+  <line x1="50" y1="96" x2="84" y2="96" stroke="#a3a3a3" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Bottom-left card: Back scan reversed (6, 4, 2) -->
+  <path d="M22 138 C22 133.6 25.6 130 30 130 L86 130 L100 144 L100 206 C100 210.4 96.4 214 92 214 L30 214 C25.6 214 22 210.4 22 206 Z" fill="#ffffff" stroke="#404040" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M86 130 L86 144 L100 144" stroke="#404040" stroke-width="2" stroke-linejoin="round"/>
+  <text x="31" y="147" font-size="9" font-weight="700" letter-spacing="0.6" fill="#525252">BACK &#8634;</text>
+
+  <rect x="31" y="155" width="60" height="14" rx="3" fill="#e5e5e5" stroke="#a3a3a3" stroke-width="1.5"/>
+  <text x="38" y="165" font-size="9.5" font-weight="700" fill="#171717">6</text>
+  <line x1="50" y1="162" x2="84" y2="162" stroke="#737373" stroke-width="2" stroke-linecap="round"/>
+
+  <rect x="31" y="174" width="60" height="14" rx="3" fill="#e5e5e5" stroke="#a3a3a3" stroke-width="1.5"/>
+  <text x="38" y="184" font-size="9.5" font-weight="700" fill="#171717">4</text>
+  <line x1="50" y1="181" x2="84" y2="181" stroke="#737373" stroke-width="2" stroke-linecap="round"/>
+
+  <rect x="31" y="193" width="60" height="14" rx="3" fill="#e5e5e5" stroke="#a3a3a3" stroke-width="1.5"/>
+  <text x="38" y="203" font-size="9.5" font-weight="700" fill="#171717">2</text>
+  <line x1="50" y1="200" x2="84" y2="200" stroke="#737373" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Merge arrows -->
+  <path d="M104 68 C120 68, 118 120, 134 120" stroke="#404040" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M104 172 C120 172, 118 120, 134 120" stroke="#404040" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M128 114 L135 120 L128 126" stroke="#171717" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Right card: Merged ordered PDF (1..6) -->
+  <path d="M140 46 C140 41.6 143.6 38 148 38 L204 38 L218 52 L218 194 C218 198.4 214.4 202 210 202 L148 202 C143.6 202 140 198.4 140 194 Z" fill="#ffffff" stroke="#171717" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M204 38 L204 52 L218 52" stroke="#171717" stroke-width="2.5" stroke-linejoin="round"/>
+  <text x="149" y="55" font-size="9" font-weight="700" letter-spacing="0.6" fill="#171717">MERGED</text>
+
+  <rect x="149" y="64" width="60" height="16" rx="3" fill="#ffffff" stroke="#a3a3a3" stroke-width="1.5"/>
+  <text x="156" y="75.5" font-size="9.5" font-weight="700" fill="#171717">1</text>
+  <line x1="168" y1="72" x2="202" y2="72" stroke="#a3a3a3" stroke-width="2" stroke-linecap="round"/>
+
+  <rect x="149" y="85" width="60" height="16" rx="3" fill="#e5e5e5" stroke="#a3a3a3" stroke-width="1.5"/>
+  <text x="156" y="96.5" font-size="9.5" font-weight="700" fill="#171717">2</text>
+  <line x1="168" y1="93" x2="202" y2="93" stroke="#737373" stroke-width="2" stroke-linecap="round"/>
+
+  <rect x="149" y="106" width="60" height="16" rx="3" fill="#ffffff" stroke="#a3a3a3" stroke-width="1.5"/>
+  <text x="156" y="117.5" font-size="9.5" font-weight="700" fill="#171717">3</text>
+  <line x1="168" y1="114" x2="202" y2="114" stroke="#a3a3a3" stroke-width="2" stroke-linecap="round"/>
+
+  <rect x="149" y="127" width="60" height="16" rx="3" fill="#e5e5e5" stroke="#a3a3a3" stroke-width="1.5"/>
+  <text x="156" y="138.5" font-size="9.5" font-weight="700" fill="#171717">4</text>
+  <line x1="168" y1="135" x2="202" y2="135" stroke="#737373" stroke-width="2" stroke-linecap="round"/>
+
+  <rect x="149" y="148" width="60" height="16" rx="3" fill="#ffffff" stroke="#a3a3a3" stroke-width="1.5"/>
+  <text x="156" y="159.5" font-size="9.5" font-weight="700" fill="#171717">5</text>
+  <line x1="168" y1="156" x2="202" y2="156" stroke="#a3a3a3" stroke-width="2" stroke-linecap="round"/>
+
+  <rect x="149" y="169" width="60" height="16" rx="3" fill="#e5e5e5" stroke="#a3a3a3" stroke-width="1.5"/>
+  <text x="156" y="180.5" font-size="9.5" font-weight="700" fill="#171717">6</text>
+  <line x1="168" y1="177" x2="202" y2="177" stroke="#737373" stroke-width="2" stroke-linecap="round"/>
+</svg>

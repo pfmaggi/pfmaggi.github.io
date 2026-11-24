@@ -3,8 +3,8 @@ title: "Projects"
 weight: 2
 ---
 
-Interactive experiments, tools, and web apps built and hosted on Cloudflare Workers:
+Small utilities, experiments, and web apps built and hosted on Cloudflare Workers:
 
-- [Workers Demo (`shy-cherry`)](https://shy-cherry-9171.pfm.workers.dev/) — interactive web app hosted on Cloudflare Workers.
+- [ADF Duplex PDF Merger](/projects/adf-pdf-merger/) — a client-side utility to interleave front and reversed back scans from a single-sided ADF scanner into one ordered PDF.
 
 [Explore all projects →](/projects/)

@@ -27,6 +27,16 @@
     {{- end }}
 </div>
 
+{{- if or .Params.hero_image .Params.hero_image_dark }}
+    {{- $hero_light := .Params.hero_image | default .Params.hero_image_dark -}}
+    {{- $hero_dark := .Params.hero_image_dark | default .Params.hero_image -}}
+    {{- $hero_alt := .Params.hero_alt | default .Title -}}
+    <div class="content-margin project-hero">
+        <img src="{{ $hero_light | relURL }}" alt="{{ $hero_alt }}" class="project-hero-light">
+        <img src="{{ $hero_dark | relURL }}" alt="{{ $hero_alt }}" class="project-hero-dark">
+    </div>
+{{- end }}
+
 {{ if and (ne .TableOfContents "<nav id=\"TableOfContents\"></nav>") (.Store.Get "params").enable_toc }}
     {{ $toc_position := (.Store.Get "params").toc_position }}
     {{ if eq $toc_position "right" }}
