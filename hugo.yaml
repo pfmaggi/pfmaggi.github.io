@@ -1,5 +1,5 @@
 baseURL: "https://pietromaggi.com/"
-title: "Garbage Collector"
+title: "Pietro F. Maggi"
 theme: "hugo-theme-monochrome"
 locale: "en-US"
 defaultContentLanguage: "en"
@@ -42,14 +42,14 @@ markup:
     tabWidth: 4
 
 params:
-  navbar_title: "Garbage Collector"
-  subtitle: "Tales from an old nibble"
+  navbar_title: "Pietro F. Maggi"
+  subtitle: "Software engineer, speaker, and builder of small computing tools."
   mainSections:
     - posts
   author:
     name: "Pietro F. Maggi"
     email: "blog@pietromaggi.com"
-  description: "Tales from an old nibble — notes on Android, Linux, software engineering, and tinkering."
+  description: "Software engineer, speaker, and builder of small computing tools — writing on Android, Linux, developer relations, and hands-on experiments."
   color_scheme: "light"
   hide_navbar_on_scroll: true
   navbar_width: "wide"

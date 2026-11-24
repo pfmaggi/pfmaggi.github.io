@@ -1,10 +1,10 @@
 ---
-title: "Garbage Collector"
+title: "Pietro F. Maggi"
 type: "balloon"
 balloon_img_src: "images/pfm_round.png"
 balloon_circle: true
 balloon_resources: "/home"
-description: "Tales from an old nibble — notes on Android, Linux, software engineering, and tinkering."
+description: "Software engineer, speaker, and builder of small computing tools — writing on Android, Linux, developer relations, and hands-on experiments."
 zooming_js: false
 ---
 
@@ -18,5 +18,6 @@ zooming_js: false
 {{< icon vendor="simple" name="rss" link="/posts/index.xml" >}}
 {{< /icon-group >}}
 
-**Garbage Collector** — *Tales from an old nibble.*  
-Notes on Android, Linux, developer relations, and tinkering.
+**Pietro F. Maggi**  
+*Software engineer, speaker, and builder of small computing tools.*  
+Writing on Android, Linux, developer relations, and hands-on experiments.
