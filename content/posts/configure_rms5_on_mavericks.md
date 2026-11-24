@@ -327,7 +327,7 @@ Do you want to install rhoconnect-push with 'sudo' command prefix? [Yn]  Y
 ```
 
 ### Create a RhoMobile.com account {#Account}
-Version 5 of the RhoMobile Suite has a [new licensing](http://rhomobile.com/rhopricing.html), that is a yearly subscription available in different levels, starting from a free one, up to an Enterprise grade.
+Version 5 of the RhoMobile Suite has a {{< deadlink "new licensing" >}}, that is a yearly subscription available in different levels, starting from a free one, up to an Enterprise grade.
 
 Whatever the level you choose, you need to create an account on the RhoMobile.com website to use the Suite, both from RhoStudio and from the command line tools.
 

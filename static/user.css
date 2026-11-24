@@ -130,3 +130,72 @@
 .text-center {
   text-align: center;
 }
+
+.dead-link {
+  position: relative;
+  display: inline;
+  color: var(--color-text-secondary);
+  text-decoration: underline dashed;
+  text-decoration-color: var(--color-text-secondary);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  cursor: help;
+}
+
+.dead-link:focus-visible {
+  outline: 2px solid var(--color-link);
+  outline-offset: 2px;
+  border-radius: 0.15rem;
+}
+
+.dead-link::before {
+  content: attr(data-note);
+  position: absolute;
+  bottom: calc(100% + 0.5rem);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  width: max-content;
+  max-width: min(18rem, 85vw);
+  padding: 0.45rem 0.65rem;
+  border-radius: 0.35rem;
+  background-color: var(--color-background-active);
+  color: var(--color-text-active);
+  font-size: 0.8rem;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.35;
+  text-align: left;
+  white-space: normal;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 20;
+  transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s ease;
+}
+
+.dead-link::after {
+  content: "";
+  position: absolute;
+  bottom: calc(100% + 0.5rem - 10px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  border: 5px solid transparent;
+  border-top-color: var(--color-background-active);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 20;
+  transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s ease;
+}
+
+.dead-link:hover::before,
+.dead-link:focus::before,
+.dead-link:hover::after,
+.dead-link:focus::after {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+

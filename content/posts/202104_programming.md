@@ -92,12 +92,11 @@ I've no sympathy for people burning Earth's limited resources to participate in 
 
 ### xbar
 
-[xbar][20] is [bitbar][21] evolution rewritten in Go. A macOS application that allows to run script and put information in macOS menubar.
+[xbar][20] is {{< deadlink "bitbar" >}} evolution rewritten in Go. A macOS application that allows to run script and put information in macOS menubar.
 
 I've used bitbar for a long time. However I'm not interested investing time in macOS anymore and I don't plan to spend time migrating my bitbar setup.
 
 [20]: https://xbarapp.com/
-[21]: https://getbitbar.com/
 
 ### Kakoune editor
 
