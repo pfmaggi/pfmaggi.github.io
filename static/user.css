@@ -216,3 +216,19 @@ html[data-theme="dark"] .project-hero-light {
   display: none;
 }
 
+.archive-notice {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  padding: 0.75rem 1rem;
+  border-left: 3px solid var(--color-border);
+  border-radius: 0.25rem;
+  background-color: var(--color-background-inline-code);
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.archive-notice strong {
+  color: var(--color-text);
+}
+

@@ -43,6 +43,6 @@ jobs:
       - name: Check links with Lychee
         uses: lycheeverse/lychee-action@v2
         with:
-          args: "--verbose --no-progress --root-dir ${{ github.workspace }}/public --exclude-path index.json --exclude-path sitemap.xml --exclude-path index.xml ./public"
+          args: "--verbose --no-progress --root-dir ${{ github.workspace }}/public --exclude-path public/archive --exclude-path index.json --exclude-path sitemap.xml --exclude-path index.xml ./public"
           fail: false
           jobSummary: true

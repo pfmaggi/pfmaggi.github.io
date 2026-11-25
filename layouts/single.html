@@ -8,7 +8,7 @@
         <p class="post-subtitle">{{ . }}</p>
     {{- end }}
 
-    {{- if eq .Section "posts" }}
+    {{- if or (eq .Section "posts") (eq .Section "archive") }}
         <div class="post-meta">
             {{- if not .Date.IsZero }}
                 <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
@@ -26,6 +26,12 @@
         </div>
     {{- end }}
 </div>
+
+{{- if eq .Section "archive" }}
+    <div class="content-margin archive-notice" role="note">
+        <strong>Archived post:</strong> This article{{ if not .Date.IsZero }} from {{ .Date.Format "2006" }}{{ end }} is preserved for historical reference. Tools, APIs, and external links may no longer be current.
+    </div>
+{{- end }}
 
 {{- if or .Params.hero_image .Params.hero_image_dark }}
     {{- $hero_light := .Params.hero_image | default .Params.hero_image_dark -}}
@@ -53,7 +59,7 @@
     </div>
 {{ end }}
 
-{{- if and (eq .Section "posts") (not .Params.skipPostNav) }}
+{{- if and (or (eq .Section "posts") (eq .Section "archive")) (not .Params.skipPostNav) }}
     {{- if or .PrevInSection .NextInSection }}
         <nav class="content-margin post-nav" aria-label="Post navigation">
             <div class="post-nav-prev">
