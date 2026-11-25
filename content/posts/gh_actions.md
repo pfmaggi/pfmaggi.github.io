@@ -56,4 +56,4 @@ The idea is that this new setup, with a lower friction, should help me write a b
 [5]: https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/renaming-a-branch
 [6]: https://github.blog/changelog/2021-02-17-github-actions-limit-which-branches-can-deploy-to-an-environment/
 [7]: https://github.com/ggreer/the_silver_searcher
-[8]: https://gohugo.io/content-management/cross-references/
+[8]: https://gohugo.io/content-management/links-and-cross-references/

@@ -25,7 +25,7 @@ Long story short, from Safari, looking for an extension, I installed 1Password 7
 
 Once I understood my mistake I removed it and got back to my lovely obsolete version 6... but it was too late. Unlocking it was not working as expected. My password were available in 1Password Mini and through the extension in Firefox, but the main UI was stuck. With no way to use it. Another issues was that, if 1Password Mini was already open, trying to launch 1Password was ending with a dialog showing an error that it was not possible to connect to 1Password Mini.
 
-I searched for a while till finding this [post][1] that points to some folder inside `~/Library/Group Containers/`.
+I searched for a while till finding this {{< deadlink "post" >}} that points to some folder inside `~/Library/Group Containers/`.
 
 Looking there, I had two different folders:
 
@@ -37,7 +37,6 @@ Soo, the first thing to try, was to move these two folders somewhere else and re
 
 Ok, so, I solved my problem in this way.
 
-For the record, before finding [that article][1] I also tried to reinstall 1Password 6 from the installer available on the [Agile Bits website][2] (thanks for keeping legacy version available!). But the only way to solve the issue that I found was to remove those two folders.
+For the record, before finding {{< deadlink "that article" >}} I also tried to reinstall 1Password 6 from the installer available on the [Agile Bits website][2] (thanks for keeping legacy version available!). But the only way to solve the issue that I found was to remove those two folders.
 
-[1]: https://1password.community/discussion/120371/1password-failed-to-connect-to-1password-mini
 [2]: https://1password.com/downloads/mac/

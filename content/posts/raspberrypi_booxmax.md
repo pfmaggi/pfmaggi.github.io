@@ -9,7 +9,7 @@ draft: false
 
 I like reading books but it is not always convenient to travel with two or more technical books while commuting to the office or travelling to a remote conference (remember those times).
 
-For this reason I lately bought a [Boox Max 3](https://www.boox.com/max3-3/), a 13.3" eInk reader that is my travel companion between by bedroom and my office. This is the kind of commuting I'm doing in 2020.
+For this reason I lately bought a {{< deadlink "Boox Max 3" "Product page is no longer available" >}}, a 13.3" eInk reader that is my travel companion between by bedroom and my office. This is the kind of commuting I'm doing in 2020.
 
 Anyway the Boox is an great machine, here is a review by [My Deep Guide](https://twitter.com/mydeepguide) on [YouTube](https://www.youtube.com/watch?v=SEHFkqHtu_g) that covers a lot of the capabilities.
 

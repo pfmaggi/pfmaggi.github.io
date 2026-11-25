@@ -7,4 +7,4 @@ tags: [ Talks, WorkManager, Droidcon ]
 math: false
 toc: false
 ---
-I presented this talk at droidcon Berlin 2019. [Slides](https://speakerdeck.com/nibble/embrace-workmanager) and [video recording](https://www.droidcon.com/media-detail?video=352671730) are available.
+I presented this talk at droidcon Berlin 2019. [Slides](https://speakerdeck.com/nibble/embrace-workmanager) and [video recording](https://www.youtube.com/watch?v=4fEeymHKxHI) are available.
