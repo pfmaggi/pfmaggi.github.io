@@ -1,0 +1,10 @@
+{{- $text := "" -}}
+{{- $note := "Original link is no longer available" -}}
+{{- if .IsNamedParams -}}
+  {{- $text = .Get "text" -}}
+  {{- with .Get "note" }}{{ $note = . }}{{ end -}}
+{{- else -}}
+  {{- $text = .Get 0 -}}
+  {{- if gt (len .Params) 1 }}{{ with .Get 1 }}{{ $note = . }}{{ end }}{{ end -}}
+{{- end -}}
+<span class="dead-link" tabindex="0" data-note="{{ $note }}" aria-label="{{ $text }} ({{ $note }})">{{ $text }}</span>{{- "" -}}

@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 260" fill="none" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <rect width="720" height="260" rx="14" fill="#f5f5f5" stroke="#d4d4d4" stroke-width="1.5"/>
+
+  <!-- Step 1: Front scan PDF -->
+  <text x="114" y="34" text-anchor="middle" font-size="11" font-weight="700" letter-spacing="0.9" fill="#525252">1. SCAN FRONTS (ADF)</text>
+  <path d="M32 54 C32 48.5 36.5 44 42 44 L174 44 L196 66 L196 202 C196 207.5 191.5 212 186 212 L42 212 C36.5 212 32 207.5 32 202 Z" fill="#ffffff" stroke="#404040" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M174 44 L174 66 L196 66" stroke="#404040" stroke-width="2" stroke-linejoin="round"/>
+  <text x="48" y="67" font-size="11" font-weight="700" fill="#525252">front.pdf</text>
+
+  <rect x="48" y="82" width="132" height="32" rx="6" fill="#ffffff" stroke="#a3a3a3" stroke-width="1.5"/>
+  <text x="64" y="102" font-size="13" font-weight="700" fill="#171717">1</text>
+  <line x1="86" y1="94" x2="164" y2="94" stroke="#a3a3a3" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="86" y1="103" x2="142" y2="103" stroke="#d4d4d4" stroke-width="2.5" stroke-linecap="round"/>
+
+  <rect x="48" y="122" width="132" height="32" rx="6" fill="#ffffff" stroke="#a3a3a3" stroke-width="1.5"/>
+  <text x="64" y="142" font-size="13" font-weight="700" fill="#171717">3</text>
+  <line x1="86" y1="134" x2="164" y2="134" stroke="#a3a3a3" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="86" y1="143" x2="148" y2="143" stroke="#d4d4d4" stroke-width="2.5" stroke-linecap="round"/>
+
+  <rect x="48" y="162" width="132" height="32" rx="6" fill="#ffffff" stroke="#a3a3a3" stroke-width="1.5"/>
+  <text x="64" y="182" font-size="13" font-weight="700" fill="#171717">5</text>
+  <line x1="86" y1="174" x2="164" y2="174" stroke="#a3a3a3" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="86" y1="183" x2="136" y2="183" stroke="#d4d4d4" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Plus / Flip connector -->
+  <circle cx="222" cy="128" r="14" fill="#ffffff" stroke="#a3a3a3" stroke-width="1.5"/>
+  <line x1="216" y1="128" x2="228" y2="128" stroke="#404040" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="222" y1="122" x2="222" y2="134" stroke="#404040" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Step 2: Back scan reversed PDF -->
+  <text x="330" y="34" text-anchor="middle" font-size="11" font-weight="700" letter-spacing="0.9" fill="#525252">2. FLIP &amp; SCAN BACKS &#8634;</text>
+  <path d="M248 54 C248 48.5 252.5 44 258 44 L390 44 L412 66 L412 202 C412 207.5 407.5 212 402 212 L258 212 C252.5 212 248 207.5 248 202 Z" fill="#ffffff" stroke="#404040" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M390 44 L390 66 L412 66" stroke="#404040" stroke-width="2" stroke-linejoin="round"/>
+  <text x="264" y="67" font-size="11" font-weight="700" fill="#525252">back_rev.pdf</text>
+
+  <rect x="264" y="82" width="132" height="32" rx="6" fill="#e5e5e5" stroke="#a3a3a3" stroke-width="1.5"/>
+  <text x="280" y="102" font-size="13" font-weight="700" fill="#171717">6</text>
+  <line x1="302" y1="94" x2="380" y2="94" stroke="#737373" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="302" y1="103" x2="358" y2="103" stroke="#a3a3a3" stroke-width="2.5" stroke-linecap="round"/>
+
+  <rect x="264" y="122" width="132" height="32" rx="6" fill="#e5e5e5" stroke="#a3a3a3" stroke-width="1.5"/>
+  <text x="280" y="142" font-size="13" font-weight="700" fill="#171717">4</text>
+  <line x1="302" y1="134" x2="380" y2="134" stroke="#737373" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="302" y1="143" x2="364" y2="143" stroke="#a3a3a3" stroke-width="2.5" stroke-linecap="round"/>
+
+  <rect x="264" y="162" width="132" height="32" rx="6" fill="#e5e5e5" stroke="#a3a3a3" stroke-width="1.5"/>
+  <text x="280" y="182" font-size="13" font-weight="700" fill="#171717">2</text>
+  <line x1="302" y1="174" x2="380" y2="174" stroke="#737373" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="302" y1="183" x2="352" y2="183" stroke="#a3a3a3" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Merge arrow -->
+  <line x1="426" y1="128" x2="474" y2="128" stroke="#171717" stroke-width="3" stroke-linecap="round"/>
+  <path d="M465 119 L475 128 L465 137" stroke="#171717" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="451" y="112" text-anchor="middle" font-size="10" font-weight="700" letter-spacing="0.8" fill="#525252">MERGE</text>
+
+  <!-- Step 3: Interleaved ordered PDF -->
+  <text x="588" y="34" text-anchor="middle" font-size="11" font-weight="700" letter-spacing="0.9" fill="#171717">3. ORDERED PDF</text>
+  <path d="M488 54 C488 48.5 492.5 44 498 44 L666 44 L688 66 L688 202 C688 207.5 683.5 212 678 212 L498 212 C492.5 212 488 207.5 488 202 Z" fill="#ffffff" stroke="#171717" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M666 44 L666 66 L688 66" stroke="#171717" stroke-width="2.5" stroke-linejoin="round"/>
+  <text x="504" y="67" font-size="11" font-weight="700" fill="#171717">merged.pdf</text>
+
+  <!-- 2x3 clean page grid showing 1,2 / 3,4 / 5,6 -->
+  <rect x="504" y="82" width="78" height="32" rx="6" fill="#ffffff" stroke="#a3a3a3" stroke-width="1.5"/>
+  <text x="517" y="102" font-size="13" font-weight="700" fill="#171717">1</text>
+  <line x1="534" y1="98" x2="570" y2="98" stroke="#a3a3a3" stroke-width="2.5" stroke-linecap="round"/>
+
+  <rect x="594" y="82" width="78" height="32" rx="6" fill="#e5e5e5" stroke="#a3a3a3" stroke-width="1.5"/>
+  <text x="607" y="102" font-size="13" font-weight="700" fill="#171717">2</text>
+  <line x1="624" y1="98" x2="660" y2="98" stroke="#737373" stroke-width="2.5" stroke-linecap="round"/>
+
+  <rect x="504" y="122" width="78" height="32" rx="6" fill="#ffffff" stroke="#a3a3a3" stroke-width="1.5"/>
+  <text x="517" y="142" font-size="13" font-weight="700" fill="#171717">3</text>
+  <line x1="534" y1="138" x2="570" y2="138" stroke="#a3a3a3" stroke-width="2.5" stroke-linecap="round"/>
+
+  <rect x="594" y="122" width="78" height="32" rx="6" fill="#e5e5e5" stroke="#a3a3a3" stroke-width="1.5"/>
+  <text x="607" y="142" font-size="13" font-weight="700" fill="#171717">4</text>
+  <line x1="624" y1="138" x2="660" y2="138" stroke="#737373" stroke-width="2.5" stroke-linecap="round"/>
+
+  <rect x="504" y="162" width="78" height="32" rx="6" fill="#ffffff" stroke="#a3a3a3" stroke-width="1.5"/>
+  <text x="517" y="182" font-size="13" font-weight="700" fill="#171717">5</text>
+  <line x1="534" y1="178" x2="570" y2="178" stroke="#a3a3a3" stroke-width="2.5" stroke-linecap="round"/>
+
+  <rect x="594" y="162" width="78" height="32" rx="6" fill="#e5e5e5" stroke="#a3a3a3" stroke-width="1.5"/>
+  <text x="607" y="182" font-size="13" font-weight="700" fill="#171717">6</text>
+  <line x1="624" y1="178" x2="660" y2="178" stroke="#737373" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Footer privacy note -->
+  <text x="360" y="241" text-anchor="middle" font-size="11.5" font-weight="500" fill="#737373">Runs 100% client-side in your browser &#8212; files are never uploaded</text>
+</svg>

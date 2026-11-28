@@ -4,9 +4,7 @@ summary: .
 date: 2023-08-26
 tags: [Android, Kotlin]
 draft: true
-author: Pietro F. Maggi
 ---
-
 ## What's the problem?
 
 

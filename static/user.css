@@ -1,0 +1,234 @@
+/* Custom overrides for Garbage Collector on hugo-theme-monochrome */
+
+.post-header {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-border-collapsible-menu);
+}
+
+.post-title {
+  margin-bottom: 0.35rem;
+}
+
+.post-subtitle {
+  margin: 0.25rem 0 0.75rem;
+  color: var(--color-text-secondary);
+  font-size: 1.05rem;
+}
+
+.draft-badge {
+  display: inline-block;
+  padding: 0.1rem 0.45rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  vertical-align: middle;
+  border-radius: 0.25rem;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+}
+
+.post-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+}
+
+.meta-sep {
+  opacity: 0.6;
+}
+
+.post-tags {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.post-tag {
+  display: inline-block;
+  padding: 0.08rem 0.45rem;
+  border-radius: 0.25rem;
+  background-color: var(--color-background-inline-code);
+  color: var(--color-text);
+  font-size: 0.82rem;
+}
+
+.post-tag:hover {
+  background-color: var(--color-background-hover);
+}
+
+.post-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--color-border-collapsible-menu);
+  font-size: 0.95rem;
+}
+
+.post-nav-prev {
+  flex: 1;
+}
+
+.post-nav-next {
+  flex: 1;
+  text-align: right;
+}
+
+.about-avatar {
+  float: right;
+  max-width: 150px;
+  margin: 0 0 1rem 1.5rem;
+}
+
+.about-avatar img {
+  border-radius: 50%;
+}
+
+@media (max-width: 35.5rem) {
+  .about-avatar {
+    float: none;
+    margin: 0 auto 1rem;
+    text-align: center;
+  }
+
+  .post-nav {
+    flex-direction: column;
+  }
+
+  .post-nav-next {
+    text-align: left;
+  }
+}
+
+.site-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  text-align: center;
+}
+
+.footer-links,
+.footer-meta {
+  font-size: 0.88rem;
+}
+
+.footer-links a,
+.footer-meta a {
+  color: var(--color-text-footer);
+}
+
+.footer-links a:hover,
+.footer-meta a:hover {
+  color: var(--color-link);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.dead-link {
+  position: relative;
+  display: inline;
+  color: var(--color-text-secondary);
+  text-decoration: underline dashed;
+  text-decoration-color: var(--color-text-secondary);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  cursor: help;
+}
+
+.dead-link:focus-visible {
+  outline: 2px solid var(--color-link);
+  outline-offset: 2px;
+  border-radius: 0.15rem;
+}
+
+.dead-link::before {
+  content: attr(data-note);
+  position: absolute;
+  bottom: calc(100% + 0.5rem);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  width: max-content;
+  max-width: min(18rem, 85vw);
+  padding: 0.45rem 0.65rem;
+  border-radius: 0.35rem;
+  background-color: var(--color-background-active);
+  color: var(--color-text-active);
+  font-size: 0.8rem;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.35;
+  text-align: left;
+  white-space: normal;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 20;
+  transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s ease;
+}
+
+.dead-link::after {
+  content: "";
+  position: absolute;
+  bottom: calc(100% + 0.5rem - 10px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  border: 5px solid transparent;
+  border-top-color: var(--color-background-active);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 20;
+  transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s ease;
+}
+
+.dead-link:hover::before,
+.dead-link:focus::before,
+.dead-link:hover::after,
+.dead-link:focus::after {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.project-hero {
+  margin-top: 0;
+  margin-bottom: 1.75rem;
+}
+
+.project-hero img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+}
+
+html[data-theme="light"] .project-hero-dark,
+html[data-theme="dark"] .project-hero-light {
+  display: none;
+}
+
+.archive-notice {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  padding: 0.75rem 1rem;
+  border-left: 3px solid var(--color-border);
+  border-radius: 0.25rem;
+  background-color: var(--color-background-inline-code);
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.archive-notice strong {
+  color: var(--color-text);
+}
+

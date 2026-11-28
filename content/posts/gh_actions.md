@@ -2,18 +2,11 @@
 title: Moving to github actions to publish the blog
 summary: This blog started locally on my machine a long time ago, when I was mainly using a single computer. Nowadays I work with multiple machines...
 date: 2022-08-20
-author: Pietro F. Maggi
-showAuthor: false
 draft: false
 tags: [ Personal, Writing, Automation ]
-meta: true
 math: false
 toc: true
-hideDate: false
-hideReadTime: false
 ---
-
-
 ## What is this all about
 
 This blog started locally on my machine a long time ago, when I was mainly using a single computer. Nowadays I work with multiple machines and I wanted to move the actual creation of the blog and publishing to github actions to avoid having to keep in sync all my machines.
@@ -63,4 +56,4 @@ The idea is that this new setup, with a lower friction, should help me write a b
 [5]: https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/renaming-a-branch
 [6]: https://github.blog/changelog/2021-02-17-github-actions-limit-which-branches-can-deploy-to-an-environment/
 [7]: https://github.com/ggreer/the_silver_searcher
-[8]: https://gohugo.io/content-management/cross-references/
+[8]: https://gohugo.io/content-management/links-and-cross-references/

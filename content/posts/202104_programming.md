@@ -4,9 +4,7 @@ summary: Summary of interesting topics and articles explored in April 2021.
 date: 2021-05-02T17:00:00+01:00
 tags: [Notes, Programming]
 draft: false
-author: Pietro F. Maggi
 ---
-
 ## Design By Contract
 
 I still remember the first time I read about this technic. I felt into a rabbit hole to learn about with Eiffel and object oriented programming. We're easily talking about 20+ years ago.
@@ -94,12 +92,11 @@ I've no sympathy for people burning Earth's limited resources to participate in 
 
 ### xbar
 
-[xbar][20] is [bitbar][21] evolution rewritten in Go. A macOS application that allows to run script and put information in macOS menubar.
+[xbar][20] is {{< deadlink "bitbar" >}} evolution rewritten in Go. A macOS application that allows to run script and put information in macOS menubar.
 
 I've used bitbar for a long time. However I'm not interested investing time in macOS anymore and I don't plan to spend time migrating my bitbar setup.
 
 [20]: https://xbarapp.com/
-[21]: https://getbitbar.com/
 
 ### Kakoune editor
 

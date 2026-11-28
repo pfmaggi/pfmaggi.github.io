@@ -6,17 +6,10 @@ tags:
     - "Linux"
     - "PinebookPro"
     - "firmware"
-author: Pietro F. Maggi
-showAuthor: false
 draft: false
-meta: true
 math: false
 toc: true
-hideDate: false
-hideReadTime: false
 ---
-
-
 ## Having the right expectations
 
 The Pinebook Pro (PBP in the rest of the article) is a tinkering machine, an impressive one; not in term of raw power but for its hackability. It has some sharp edges. It's a cheap machine and I never had much expectation for its keyboard and trackpad. Nevertheless, I'm typing this on the PBP's keyboard and it's not that bad.  

@@ -1,0 +1,129 @@
+name: Deploy Hugo site to Cloudflare Workers
+
+on:
+  push:
+    branches:
+      - "**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+concurrency:
+  group: "cloudflare-workers-${{ github.ref }}"
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    env:
+      HUGO_VERSION: "0.170.1"
+      DART_SASS_VERSION: "1.108.2"
+      HUGO_ENVIRONMENT: production
+      PROD_BASE_URL: "https://pietromaggi.com/"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          submodules: recursive
+          fetch-depth: 0
+
+      - name: Determine deploy target
+        id: target
+        env:
+          REF_NAME: ${{ github.ref_name }}
+        run: |
+          if [ "${GITHUB_REF}" = "refs/heads/main" ]; then
+            echo "is_prod=true" >> "$GITHUB_OUTPUT"
+            echo "base_url=${PROD_BASE_URL}" >> "$GITHUB_OUTPUT"
+          else
+            ALIAS=$(printf '%s' "$REF_NAME" \
+              | tr '[:upper:]' '[:lower:]' \
+              | sed -E 's/[^a-z0-9]+/-/g; s/^-+//; s/-+$//' \
+              | cut -c1-46 \
+              | sed -E 's/-+$//')
+            echo "is_prod=false" >> "$GITHUB_OUTPUT"
+            echo "base_url=/" >> "$GITHUB_OUTPUT"
+            echo "alias=${ALIAS}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Install Hugo Extended
+        run: |
+          mkdir -p "${RUNNER_TEMP}/hugo"
+          curl -fsSL "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz" \
+            | tar -xz -C "${RUNNER_TEMP}/hugo" hugo
+          echo "${RUNNER_TEMP}/hugo" >> "${GITHUB_PATH}"
+          "${RUNNER_TEMP}/hugo/hugo" version
+
+      - name: Install Dart Sass
+        run: |
+          curl -fsSL "https://github.com/sass/dart-sass/releases/download/${DART_SASS_VERSION}/dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz" \
+            | tar -xz -C "${RUNNER_TEMP}"
+          echo "${RUNNER_TEMP}/dart-sass" >> "${GITHUB_PATH}"
+          "${RUNNER_TEMP}/dart-sass/sass" --version
+
+      - name: Build with Hugo
+        run: |
+          hugo \
+            --gc \
+            --minify \
+            --baseURL "${{ steps.target.outputs.base_url }}"
+
+      - name: Deploy production to Cloudflare Workers
+        if: steps.target.outputs.is_prod == 'true'
+        uses: cloudflare/wrangler-action@v4
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy
+
+      - name: Upload preview to Cloudflare Workers
+        id: preview
+        if: steps.target.outputs.is_prod != 'true'
+        uses: cloudflare/wrangler-action@v4
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: versions upload --preview-alias ${{ steps.target.outputs.alias }}
+
+      - name: Publish preview URL to summary and open PR
+        if: steps.target.outputs.is_prod != 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BRANCH: ${{ github.ref_name }}
+          ALIAS: ${{ steps.target.outputs.alias }}
+          WRANGLER_OUT: ${{ steps.preview.outputs.command-output }}
+        run: |
+          ALIAS_URL=$(printf '%s\n' "$WRANGLER_OUT" | grep -i 'Alias URL:' | grep -Eo 'https://[^[:space:]]+' | head -n 1 || true)
+          VERSION_URL=$(printf '%s\n' "$WRANGLER_OUT" | grep -i 'Preview URL:' | grep -Eo 'https://[^[:space:]]+' | head -n 1 || true)
+          PREVIEW_URL="${ALIAS_URL:-$VERSION_URL}"
+          if [ -z "$PREVIEW_URL" ]; then
+            PREVIEW_URL="https://${ALIAS}-pietromaggi-blog.pfm.workers.dev"
+          fi
+
+          {
+            echo "### Cloudflare Workers Preview"
+            echo ""
+            echo "- **Branch:** \`${BRANCH}\`"
+            echo "- **Preview URL:** ${PREVIEW_URL}"
+            if [ -n "$VERSION_URL" ] && [ "$VERSION_URL" != "$PREVIEW_URL" ]; then
+              echo "- **Immutable Version URL:** ${VERSION_URL}"
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          PR_NUMBER=$(gh pr list --repo "${GITHUB_REPOSITORY}" --head "${BRANCH}" --state open --json number --jq '.[0].number // empty')
+          if [ -n "$PR_NUMBER" ]; then
+            MARKER="<!-- cloudflare-preview-url -->"
+            BODY=$(printf '%s\n### Cloudflare Workers Preview\n\n- **Preview URL:** %s\n- **Commit:** `%s`\n' "$MARKER" "$PREVIEW_URL" "${GITHUB_SHA:0:7}")
+            COMMENT_ID=$(gh api "repos/${GITHUB_REPOSITORY}/issues/${PR_NUMBER}/comments" --paginate --jq ".[] | select(.body | contains(\"${MARKER}\")) | .id" | head -n 1 || true)
+            if [ -n "$COMMENT_ID" ]; then
+              gh api -X PATCH "repos/${GITHUB_REPOSITORY}/issues/comments/${COMMENT_ID}" -f body="$BODY" >/dev/null
+            else
+              gh pr comment "$PR_NUMBER" --repo "${GITHUB_REPOSITORY}" --body "$BODY" >/dev/null
+            fi
+          fi

@@ -2,18 +2,10 @@
 title: Build TestDPC with bazel 5.3
 summary: Some personal notes on how to build in 2022 TestDPC with Bazel 5.3
 date: 2022-11-20
-author: Pietro F. Maggi
-showAuthor: false
-meta: true
 math: false
-hideDate: false
-hideReadTime: false
 toc: true
-hasMath: false 
 tags: [Android Enterprise, Android, TestDPC, Bazel ]
 ---
-
-
 ## The why
 
 [TestDPC][0] is a fantastic tool for experimenting with Android enterprise's features. lately I wanted to play a bit with the [security logs][1] and TestDPC comes handy for this, but with a caviat: **the version included on the play store doesn't include some of the latest features**.
@@ -68,17 +60,15 @@ set -e
 bazel build testdpc --define=android_dexmerger_tool=d8_dexmerger --define=android_incremental_dexing_tool=d8_dexbuilder --nouse_workers_with_dexbuilder --define=android_standalone_dexing_tool=d8_compat_dx --experimental_use_dex_splitter_for_incremental_dexing --incremental_dexing=true
 ````
 
-Both changes are available on my personal [TestDPC branch][2]. With this you should be able to build TestDPC with the latest features released on github.
+Both changes are available on my personal TestDPC branch (changes are included in the main branch). With this you should be able to build TestDPC with the latest features released on github.
 
 ## Conclusion
 
 Running `./build.sh` with the Android SDK setup correctly and having buildtools 30.0.3 installed, should result with the debug build of TestDPC available at: `bazel-bin/testdpc.apk`
 
-If you want to try this latest TestDPC version, but you don't want to recompile it, you can use [my debug release available on github][3].
+If you want to try this latest TestDPC version, but you don't want to recompile it, you can use {{< deadlink "my debug release available on github" "Features are now available in TestDPC production builds on Google Play" >}}.
 
 Let me know if you have any comment writing a message at pfm AT my personal domain or pinging me on mastodon.
 
 [0]: https://github.com/googlesamples/android-testdpc.git
 [1]: https://developer.android.com/work/dpc/security#log_enterprise_device_activity
-[2]: https://github.com/pfmaggi/android-testdpc/tree/pfm/updates
-[3]: https://github.com/pfmaggi/android-testdpc/releases/tag/20221116
