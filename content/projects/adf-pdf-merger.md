@@ -19,4 +19,4 @@ This small utility scratches that exact itch. Select the PDF with the front page
 
 Everything runs **100% client-side** in your browser — your PDFs are never uploaded to a server and never leave your machine, which makes it safe to use even with personal or sensitive documents.
 
-- **Try it live:** [ADF Duplex PDF Merger](https://shy-cherry-9171.pfm.workers.dev/)
+- **Try it live:** [ADF Duplex PDF Merger](https://pdf-merger.pietromaggi.com/)
