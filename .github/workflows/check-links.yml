@@ -2,9 +2,9 @@ name: Check External Links
 
 on:
   workflow_dispatch:
-  push:
+  pull_request:
     branches:
-      - feat/cloudflare-workers-monochrome
+      - main
 
 permissions:
   contents: read

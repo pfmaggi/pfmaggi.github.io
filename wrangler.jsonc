@@ -3,6 +3,10 @@
   "name": "pietromaggi-blog",
   "compatibility_date": "2026-11-23",
   "workers_dev": true,
+  "preview_urls": true,
+  "routes": [
+    { "pattern": "pietromaggi.com", "custom_domain": true }
+  ],
   "assets": {
     "directory": "./public",
     "html_handling": "auto-trailing-slash",
